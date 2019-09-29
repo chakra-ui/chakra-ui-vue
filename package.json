@@ -13,13 +13,17 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "css-loader": "^3.2.0",
+    "esm": "^3.2.25",
     "register-service-worker": "^1.6.2",
+    "style-loader": "^1.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-centered": "^5.2.1",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
     "@storybook/vue": "^5.2.1",
@@ -38,8 +42,11 @@
     "babel-preset-vue": "^2.0.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue-a11y": "^0.0.31",
+    "install": "^0.13.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
+    "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10"
   }
 }

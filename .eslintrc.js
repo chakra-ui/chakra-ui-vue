@@ -18,6 +18,11 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
+  globals: {
+    describe: false,
+    expect: false,
+    it: false
+  },
   overrides: [
     {
       files: [

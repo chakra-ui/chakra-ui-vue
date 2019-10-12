@@ -1,5 +1,5 @@
 export default {
-  palette: {
+  defaultTheme: {
     primary: 'hsl(209, 100%, 50%)',
     secondary: 'hsl(278, 100%, 69%)',
     success: 'hsl(160, 100%, 43%)',
@@ -8,7 +8,7 @@ export default {
     light: 'hsl(208, 100%, 94%)',
     dark: 'hsl(221, 15%, 29%)'
   },
-  theme: {
+  styles: {
     colors: {
       orange: '#ffaa00',
       yellow: '#f9f871',

@@ -9,8 +9,11 @@ const Kiwi = {
     }
 
     Vue.prototype.$kiwi = {
-      theme: KiwiTheme.palette
+      theme: KiwiTheme
     }
+
+    // TODO:
+    // - Make theme observable and use styled components to set theme dynamically
 
     // Provide Theme via global mixin.
     Vue.mixin({

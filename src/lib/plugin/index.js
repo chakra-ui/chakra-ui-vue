@@ -1,12 +1,8 @@
 import Theme from '../../../kiwi.config'
-/**
- * Kiwi Plugin install.
- *  - Install programmatic components
- *  - Expose set theme method.
- */
+
 const Kiwi = {
-  install (Vue, options) {
-    // Create Kiwi instance and expose theme
+  install (Vue, options = {}) {
+    // Create Kiwi instance and initialize theme
     const KiwiTheme = {
       ...Theme,
       ...options.theme
@@ -16,6 +12,7 @@ const Kiwi = {
       theme: KiwiTheme.palette
     }
 
+    // Provide Theme via global mixin.
     Vue.mixin({
       provide: {
         KiwiTheme

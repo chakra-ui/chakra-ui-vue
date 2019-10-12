@@ -6,7 +6,7 @@ import Kiwi from './lib/plugin'
 
 Vue.config.productionTip = false
 
-Vue.use(Kiwi, {})
+Vue.use(Kiwi)
 
 new Vue({
   // Provide theme to the root of the application

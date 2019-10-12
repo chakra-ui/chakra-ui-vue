@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import ThemeProvider from './components/ThemeContext/index.js'
+import { provideTheme } from '@/lib/utils'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(ThemeProvider, {}, [h(App)])
+  // Provide theme to the root of the application
+  render: h => provideTheme(h, App)
 }).$mount('#app')

@@ -21,7 +21,6 @@
 <script>
 export default {
   name: 'Button',
-  inject: ['KiwiTheme'],
   props: {
     as: {
       type: String,

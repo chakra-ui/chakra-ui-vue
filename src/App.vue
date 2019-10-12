@@ -1,17 +1,17 @@
 <template>
   <div>
     {{ greeting }}
-    <k-button>Simple text</k-button>
+    <Button>Simple text</Button>
   </div>
 </template>
 
 <script>
-import KButton from './components/Button/index'
+import Button from './components/Button/index'
 
 export default {
   name: 'App',
   components: {
-    KButton
+    Button
   },
   data () {
     return {

@@ -5,7 +5,11 @@ describe('===== Button Component =====', () => {
   let button
   describe('Instance Tests', () => {
     it('should be a Vue instance', () => {
-      button = shallowMount(Button)
+      button = shallowMount(Button, {
+        provide: {
+          KiwiTheme: {}
+        }
+      })
       expect(button.isVueInstance()).toBeTruthy()
     })
   })

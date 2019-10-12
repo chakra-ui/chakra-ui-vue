@@ -12,7 +12,7 @@ const ThemeProvider = {
     }
   },
   provide: {
-    KiwiTheme: this.theme || Theme
+    KiwiTheme: Theme
   },
   render (h) {
     return this.$slots.default[0]

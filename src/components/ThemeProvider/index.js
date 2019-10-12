@@ -5,8 +5,14 @@ import Theme from '../../../kiwi.config'
  */
 const ThemeProvider = {
   name: 'ThemeProvider',
+  props: {
+    theme: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   provide: {
-    KiwiTheme: Theme
+    KiwiTheme: this.theme || Theme
   },
   render (h) {
     return this.$slots.default[0]

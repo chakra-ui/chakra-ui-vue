@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.6.3",
     "core-js": "^2.6.5",
     "css-loader": "^3.2.0",
     "esm": "^3.2.25",

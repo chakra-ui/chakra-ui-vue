@@ -1,5 +1,5 @@
 export default {
-  pallette: {
+  palette: {
     primary: 'hsl(209, 100%, 50%)',
     secondary: 'hsl(278, 100%, 69%)',
     success: 'hsl(160, 100%, 43%)',

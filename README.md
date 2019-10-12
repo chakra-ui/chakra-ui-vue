@@ -15,11 +15,11 @@ You can also view all developed components in Storybook!
 
 #### Project TODO:
 - [x] Setup Storybook for components UI
+- [x] Theme Providing
 - [ ] Provide icons API for icons component
 - [ ] Setup Vue.js plugin system to install components
 - [ ] Setup NPM distribution
 - [ ] Develop styling scheme for components
-  - SASS / Styled components
-  - Theme Providing
+  - [ ] SASS / Styled components
 - [ ] Set up type system for components with Typescript
 

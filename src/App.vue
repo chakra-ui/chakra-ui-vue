@@ -1,22 +1,29 @@
 <template>
   <div>
-    {{ greeting }}
-    <Button>Simple text</Button>
+    {{ state.greeting }}
+    <Button>{{ state.buttonText }}</Button>
+    <Button @click="increment" variant="ghost" color="success" size="lg" > Increment </Button>
+    <br>
+    <h1>{{ state.count }}</h1>
   </div>
 </template>
 
 <script>
-import Button from './components/Button/index'
+import Button from './components/Button'
+import { useIncrement } from './use-increment'
 
 export default {
+  setup () {
+    const { state, increment } = useIncrement()
+
+    return {
+      state,
+      increment
+    }
+  },
   name: 'App',
   components: {
     Button
-  },
-  data () {
-    return {
-      greeting: 'Hi!'
-    }
   }
 }
 </script>

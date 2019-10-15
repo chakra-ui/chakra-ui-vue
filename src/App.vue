@@ -3,6 +3,9 @@
     {{ state.greeting }}
     <Button>{{ state.buttonText }}</Button>
     <Button @click="increment" variant="ghost" color="success" size="lg" > Increment </Button>
+    <Button @click="increment" variant="flat" color="warning" size="lg" > Increment </Button>
+    <Button @click="increment" variant="ghost" color="danger" size="md" > Increment </Button>
+    <Button @click="increment" variant="link" color="dark" size="lg" > Increment </Button>
     <br>
     <h1>{{ state.count }}</h1>
   </div>

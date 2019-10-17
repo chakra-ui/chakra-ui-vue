@@ -21,7 +21,7 @@
 <script>
 export default {
   name: 'Button',
-  inject: ['KiwiTheme'],
+  inject: ['theme', 'colorMode'],
   props: {
     as: {
       type: String,

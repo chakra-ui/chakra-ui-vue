@@ -13,11 +13,11 @@
 
 <script>
 import Button from './components/Button'
-import { useIncrement } from './use-increment'
+import { useIncrement as useFeature } from './use-increment'
 
 export default {
   setup () {
-    const { state, increment } = useIncrement()
+    const { state, increment } = useFeature()
 
     return {
       state,

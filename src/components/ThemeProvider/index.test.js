@@ -5,7 +5,7 @@ import Theme from '../../../kiwi.config'
 describe('===== ThemeProvider Component =====', () => {
   let themeProvider
   const ChildComponent = {
-    inject: ['KiwiTheme'],
+    inject: ['$theme', '$colorMode'],
     render: h => h('div', {})
   }
 
@@ -18,12 +18,17 @@ describe('===== ThemeProvider Component =====', () => {
     expect(themeProvider.isVueInstance()).toBeTruthy()
   })
 
-  it('should provide theme to child components', () => {
+  it('should provide theme & default color mode to child components', () => {
     themeProvider = shallowMount(ThemeProvider, {
       slots: {
         default: [ChildComponent]
+      },
+      propsData: {
+        theme: Theme,
+        colorMode: 'light'
       }
     })
-    expect(themeProvider.find(ChildComponent).vm.KiwiTheme).toBe(Theme)
+    expect(themeProvider.find(ChildComponent).vm.$theme()).toBe(Theme)
+    expect(themeProvider.find(ChildComponent).vm.$colorMode).toBe('light')
   })
 })

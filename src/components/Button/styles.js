@@ -12,7 +12,7 @@ const buttonProps = {
 const solidVariantProps = ({ color, colorMode = 'light', _theme }) => {
   let style = {
     light: {
-      bg: `${color}.500`,
+      bg: `${color}.400`,
       color: 'white',
       _hover: {
         bg: `${color}.600`

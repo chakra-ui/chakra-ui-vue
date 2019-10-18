@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.6.3",
+    "@styled-system/should-forward-prop": "^5.1.2",
     "@vue/composition-api": "^0.3.2",
     "core-js": "^2.6.5",
     "css-loader": "^3.2.0",

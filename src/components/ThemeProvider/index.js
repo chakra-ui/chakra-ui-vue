@@ -1,5 +1,3 @@
-import Theme from '../../../kiwi.config'
-
 /**
  * @type {Object}
  */
@@ -8,14 +6,21 @@ const ThemeProvider = {
   props: {
     theme: {
       type: Object,
-      default: () => ({})
+      default: () => null
+    },
+    colorMode: {
+      type: String,
+      default: 'light'
     }
   },
-  provide: {
-    KiwiTheme: Theme
+  provide () {
+    return {
+      $theme: () => this.theme,
+      $colorMode: this.colorMode
+    }
   },
-  render (h) {
-    return this.$slots.default[0]
+  render: function (createElement) {
+    return createElement('div', {}, this.$slots.default)
   }
 }
 

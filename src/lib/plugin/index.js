@@ -16,11 +16,12 @@ const Kiwi = {
     // - Make theme observable and use styled components to set theme dynamically
 
     // Provide Theme via global mixin.
-    Vue.mixin({
-      provide: {
-        theme
-      }
-    })
+    // Vue.mixin({
+    //   provide: {
+    //     theme,
+    //     colorMode: 'light'
+    //   }
+    // })
   }
 }
 

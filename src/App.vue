@@ -16,19 +16,9 @@
       background-color="blue.200"
       color="blue.700"
     >
-      This is the new box component
+      This is box component
     </Box>
-    <Box
-      @click="increment"
-      w="auto"
-      background-color="indigo.700"
-      shadow="md"
-      px="4"
-      py="4"
-      rounded="lg"
-      d="flex"
-      color="indigo.100"
-    >
+    <Box>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis incidunt dolor impedit facilis doloribus accusamus aspernatur autem amet voluptate aliquid asperiores, repellendus tempora reiciendis. Aliquid sunt quasi rem magnam, voluptate cumque libero necessitatibus ut minima numquam fugiat? Blanditiis unde earum sint labore quidem quod adipisci quae incidunt dolorum rerum, laboriosam ipsa consectetur, laborum dolore porro quaerat debitis iusto qui pariatur dicta! Quo ab exercitationem possimus, facere vero perferendis quam illum expedita dolores qui tenetur voluptatem sequi eos reprehenderit ut excepturi, ratione nostrum dolor officia labore quis? Dolor, beatae! Eaque autem vero libero. Veritatis placeat blanditiis error, deleniti autem ab quaerat?
     </Box>
   </theme-provider>

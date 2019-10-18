@@ -6,15 +6,15 @@
     <h1>{{ state.count }}</h1>
     <br>
     <Box
-      :w="['auto']"
+      :w="['auto', '50%']"
       px="5"
       py="5"
       shadow="lg"
       my="5"
       mb="5"
       rounded="sm"
-      background-color="yellow.200"
-      color="yellow.700"
+      background-color="blue.200"
+      color="blue.700"
     >
       This is the new box component
     </Box>

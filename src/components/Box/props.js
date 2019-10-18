@@ -1,244 +1,70 @@
 export const baseBoxProps = {
-  color: {
-    type: String,
-    default: 'inherit'
-  },
-  w: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  minW: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  maxW: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  h: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  minH: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  maxH: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  d: {
-    type: [String, Array],
-    default: 'block'
-  },
-  lineClamp: {
-    type: [String, Number, Array],
-    default: 0
-  },
-  truncate: {
-    type: [Boolean, Number],
-    default: false
-  },
-  px: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  py: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  mt: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  mr: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  ml: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  mb: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  mx: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  my: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  rounded: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedTop: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedBottom: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedLeft: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedRight: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedTopRight: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedTopLeft: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedBottomRight: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  roundedBottomLeft: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  shadow: {
-    type: [Number, String, Array],
-    default: 'none'
-  },
-  backgroundColor: {
-    type: String,
-    default: 'none'
-  },
-  pos: {
-    type: [String, Array],
-    default: 'relative'
-  },
-  flexDir: {
-    type: [String, Array],
-    default: 'row'
-  },
-  borderWidth: {
-    type: [String, Array],
-    default: 'none'
-  }
+  color: String,
+  w: [Number, String, Array],
+  minW: [String, Array],
+  maxW: [String, Array],
+  h: [Number, String, Array],
+  minH: [String, Array],
+  maxH: [String, Array],
+  d: [String, Array],
+  lineClamp: [String, Number, Array],
+  truncate: [Boolean, Number],
+  px: [Number, String, Array],
+  py: [Number, String, Array],
+  mt: [Number, String, Array],
+  mr: [Number, String, Array],
+  ml: [Number, String, Array],
+  mb: [Number, String, Array],
+  mx: [Number, String, Array],
+  my: [Number, String, Array],
+  rounded: [String, Array],
+  roundedTop: [String, Array],
+  roundedBottom: [String, Array],
+  roundedLeft: [String, Array],
+  roundedRight: [String, Array],
+  roundedTopRight: [String, Array],
+  roundedTopLeft: [String, Array],
+  roundedBottomRight: [String, Array],
+  roundedBottomLeft: [String, Array],
+  shadow: [Number, String, Array],
+  backgroundColor: String,
+  pos: [String, Array],
+  borderWidth: [String, Array]
 }
 
 const allProps = {
-  color: {
-    type: String,
-    default: 'inherit'
-  },
-  bg: {
-    type: String,
-    default: 'unset'
-  },
-  w: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  minW: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  maxW: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  h: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  minH: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  maxH: {
-    type: [String, Array],
-    default: 'auto'
-  },
-  d: {
-    type: [String, Array],
-    default: 'block'
-  },
-  lineClamp: {
-    type: [String, Number, Array],
-    default: 0
-  },
-  truncate: {
-    type: [Boolean, Number],
-    default: false
-  },
-  px: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  py: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  rounded: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedTop: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedBottom: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedLeft: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedRight: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedTopRight: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedTopLeft: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedBottomRight: {
-    type: [String, Array],
-    default: 'none'
-  },
-  roundedBottomLeft: {
-    type: [String, Array],
-    default: 'none'
-  },
-  shadow: {
-    type: [Number, String, Array],
-    default: 'none'
-  },
-  backgroundColor: {
-    type: String,
-    default: 'none'
-  },
-  pos: {
-    type: [String, Array],
-    default: 'relative'
-  },
-  flexDir: {
-    type: [String, Array],
-    default: 'row'
-  },
+  color: String,
+  bg: String,
+  w: [Number, String, Array],
+  minW: [String, Array],
+  maxW: [String, Array],
+  h: [Number, String, Array],
+  minH: [String, Array],
+  maxH: [String, Array],
+  d: [String, Array],
+  lineClamp: [String, Number, Array],
+  truncate: [Boolean, Number],
+  px: [Number, String, Array],
+  py: [Number, String, Array],
+  rounded: [String, Array],
+  roundedTop: [String, Array],
+  roundedBottom: [String, Array],
+  roundedLeft: [String, Array],
+  roundedRight: [String, Array],
+  roundedTopRight: [String, Array],
+  roundedTopLeft: [String, Array],
+  roundedBottomRight: [String, Array],
+  roundedBottomLeft: [String, Array],
+  shadow: [Number, String, Array],
+  backgroundColor: String,
+  pos: [String, Array],
+  flexDir: [String, Array],
   bgImg: [String, Array],
   bgImage: [String, Array],
   bgSize: [String, Array],
   bgPos: [String, Array],
   bgRepeat: [String, Array],
+  borderWidth: [String, Array],
   textDecoration: [String, Array],
   overflowX: [String, Array],
   overflowY: [String, Array],

@@ -1,6 +1,7 @@
 import styled from 'vue-styled-components'
+import pickBy from 'lodash-es/pickBy'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
-import { baseBoxProps } from './props'
+import allProps from './props'
 import styledConfig from './config'
 
 const baseEllipsis = {
@@ -59,23 +60,19 @@ const system = compose(
  * @returns {Object} Sanitized props object with defined values.
  */
 function cleanProps (props) {
-  for (const prop in props) {
-    if (/* props[prop] === null|| */ props[prop] === undefined) {
-      delete props[prop]
-    }
-  }
-  return props
+  const pure = pickBy(props, (prop) => !!prop)
+  return pure
 }
 
 /**
  * Note: All styled components in vue-styled-components forward all their props.
- * If the prop is not registered in the child, it is then it is bound as a native
+ * If the prop is not registered in the component, it is then it is bound as a native
  * HTML attribute
  * @see https://github.com/styled-components/vue-styled-components#passed-props
  * TODO: Will need to revisit this for Image component.
  */
 const Box = styled('div', {
-  ...baseBoxProps
+  ...allProps
 })`
   ${props => {
     const sanitizedProps = cleanProps(props)

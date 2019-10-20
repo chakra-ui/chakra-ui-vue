@@ -1,6 +1,6 @@
 import colors from './colors'
 import typography from './typography'
-import borders from './borders'
+import borders, { borderWidths } from './borders'
 import opacity from './opacity'
 import radii from './radii'
 import shadows from './shadows'
@@ -12,6 +12,7 @@ const space = baseSizes
 const theme = {
   colors,
   borders,
+  borderWidths,
   opacity,
   radii,
   shadows,

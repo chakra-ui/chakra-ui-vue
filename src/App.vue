@@ -28,6 +28,9 @@
     <Box bg="red.200" border-left="4px" my="5" rounded="md" shadow="md" p="3" color="red.800">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis incidunt
     </Box>
+    <Anchor bg="indigo.200" p="3" bb="4px" rounded="sm">
+      Basic Link
+    </Anchor>
   </theme-provider>
 </template>
 
@@ -37,6 +40,8 @@ import Button from './components/Button'
 import Box from './components/Box'
 import theme from './lib/theme'
 import { useIncrement } from './use-increment'
+
+const Anchor = Box.withComponent('a')
 
 export default {
   setup () {
@@ -52,7 +57,8 @@ export default {
   components: {
     Button,
     ThemeProvider,
-    Box
+    Box,
+    Anchor
   }
 }
 </script>

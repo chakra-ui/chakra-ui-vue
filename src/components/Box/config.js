@@ -93,6 +93,26 @@ export const config = {
     property: 'boxShadow',
     scale: 'shadows'
   },
+  b: {
+    property: 'border',
+    scale: 'borders'
+  },
+  bl: {
+    property: 'border-left',
+    scale: 'borders'
+  },
+  bt: {
+    property: 'border-top',
+    scale: 'borders'
+  },
+  br: {
+    property: 'border-right',
+    scale: 'borders'
+  },
+  bb: {
+    property: 'border-bottom',
+    scale: 'borders'
+  },
   textDecoration: { property: 'textDecoration' },
   overflowX: true,
   overflowY: true,

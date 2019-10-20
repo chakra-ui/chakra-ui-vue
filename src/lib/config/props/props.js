@@ -1,39 +1,4 @@
-export const baseBoxProps = {
-  color: String,
-  w: [Number, String, Array],
-  minW: [String, Array],
-  maxW: [String, Array],
-  h: [Number, String, Array],
-  minH: [String, Array],
-  maxH: [String, Array],
-  d: [String, Array],
-  lineClamp: [String, Number, Array],
-  truncate: [Boolean, Number],
-  px: [Number, String, Array],
-  py: [Number, String, Array],
-  m: [Number, String, Array],
-  mt: [Number, String, Array],
-  mr: [Number, String, Array],
-  ml: [Number, String, Array],
-  mb: [Number, String, Array],
-  mx: [Number, String, Array],
-  my: [Number, String, Array],
-  rounded: [String, Array],
-  roundedTop: [String, Array],
-  roundedBottom: [String, Array],
-  roundedLeft: [String, Array],
-  roundedRight: [String, Array],
-  roundedTopRight: [String, Array],
-  roundedTopLeft: [String, Array],
-  roundedBottomRight: [String, Array],
-  roundedBottomLeft: [String, Array],
-  shadow: [Number, String, Array],
-  backgroundColor: String,
-  pos: [String, Array],
-  borderWidth: [String, Array]
-}
-
-const allProps = {
+const baseProps = {
   color: String,
   bg: String,
   w: [Number, String, Array],
@@ -123,4 +88,4 @@ const allProps = {
   willChange: [String, Array]
 }
 
-export default allProps
+export default baseProps

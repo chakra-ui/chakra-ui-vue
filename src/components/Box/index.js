@@ -1,8 +1,7 @@
 import styled from 'vue-styled-components'
 import pickBy from 'lodash-es/pickBy'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
-import allProps from './props'
-import styledConfig from './config'
+import { baseProps, propsConfig } from '../../lib/config/props'
 
 const baseEllipsis = {
   overflow: 'hidden',
@@ -49,7 +48,7 @@ const system = compose(
   shadow,
   typography,
   flexbox,
-  styledConfig,
+  propsConfig,
   truncate,
   clamp
 )
@@ -72,7 +71,7 @@ function cleanProps (props) {
  * TODO: Will need to revisit this for Image component.
  */
 const Box = styled('div', {
-  ...allProps
+  ...baseProps
 })`
   ${props => {
     const sanitizedProps = cleanProps(props)

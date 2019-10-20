@@ -37,7 +37,7 @@
 <script>
 import ThemeProvider from './components/ThemeProvider'
 import Button from './components/Button'
-import Box from './components/Box'
+import { Box } from './lib/core/'
 import theme from './lib/theme'
 import { useIncrement } from './use-increment'
 

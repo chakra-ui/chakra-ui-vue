@@ -16,12 +16,12 @@ You can also view all developed components in Storybook!
 #### Project TODO:
 - [x] Setup Storybook for components UI
 - [x] Theme Provider
+- [x] Develop styling scheme for components with styled components
 - [x] Setup Vue.js plugin system
   - [x] Provide Theme
-  - [ ] Observe theme and set it dynamically in javascript with ease.
+  - [x] Observe theme and set it dynamically in javascript with ease.
 - [ ] Provide icons API for icons component
-- [ ] Develop styling scheme for components with styled components
+- [ ] Accessibility (Focus) Styling
 - [ ] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
-- [ ] Accessibility (Focus) Styling
 

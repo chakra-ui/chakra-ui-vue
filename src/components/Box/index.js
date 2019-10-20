@@ -1,7 +1,7 @@
 import styled from 'vue-styled-components'
-import pickBy from 'lodash-es/pickBy'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
 import { baseProps, propsConfig } from '../../lib/config/props'
+import { cleanProps } from '../../lib/utils/'
 
 const baseEllipsis = {
   overflow: 'hidden',
@@ -35,7 +35,6 @@ const clamp = props => {
   }
 }
 
-// Compose @style-system style functions
 const system = compose(
   layout,
   color,
@@ -54,21 +53,8 @@ const system = compose(
 )
 
 /**
- * @description Clears out all undefined props that are undefined from the props object
- * @param {Object} props
- * @returns {Object} Sanitized props object with defined values.
- */
-function cleanProps (props) {
-  const pure = pickBy(props, (prop) => !!prop)
-  return pure
-}
-
-/**
- * Note: All styled components in vue-styled-components forward all their props.
- * If the prop is not registered in the component, it is then it is bound as a native
- * HTML attribute
- * @see https://github.com/styled-components/vue-styled-components#passed-props
- * TODO: Will need to revisit this for Image component.
+ * The Box component is the base reusable component which is the building block for all other Kiwi UI components.
+ * The Box component by default renders a `<div/>` element.
  */
 const Box = styled('div', {
   ...baseProps

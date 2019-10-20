@@ -4,7 +4,7 @@ import Box from '../src/components/Box'
 
 storiesOf('UI | Box', module)
   .addDecorator(centered)
-  .add('Base Box', () => ({
+  .add('Box', () => ({
     components: { Box },
     template: `
       <Box

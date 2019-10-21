@@ -53,6 +53,7 @@ const baseProps = {
   bgPos: [String, Array],
   bgRepeat: [String, Array],
   borderWidth: [String, Array],
+  fontWeight: [String, Array],
   fontFamily: [String, Array],
   fontSize: [String, Array],
   textAlign: [String, Array],

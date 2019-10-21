@@ -1,10 +1,11 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
 import PseudoBox from '../src/components/PseudoBox'
+import Box from '../src/components/Box'
 
 storiesOf('UI | PseudoBox', module)
   .addDecorator(centered)
-  .add('PseudoBox', () => ({
+  .add('PseudoBox | :hover', () => ({
     components: { PseudoBox },
     template: `
       <PseudoBox
@@ -27,5 +28,46 @@ storiesOf('UI | PseudoBox', module)
       >
         This is the PseudoBox component. With it you can bind pseudo styles! Try hovering over this component.
       </PseudoBox>
+    `
+  }))
+  .add('Pseudobox | :odd', () => ({
+    components: { Box, PseudoBox },
+    data () {
+      return {
+        boxes: [
+          {
+            id: 1,
+            name: 'Box 1'
+          },
+          {
+            id: 2,
+            name: 'Box 2'
+          },
+          {
+            id: 3,
+            name: 'Box 3'
+          }
+        ]
+      }
+    },
+    template: `
+      <Box
+        rounded="md"
+        overflow="hidden"
+        mt="4"
+        w="400px"
+      >
+        <PseudoBox
+          v-for="(box, index) in boxes"
+          :key="index"
+          px="4"
+          py="2"
+          bg="white"
+          :_hover="{ opacity: '80%' }"
+          :_odd="{ bg: 'gray.100' }"
+          >
+          {{ box.name }}
+        </PseudoBox>
+      </Box>
     `
   }))

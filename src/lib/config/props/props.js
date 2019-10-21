@@ -57,6 +57,7 @@ const baseProps = {
   fontSize: [String, Array],
   textAlign: [String, Array],
   textDecoration: [String, Array],
+  overflow: [String, Array],
   overflowX: [String, Array],
   overflowY: [String, Array],
   textTransform: [String, Array],

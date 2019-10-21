@@ -1,9 +1,9 @@
 <template>
   <theme-provider :theme="theme">
-    {{ state.greeting }}
-    <Button variant="ghost" color="success" size="lg" @click="increment">{{ state.buttonText }}</Button>
+    {{ incrementState.greeting }}
+    <Button variant="ghost" color="success" size="lg" @click="increment">{{ incrementState.buttonText }}</Button>
     <br>
-    <h1>{{ state.count }}</h1>
+    <h1>{{ incrementState.count }}</h1>
     <br>
     <Box bg="yellow.200" border-left="4px" font-family="body" rounded="md" mb="5" shadow="md" p="3" color="yellow.800">
       <Box font-family="heading" font-size="3xl" mb="2">Random Title</Box>
@@ -28,6 +28,23 @@
     >
       Pseudobox here
     </PseudoBox>
+    <Box
+      rounded="md"
+      overflow="hidden"
+      mt="4"
+    >
+      <PseudoBox
+        v-for="(box, index) in boxes"
+        :key="index"
+        px="4"
+        py="2"
+        bg="white"
+        :_hover="{ opacity: '80%' }"
+        :_odd="{ bg: 'gray.100' }"
+        >
+        {{ box.name }}
+      </PseudoBox>
+    </Box>
   </theme-provider>
 </template>
 
@@ -37,13 +54,30 @@ import Button from './components/Button'
 import { Box, PseudoBox } from './lib/core/'
 import theme from './lib/theme'
 import { useIncrement } from './use-increment'
+import { reactive } from '@vue/composition-api'
 
 export default {
   setup () {
-    const { state, increment } = useIncrement()
-
+    const { state: incrementState, increment } = useIncrement()
+    const state = reactive({
+      boxes: [
+        {
+          id: 1,
+          name: 'Box 1'
+        },
+        {
+          id: 2,
+          name: 'Box 2'
+        },
+        {
+          id: 3,
+          name: 'Box 3'
+        }
+      ]
+    })
     return {
-      state,
+      ...state,
+      incrementState,
       increment,
       theme
     }

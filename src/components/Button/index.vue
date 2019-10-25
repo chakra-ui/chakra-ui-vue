@@ -1,34 +1,29 @@
-<template>
-  <button
-    tabindex="0"
-    :style="{
-      borderRadius: rounded === true ? '999px' : '5px',
-      padding: `${py}em ${px}em`,
-      fontSize: size === 'sm' ? '0.8rem' :
-        size === 'lg' ? '1.5rem' : '1rem'
-    }"
-    :disabled="disabled"
-    class="k-button"
-    :class="[color, variant, { ripple, shadow, rounded, disabled }]"
-    @click="$emit('click', $event)"
-    @keydown.space="$emit('click', $event)"
-    @keydown.enter="$emit('click', $event)"
-  >
-    <slot></slot>
-  </button>
-</template>
-
 <script>
+import PseudoBox from '../PseudoBox'
+import styleProps from '../../lib/config/props'
+
+let generatedProps = {
+  lineHeight: '3rem'
+}
+/**
+ * @description The Button component is an accessible rich component that does what a button does :)
+ */
 export default {
   name: 'Button',
+  components: {
+    PseudoBox
+  },
   inject: ['$theme', '$colorMode'],
   props: {
     as: {
       type: String,
-      default: 'button',
-      validator: (value) => value.match(/^(button|div|a)$/)
+      default: 'button'
     },
-    color: {
+    type: {
+      type: String,
+      default: 'button'
+    },
+    cast: {
       type: String,
       default: 'primary',
       validator: (value) =>
@@ -40,15 +35,19 @@ export default {
       validator: (value) =>
         value.match(/^(solid|outlined|ghost|flat|link)$/)
     },
-    active: {
-      type: Boolean,
-      default: false
+    variantColor: {
+      type: [String, Array],
+      default: 'gray'
     },
     disabled: {
       type: Boolean,
       default: false
     },
     isLoading: {
+      type: Boolean,
+      default: false
+    },
+    isActive: {
       type: Boolean,
       default: false
     },
@@ -62,14 +61,6 @@ export default {
       default: 'Loading',
       validator: (value) => typeof value === 'string'
     },
-    px: {
-      type: Number,
-      validator: (value) => value >= 0
-    },
-    py: {
-      type: Number,
-      validator: (value) => value >= 0
-    },
     iconSpacing: {
       type: String,
       validator: (value) => value >= 0
@@ -82,14 +73,37 @@ export default {
       type: Boolean,
       default: true
     },
-    shadow: {
-      type: Boolean,
-      default: false
-    }
+    ...styleProps
+  },
+  render (h) {
+    return h(PseudoBox, {
+      props: {
+        as: this.as,
+        p: '3',
+        outline: 'none',
+        cursor: 'pointer',
+        fontSize: 'md',
+        fontWeight: '700',
+        border: 'none',
+        transition: 'all 0.2s ease-in',
+        rounded: 'md',
+        _focus: {
+          outline: 'none',
+          boxShadow: 'outline'
+        },
+        ...generatedProps
+      },
+      attrs: {
+        type: this.type,
+        tabIndex: 0,
+        disabled: this.disabled || this.isLoading,
+        ariaDisabled: this.disabled || this.isLoading,
+        dataActive: this.isActive ? 'true' : undefined
+      },
+      on: {
+        click: ($event) => this.$emit('click', $event)
+      }
+    }, this.$slots.default)
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import "../../lib/styles/components/Button";
-</style>

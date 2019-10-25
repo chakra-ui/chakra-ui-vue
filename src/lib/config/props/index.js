@@ -1,3 +1,18 @@
-export { default as baseProps } from './props'
+import baseProps from './props'
+import pseudoProps from './pseudo'
 export { default as propsConfig } from './props.config'
-export { default as pseudoProps } from './pseudo'
+
+export {
+  baseProps,
+  pseudoProps
+}
+
+/**
+ * Style props object
+ */
+const styleProps = {
+  ...baseProps,
+  ...pseudoProps
+}
+
+export default styleProps

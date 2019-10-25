@@ -54,7 +54,7 @@ const system = compose(
 
 /**
  * The Box component is the base reusable component which is the building block for all other Kiwi UI components.
- * The Box component by default renders a `<div/>` element.
+ * It by default renders the `<div/>` element.
  */
 const Box = styled('div', {
   ...baseProps

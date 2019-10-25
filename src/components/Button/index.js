@@ -1,9 +1,8 @@
 import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
+import { cleanProps } from '../../lib/utils'
+import createButtonStyles from './styles'
 
-let generatedProps = {
-  lineHeight: '3rem'
-}
 /**
  * @description The Button component is an accessible rich component that does what a button does :)
  */
@@ -26,13 +25,13 @@ export default {
       type: String,
       default: 'primary',
       validator: (value) =>
-        value.match(/^(primary|secondary|success|warning|danger|dark)$/)
+        value.match(/^(primary|secondary|success|warning|danger)$/)
     },
     variant: {
       type: String,
       default: 'solid',
       validator: (value) =>
-        value.match(/^(solid|outlined|ghost|flat|link)$/)
+        value.match(/^(solid|outline|ghost|flat|link)$/)
     },
     variantColor: {
       type: [String, Array],
@@ -75,10 +74,16 @@ export default {
     ...styleProps
   },
   render (h) {
+    const buttonStyles = createButtonStyles({
+      color: this.variantColor || this.cast,
+      variant: this.variant,
+      theme: this.$theme,
+      colorMode: this.$colorMode,
+      size: this.size || 'md'
+    })
     return h(PseudoBox, {
       props: {
         as: this.as,
-        p: '3',
         outline: 'none',
         cursor: 'pointer',
         fontSize: 'md',
@@ -86,11 +91,8 @@ export default {
         border: 'none',
         transition: 'all 0.2s ease-in',
         rounded: 'md',
-        _focus: {
-          outline: 'none',
-          boxShadow: 'outline'
-        },
-        ...generatedProps
+        ...buttonStyles,
+        ...cleanProps(this.$props)
       },
       attrs: {
         type: this.type,

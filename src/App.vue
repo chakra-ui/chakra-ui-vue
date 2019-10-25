@@ -7,11 +7,13 @@
       d="flex"
       justify-content="center"
       align-items="center"
-      bg="gray.100"
+      bg="gray.50"
     >
-      <Button @click="alert">
-        I am a button
-      </Button>
+      <Button @click="alert" mx="3" variant-color="blue">Solid</Button>
+      <Button variant="outline" mx="3" variant-color="blue" @click="alert">Outlined</Button>
+      <Button variant="ghost" mx="3" variant-color="blue" @click="alert">Ghost</Button>
+      <Button variant="flat" mx="3" variant-color="blue" @click="alert">Flat</Button>
+      <Button variant="link" mx="3" variant-color="blue" @click="alert">Link</Button>
     </Box>
   </theme-provider>
 </template>
@@ -40,7 +42,7 @@ export default {
       this.element = !this.element
     },
     alert () {
-      alert('clicked')
+      console.log('button clicked')
     }
   }
 }

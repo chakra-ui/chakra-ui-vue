@@ -3,6 +3,13 @@ const colors = {
   current: 'currentColor',
   black: '#000',
   white: '#fff',
+  primary: '#1a72ff',
+  secondary: '#7425f3',
+  tertiary: '#fe9e4d',
+  success: '#3ea76a',
+  warning: '#ffc61a',
+  error: '#dd3b4b',
+
   whiteAlpha: {
     50: 'rgba(255, 255, 255, 0.04)',
     100: 'rgba(255, 255, 255, 0.06)',

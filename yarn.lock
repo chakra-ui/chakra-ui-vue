@@ -14557,10 +14557,9 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-styled-components@^1.4.13:
+"vue-styled-components@git+https://github.com/codebender828/vue-styled-components.git":
   version "1.4.13"
-  resolved "https://registry.yarnpkg.com/vue-styled-components/-/vue-styled-components-1.4.13.tgz#229991a8810d13d7f339ae3cddadd931fd19ea15"
-  integrity sha512-1HOIHxd77ips808qh9Qaf+xDXScEOEs1fB3pXvzIbXb9K3Vz8fcZASojjOfwGepuHcnWIx2auMdQf1Eg/PKwqg==
+  resolved "git+https://github.com/codebender828/vue-styled-components.git#c506a87e98b56f244753362c99c3666971d7952e"
   dependencies:
     glamor "^2.20.24"
     inline-style-prefixer "^2.0.5"

@@ -25,7 +25,7 @@
     "style-loader": "^1.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vue-styled-components": "^1.4.13"
+    "vue-styled-components": "git+https://github.com/codebender828/vue-styled-components.git"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

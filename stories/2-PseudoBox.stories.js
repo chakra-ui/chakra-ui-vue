@@ -56,6 +56,7 @@ storiesOf('UI | PseudoBox', module)
         overflow="hidden"
         mt="4"
         w="400px"
+        font-family="body"
       >
         <PseudoBox
           v-for="(box, index) in boxes"

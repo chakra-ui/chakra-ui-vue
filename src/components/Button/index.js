@@ -1,4 +1,3 @@
-<script>
 import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
 
@@ -106,4 +105,3 @@ export default {
     }, this.$slots.default)
   }
 }
-</script>

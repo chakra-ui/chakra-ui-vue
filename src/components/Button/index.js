@@ -1,7 +1,7 @@
 import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
 import { cleanProps } from '../../lib/utils'
-import createButtonStyles from './styles'
+import createButtonStyles from './button.styles'
 
 /**
  * @description The Button component is an accessible rich component that does what a button does :)

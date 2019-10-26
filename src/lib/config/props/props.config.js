@@ -113,7 +113,9 @@ export const config = {
     property: 'border-bottom',
     scale: 'borders'
   },
-  textDecoration: true,
+  textDecoration: {
+    property: 'textDecoration'
+  },
   overflowX: true,
   overflowY: true,
   textTransform: true,

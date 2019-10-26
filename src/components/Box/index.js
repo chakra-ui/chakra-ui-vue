@@ -36,7 +36,6 @@ const clamp = props => {
 }
 
 const decorate = props => {
-  console.log({ textDecoration: props.textDecoration, textDecor: props.textDecor })
   if (props.textDecoration || props.textDecor) {
     return {
       'text-decoration': `${props.textDecoration || props.textDecor}`
@@ -70,7 +69,6 @@ const Box = styled('div', {
   ...baseProps
 })`
   ${props => {
-    console.log(props)
     const sanitizedProps = cleanProps(props)
     return system(sanitizedProps)
   }}

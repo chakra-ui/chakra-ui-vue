@@ -14,6 +14,47 @@ const baseStyles = {
 }
 
 /**
+ * @description Determine whether button should ripple
+ * @param {Object} props - Props object
+ * @returns {Object} Ripple styles object
+ */
+const ripple = (props) => {
+  console.log(props)
+  if (props.ripple) {
+    return {
+      position: 'relative',
+      overflow: 'hidden',
+      transform: 'translate3d(0, 0, 0)',
+      _after: {
+        content: '',
+        display: 'block',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        top: '0',
+        left: '0',
+        pointerEvents: 'none',
+        backgroundImage: 'radial-gradient(circle, rgb(255, 255, 255) 10%, transparent 10.01%)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50%',
+        transform: 'scale(10, 10)',
+        opacity: '0',
+        transition: 'transform .5s, opacity 1s'
+      },
+      _active: {
+        _after: {
+          transform: 'scale(0, 0)',
+          opacity: '.2',
+          transition: '0s'
+        }
+      }
+    }
+  } else {
+    return {}
+  }
+}
+
+/**
  * Size values
  */
 const sizes = {
@@ -223,7 +264,8 @@ const createButtonStyles = (props) => {
     ...baseStyles,
     ...focusStyles,
     ...sizeProps(props),
-    ...getVariantStyles(props)
+    ...getVariantStyles(props),
+    ...ripple(props)
   }
 }
 

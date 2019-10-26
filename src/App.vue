@@ -9,11 +9,11 @@
       align-items="center"
       bg="gray.50"
     >
-      <Button @click="alert" mx="3" disabled variant-color="green">Solid</Button>
-      <Button variant="outline" mx="3" variant-color="green">Outlined</Button>
-      <Button variant="ghost" mx="3" variant-color="green">Ghost</Button>
-      <Button variant="flat" mx="3" variant-color="green">Flat</Button>
-      <Button variant="link" mx="3" variant-color="green">Link</Button>
+      <Button mx="3" variant-color="blue">Solid</Button>
+      <Button variant="outline" mx="3" variant-color="blue">Outlined</Button>
+      <Button variant="ghost" mx="3" variant-color="blue">Ghost</Button>
+      <Button variant="flat" mx="3" variant-color="blue">Flat</Button>
+      <Button variant="link" mx="3" variant-color="blue">Link</Button>
     </Box>
   </theme-provider>
 </template>

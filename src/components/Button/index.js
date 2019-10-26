@@ -68,7 +68,7 @@ export default {
       default: false
     },
     ripple: {
-      type: Boolean,
+      type: [String, Boolean],
       default: true
     },
     ...styleProps
@@ -78,6 +78,7 @@ export default {
       color: this.variantColor || this.cast,
       variant: this.variant,
       theme: this.$theme,
+      ripple: this.ripple,
       colorMode: this.$colorMode,
       size: this.size || 'md'
     })

@@ -11,7 +11,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --quiet",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "build-vsc": "cd node_modules/vue-styled-components && npm install && npm run build && cd ../../"
   },
   "dependencies": {
     "@babel/preset-env": "^7.6.3",

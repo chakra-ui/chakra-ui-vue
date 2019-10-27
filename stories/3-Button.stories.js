@@ -63,4 +63,7 @@ storiesOf('UI | Button', module)
       </div>
     `,
     methods: { action: action('Button Clicked') }
+    // mounted () {
+    //   console.log({ instance: this.$options.components })
+    // }
   }))

@@ -19,8 +19,8 @@ const ThemeProvider = {
       $colorMode: this.colorMode
     }
   },
-  render: function (createElement) {
-    return createElement('div', {}, this.$slots.default)
+  render: function () {
+    return this.$slots.default
   }
 }
 

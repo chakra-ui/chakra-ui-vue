@@ -1,26 +1,19 @@
 <template>
   <theme-provider :theme="theme">
-    <Box
-      w="100vw"
-      h="100vh"
-      m="0"
-      d="flex"
-      justify-content="center"
-      align-items="center"
-      bg="gray.50"
+    <Icon
+      name="star"
+      color="yellow.500"
+      size="5"
     >
-      <Button mx="3" variant-color="blue">Solid</Button>
-      <Button variant="outline" mx="3" variant-color="blue">Outlined</Button>
-      <Button variant="ghost" mx="3" variant-color="blue">Ghost</Button>
-      <Button variant="flat" mx="3" variant-color="blue">Flat</Button>
-      <Button variant="link" mx="3" variant-color="blue">Link</Button>
-    </Box>
+
+    </Icon>
   </theme-provider>
 </template>
 
 <script>
 import ThemeProvider from './components/ThemeProvider'
-import { Box, Button } from './lib/core/'
+import { Icon } from './lib/core/'
+import Badge from './components/Badge'
 import theme from './lib/theme'
 
 export default {
@@ -28,14 +21,13 @@ export default {
     return {
       theme,
       element: true,
-      Box
+      Badge
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    Box,
-    Button
+    Icon
   },
   methods: {
     toggle () {

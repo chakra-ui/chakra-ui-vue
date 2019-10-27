@@ -14,7 +14,7 @@ export default {
   inject: ['$theme', '$colorMode'],
   props: {
     as: {
-      type: String,
+      type: [String, Object],
       default: 'button'
     },
     type: {

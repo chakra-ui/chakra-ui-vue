@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Button from '../../lib/core/'
+import Button from '../Button'
 import Theme from '../../../kiwi.config'
 
 describe('===== Button Component =====', () => {

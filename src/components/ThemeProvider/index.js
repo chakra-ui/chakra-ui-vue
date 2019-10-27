@@ -11,12 +11,17 @@ const ThemeProvider = {
     colorMode: {
       type: String,
       default: 'light'
+    },
+    icons: {
+      type: Object,
+      required: false
     }
   },
   provide () {
     return {
       $theme: () => this.theme,
-      $colorMode: this.colorMode
+      $colorMode: this.colorMode,
+      $icons: this.icons
     }
   },
   render: function () {

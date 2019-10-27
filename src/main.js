@@ -4,26 +4,42 @@ import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from './lib/plugin'
 
-Vue.config.productionTip = false
+// Import FA Icons
+import { faCoffee,
+  faAmbulance,
+  faCalendar,
+  faCar,
+  faBraille,
+  faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
+Vue.config.productionTip = false
 Vue.use(VueCompositionApi)
 
 // Install Kiwi plugin
 Vue.use(Kiwi, {
-  theme: {
-    primary: 'hsl(209, 100%, 50%)',
-    secondary: 'hsl(278, 100%, 69%)',
-    success: 'hsl(160, 100%, 43%)',
-    warning: 'hsl(40, 100%, 50%)',
-    danger: 'hsl(350, 100%, 56%)',
-    light: 'hsl(208, 100%, 94%)',
-    dark: 'hsl(221, 15%, 29%)'
+  icons: {
+    iconPack: 'fa',
+    iconSet: {
+      faCalendar,
+      faCar,
+      faCoffee,
+      faBraille,
+      faAmbulance,
+      faCaretLeft
+    },
+    extend: {
+      'not-allowed': {
+        path: `
+          <path
+            fill="currentColor"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"
+          />
+        `
+      }
+    }
   }
 })
 
 new Vue({
-  // Alternative way to provide theme would be to import { provideTheme } from utils and provide it with render function
-  // Provide theme to the root of the application
-  // render: h => provideTheme(h, App)
   render: h => h(App)
 }).$mount('#app')

@@ -1,4 +1,3 @@
-// import styled from 'vue-styled-components'
 import { Box } from '../../lib/core/'
 import iconPaths from '../../lib/plugin/iconsPaths'
 import { forwardProps } from '../../lib/utils'
@@ -8,30 +7,11 @@ import { baseProps } from '../../lib/config/props'
 const fallbackIcon = iconPaths['question-outline']
 
 /**
- * Features:
- * 1) Register custom icons
- * 2) Support Font Awesome icons.
- * 3) Support MD icons.
- *
- * CUSTOM ICONS:
- * - All icons exist as object.
- * - Load them in at project build time
- * - Should be extendable by users.
- * - If "name" prop is provided, search icons config for icon.
- *
- * SUPPORT FONTAWESOME/MDI
- * - Provide Object/Array of Fontawesome components
- * - Iterate over array of components to globally register sprites as components
- * - Accept "use" prop to calculate reference to globally registered component and feed it to Box component
- * - ^^ Use "as" prop to render component passed.
- */
-
-/**
  * The Icon component renders SVGs for visual aid
  */
 export default {
   name: 'Icon',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$theme', '$icons'],
   props: {
     name: {
       type: [String, Array]
@@ -59,9 +39,7 @@ export default {
   render (h) {
     let icon, viewBox
     if (this.name) {
-      icon = iconPaths[this.name]
-    } else if (this.use) {
-      // icon =
+      icon = this.$icons[this.name]
     } else {
       console.warn(`[KiwiIcon]: You need to provide the "name" or "use" prop to for the Icon component`)
     }

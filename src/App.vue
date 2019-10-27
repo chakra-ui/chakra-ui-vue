@@ -1,5 +1,5 @@
 <template>
-  <theme-provider :theme="theme">
+  <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
       <Icon
         name="star"
@@ -10,12 +10,21 @@
         name="email"
         color="teal.600"
         size="8"
-        mr="3"
       />
       <Icon
         name="phone"
         color="indigo.400"
         size="10"
+      />
+      <Icon
+        name="ambulance"
+        color="indigo.400"
+        size="10"
+      />
+      <Icon
+        name="not-allowed"
+        color="teal.600"
+        size="12"
       />
     </div>
   </theme-provider>
@@ -46,6 +55,11 @@ export default {
     },
     alert () {
       console.log('button clicked')
+    }
+  },
+  computed: {
+    iconPack () {
+      return this.$kiwi.iconPack
     }
   }
 }

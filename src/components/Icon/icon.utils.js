@@ -24,12 +24,3 @@ export const iconStyles = (props) => {
     ...sizeProps(props)
   }
 }
-
-/**
- * @description Get reference to an Icon component if Font Awesome or MDI is used
- * @param {String} name - Name of the registered icon.
- * @returns {Object} Icon Component
- */
-export const getIconComponent = (name) => {
-
-}

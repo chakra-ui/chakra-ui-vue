@@ -1,7 +1,7 @@
 import styled from 'vue-styled-components'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
 import { baseProps, propsConfig } from '../../lib/config/props'
-import { cleanProps } from '../../lib/utils/'
+import { forwardProps } from '../../lib/utils/'
 
 const baseEllipsis = {
   overflow: 'hidden',
@@ -69,7 +69,7 @@ const Box = styled('div', {
   ...baseProps
 })`
   ${props => {
-    const sanitizedProps = cleanProps(props)
+    const sanitizedProps = forwardProps(props)
     return system(sanitizedProps)
   }}
 `

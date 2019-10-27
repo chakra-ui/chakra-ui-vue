@@ -1,12 +1,23 @@
 <template>
   <theme-provider :theme="theme">
-    <Icon
-      name="star"
-      color="yellow.500"
-      size="5"
-    >
-
-    </Icon>
+    <div class="root">
+      <Icon
+        name="star"
+        color="yellow.500"
+        size="5"
+      />
+      <Icon
+        name="email"
+        color="teal.600"
+        size="8"
+        mr="3"
+      />
+      <Icon
+        name="phone"
+        color="indigo.400"
+        size="10"
+      />
+    </div>
   </theme-provider>
 </template>
 
@@ -45,5 +56,13 @@ html,
 body {
   font-family: Rubik, sans-serif;
   margin: 0
+}
+
+.root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

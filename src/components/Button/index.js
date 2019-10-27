@@ -1,6 +1,6 @@
 import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
-import { cleanProps } from '../../lib/utils'
+import { forwardProps } from '../../lib/utils'
 import createButtonStyles from './button.styles'
 
 /**
@@ -93,7 +93,7 @@ export default {
         transition: 'all 0.2s ease-in',
         rounded: 'md',
         ...buttonStyles,
-        ...cleanProps(this.$props)
+        ...forwardProps(this.$props)
       },
       attrs: {
         type: this.type,

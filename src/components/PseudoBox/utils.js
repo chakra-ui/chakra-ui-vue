@@ -1,5 +1,5 @@
 import map from 'lodash-es/map'
-import { cleanProps, filterPseudo, tx } from '../../lib/utils/'
+import { forwardProps, filterPseudo, tx } from '../../lib/utils/'
 
 /**
  * PseudoBox pseudo selectors
@@ -38,7 +38,7 @@ export const selectors = {
  */
 export function parsePseudoStyles (props) {
   const styles = {}
-  const clean = cleanProps(props)
+  const clean = forwardProps(props)
   const pseudoProps = filterPseudo(clean)
   const result = map(pseudoProps, (value, prop) => ({ prop, value }))
   result.forEach((pair) => {

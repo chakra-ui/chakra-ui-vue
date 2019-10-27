@@ -1,9 +1,9 @@
 // import styled from 'vue-styled-components'
 import { Box } from '../../lib/core/'
 import iconPaths from '../../lib/plugin/iconsPaths'
-// import styleProps from '../../lib/config/props'
-import { cleanProps } from '../../lib/utils'
+import { forwardProps } from '../../lib/utils'
 import { iconStyles } from './icon.utils'
+import { baseProps } from '../../lib/config/props'
 
 const fallbackIcon = iconPaths['question-outline']
 
@@ -53,7 +53,8 @@ export default {
     color: {
       type: [String, Array],
       default: 'currentColor'
-    }
+    },
+    ...baseProps
   },
   render (h) {
     let icon, viewBox
@@ -84,7 +85,7 @@ export default {
         d: 'inline-block',
         verticalAlign: 'middle',
         ...iconSize,
-        ...cleanProps(this.$props)
+        ...forwardProps(this.$props)
       },
       attrs: {
         viewBox,

@@ -1,5 +1,10 @@
 import merge from 'lodash-es/merge'
 
+/**
+ * @description Parse all Font Awesome Icons
+ * @param {Object} iconSet - Registered Icons object
+ * @returns {Object} - All Font awesome icons parsed.
+ */
 const parseFAIcons = (iconSet) => {
   const parseFAIcon = (iconObject) => {
     const { icon } = iconObject
@@ -15,7 +20,6 @@ const parseFAIcons = (iconSet) => {
     .map(value => parseFAIcon(value))
     .reduce((target, source) => merge(target, source), {})
 
-  console.log({ result })
   return result
 }
 

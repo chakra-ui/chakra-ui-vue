@@ -4,35 +4,43 @@
       <Icon
         name="star"
         color="yellow.500"
-        size="5"
+        size="6"
+        mx="3"
       />
       <Icon
         name="email"
-        color="teal.600"
-        size="8"
-      />
-      <Icon
-        name="phone"
-        color="indigo.400"
-        size="10"
-      />
-      <Icon
-        name="ambulance"
-        color="indigo.400"
-        size="10"
+        color="orange.400"
+        size="12"
+        mx="3"
       />
       <Icon
         name="not-allowed"
-        color="teal.600"
+        color="red.400"
         size="12"
+        mx="3"
       />
+      <Icon
+        name="chevron-circle-up"
+        color="blue.500"
+        size="12"
+        mx="3"
+      />
+      <Icon
+        name="times-circle"
+        color="indigo.300"
+        size="24"
+        mx="3"
+      />
+        <Button variant-color="blue" size="lg">Large</Button>
+        <Button variant-color="red" size="md">Medium</Button>
+        <Button variant-color="blue" size="sm">Small</Button>
     </div>
   </theme-provider>
 </template>
 
 <script>
 import ThemeProvider from './components/ThemeProvider'
-import { Icon } from './lib/core/'
+import { Icon, Button } from './lib/core/'
 import Badge from './components/Badge'
 import theme from './lib/theme'
 
@@ -47,7 +55,8 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Icon
+    Icon,
+    Button
   },
   methods: {
     toggle () {

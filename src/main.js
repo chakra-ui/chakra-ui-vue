@@ -10,13 +10,22 @@ import { faCoffee,
   faCalendar,
   faCar,
   faBraille,
-  faCaretLeft } from '@fortawesome/free-solid-svg-icons'
+  faCaretLeft,
+  faAnchor } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleUp, faTimesCircle } from '@fortawesome/pro-light-svg-icons'
 
 Vue.config.productionTip = false
 Vue.use(VueCompositionApi)
 
 // Install Kiwi plugin
 Vue.use(Kiwi, {
+  // include theme property that can be extended by user.
+  /**
+   * theme: {
+   *  ...someImportedThemeObject
+   *  icons: Object
+   * }
+   */
   icons: {
     iconPack: 'fa',
     iconSet: {
@@ -25,7 +34,10 @@ Vue.use(Kiwi, {
       faCoffee,
       faBraille,
       faAmbulance,
-      faCaretLeft
+      faCaretLeft,
+      faAnchor,
+      faChevronCircleUp,
+      faTimesCircle
     },
     extend: {
       'not-allowed': {

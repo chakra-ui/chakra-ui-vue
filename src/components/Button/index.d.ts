@@ -1,5 +1,8 @@
 import * as Vue from 'vue';
 
+/**
+ * Kiwi Button component for UI interactions
+ */
 declare const Button: Vue.Component<{
   as?: String,
   type?: String,

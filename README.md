@@ -28,8 +28,8 @@ yarn serve
 - [x] Setup Vue.js plugin system
   - [x] Provide Theme
   - [x] Observe theme and set it dynamically in javascript with ease.
-- [ ] Provide icons API for icons component
-- [ ] Accessibility (Focus) Styling
+- [x] Provide icons API for icons component
+- [x] Accessibility (Focus) Styling
 - [ ] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
 

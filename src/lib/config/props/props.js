@@ -75,7 +75,13 @@ const baseProps = {
   order: [String, Array],
   outline: [String, Array],
   cursor: [String, Array],
-  transition: [String, Array]
+  transition: [String, Array],
+  borderBottomColor: [String, Array],
+  borderTopColor: [String, Array],
+  borderLeftColor: [String, Array],
+  borderRightColor: [String, Array],
+  borderColor: [String, Array],
+  borderStyle: [String, Array]
   // appearance: [String, Array],
   // transform: [String, Array],
   // transformOrigin: [String, Array],

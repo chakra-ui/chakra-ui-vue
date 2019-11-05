@@ -1,45 +1,11 @@
 import styleProps from '../../lib/config/props'
 import { forwardProps } from '../../lib/utils'
-import createButtonStyles from './button.styles'
+import createButtonStyles, { setIconSizes } from './button.styles'
 import { Box, PseudoBox, Spinner, Icon } from '../../lib/core'
 
 /**
  * Icon component in button.
  */
-const sizes = {
-  xs: {
-    w: '0.75rem',
-    h: '0.75rem'
-  },
-  sm: {
-    w: '1rem',
-    h: '1rem'
-  },
-  md: {
-    w: '1.5rem',
-    h: '1.5rem'
-  },
-  lg: {
-    w: '2rem',
-    h: '2rem'
-  },
-  xl: {
-    w: '3rem',
-    h: '3rem'
-  }
-}
-
-const createCustomSize = (size) => {
-  return {
-    w: size,
-    h: size
-  }
-}
-
-const setSizes = (props) => {
-  return sizes[props.size] || createCustomSize(props.size)
-}
-
 const ButtonIcon = {
   name: 'ButtonIcon',
   props: {
@@ -59,7 +25,7 @@ const ButtonIcon = {
           name: this.icon,
           color: 'currentColor',
           mb: '-2px',
-          ...setSizes(this.$props),
+          ...setIconSizes(this.$props),
           ...forwardProps(this.$props)
         }
       })
@@ -70,7 +36,7 @@ const ButtonIcon = {
           focusable: false,
           color: 'currentColor',
           mb: '-2px',
-          ...setSizes(this.$props)
+          ...setIconSizes(this.$props)
         },
         attrs: {
           'data-custom-icon': true

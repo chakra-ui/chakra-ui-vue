@@ -80,3 +80,53 @@ storiesOf('UI | Button', module)
       }
     }
   }))
+  .add('With Icon | Left', () => ({
+    components: { Button },
+    template: `
+      <div>
+        <Button :variant-color="variantColor" left-icon="star" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+      </div>
+    `,
+    data () {
+      return {
+        loading: false,
+        buttonText: 'Favourite',
+        variantColor: 'indigo'
+      }
+    },
+    methods: {
+      setLoading () {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.buttonText = 'Success'
+          this.variantColor = 'green'
+        }, 1500)
+      }
+    }
+  }))
+  .add('With Icon | Right', () => ({
+    components: { Button },
+    template: `
+      <div>
+        <Button :variant-color="variantColor" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+      </div>
+    `,
+    data () {
+      return {
+        loading: false,
+        buttonText: 'Send',
+        variantColor: 'blue'
+      }
+    },
+    methods: {
+      setLoading () {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.buttonText = 'Sent'
+          this.variantColor = 'green'
+        }, 1500)
+      }
+    }
+  }))

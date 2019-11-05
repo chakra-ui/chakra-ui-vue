@@ -13,6 +13,44 @@ const baseStyles = {
   outline: 'none'
 }
 
+const buttonSizes = {
+  xs: {
+    w: '0.75rem',
+    h: '0.75rem'
+  },
+  sm: {
+    w: '1rem',
+    h: '1rem'
+  },
+  md: {
+    w: '1.5rem',
+    h: '1.5rem'
+  },
+  lg: {
+    w: '2rem',
+    h: '2rem'
+  },
+  xl: {
+    w: '3rem',
+    h: '3rem'
+  }
+}
+
+const createCustomSize = (size) => {
+  return {
+    w: size,
+    h: size
+  }
+}
+
+/**
+ * @description Evaluates button icon sizes and returns wight and height parameters
+ * @param {Object} props
+ */
+export const setIconSizes = (props) => {
+  return buttonSizes[props.size] || createCustomSize(props.size)
+}
+
 /**
  * Size values
  */

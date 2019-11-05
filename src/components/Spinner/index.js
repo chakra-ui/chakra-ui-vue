@@ -35,8 +35,15 @@ const sizes = {
   }
 }
 
+const createCustomSize = (size) => {
+  return {
+    w: size,
+    h: size
+  }
+}
+
 const setSizes = (props) => {
-  return sizes[props.size] || sizes['md']
+  return sizes[props.size] || createCustomSize(props.size)
 }
 
 export default {

@@ -1,69 +1,41 @@
 <template>
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
-      <Icon
-        name="star"
-        color="yellow.500"
-        size="6"
-        mx="3"
-      />
-      <Icon
-        name="email"
-        color="orange.400"
-        size="12"
-        mx="3"
-      />
-      <Icon
-        name="not-allowed"
-        color="red.400"
-        size="12"
-        mx="3"
-      />
-      <Icon
-        name="chevron-circle-up"
-        color="blue.500"
-        size="12"
-        mx="3"
-      />
-      <Icon
-        name="times-circle"
-        color="indigo.300"
-        size="24"
-        mx="3"
-      />
-        <Button variant-color="blue" size="lg">Large</Button>
-        <Button variant-color="red" size="md">Medium</Button>
-        <Button variant-color="blue" size="sm">Small</Button>
+      <Button size="lg" variant-color="blue" @click="setLoading" :is-loading="loading"> Button </Button>
     </div>
   </theme-provider>
 </template>
 
 <script>
 import ThemeProvider from './components/ThemeProvider'
-import { Icon, Button } from './lib/core/'
+import { Button } from './lib/core/'
 import Badge from './components/Badge'
 import theme from './lib/theme'
+import { setTimeout } from 'timers'
 
 export default {
   data () {
     return {
       theme,
       element: true,
-      Badge
+      Badge,
+      loading: false
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    Icon,
     Button
   },
   methods: {
     toggle () {
       this.element = !this.element
     },
-    alert () {
-      console.log('button clicked')
+    setLoading () {
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 1000)
     }
   },
   computed: {

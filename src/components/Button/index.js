@@ -2,6 +2,7 @@ import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
 import { forwardProps } from '../../lib/utils'
 import createButtonStyles from './button.styles'
+import { Spinner } from '../../lib/core'
 
 /**
  * @description The Button component is an accessible rich component that does what a button does :)
@@ -61,7 +62,16 @@ export default {
     },
     iconSpacing: {
       type: String,
+      default: 2,
       validator: (value) => value >= 0
+    },
+    leftIcon: {
+      type: String,
+      default: null
+    },
+    rightIcon: {
+      type: String,
+      default: null
     },
     rounded: {
       type: Boolean,
@@ -105,6 +115,19 @@ export default {
       on: {
         click: ($event) => this.$emit('click', $event)
       }
-    }, this.$slots.default)
+    }, [
+      this.leftIcon && !this.isLoading && h(Spinner),
+      this.isLoading && h(Spinner, {
+        props: {
+          position: this.loadingText ? 'relative' : 'absolute',
+          color: 'currentColor',
+          mb: '-4px',
+          mr: this.loadingText ? this.iconSpacing : 0,
+          size: '1em'
+        }
+      }),
+      this.isLoading ? this.loadingText : this.$slots.default,
+      this.rightIcon && !this.isLoading && h(Spinner)
+    ])
   }
 }

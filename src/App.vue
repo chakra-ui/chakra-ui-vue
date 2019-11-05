@@ -1,7 +1,7 @@
 <template>
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
-      <Button variant-color="blue" @click="setLoading" :is-loading="loading"> Button </Button>
+      <Button variant-color="blue" left-icon="coffee" @click="setLoading" :is-loading="loading"> Buy Coffee </Button>
     </div>
   </theme-provider>
 </template>

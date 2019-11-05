@@ -1,8 +1,84 @@
-import PseudoBox from '../PseudoBox'
 import styleProps from '../../lib/config/props'
 import { forwardProps } from '../../lib/utils'
 import createButtonStyles from './button.styles'
-import { Spinner } from '../../lib/core'
+import { Box, PseudoBox, Spinner, Icon } from '../../lib/core'
+
+/**
+ * Icon component in button.
+ */
+const sizes = {
+  xs: {
+    w: '0.75rem',
+    h: '0.75rem'
+  },
+  sm: {
+    w: '1rem',
+    h: '1rem'
+  },
+  md: {
+    w: '1.5rem',
+    h: '1.5rem'
+  },
+  lg: {
+    w: '2rem',
+    h: '2rem'
+  },
+  xl: {
+    w: '3rem',
+    h: '3rem'
+  }
+}
+
+const createCustomSize = (size) => {
+  return {
+    w: size,
+    h: size
+  }
+}
+
+const setSizes = (props) => {
+  return sizes[props.size] || createCustomSize(props.size)
+}
+
+const ButtonIcon = {
+  name: 'ButtonIcon',
+  props: {
+    icon: {
+      type: [String, Object]
+    },
+    size: {
+      type: [String, Number]
+    },
+    ...styleProps
+  },
+  render (h) {
+    if (typeof this.icon === 'string') {
+      return h(Icon, {
+        props: {
+          focusable: false,
+          name: this.icon,
+          color: 'currentColor',
+          mb: '-2px',
+          ...setSizes(this.$props),
+          ...forwardProps(this.$props)
+        }
+      })
+    } else {
+      return h(Box, {
+        props: {
+          as: this.icon,
+          focusable: false,
+          color: 'currentColor',
+          mb: '-2px',
+          ...setSizes(this.$props)
+        },
+        attrs: {
+          'data-custom-icon': true
+        }
+      })
+    }
+  }
+}
 
 /**
  * @description The Button component is an accessible rich component that does what a button does :)
@@ -61,7 +137,7 @@ export default {
       validator: (value) => typeof value === 'string'
     },
     iconSpacing: {
-      type: String,
+      type: [String, Number],
       default: 2,
       validator: (value) => value >= 0
     },
@@ -116,7 +192,14 @@ export default {
         click: ($event) => this.$emit('click', $event)
       }
     }, [
-      this.leftIcon && !this.isLoading && h(Spinner),
+      this.leftIcon && !this.isLoading && h(ButtonIcon, {
+        props: {
+          ml: -1,
+          mr: this.iconSpacing,
+          icon: this.leftIcon,
+          size: '1em'
+        }
+      }),
       this.isLoading && h(Spinner, {
         props: {
           position: this.loadingText ? 'relative' : 'absolute',
@@ -127,7 +210,14 @@ export default {
         }
       }),
       this.isLoading ? this.loadingText : this.$slots.default,
-      this.rightIcon && !this.isLoading && h(Spinner)
+      this.rightIcon && !this.isLoading && h(ButtonIcon, {
+        props: {
+          mr: -1,
+          ml: this.iconSpacing,
+          icon: this.rightIcon,
+          size: '1em'
+        }
+      })
     ])
   }
 }

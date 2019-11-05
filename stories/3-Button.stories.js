@@ -55,15 +55,28 @@ storiesOf('UI | Button', module)
     `,
     methods: { action: action('Button Clicked') }
   }))
-  .add('Ripple', () => ({
+  .add('With Loading', () => ({
     components: { Button },
     template: `
       <div>
-        <Button @click="action" ripple variant-color="orange">No rounded</Button>
+        <Button :variant-color="variantColor" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
       </div>
     `,
-    methods: { action: action('Button Clicked') }
-    // mounted () {
-    //   console.log({ instance: this.$options.components })
-    // }
+    data () {
+      return {
+        loading: false,
+        buttonText: 'Save settings',
+        variantColor: 'blue'
+      }
+    },
+    methods: {
+      setLoading () {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.buttonText = 'Success'
+          this.variantColor = 'green'
+        }, 1500)
+      }
+    }
   }))

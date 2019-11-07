@@ -1,17 +1,15 @@
 <template>
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
-      <Button size="md" variant-color="indigo" mx="3" left-icon="search" @click="setLoading" loading-text="Submitting" :is-loading="loading"> Search </Button>
-      <IconButton _aria-label="Search" size="sm" variant-color="blue" mx="3" icon="search" />
       <IconButton _aria-label="Search" variant-color="blue" mx="3" size="md" icon="star" />
-      <IconButton _aria-label="Search" size="lg" variant-color="blue" mx="3" :is-round="true" icon="phone" />
+      <KText as="samp">Text Component</KText>
     </div>
   </theme-provider>
 </template>
 
 <script>
 import ThemeProvider from './components/ThemeProvider'
-import { Button, IconButton } from './lib/core/'
+import { IconButton, Text } from './lib/core/'
 import Badge from './components/Badge'
 import theme from './lib/theme'
 import { setTimeout } from 'timers'
@@ -28,8 +26,8 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Button,
-    IconButton
+    IconButton,
+    KText: Text
   },
   methods: {
     toggle () {

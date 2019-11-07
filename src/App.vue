@@ -2,7 +2,7 @@
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
       <IconButton _aria-label="Search" variant-color="blue" mx="3" size="md" icon="star" />
-      <KText as="samp">Text Component</KText>
+      <KText as="kbd">Text Component</KText>
     </div>
   </theme-provider>
 </template>

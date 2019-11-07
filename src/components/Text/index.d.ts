@@ -1,10 +1,10 @@
 import * as Vue from 'vue';
 
 /**
- * The Text component is a composable text element.
+ * The KText component is a composable text element.
  */
-declare const Text: Vue.Component<{
+declare const KText: Vue.Component<{
   as?: String
 }>;
 
-export default Text;
+export default KText;

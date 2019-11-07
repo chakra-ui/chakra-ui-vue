@@ -1,7 +1,6 @@
 import { Button, Icon, Box } from '../../lib/core'
 import styleProps from '../../lib/config/props'
 import { forwardProps } from '../../lib/utils'
-import { setIconSizes } from '../Button/button.styles'
 import { buttonProps } from '../Button/button.props'
 
 const baseStyles = {
@@ -40,7 +39,7 @@ export default {
     return h(Button, {
       props: {
         p: 0,
-        borderRadius: this.isRound ? 'full' : 'md',
+        rounded: this.isRound ? 'full' : 'md',
         size: this.size,
         ...forwardProps(props)
       },
@@ -55,8 +54,8 @@ export default {
           focusable: false,
           name: this.icon,
           color: 'currentColor',
-          mb: '-2px',
-          ...setIconSizes(props)
+          mb: '2px',
+          size: '1em'
         },
         attrs: {
           focusable: false,

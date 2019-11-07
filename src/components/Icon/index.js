@@ -2,7 +2,6 @@ import styled from 'vue-styled-components'
 import { Box } from '../../lib/core/'
 import iconPaths from '../../lib/plugin/iconsPaths'
 import { forwardProps } from '../../lib/utils'
-import { iconStyles } from './icon.utils'
 import { baseProps } from '../../lib/config/props'
 
 const fallbackIcon = iconPaths['question-outline']
@@ -59,19 +58,14 @@ export default {
 
     viewBox = icon.viewBox || '0 0 24 24'
 
-    // Evaluate icon size
-    const iconSize = iconStyles({
-      size: this.size,
-      theme: this.$theme
-    })
-
     return h(Svg, {
       props: {
         as: 'svg',
+        w: this.size,
+        h: this.size,
         color: this.color,
         d: 'inline-block',
         verticalAlign: 'middle',
-        ...iconSize,
         ...forwardProps(this.$props)
       },
       attrs: {

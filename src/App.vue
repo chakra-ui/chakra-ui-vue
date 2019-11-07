@@ -1,10 +1,10 @@
 <template>
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
-      <Button size="md" variant-color="indigo" mr="3" left-icon="search" @click="setLoading" :is-loading="loading"> Search </Button>
-      <IconButton _aria-label="Search" size="sm" variant-color="blue" :is-round="true" icon="search" />
-      <IconButton _aria-label="Search" variant-color="blue" :is-round="true" size="md" icon="search" />
-      <IconButton _aria-label="Search" size="lg" variant-color="blue" :is-round="true" icon="search" />
+      <Button size="md" variant-color="indigo" mx="3" left-icon="search" @click="setLoading" loading-text="Submitting" :is-loading="loading"> Search </Button>
+      <IconButton _aria-label="Search" size="sm" variant-color="blue" mx="3" icon="search" />
+      <IconButton _aria-label="Search" variant-color="blue" mx="3" size="md" icon="star" />
+      <IconButton _aria-label="Search" size="lg" variant-color="blue" mx="3" :is-round="true" icon="phone" />
     </div>
   </theme-provider>
 </template>

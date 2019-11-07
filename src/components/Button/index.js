@@ -93,6 +93,7 @@ export default {
       this.leftIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           mr: this.iconSpacing,
+          mb: 'px',
           icon: this.leftIcon,
           size: '1em'
         }
@@ -110,6 +111,7 @@ export default {
       this.rightIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           ml: this.iconSpacing,
+          mb: 'px',
           icon: this.rightIcon,
           size: '1em'
         }

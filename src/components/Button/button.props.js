@@ -42,8 +42,7 @@ export const buttonProps = {
   },
   loadingText: {
     type: String,
-    default: 'Loading',
-    validator: (value) => typeof value === 'string'
+    default: null
   },
   iconSpacing: {
     type: [String, Number],

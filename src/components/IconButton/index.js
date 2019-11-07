@@ -1,0 +1,77 @@
+import { Button, Icon, Box } from '../../lib/core'
+import styleProps from '../../lib/config/props'
+import { forwardProps } from '../../lib/utils'
+import { setIconSizes } from '../Button/button.styles'
+import { buttonProps } from '../Button/button.props'
+
+const baseStyles = {
+  display: 'inline-flex',
+  appearance: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'all 250ms',
+  userSelect: 'none',
+  position: 'relative',
+  whiteSpace: 'nowrap',
+  verticalAlign: 'middle',
+  lineHeight: '1.2',
+  outline: 'none'
+}
+
+export default {
+  name: 'IconButton',
+  inject: ['$theme', '$colorMode'],
+  props: {
+    icon: {
+      type: [String]
+    },
+    isRound: {
+      type: [Boolean]
+    },
+    _ariaLabel: {
+      type: [String]
+    },
+    ...buttonProps,
+    ...styleProps
+  },
+  render (h) {
+    const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = this.$props
+
+    return h(Button, {
+      props: {
+        p: 0,
+        borderRadius: this.isRound ? 'full' : 'md',
+        size: this.size,
+        ...forwardProps(props)
+      },
+      attrs: {
+        'aria-label': this._ariaLabel
+      }
+    },
+    [typeof this.icon === 'string'
+      ? h(Icon, {
+        props: {
+          ...baseStyles,
+          focusable: false,
+          name: this.icon,
+          color: 'currentColor',
+          mb: '-2px',
+          ...setIconSizes(props)
+        },
+        attrs: {
+          focusable: false,
+          'aria-hidden': true
+        }
+      })
+      : h(Box, {
+        props: {
+          as: this.icon,
+          color: 'currentColor'
+        },
+        attrs: {
+          focusable: true
+        }
+      })]
+    )
+  }
+}

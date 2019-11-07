@@ -1,4 +1,5 @@
 import styleProps from '../../lib/config/props'
+import { buttonProps } from './button.props'
 import { forwardProps } from '../../lib/utils'
 import createButtonStyles, { setIconSizes } from './button.styles'
 import { Box, PseudoBox, Spinner, Icon } from '../../lib/core'
@@ -24,7 +25,6 @@ const ButtonIcon = {
           focusable: false,
           name: this.icon,
           color: 'currentColor',
-          mb: '-2px',
           ...setIconSizes(this.$props),
           ...forwardProps(this.$props)
         }
@@ -35,7 +35,6 @@ const ButtonIcon = {
           as: this.icon,
           focusable: false,
           color: 'currentColor',
-          mb: '-2px',
           ...setIconSizes(this.$props)
         },
         attrs: {
@@ -51,78 +50,9 @@ const ButtonIcon = {
  */
 export default {
   name: 'Button',
-  components: {
-    PseudoBox
-  },
   inject: ['$theme', '$colorMode'],
   props: {
-    as: {
-      type: [String, Object],
-      default: 'button'
-    },
-    type: {
-      type: String,
-      default: 'button'
-    },
-    cast: {
-      type: String,
-      default: 'primary',
-      validator: (value) =>
-        value.match(/^(primary|secondary|success|warning|danger)$/)
-    },
-    variant: {
-      type: String,
-      default: 'solid',
-      validator: (value) =>
-        value.match(/^(solid|outline|ghost|flat|link)$/)
-    },
-    variantColor: {
-      type: [String, Array],
-      default: 'gray'
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    isLoading: {
-      type: Boolean,
-      default: false
-    },
-    isActive: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: (value) => value.match(/^(sm|md|lg)$/)
-    },
-    loadingText: {
-      type: String,
-      default: 'Loading',
-      validator: (value) => typeof value === 'string'
-    },
-    iconSpacing: {
-      type: [String, Number],
-      default: 2,
-      validator: (value) => value >= 0
-    },
-    leftIcon: {
-      type: String,
-      default: null
-    },
-    rightIcon: {
-      type: String,
-      default: null
-    },
-    rounded: {
-      type: Boolean,
-      default: false
-    },
-    ripple: {
-      type: [String, Boolean],
-      default: true
-    },
+    ...buttonProps,
     ...styleProps
   },
   render (h) {
@@ -134,6 +64,7 @@ export default {
       colorMode: this.$colorMode,
       size: this.size || 'md'
     })
+
     return h(PseudoBox, {
       props: {
         as: this.as,
@@ -144,6 +75,7 @@ export default {
         border: 'none',
         transition: 'all 0.2s ease-in',
         rounded: 'md',
+        width: this.isFullWidth ? 'full' : undefined,
         ...buttonStyles,
         ...forwardProps(this.$props)
       },
@@ -160,7 +92,6 @@ export default {
     }, [
       this.leftIcon && !this.isLoading && h(ButtonIcon, {
         props: {
-          ml: -1,
           mr: this.iconSpacing,
           icon: this.leftIcon,
           size: '1em'
@@ -178,7 +109,6 @@ export default {
       this.isLoading ? this.loadingText : this.$slots.default,
       this.rightIcon && !this.isLoading && h(ButtonIcon, {
         props: {
-          mr: -1,
           ml: this.iconSpacing,
           icon: this.rightIcon,
           size: '1em'

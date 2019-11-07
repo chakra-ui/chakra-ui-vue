@@ -56,32 +56,28 @@ export const setIconSizes = (props) => {
  */
 const sizes = {
   lg: {
-    height: 12,
-    minWidth: 12,
+    h: 12,
+    minW: 12,
     fontSize: 'lg',
-    px: 6,
-    py: 4
+    px: 6
   },
   md: {
-    height: 10,
-    minWidth: 10,
+    h: 10,
+    minW: 10,
     fontSize: 'md',
-    px: 4,
-    py: 3
+    px: 4
   },
   sm: {
-    height: 8,
-    minWidth: 8,
+    h: 8,
+    minW: 8,
     fontSize: 'sm',
-    px: 3,
-    py: 2
+    px: 3
   },
   xs: {
-    height: 6,
-    minWidth: 6,
+    h: 6,
+    minW: 6,
     fontSize: 'xs',
-    px: 2,
-    py: 1
+    px: 2
   }
 }
 

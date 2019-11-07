@@ -7,7 +7,7 @@ import startsWith from 'lodash-es/startsWith'
  * @returns {Object} Sanitized object with defined values.
  */
 export function pickProperty (props) {
-  const pure = pickBy(props, (prop) => !!prop)
+  const pure = pickBy(props, (prop) => prop !== undefined)
   return pure
 }
 

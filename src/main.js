@@ -12,7 +12,10 @@ import { faCoffee,
   faBraille,
   faCaretLeft,
   faAnchor } from '@fortawesome/free-solid-svg-icons'
-import { faChevronCircleUp, faTimesCircle } from '@fortawesome/pro-light-svg-icons'
+import {
+  faChevronCircleUp,
+  faSearch,
+  faTimesCircle } from '@fortawesome/pro-light-svg-icons'
 
 Vue.config.productionTip = false
 Vue.use(VueCompositionApi)
@@ -37,7 +40,8 @@ Vue.use(Kiwi, {
       faCaretLeft,
       faAnchor,
       faChevronCircleUp,
-      faTimesCircle
+      faTimesCircle,
+      faSearch
     },
     extend: {
       'not-allowed': {

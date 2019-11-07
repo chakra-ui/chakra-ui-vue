@@ -130,3 +130,28 @@ storiesOf('UI | Button', module)
       }
     }
   }))
+  .add('Mortezas button', () => ({
+    components: { Button },
+    template: `
+      <div>
+        <Button :variant-color="variantColor" variant="link" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+      </div>
+    `,
+    data () {
+      return {
+        loading: false,
+        buttonText: 'Send',
+        variantColor: 'blue'
+      }
+    },
+    methods: {
+      setLoading () {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.buttonText = 'Sent'
+          this.variantColor = 'green'
+        }, 1500)
+      }
+    }
+  }))

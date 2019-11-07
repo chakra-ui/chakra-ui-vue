@@ -1,3 +1,4 @@
+import styled from 'vue-styled-components'
 import { Box } from '../../lib/core/'
 import iconPaths from '../../lib/plugin/iconsPaths'
 import { forwardProps } from '../../lib/utils'
@@ -5,6 +6,14 @@ import { iconStyles } from './icon.utils'
 import { baseProps } from '../../lib/config/props'
 
 const fallbackIcon = iconPaths['question-outline']
+
+const Svg = styled(Box)`
+  flex-shrink: 0;
+  backface-visibility: hidden;
+  &:not(:root) {
+    overflow: hidden;
+  }
+`
 
 /**
  * The Icon component renders SVGs for visual aid
@@ -56,7 +65,7 @@ export default {
       theme: this.$theme
     })
 
-    return h(Box, {
+    return h(Svg, {
       props: {
         as: 'svg',
         color: this.color,

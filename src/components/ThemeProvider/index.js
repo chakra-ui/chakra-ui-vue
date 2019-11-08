@@ -24,7 +24,7 @@ const ThemeProvider = {
       $icons: this.icons
     }
   },
-  render: function () {
+  render () {
     return this.$slots.default
   }
 }

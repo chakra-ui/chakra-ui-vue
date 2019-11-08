@@ -51,7 +51,6 @@ export default {
       ? h(Icon, {
         props: {
           ...baseStyles,
-          focusable: false,
           name: this.icon,
           color: 'currentColor',
           mb: '2px',

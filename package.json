@@ -28,6 +28,7 @@
     "register-service-worker": "^1.6.2",
     "style-loader": "^1.0.0",
     "vue": "^2.6.10",
+    "vue-create-context": "^1.1.0",
     "vue-router": "^3.0.3",
     "vue-styled-components": "git+https://github.com/codebender828/vue-styled-components.git"
   },

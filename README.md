@@ -30,6 +30,8 @@ yarn serve
   - [x] Observe theme and set it dynamically in javascript with ease.
 - [x] Provide icons API for icons component
 - [x] Accessibility (Focus) Styling
+- [ ] Make `createContext` API for Kiwi
+  - [ ] This component should return provider and corresponding consumer. Should be used for component creation.
 - [ ] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
 

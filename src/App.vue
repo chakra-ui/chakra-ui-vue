@@ -1,33 +1,33 @@
 <template>
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
-      <IconButton _aria-label="Search" variant-color="blue" mx="3" size="md" icon="star" />
-      <KText as="kbd">Text Component</KText>
+      <div class="wrapper">
+        <Alert mb="1">
+          <AlertIcon />
+          Chakra is going live on August 30th. Get ready!
+        </Alert>
+      </div>
     </div>
   </theme-provider>
 </template>
 
 <script>
-import ThemeProvider from './components/ThemeProvider'
-import { IconButton, Text } from './lib/core/'
-import Badge from './components/Badge'
+import { ThemeProvider, Alert, AlertIcon } from './lib/core/'
 import theme from './lib/theme'
-import { setTimeout } from 'timers'
 
 export default {
   data () {
     return {
       theme,
       element: true,
-      Badge,
       loading: false
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    IconButton,
-    KText: Text
+    Alert,
+    AlertIcon
   },
   methods: {
     toggle () {
@@ -59,7 +59,14 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 </style>

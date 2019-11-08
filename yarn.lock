@@ -14481,6 +14481,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
 
+vue-create-context@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-create-context/-/vue-create-context-1.1.0.tgz#8f8f3a921453491bdb5e65aa6ff748be58c27a01"
+  integrity sha512-ZAJjB7ACu4s3rju1J6bj7LsUrpF+QVUf8y1ZkCJAEesOWl4j+VOmbA6UVzVaUPTmVXHaiJdLg5AU66BOfDiT4Q==
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"

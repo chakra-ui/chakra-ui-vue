@@ -2,6 +2,14 @@
 import Color from 'color'
 
 /**
+ * @description Gets color value from theme
+ * @param {String} color
+ * @param {Number} hue
+ * @returns {String} color
+ */
+export const get = (color, hue) => `${color}.${hue}`
+
+/**
  * @description Add opacity to a color
  * @param {String} color Hex color code
  * @param {Object} opacity Opacity

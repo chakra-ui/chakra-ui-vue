@@ -32,7 +32,7 @@ export default {
       type: String,
       required: false,
       default: 'fas',
-      validator: (value) => value.match(/^(fas|fal|fad)$/)
+      validator: value => value.match(/^(fas|fal|fad)$/)
     },
     size: {
       type: [String, Number, Array],

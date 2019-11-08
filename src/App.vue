@@ -2,17 +2,14 @@
   <theme-provider :theme="theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Badge mx="2">Default</Badge>
-        <Badge mx="2" variant-color="green">Success</Badge>
-        <Badge mx="2" variant-color="red">Removed</Badge>
-        <Badge mx="2" variant-color="indigo">New</Badge>
+        <CloseButton />
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script>
-import { ThemeProvider, Badge } from './lib/core/'
+import { ThemeProvider, CloseButton } from './lib/core/'
 import theme from './lib/theme'
 
 export default {
@@ -26,7 +23,7 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Badge
+    CloseButton
   },
   methods: {
     toggle () {

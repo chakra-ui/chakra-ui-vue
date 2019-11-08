@@ -12,3 +12,8 @@ export const Alert: Vue.Component<{
  * Icon component for composing alerts
  */
 export const AlertIcon: Vue.Component<{}>;
+
+/**
+ * Alert title component for composing alert title.
+ */
+export const AlertTitle: Vue.Component<{}>;

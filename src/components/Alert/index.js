@@ -4,10 +4,10 @@ import { forwardProps } from '../../lib/utils'
 import useAlertStyle, { useAlertIconStyle } from './alert.styles'
 
 export const statuses = {
-  info: { icon: 'info', color: 'blue' },
-  warning: { icon: 'warning-2', color: 'orange' },
-  success: { icon: 'check-circle', color: 'green' },
-  error: { icon: 'warning', color: 'red' }
+  info: { icon: '_info', color: 'blue' },
+  warning: { icon: '_warning-2', color: 'orange' },
+  success: { icon: '_check-circle', color: 'green' },
+  error: { icon: '_warning', color: 'red' }
 }
 
 const Alert = {
@@ -38,6 +38,8 @@ const Alert = {
       theme: this.$theme()
     })
 
+    console.log({ alertStyles })
+
     return h(Box, {
       props: {
         ...alertStyles,
@@ -53,6 +55,12 @@ const Alert = {
 const AlertIcon = {
   name: 'AlertIcon',
   inject: ['_status', '_variant', '$colorMode', '$theme'],
+  props: {
+    size: {
+      default: 5
+    },
+    ...baseProps
+  },
 
   render (h) {
     const alertIconStyles = useAlertIconStyle({
@@ -63,8 +71,8 @@ const AlertIcon = {
 
     return h(Icon, {
       props: {
-        mr: 3,
-        size: 5,
+        mr: this.$props.mr || 3,
+        size: this.size,
         name: statuses[this._status] && statuses[this._status]['icon'],
         ...alertIconStyles,
         ...forwardProps(this.$props)
@@ -76,4 +84,30 @@ const AlertIcon = {
   }
 }
 
-export { Alert, AlertIcon }
+const AlertTitle = {
+  name: 'AlertTitle',
+  props: {
+    ...baseProps
+  },
+  render (h) {
+    return h(Box, {
+      props: {
+        fontWeight: 'bold',
+        lineHeight: 'normal',
+        ...forwardProps(this.$props)
+      }
+    }, this.$slots.default)
+  }
+}
+
+const AlertDescription = {
+  name: 'AlertDescription',
+  props: {
+    ...baseProps
+  },
+  render (h) {
+    return h(Box, { props: forwardProps(this.$props) }, this.$slots.default)
+  }
+}
+
+export { Alert, AlertIcon, AlertTitle, AlertDescription }

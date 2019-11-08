@@ -14,6 +14,7 @@ const baseProps = {
   maxH: [String, Array],
   maxHeight: [Number, String, Array],
   d: [String, Array],
+  display: [String, Array],
   lineClamp: [String, Number, Array],
   truncate: [Boolean, Number],
   pt: [Number, String, Array],

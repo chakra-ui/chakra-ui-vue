@@ -1,5 +1,5 @@
 <template>
-  <theme-provider :theme="theme" :icons="$kiwi.icons">
+  <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
         <CloseButton />
@@ -10,12 +10,10 @@
 
 <script>
 import { ThemeProvider, CloseButton } from './lib/core/'
-import theme from './lib/theme'
 
 export default {
   data () {
     return {
-      theme,
       element: true,
       loading: false
     }
@@ -34,11 +32,6 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 1000)
-    }
-  },
-  computed: {
-    iconPack () {
-      return this.$kiwi.iconPack
     }
   }
 }

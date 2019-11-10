@@ -3,6 +3,7 @@ import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from './lib/plugin'
+import theme from './lib/theme'
 
 // Import FA Icons
 import { faCoffee,
@@ -22,13 +23,7 @@ Vue.use(VueCompositionApi)
 
 // Install Kiwi plugin
 Vue.use(Kiwi, {
-  // include theme property that can be extended by user.
-  /**
-   * theme: {
-   *  ...someImportedThemeObject
-   *  icons: Object
-   * }
-   */
+  theme,
   icons: {
     iconPack: 'fa',
     iconSet: {

@@ -1,6 +1,3 @@
-/**
- * @type {Object}
- */
 const ThemeProvider = {
   name: 'ThemeProvider',
   props: {

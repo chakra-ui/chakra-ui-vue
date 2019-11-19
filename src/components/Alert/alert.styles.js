@@ -122,7 +122,6 @@ const statusStyleProps = props => {
  */
 const useAlertStyle = ({ variant, color, colorMode, theme }) => {
   const _props = { variant, color, theme }
-  console.log({ _props })
   return {
     ...baseProps,
     ...statusStyleProps(_props)[colorMode]

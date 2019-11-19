@@ -7,9 +7,9 @@ import internalIcons from '../../lib/plugin/iconsPaths'
 const Kiwi = {
   install (Vue, options = {}) {
     let packIcons = {}
-    const extendedIcons = options.icons.extend || {}
+    const extendedIcons = options.icons ? options.icons.extend || {} : {}
 
-    if (options.icons.iconPack) {
+    if (options.icons && options.icons.iconPack) {
       packIcons = parsePackIcons(options.icons.iconPack, options.icons.iconSet)
     }
 

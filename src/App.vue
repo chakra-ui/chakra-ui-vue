@@ -2,36 +2,51 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <CloseButton />
+        <Button variant-color="blue" @click="toggle">Show Toast</Button>
       </div>
     </div>
   </theme-provider>
 </template>
 
-<script>
-import { ThemeProvider, CloseButton } from './lib/core/'
+<script lang="js">
+import { ThemeProvider, /* CloseButton, */ Button, /* Alert, AlertIcon, */ useToast } from './lib/core/'
 
 export default {
   data () {
     return {
       element: true,
-      loading: false
+      loading: false,
+      toast: undefined
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    CloseButton
+    Button
+  },
+  mounted () {
+    this.toast = useToast({ theme: this.$kiwi.theme, icons: this.$kiwi.icons })
   },
   methods: {
     toggle () {
-      this.element = !this.element
-    },
-    setLoading () {
-      this.loading = true
-      setTimeout(() => {
-        this.loading = false
-      }, 1000)
+      this.toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 100000,
+        isClosable: true
+      })
+      // breadstick.notify(({ h, onClose }) => {
+      //   return (
+      //     <ThemeProvider theme={this.$kiwi.theme} icons={this.$kiwi.icons}>
+      //       <Alert mb="3" variant="solid" status="success">
+      //         <AlertIcon />
+      //         Kiwi is the best Vue component library
+      //         <CloseButton onClick={onClose} pos={'absolute'} color={'currentColor'} size={'sm'} top={1} right={1} />
+      //       </Alert>
+      //     </ThemeProvider>
+      //   )
+      // }, { duration: 2000, position: 'bottom-left' })
     }
   }
 }
@@ -40,7 +55,6 @@ export default {
 <style lang="scss">
 html,
 body {
-  font-family: Rubik, sans-serif;
   margin: 0
 }
 

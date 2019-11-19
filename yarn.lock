@@ -3643,6 +3643,11 @@ braces@^3.0.1:
   dependencies:
     fill-range "^7.0.1"
 
+breadstick@^0.1.17:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/breadstick/-/breadstick-0.1.17.tgz#6ac06c0d2c3e9876ca6cd41b464f26b367ac1e17"
+  integrity sha512-EMjcXs8NCPHAUFgjyw6FoB9A2BMEGHcf8ujRUXf1UJOe0we22V2AJBtICExbzfInzmP77mkgjXsngRV6XmYOlQ==
+
 brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"

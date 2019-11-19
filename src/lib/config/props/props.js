@@ -53,6 +53,7 @@ const baseProps = {
   shadow: [Number, String, Array],
   backgroundColor: String,
   pos: [String, Array],
+  position: [String, Array],
   flexDir: [String, Array],
   bgImg: [String, Array],
   bgImage: [String, Array],
@@ -92,7 +93,11 @@ const baseProps = {
   whiteSpace: [String, Array],
   verticalAlign: [String, Array],
   lineHeight: [Number, String, Array],
-  appearance: [String, Array]
+  appearance: [String, Array],
+  top: [String, Number, Array],
+  bottom: [String, Number, Array],
+  left: [String, Number, Array],
+  right: [String, Number, Array]
   // transform: [String, Array],
   // transformOrigin: [String, Array],
   // visibility: [String, Array],

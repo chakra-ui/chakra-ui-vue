@@ -18,7 +18,8 @@ const baseProps = {
   _focus: {
     boxShadow: 'outline'
   },
-  border: 'none'
+  border: 'none',
+  bg: 'blackAlpha.50'
 }
 
 const sizes = {
@@ -50,7 +51,8 @@ export default {
       default: false
     },
     color: {
-      type: String
+      type: String,
+      default: 'currentColor'
     },
     _ariaLabel: {
       type: String,
@@ -78,6 +80,9 @@ export default {
         _active: { bg: activeColor[this.colorMode] },
         ...baseProps,
         ...forwardProps(this.$props)
+      },
+      on: {
+        click: ($e) => this.$emit('click', $e)
       },
       attrs: {
         ariaLabel: this._ariaLabel,

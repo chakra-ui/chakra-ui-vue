@@ -38,8 +38,6 @@ const Alert = {
       theme: this.$theme()
     })
 
-    console.log({ alertStyles })
-
     return h(Box, {
       props: {
         ...alertStyles,

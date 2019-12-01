@@ -1,0 +1,25 @@
+{
+  "name": "@kiwi-ui/core",
+  "version": "1.0.0",
+  "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
+  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "license": "MIT",
+  "sideEffects": false,
+  "private": false,
+  "scripts": {
+    "build": "rollup --c --watch"
+  },
+  "dependencies": {
+    "breadstick": "^0.1.17",
+    "color": "^3.1.2",
+    "lodash-es": "^4.17.15"
+  },
+  "peerDependencies": {
+    "velocity-animate": "^1.5.2",
+    "vue": "^2.6.10",
+    "vue-styled-components": "^1.4.14"
+  },
+  "devDependencies": {
+    "core-js": "^3.4.5"
+  }
+}

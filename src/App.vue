@@ -3,13 +3,18 @@
     <div class="root">
       <div class="wrapper">
         <Button variant-color="blue" @click="toggle">Show Toast</Button>
+        <Alert mb="3" status="info">
+          <AlertIcon />
+          Kiwi is the best Vue component library
+        </Alert>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, /* CloseButton, */ Button, /* Alert, AlertIcon, */ useToast } from './lib/core/'
+// import { ThemeProvider, /* CloseButton, */ Button, /* Alert, AlertIcon, */ useToast } from './lib/core/'
+import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from '../packages/kiwi-ui/dist/index.umd'
 
 export default {
   data () {
@@ -22,9 +27,12 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Button
+    Button,
+    Alert,
+    AlertIcon
   },
   mounted () {
+    // console.log()
     this.toast = useToast({ theme: this.$kiwi.theme, icons: this.$kiwi.icons })
   },
   methods: {

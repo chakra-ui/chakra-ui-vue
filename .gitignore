@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+*/dist/*
 /public
 /storybook-static
 
@@ -24,3 +24,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Workspaces
+packages/*/coverage
+packages/*/dist
+packages/*/node_modules

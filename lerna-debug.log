@@ -1,0 +1,30 @@
+0 silly argv { _: [ 'version' ],
+0 silly argv   'conventional-commits': true,
+0 silly argv   conventionalCommits: true,
+0 silly argv   lernaVersion: '3.19.0',
+0 silly argv   '$0': '/Users/jonathanbakebwa/Github/kiwi/node_modules/.bin/lerna' }
+1 notice cli v3.19.0
+2 verbose rootPath /Users/jonathanbakebwa/Github/kiwi
+3 info current version 0.0.0
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly currentBranch
+7 verbose currentBranch lerna
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 error Error: Command failed: git remote update
+10 error error: cannot lock ref 'refs/remotes/origin/dev/use-lerna': 'refs/remotes/origin/dev' exists; cannot create 'refs/remotes/origin/dev/use-lerna'
+10 error From github.com:codebender828/kiwi-ui
+10 error  ! [new branch]      dev/use-lerna -> origin/dev/use-lerna  (unable to update local ref)
+10 error error: some local refs could not be updated; try running
+10 error  'git remote prune origin' to remove any old, conflicting branches
+10 error error: Could not fetch origin
+10 error
+10 error Fetching origin
+10 error
+10 error     at makeError (/Users/jonathanbakebwa/Github/kiwi/node_modules/execa/index.js:174:9)
+10 error     at Function.module.exports.sync (/Users/jonathanbakebwa/Github/kiwi/node_modules/execa/index.js:338:15)
+10 error     at Object.execSync (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/child-process/index.js:26:16)
+10 error     at updateRemote (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/lib/is-behind-upstream.js:26:16)
+10 error     at isBehindUpstream (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/lib/is-behind-upstream.js:11:3)
+10 error     at VersionCommand.initialize (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/index.js:150:9)

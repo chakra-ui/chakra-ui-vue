@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import Box from '../src/components/Box'
+import { Box } from '@kiwi-ui/core'
 
 storiesOf('UI | Box', module)
   .addDecorator(centered)

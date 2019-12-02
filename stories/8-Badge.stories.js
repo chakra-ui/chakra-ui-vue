@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import Badge from '../src/components/Badge'
+import { Badge } from '@kiwi-ui/core'
 
 storiesOf('UI | Badge', module)
   .addDecorator(centered)

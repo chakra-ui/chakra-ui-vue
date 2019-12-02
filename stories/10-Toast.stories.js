@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { useToast, Button } from '../src/lib/core'
+import { useToast, Button } from '@kiwi-ui/core'
 
 const toastMixin = {
   data () {

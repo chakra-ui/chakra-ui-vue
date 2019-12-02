@@ -1,0 +1,30 @@
+{
+  "name": "kiwi",
+  "version": "1.0.5",
+  "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
+  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "sideEffects": false,
+  "private": false,
+  "scripts": {
+    "build": "rollup -c && rollup -c --environment MINIFY",
+    "test": "echo testing ...",
+    "clean": "rm -rf ./dist"
+  },
+  "dependencies": {
+    "breadstick": "^0.1.17",
+    "color": "^3.1.2",
+    "lodash-es": "^4.17.15"
+  },
+  "peerDependencies": {
+    "velocity-animate": "^1.5.2",
+    "vue": "^2.6.10",
+    "vue-styled-components": "git+https://github.com/codebender828/vsc.git"
+  },
+  "devDependencies": {
+    "core-js": "^3.4.5"
+  },
+  "gitHead": "bac5958955c86e8078fe444ee2738145b894af1d"
+}

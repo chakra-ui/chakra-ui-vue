@@ -75,7 +75,7 @@
     "eslint-plugin-vue-a11y": "^0.0.31",
     "husky": "^3.0.8",
     "install": "^0.13.0",
-    "lerna": "^3.18.5",
+    "lerna": "^3.19.0",
     "lint-staged": "^9.4.2",
     "node-sass": "^4.12.0",
     "register-service-worker": "^1.6.2",

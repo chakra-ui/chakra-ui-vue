@@ -1,6 +1,6 @@
 import { configure, addDecorator } from '@storybook/vue';
 import Vue from 'vue'
-import ThemeProvider from '../src/components/ThemeProvider'
+import ThemeProvider from 'kiwi'
 import theme from '../src/lib/theme'
 import icons from '../src/lib/plugin/iconsPaths'
 import Kiwi from '../src/lib/plugin'

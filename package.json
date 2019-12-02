@@ -40,6 +40,7 @@
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
     "@storybook/storybook-deployer": "^2.8.1",
+    "@storybook/theming": "^5.2.8",
     "@storybook/vue": "^5.2.1",
     "@styled-system/css": "^5.0.23",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",

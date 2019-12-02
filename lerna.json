@@ -3,7 +3,6 @@
     "packages/*"
   ],
   "npmClient": "yarn",
-  "version": "independent",
   "useWorkspaces": true,
   "registry": "https://registry.npmjs.org/",
   "command": {

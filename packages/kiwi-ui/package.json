@@ -1,5 +1,5 @@
 {
-  "name": "@kiwi-ui/core",
+  "name": "@akkadu/kiwi-flight",
   "version": "1.0.1",
   "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
@@ -25,5 +25,6 @@
   },
   "devDependencies": {
     "core-js": "^3.4.5"
-  }
+  },
+  "gitHead": "54c59309b80c6337c2569e9674b36ef85b070036"
 }

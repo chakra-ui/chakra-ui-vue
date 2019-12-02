@@ -16,7 +16,7 @@
     "lerna:build": "lerna run build",
     "test": "lerna run test",
     "clean": "lerna run clean",
-    "release": "git fetch --tags && lerna publish from-git",
+    "release": "lerna publish",
     "push": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna version --conventional-commits",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --quiet",

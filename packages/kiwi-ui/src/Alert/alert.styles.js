@@ -112,7 +112,7 @@ const statusStyleProps = props => {
 }
 
 /**
- * @description Create styles for alert component
+ * @description Create styles for alert component.
  * @param {Object} context
  * @property {String} variant
  * @property {String} color

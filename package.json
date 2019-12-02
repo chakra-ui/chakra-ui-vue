@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "maintainers": [
+    "Jonathan Bakebwa <jonas@akkadu-team.com>"
+  ],
+  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "workspaces": [
     "packages/*"
   ],
@@ -8,13 +12,18 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
+    "lerna:build": "lerna run build",
+    "test": "lerna run test",
+    "clean": "lerna run clean",
+    "release": "git fetch --tags && lerna publish from-git",
+    "push": "git add -A && git commit && lerna version --conventional-commits",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --quiet",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "bootstrap": "lerna bootstrap --use-workspaces"
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "deploy-storybook": "storybook-to-ghpages -- --out=.out"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -30,9 +39,11 @@
     "@storybook/addon-centered": "^5.2.1",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/vue": "^5.2.1",
     "@styled-system/css": "^5.0.23",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
     "@vue/babel-preset-app": "^4.1.1",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/cli-plugin-babel": "^3.11.0",

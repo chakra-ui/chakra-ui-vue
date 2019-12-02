@@ -66,7 +66,7 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        file: `dist/index.esm.js`,
+        file: `dist/esm/index.js`,
         format: 'esm'
       }
     ],
@@ -76,8 +76,18 @@ export default [
     input: 'src/index.js',
     output: [
       {
+        file: `dist/es/index.js`,
+        format: 'es'
+      }
+    ],
+    ...commons
+  },
+  {
+    input: 'src/index.js',
+    output: [
+      {
         name: 'KiwiUI',
-        file: `dist/index.umd.js`,
+        file: `dist/umd/index.js`,
         format: 'umd',
         exports: 'named'
       }
@@ -89,7 +99,7 @@ export default [
     output: [
       {
         name: 'KiwiUI',
-        file: `dist/index.cjs.js`,
+        file: `dist/cjs/index.js`,
         format: 'cjs',
         exports: 'named'
       }

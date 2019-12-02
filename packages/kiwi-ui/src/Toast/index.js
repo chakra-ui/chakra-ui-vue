@@ -45,38 +45,46 @@ const Toast = {
     ...baseProps
   },
   render (h) {
-    return (
-      <Alert
-        status={this.status}
-        variant={this.variant}
-        id={this.id}
-        textAlign="left"
-        boxShadow="lg"
-        rounded="md"
-        alignItems="start"
-        fontFamily="body"
-        m={2}
-        pr={2}
-        p={4}
-        {...forwardProps(this.$props)}
-      >
-        <AlertIcon />
-        <Box flex="1">
-          {this.title && <AlertTitle>{this.title}</AlertTitle>}
-          {this.description && <AlertDescription>{this.description}</AlertDescription>}
-        </Box>
-        {this.isClosable && (
-          <CloseButton
-            size="sm"
-            onClick={this.onClose}
-            position="absolute"
-            right="4px"
-            top="4px"
-            color="currentColor"
-          />
-        )}
-      </Alert>
-    )
+    return h(Alert, {
+      props: {
+        status: this.status,
+        variant: this.variant,
+        textAlign: 'left',
+        boxShadow: 'lg',
+        rounded: 'md',
+        alignItems: 'start',
+        fontFamily: 'body',
+        m: 2,
+        pr: 2,
+        p: 4,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        id: this.id
+      }
+    }, [
+      h(AlertIcon),
+      h(Box, {
+        props: {
+          flex: '1'
+        }
+      }, [
+        this.title && h(AlertTitle, {}, this.title),
+        this.description && h(AlertDescription, {}, this.description)
+      ]),
+      this.isClosable && h(CloseButton, {
+        props: {
+          size: 'sm',
+          position: 'absolute',
+          right: '4px',
+          top: '4px',
+          color: 'currentColor'
+        },
+        on: {
+          click: this.onClose
+        }
+      })
+    ])
   }
 }
 
@@ -123,9 +131,6 @@ function useToast ({ theme, icons }) {
             }
           }, [render({ onClose, id })])
         },
-        // (
-        //   <ThemeProvider theme={theme}>{render({ onClose, id })}</ThemeProvider>
-        // ),
         options
       )
     }

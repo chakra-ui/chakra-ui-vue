@@ -3,7 +3,7 @@
     <div class="root">
       <div class="wrapper">
         <Button variant-color="blue" @click="toggle">Show Toast</Button>
-        <Alert mb="3" status="info">
+        <Alert font-family="body" mb="3" status="info">
           <AlertIcon />
           Kiwi is the best Vue component library
         </Alert>
@@ -13,8 +13,8 @@
 </template>
 
 <script lang="js">
-// import { ThemeProvider, /* CloseButton, */ Button, /* Alert, AlertIcon, */ useToast } from './lib/core/'
-import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from '../packages/kiwi-ui/dist/index.umd'
+// import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from '../packages/kiwi-ui/dist/index.umd'
+import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from '@kiwi-ui/core'
 
 export default {
   data () {
@@ -32,7 +32,6 @@ export default {
     AlertIcon
   },
   mounted () {
-    // console.log()
     this.toast = useToast({ theme: this.$kiwi.theme, icons: this.$kiwi.icons })
   },
   methods: {
@@ -44,17 +43,6 @@ export default {
         duration: 100000,
         isClosable: true
       })
-      // breadstick.notify(({ h, onClose }) => {
-      //   return (
-      //     <ThemeProvider theme={this.$kiwi.theme} icons={this.$kiwi.icons}>
-      //       <Alert mb="3" variant="solid" status="success">
-      //         <AlertIcon />
-      //         Kiwi is the best Vue component library
-      //         <CloseButton onClick={onClose} pos={'absolute'} color={'currentColor'} size={'sm'} top={1} right={1} />
-      //       </Alert>
-      //     </ThemeProvider>
-      //   )
-      // }, { duration: 2000, position: 'bottom-left' })
     }
   }
 }

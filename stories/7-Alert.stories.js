@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../src/components/Alert'
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@kiwi-ui/core'
 
 storiesOf('UI | Alert', module)
   .addDecorator(centered)

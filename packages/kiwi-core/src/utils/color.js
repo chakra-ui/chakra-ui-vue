@@ -1,4 +1,3 @@
-// import css from '@styled-system/css'
 import Color from 'color'
 
 /**
@@ -53,3 +52,9 @@ export const colorEmphasis = (color, emphasis) => {
     default:
   }
 }
+
+/**
+ * @description Determines whether the provided color is dark or not.
+ * @param {String} color
+ */
+export const isDarkColor = color => Color(color).isDark()

@@ -11,6 +11,7 @@ const production = !process.env.ROLLUP_WATCH
 // Plugins
 const bubelConfig = buble({
   objectAssign: 'Object.assign',
+  jsx: 'h',
   transforms: {
     dangerousTaggedTemplateString: true,
     dangerousForOf: true

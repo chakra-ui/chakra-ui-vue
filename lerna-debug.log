@@ -5,19 +5,19 @@
 0 silly argv   '$0': '/Users/jonathanbakebwa/Github/kiwi/node_modules/.bin/lerna' }
 1 notice cli v3.19.0
 2 verbose rootPath /Users/jonathanbakebwa/Github/kiwi
-3 info current version 0.0.0
+3 info current version 1.0.6
 4 silly isAnythingCommitted
 5 verbose isAnythingCommitted 1
 6 silly currentBranch
-7 verbose currentBranch lerna
+7 verbose currentBranch master
 8 silly remoteBranchExists
 9 silly isBehindUpstream
 10 error Error: Command failed: git remote update
-10 error error: cannot lock ref 'refs/remotes/origin/dev/use-lerna': 'refs/remotes/origin/dev' exists; cannot create 'refs/remotes/origin/dev/use-lerna'
-10 error From github.com:codebender828/kiwi-ui
-10 error  ! [new branch]      dev/use-lerna -> origin/dev/use-lerna  (unable to update local ref)
-10 error error: some local refs could not be updated; try running
-10 error  'git remote prune origin' to remove any old, conflicting branches
+10 error ssh_dispatch_run_fatal: Connection to 13.250.177.223 port 22: Operation timed out
+10 error fatal: Could not read from remote repository.
+10 error
+10 error Please make sure you have the correct access rights
+10 error and the repository exists.
 10 error error: Could not fetch origin
 10 error
 10 error Fetching origin

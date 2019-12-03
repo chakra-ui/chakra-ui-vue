@@ -26,6 +26,5 @@
   },
   "devDependencies": {
     "core-js": "^3.4.5"
-  },
-  "gitHead": "bac5958955c86e8078fe444ee2738145b894af1d"
+  }
 }

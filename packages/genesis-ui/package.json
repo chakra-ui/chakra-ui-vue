@@ -1,5 +1,5 @@
 {
-  "name": "genesis-ui",
+  "name": "akkadu-genesis-ds",
   "version": "1.0.10",
   "description": "🥝 Akkadu's pluggable UI Design System",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
@@ -13,5 +13,6 @@
     "build:watch": "rollup -c --watch",
     "test": "echo testing Genesis UI ...",
     "clean": "rm -rf ./dist"
-  }
+  },
+  "gitHead": "203d950e49193a620991ede0b654b3dd44636ed4"
 }

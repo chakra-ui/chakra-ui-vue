@@ -1,0 +1,16 @@
+15 error Error: Command failed: git remote update
+15 error ssh_dispatch_run_fatal: Connection to 52.74.223.119 port 22: Operation timed out
+15 error fatal: Could not read from remote repository.
+15 error
+15 error Please make sure you have the correct access rights
+15 error and the repository exists.
+15 error error: Could not fetch origin
+15 error
+15 error Fetching origin
+15 error
+15 error     at makeError (/Users/jonathanbakebwa/Github/kiwi/node_modules/execa/index.js:174:9)
+15 error     at Function.module.exports.sync (/Users/jonathanbakebwa/Github/kiwi/node_modules/execa/index.js:338:15)
+15 error     at Object.execSync (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/child-process/index.js:26:16)
+15 error     at updateRemote (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/lib/is-behind-upstream.js:26:16)
+15 error     at isBehindUpstream (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/lib/is-behind-upstream.js:11:3)
+15 error     at VersionCommand.initialize (/Users/jonathanbakebwa/Github/kiwi/node_modules/@lerna/version/index.js:150:9)

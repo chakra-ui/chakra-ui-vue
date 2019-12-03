@@ -33,6 +33,7 @@ export default {
         d: 'inline-block',
         textTransform: 'uppercase',
         fontSize: 'xs',
+        fontFamily: 'body',
         px: 1,
         rounded: 'sm',
         fontWeight: 'bold',

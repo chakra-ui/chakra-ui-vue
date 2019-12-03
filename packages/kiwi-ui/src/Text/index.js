@@ -16,6 +16,7 @@ export default {
     return h(Box, {
       props: {
         as: this.as,
+        fontFamily: this.as === 'kbd' ? 'mono' : 'body',
         ...forwardProps(this.$props)
       }
     }, this.$slots.default)

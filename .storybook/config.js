@@ -1,11 +1,18 @@
-import { configure, addDecorator } from '@storybook/vue';
+import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
-import ThemeProvider from 'kiwi'
+import { ThemeProvider } from 'kiwi'
 import theme from '../src/lib/theme'
 import icons from '../src/lib/plugin/iconsPaths'
 import Kiwi from '../src/lib/plugin'
+import storyBookTheme from './theme'
 
 Vue.use(Kiwi)
+
+addParameters({
+  options: {
+   theme: storyBookTheme
+ }
+})
 
 addDecorator(() => ({
   template: `

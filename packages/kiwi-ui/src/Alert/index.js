@@ -41,6 +41,7 @@ const Alert = {
 
     return h(Box, {
       props: {
+        fontFamily: 'body',
         ...alertStyles,
         ...forwardProps(this.$props)
       },

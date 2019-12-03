@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/codebender828/kiwi-ui/compare/v1.0.5...v1.0.6) (2019-12-03)
+
+
+### Features
+
+* add storybook theming ([04a1d47](https://github.com/codebender828/kiwi-ui/commit/04a1d477556177e853660ac2d3e901fc4908345d))
+
+
+
+
+
 ## [1.0.5](https://github.com/codebender828/kiwi-ui/compare/v1.0.4...v1.0.5) (2019-12-02)
 
 **Note:** Version bump only for package root

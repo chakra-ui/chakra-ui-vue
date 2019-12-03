@@ -4,7 +4,7 @@
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "1.0.16",
+  "version": "independent",
   "registry": "https://registry.npmjs.org/",
   "command": {
     "publish": {

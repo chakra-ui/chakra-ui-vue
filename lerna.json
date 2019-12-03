@@ -4,13 +4,12 @@
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "independent",
+  "version": "1.0.13",
   "registry": "https://registry.npmjs.org/",
   "command": {
     "publish": {
       "conventionalCommits": true,
       "message": "chore(release): publish"
     }
-  },
-  "version": "1.0.12"
+  }
 }

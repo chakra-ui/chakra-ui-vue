@@ -9,7 +9,7 @@
   "sideEffects": false,
   "private": false,
   "scripts": {
-    "build": "rollup -c && rollup -c --environment MINIFY",
+    "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "build:watch": "rollup -c --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"

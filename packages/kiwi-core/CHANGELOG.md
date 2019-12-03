@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2019-12-03)
+
+
+### Features
+
+* **avatar:** added Avatar components ([56e34e0](https://github.com/codebender828/kiwi-ui/commit/56e34e09ad522096fb412a1ace4eb7515de04840))
+
+
+
+## 1.0.16 (2019-12-03)
+
+
+
+## 1.0.15 (2019-12-03)
+
+
+
+## 1.0.14 (2019-12-03)
+
+
+
+## 1.0.13 (2019-12-03)
+
+
+
+
+
 ## [1.0.16](https://github.com/codebender828/kiwi-ui/compare/v1.0.15...v1.0.16) (2019-12-03)
 
 **Note:** Version bump only for package kiwi-core

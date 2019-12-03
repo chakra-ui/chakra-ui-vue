@@ -14,3 +14,5 @@ export * from './Alert'
 export { default as Badge } from './Badge'
 export { default as CloseButton } from './CloseButton'
 export { default as useToast } from './Toast'
+
+console.info && console.info('🥝 Welcome to KiwiUI with Vue!')

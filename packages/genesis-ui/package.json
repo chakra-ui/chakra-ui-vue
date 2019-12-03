@@ -1,0 +1,17 @@
+{
+  "name": "genesis-ui",
+  "version": "0.0.0",
+  "description": "🥝 Akkadu's pluggable UI Design System",
+  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "sideEffects": false,
+  "private": false,
+  "scripts": {
+    "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
+    "build:watch": "rollup -c --watch",
+    "test": "echo testing Genesis UI ...",
+    "clean": "rm -rf ./dist"
+  }
+}

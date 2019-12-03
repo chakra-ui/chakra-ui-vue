@@ -1,5 +1,9 @@
 <br />
-<h1 align="center">🥝 Kiwi UI</h1>
+<p align="center">
+  <a href="https://codebender828.github.io/kiwi-ui">
+    <img src="https://res.cloudinary.com/xtellar/image/upload/v1575300764/kiwi-ui/kiwi-ui-logo-h_y75i1x.png" alt="Reakit symbol" width="300" />
+  </a>
+</p>
 <h4 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease.</h4>
 
 ### 📦 Components

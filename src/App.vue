@@ -14,7 +14,7 @@
 
 <script lang="js">
 // import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from '../packages/kiwi-ui/dist/index.umd'
-import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from 'kiwi'
+import { ThemeProvider, /* CloseButton, */ Button, Alert, AlertIcon, useToast } from 'kiwi-core'
 
 export default {
   data () {

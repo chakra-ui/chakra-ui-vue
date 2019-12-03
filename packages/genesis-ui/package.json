@@ -14,5 +14,5 @@
     "test": "echo testing Genesis UI ...",
     "clean": "rm -rf ./dist"
   },
-  "gitHead": "203d950e49193a620991ede0b654b3dd44636ed4"
+  "gitHead": "3edafd2f90f3aa3c5a44ec9f5b0e960430caaad0"
 }

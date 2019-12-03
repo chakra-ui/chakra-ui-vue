@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { Text as KText } from 'kiwi'
+import { Text as KText } from 'kiwi-core'
 
 storiesOf('UI | Text', module)
   .addDecorator(centered)

@@ -74,12 +74,12 @@ export default {
       type: [String, Array],
       default: 'transparent'
     },
-    _ref: Object,
+    forwardRef: Object,
     ...baseProps
   },
   render (h) {
     return h(Box, {
-      ref: this._ref,
+      ref: this.forwardRef,
       props: {
         d: 'inline-block',
         borderWidth: this.thickness,

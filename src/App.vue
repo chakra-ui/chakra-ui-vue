@@ -2,10 +2,11 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Button variant-color="blue" @click="toggle">Show Toast</Button>
-        <Alert font-family="body" mb="3" status="info">
+        <!-- <Button variant-color="blue" @click="toggle">Show Toast</Button> -->
+        <Alert ref="alert" font-family="body" mb="3" status="info">
           <AlertIcon />
           Kiwi is the best Vue component library
+          <Child :forward-ref="forwardRef" />
         </Alert>
       </div>
     </div>
@@ -13,25 +14,31 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, Alert, AlertIcon, useToast } from 'kiwi-core'
+import { ThemeProvider, /* Button, */ Alert, AlertIcon, useToast } from 'kiwi-core'
+import Child from '@/components/Child'
 
 export default {
   data () {
     return {
       element: true,
       loading: false,
-      toast: undefined
+      toast: undefined,
+      forwardRef: undefined
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    Button,
+    // Button,
     Alert,
-    AlertIcon
+    AlertIcon,
+    Child
   },
   mounted () {
     this.toast = useToast({ theme: this.$kiwi.theme, icons: this.$kiwi.icons })
+    this.$nextTick(() => {
+      this.forwardRef = this.$refs.alert
+    })
   },
   methods: {
     toggle () {

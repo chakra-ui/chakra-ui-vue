@@ -7,6 +7,6 @@ declare const IconButton: Vue.Component<{
   icon?: String,
   isRound?: Boolean,
   _ariaLabel?: String,
-  _ref?: HTMLElement
+  forwardRef?: HTMLElement
 }>;
 export default IconButton;

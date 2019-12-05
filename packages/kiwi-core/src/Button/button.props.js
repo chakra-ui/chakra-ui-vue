@@ -65,5 +65,5 @@ export const buttonProps = {
     type: [String, Boolean],
     default: true
   },
-  _ref: Object
+  forwardRef: Object
 }

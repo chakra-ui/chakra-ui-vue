@@ -10,7 +10,7 @@ declare const Spinner: Vue.Component<{
   speed?: String,
   color?: String,
   emptyColor?: String,
-  _ref?: Object
+  forwardRef?: Object
 }>;
 export default Spinner;
 

@@ -15,7 +15,7 @@ export default {
       type: String,
       default: 'gray'
     },
-    _ref: {
+    forwardRef: {
       type: HTMLElement
     },
     ...baseProps

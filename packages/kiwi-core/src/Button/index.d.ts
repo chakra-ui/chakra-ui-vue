@@ -17,4 +17,5 @@ declare const Button: Vue.Component<{
   iconSpacing?: String,
   rounded?: Boolean,
 }>;
+
 export default Button;

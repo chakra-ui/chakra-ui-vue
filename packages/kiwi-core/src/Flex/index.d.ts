@@ -23,6 +23,6 @@ interface IFlex {
 
 export type FlexProps = IFlex & BoxProps;
 
-declare const Flex: React.FC<FlexProps>;
+declare const Flex: Vue.Component<FlexProps>;
 
 export default Flex;

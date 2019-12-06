@@ -2,20 +2,59 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Button mb="3" variant-color="blue" @click="toggle">Subscribe</Button>
-        <transition name="fade">
-          <Alert v-show="isSubscribed" ref="alert" font-family="body" mb="3" status="info">
-            <AlertIcon />
-            Kiwi is the best Vue component library
-          </Alert>
-        </transition>
+        <Flex
+          p="6"
+          bg="#404040"
+          h="400px"
+          w="400px"
+          direction="column"
+          align="center"
+          justify="center"
+        >
+          <Box
+            mx="2"
+            my="2"
+            p="3"
+            rounded="md"
+            bg="coral"
+          >
+            Box
+          </Box>
+          <Box
+            mx="2"
+            my="2"
+            p="3"
+            rounded="md"
+            bg="papayawhip"
+          >
+            Box
+          </Box>
+          <Box
+            mx="2"
+            my="2"
+            p="3"
+            rounded="md"
+            bg="#ffff95"
+          >
+            Box
+          </Box>
+          <Box
+            mx="2"
+            my="2"
+            p="3"
+            rounded="md"
+            bg="pink"
+          >
+            Box
+          </Box>
+        </Flex>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, Alert, AlertIcon, useToast } from 'kiwi-core'
+import { ThemeProvider, Box, Flex } from 'kiwi-core'
 
 export default {
   data () {
@@ -30,28 +69,8 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Button,
-    Alert,
-    AlertIcon
-  },
-  mounted () {
-    this.toast = useToast({ theme: this.$kiwi.theme, icons: this.$kiwi.icons })
-    this.$nextTick(() => {
-      this.forwardRef = this.$refs.alert
-    })
-  },
-  methods: {
-    toggle () {
-      this.toast({
-        title: '📬 Subscribed!',
-        description: "We've subscribed you to our mailing list!",
-        status: 'info',
-        duration: 5000,
-        isClosable: true,
-        position: 'top'
-      })
-      this.isSubscribed = true
-    }
+    Box,
+    Flex
   }
 }
 </script>

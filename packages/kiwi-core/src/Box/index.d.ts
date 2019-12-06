@@ -1,6 +1,8 @@
 import * as StyledSystem from 'styled-system';
 import * as Vue from 'vue';
+import baseProps from '../config/props/props'
 import { Omit } from '../common-types'
+import { RecordPropsDefinition, PropsDefinition } from 'vue/types/options';
 
 
 type borderRadius = StyledSystem.BorderRadiusProps['borderRadius'];
@@ -232,10 +234,13 @@ export type BoxProps = BoxHTMLProps &
   As &
   Truncated;
 
+interface BoxProps {
+  height?: string | number
+}
 /**
  * The Box component is the base reusable component which is the building block for all other Kiwi UI components.
  * It by default renders the `<div/>`  HTMLElement.
  */
-declare const Box: Vue.Component<BoxProps>;
+declare const Box: Vue.Component<PropsDefinition<BoxProps>>
 
 export default Box;

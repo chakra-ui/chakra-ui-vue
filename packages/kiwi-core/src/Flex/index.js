@@ -14,6 +14,7 @@ const Flex = {
     justify: [String, Array],
     wrap: [String, Array],
     direction: [String, Array],
+    size: [String, Array],
     ...baseProps
   },
   render (h) {
@@ -24,6 +25,8 @@ const Flex = {
         alignItems: this.align,
         justifyContent: this.justify,
         flexWrap: this.wrap,
+        h: this.size,
+        w: this.size,
         ...forwardProps(this.$props)
       }
     }, this.$slots.default)

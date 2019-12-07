@@ -2,18 +2,19 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <ButtonGroup variant-color="blue" is-attached>
-          <Button variant="outline">Button 1</Button>
-          <Button>Button 2</Button>
-          <Button variant="outline">Button 3</Button>
-        </ButtonGroup>
+        <Heading size="2xl">Heading 1 </Heading>
+        <Heading size="xl">Heading 2 </Heading>
+        <Heading size="lg">Heading 3 </Heading>
+        <Heading size="md">Heading 4 </Heading>
+        <Heading size="sm">Heading 5 </Heading>
+        <Heading size="xs">Heading 6 </Heading>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, ButtonGroup } from 'kiwi-core'
+import { ThemeProvider, Heading } from 'kiwi-core'
 
 export default {
   data () {
@@ -23,8 +24,7 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Button,
-    ButtonGroup
+    Heading
   }
 }
 </script>

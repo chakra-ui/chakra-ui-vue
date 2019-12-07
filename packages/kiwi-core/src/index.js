@@ -18,5 +18,4 @@ export { default as Badge } from './Badge'
 export { default as CloseButton } from './CloseButton'
 export { default as useToast } from './Toast'
 export { default as Flex } from './Flex'
-
-console.info && console.info('🥝 Welcome to KiwiUI with Vue!')
+export { default as Heading } from './Heading'

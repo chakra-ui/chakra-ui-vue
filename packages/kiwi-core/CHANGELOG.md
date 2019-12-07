@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.1.1...kiwi-core@1.2.0) (2019-12-07)
+
+
+### Features
+
+* **avatargroup:** created Avatar group ([1964240](https://github.com/codebender828/kiwi-ui/commit/196424037f00faa5b152c6f98da150e19ac5bd02))
+* **avatargroup:** destructuring propsdata vnodes ([99b5612](https://github.com/codebender828/kiwi-ui/commit/99b5612ada32384daeb3c78a33c8a066774a3653))
+* **flex:** added flex stories ([30640a3](https://github.com/codebender828/kiwi-ui/commit/30640a3bc24187559536154447f74e93c697625e))
+* **flex:** created flex component ([7799885](https://github.com/codebender828/kiwi-ui/commit/77998850a267a14446aa0e0fcdf81e81b9e4b838))
+* **refs:** using `forwardRef` prop to forward ([458ed1f](https://github.com/codebender828/kiwi-ui/commit/458ed1f9d66d0f6efc45821dd54cfc7fecc46e50))
+
+
+
+
+
 ## [1.1.1](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.1.0...kiwi-core@1.1.1) (2019-12-03)
 
 **Note:** Version bump only for package kiwi-core

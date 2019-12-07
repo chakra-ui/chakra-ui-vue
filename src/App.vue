@@ -2,16 +2,19 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <AvatarGroup size="md" max="3">
+        <AvatarGroup max="3">
           <Avatar
+            border-color="blue.400"
             name="Evan You"
             src="https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg"
           />
           <Avatar
+            border-color="blue.400"
             name="Segun Adebayo"
             src="https://bit.ly/sage-adebayo"
           />
           <Avatar
+            border-color="blue.400"
             name="Jonathan Bakebwa"
             src="https://res.cloudinary.com/xtellar/image/upload/v1572857445/me_zqos4e.jpg"
           />

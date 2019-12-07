@@ -1,5 +1,4 @@
 import Flex from '../Flex'
-import Box from '../Box'
 import { avatarSizes } from '../Avatar/avatar.styles'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
@@ -45,7 +44,10 @@ const MoreAvatarLabel = {
 const AvatarGroup = {
   name: 'AvatarGroup',
   props: {
-    size: [Number, String, Array],
+    groupSize: {
+      type: [Number, String, Array],
+      default: 'md'
+    },
     borderColor: [String, Array],
     max: [Number, String, Array],
     spacing: {
@@ -54,7 +56,7 @@ const AvatarGroup = {
     },
     ...baseProps
   },
-  render (h, ...args) {
+  render (h) {
     // Get the number of slot nodes inside AvatarGroup
     const children = this.$slots.default
     const count = children.length
@@ -63,21 +65,20 @@ const AvatarGroup = {
     // Apply styles to slot VNodes.
     const clones = children.map((node, index) => {
       const isFirstAvatar = index === 0
-
       if (!this.max || (max && index < max)) {
-        return h(Box, {
-          props: {
-            ml: isFirstAvatar ? 0 : this.spacing,
-            borderColor: this.borderColor,
-            zIndex: count - index
-          }
-        }, [node])
+        // Change VNode component options
+        const { propsData } = node.componentOptions
+        propsData['ml'] = isFirstAvatar ? 0 : this.spacing
+        propsData['size'] = this.groupSize
+        propsData['borderColor'] = this.borderColor
+        propsData['zIndex'] = count - index
+        return node
       }
 
       if (max && index === max) {
         return h(MoreAvatarLabel, {
           props: {
-            size: this.size,
+            size: this.groupSize,
             ml: this.spacing,
             label: `+${count - max}`
           }

@@ -2,75 +2,31 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Flex
-          p="6"
-          bg="#404040"
-          h="400px"
-          w="400px"
-          direction="column"
-          align="center"
-          justify="center"
-        >
-          <Box
-            mx="2"
-            my="2"
-            p="3"
-            rounded="md"
-            bg="coral"
-          >
-            Box
-          </Box>
-          <Box
-            mx="2"
-            my="2"
-            p="3"
-            rounded="md"
-            bg="papayawhip"
-          >
-            Box
-          </Box>
-          <Box
-            mx="2"
-            my="2"
-            p="3"
-            rounded="md"
-            bg="#ffff95"
-          >
-            Box
-          </Box>
-          <Box
-            mx="2"
-            my="2"
-            p="3"
-            rounded="md"
-            bg="pink"
-          >
-            Box
-          </Box>
-        </Flex>
+        <AvatarGroup size="md" max="2">
+          <Avatar as="a" name="Ryan Florence" src="https://bit.ly/ryan-florence" />
+          <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
+          <Avatar name="Kent Dodds" src="https://bit.ly/kent-c-dodds" />
+          <Avatar name="Prosper Otemuyiwa" src="https://bit.ly/prosper-baba" />
+          <Avatar name="Christian Nwamba" src="https://bit.ly/code-beast" />
+        </AvatarGroup>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Box, Flex } from 'kiwi-core'
+import { ThemeProvider, AvatarGroup, Avatar } from 'kiwi-core'
 
 export default {
   data () {
     return {
-      element: true,
-      loading: false,
-      toast: undefined,
-      forwardRef: undefined,
-      isSubscribed: false
     }
   },
   name: 'App',
   components: {
     ThemeProvider,
-    Box,
-    Flex
+    Avatar,
+    AvatarGroup
   }
 }
 </script>

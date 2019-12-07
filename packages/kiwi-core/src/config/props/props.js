@@ -117,7 +117,8 @@ const baseProps = {
   objectPosition: [String, Array],
   backgroundAttachment: [String, Array],
   float: [String, Array],
-  willChange: [String, Array]
+  willChange: [String, Array],
+  zIndex: [Number, String, Array]
 }
 
 export default baseProps

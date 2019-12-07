@@ -76,6 +76,7 @@ export default {
         h: buttonSize,
         w: buttonSize,
         disabled: this.isDisabled,
+        cursor: 'pointer',
         _hover: { bg: hoverColor[this.colorMode] },
         _active: { bg: activeColor[this.colorMode] },
         ...baseProps,

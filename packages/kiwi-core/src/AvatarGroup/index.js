@@ -70,7 +70,8 @@ const AvatarGroup = {
         const { propsData } = node.componentOptions
         propsData['ml'] = isFirstAvatar ? 0 : this.spacing
         propsData['size'] = this.groupSize
-        propsData['borderColor'] = this.borderColor
+        propsData['showBorder'] = true
+        propsData['borderColor'] = this.borderColor || propsData['borderColor']
         propsData['zIndex'] = count - index
         return node
       }

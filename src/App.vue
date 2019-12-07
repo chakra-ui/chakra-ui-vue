@@ -2,55 +2,18 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <AvatarGroup max="3">
-          <Avatar
-            border-color="blue.400"
-            name="Evan You"
-            src="https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg"
-          />
-          <Avatar
-            border-color="blue.400"
-            name="Segun Adebayo"
-            src="https://bit.ly/sage-adebayo"
-          />
-          <Avatar
-            border-color="blue.400"
-            name="Jonathan Bakebwa"
-            src="https://res.cloudinary.com/xtellar/image/upload/v1572857445/me_zqos4e.jpg"
-          />
-          <Avatar
-            name="Tuomo Nieminen"
-            size="sm"
-            src="https://akkadu.cn/assets/team/tuomo-pp.jpg"
-          />
-          <Avatar
-            name="John Talbott Houk"
-            size="md"
-            src="https://akkadu.cn/assets/team/jt-pp.jpg"
-          />
-          <Avatar
-            name="Prosper Otemuyiwa"
-            size="lg"
-            src="https://bit.ly/prosper-baba"
-          />
-          <Avatar
-            name="梦 龙"
-            size="xl"
-            src="Non real URL"
-          />
-          <Avatar
-            name="Jonathan Bakebwa"
-            size="2xl"
-            src="https://res.cloudinary.com/xtellar/image/upload/v1572857445/me_zqos4e.jpg"
-          />
-        </AvatarGroup>
+        <ButtonGroup variant-color="blue" is-attached>
+          <Button variant="outline">Button 1</Button>
+          <Button>Button 2</Button>
+          <Button variant="outline">Button 3</Button>
+        </ButtonGroup>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, AvatarGroup, Avatar } from 'kiwi-core'
+import { ThemeProvider, Button, ButtonGroup } from 'kiwi-core'
 
 export default {
   data () {
@@ -60,8 +23,8 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Avatar,
-    AvatarGroup
+    Button,
+    ButtonGroup
   }
 }
 </script>

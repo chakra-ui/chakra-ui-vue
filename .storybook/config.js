@@ -2,7 +2,7 @@ import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
 import { ThemeProvider } from 'kiwi-core'
 import theme from '../src/lib/theme'
-import icons from '../src/lib/plugin/iconsPaths'
+import icons from '../packages/kiwi-core/src/lib/internal-icons'
 import Kiwi from '../src/lib/plugin'
 import storyBookTheme from './theme'
 

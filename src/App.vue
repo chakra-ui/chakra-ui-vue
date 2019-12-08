@@ -2,40 +2,41 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <label for="control-checkbox">
+        <Box as="label" display="flex" border-color="gray.200" align-items="center" cursor="pointer" for="control-radio">
           <!-- This is the sibling input, it's visually hidden -->
-          <VisuallyHidden as="input" id="control-checkbox" type="checkbox" checked="true" />
+          <VisuallyHidden as="input" id="control-radio" type="radio" />
 
           <!-- This is the control box with a check icon as children -->
           <ControlBox
-            borderWidth="1px"
             size="24px"
-            rounded="sm"
+            border="2px"
+            bg="white"
+            rounded="full"
+            type="radio"
+            border-color="inherit"
             :_checked="{
               bg: 'green.500',
-              color: 'white',
               borderColor: 'green.500'
             }"
-            :_focus="{
-              borderColor: 'green.600',
-              boxShadow: 'outline'
-            }"
+            :_hover="{ borderColor: 'gray.300' }"
+            :_focus="{ boxShadow: 'outline' }"
+            :_disabled="{ opacity: '40%' }"
           >
-            <Icon name="check" size="16px" />
+            <Box w="50%" h="50%" bg="white" rounded="full" />
           </ControlBox>
 
           <!-- You can pass additional text -->
-          <Box as="span" verticalAlign="top" ml={3}>
-            Checkbox Label
+          <Box as="span" ml="2" vertical-align="center" user-select="none">
+            This is a Radio
           </Box>
-        </label>
+        </Box>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, VisuallyHidden, ControlBox, Box, Icon } from 'kiwi-core'
+import { ThemeProvider, VisuallyHidden, ControlBox, Box } from 'kiwi-core'
 
 export default {
   data () {
@@ -47,7 +48,6 @@ export default {
     ThemeProvider,
     VisuallyHidden,
     ControlBox,
-    Icon,
     Box
   }
 }

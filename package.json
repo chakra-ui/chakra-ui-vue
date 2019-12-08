@@ -23,7 +23,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "deploy-storybook": "storybook-to-ghpages -- --out=.out"
+    "deploy-storybook": "storybook-to-ghpages -- --out=.out",
+    "now-build-storybook": "build-storybook -o dist/storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",

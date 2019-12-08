@@ -1,0 +1,5 @@
+export const StringArray = [String, Array]
+export const NumberStringArray = [Number, String, Array]
+export const StringNumber = [String, Number]
+export const ObjectArray = [Object, Array]
+export const ObjectFunction = [Object, Function]

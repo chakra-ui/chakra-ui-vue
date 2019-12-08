@@ -9,8 +9,12 @@ const PropTypes = [Object, Array]
 
 const ControlBox = styled(Box, {
   type: {
-    type: PropTypes,
+    type: String,
     default: 'checkbox'
+  },
+  size: {
+    type: [Number, String, Array],
+    default: 'auto'
   },
   _hover: PropTypes,
   _invalid: PropTypes,
@@ -19,11 +23,11 @@ const ControlBox = styled(Box, {
   _checked: PropTypes,
   _child: {
     type: PropTypes,
-    default: { opacity: 0 }
+    default: () => ({ opacity: 0 })
   },
   _checkedAndChild: {
     type: PropTypes,
-    default: { opacity: 1 }
+    default: () => ({ opacity: 1 })
   },
   _checkedAndDisabled: PropTypes,
   _checkedAndFocus: PropTypes,
@@ -40,6 +44,14 @@ const ControlBox = styled(Box, {
     const invalid = `input[type=${props.type}][aria-invalid=true] + &`
 
     return css({
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: 'all 120ms',
+      flexShrink: '0',
+      'aria-hidden': 'true',
+      width: props.size,
+      height: props.size,
       [focus]: tx(props._focus),
       [hover]: tx(props._hover),
       [disabled]: tx(props._disabled),

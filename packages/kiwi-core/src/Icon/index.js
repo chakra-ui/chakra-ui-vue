@@ -49,7 +49,7 @@ export default {
     if (this.name) {
       icon = this.$icons[this.name]
     } else {
-      console.warn(`[KiwiIcon]: You need to provide the "name" or "use" prop to for the Icon component`)
+      console.warn(`[Kiwi]: You need to provide the "name" or "use" prop to for the Icon component`)
     }
 
     if (!icon) {

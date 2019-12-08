@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
 import './registerServiceWorker'
-import Kiwi from './lib/plugin'
+import Kiwi from 'kiwi-core'
 import theme from './lib/theme'
 
 // Import FA Icons

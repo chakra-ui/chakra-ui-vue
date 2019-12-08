@@ -2,19 +2,40 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Heading size="2xl">Heading 1 </Heading>
-        <Heading size="xl">Heading 2 </Heading>
-        <Heading size="lg">Heading 3 </Heading>
-        <Heading size="md">Heading 4 </Heading>
-        <Heading size="sm">Heading 5 </Heading>
-        <Heading size="xs">Heading 6 </Heading>
+        <label for="control-checkbox">
+          <!-- This is the sibling input, it's visually hidden -->
+          <VisuallyHidden as="input" id="control-checkbox" type="checkbox" checked="true" />
+
+          <!-- This is the control box with a check icon as children -->
+          <ControlBox
+            borderWidth="1px"
+            size="24px"
+            rounded="sm"
+            :_checked="{
+              bg: 'green.500',
+              color: 'white',
+              borderColor: 'green.500'
+            }"
+            :_focus="{
+              borderColor: 'green.600',
+              boxShadow: 'outline'
+            }"
+          >
+            <Icon name="check" size="16px" />
+          </ControlBox>
+
+          <!-- You can pass additional text -->
+          <Box as="span" verticalAlign="top" ml={3}>
+            Checkbox Label
+          </Box>
+        </label>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading } from 'kiwi-core'
+import { ThemeProvider, VisuallyHidden, ControlBox, Box, Icon } from 'kiwi-core'
 
 export default {
   data () {
@@ -24,7 +45,10 @@ export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Heading
+    VisuallyHidden,
+    ControlBox,
+    Icon,
+    Box
   }
 }
 </script>

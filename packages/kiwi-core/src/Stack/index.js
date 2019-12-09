@@ -2,7 +2,7 @@ import Flex from '../Flex'
 import Box from '../Box'
 import { baseProps } from '../config/props'
 import { StringArray, NumberStringArray } from '../config/props/props.types'
-import { forwardProps } from '../utils'
+import { forwardProps, cloneVNode } from '../utils'
 
 /**
  * Stack is a layout utility component that makes it easy to stack elements together and apply a space between them.
@@ -54,14 +54,13 @@ const Stack = {
     }
 
     const children = this.$slots.default
-    console.log(children)
     const stackables = children.map((node, index) => {
       let isLastChild = children.length === index + 1
       let spacingProps = _isInline
         ? { [_isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
         : { [_isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
-
-      const { propsData } = node.componentOptions
+      const clone = cloneVNode(node, h)
+      const { propsData } = clone.componentOptions
       // If children nodes should wrap, we wrap them inside block with
       // display set to inline block.
       if (this.shouldWrapChildren) {
@@ -71,16 +70,16 @@ const Stack = {
             ...spacingProps,
             ...forwardProps(this.$props)
           }
-        }, [node])
+        }, [clone])
       }
 
       // Otherwise we simply set spacing props to current node.
-      node.componentOptions.propsData = {
+      clone.componentOptions.propsData = {
         ...propsData,
         ...spacingProps
       }
 
-      return node
+      return clone
     })
 
     return h(Flex, {

@@ -12,7 +12,8 @@ import { faCoffee,
   faCar,
   faBraille,
   faCaretLeft,
-  faAnchor } from '@fortawesome/free-solid-svg-icons'
+  faAnchor,
+  faPlus } from '@fortawesome/free-solid-svg-icons'
 import {
   faChevronCircleUp,
   faSearch,
@@ -36,7 +37,8 @@ Vue.use(Kiwi, {
       faAnchor,
       faChevronCircleUp,
       faTimesCircle,
-      faSearch
+      faSearch,
+      faPlus
     },
     extend: {
       'not-allowed': {

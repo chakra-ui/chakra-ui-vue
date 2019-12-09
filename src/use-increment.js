@@ -1,4 +1,4 @@
-import { reactive, onMounted } from '@vue/composition-api'
+import { reactive, toRefs } from '@vue/composition-api'
 
 export function useIncrement () {
   const state = reactive({
@@ -10,11 +10,7 @@ export function useIncrement () {
   // Methods
   const increment = () => state.count++
 
-  onMounted(() => {
-    console.log('Mounted App')
-  })
-
   return {
-    state, increment
+    ...toRefs(state), increment
   }
 }

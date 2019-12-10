@@ -1,6 +1,6 @@
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
-
+import VuePortal from 'portal-vue'
 /**
  * Kiwi Component library plugin
  */
@@ -24,6 +24,9 @@ const Kiwi = {
       theme: options.theme,
       icons
     }
+
+    /** Install dependant plugins */
+    Vue.use(VuePortal)
   }
 }
 

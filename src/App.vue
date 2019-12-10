@@ -7,20 +7,40 @@
           <Button left-icon="search">Search</Button>
           <Button left-icon="plus" variant="outline">Add Friend</Button>
         </ButtonGroup>
+        <Portal target-node="#poop" append>
+          <Alert
+            @click.native="logClick"
+          >
+            Alert inside portal component
+          </Alert>
+        </Portal>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, ButtonGroup } from 'kiwi-core'
+import { ThemeProvider, Button, Alert, ButtonGroup, Portal } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
     Button,
-    ButtonGroup
+    ButtonGroup,
+    Alert,
+    Portal
+  },
+  data () {
+    return {
+      value: 0
+    }
+  },
+  methods: {
+    logClick () {
+      alert('clicked alert')
+      this.value++
+    }
   }
 }
 </script>

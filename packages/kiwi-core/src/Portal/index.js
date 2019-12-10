@@ -19,7 +19,6 @@ const Portal = {
   created () {
     this.target = createPortalTarget(this.targetNode)
     this.targetSelector = `#${this.target.id}`
-    console.log({ target: this.target })
   },
   render (h) {
     return h('mounting-portal', {

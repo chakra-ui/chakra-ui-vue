@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueCompositionApi from '@vue/composition-api'
 import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from 'kiwi-core'
@@ -20,7 +19,6 @@ import {
   faTimesCircle } from '@fortawesome/pro-light-svg-icons'
 
 Vue.config.productionTip = false
-Vue.use(VueCompositionApi)
 
 // Install Kiwi plugin
 Vue.use(Kiwi, {

@@ -2,7 +2,7 @@ import { createPortalTarget } from './utils'
 
 /**
  * This portal was adapted from the awesome work of @linusborg with `portal-vue`
- * @see https://linusborg.github.io/portal-vue/
+ * @see https://portal-vue.linusb.org/
  */
 const Portal = {
   inheritAttrs: false,

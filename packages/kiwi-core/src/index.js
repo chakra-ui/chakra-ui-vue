@@ -1,6 +1,7 @@
 import Plugin from './plugin/index.js'
 export default Plugin
 export { default as ThemeProvider } from './ThemeProvider'
+export * from './ThemeProvider'
 export { default as Box } from './Box'
 export { default as PseudoBox } from './PseudoBox'
 export { default as Button } from './Button'
@@ -22,3 +23,4 @@ export { default as Heading } from './Heading'
 export { default as ControlBox } from './ControlBox'
 export { default as Stack } from './Stack'
 export { default as Portal } from './Portal'
+export * from './Modal'

@@ -1,26 +1,26 @@
 <template>
-  <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
+  <theme-provider :theme="$kiwi.theme" :colorMode="colorMode" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <ButtonGroup variant-color="indigo" is-attached>
-          <Button left-icon="star" variant="outline">Favourite</Button>
-          <Button left-icon="search">Search</Button>
-          <Button left-icon="plus" variant="outline">Add Friend</Button>
-        </ButtonGroup>
-        <Portal target-node="#poop" append>
-          <Alert
-            @click.native="logClick"
-          >
-            Alert inside portal component
-          </Alert>
-        </Portal>
+        <Button left-icon="star" mb="3" variant-color="blue" @click="enableTrap" variant="outline">Enable focus trap</Button>
+        <FocusTrap initial-focus="#favourite" return-focus-on-deactivate :active="active">
+          <ButtonGroup variant-color="indigo" is-attached>
+            <Button id="favourite" left-icon="star" variant="outline">Favourite</Button>
+            <Button left-icon="search">Search</Button>
+            <Button left-icon="not-allowed" variant="outline" @click="disableTrap">Disable Trap</Button>
+          </ButtonGroup>
+        </FocusTrap>
+        <Modal :is-open="openValue">
+          Modal Content
+        </Modal>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, Alert, ButtonGroup, Portal } from 'kiwi-core'
+import { FocusTrap } from 'focus-trap-vue'
+import { ThemeProvider, Button, ButtonGroup, Modal } from 'kiwi-core'
 
 export default {
   name: 'App',
@@ -28,18 +28,29 @@ export default {
     ThemeProvider,
     Button,
     ButtonGroup,
-    Alert,
-    Portal
+    FocusTrap,
+    Modal
   },
   data () {
     return {
-      value: 0
+      value: 0,
+      shouldActivateTrap: false,
+      lastFocusElement: null,
+      openValue: true,
+      colorMode: 'light'
+    }
+  },
+  computed: {
+    active () {
+      return this.shouldActivateTrap
     }
   },
   methods: {
-    logClick () {
-      alert('clicked alert')
-      this.value++
+    enableTrap () {
+      this.shouldActivateTrap = true
+    },
+    disableTrap () {
+      this.shouldActivateTrap = false
     }
   }
 }

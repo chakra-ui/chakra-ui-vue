@@ -28,7 +28,7 @@ export default {
   },
   isCentered: Boolean,
   addAriaLabels: {
-    type: Boolean,
+    type: [Boolean, Object],
     default: true
   },
   preserveScrollBarGap: Boolean,
@@ -45,7 +45,7 @@ export default {
     type: Boolean,
     default: true
   },
-  id: Boolean,
+  id: String,
   size: {
     type: String,
     default: 'md'

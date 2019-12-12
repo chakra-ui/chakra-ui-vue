@@ -14,7 +14,8 @@ const Portal = {
     }
   },
   props: {
-    targetNode: String
+    targetNode: String,
+    append: Boolean
   },
   created () {
     this.target = createPortalTarget(this.targetNode)
@@ -24,9 +25,10 @@ const Portal = {
     return h('mounting-portal', {
       props: {
         ...this.$attrs,
-        mountTo: `${this.targetSelector}`
+        mountTo: `${this.targetSelector}`,
+        append: this.append
       }
-    }, [this.$slots.default])
+    }, this.$slots.default)
   }
 }
 

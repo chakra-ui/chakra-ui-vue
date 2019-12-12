@@ -10,8 +10,8 @@
             <Button left-icon="not-allowed" variant="outline" @click="disableTrap">Disable Trap</Button>
           </ButtonGroup>
         </FocusTrap>
-        <Modal :is-open="openValue">
-          Modal Content
+        <Modal initial-focus-ref="#first-focus-button" :is-open="openValue">
+          <button id="first-focus-button">Focus on me</button>
         </Modal>
       </div>
     </div>
@@ -44,6 +44,12 @@ export default {
     active () {
       return this.shouldActivateTrap
     }
+  },
+  mounted () {
+    const self = this
+    setInterval(() => {
+      self.openValue = !self.openValue
+    }, 5000)
   },
   methods: {
     enableTrap () {

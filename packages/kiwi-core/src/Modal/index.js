@@ -1,12 +1,12 @@
 // import { forwardProps, cloneVNode } from '../utils'
 import props from './modal.props'
-import { ref, reactive, createElement as h, watch, onUnmounted, provide } from '@vue/composition-api'
+import { ref, reactive, createElement as h, watch, onBeforeMount, provide } from '@vue/composition-api'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock/lib/bodyScrollLock.es6'
 // import { useTheme, useColorMode } from '../ThemeProvider'
 import { createUuid, getFocusables } from '../utils'
 import canUseDOM from 'can-use-dom'
 import { hideOthers } from 'aria-hidden'
-import Portal from '../Portal'
+// import Portal from '../Portal'
 import { FocusTrap } from 'focus-trap-vue'
 
 const ModalContext = Symbol('ModalContext')
@@ -43,49 +43,6 @@ const ModalContext = Symbol('ModalContext')
  * @see https://vue-composition-api-rfc.netlify.com/api.html#ref
  */
 
-/**
- * Manages ARIA states for Modal content
- * @param {{ isOpen: Boolean, id: String, enableInert: Boolean, container: HTMLElement}} props
- * @returns {HTMLElement|Ref} Mount node ref
- */
-function useAriaHider ({
-  isOpen,
-  id,
-  enableInert,
-  container = canUseDOM ? document.body : null
-}) {
-  const mountRef = ref(
-    canUseDOM
-      ? document.getElementById(id) || document.createElement('div')
-      : null
-  )
-
-  watch(() => {
-    let undoAriaHidden = null
-    let mountNode = mountRef
-
-    if (isOpen && canUseDOM) {
-      mountRef.value.id = id
-      container.appendChild(mountRef.value)
-      if (enableInert) {
-        undoAriaHidden = hideOthers(mountNode.value)
-      }
-    }
-
-    // Cleanup for whenever the Modal is closed
-    if (!isOpen) {
-      if (enableInert && undoAriaHidden != null) {
-        undoAriaHidden()
-      }
-      if (mountNode.value.parentElement) {
-        mountNode.value.parentElement.removeChild(mountNode.value)
-      }
-    }
-  })
-
-  return mountRef
-}
-
 const Modal = {
   name: 'Modal',
   props,
@@ -105,6 +62,16 @@ const Modal = {
     // ARIA labels
     let addAriaLabelledby = false
     let addAriaDescribedby = false
+
+    // Ref of the modal portal target node
+    const mountRef = ref(
+      canUseDOM
+        ? document.getElementById(props.id) || document.createElement('div')
+        : null
+    )
+
+    // Container in which modal portal target will be located
+    const container = props.container || canUseDOM ? document.body : null
 
     // Methods
     /**
@@ -128,39 +95,60 @@ const Modal = {
     }
 
     // When modal is open we block body scroll.
-    watch(() => {
+    watch((onCleanup) => {
       const dialogNode = contentRef.value
       if (props.isOpen && props.blockScrollOnMount) {
         disableBodyScroll(dialogNode, {
           reserveScrollBarGap: props.preserveScrollBarGap
         })
       }
+
+      // Re-enable body scroll when the modal component is unmounted
+      onCleanup(() => enableBodyScroll(dialogNode))
     })
 
     // Keyboad event listener handlers
-    watch(() => {
+    watch((onCleanup) => {
       if (props.isOpen && !props.closeOnOverlayClick) {
         canUseDOM && document.addEventListener('keydown', handler)
       }
+
+      onCleanup(() => {
+        // Remove event listeners when modal is unmounted
+        canUseDOM && document.removeEventListener('keydown', handler)
+      })
     })
 
-    onUnmounted(() => {
-      // Renable body scroll when the modal component is unmounted
-      const dialogNode = contentRef.value
-      enableBodyScroll(dialogNode)
-
-      // Remove event listeners when modal is unmounted
-      canUseDOM && document.removeEventListener('keydown', handler)
+    // Before modal is mounted we append it to the DOM. Otherwise MountingPortal will not know where to place it's slot.
+    onBeforeMount(() => {
+      if (props.isOpen && canUseDOM) {
+        mountRef.value.id = 'chakra-portal'
+        container.appendChild(mountRef.value)
+      }
     })
 
-    const mountRef = useAriaHider({
-      isOpen: props.isOpen,
-      id: 'chakra-portal',
-      enableInert: props.useInert,
-      container: props.container
-    })
+    // Here we set the entire DOM as inert and "aria-hidden" when the modal is open
+    watch((onCleanup) => {
+      let undoAriaHidden = null
+      let mountNode = mountRef
 
-    console.log(mountRef.value)
+      if (props.isOpen && canUseDOM) {
+        mountRef.value.id = 'chakra-portal'
+        container.appendChild(mountRef.value)
+        if (props.useInert) {
+          undoAriaHidden = hideOthers(mountNode.value)
+        }
+      }
+
+      onCleanup(() => {
+        if (props.useInert && undoAriaHidden != null) {
+          undoAriaHidden()
+        }
+        if (mountNode.value.parentElement) {
+          mountNode.value.parentElement.removeChild(mountNode.value)
+        }
+      })
+    }, { immediate: true })
 
     const modalContext = reactive({
       isOpen: props.isOpen,
@@ -188,11 +176,15 @@ const Modal = {
     }
 
     return () => {
-      return h(Portal, {
+      const children = context.slots.default()
+      if (mountRef.value.id === '') return
+
+      return h('MountingPortal', {
         props: {
-          targetNode: mountRef.id
+          mountTo: `#${mountRef.value.id}`,
+          append: true
         }
-      }, h(FocusTrap, {
+      }, [h(FocusTrap, {
         props: {
           returnFocusOnDeactivate: props.returnFocusOnClose && !props.finalFocusRef,
           initialFocus: props.initialFocusRef,
@@ -217,7 +209,7 @@ const Modal = {
             }
           }
         }
-      }, [context.slots.default()]))
+      }, children)])
     }
   }
 }

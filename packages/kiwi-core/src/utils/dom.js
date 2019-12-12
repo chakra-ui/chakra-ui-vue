@@ -36,3 +36,18 @@ export function getFocusables (element, keyboardOnly = false) {
 
   return focusableEls
 }
+
+/**
+ * @description Wraps and executes both user and internal event handlers for a single event
+ * @param {Function} theirHandler Userland event handler
+ * @param {*} ourHandler Internal Vue chakra event handler
+ */
+export const wrapEvent = (theirHandler, ourHandler) => event => {
+  if (theirHandler) {
+    theirHandler(event)
+  }
+
+  if (!event.defaultPrevented) {
+    return ourHandler(event)
+  }
+}

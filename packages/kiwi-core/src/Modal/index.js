@@ -1,13 +1,15 @@
-// import { forwardProps, cloneVNode } from '../utils'
+import { forwardProps, createUuid, getFocusables, wrapEvent } from '../utils'
+import { baseProps } from '../config/props'
 import props from './modal.props'
-import { ref, reactive, createElement as h, watch, onBeforeMount, provide } from '@vue/composition-api'
+import { ref, reactive, createElement as h, watch, inject, onBeforeMount, provide, toRefs } from '@vue/composition-api'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock/lib/bodyScrollLock.es6'
-// import { useTheme, useColorMode } from '../ThemeProvider'
-import { createUuid, getFocusables } from '../utils'
+import { useColorMode } from '../ThemeProvider'
+
 import canUseDOM from 'can-use-dom'
 import { hideOthers } from 'aria-hidden'
-// import Portal from '../Portal'
 import { FocusTrap } from 'focus-trap-vue'
+import Box from '../Box'
+import CloseButton from '../CloseButton'
 
 const ModalContext = Symbol('ModalContext')
 
@@ -41,8 +43,15 @@ const ModalContext = Symbol('ModalContext')
  *
  * For more about this please read Vue 3's new RFC on refs in the template.
  * @see https://vue-composition-api-rfc.netlify.com/api.html#ref
+ *
+ * TODO:
+ * 1) Modal should open and close without v-if directive.
+ * 2) Should mount chakra portal when is open is set to true.
  */
 
+/**
+  * Main Modal Root component
+  */
 const Modal = {
   name: 'Modal',
   props,
@@ -119,9 +128,9 @@ const Modal = {
       })
     })
 
-    // Before modal is mounted we append it to the DOM. Otherwise MountingPortal will not know where to place it's slot.
+    // Before modal content is mounted we append it's wrapper to the DOM. Otherwise MountingPortal will not know where to place it's slot.
     onBeforeMount(() => {
-      if (props.isOpen && canUseDOM) {
+      if (canUseDOM) {
         mountRef.value.id = 'chakra-portal'
         container.appendChild(mountRef.value)
       }
@@ -131,23 +140,20 @@ const Modal = {
     watch((onCleanup) => {
       let undoAriaHidden = null
       let mountNode = mountRef
-
       if (props.isOpen && canUseDOM) {
         mountRef.value.id = 'chakra-portal'
         container.appendChild(mountRef.value)
         if (props.useInert) {
           undoAriaHidden = hideOthers(mountNode.value)
         }
-      }
-
-      onCleanup(() => {
+      } else {
         if (props.useInert && undoAriaHidden != null) {
           undoAriaHidden()
         }
         if (mountNode.value.parentElement) {
           mountNode.value.parentElement.removeChild(mountNode.value)
         }
-      })
+      }
     }, { immediate: true })
 
     const modalContext = reactive({
@@ -170,10 +176,7 @@ const Modal = {
     })
 
     // Provide modal context to compound children components
-    provide(ModalContext, modalContext)
-    if (!props.isOpen) {
-      return null
-    }
+    provide(ModalContext, { ...toRefs(modalContext) })
 
     return () => {
       const children = context.slots.default()
@@ -187,16 +190,22 @@ const Modal = {
       }, [h(FocusTrap, {
         props: {
           returnFocusOnDeactivate: props.returnFocusOnClose && !props.finalFocusRef,
-          initialFocus: props.initialFocusRef,
+          // initialFocus: props.initialFocusRef,
           active: props.isOpen
         },
         on: {
           activate: () => {
-            if (props.initialFocusRef && props.initialFocusRef instanceof HTMLElement) {
-              props.initialFocusRef.focus()
+            if (props.initialFocusRef) {
+              if (props.initialFocusRef instanceof HTMLElement) {
+                props.initialFocusRef.focus()
+              } else if (props.initialFocusRef.$el) {
+                props.initialFocusRef.$el.focus()
+              } else if (typeof props.initialFocusRef === 'string') {
+                canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
+              }
             } else {
               if (contentRef.value) {
-                let focusables = getFocusables(contentRef.value)
+                let focusables = getFocusables(context.el)
                 if (focusables.length === 0) {
                   contentRef.value.focus()
                 }
@@ -205,16 +214,342 @@ const Modal = {
           },
           deactivate: () => {
             if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
-              props.finalFocusRef.current.focus()
+              props.finalFocusRef.focus()
+            } else if (props.finalFocusRef && props.finalFocusRef.$el) {
+              props.finalFocusRef.$el.focus()
+            } else if (typeof props.finalFocusRef === 'string') {
+              const finalFocusNode = document.querySelector(props.finalFocusRef)
+              if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
+              else canUseDOM && finalFocusNode.focus()
             }
           }
         }
-      }, children)])
+      }, [h('div', {}, children)])])
+    }
+  }
+}
+
+/**
+ * Modal Overlay
+ */
+const ModalOverlay = {
+  name: 'ModalOverlay',
+  props: {
+    forwardRef: HTMLElement,
+    ...baseProps
+  },
+  setup (props) {
+    return () => {
+      return h(Box, {
+        props: {
+          pos: 'fixed',
+          bg: 'rgba(0,0,0,0.4)',
+          left: '0',
+          top: '0',
+          w: '100vw',
+          h: '100vh',
+          ref: props.forwardRef,
+          zIndex: 'overlay',
+          ...forwardProps(props)
+        }
+      })
+    }
+  }
+}
+
+const ModalContent = {
+  name: 'ModalContent',
+  props: {
+    onClick: Function,
+    noStyles: Boolean,
+    forwardRef: HTMLElement,
+    // Need to figure out why this prop is sometimes not resolved.
+    // As a workaround I use the double pipe to default to 'modal' in the render function
+    zIndex: {
+      type: String,
+      default: 'modal'
+    },
+    ...baseProps
+  },
+  setup (props, context) {
+    // Should be reactive.
+    // Please consider using toRefs if this doesn't go as planned.
+    const {
+      contentRef,
+      onClose,
+      isCentered,
+      bodyId,
+      headerId,
+      contentId,
+      size,
+      closeOnEsc,
+      addAriaLabelledby,
+      addAriaDescribedby,
+      scrollBehavior,
+      closeOnOverlayClick
+    } = inject(ModalContext)
+
+    const colorMode = useColorMode()
+    const _contentRef = ref(null)
+    _contentRef.value = contentRef.value || props.forwardRef
+    const colorModeStyles = {
+      light: {
+        bg: 'white',
+        shadow: '0 7px 14px 0 rgba(0,0,0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07)'
+      },
+      dark: {
+        bg: 'gray.700',
+        shadow: `rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px`
+      }
+    }
+
+    const boxStyleProps = colorModeStyles[colorMode]
+    let wrapperStyle = {}
+    let contentStyle = {}
+
+    if (isCentered.value) {
+      wrapperStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }
+    } else {
+      contentStyle = {
+        top: '3.75rem',
+        mx: 'auto'
+      }
+    }
+
+    if (scrollBehavior.value === 'inside') {
+      wrapperStyle = {
+        ...wrapperStyle,
+        maxHeight: 'calc(100vh - 7.5rem)',
+        overflow: 'hidden',
+        top: '3.75rem'
+      }
+
+      contentStyle = {
+        ...contentStyle,
+        height: '100%',
+        top: 0
+      }
+    }
+
+    if (scrollBehavior.value === 'outside') {
+      wrapperStyle = {
+        ...wrapperStyle,
+        overflowY: 'auto',
+        overflowX: 'hidden'
+      }
+
+      contentStyle = {
+        ...contentStyle,
+        my: '3.75rem',
+        top: 0
+      }
+    }
+
+    if (props.noStyles) {
+      wrapperStyle = {}
+      contentStyle = {}
+    }
+    return () => {
+      return h(Box, {
+        props: {
+          pos: 'fixed',
+          left: '0',
+          top: '0',
+          w: '100%',
+          h: '100%',
+          zIndex: props.zIndex || 'modal',
+          ...wrapperStyle,
+          ...forwardProps(props)
+        },
+        on: {
+          click: (event) => {
+            event.stopPropagation()
+            if (closeOnOverlayClick.value) {
+              onClose.value(event, 'clickedOverlay')
+            }
+          },
+          keydown: (event) => {
+            if (event.key === 'Escape') {
+              event.stopPropagation()
+              if (closeOnEsc.value) {
+                onClose.value(event, 'pressedEscape')
+              }
+            }
+          }
+        }
+      }, [h(Box, {
+        props: {
+          as: 'section',
+          outline: 0,
+          maxWidth: size.value,
+          w: '100%',
+          pos: 'relative',
+          d: 'flex',
+          flexDir: 'column',
+          zIndex: props.zIndex,
+          ...boxStyleProps,
+          ...contentStyle,
+          ...forwardProps(props)
+        },
+        attrs: {
+          'aria-modal': 'true',
+          tabIndex: -1,
+          id: contentId.value,
+          ...(addAriaDescribedby.value && { 'aria-describedby': bodyId.value }),
+          ...(addAriaLabelledby.value && { 'aria-labelledby': headerId.value })
+        },
+        on: {
+          click: wrapEvent(props.onClick, event => event.stopPropagation())
+        },
+        ref: _contentRef.value
+      }, context.slots.default())])
+    }
+  }
+}
+
+/**
+ * Header Component for modal
+ */
+const ModalHeader = {
+  name: 'ModalHeader',
+  props: {
+    forwardRef: {
+      type: HTMLElement,
+      default: null
+    },
+    ...baseProps
+  },
+  setup (props, context) {
+    const { headerId } = inject(ModalContext)
+
+    return () => {
+      return h(Box, {
+        props: {
+          px: 6,
+          py: 4,
+          position: 'relative',
+          fontSize: 'xl',
+          fontWeight: 'semibold',
+          ...forwardProps(props)
+        },
+        attrs: {
+          id: headerId.value
+        },
+        ref: props.forwardRef
+      }, [context.slots.default()])
+    }
+  }
+}
+
+/**
+ * Footer Component for modal
+ */
+const ModalFooter = {
+  name: 'ModalFooter',
+  props: {
+    ...baseProps,
+    forwardRef: {
+      type: HTMLElement,
+      default: null
+    }
+  },
+  setup (props, context) {
+    return () => {
+      return h(Box, {
+        props: {
+          as: 'footer',
+          display: 'flex',
+          px: 6,
+          py: 4,
+          justifyContent: 'flex-end',
+          ...forwardProps(props)
+        },
+        ref: props.forwardRef
+      }, context.slots.default())
+    }
+  }
+}
+
+/**
+ * Modal Body Component for modal
+ */
+const ModalBody = {
+  name: 'ModalBody',
+  props: {
+    ...baseProps,
+    forwardRef: {
+      type: HTMLElement,
+      default: null
+    }
+  },
+  setup (props, context) {
+    const { bodyId, scrollBehavior } = inject(ModalContext)
+
+    let style = {}
+    if (scrollBehavior.value === 'inside') {
+      style = { overflowY: 'auto' }
+    }
+
+    return () => {
+      return h(Box, {
+        props: {
+          px: 6,
+          py: 2,
+          flex: 1,
+          ...style,
+          ...forwardProps(props)
+        },
+        attrs: {
+          id: bodyId.value
+        },
+        ref: props.forwardRef
+      }, context.slots.default())
+    }
+  }
+}
+
+/**
+ * Close Button for Modal
+ */
+const ModalCloseButton = {
+  name: 'ModalCloseButton',
+  props: {
+    ...baseProps,
+    forwardRef: {
+      type: HTMLElement,
+      default: null
+    }
+  },
+  setup (props, context) {
+    const { onClose } = inject(ModalContext)
+    return () => {
+      return h(CloseButton, {
+        props: {
+          position: 'absolute',
+          top: '8px',
+          right: '12px',
+          ...forwardProps(props)
+        },
+        on: {
+          click: wrapEvent(onClose.value, event => context.emit('click', event))
+        },
+        ref: props.forwardRef
+      })
     }
   }
 }
 
 // Modal Exports
 export {
-  Modal
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton
 }

@@ -1,17 +1,33 @@
 <template>
-  <theme-provider :theme="$kiwi.theme" :colorMode="colorMode" :icons="$kiwi.icons">
+  <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Button left-icon="star" mb="3" variant-color="blue" @click="enableTrap" variant="outline">Enable focus trap</Button>
-        <FocusTrap initial-focus="#favourite" return-focus-on-deactivate :active="active">
-          <ButtonGroup variant-color="indigo" is-attached>
-            <Button id="favourite" left-icon="star" variant="outline">Favourite</Button>
-            <Button left-icon="search">Search</Button>
-            <Button left-icon="not-allowed" variant="outline" @click="disableTrap">Disable Trap</Button>
-          </ButtonGroup>
-        </FocusTrap>
-        <Modal initial-focus-ref="#first-focus-button" :is-open="openValue">
-          <button id="first-focus-button">Focus on me</button>
+        <Button left-icon="check" mb="3" variant-color="blue" @click="showModal" variant="outline">Show Modal</Button>
+        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="orange" @click="showModal">I will receive focus when closed</Button>
+        <Modal
+          is-centered
+          :is-open="isOpen"
+          :on-close="modalClosed"
+          :final-focus-ref="$refs.final"
+          :initial-focus-ref="$refs.cancel"
+        >
+          <ModalContent ref="content" :content-ref="$refs.content">
+            <ModalHeader>Create your account</ModalHeader>
+            <ModalCloseButton @click="dismissModal" />
+            <ModalBody>
+              <KText fontWeight="bold" mb="1rem">
+                You can scroll the content behind the modal
+              </KText>
+              <Lorem add="2s" />
+            </ModalBody>
+            <ModalFooter>
+              <Button id="save" ref="save" variantColor="blue" mr="3">
+                Save
+              </Button>
+              <Button id="cancel" ref="cancel" @click="dismissModal">Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+          <ModalOverlay />
         </Modal>
       </div>
     </div>
@@ -19,44 +35,38 @@
 </template>
 
 <script lang="js">
-import { FocusTrap } from 'focus-trap-vue'
-import { ThemeProvider, Button, ButtonGroup, Modal } from 'kiwi-core'
+import Lorem from 'vue-lorem-ipsum'
+import { ThemeProvider, Button, Modal, Text as KText, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
     Button,
-    ButtonGroup,
-    FocusTrap,
-    Modal
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    KText,
+    Lorem
   },
   data () {
     return {
-      value: 0,
-      shouldActivateTrap: false,
-      lastFocusElement: null,
-      openValue: true,
-      colorMode: 'light'
+      isOpen: false
     }
-  },
-  computed: {
-    active () {
-      return this.shouldActivateTrap
-    }
-  },
-  mounted () {
-    const self = this
-    setInterval(() => {
-      self.openValue = !self.openValue
-    }, 5000)
   },
   methods: {
-    enableTrap () {
-      this.shouldActivateTrap = true
+    modalClosed (params) {
+      console.log('MODAL: Closed', params)
     },
-    disableTrap () {
-      this.shouldActivateTrap = false
+    showModal (params) {
+      this.isOpen = true
+    },
+    dismissModal (params) {
+      this.isOpen = false
     }
   }
 }

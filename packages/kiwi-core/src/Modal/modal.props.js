@@ -3,9 +3,12 @@ import { baseProps } from '../config/props'
 
 export default {
   isOpen: Boolean,
-  initialFocusRef: String,
-  finalFocusRef: [HTMLElement, Object],
-  onClose: Function,
+  initialFocusRef: [HTMLElement, Object, String],
+  finalFocusRef: [HTMLElement, Object, String],
+  onClose: {
+    type: Function,
+    default: () => null
+  },
   blockScrollOnMount: {
     type: Boolean,
     default: true

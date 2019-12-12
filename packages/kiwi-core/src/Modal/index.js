@@ -20,33 +20,16 @@ const ModalContext = Symbol('ModalContext')
  * primitive variables are treated.
  * Therefore, as Props, The modal component may expect some refs to DOM nodes as props.
  *
- * THESE VALUES SHOULD BE PASSED IN AS ALREADY UNWRAPPED VARIABLES.
- * This means that the modal will not access the ref value with the `.value` syntax
- * when it is received. All DOM refs passed in to the Modal component need to be instances
- * of `HTMLElement` and not wrapped values.
- *
- * Because of this the modal will focus them as follows:
- * Notice that the ref is not unwrapped before calling `.focus
- * ```js
- * props.initialFocusRef.focus()`
- * ```
- * Instead of:
- * ```js
- * props.initialFocusRef.value.focus()`
- * ```
- * Notice that this ref is still wrapped.
- *
- * This will allow us to handle internally created refs as wrapped values for reactivity
- * and treats incoming refs as pure DOM nodes. A fairly good standard/compromise.
- *
  * Happy to discuss this if need be.
- *
+ * ALL REF VALUES SHOULD BE PASSED IN AS ALREADY UNWRAPPED VARIABLES.
  * For more about this please read Vue 3's new RFC on refs in the template.
  * @see https://vue-composition-api-rfc.netlify.com/api.html#ref
  *
- * TODO:
+ * MODAL TODOS
  * 1) Modal should open and close without v-if directive.
- * 2) Should mount chakra portal when is open is set to true.
+ * 2) Should focus on focusable nodes in modal content by default
+ * 3) Enable body scroll lock conditionals
+ * 4) Entry / Exit Transitions
  */
 
 /**
@@ -205,7 +188,8 @@ const Modal = {
               }
             } else {
               if (contentRef.value) {
-                let focusables = getFocusables(context.el)
+                console.log(context)
+                let focusables = getFocusables(contentRef.value)
                 if (focusables.length === 0) {
                   contentRef.value.focus()
                 }

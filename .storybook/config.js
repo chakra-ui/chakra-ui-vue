@@ -1,11 +1,13 @@
 import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
 import { ThemeProvider } from 'kiwi-core'
 import theme from '../src/lib/theme'
 import icons from '../packages/kiwi-core/src/lib/internal-icons'
 import Kiwi from '../src/lib/plugin'
 import storyBookTheme from './theme'
 
+Vue.use(VueCompositionAPI)
 Vue.use(Kiwi)
 
 addParameters({

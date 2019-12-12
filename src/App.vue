@@ -2,14 +2,14 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <div class="wrapper">
-        <Button left-icon="check" mb="3" variant-color="blue" @click="showModal" variant="outline">Show Modal</Button>
-        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="orange" @click="showModal">I will receive focus when closed</Button>
+        <Button left-icon="check" mb="3" variant-color="blue" @click="showModal">Show Modal</Button>
+        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="blue" variant="outline">I will receive focus when closed</Button>
         <Modal
           is-centered
           :is-open="isOpen"
           :on-close="modalClosed"
+          :initial-focus-ref="$refs.save"
           :final-focus-ref="$refs.final"
-          :initial-focus-ref="$refs.cancel"
         >
           <ModalContent ref="content" :content-ref="$refs.content">
             <ModalHeader>Create your account</ModalHeader>

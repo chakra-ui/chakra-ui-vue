@@ -14,25 +14,6 @@ import CloseButton from '../CloseButton'
 const ModalContext = Symbol('ModalContext')
 
 /**
- * @description This verison of the Modal component is built whilst utilizing the
- * Vue 3 composition API plugin. Because of this, it has a few things things that
- * are little different. Inside of Vue 3's composition API, DOM refs are treated as other
- * primitive variables are treated.
- * Therefore, as Props, The modal component may expect some refs to DOM nodes as props.
- *
- * Happy to discuss this if need be.
- * ALL REF VALUES SHOULD BE PASSED IN AS ALREADY UNWRAPPED VARIABLES.
- * For more about this please read Vue 3's new RFC on refs in the template.
- * @see https://vue-composition-api-rfc.netlify.com/api.html#ref
- *
- * MODAL TODOS
- * 1) Modal should open and close without v-if directive.
- * 2) Should focus on focusable nodes in modal content by default
- * 3) Enable body scroll lock conditionals
- * 4) Entry / Exit Transitions
- */
-
-/**
   * Main Modal Root component
   */
 const Modal = {
@@ -111,7 +92,6 @@ const Modal = {
       })
     })
 
-    // Before modal content is mounted we append it's wrapper to the DOM. Otherwise MountingPortal will not know where to place it's slot.
     onBeforeMount(() => {
       if (canUseDOM) {
         mountRef.value.id = 'chakra-portal'
@@ -119,15 +99,15 @@ const Modal = {
       }
     })
 
-    // Here we set the entire DOM as inert and "aria-hidden" when the modal is open
-    watch((onCleanup) => {
-      let undoAriaHidden = null
+    let undoAriaHidden = null
+    watch(() => {
       let mountNode = mountRef
       if (props.isOpen && canUseDOM) {
         mountRef.value.id = 'chakra-portal'
         container.appendChild(mountRef.value)
         if (props.useInert) {
           undoAriaHidden = hideOthers(mountNode.value)
+          console.log('undoAriaHidden', undoAriaHidden)
         }
       } else {
         if (props.useInert && undoAriaHidden != null) {
@@ -137,7 +117,7 @@ const Modal = {
           mountNode.value.parentElement.removeChild(mountNode.value)
         }
       }
-    }, { immediate: true })
+    })
 
     const modalContext = reactive({
       isOpen: props.isOpen,
@@ -188,7 +168,6 @@ const Modal = {
               }
             } else {
               if (contentRef.value) {
-                console.log(context)
                 let focusables = getFocusables(contentRef.value)
                 if (focusables.length === 0) {
                   contentRef.value.focus()

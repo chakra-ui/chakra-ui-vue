@@ -45,48 +45,50 @@ const commons = {
  * Configurations
  */
 export default [
-  // {
-  //   input: 'src/index.js',
-  //   output: [
-  //     {
-  //       file: `dist/esm/index.js`,
-  //       format: 'esm'
-  //     }
-  //   ],
-  //   ...commons
-  // },
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        file: `dist/esm/index.js`,
+        format: 'esm',
+        exports: 'named'
+      }
+    ],
+    ...commons
+  },
   {
     input: 'src/index.js',
     output: [
       {
         file: `dist/es/index.js`,
-        format: 'es'
+        format: 'es',
+        exports: 'named'
+      }
+    ],
+    ...commons
+  },
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        name: 'KiwiUI',
+        file: `dist/umd/index.js`,
+        format: 'umd',
+        exports: 'named'
+      }
+    ],
+    ...commons
+  },
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        name: 'KiwiUI',
+        file: `dist/cjs/index.js`,
+        format: 'cjs',
+        exports: 'named'
       }
     ],
     ...commons
   }
-  // {
-  //   input: 'src/index.js',
-  //   output: [
-  //     {
-  //       name: 'KiwiUI',
-  //       file: `dist/umd/index.js`,
-  //       format: 'umd',
-  //       exports: 'named'
-  //     }
-  //   ],
-  //   ...commons
-  // },
-  // {
-  //   input: 'src/index.js',
-  //   output: [
-  //     {
-  //       name: 'KiwiUI',
-  //       file: `dist/cjs/index.js`,
-  //       format: 'cjs',
-  //       exports: 'named'
-  //     }
-  //   ],
-  //   ...commons
-  // }
 ]

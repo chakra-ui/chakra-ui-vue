@@ -20,17 +20,11 @@ You can also view all developed components in Storybook!
 This current verison of Kiwi uses a forked version of `vue-styled-components`. This will be replaced in the near future.
 
 #### Project TODO:
-- [x] Setup Storybook for components UI
-- [x] Theme Provider
-- [x] Develop styling scheme for components with styled components
-- [x] Setup Vue.js plugin system
-  - [x] Provide Theme
-  - [x] Observe theme and set it dynamically in javascript with ease.
-- [x] Provide icons API for icons component
-- [x] Accessibility (Focus) Styling
-- [x] Make Vue toaster API to render custom elements inside default slot
 - [ ] Make `createContext` API for Kiwi
   - [ ] This component should return provider and corresponding consumer. Should be used for component creation.
+- [ ] Explore named exports with rollup
+- [ ] Add vue plugin to rollup build?
+  - https://github.com/tournantdev/ui/blob/master/_build/rollup.config.js
 - [x] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
 

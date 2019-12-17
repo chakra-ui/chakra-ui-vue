@@ -68,7 +68,8 @@ export default [
     output: [
       {
         file: `dist/esm/index.js`,
-        format: 'esm'
+        format: 'esm',
+        exports: 'named'
       }
     ],
     ...commons
@@ -78,7 +79,8 @@ export default [
     output: [
       {
         file: `dist/es/index.js`,
-        format: 'es'
+        format: 'es',
+        exports: 'named'
       }
     ],
     ...commons

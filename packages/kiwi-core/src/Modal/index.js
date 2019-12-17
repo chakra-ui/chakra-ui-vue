@@ -1,4 +1,4 @@
-import { forwardProps, createUuid, getFocusables, wrapEvent } from '../utils'
+import { forwardProps, useUUID, getFocusables, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import props from './modal.props'
 import { ref, reactive, createElement as h, watch, inject, onBeforeMount, provide, toRefs } from '@vue/composition-api'
@@ -20,10 +20,7 @@ const Modal = {
   name: 'Modal',
   props,
   setup (props, context) {
-    // Maybe directly use inject syntax?
-    // It could be risky as the library gets larger.
-    // In which case it might be better to just use the useXXX util pattern.
-    const uuid = createUuid(4)
+    const uuid = useUUID(4)
     const contentRef = ref(null)
 
     // Initial props values
@@ -46,7 +43,6 @@ const Modal = {
     // Container in which modal portal target will be located
     const container = props.container || canUseDOM ? document.body : null
 
-    // Methods
     /**
      * Escape key press event handler for modal
      * @param {Event} event Keyboard Event
@@ -67,7 +63,6 @@ const Modal = {
       addAriaDescribedby = props.addAriaLabels
     }
 
-    // When modal is open we block body scroll.
     watch((onCleanup) => {
       const dialogNode = contentRef.value
       if (props.isOpen && props.blockScrollOnMount) {
@@ -75,19 +70,15 @@ const Modal = {
           reserveScrollBarGap: props.preserveScrollBarGap
         })
       }
-
-      // Re-enable body scroll when the modal component is unmounted
       onCleanup(() => enableBodyScroll(dialogNode))
     })
 
-    // Keyboad event listener handlers
     watch((onCleanup) => {
       if (props.isOpen && !props.closeOnOverlayClick) {
         canUseDOM && document.addEventListener('keydown', handler)
       }
 
       onCleanup(() => {
-        // Remove event listeners when modal is unmounted
         canUseDOM && document.removeEventListener('keydown', handler)
       })
     })
@@ -107,7 +98,6 @@ const Modal = {
         container.appendChild(mountRef.value)
         if (props.useInert) {
           undoAriaHidden = hideOthers(mountNode.value)
-          console.log('undoAriaHidden', undoAriaHidden)
         }
       } else {
         if (props.useInert && undoAriaHidden != null) {
@@ -141,9 +131,40 @@ const Modal = {
     // Provide modal context to compound children components
     provide(ModalContext, { ...toRefs(modalContext) })
 
+    // Methods
+    const activateFocusLock = () => {
+      if (props.initialFocusRef) {
+        if (props.initialFocusRef instanceof HTMLElement) {
+          props.initialFocusRef.focus()
+        } else if (props.initialFocusRef.$el) {
+          props.initialFocusRef.$el.focus()
+        } else if (typeof props.initialFocusRef === 'string') {
+          canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
+        }
+      } else {
+        if (contentRef.value) {
+          let focusables = getFocusables(contentRef.value)
+          if (focusables.length === 0) {
+            contentRef.value.focus()
+          }
+        }
+      }
+    }
+
+    const deactivateFocusLock = () => {
+      if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
+        props.finalFocusRef.focus()
+      } else if (props.finalFocusRef && props.finalFocusRef.$el) {
+        props.finalFocusRef.$el.focus()
+      } else if (typeof props.finalFocusRef === 'string') {
+        const finalFocusNode = document.querySelector(props.finalFocusRef)
+        if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
+        else canUseDOM && finalFocusNode.focus()
+      }
+    }
+
     return () => {
       const children = context.slots.default()
-      if (mountRef.value.id === '') return
 
       return h('MountingPortal', {
         props: {
@@ -153,39 +174,11 @@ const Modal = {
       }, [h(FocusTrap, {
         props: {
           returnFocusOnDeactivate: props.returnFocusOnClose && !props.finalFocusRef,
-          // initialFocus: props.initialFocusRef,
           active: props.isOpen
         },
         on: {
-          activate: () => {
-            if (props.initialFocusRef) {
-              if (props.initialFocusRef instanceof HTMLElement) {
-                props.initialFocusRef.focus()
-              } else if (props.initialFocusRef.$el) {
-                props.initialFocusRef.$el.focus()
-              } else if (typeof props.initialFocusRef === 'string') {
-                canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
-              }
-            } else {
-              if (contentRef.value) {
-                let focusables = getFocusables(contentRef.value)
-                if (focusables.length === 0) {
-                  contentRef.value.focus()
-                }
-              }
-            }
-          },
-          deactivate: () => {
-            if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
-              props.finalFocusRef.focus()
-            } else if (props.finalFocusRef && props.finalFocusRef.$el) {
-              props.finalFocusRef.$el.focus()
-            } else if (typeof props.finalFocusRef === 'string') {
-              const finalFocusNode = document.querySelector(props.finalFocusRef)
-              if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
-              else canUseDOM && finalFocusNode.focus()
-            }
-          }
+          activate: activateFocusLock,
+          deactivate: deactivateFocusLock
         }
       }, [h('div', {}, children)])])
     }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/codebender828/kiwi-ui/compare/akkadu-genesis-ds@1.0.18...akkadu-genesis-ds@1.0.19) (2019-12-17)
+
+
+### Bug Fixes
+
+* **modal:** undo aria hidden fix ([e90451b](https://github.com/codebender828/kiwi-ui/commit/e90451bf53bf7a7f8f8759ead31148881a139958))
+
+
+
+
+
 ## [1.0.18](https://github.com/codebender828/kiwi-ui/compare/akkadu-genesis-ds@1.0.17...akkadu-genesis-ds@1.0.18) (2019-12-07)
 
 **Note:** Version bump only for package akkadu-genesis-ds

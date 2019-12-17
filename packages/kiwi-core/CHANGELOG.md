@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.3.0...kiwi-core@1.3.1) (2019-12-17)
+
+**Note:** Version bump only for package kiwi-core
+
+
+
+
+
 # [1.3.0](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.2.3...kiwi-core@1.3.0) (2019-12-17)
 
 

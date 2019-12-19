@@ -8,8 +8,6 @@
           is-centered
           :is-open="isOpen"
           :on-close="modalClosed"
-          :initial-focus-ref="$refs.save"
-          :final-focus-ref="$refs.final"
         >
           <ModalContent ref="content" :content-ref="$refs.content">
             <ModalHeader>Create your account</ModalHeader>

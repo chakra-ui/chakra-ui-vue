@@ -1,4 +1,4 @@
-import { inject, toRefs } from '@vue/composition-api'
+import { inject, computed } from '@vue/composition-api'
 
 const ThemeProvider = {
   name: 'ThemeProvider',
@@ -29,9 +29,10 @@ const ThemeProvider = {
 }
 
 export function useTheme () {
-  const theme = inject('$theme')
+  const $theme = inject('$theme')
+  const theme = computed(() => $theme())
   return {
-    ...toRefs(theme())
+    theme
   }
 }
 

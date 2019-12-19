@@ -3,7 +3,6 @@ import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from 'kiwi-core'
 import theme from './lib/theme'
-import VueCompositionApi from '@vue/composition-api'
 
 // Import FA Icons
 import { faCoffee,
@@ -18,8 +17,6 @@ import {
   faChevronCircleUp,
   faSearch,
   faTimesCircle } from '@fortawesome/pro-light-svg-icons'
-
-Vue.use(VueCompositionApi)
 
 Vue.config.productionTip = false
 

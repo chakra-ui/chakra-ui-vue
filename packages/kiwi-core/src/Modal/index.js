@@ -228,8 +228,6 @@ const ModalContent = {
     ...baseProps
   },
   setup (props, context) {
-    // Should be reactive.
-    // Please consider using toRefs if this doesn't go as planned.
     const {
       contentRef,
       onClose,
@@ -347,6 +345,7 @@ const ModalContent = {
           d: 'flex',
           flexDir: 'column',
           zIndex: props.zIndex,
+          fontFamily: 'body',
           ...boxStyleProps,
           ...contentStyle,
           ...forwardProps(props)

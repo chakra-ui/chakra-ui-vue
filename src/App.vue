@@ -1,6 +1,7 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
+      <CSSReset />
       <div class="wrapper">
         <Button left-icon="check" mb="3" variant-color="blue" @click="showModal">Show Modal</Button>
         <Button left-icon="star" id="final" ref="final" mb="3" variant-color="blue" variant="outline">I will receive focus when closed</Button>
@@ -34,7 +35,7 @@
 
 <script lang="js">
 import Lorem from 'vue-lorem-ipsum'
-import { ThemeProvider, Button, Modal, Text as KText, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from 'kiwi-core'
+import { ThemeProvider, Button, Modal, Text as KText, ModalOverlay, CSSReset, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from 'kiwi-core'
 
 export default {
   name: 'App',
@@ -49,7 +50,8 @@ export default {
     ModalBody,
     ModalCloseButton,
     KText,
-    Lorem
+    Lorem,
+    CSSReset
   },
   data () {
     return {

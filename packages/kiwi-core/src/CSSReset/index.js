@@ -39,6 +39,7 @@ export default {
      * in Firefox and Safari on MacOS. Maybe it's intentional that when you click a button,
      * It by default doesn not become the active element.
      */
+
     // const focusFirefoxButtonsOnClick = () => {
     //   document.addEventListener('click', function (event) {
     //     if (event.target.matches('button')) {

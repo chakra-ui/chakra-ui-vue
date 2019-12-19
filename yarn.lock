@@ -3586,6 +3586,11 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+animejs@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.1.0.tgz#748a90fc1d4bef3efed64508af9a6a82babf5c47"
+  integrity sha512-BjnCroPPQPEAngT0M89pz9TBcOGgOFLnVoq3+jV2upl4rn60k57/AXvESTnuILsNgOEjGuhMEOMp7IlQzk40kA==
+
 ansi-align@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.0.tgz#b536b371cf687caaef236c18d3e21fe3797467cb"
@@ -5170,10 +5175,12 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-breadstick@^0.1.17:
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/breadstick/-/breadstick-0.1.17.tgz#6ac06c0d2c3e9876ca6cd41b464f26b367ac1e17"
-  integrity sha512-EMjcXs8NCPHAUFgjyw6FoB9A2BMEGHcf8ujRUXf1UJOe0we22V2AJBtICExbzfInzmP77mkgjXsngRV6XmYOlQ==
+breadstick@^0.1.21:
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/breadstick/-/breadstick-0.1.21.tgz#c2058513fff2b22d3179560e345b5da75f8ade0a"
+  integrity sha512-C/gVJJzCVUxj8cz7TI761wBrb3QgqmZIsC5Qz4r5IQpDCQOO0jCyG9RmPeJXcOJpdP3JrVAA4uxMqViefj1VpA==
+  dependencies:
+    animejs "^3.1.0"
 
 brorand@^1.0.1:
   version "1.1.0"
@@ -18047,11 +18054,6 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
-
-velocity-animate@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.2.tgz#5a351d75fca2a92756f5c3867548b873f6c32105"
-  integrity sha512-m6EXlCAMetKztO1ppBhGU1/1MR3IiEevO6ESq6rcrSQ3Q77xYSW13jkfXW88o4xMrkXJhy/U7j4wFR/twMB0Eg==
 
 vendors@^1.0.0:
   version "1.0.3"

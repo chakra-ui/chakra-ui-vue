@@ -4,7 +4,6 @@ import props from './modal.props'
 import { ref, reactive, createElement as h, watch, inject, onBeforeMount, provide, toRefs } from '@vue/composition-api'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock/lib/bodyScrollLock.es6'
 import { useColorMode } from '../ThemeProvider'
-
 import canUseDOM from 'can-use-dom'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
@@ -99,6 +98,7 @@ const Modal = {
         if (props.useInert) {
           undoAriaHidden = hideOthers(mountNode.value)
         }
+        contentRef.value = document.getElementById(contentId)
       } else {
         if (props.useInert && undoAriaHidden != null) {
           undoAriaHidden()
@@ -146,6 +146,9 @@ const Modal = {
           let focusables = getFocusables(contentRef.value)
           if (focusables.length === 0) {
             contentRef.value.focus()
+          } else {
+            const [el] = focusables
+            el instanceof HTMLElement && el.focus()
           }
         }
       }

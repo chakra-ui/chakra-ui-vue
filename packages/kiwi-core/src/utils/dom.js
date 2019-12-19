@@ -33,7 +33,6 @@ export function getFocusables (element, keyboardOnly = false) {
       focusableEl => focusableEl.getAttribute('tabindex') !== '-1'
     )
   }
-
   return focusableEls
 }
 

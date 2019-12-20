@@ -76,7 +76,6 @@ export default {
         fontSize: 'md',
         fontWeight: '700',
         border: 'none',
-        transition: 'all 0.2s ease-in',
         rounded: 'md',
         width: this.isFullWidth ? 'full' : undefined,
         ...buttonStyles,

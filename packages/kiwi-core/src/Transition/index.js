@@ -1,3 +1,14 @@
+import { createElement as h } from '@vue/composition-api'
+import anime from 'animejs'
+
+// Easing function from d3-ease: https://github.com/d3/d3-ease/blob/master/src/exp.js
+// function expOut(t) {
+//   return 1 - Math.pow(2, -10 * t);
+// }
+
+const enterEasing = 'spring(1, 100, 50, 0)'
+const leaveEasing = 'spring(1, 100, 70, 0)'
+
 const Slide = {
   name: 'Slide',
   props: {
@@ -65,8 +76,53 @@ const Slide = {
       }
     }
 
-    const { transform, offset } = transitionOptions[props.from]
-    console.log(transform, offset, placements)
+    console.log(placements)
+
+    const transitions = {
+      enter: {
+        translateX: ['0%', transitionOptions[props.from]['offset']],
+        opacity: 1
+        // ...placements[props.from]
+      },
+      leave: {
+        translateX: [transitionOptions[props.from]['offset'], '0%'],
+        opacity: 0
+      }
+    }
+
+    const enter = (el, complete) => {
+      const transition = transitions['enter']
+      anime({
+        targets: el,
+        ...transition,
+        complete,
+        easing: enterEasing
+      })
+    }
+
+    const leave = (el, complete) => {
+      const transition = transitions['leave']
+      anime({
+        targets: el,
+        ...transition,
+        complete,
+        easing: leaveEasing
+      })
+    }
+
+    return () => {
+      const children = context.slots.default()
+      const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
+      return h(TransitionElement, {
+        props: {
+          css: false
+        },
+        on: {
+          enter,
+          leave
+        }
+      }, props.in && context.slots.default())
+    }
   }
 }
 

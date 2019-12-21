@@ -1,10 +1,29 @@
 import { computed, createElement as h } from '@vue/composition-api'
 import anime from 'animejs'
 
-// Easing function from d3-ease: https://github.com/d3/d3-ease/blob/master/src/exp.js
-// function expOut(t) {
-//   return 1 - Math.pow(2, -10 * t);
-// }
+/**
+ * Renders transition component's children
+ * @param {Vue.PropOptions} props Current VNode props
+ * @param {Vue.RenderContext} context Current VNode's render context
+ * @param {{enter: Function, leave: Function}} handlers Transition event handlers
+ * @returns {Vue.VNode} Children
+ */
+function renderChildren (props, context, { enter, leave }) {
+  const children = context.slots.default()
+  const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
+  return h(TransitionElement, {
+    props: {
+      css: false
+    },
+    on: {
+      beforeEnter (el) {
+        el && el.style.setProperty('will-change', 'opacity, transform')
+      },
+      enter,
+      leave
+    }
+  }, props.in && context.slots.default())
+}
 
 const enterEasing = 'spring(1, 100, 50, 0)'
 const leaveEasing = 'spring(1, 100, 70, 0)'
@@ -33,36 +52,6 @@ const Slide = {
     easing: String
   },
   setup (props, context) {
-    // TODO: Apply placements to the child node.
-    // let placements = {
-    //   bottom: {
-    //     maxWidth: '100vw',
-    //     height: props.finalHeight,
-    //     bottom: 0,
-    //     left: 0,
-    //     right: 0
-    //   },
-    //   top: {
-    //     maxWidth: '100vw',
-    //     height: props.finalHeight,
-    //     top: 0,
-    //     left: 0,
-    //     right: 0
-    //   },
-    //   left: {
-    //     ...(props.finalWidth && { maxWidth: props.finalWidth }),
-    //     height: '100vh',
-    //     left: 0,
-    //     top: 0
-    //   },
-    //   right: {
-    //     ...(props.finalWidth && { maxWidth: props.finalWidth }),
-    //     right: 0,
-    //     top: 0,
-    //     height: '100vh'
-    //   }
-    // }
-
     let transitionOptions = {
       bottom: {
         offset: '-100%',
@@ -114,19 +103,7 @@ const Slide = {
       })
     }
 
-    return () => {
-      const children = context.slots.default()
-      const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
-      return h(TransitionElement, {
-        props: {
-          css: false
-        },
-        on: {
-          enter,
-          leave
-        }
-      }, props.in && context.slots.default())
-    }
+    return () => renderChildren(props, context, { enter, leave })
   }
 }
 
@@ -164,23 +141,50 @@ const Scale = {
       })
     }
 
-    return () => {
-      const children = context.slots.default()
-      const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
-      return h(TransitionElement, {
-        props: {
-          css: false
-        },
-        on: {
-          enter,
-          leave
-        }
-      }, props.in && context.slots.default())
+    return () => renderChildren(props, context, { enter, leave })
+  }
+}
+
+const SlideIn = {
+  name: 'SlideIn',
+  props: {
+    in: Boolean,
+    offset: {
+      type: String,
+      default: '10px'
+    },
+    duration: {
+      type: Number,
+      default: 150
     }
+  },
+  setup (props, context) {
+    const enter = (el, complete) => {
+      anime({
+        targets: el,
+        opacity: [0, 1],
+        translateY: [props.offset, '0px'],
+        easing: enterEasing,
+        complete
+      })
+    }
+
+    const leave = (el, complete) => {
+      anime({
+        targets: el,
+        opacity: [1, 0],
+        translateY: ['0px', props.offset],
+        easing: leaveEasing,
+        complete
+      })
+    }
+
+    return () => renderChildren(props, context, { enter, leave })
   }
 }
 
 export {
   Slide,
-  Scale
+  Scale,
+  SlideIn
 }

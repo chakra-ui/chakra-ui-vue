@@ -24,10 +24,7 @@ const Slide = {
       type: String,
       default: 'auto'
     },
-    from: {
-      type: String,
-      default: 'right'
-    },
+    from: String,
     finalWidth: String,
     delay: {
       type: Number,

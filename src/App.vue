@@ -3,7 +3,6 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
-        {{ from }}
         <Slide
           :in="showButton"
           :from="from"

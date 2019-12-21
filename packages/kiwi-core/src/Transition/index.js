@@ -33,6 +33,7 @@ const Slide = {
     easing: String
   },
   setup (props, context) {
+    // TODO: Apply placements to the child node.
     // let placements = {
     //   bottom: {
     //     maxWidth: '100vw',
@@ -115,7 +116,56 @@ const Slide = {
 
     return () => {
       const children = context.slots.default()
-      console.log(children)
+      const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
+      return h(TransitionElement, {
+        props: {
+          css: false
+        },
+        on: {
+          enter,
+          leave
+        }
+      }, props.in && context.slots.default())
+    }
+  }
+}
+
+const Scale = {
+  name: 'Scale',
+  props: {
+    in: Boolean,
+    initialScale: {
+      type: Number,
+      default: 0.97
+    },
+    duration: {
+      type: Number,
+      default: 150
+    }
+  },
+  setup (props, context) {
+    const enter = (el, complete) => {
+      anime({
+        targets: el,
+        opacity: [0, 1],
+        scale: [props.initialScale, 1],
+        easing: enterEasing,
+        complete
+      })
+    }
+
+    const leave = (el, complete) => {
+      anime({
+        targets: el,
+        opacity: [1, 0],
+        scale: [1, props.initialScale],
+        easing: leaveEasing,
+        complete
+      })
+    }
+
+    return () => {
+      const children = context.slots.default()
       const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
       return h(TransitionElement, {
         props: {
@@ -131,5 +181,6 @@ const Slide = {
 }
 
 export {
-  Slide
+  Slide,
+  Scale
 }

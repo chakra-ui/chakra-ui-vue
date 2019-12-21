@@ -1,4 +1,4 @@
-import { computed, createElement as h } from '@vue/composition-api'
+import { computed, createElement as h, reactive, provide, toRefs } from '@vue/composition-api'
 import anime from 'animejs'
 import { isUndef } from '../utils'
 
@@ -60,6 +60,37 @@ const Slide = {
       console.error('[Chakra]: The Slide component expected prop "from" but none was passed.')
       return () => null
     }
+
+    let placements = reactive({
+      bottom: {
+        maxWidth: '100vw',
+        height: props.finalHeight,
+        bottom: 0,
+        left: 0,
+        right: 0
+      },
+      top: {
+        maxWidth: '100vw',
+        height: props.finalHeight,
+        top: 0,
+        left: 0,
+        right: 0
+      },
+      left: {
+        ...(props.finalWidth && { maxWidth: props.finalWidth }),
+        height: '100vh',
+        left: 0,
+        top: 0
+      },
+      right: {
+        ...(props.finalWidth && { maxWidth: props.finalWidth }),
+        right: 0,
+        top: 0,
+        height: '100vh'
+      }
+    })
+
+    provide('SlidePlacementStyles', { ...toRefs(placements[props.from]) })
 
     let transitionOptions = {
       bottom: {

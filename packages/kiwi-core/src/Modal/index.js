@@ -254,9 +254,6 @@ const ModalContent = {
       closeOnOverlayClick
     } = inject(ModalContext)
 
-    console.log('closeOnOverlayClick', closeOnOverlayClick.value)
-    console.log('closeOnEsc', closeOnEsc.value)
-
     const colorMode = useColorMode()
     const _contentRef = ref(null)
     _contentRef.value = contentRef.value || props.forwardRef

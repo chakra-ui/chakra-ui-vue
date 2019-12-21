@@ -11,17 +11,15 @@ storiesOf('UI | Modal', module)
     template: `
       <div>
         <Button left-icon="check" mb="3" variant-color="blue" @click="showModal" variant="outline">Show Modal</Button>
-        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="orange">I will receive focus when closed</Button>
         <Modal
           is-centered
           :is-open="isOpen"
-          :on-close="modalClosed"
+          :on-close="dismissModal"
           :initial-focus-ref="$refs.save"
-          :final-focus-ref="$refs.final"
         >
           <ModalContent ref="content" :content-ref="$refs.content">
             <ModalHeader>Create your account</ModalHeader>
-            <ModalCloseButton @click="dismissModal" />
+            <ModalCloseButton />
             <ModalBody>
               <KText fontWeight="bold" mb="1rem">
                 You can scroll the content behind the modal
@@ -46,9 +44,6 @@ storiesOf('UI | Modal', module)
     },
     methods: {
       action: action('Button Clicked'),
-      modalClosed (params) {
-        action('MODAL: Closed', params)
-      },
       showModal () {
         action('Showing modal')
         this.isOpen = true

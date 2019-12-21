@@ -3,20 +3,20 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
-        <SlideIn
+        <Slide
           :in="showButton"
         >
           <Box px="6" key="1" py="4" bg="yellow.300">
             <Button key="button" left-icon="check" variant-color="blue">Show Modal</Button>
           </Box>
-        </SlideIn>
+        </Slide>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Button, SlideIn, CSSReset, Box } from 'kiwi-core'
+import { ThemeProvider, Button, Slide, CSSReset, Box } from 'kiwi-core'
 
 export default {
   name: 'App',
@@ -25,7 +25,7 @@ export default {
     Button,
     Box,
     CSSReset,
-    SlideIn
+    Slide
   },
   data () {
     return {

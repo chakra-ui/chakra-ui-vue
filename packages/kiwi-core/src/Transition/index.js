@@ -1,5 +1,6 @@
 import { computed, createElement as h } from '@vue/composition-api'
 import anime from 'animejs'
+import { isUndef } from '../utils'
 
 /**
  * Renders transition component's children
@@ -43,7 +44,10 @@ const Slide = {
       type: String,
       default: 'auto'
     },
-    from: String,
+    from: {
+      type: String,
+      validator: (value) => value.match(/^(top|right|bottom|left)$/)
+    },
     finalWidth: String,
     delay: {
       type: Number,
@@ -52,6 +56,11 @@ const Slide = {
     easing: String
   },
   setup (props, context) {
+    if (isUndef(props.from)) {
+      console.error('[Chakra]: The Slide component expected prop "from" but none was passed.')
+      return () => null
+    }
+
     let transitionOptions = {
       bottom: {
         offset: '-100%',

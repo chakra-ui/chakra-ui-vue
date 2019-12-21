@@ -1,4 +1,4 @@
-import { createElement as h } from '@vue/composition-api'
+import { computed, createElement as h } from '@vue/composition-api'
 import anime from 'animejs'
 
 // Easing function from d3-ease: https://github.com/d3/d3-ease/blob/master/src/exp.js
@@ -24,89 +24,95 @@ const Slide = {
       type: String,
       default: 'auto'
     },
-    from: String,
-    finalWidth: String
+    from: {
+      type: String,
+      default: 'right'
+    },
+    finalWidth: String,
+    delay: {
+      type: Number,
+      default: 0
+    },
+    easing: String
   },
   setup (props, context) {
-    let placements = {
-      bottom: {
-        maxWidth: '100vw',
-        height: props.finalHeight,
-        bottom: 0,
-        left: 0,
-        right: 0
-      },
-      top: {
-        maxWidth: '100vw',
-        height: props.finalHeight,
-        top: 0,
-        left: 0,
-        right: 0
-      },
-      left: {
-        ...(props.finalWidth && { maxWidth: props.finalWidth }),
-        height: '100vh',
-        left: 0,
-        top: 0
-      },
-      right: {
-        ...(props.finalWidth && { maxWidth: props.finalWidth }),
-        right: 0,
-        top: 0,
-        height: '100vh'
-      }
-    }
+    // let placements = {
+    //   bottom: {
+    //     maxWidth: '100vw',
+    //     height: props.finalHeight,
+    //     bottom: 0,
+    //     left: 0,
+    //     right: 0
+    //   },
+    //   top: {
+    //     maxWidth: '100vw',
+    //     height: props.finalHeight,
+    //     top: 0,
+    //     left: 0,
+    //     right: 0
+    //   },
+    //   left: {
+    //     ...(props.finalWidth && { maxWidth: props.finalWidth }),
+    //     height: '100vh',
+    //     left: 0,
+    //     top: 0
+    //   },
+    //   right: {
+    //     ...(props.finalWidth && { maxWidth: props.finalWidth }),
+    //     right: 0,
+    //     top: 0,
+    //     height: '100vh'
+    //   }
+    // }
 
     let transitionOptions = {
       bottom: {
-        offset: '100%',
-        transform: y => `translateY(${y})`
+        offset: '-100%',
+        transform: 'translateY'
       },
       top: {
-        offset: '-100%',
-        transform: y => `translateY(${y})`
+        offset: '100%',
+        transform: 'translateY'
       },
       left: {
         offset: '-100%',
-        transform: x => `translateX(${x})`
+        transform: 'translateX'
       },
       right: {
         offset: '100%',
-        transform: x => `translateX(${x})`
+        transform: 'translateX'
       }
     }
 
-    console.log(placements)
-
-    const transitions = {
-      enter: {
-        translateX: ['0%', transitionOptions[props.from]['offset']],
-        opacity: 1
-        // ...placements[props.from]
-      },
-      leave: {
-        translateX: [transitionOptions[props.from]['offset'], '0%'],
-        opacity: 0
+    const transform = computed(() => transitionOptions[props.from].transform)
+    const transitions = computed(() => {
+      return {
+        enter: {
+          [transform.value]: ['0%', transitionOptions[props.from]['offset']],
+          opacity: [0, 1]
+        },
+        leave: {
+          [transform.value]: [transitionOptions[props.from]['offset'], '0%'],
+          opacity: 0
+        }
       }
-    }
+    })
 
     const enter = (el, complete) => {
-      const transition = transitions['enter']
       anime({
         targets: el,
-        ...transition,
+        ...transitions.value['enter'],
         complete,
-        easing: enterEasing
+        easing: props.easing || enterEasing
       })
     }
 
     const leave = (el, complete) => {
-      const transition = transitions['leave']
       anime({
         targets: el,
-        ...transition,
+        ...transitions.value['leave'],
         complete,
-        easing: leaveEasing
+        easing: props.easing || leaveEasing
       })
     }
 

@@ -3,12 +3,14 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
+        {{ from }}
         <Slide
           :in="showButton"
-          from="right"
+          :from="from"
           final-width="auto"
+          :stagger="300"
         >
-          <Box px="6" py="4" bg="yellow.300">
+          <Box px="6" key="1" py="4" bg="yellow.300">
             <Button key="button" left-icon="check" variant-color="blue">Show Modal</Button>
           </Box>
         </Slide>
@@ -31,13 +33,14 @@ export default {
   },
   data () {
     return {
-      showButton: false
+      showButton: false,
+      from: 'bottom'
     }
   },
   mounted () {
-    setInterval(() => {
-      this.showButton = !this.showButton
-    }, 5000)
+    // setInterval(() => {
+    //   this.showButton = !this.showButton
+    // }, 5000)
   }
 }
 </script>

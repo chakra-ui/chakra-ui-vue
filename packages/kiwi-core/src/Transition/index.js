@@ -71,11 +71,11 @@ const Slide = {
         transform: 'translateY'
       },
       left: {
-        offset: '-100%',
+        offset: '100%',
         transform: 'translateX'
       },
       right: {
-        offset: '100%',
+        offset: '-100%',
         transform: 'translateX'
       }
     }

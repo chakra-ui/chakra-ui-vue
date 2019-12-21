@@ -4,6 +4,7 @@
       <CSSReset />
       <div class="wrapper">
         <Slide
+          :from="from"
           :in="showButton"
         >
           <Box px="6" key="1" py="4" bg="yellow.300">

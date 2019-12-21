@@ -133,37 +133,45 @@ const Modal = {
 
     // Methods
     const activateFocusLock = () => {
-      if (props.initialFocusRef) {
-        if (props.initialFocusRef instanceof HTMLElement) {
-          props.initialFocusRef.focus()
-        } else if (props.initialFocusRef.$el) {
-          props.initialFocusRef.$el.focus()
-        } else if (typeof props.initialFocusRef === 'string') {
-          canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
-        }
-      } else {
-        if (contentRef.value) {
-          let focusables = getFocusables(contentRef.value)
-          if (focusables.length === 0) {
-            contentRef.value.focus()
-          } else {
-            const [el] = focusables
-            el instanceof HTMLElement && el.focus()
+      // We need to defer this procedure to the next browser tick because elements
+      // may not yet be in the DOM.
+      context.root.$nextTick(() => {
+        if (props.initialFocusRef) {
+          if (props.initialFocusRef instanceof HTMLElement) {
+            props.initialFocusRef.focus()
+          } else if (props.initialFocusRef.$el) {
+            props.initialFocusRef.$el.focus()
+          } else if (typeof props.initialFocusRef === 'string') {
+            canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
+          }
+        } else {
+          if (contentRef.value) {
+            let focusables = getFocusables(contentRef.value)
+            if (focusables.length === 0) {
+              contentRef.value.focus()
+            } else {
+              const [el] = focusables
+              el instanceof HTMLElement && el.focus()
+            }
           }
         }
-      }
+      })
     }
 
     const deactivateFocusLock = () => {
-      if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
-        props.finalFocusRef.focus()
-      } else if (props.finalFocusRef && props.finalFocusRef.$el) {
-        props.finalFocusRef.$el.focus()
-      } else if (typeof props.finalFocusRef === 'string') {
-        const finalFocusNode = document.querySelector(props.finalFocusRef)
-        if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
-        else canUseDOM && finalFocusNode.focus()
-      }
+      // We need to defer this procedure to the next browser tick because elements
+      // may not yet be in the DOM.
+      context.root.$nextTick(() => {
+        if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
+          props.finalFocusRef.focus()
+        } else if (props.finalFocusRef && props.finalFocusRef.$el) {
+          props.finalFocusRef.$el.focus()
+        } else if (typeof props.finalFocusRef === 'string') {
+          const finalFocusNode = document.querySelector(props.finalFocusRef)
+          if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
+          else canUseDOM && finalFocusNode.focus()
+        }
+      })
     }
 
     return () => {
@@ -245,6 +253,9 @@ const ModalContent = {
       scrollBehavior,
       closeOnOverlayClick
     } = inject(ModalContext)
+
+    console.log('closeOnOverlayClick', closeOnOverlayClick.value)
+    console.log('closeOnEsc', closeOnEsc.value)
 
     const colorMode = useColorMode()
     const _contentRef = ref(null)

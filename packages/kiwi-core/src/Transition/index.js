@@ -115,6 +115,7 @@ const Slide = {
 
     return () => {
       const children = context.slots.default()
+      console.log(children)
       const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
       return h(TransitionElement, {
         props: {

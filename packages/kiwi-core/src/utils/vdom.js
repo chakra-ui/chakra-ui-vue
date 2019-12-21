@@ -1,3 +1,5 @@
+import { isDef } from './validators'
+
 /**
  * Clones a single VNode
  * @param {Vue.VNode} vnodes VNode to be cloned
@@ -27,4 +29,29 @@ export function cloneVNode (vnode, createElement) {
 export function cloneVNodes (vnodes, createElement) {
   const clonedVNodes = vnodes.map(vnode => cloneVNode(vnode, createElement))
   return clonedVNodes
+}
+
+/**
+ * Checks whether a vnode is an async placeholder
+ * @param {Vue.VNode} node
+ * @returns {Boolean}
+ */
+function isAsyncPlaceholder (node) {
+  return node.isComment && node.asyncFactory
+}
+
+/**
+ * Get's the first child component VNode from an array of VNodes
+ * @param {Array<Vue.VNode>} children
+ * @returns {Vue.VNode}
+ */
+export function getFirstComponentChild (children) {
+  if (Array.isArray(children)) {
+    for (let i = 0; i < children.length; i++) {
+      const c = children[i]
+      if (isDef(c) && (isDef(c.componentOptions) || isAsyncPlaceholder(c))) {
+        return c
+      }
+    }
+  }
 }

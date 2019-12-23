@@ -18,7 +18,7 @@
     "clean": "lerna run clean",
     "release": "lerna publish",
     "push": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna version --conventional-commits",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 9000",
     "build-storybook": "build-storybook --quiet",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",

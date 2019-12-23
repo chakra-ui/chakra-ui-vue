@@ -37,17 +37,15 @@ const Drawer = {
   },
   setup (props, context) {
     const size = computed(() => props.size)
-    provide(DrawerContext, { size })
+    const isOpen = computed(() => props.isOpen)
+    const placement = computed(() => props.placement)
+    const isFullHeight = computed(() => props.isFullHeight)
+
+    provide(DrawerContext, { size, isOpen, placement, isFullHeight })
     return () => {
-      return h(Slide, {
+      return h(Modal, {
         props: {
-          in: props.isOpen,
-          from: props.placement,
-          finalHeight: props.isFullHeight ? '100vh' : 'auto'
-        }
-      }, [h(Modal, {
-        props: {
-          isOpen: true,
+          isOpen: props.isOpen,
           onClose: props.onClose,
           finalFocusRef: props.finalFocusRef,
           formatIds: (id) => ({
@@ -56,6 +54,12 @@ const Drawer = {
             body: `drawer-${id}-body`
           }),
           ...forwardProps(props)
+        }
+      }, [h(Slide, {
+        props: {
+          in: props.isOpen,
+          from: props.placement,
+          finalHeight: props.isFullHeight ? '100vh' : 'auto'
         }
       }, context.slots.default())])
     }
@@ -77,9 +81,8 @@ const DrawerContent = {
     ...baseProps
   },
   setup (props, context) {
-    const placementStyles = inject('SlidePlacementStyles')
     const { size } = inject(DrawerContext)
-
+    const placementStyles = inject('SlidePlacementStyles')
     const _size = size.value in drawerSizes ? drawerSizes[size.value] : size.value
 
     return () => {
@@ -88,6 +91,8 @@ const DrawerContent = {
           noStyles: true,
           position: 'fixed',
           maxWidth: _size,
+          height: '100vh',
+          bg: 'green.400',
           ...unwrapValues(placementStyles),
           ...forwardProps(props)
         }

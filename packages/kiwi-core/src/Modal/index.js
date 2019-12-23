@@ -1,7 +1,7 @@
 import { forwardProps, useUUID, getFocusables, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import props from './modal.props'
-import { ref, reactive, createElement as h, watch, inject, onBeforeMount, provide, toRefs } from '@vue/composition-api'
+import { ref, reactive, createElement as h, watch, inject, provide, toRefs } from '@vue/composition-api'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock/lib/bodyScrollLock.es6'
 import { useColorMode } from '../ThemeProvider'
 import canUseDOM from 'can-use-dom'
@@ -82,15 +82,8 @@ const Modal = {
       })
     })
 
-    onBeforeMount(() => {
-      if (canUseDOM) {
-        mountRef.value.id = 'chakra-portal'
-        container.appendChild(mountRef.value)
-      }
-    })
-
-    let undoAriaHidden = null
-    watch(() => {
+    watch((onCleanup) => {
+      let undoAriaHidden = null
       let mountNode = mountRef
       if (props.isOpen && canUseDOM) {
         mountRef.value.id = 'chakra-portal'
@@ -99,14 +92,16 @@ const Modal = {
           undoAriaHidden = hideOthers(mountNode.value)
         }
         contentRef.value = document.getElementById(contentId)
-      } else {
+      }
+
+      onCleanup(() => {
         if (props.useInert && undoAriaHidden != null) {
           undoAriaHidden()
         }
         if (mountNode.value.parentElement) {
           mountNode.value.parentElement.removeChild(mountNode.value)
         }
-      }
+      })
     })
 
     const modalContext = reactive({
@@ -177,7 +172,13 @@ const Modal = {
     return () => {
       const children = context.slots.default()
 
-      return h('MountingPortal', {
+      // Append Portal target node before rendering
+      if (props.isOpen && canUseDOM) {
+        mountRef.value.id = 'chakra-portal'
+        container.appendChild(mountRef.value)
+      }
+
+      return props.isOpen && h('MountingPortal', {
         props: {
           mountTo: `#${mountRef.value.id}`,
           append: true
@@ -191,7 +192,7 @@ const Modal = {
           activate: activateFocusLock,
           deactivate: deactivateFocusLock
         }
-      }, [h('div', {}, children)])])
+      }, children)])
     }
   }
 }

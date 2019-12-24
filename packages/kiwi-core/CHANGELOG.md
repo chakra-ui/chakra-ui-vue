@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.3.1...kiwi-core@1.4.0) (2019-12-24)
+
+
+
+## 0.1.22 (2019-12-23)
+
+
+### Bug Fixes
+
+* modal stories update ([309da95](https://github.com/codebender828/kiwi-ui/commit/309da95dfa4b1caa744c86aca669c9f7a3437e50))
+* **drawer:** transition is now working at last lol ([73b43ff](https://github.com/codebender828/kiwi-ui/commit/73b43ffbfe11d2d413f85289e4baabcbc1488bcc))
+* **modal:** attach click event to overlay ([3230491](https://github.com/codebender828/kiwi-ui/commit/323049182ec1dc0f60c9a1f9b9bd5e1f92d7f933))
+* **modal:** focuses on first focusable el ([8a465a3](https://github.com/codebender828/kiwi-ui/commit/8a465a3cfb92d6bb6c050c0e45c44f68fb8619d8))
+* **slide:** horizontal offset directions ([cdcc82e](https://github.com/codebender828/kiwi-ui/commit/cdcc82e52cd6e275a5bfbf7723a501da3613f3fc))
+
+
+### Features
+
+* **css:** css component ([d1aebb6](https://github.com/codebender828/kiwi-ui/commit/d1aebb638d2761d40cfb943813ace6dae04eeac2))
+* **cssreset:** added css reset component ([bcad85d](https://github.com/codebender828/kiwi-ui/commit/bcad85d80a3860fc0cef2d1256dbdd35428a5806))
+* added slide transition component ([0bc2869](https://github.com/codebender828/kiwi-ui/commit/0bc28696a37e666635eff52ca186f32f9c3f0c1e))
+* added use disclosure hook for drawer ([80acd70](https://github.com/codebender828/kiwi-ui/commit/80acd700a879312d3409d396d4043abbe47b1b53))
+* **scale:** added scale component ([e4ec2bb](https://github.com/codebender828/kiwi-ui/commit/e4ec2bb587ba13a73e57d758f248f8ef6ff8a2fe))
+* **slide:** added reactivity to slide component ([0571b39](https://github.com/codebender828/kiwi-ui/commit/0571b396701174b428fbe19eba3f3e5e02e12daa))
+* **slide:** added validators and error messages ([37b6cce](https://github.com/codebender828/kiwi-ui/commit/37b6cce4d7d8251d2774d98188e2c3176628ec3c))
+* **slidein:** added slidein component ([8c0ab6e](https://github.com/codebender828/kiwi-ui/commit/8c0ab6ef5182e8ecefae25fdcf975f28bbb346f7))
+* **utils:** added VNode helpers and validators ([727a956](https://github.com/codebender828/kiwi-ui/commit/727a956c8cdb9945a4d484df36ce36457677304f))
+* unwrap values utility ([44b1263](https://github.com/codebender828/kiwi-ui/commit/44b12633aa2476a5044f58ea4a1df0477fa46196))
+
+
+
+
+
 ## [1.3.1](https://github.com/codebender828/kiwi-ui/compare/kiwi-core@1.3.0...kiwi-core@1.3.1) (2019-12-17)
 
 **Note:** Version bump only for package kiwi-core

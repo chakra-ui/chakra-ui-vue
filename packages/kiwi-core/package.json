@@ -15,7 +15,6 @@
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
-    "breadstick": "^0.1.21",
     "color": "^3.1.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
@@ -23,7 +22,8 @@
   },
   "peerDependencies": {
     "vue": "^2.6.10",
-    "vue-styled-components": "git+https://github.com/codebender828/vsc.git"
+    "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
+    "breadstick": "^0.1.21"
   },
   "devDependencies": {
     "core-js": "^3.4.5"

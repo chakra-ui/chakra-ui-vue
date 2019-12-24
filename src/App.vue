@@ -3,12 +3,14 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
-        <!-- <Button left-icon="check" mb="3" variant-color="blue" @click="showModal">Show Modal</Button>
-        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="blue" variant="outline">I will receive focus when closed</Button> -->
-        <!-- <Modal
+        <Button left-icon="check" mb="3" variant-color="blue" @click="open">Show Modal</Button>
+        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="blue" variant="outline">I will receive focus when closed</Button>
+        <Modal
           is-centered
           :is-open="isOpen"
-          :on-close="dismissModal"
+          :on-close="close"
+          initial-focus-ref="#save"
+          :final-focus-ref="$refs.final"
         >
           <ModalContent ref="content" :content-ref="$refs.content">
             <ModalHeader>Create your account</ModalHeader>
@@ -23,12 +25,12 @@
               <Button id="save" ref="save" variantColor="blue" mr="3">
                 Save
               </Button>
-              <Button id="cancel" ref="cancel" @click="dismissModal">Cancel</Button>
+              <Button id="cancel" ref="cancel" @click="close">Cancel</Button>
             </ModalFooter>
           </ModalContent>
           <ModalOverlay />
-        </Modal> -->
-        <Button left-icon="coffee" mb="3" variant-color="green" @click="open">Show Modal</Button>
+        </Modal>
+        <!-- <Button left-icon="coffee" mb="3" variant-color="green" @click="open">Show Modal</Button>
         <Drawer
           :is-open="isOpen"
           :on-close="close"
@@ -39,32 +41,32 @@
               Hello Drawer
             </div>
           </DrawerContent>
-        </Drawer>
+        </Drawer> -->
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-// import Lorem from 'vue-lorem-ipsum'
-import { ThemeProvider, Button, CSSReset, /* Modal, Text as KText, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, */ Drawer, DrawerContent } from 'kiwi-core'
+import Lorem from 'vue-lorem-ipsum'
+import { ThemeProvider, /* Drawer, DrawerContent */ Button, CSSReset, Modal, Text as KText, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
     Button,
-    // Modal,
-    // ModalOverlay,
-    // ModalContent,
-    // ModalHeader,
-    // ModalFooter,
-    // ModalBody,
-    // ModalCloseButton,
-    // KText,
-    // Lorem,
-    Drawer,
-    DrawerContent,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    KText,
+    Lorem,
+    // Drawer,
+    // DrawerContent,
     CSSReset
   },
   data () {

@@ -130,13 +130,14 @@ const Modal = {
     const activateFocusLock = () => {
       // We need to defer this procedure to the next browser tick because elements
       // may not yet be in the DOM.
-      context.root.$nextTick(() => {
+      setTimeout(() => {
         if (props.initialFocusRef) {
           if (props.initialFocusRef instanceof HTMLElement) {
             props.initialFocusRef.focus()
           } else if (props.initialFocusRef.$el) {
             props.initialFocusRef.$el.focus()
           } else if (typeof props.initialFocusRef === 'string') {
+            console.log('initial', { initialFocusRef: props.initialFocusRef })
             canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
           }
         } else {
@@ -156,7 +157,7 @@ const Modal = {
     const deactivateFocusLock = () => {
       // We need to defer this procedure to the next browser tick because elements
       // may not yet be in the DOM.
-      context.root.$nextTick(() => {
+      setTimeout(() => {
         if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
           props.finalFocusRef.focus()
         } else if (props.finalFocusRef && props.finalFocusRef.$el) {
@@ -192,7 +193,7 @@ const Modal = {
           activate: activateFocusLock,
           deactivate: deactivateFocusLock
         }
-      }, children)])
+      }, [h('div', {}, children)])])
     }
   }
 }

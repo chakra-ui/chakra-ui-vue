@@ -2,7 +2,7 @@ import { provide, inject, createElement as h, computed } from '@vue/composition-
 import { baseProps } from '../config/props'
 import { Slide } from '../Transition'
 import { Modal, ModalContent } from '../Modal'
-import { forwardProps, unwrapValues } from '../utils'
+import { forwardProps } from '../utils'
 
 const DrawerContext = Symbol('DrawerContext')
 
@@ -61,7 +61,7 @@ const Drawer = {
           from: props.placement,
           finalHeight: props.isFullHeight ? '100vh' : 'auto'
         }
-      }, context.slots.default())])
+      }, h('div', {}, context.slots.default()))])
     }
   }
 }
@@ -75,25 +75,57 @@ const drawerSizes = {
   full: '100vw'
 }
 
+const getPlacementStyles = (position, { finalWidth, finalHeight }) => {
+  const placements = {
+    bottom: {
+      maxWidth: '100vw',
+      height: finalHeight,
+      top: '100vh',
+      left: 0,
+      right: 0
+    },
+    top: {
+      maxWidth: '100vw',
+      height: finalHeight,
+      bottom: '100vh',
+      left: 0,
+      right: 0
+    },
+    left: {
+      ...(finalWidth && { maxWidth: finalWidth }),
+      height: '100vh',
+      right: '100vw',
+      top: 0
+    },
+    right: {
+      ...(finalWidth && { maxWidth: finalWidth }),
+      left: '100vw',
+      top: 0,
+      height: '100vh'
+    }
+  }
+
+  return placements[position] || placements['right']
+}
+
 const DrawerContent = {
   name: 'DrawerContent',
   props: {
     ...baseProps
   },
   setup (props, context) {
-    const { size } = inject(DrawerContext)
-    const placementStyles = inject('SlidePlacementStyles')
+    const { size, placement, isFullHeight } = inject(DrawerContext)
+    const placementStyles = getPlacementStyles(placement.value, {
+      finalHeight: isFullHeight.value ? '100vh' : 'auto'
+    })
     const _size = size.value in drawerSizes ? drawerSizes[size.value] : size.value
-
     return () => {
       return h(ModalContent, {
         props: {
           noStyles: true,
           position: 'fixed',
           maxWidth: _size,
-          height: '100vh',
-          bg: 'green.400',
-          ...unwrapValues(placementStyles),
+          ...placementStyles,
           ...forwardProps(props)
         }
       }, context.slots.default())

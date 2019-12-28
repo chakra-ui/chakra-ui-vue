@@ -2,7 +2,7 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <CSSReset />
-      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" position="fixed" top="3" right="3" d="flex" align-items="center">
+      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="lg" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>

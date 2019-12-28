@@ -103,7 +103,6 @@
     "vue-lorem-ipsum": "^0.0.1",
     "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.2.0",
-    "xregexp": "^4.2.4"
+    "vuepress": "^1.2.0"
   }
 }

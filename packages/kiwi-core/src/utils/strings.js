@@ -1,5 +1,3 @@
-import XRegExp from 'xregexp'
-
 /**
  * @description Returns the substring after a certain character in a string.
  * @param {'String'} string
@@ -23,12 +21,9 @@ export function getSubstringBeforeChar (string, char) {
  * @param {String} text String to transform to kebab case
  */
 export function kebabify (text) {
-  const re = new XRegExp('((\\p{Ll})(\\p{Lu})|(\\d)(\\p{Lu})|(\\p{Ll})(\\d))', 'g')
-
-  function replace () {
-    const lhs = arguments[2] || arguments[4] || arguments[6]
-    const rhs = arguments[3] || arguments[5] || arguments[7]
-    return lhs + '-' + rhs
-  }
-  return text.replace(re, replace).replace(re, replace).toLowerCase()
+  return text &&
+  text
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('-')
 }

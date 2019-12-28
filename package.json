@@ -34,6 +34,7 @@
     "@babel/preset-env": "^7.7.4",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/pro-light-svg-icons": "^5.11.2",
     "@storybook/addon-actions": "^5.2.1",

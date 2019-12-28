@@ -2,34 +2,61 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <CSSReset />
+      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" position="fixed" top="3" right="3" d="flex" align-items="center">
+        <Icon name="github" mr="2" size="6" />
+        Github
+      </Anchor>
       <div class="wrapper">
-        <Breadcrumb :add-separator="false">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Breadcrumb 1</BreadcrumbLink>
-            <BreadcrumbSeparator color="tomato" font-size="10px" font-weight="bold" />
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Breadcrumb 2</BreadcrumbLink>
-            <BreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
-          </BreadcrumbItem>
-        </Breadcrumb>
+        <AlertDialog
+        :is-open="isOpen"
+        :least-destructive-ref="$refs.cancelRef"
+        :on-close="close"
+      >
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader font-size="lg" font-weight="bold">
+            Delete Customer
+          </AlertDialogHeader>
+
+          <AlertDialogBody>
+            Are you sure? You can't undo this action afterwards.
+          </AlertDialogBody>
+
+          <AlertDialogFooter>
+            <Button ref="cancelRef" @click="close">
+              Cancel
+            </Button>
+            <Button variantColor="red" @click="close" ml="3">
+              Delete
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      <Button variant-color="red" @click="open">
+        Delete Customer
+      </Button>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from 'kiwi-core'
+import { ThemeProvider, Link as Anchor, Icon, CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbSeparator,
-    CSSReset
+    Icon,
+    Anchor,
+    CSSReset,
+    Button,
+    AlertDialog,
+    AlertDialogContent,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogOverlay,
+    AlertDialogHeader
   },
   data () {
     return {

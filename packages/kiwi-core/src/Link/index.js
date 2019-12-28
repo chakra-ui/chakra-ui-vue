@@ -1,7 +1,7 @@
 import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
 import { createElement as h } from '@vue/composition-api'
-import { forwardProps, unwrapValues, kebabify } from '../utils'
+import { forwardProps, kebabify } from '../utils'
 
 /**
  * Issue:
@@ -45,13 +45,13 @@ const Link = {
           _focus: {
             boxShadow: 'outline'
           },
-          _hover: { textDecoration: 'underline', color: 'orange.400' },
+          _hover: { textDecoration: 'underline' },
           _disabled: {
             opacity: '0.4',
             cursor: 'not-allowed',
             textDecoration: 'none'
           },
-          ...forwardProps(unwrapValues(props))
+          ...forwardProps(props)
         },
         attrs: {
           tabIndex: props.isDisabled ? -1 : undefined,

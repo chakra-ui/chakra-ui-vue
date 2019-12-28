@@ -13,10 +13,15 @@ import { faCoffee,
   faCaretLeft,
   faAnchor,
   faPlus } from '@fortawesome/free-solid-svg-icons'
+
 import {
   faChevronCircleUp,
   faSearch,
   faTimesCircle } from '@fortawesome/pro-light-svg-icons'
+
+import {
+  faGithub
+} from '@fortawesome/free-brands-svg-icons'
 
 Vue.config.productionTip = false
 
@@ -36,7 +41,8 @@ Vue.use(Kiwi, {
       faChevronCircleUp,
       faTimesCircle,
       faSearch,
-      faPlus
+      faPlus,
+      faGithub
     },
     extend: {
       'not-allowed': {

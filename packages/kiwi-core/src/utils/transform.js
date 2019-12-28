@@ -1,4 +1,4 @@
-import { propsConfig as config } from '../config/props'
+import { config } from '../config/props'
 
 /**
  * @description Transforms the custom prop alias to a format that styled-system CSS supports

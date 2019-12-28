@@ -3,68 +3,49 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
-        <Button left-icon="check" mb="3" variant-color="blue" @click="open">Show Modal</Button>
-        <Button left-icon="star" id="final" ref="final" mb="3" variant-color="blue" variant="outline">I will receive focus when closed</Button>
-        <Modal
-          is-centered
-          :is-open="isOpen"
-          :on-close="close"
-        >
-          <ModalContent ref="content" :content-ref="$refs.content">
-            <ModalHeader>Create your account</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <KText fontWeight="bold" mb="1rem">
-                You can scroll the content behind the modal
-              </KText>
-              <Lorem add="2s" />
-            </ModalBody>
-            <ModalFooter>
-              <Button id="save" ref="save" variantColor="blue" mr="3">
-                Save
-              </Button>
-              <Button id="cancel" ref="cancel" @click="close">Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-          <ModalOverlay />
-        </Modal>
-        <!-- <Button left-icon="coffee" mb="3" variant-color="green" @click="open">Show Modal</Button>
+        <Button left-icon="coffee" mb="3" variant-color="indigo" @click="open">Show Modal</Button>
         <Drawer
           :is-open="isOpen"
           :on-close="close"
           placement="right"
         >
+          <DrawerOverlay />
           <DrawerContent>
-            <div>
-              Hello Drawer
-            </div>
+            <DrawerCloseButton />
+            <DrawerHeader>Create your account</DrawerHeader>
+
+            <DrawerBody>
+              <input placeholder="Type here..." />
+            </DrawerBody>
+
+            <DrawerFooter>
+              <Button variant="outline" mr="3" @click="close">
+                Cancel
+              </Button>
+              <Button variant-color="blue">Save</Button>
+            </DrawerFooter>
           </DrawerContent>
-        </Drawer> -->
+        </Drawer>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import Lorem from 'vue-lorem-ipsum'
-import { ThemeProvider, /* Drawer, DrawerContent */ Button, CSSReset, Modal, Text as KText, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from 'kiwi-core'
+import { ThemeProvider, Drawer, DrawerContent, DrawerOverlay, DrawerHeader, DrawerCloseButton, DrawerBody, DrawerFooter, Button, CSSReset } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
     Button,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    KText,
-    Lorem,
-    // Drawer,
-    // DrawerContent,
+    Drawer,
+    DrawerContent,
+    DrawerOverlay,
+    DrawerCloseButton,
+    DrawerBody,
+    DrawerHeader,
+    DrawerFooter,
     CSSReset
   },
   data () {
@@ -73,9 +54,6 @@ export default {
     }
   },
   methods: {
-    // modalClosed (params) {
-    //   console.log('MODAL: Closed', params)
-    // },
     open (params) {
       this.isOpen = true
     },

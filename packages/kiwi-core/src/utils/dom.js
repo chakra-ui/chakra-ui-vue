@@ -1,16 +1,16 @@
-const focusableElList = [
-  'a[href]',
-  'area[href]',
-  'button:not([disabled])',
-  'embed',
-  'iframe',
-  'input:not([disabled])',
-  'object',
-  'select:not([disabled])',
-  'textarea:not([disabled])',
-  '*[tabindex]:not([aria-disabled])',
-  '*[contenteditable]'
-]
+
+import { focusableElList, htmlElements } from './dom-elements'
+
+/**
+ * Checks if a given element is an HTML element.
+ * @param {String} element HTML element tag name
+ * @returns {Boolean}
+ */
+export function isValidElement (element) {
+  if (typeof element === 'string') {
+    return htmlElements.indexOf(element) !== -1
+  }
+}
 
 const focusableElSelector = focusableElList.join()
 

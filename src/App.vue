@@ -3,23 +3,32 @@
     <div class="root">
       <CSSReset />
       <div class="wrapper">
-        <Anchor href="https://chakra-ui.com" variant="nice-bg">
-          Docs
-        </Anchor>
+        <Breadcrumb :add-separator="false">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">Breadcrumb 1</BreadcrumbLink>
+            <BreadcrumbSeparator color="tomato" font-size="10px" font-weight="bold" />
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">Breadcrumb 2</BreadcrumbLink>
+            <BreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
+          </BreadcrumbItem>
+        </Breadcrumb>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, CSSReset } from 'kiwi-core'
+import { ThemeProvider, CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from 'kiwi-core'
 
 export default {
   name: 'App',
   components: {
     ThemeProvider,
-    // Button,
-    Anchor,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbSeparator,
     CSSReset
   },
   data () {

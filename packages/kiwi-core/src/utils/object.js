@@ -31,3 +31,12 @@ export function filterPseudo (props) {
 export function unwrapValues (props) {
   return mapValues(props, 'value')
 }
+
+/**
+ * Check if a given value is a non-null object.
+ * @param {*} value - The value to check.
+ * @returns {boolean} Returns `true` if the given value is a non-null object, else `false`.
+ */
+export function isNonNullObject (value) {
+  return typeof value === 'object' && value !== null
+}

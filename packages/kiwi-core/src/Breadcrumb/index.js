@@ -2,7 +2,7 @@ import { ref, createElement as h } from '@vue/composition-api'
 import { baseProps } from '../config/props'
 import Box from '../Box'
 import Link from '../Link'
-import { forwardProps, cloneVNode, cloneVNodes } from '../utils'
+import { forwardProps, cloneVNodes } from '../utils'
 
 const BreadcrumbSeparator = {
   name: 'BreadcrumbSeparator',
@@ -87,20 +87,18 @@ const BreadcrumbItem = {
   setup (props, context) {
     return () => {
       const children = context.slots.default()
-      const clones = children.map((node) => {
-        if (node.componentOptions.tag === BreadcrumbLink.name) {
-          const clone = cloneVNode(node, h)
+      const clones = cloneVNodes(children, h).map((clone) => {
+        if (clone.componentOptions.tag === BreadcrumbLink.name) {
           const { propsData } = clone.componentOptions
           propsData['isCurrentPage'] = props.isCurrentPage
           clone.componentOptions.propsData = propsData
           return clone
         }
-        if (node.componentOptions.tag === BreadcrumbSeparator.name) {
-          const clone = cloneVNode(node, h)
+        if (clone.componentOptions.tag === BreadcrumbSeparator.name) {
           const { propsData } = clone.componentOptions
           propsData['spacing'] = props.spacing
           propsData['separator'] = props.separator
-          clone.componentOptions.children = node.componentOptions.children || props.separator
+          clone.componentOptions.children = clone.componentOptions.children || props.separator
           clone.componentOptions.propsData = propsData
           return clone
         }

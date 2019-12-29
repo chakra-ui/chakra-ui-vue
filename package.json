@@ -86,6 +86,7 @@
     "lerna": "^3.19.0",
     "lint-staged": "^9.4.2",
     "node-sass": "^4.12.0",
+    "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "register-service-worker": "^1.6.2",
     "rollup-plugin-babel": "^4.3.3",

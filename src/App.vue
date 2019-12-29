@@ -11,9 +11,10 @@
           :is-open="isOpen"
           :least-destructive-ref="$refs.cancelRef"
           :on-close="close"
+          ref="alertDialog"
         >
         <AlertDialogOverlay />
-        <AlertDialogContent>
+        <AlertDialogContent ref="alertDialogContent">
           <AlertDialogHeader font-size="lg" font-weight="bold">
             Delete Customer
           </AlertDialogHeader>
@@ -62,6 +63,11 @@ export default {
     return {
       isOpen: false
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      console.log('App refs', this.$refs)
+    })
   },
   methods: {
     open () {

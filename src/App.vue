@@ -2,16 +2,16 @@
   <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
     <div class="root">
       <CSSReset />
-      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="lg" position="fixed" top="3" right="3" d="flex" align-items="center">
+      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
         <AlertDialog
-        :is-open="isOpen"
-        :least-destructive-ref="$refs.cancelRef"
-        :on-close="close"
-      >
+          :is-open="isOpen"
+          :least-destructive-ref="$refs.cancelRef"
+          :on-close="close"
+        >
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader font-size="lg" font-weight="bold">
@@ -64,10 +64,10 @@ export default {
     }
   },
   methods: {
-    open (params) {
+    open () {
       this.isOpen = true
     },
-    close (params) {
+    close () {
       this.isOpen = false
     }
   }

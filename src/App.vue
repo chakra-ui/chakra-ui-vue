@@ -13,12 +13,10 @@
         <Popper
           :is-open="show"
           :anchor-el="$refs.anchorEl"
-          :popper-el="$refs.popper"
           :on-close="hidePopper"
           :placement="placement"
+          :close-on-click-away="false"
           :usePortal="usePortal"
-          has-arrow
-          @popper:create="focus($refs.popper)"
           @popper:open="focus($refs.popperNode)"
           @popper:close="hidePopper"
         >
@@ -38,6 +36,7 @@
             rounded="md"
             @keydown.esc="hidePopper"
             ref="popperNode"
+            focusable
           >
             I am a happy Popper with a very long life to live because I an happy!
             <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">

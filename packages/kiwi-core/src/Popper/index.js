@@ -139,7 +139,6 @@ const Popper = {
       default: () => {}
     },
     anchorEl: [HTMLElement, Object],
-    popperEl: [HTMLElement, Object],
     eventsEnabled: {
       type: Boolean,
       default: true
@@ -271,21 +270,33 @@ const Popper = {
       this.handleOpen()
     }
 
-    return h(ClickOutside, {
-      props: {
-        whitelist: [this.anchor],
-        active: this.closeOnClickAway,
-        do: this.wrapClose
-      }
-    }, [h(PopperBox, {
-      style: {
-        display: this.isOpen ? 'unset' : 'none'
-      },
-      props: {
-        ...forwardProps(this.$props)
-      },
-      ref: 'handleRef'
-    }, children)])
+    if (this.closeOnClickAway) {
+      return h(ClickOutside, {
+        props: {
+          whitelist: [this.anchor],
+          active: this.closeOnClickAway,
+          do: this.wrapClose
+        }
+      }, [h(PopperBox, {
+        style: {
+          display: this.isOpen ? 'unset' : 'none'
+        },
+        props: {
+          ...forwardProps(this.$props)
+        },
+        ref: 'handleRef'
+      }, children)])
+    } else {
+      return h(PopperBox, {
+        style: {
+          display: this.isOpen ? 'unset' : 'none'
+        },
+        props: {
+          ...forwardProps(this.$props)
+        },
+        ref: 'handleRef'
+      }, children)
+    }
   }
 }
 

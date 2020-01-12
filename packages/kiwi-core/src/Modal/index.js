@@ -1,4 +1,4 @@
-import { forwardProps, useUUID, getFocusables, wrapEvent } from '../utils'
+import { forwardProps, useId, getFocusables, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import props from './modal.props'
 import { ref, reactive, createElement as h, watch, inject, provide, toRefs } from '@vue/composition-api'
@@ -19,7 +19,7 @@ const Modal = {
   name: 'Modal',
   props,
   setup (props, context) {
-    const uuid = useUUID(4)
+    const uuid = useId(4)
     const contentRef = ref(null)
 
     // Initial props values

@@ -1,34 +1,59 @@
-import { createPortalTarget } from './utils'
+import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
+import { MountingPortal } from 'portal-vue'
+
+const PORTAL_ID = '#popper-vue-portal'
 
 /**
- * This portal was adapted from the awesome work of @linusborg with `portal-vue`
- * @see https://portal-vue.linusb.org/
+ * @description Creates portal target node. If node doesn't exist, it is created and returned
+ * @param {String} target
+ * @returns {HTMLElement}
+ */
+function createPortalTarget (target) {
+  if (!canUseDOM) {
+    return
+  }
+
+  const portalTarget = target || PORTAL_ID
+  const existingPortalElement = document.querySelector(portalTarget)
+
+  if (existingPortalElement) {
+    return existingPortalElement
+  } else {
+    const el = document.createElement('div')
+    if (portalTarget.startsWith('#')) {
+      el.id = gs(portalTarget, '#')
+    }
+    if (portalTarget.startsWith('.')) {
+      el.classList.add(gs(portalTarget, '.'))
+      el.id = useId(4)
+    }
+    if (document.body != null) {
+      document.body.appendChild(el)
+    }
+    return el
+  }
+}
+
+/**
+ * Portal Component
  */
 const Portal = {
-  inheritAttrs: false,
   name: 'Portal',
-  data () {
-    return {
-      target: undefined,
-      targetSelector: undefined
-    }
-  },
+  inheritAttrs: false,
   props: {
-    targetNode: String,
+    target: String,
     append: Boolean
   },
-  created () {
-    this.target = createPortalTarget(this.targetNode)
-    this.targetSelector = `#${this.target.id}`
-  },
   render (h) {
-    return h('mounting-portal', {
+    const portalTarget = createPortalTarget(this.target)
+    const children = this.$slots.default
+    return h(MountingPortal, {
       props: {
         ...this.$attrs,
-        mountTo: `${this.targetSelector}`,
-        append: this.append
+        append: this.append,
+        mountTo: `#${portalTarget.id}`
       }
-    }, this.$slots.default)
+    }, children)
   }
 }
 

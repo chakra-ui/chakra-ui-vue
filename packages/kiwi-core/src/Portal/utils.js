@@ -1,4 +1,4 @@
-import { getSubstringAfterChar, useUUID } from '../utils'
+import { getSubstringAfterChar, useId } from '../utils'
 const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
 const PORTAL_ID = '#kiwi-portal-target'
 
@@ -24,7 +24,7 @@ export function createPortalTarget (target) {
     }
     if (portalTarget.startsWith('.')) {
       el.classList.add(getSubstringAfterChar(portalTarget, '.'))
-      el.id = useUUID(8)
+      el.id = useId(8)
     }
     if (document.body != null) {
       document.body.appendChild(el)

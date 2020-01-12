@@ -1,4 +1,5 @@
-import { css } from 'vue-styled-components'
+// import { css } from 'vue-styled-components'
+import css from '@styled-system/css'
 
 /**
  * Evaluates popper arrow styles

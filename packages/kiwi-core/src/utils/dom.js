@@ -1,6 +1,12 @@
 
 import { focusableElList, htmlElements } from './dom-elements'
 
+export const canUseDOM = !!(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+)
+
 /**
  * Checks if a given element is an HTML element.
  * @param {String} element HTML element tag name

@@ -28,3 +28,6 @@ This current verison of Kiwi uses a forked version of `vue-styled-components`. T
 - [x] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
 
+- [ ] Link packages for local development.
+- [ ] Setup other project for development.
+- [ ] Setup Babel

@@ -1,4 +1,4 @@
-export function useUUID (size) {
+export function useId (size) {
   let uuid = ''
   const dictionary = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
   for (let i = 0; i < size; i++) {

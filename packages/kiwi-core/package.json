@@ -5,7 +5,7 @@
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/es/index.js",
   "sideEffects": false,
   "private": false,
   "scripts": {

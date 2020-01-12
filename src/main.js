@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import Kiwi from 'kiwi-core'
+import Kiwi from '../packages/kiwi-core/dist/esm'
 import theme from '../packages/kiwi-core/src/lib/theme'
 
 // Import FA Icons

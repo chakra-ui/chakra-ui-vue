@@ -7,42 +7,52 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <AlertDialog
-          :is-open="isOpen"
-          :least-destructive-ref="$refs.cancelRef"
-          :on-close="close"
-          ref="alertDialog"
+        <Button variant-color="blue" ref="anchorEl" @click="showPopper">
+          Toggle Popper
+        </Button>
+        <Popper
+          :is-open="show"
+          :anchor-el="$refs.anchorEl"
+          :popper-el="$refs.popper"
+          :on-close="hidePopper"
+          :placement="placement"
+          :usePortal="usePortal"
+          has-arrow
+          @popper:create="focus($refs.popper)"
+          @popper:open="focus($refs.popperNode)"
+          @popper:close="hidePopper"
         >
-        <AlertDialogOverlay />
-        <AlertDialogContent ref="alertDialogContent">
-          <AlertDialogHeader font-size="lg" font-weight="bold">
-            Delete Customer
-          </AlertDialogHeader>
-
-          <AlertDialogBody>
-            Are you sure? You can't undo this action afterwards.
-          </AlertDialogBody>
-
-          <AlertDialogFooter>
-            <Button ref="cancelRef" @click="close">
-              Cancel
+          <PseudoBox
+            as="section"
+            :_focus="{
+              outline: 'none',
+              boxShadow: 'outline'
+            }"
+            bg="green.300"
+            d="flex"
+            flex-dir="column"
+            p="3"
+            w="350px"
+            h="100px"
+            shadow="lg"
+            rounded="md"
+            @keydown.esc="hidePopper"
+            ref="popperNode"
+          >
+            I am a happy Popper with a very long life to live because I an happy!
+            <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
+              Coolio! {{ count }}
             </Button>
-            <Button variantColor="red" @click="close" ml="3">
-              Delete
-            </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-      <Button variant-color="red" @click="open">
-        Delete Customer
-      </Button>
+            <PopperArrow />
+          </PseudoBox>
+        </Popper>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, Icon, CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader } from 'kiwi-core'
+import { ThemeProvider, Link as Anchor, Icon, PseudoBox, CSSReset, Button, Popper, PopperArrow } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -52,29 +62,32 @@ export default {
     Anchor,
     CSSReset,
     Button,
-    AlertDialog,
-    AlertDialogContent,
-    AlertDialogBody,
-    AlertDialogFooter,
-    AlertDialogOverlay,
-    AlertDialogHeader
+    Popper,
+    PseudoBox,
+    PopperArrow
   },
   data () {
     return {
-      isOpen: false
+      show: false,
+      usePortal: true,
+      placement: 'auto',
+      count: 0
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      console.log('App refs', this.$refs)
-    })
-  },
   methods: {
-    open () {
-      this.isOpen = true
+    showPopper () {
+      this.show = !this.show
     },
-    close () {
-      this.isOpen = false
+    hidePopper () {
+      this.show = false
+    },
+    focus (el) {
+      this.$nextTick(() => {
+        if (el) {
+          if (el instanceof HTMLElement) el.focus()
+          else if (el.$el) el.$el.focus()
+        }
+      })
     }
   }
 }

@@ -39,39 +39,57 @@ function createPortalTarget (target) {
  */
 const Portal = {
   name: 'Portal',
-  inheritAttrs: false,
   props: {
     target: String,
     append: Boolean,
-    unmountOnDestroy: Boolean
+    unmountOnDestroy: Boolean,
+    disabled: Boolean,
+    name: String,
+    order: Number,
+    slim: Boolean,
+    bail: Boolean
   },
   data () {
     return {
-      portalTarget: undefined
+      portalTarget: undefined,
+      targetId: undefined
     }
   },
   created () {
-    this.portalTarget = createPortalTarget(this.target)
-    this.unmountOnDestroy && this.$once('hook:destroyed', () => {
-      canUseDOM && document.body.removeChild(this.portalTarget)
-    })
-  },
-  methods: {
-    unmountTarget () {
-      this.$once('hook:destroyed', () => {
+    if (!this.disabled) {
+      this.portalTarget = createPortalTarget(this.target)
+      this.targetId = this.portalTarget.id
+      if (this.portalTarget && this.portalTarget.isConnected) {
+        this.$nextTick(() => {
+          this.$emit('portal:targetConnected')
+        })
+      }
+      this.unmountOnDestroy && this.$once('hook:destroyed', () => {
         canUseDOM && document.body.removeChild(this.portalTarget)
       })
     }
   },
+  methods: {
+    /**
+     * Unmounts portal target
+     */
+    unmountTarget () {
+      canUseDOM && document.body.removeChild(this.portalTarget)
+    }
+  },
   render (h) {
     const children = this.$slots.default
-    return h(MountingPortal, {
+    return !this.disabled ? h(MountingPortal, {
       props: {
-        ...this.$attrs,
         append: this.append,
-        mountTo: `#${this.portalTarget.id}`
+        mountTo: `#${this.targetId}`,
+        disabled: this.disabled,
+        name: this.name,
+        order: this.order,
+        slim: this.slim,
+        bail: this.bail
       }
-    }, children)
+    }, children) : children[0]
   }
 }
 

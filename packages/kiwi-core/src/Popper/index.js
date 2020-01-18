@@ -2,7 +2,9 @@ import styled from 'vue-styled-components'
 import PopperJS from 'popper.js'
 import PseudoBox from '../PseudoBox'
 import ClickOutside from '../ClickOutside'
+import Portal from '../Portal'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM } from '../utils'
+import { baseProps } from '../config/props'
 
 /**
  * Flips placement if in <body dir="rtl" />
@@ -43,7 +45,8 @@ const PopperBox = styled(PseudoBox, {
   hasArrow: {
     type: Boolean,
     default: true
-  }
+  },
+  ...baseProps
 })`
   [x-arrow] {
     width: ${props => props.arrowSize};
@@ -151,6 +154,10 @@ const Popper = {
     hasArrow: {
       type: Boolean,
       default: true
+    },
+    portalTarget: {
+      type: String,
+      default: '#chakra-popper-portal'
     }
   },
   data () {
@@ -178,7 +185,10 @@ const Popper = {
       return this.getNode(this.anchorEl)
     },
     reference () {
-      return this.getNode(this.$el.firstChild)
+      const ref = this.usePortal
+        ? canUseDOM && document.querySelector(this.portalTarget).firstChild.firstChild.firstChild
+        : this.getNode(this.$el.firstChild)
+      return ref
     }
   },
   methods: {
@@ -187,7 +197,6 @@ const Popper = {
      */
     handleOpen () {
       if (!this.anchor || !this.reference) return
-
       if (this.popper) {
         this.popper.scheduleUpdate()
       } else {
@@ -267,32 +276,30 @@ const Popper = {
     if (this.isOpen && !this.popper) {
       this.handleOpen()
     }
-
-    if (this.closeOnClickAway) {
-      return h(ClickOutside, {
-        props: {
-          whitelist: [this.anchor],
-          // Disable clickaway handler if consumer prevents closing popper on clickaway
-          isDisabled: !this.closeOnClickAway,
-          do: this.wrapClose
-        }
-      }, [h(PopperBox, {
-        style: {
-          display: this.isOpen ? 'unset' : 'none'
-        },
-        props: {
-          ...forwardProps(this.$props)
-        },
-        ref: 'handleRef'
-      }, children)])
-    } else {
-      return h(PopperBox, {
-        style: {
-          display: this.isOpen ? 'unset' : 'none'
-        },
-        ref: 'handleRef'
-      }, children)
-    }
+    return h(Portal, {
+      props: {
+        append: true,
+        target: this.portalTarget,
+        disabled: !this.usePortal,
+        slim: true,
+        unmountOnDestroy: true
+      },
+      ref: 'portalRef'
+    }, [h(ClickOutside, {
+      props: {
+        whitelist: [this.anchor],
+        isDisabled: !this.closeOnClickAway,
+        do: this.wrapClose
+      }
+    }, [h(PopperBox, {
+      style: {
+        display: this.isOpen ? 'unset' : 'none'
+      },
+      props: {
+        ...forwardProps(this.$props)
+      },
+      ref: 'handleRef'
+    }, children)])])
   }
 }
 

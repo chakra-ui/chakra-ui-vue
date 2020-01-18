@@ -45,6 +45,45 @@
             <PopperArrow />
           </PseudoBox>
         </Popper>
+        <Button ml=3 variant-color="green" ref="anchorEl2" @click="showPopper2">
+          Toggle Popper
+        </Button>
+        <Popper
+          :is-open="show2"
+          :anchor-el="$refs.anchorEl2"
+          :on-close="hidePopper2"
+          :placement="placement2"
+          :usePortal="usePortal2"
+          :close-on-click-away="true"
+          @popper:open="focus($refs.popperNode2)"
+          @popper:close="hidePopper2"
+          portal-target="#test-portal"
+        >
+          <PseudoBox
+            as="section"
+            :_focus="{
+              outline: 'none',
+              boxShadow: 'outline'
+            }"
+            bg="yellow.300"
+            d="flex"
+            flex-dir="column"
+            p="3"
+            w="350px"
+            h="100px"
+            shadow="lg"
+            rounded="md"
+            @keydown.esc="hidePopper2"
+            ref="popperNode2"
+            focusable
+          >
+            I am a happy Popper with a very long life to live because I an happy!
+            <Button ref="initialFocus2" variant-color="blue" @click="hidePopper2">
+              Coolio! {{ count2 }}
+            </Button>
+            <PopperArrow />
+          </PseudoBox>
+        </Popper>
       </div>
     </div>
   </theme-provider>
@@ -68,9 +107,13 @@ export default {
   data () {
     return {
       show: false,
-      usePortal: false,
+      usePortal: true,
       placement: 'auto',
-      count: 0
+      count: 0,
+      show2: false,
+      usePortal2: false,
+      placement2: 'auto',
+      count2: 0
     }
   },
   methods: {
@@ -79,6 +122,12 @@ export default {
     },
     hidePopper () {
       this.show = false
+    },
+    showPopper2 () {
+      this.show2 = !this.show2
+    },
+    hidePopper2 () {
+      this.show2 = false
     },
     focus (el) {
       this.$nextTick(() => {

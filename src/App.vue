@@ -31,7 +31,6 @@
             flex-dir="column"
             p="3"
             w="350px"
-            h="100px"
             shadow="lg"
             rounded="md"
             @keydown.esc="hidePopper"
@@ -41,45 +40,6 @@
             I am a happy Popper with a very long life to live because I an happy!
             <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
               Coolio! {{ count }}
-            </Button>
-            <PopperArrow />
-          </PseudoBox>
-        </Popper>
-        <Button ml=3 variant-color="green" ref="anchorEl2" @click="showPopper2">
-          Toggle Popper
-        </Button>
-        <Popper
-          :is-open="show2"
-          :anchor-el="$refs.anchorEl2"
-          :on-close="hidePopper2"
-          :placement="placement2"
-          :usePortal="usePortal2"
-          :close-on-click-away="true"
-          @popper:open="focus($refs.popperNode2)"
-          @popper:close="hidePopper2"
-          portal-target="#test-portal"
-        >
-          <PseudoBox
-            as="section"
-            :_focus="{
-              outline: 'none',
-              boxShadow: 'outline'
-            }"
-            bg="yellow.300"
-            d="flex"
-            flex-dir="column"
-            p="3"
-            w="350px"
-            h="100px"
-            shadow="lg"
-            rounded="md"
-            @keydown.esc="hidePopper2"
-            ref="popperNode2"
-            focusable
-          >
-            I am a happy Popper with a very long life to live because I an happy!
-            <Button ref="initialFocus2" variant-color="blue" @click="hidePopper2">
-              Coolio! {{ count2 }}
             </Button>
             <PopperArrow />
           </PseudoBox>
@@ -130,7 +90,8 @@ export default {
       this.show2 = false
     },
     focus (el) {
-      this.$nextTick(() => {
+      setTimeout(() => {
+        console.log(el)
         if (el) {
           if (el instanceof HTMLElement) el.focus()
           else if (el.$el) el.$el.focus()

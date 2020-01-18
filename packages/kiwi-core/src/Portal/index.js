@@ -57,24 +57,27 @@ const Portal = {
   },
   created () {
     if (!this.disabled) {
-      this.portalTarget = createPortalTarget(this.target)
-      this.targetId = this.portalTarget.id
-      if (this.portalTarget && this.portalTarget.isConnected) {
-        this.$nextTick(() => {
-          this.$emit('portal:targetConnected')
-        })
-      }
+      this.mountTarget()
       this.unmountOnDestroy && this.$once('hook:destroyed', () => {
         canUseDOM && document.body.removeChild(this.portalTarget)
       })
     }
   },
   methods: {
-    /**
-     * Unmounts portal target
-     */
+    mountTarget () {
+      this.portalTarget = createPortalTarget(this.target)
+      this.targetId = this.portalTarget.id
+      this.$forceUpdate() // Force re-render in case of changes.
+      if (this.portalTarget && this.portalTarget.isConnected) {
+        this.$nextTick(() => {
+          this.$emit('portal:targetConnected')
+        })
+      }
+    },
     unmountTarget () {
-      canUseDOM && document.body.removeChild(this.portalTarget)
+      if (!this.disabled) {
+        (canUseDOM && this.portalTarget.isConnected) && document.body.removeChild(this.portalTarget)
+      }
     }
   },
   render (h) {

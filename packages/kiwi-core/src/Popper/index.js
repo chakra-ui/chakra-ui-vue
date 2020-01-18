@@ -196,6 +196,7 @@ const Popper = {
      * Handles open state for Popper
      */
     handleOpen () {
+      this.$refs.portalRef && this.$refs.portalRef.mountTarget()
       if (!this.anchor || !this.reference) return
       if (this.popper) {
         this.popper.scheduleUpdate()

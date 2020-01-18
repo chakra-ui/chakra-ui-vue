@@ -15,8 +15,8 @@
           :anchor-el="$refs.anchorEl"
           :on-close="hidePopper"
           :placement="placement"
-          :close-on-click-away="false"
           :usePortal="usePortal"
+          :close-on-click-away="true"
           @popper:open="focus($refs.popperNode)"
           @popper:close="hidePopper"
         >
@@ -68,7 +68,7 @@ export default {
   data () {
     return {
       show: false,
-      usePortal: true,
+      usePortal: false,
       placement: 'auto',
       count: 0
     }

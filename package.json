@@ -43,7 +43,7 @@
     "@storybook/addons": "^5.2.1",
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/theming": "^5.2.8",
-    "@storybook/vue": "^5.2.1",
+    "@storybook/vue": "^5.3.3",
     "@styled-system/css": "^5.0.23",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
@@ -105,5 +105,6 @@
     "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.2.0"
-  }
+  },
+  "dependencies": {}
 }

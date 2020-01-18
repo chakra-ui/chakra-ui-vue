@@ -1,9 +1,8 @@
 import styled from 'vue-styled-components'
 import PopperJS from 'popper.js'
 import PseudoBox from '../PseudoBox'
-import { createChainedFunction, forwardProps, isVueComponent, canUseDOM } from '../utils'
-import { baseProps } from '../config/props'
 import ClickOutside from '../ClickOutside'
+import { createChainedFunction, forwardProps, isVueComponent, canUseDOM } from '../utils'
 
 /**
  * Flips placement if in <body dir="rtl" />
@@ -152,8 +151,7 @@ const Popper = {
     hasArrow: {
       type: Boolean,
       default: true
-    },
-    ...baseProps
+    }
   },
   data () {
     return {
@@ -274,7 +272,8 @@ const Popper = {
       return h(ClickOutside, {
         props: {
           whitelist: [this.anchor],
-          active: this.closeOnClickAway,
+          // Disable clickaway handler if consumer prevents closing popper on clickaway
+          isDisabled: !this.closeOnClickAway,
           do: this.wrapClose
         }
       }, [h(PopperBox, {
@@ -290,9 +289,6 @@ const Popper = {
       return h(PopperBox, {
         style: {
           display: this.isOpen ? 'unset' : 'none'
-        },
-        props: {
-          ...forwardProps(this.$props)
         },
         ref: 'handleRef'
       }, children)

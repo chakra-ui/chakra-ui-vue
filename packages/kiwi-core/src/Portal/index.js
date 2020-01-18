@@ -42,16 +42,34 @@ const Portal = {
   inheritAttrs: false,
   props: {
     target: String,
-    append: Boolean
+    append: Boolean,
+    unmountOnDestroy: Boolean
+  },
+  data () {
+    return {
+      portalTarget: undefined
+    }
+  },
+  created () {
+    this.portalTarget = createPortalTarget(this.target)
+    this.unmountOnDestroy && this.$once('hook:destroyed', () => {
+      canUseDOM && document.body.removeChild(this.portalTarget)
+    })
+  },
+  methods: {
+    unmountTarget () {
+      this.$once('hook:destroyed', () => {
+        canUseDOM && document.body.removeChild(this.portalTarget)
+      })
+    }
   },
   render (h) {
-    const portalTarget = createPortalTarget(this.target)
     const children = this.$slots.default
     return h(MountingPortal, {
       props: {
         ...this.$attrs,
         append: this.append,
-        mountTo: `#${portalTarget.id}`
+        mountTo: `#${this.portalTarget.id}`
       }
     }, children)
   }

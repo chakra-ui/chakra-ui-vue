@@ -263,6 +263,10 @@ const PopperArrow = {
       props: {
         bg: 'inherit',
         ...forwardProps(this.$props)
+      },
+      on: {
+        click: (e) => this.$emit('cheese', e),
+        cheese: () => console.log('cheesy event')
       }
     })
   }

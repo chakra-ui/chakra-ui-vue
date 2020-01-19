@@ -45,6 +45,7 @@ const baseProps = {
   bb: [String, Array],
   bl: [String, Array],
   bt: [String, Array],
+  borderRadius: [String, Array, Number],
   border: [Number, String, Array],
   borderLeft: [Number, String, Array],
   borderRight: [Number, String, Array],

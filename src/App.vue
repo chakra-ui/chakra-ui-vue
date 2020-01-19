@@ -7,68 +7,37 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Button variant-color="blue" ref="anchorEl" @click="showPopper">
-          Toggle Popper
-        </Button>
-        <Popper
-          :is-open="show"
-          :anchor-el="$refs.anchorEl"
-          :on-close="hidePopper"
-          :placement="placement"
-          :usePortal="usePortal"
-          :close-on-click-away="false"
-          @popper:open="focus($refs.popperNode)"
-          @popper:close="hidePopper"
-          as="section"
-          :_focus="{
-            outline: 'none',
-            boxShadow: 'outline'
-          }"
-          bg="green.300"
-          d="flex"
-          flex-dir="column"
-          p="3"
-          w="350px"
-          shadow="lg"
-          rounded="md"
-          @keydown.esc="hidePopper"
-          ref="popperNode"
-        >
-          I am a happy Popper with a very long life to live because I an happy!
-          <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
-            Coolio! {{ count }}
-          </Button>
-          <PopperArrow />
-        </Popper>
-        <MyComponent>
-          Testy test test
-          <PopperArrow />
-        </MyComponent>
+        <Tooltip :show-delay="500" placement="top" :hide-delay="500" label="Hey, I'm here!">
+          Top
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="right" :hide-delay="500" label="Hey, I'm here!">
+          Right
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="bottom" :hide-delay="500" label="Hey, I'm here!">
+          Bottom
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="left" :hide-delay="500" label="Hey, I'm here!">
+          Left
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="top-start" :hide-delay="500" label="Hey, I'm here!">
+          Top Start
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="auto-end" :hide-delay="500" label="Hey, I'm here!">
+          Auto End
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="left-start" :hide-delay="500" label="Hey, I'm here!">
+          Left Start
+        </Tooltip>
+        <Tooltip :show-delay="500" placement="right-end" :hide-delay="500" label="Hey, I'm here!">
+          Right End
+        </Tooltip>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-// import { css } from 'emotion'
-import getPopperArrowStyle from '../packages/kiwi-core/src/Popper/popper.styles.js'
-import { ThemeProvider, Link as Anchor, Icon, CSSReset, Button, Popper, PopperArrow } from '../packages/kiwi-core/dist/esm'
-
-const styles = getPopperArrowStyle({})
-
-console.log(styles)
-
-const MyComponent = {
-  name: 'MyComponent',
-  render (h) {
-    return h('footer', {
-      attrs: {
-        'x-placement': 'top'
-      },
-      class: [styles]
-    }, this.$slots.default)
-  }
-}
+import { ThemeProvider, Link as Anchor, Icon, Tooltip, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -77,10 +46,7 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Button,
-    Popper,
-    PopperArrow,
-    MyComponent
+    Tooltip
   },
   data () {
     return {

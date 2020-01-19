@@ -32,7 +32,7 @@ export default {
     const _config = props.config
       ? props.config(theme.value, _defaultConfig)
       : defaultConfig(theme.value)
-    const { color, bg, borderColor, placeholderColor } = _config[colorMode]
+    const { color, bg, borderColor, placeholderColor } = _config[colorMode.value]
 
     /**
      * Commmented out because I still need some information about buttons

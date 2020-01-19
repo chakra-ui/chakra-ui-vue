@@ -19,7 +19,7 @@ const ThemeProvider = {
   provide () {
     return {
       $theme: () => this.theme,
-      $colorMode: this.colorMode,
+      $colorMode: () => this.colorMode,
       $icons: this.icons
     }
   },
@@ -37,7 +37,8 @@ export function useTheme () {
 }
 
 export function useColorMode () {
-  const colorMode = inject('$colorMode')
+  const $colorMode = inject('$colorMode')
+  const colorMode = computed(() => $colorMode())
   return colorMode
 }
 

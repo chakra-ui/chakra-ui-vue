@@ -1,10 +1,11 @@
-import styled from 'vue-styled-components'
 import PopperJS from 'popper.js'
 import PseudoBox from '../PseudoBox'
 import ClickOutside from '../ClickOutside'
 import Portal from '../Portal'
-import { createChainedFunction, forwardProps, isVueComponent, canUseDOM } from '../utils'
-import { baseProps } from '../config/props'
+import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId } from '../utils'
+import styleProps from '../config/props'
+import getPopperArrowStyle from './popper.styles'
+import Box from '../Box'
 
 /**
  * Flips placement if in <body dir="rtl" />
@@ -33,92 +34,16 @@ function flipPlacement (placement) {
   }
 }
 
-const PopperBox = styled(PseudoBox, {
-  arrowSize: {
-    type: String,
-    default: '1rem'
-  },
-  arrowShadowColor: {
-    type: String,
-    default: 'rgba(0, 0, 0, 0.1)'
-  },
-  hasArrow: {
-    type: Boolean,
-    default: true
-  },
-  ...baseProps
-})`
-  [x-arrow] {
-    width: ${props => props.arrowSize};
-    height: ${props => props.arrowSize};
-    position: absolute;
-    transform: rotate(45deg);
-    z-index: -1;
-
-    &::before {
-      content: "";
-      width: ${props => props.arrowSize};
-      height: ${props => props.arrowSize};
-      position: absolute;
-      z-index: -1;
-    }
-  }
-
-  [x-placement^="top"] {
-    margin-bottom: ${props => props.hasArrow ? `calc(${props.arrowSize} / 2)` : null};
-    transform-origin: bottom center;
-  }
-
-  [x-placement^="top"] [x-arrow] {
-    bottom: calc(${props => props.arrowSize} / 2 * -1);
-
-    &::before {
-      box-shadow: 2px 2px 2px 0 ${props => props.arrowShadowColor};
-    }
-  }
-
-  [x-placement^="bottom"] {
-    margin-top: ${props => props.hasArrow ? `calc(${props.arrowSize} / 2)` : null};
-    transform-origin: top center;
-  }
-
-  [x-placement^="bottom"] [x-arrow] {
-    top: calc(${props => props.arrowSize} / 2 * -1);
-
-    &::before {
-      box-shadow: -1px -1px 1px 0 ${props => props.arrowShadowColor};
-    }
-  }
-
-  [x-placement^="right"] {
-    margin-left: ${props => props.hasArrow ? `calc(${props.arrowSize} / 2)` : null};
-    transform-origin: left center;
-  }
-
-  [x-placement^="right"] [x-arrow] {
-    left: calc(${props => props.arrowSize} / 2 * -1);
-
-    &::before {
-      box-shadow: -1px 1px 1px 0 ${props => props.arrowShadowColor};
-    }
-  }
-
-  [x-placement^="left"] {
-    margin-right: ${props => props.hasArrow ? `calc(${props.arrowSize} / 2)` : null};
-    transform-origin: right center;
-  }
-
-  [x-placement^="left"] [x-arrow] {
-    right: calc(${props => props.arrowSize} / 2 * -1);
-    &::before {
-      box-shadow: 1px -1px 1px 0 ${props => props.arrowShadowColor};
-    }
-  }
-`
+const popperId = useId(3)
 
 const Popper = {
   name: 'Popper',
   props: {
+    id: {
+      type: String,
+      default: popperId
+    },
+    as: String,
     isOpen: Boolean,
     placement: {
       type: String,
@@ -157,8 +82,9 @@ const Popper = {
     },
     portalTarget: {
       type: String,
-      default: '#chakra-popper-portal'
-    }
+      default: `#chakra-portal-${popperId}`
+    },
+    ...styleProps
   },
   data () {
     return {
@@ -186,8 +112,10 @@ const Popper = {
     },
     reference () {
       const ref = this.usePortal
-        ? canUseDOM && document.querySelector(this.portalTarget).firstChild.firstChild.firstChild
-        : this.getNode(this.$el.firstChild)
+        // There should be a much cleaner way to do this.
+        // But for now this works. Should return with bigger guns.
+        ? canUseDOM && document.querySelector(this.portalTarget).firstChild
+        : this.getNode(this.$el)
       return ref
     }
   },
@@ -283,7 +211,9 @@ const Popper = {
         target: this.portalTarget,
         disabled: !this.usePortal,
         slim: true,
-        unmountOnDestroy: true
+        unmountOnDestroy: true,
+        targetSlim: true,
+        name: `chakra-portal-${this.id}`
       },
       ref: 'portalRef'
     }, [h(ClickOutside, {
@@ -292,9 +222,16 @@ const Popper = {
         isDisabled: !this.closeOnClickAway,
         do: this.wrapClose
       }
-    }, [h(PopperBox, {
+    }, [h(PseudoBox, {
+      class: [getPopperArrowStyle({ arrowSize: this.arrowSize, arrowShadowColor: this.arrowShadowColor, hasArrow: this.hasArrow })],
       style: {
         display: this.isOpen ? 'unset' : 'none'
+      },
+      attrs: {
+        id: `chakra-popper-${this.id}`
+      },
+      scopedSlots: {
+        popperId: `chakra-popper-${this.id}`
       },
       props: {
         ...forwardProps(this.$props)
@@ -307,13 +244,14 @@ const Popper = {
 const PopperArrow = {
   name: 'PopperArrow',
   render (h) {
-    return h('div', {
-      style: {
-        background: 'inherit'
-      },
+    return h(Box, {
       attrs: {
         'x-arrow': true,
         role: 'presentation'
+      },
+      props: {
+        bg: 'inherit',
+        ...forwardProps(this.$props)
       }
     })
   }

@@ -76,6 +76,7 @@
     "can-use-dom": "^0.1.0",
     "color": "^3.1.2",
     "core-js": "^3.4.5",
+    "emotion": "^10.0.27",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "eslint-plugin-vue-a11y": "^0.0.31",

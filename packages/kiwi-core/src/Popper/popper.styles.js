@@ -1,5 +1,5 @@
 // import { css } from 'vue-styled-components'
-import css from '@styled-system/css'
+import { css } from 'emotion'
 
 /**
  * Evaluates popper arrow styles

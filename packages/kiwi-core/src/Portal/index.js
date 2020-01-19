@@ -47,7 +47,8 @@ const Portal = {
     name: String,
     order: Number,
     slim: Boolean,
-    bail: Boolean
+    bail: Boolean,
+    targetSlim: Boolean
   },
   data () {
     return {
@@ -90,7 +91,8 @@ const Portal = {
         name: this.name,
         order: this.order,
         slim: this.slim,
-        bail: this.bail
+        bail: this.bail,
+        targetSlim: this.targetSlim
       }
     }, children) : children[0]
   }

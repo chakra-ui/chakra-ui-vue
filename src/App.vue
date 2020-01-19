@@ -19,38 +19,36 @@
           :close-on-click-away="true"
           @popper:open="focus($refs.popperNode)"
           @popper:close="hidePopper"
+          as="section"
+          :_focus="{
+            outline: 'none',
+            boxShadow: 'outline'
+          }"
+          bg="green.300"
+          d="flex"
+          flex-dir="column"
+          p="3"
+          w="350px"
+          shadow="lg"
+          rounded="md"
+          @keydown.esc="hidePopper"
+          ref="popperNode"
+          focusable
         >
-          <PseudoBox
-            as="section"
-            :_focus="{
-              outline: 'none',
-              boxShadow: 'outline'
-            }"
-            bg="green.300"
-            d="flex"
-            flex-dir="column"
-            p="3"
-            w="350px"
-            shadow="lg"
-            rounded="md"
-            @keydown.esc="hidePopper"
-            ref="popperNode"
-            focusable
-          >
-            I am a happy Popper with a very long life to live because I an happy!
-            <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
-              Coolio! {{ count }}
-            </Button>
-            <PopperArrow />
-          </PseudoBox>
+          I am a happy Popper with a very long life to live because I an happy!
+          <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
+            Coolio! {{ count }}
+          </Button>
+          <PopperArrow />
         </Popper>
+        <!-- <MyComponent /> -->
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, Icon, PseudoBox, CSSReset, Button, Popper, PopperArrow } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Link as Anchor, Icon, CSSReset, Button, Popper, PopperArrow } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -61,19 +59,14 @@ export default {
     CSSReset,
     Button,
     Popper,
-    PseudoBox,
     PopperArrow
   },
   data () {
     return {
       show: false,
-      usePortal: true,
+      usePortal: false,
       placement: 'auto',
-      count: 0,
-      show2: false,
-      usePortal2: false,
-      placement2: 'auto',
-      count2: 0
+      count: 0
     }
   },
   methods: {
@@ -91,7 +84,6 @@ export default {
     },
     focus (el) {
       setTimeout(() => {
-        console.log(el)
         if (el) {
           if (el instanceof HTMLElement) el.focus()
           else if (el.$el) el.$el.focus()

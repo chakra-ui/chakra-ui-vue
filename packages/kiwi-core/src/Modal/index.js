@@ -137,7 +137,6 @@ const Modal = {
           } else if (props.initialFocusRef.$el) {
             props.initialFocusRef.$el.focus()
           } else if (typeof props.initialFocusRef === 'string') {
-            console.log('initial', { initialFocusRef: props.initialFocusRef })
             canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
           }
         } else {

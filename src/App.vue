@@ -16,7 +16,7 @@
           :on-close="hidePopper"
           :placement="placement"
           :usePortal="usePortal"
-          :close-on-click-away="true"
+          :close-on-click-away="false"
           @popper:open="focus($refs.popperNode)"
           @popper:close="hidePopper"
           as="section"
@@ -33,7 +33,6 @@
           rounded="md"
           @keydown.esc="hidePopper"
           ref="popperNode"
-          focusable
         >
           I am a happy Popper with a very long life to live because I an happy!
           <Button ref="initialFocus" variant-color="indigo" @click="hidePopper">
@@ -41,14 +40,35 @@
           </Button>
           <PopperArrow />
         </Popper>
-        <!-- <MyComponent /> -->
+        <MyComponent>
+          Testy test test
+          <PopperArrow />
+        </MyComponent>
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
+// import { css } from 'emotion'
+import getPopperArrowStyle from '../packages/kiwi-core/src/Popper/popper.styles.js'
 import { ThemeProvider, Link as Anchor, Icon, CSSReset, Button, Popper, PopperArrow } from '../packages/kiwi-core/dist/esm'
+
+const styles = getPopperArrowStyle({})
+
+console.log(styles)
+
+const MyComponent = {
+  name: 'MyComponent',
+  render (h) {
+    return h('footer', {
+      attrs: {
+        'x-placement': 'top'
+      },
+      class: [styles]
+    }, this.$slots.default)
+  }
+}
 
 export default {
   name: 'App',
@@ -59,12 +79,13 @@ export default {
     CSSReset,
     Button,
     Popper,
-    PopperArrow
+    PopperArrow,
+    MyComponent
   },
   data () {
     return {
       show: false,
-      usePortal: false,
+      usePortal: true,
       placement: 'auto',
       count: 0
     }
@@ -86,7 +107,7 @@ export default {
       setTimeout(() => {
         if (el) {
           if (el instanceof HTMLElement) el.focus()
-          else if (el.$el) el.$el.focus()
+          else if (el.$el && el.$el.focus) el.$el.focus()
         }
       })
     }

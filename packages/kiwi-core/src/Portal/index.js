@@ -1,30 +1,27 @@
 import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import { MountingPortal } from 'portal-vue'
 
-const PORTAL_ID = '#popper-vue-portal'
-
 /**
  * @description Creates portal target node. If node doesn't exist, it is created and returned
  * @param {String} target
  * @returns {HTMLElement}
  */
-function createPortalTarget (target) {
+function createPortalTarget (target, tag) {
   if (!canUseDOM) {
     return
   }
 
-  const portalTarget = target || PORTAL_ID
-  const existingPortalElement = document.querySelector(portalTarget)
+  const existingPortalElement = document.querySelector(target)
 
   if (existingPortalElement) {
     return existingPortalElement
   } else {
-    const el = document.createElement('div')
-    if (portalTarget.startsWith('#')) {
-      el.id = gs(portalTarget, '#')
+    const el = document.createElement(tag)
+    if (target.startsWith('#')) {
+      el.id = gs(target, '#')
     }
-    if (portalTarget.startsWith('.')) {
-      el.classList.add(gs(portalTarget, '.'))
+    if (target.startsWith('.')) {
+      el.classList.add(gs(target, '.'))
       el.id = useId(4)
     }
     if (document.body != null) {
@@ -48,7 +45,11 @@ const Portal = {
     order: Number,
     slim: Boolean,
     bail: Boolean,
-    targetSlim: Boolean
+    targetSlim: Boolean,
+    as: {
+      type: String,
+      default: 'span'
+    }
   },
   data () {
     return {
@@ -66,7 +67,7 @@ const Portal = {
   },
   methods: {
     mountTarget () {
-      this.portalTarget = createPortalTarget(this.target)
+      this.portalTarget = createPortalTarget(this.target, this.as)
       this.targetId = this.portalTarget.id
       this.$forceUpdate() // Force re-render in case of changes.
       if (this.portalTarget && this.portalTarget.isConnected) {

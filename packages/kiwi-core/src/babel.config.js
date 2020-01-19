@@ -10,8 +10,5 @@ module.exports = {
         'transform-vue-jsx'
       ]
     }
-  },
-  plugins: [
-    'emotion'
-  ]
+  }
 }

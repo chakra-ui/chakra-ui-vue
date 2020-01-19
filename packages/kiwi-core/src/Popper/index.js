@@ -74,12 +74,15 @@ const Popper = {
       type: String,
       default: '1rem'
     },
-    arrowShadowColor: String,
-    positionFixed: Boolean,
+    arrowShadowColor: {
+      type: String,
+      default: 'rgba(0, 0, 0, 0.1)'
+    },
     hasArrow: {
       type: Boolean,
       default: true
     },
+    positionFixed: Boolean,
     portalTarget: {
       type: String,
       default: `#chakra-portal-${popperId}`
@@ -104,6 +107,13 @@ const Popper = {
     }
   },
   computed: {
+    arrowStyles () {
+      return getPopperArrowStyle({
+        arrowSize: this.arrowSize,
+        arrowShadowColor: this.arrowShadowColor,
+        hasArrow: this.hasArrow
+      })
+    },
     rtlPlacement () {
       return flipPlacement(this.placement)
     },
@@ -124,7 +134,11 @@ const Popper = {
      * Handles open state for Popper
      */
     handleOpen () {
-      this.$refs.portalRef && this.$refs.portalRef.mountTarget()
+      // Double check to make sure portal target is mounted
+      // If it already is mounted, Portal component will use
+      // the existing portal target to mount popper children
+      (this.usePortal && this.$refs.portalRef) && this.$refs.portalRef.mountTarget()
+
       if (!this.anchor || !this.reference) return
       if (this.popper) {
         this.popper.scheduleUpdate()
@@ -199,9 +213,6 @@ const Popper = {
     }
   },
   render (h) {
-    let children = this.$slots.default
-
-    // Open is true but Popper instance is destroyed
     if (this.isOpen && !this.popper) {
       this.handleOpen()
     }
@@ -223,7 +234,7 @@ const Popper = {
         do: this.wrapClose
       }
     }, [h(PseudoBox, {
-      class: [getPopperArrowStyle({ arrowSize: this.arrowSize, arrowShadowColor: this.arrowShadowColor, hasArrow: this.hasArrow })],
+      class: [this.arrowStyles],
       style: {
         display: this.isOpen ? 'unset' : 'none'
       },
@@ -237,7 +248,7 @@ const Popper = {
         ...forwardProps(this.$props)
       },
       ref: 'handleRef'
-    }, children)])])
+    }, this.$slots.default)])])
   }
 }
 

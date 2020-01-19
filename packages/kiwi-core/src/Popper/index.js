@@ -34,14 +34,12 @@ function flipPlacement (placement) {
   }
 }
 
-const popperId = useId(3)
-
 const Popper = {
   name: 'Popper',
   props: {
-    id: {
+    _id: {
       type: String,
-      default: popperId
+      default: useId(3)
     },
     as: String,
     isOpen: Boolean,
@@ -83,10 +81,7 @@ const Popper = {
       default: true
     },
     positionFixed: Boolean,
-    portalTarget: {
-      type: String,
-      default: `#chakra-portal-${popperId}`
-    },
+    usePortalTarget: String,
     ...styleProps
   },
   data () {
@@ -113,6 +108,12 @@ const Popper = {
         arrowShadowColor: this.arrowShadowColor,
         hasArrow: this.hasArrow
       })
+    },
+    portalTarget () {
+      return this.usePortalTarget || `#chakra-portal-${useId(4)}`
+    },
+    popperId () {
+      return `popper_${useId(4)}`
     },
     rtlPlacement () {
       return flipPlacement(this.placement)
@@ -223,8 +224,7 @@ const Popper = {
         disabled: !this.usePortal,
         slim: true,
         unmountOnDestroy: true,
-        targetSlim: true,
-        name: `chakra-portal-${this.id}`
+        targetSlim: true
       },
       ref: 'portalRef'
     }, [h(ClickOutside, {
@@ -239,10 +239,10 @@ const Popper = {
         display: this.isOpen ? 'unset' : 'none'
       },
       attrs: {
-        id: `chakra-popper-${this.id}`
+        id: `chakra-popper-${this.popperId}`
       },
       scopedSlots: {
-        popperId: `chakra-popper-${this.id}`
+        popperId: `chakra-popper-${this.popperId}`
       },
       props: {
         ...forwardProps(this.$props)

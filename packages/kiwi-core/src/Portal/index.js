@@ -2,36 +2,6 @@ import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import { MountingPortal } from 'portal-vue'
 
 /**
- * @description Creates portal target node. If node doesn't exist, it is created and returned
- * @param {String} target
- * @returns {HTMLElement}
- */
-function createPortalTarget (target, tag) {
-  if (!canUseDOM) {
-    return
-  }
-
-  const existingPortalElement = document.querySelector(target)
-
-  if (existingPortalElement) {
-    return existingPortalElement
-  } else {
-    const el = document.createElement(tag)
-    if (target.startsWith('#')) {
-      el.id = gs(target, '#')
-    }
-    if (target.startsWith('.')) {
-      el.classList.add(gs(target, '.'))
-      el.id = useId(4)
-    }
-    if (document.body != null) {
-      document.body.appendChild(el)
-    }
-    return el
-  }
-}
-
-/**
  * Portal Component
  */
 const Portal = {
@@ -66,8 +36,37 @@ const Portal = {
     }
   },
   methods: {
+  /**
+   * @description Creates portal target node. If node doesn't exist, it is created and returned
+   * @param {String} target
+   * @returns {HTMLElement}
+   */
+    createPortalTarget (target, tag) {
+      if (!canUseDOM) {
+        return
+      }
+
+      const existingPortalElement = document.querySelector(target)
+
+      if (existingPortalElement) {
+        return existingPortalElement
+      } else {
+        const el = document.createElement(tag)
+        if (target.startsWith('#')) {
+          el.id = gs(target, '#')
+        }
+        if (target.startsWith('.')) {
+          el.classList.add(gs(target, '.'))
+          el.id = useId(4)
+        }
+        if (document.body != null) {
+          document.body.appendChild(el)
+        }
+        return el
+      }
+    },
     mountTarget () {
-      this.portalTarget = createPortalTarget(this.target, this.as)
+      this.portalTarget = this.createPortalTarget(this.target, this.as)
       this.targetId = this.portalTarget.id
       this.$forceUpdate() // Force re-render in case of changes.
       if (this.portalTarget && this.portalTarget.isConnected) {

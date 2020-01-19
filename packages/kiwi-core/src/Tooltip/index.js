@@ -47,7 +47,7 @@ const Tooltip = {
       return this.$colorMode()
     },
     tooltipId () {
-      return `tooltip-${useId(7)}`
+      return `tooltip-${useId(4)}`
     }
   },
   methods: {
@@ -134,7 +134,7 @@ const Tooltip = {
       clone,
       h(Popper, {
         props: {
-          usePortal: false,
+          usePortal: true,
           anchorEl: this.tooltipAnchor,
           hasArrow: true,
           isOpen: this.isOpen,
@@ -148,7 +148,7 @@ const Tooltip = {
           arrowSize: '10px',
           px: '8px',
           py: '2px',
-          id: hasAriaLabel ? undefined : this.tooltipId,
+          _id: this.tooltipId,
           bg: _bg,
           borderRadius: 'sm',
           fontWeight: 'medium',
@@ -160,6 +160,7 @@ const Tooltip = {
           ...forwardProps(this.$props)
         },
         attrs: {
+          id: hasAriaLabel ? undefined : this.tooltipId,
           role: hasAriaLabel ? undefined : 'tooltip'
         }
       }, [

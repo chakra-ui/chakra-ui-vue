@@ -59,13 +59,18 @@ export default {
     ...buttonProps,
     ...styleProps
   },
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   render (h) {
     const buttonStyles = createButtonStyles({
       color: this.variantColor || this.cast,
       variant: this.variant,
       theme: this.$theme,
       ripple: this.ripple,
-      colorMode: this.$colorMode,
+      colorMode: this.colorMode,
       size: this.size || 'md'
     })
 

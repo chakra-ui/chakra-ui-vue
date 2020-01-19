@@ -1,5 +1,5 @@
 <template>
-  <theme-provider :theme="$kiwi.theme" :icons="$kiwi.icons">
+  <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
     <div class="root">
       <CSSReset />
       <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
@@ -7,37 +7,26 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Tooltip :show-delay="500" placement="top" :hide-delay="500" label="Hey, I'm here!">
-          Top
+
+        <Tooltip placement="top" label="Abort">
+          <Button m="3" variant="ghost" variant-color="gray">Cancel</Button>
         </Tooltip>
-        <Tooltip :show-delay="500" placement="right" :hide-delay="500" label="Hey, I'm here!">
-          Right
+
+        <Tooltip placement="left" label="Deleting all user events will result in irrecovery of the data.">
+          <Button m="3" variant="outline" variant-color="red">Delete</Button>
         </Tooltip>
-        <Tooltip :show-delay="500" placement="bottom" :hide-delay="500" label="Hey, I'm here!">
-          Bottom
+
+        <Tooltip placement="right" label="Save your game progress">
+          <Button m="3" variant="solid" variant-color="blue">Save</Button>
         </Tooltip>
-        <Tooltip :show-delay="500" placement="left" :hide-delay="500" label="Hey, I'm here!">
-          Left
-        </Tooltip>
-        <Tooltip :show-delay="500" placement="top-start" :hide-delay="500" label="Hey, I'm here!">
-          Top Start
-        </Tooltip>
-        <Tooltip :show-delay="500" placement="auto-end" :hide-delay="500" label="Hey, I'm here!">
-          Auto End
-        </Tooltip>
-        <Tooltip :show-delay="500" placement="left-start" :hide-delay="500" label="Hey, I'm here!">
-          Left Start
-        </Tooltip>
-        <Tooltip :show-delay="500" placement="right-end" :hide-delay="500" label="Hey, I'm here!">
-          Right End
-        </Tooltip>
+
       </div>
     </div>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, Icon, Tooltip, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Link as Anchor, Button, Icon, Tooltip, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -46,14 +35,16 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Tooltip
+    Tooltip,
+    Button
   },
   data () {
     return {
       show: false,
       usePortal: true,
       placement: 'auto',
-      count: 0
+      count: 0,
+      colorMode: 'light'
     }
   },
   methods: {
@@ -97,7 +88,7 @@ body {
 
   .wrapper {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
   }
 }

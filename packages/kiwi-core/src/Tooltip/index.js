@@ -39,7 +39,8 @@ const Tooltip = {
       isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,
       enterTimeout: null,
       exitTimeout: null,
-      tooltipAnchor: undefined
+      tooltipAnchor: undefined,
+      noop: 0
     }
   },
   computed: {
@@ -83,6 +84,14 @@ const Tooltip = {
     }
   },
   props: tooltipProps,
+  mounted () {
+    // When component is mounted we force re-render because component
+    // children may not yet be rendered so event listeners may not be
+    // Attached immediately.
+    this.$nextTick(() => {
+      this.noop++
+    })
+  },
   render (h) {
     let clone
 
@@ -119,17 +128,19 @@ const Tooltip = {
       // Bind tooltipAnchor ref to variable
       this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
     } else {
-      clone = cloneVNode(children[0], h)
-      clone.elm.onmouseenter = this.handleOpen
-      clone.elm.onmouseleave = this.handleClose
-      clone.elm.onclick = this.handleClick
-      clone.elm.onfocus = this.handleOpen
-      clone.elm.onblur = this.handleClose
-      this.tooltipAnchor = clone.elm
-    }
     /**
-     * During cloning, we bind events to the VNodes
+     * During cloning, we bind events to the cloned VNode element
      */
+      clone = cloneVNode(children[0], h)
+      clone.data.attrs['id'] = `__wrapper-${this.tooltipId}`
+      const anchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
+      anchor && anchor.addEventListener('mouseenter', this.handleOpen)
+      anchor && anchor.addEventListener('mouseleave', this.handleClose)
+      anchor && anchor.addEventListener('click', this.handleClick)
+      anchor && anchor.addEventListener('focus', this.handleOpen)
+      anchor && anchor.addEventListener('blur', this.handleClose)
+      this.tooltipAnchor = anchor
+    }
     return h(Fragment, [
       clone,
       h(Popper, {
@@ -161,7 +172,8 @@ const Tooltip = {
         },
         attrs: {
           id: hasAriaLabel ? undefined : this.tooltipId,
-          role: hasAriaLabel ? undefined : 'tooltip'
+          role: hasAriaLabel ? undefined : 'tooltip',
+          'data-noop': this.noop
         }
       }, [
         this.label,

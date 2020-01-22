@@ -93,6 +93,8 @@ const Toast = {
  * @param {Object} options
  * @property {Object} theme
  * @property {Object} icons
+ * TODO: In Vue 3 this should be exposed as a hook of it's own so as to
+ * to inject theme and icons variables provided by theme provider component.
  */
 function useToast ({ theme, icons }) {
   /**

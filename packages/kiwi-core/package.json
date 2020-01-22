@@ -21,12 +21,13 @@
     "lodash-es": "^4.17.15"
   },
   "peerDependencies": {
+    "breadstick": "^0.1.21",
     "vue": "^2.6.10",
-    "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
-    "breadstick": "^0.1.21"
+    "vue-styled-components": "git+https://github.com/codebender828/vsc.git"
   },
   "devDependencies": {
-    "core-js": "^3.4.5"
+    "core-js": "^3.4.5",
+    "csstype": "^2.6.8"
   },
   "gitHead": "3edafd2f90f3aa3c5a44ec9f5b0e960430caaad0"
 }

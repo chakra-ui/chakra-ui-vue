@@ -8,10 +8,10 @@
       </Anchor>
       <div class="wrapper">
 
-        <Tooltip hasArrow label="Search places" placement="top" bg="red.400">
-          <Button>Button</Button>
+        <Tooltip hasArrow label="Search places" placement="top" bg="red.600">
+          <Button m="3" @click="logClick" variant-color="yellow">Update</Button>
         </Tooltip>
-
+        <Button m="3" @click="logClick" variant-color="green">Main</Button>
       </div>
     </div>
   </theme-provider>
@@ -40,6 +40,9 @@ export default {
     }
   },
   methods: {
+    logClick () {
+      console.log('Tooltip click')
+    },
     showPopper () {
       this.show = !this.show
     },
@@ -80,7 +83,7 @@ body {
 
   .wrapper {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
   }
 }

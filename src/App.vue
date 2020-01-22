@@ -8,8 +8,8 @@
       </Anchor>
       <div class="wrapper">
 
-        <Tooltip label="Aborts requests for display">
-          <Button left-icon="user-slash" variant-color="red">Delete Account</Button>
+        <Tooltip placement="top" label="Abort">
+          <Button m="3" variant="ghost" variant-color="gray">Cancel</Button>
         </Tooltip>
 
       </div>

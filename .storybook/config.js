@@ -6,8 +6,32 @@ import theme from '../packages/kiwi-core/src/lib/theme'
 import icons from '../packages/kiwi-core/src/lib/internal-icons'
 import storyBookTheme from './theme'
 
+import {
+  faBraille,
+  faAnchor,
+  faPlus,
+  faUserSlash } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faChevronCircleUp,
+  faSearch,
+  faTimesCircle } from '@fortawesome/pro-light-svg-icons'
+
 Vue.use(VueCompositionAPI)
-Vue.use(Kiwi)
+Vue.use(Kiwi, {
+  icons: {
+    iconPack: 'fa',
+    iconSet: {
+      faBraille,
+      faAnchor,
+      faPlus,
+      faUserSlash,
+      faChevronCircleUp,
+      faSearch,
+      faTimesCircle
+    }
+  }
+})
 
 addParameters({
   options: {

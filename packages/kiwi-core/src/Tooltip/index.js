@@ -104,6 +104,9 @@ const Tooltip = {
 
     // Child nodes parsing
     const children = this.$slots.default
+    if (children.length > 1) {
+      return console.error('[ChakraUI]: The Tooltip component only expects one child.')
+    }
     if (children[0].text || this.shouldWrapChildren) {
       clone = (
         clone = h(Box, {
@@ -125,22 +128,27 @@ const Tooltip = {
           ref: 'tooltipRef'
         }, children[0].text)
       )
-      // Bind tooltipAnchor ref to variable
-      this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
     } else {
-    /**
-     * During cloning, we bind events to the cloned VNode element
-     */
-      clone = cloneVNode(children[0], h)
-      clone.data.attrs['id'] = `__wrapper-${this.tooltipId}`
-      const anchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
-      anchor && anchor.addEventListener('mouseenter', this.handleOpen)
-      anchor && anchor.addEventListener('mouseleave', this.handleClose)
-      anchor && anchor.addEventListener('click', this.handleClick)
-      anchor && anchor.addEventListener('focus', this.handleOpen)
-      anchor && anchor.addEventListener('blur', this.handleClose)
-      this.tooltipAnchor = anchor
+      const cloned = cloneVNode(children[0], h)
+      if (cloned.componentOptions) {
+        clone = h(cloned.componentOptions.Ctor, {
+          props: cloned.componentOptions.propsData,
+          attrs: {
+            id: `__wrapper-${this.tooltipId}`
+          },
+          nativeOn: {
+            'mouseenter': this.handleOpen,
+            'mouseleave': this.handleClose,
+            'click': this.handleClick,
+            'focus': this.handleOpen,
+            'blur': this.handleClose
+          }
+        }, cloned.componentOptions.children)
+      }
     }
+
+    this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
+
     return h(Fragment, [
       clone,
       h(Popper, {

@@ -103,8 +103,7 @@ export default {
           mr: this.iconSpacing,
           mb: 'px',
           icon: this.leftIcon,
-          size: '1em',
-          ...forwardProps(this.$props)
+          size: '1em'
         }
       }),
       this.isLoading && h(Spinner, {
@@ -113,8 +112,7 @@ export default {
           color: 'currentColor',
           mb: '-4px',
           mr: this.loadingText ? this.iconSpacing : 0,
-          size: '1em',
-          ...forwardProps(this.$props)
+          size: '1em'
         }
       }),
       this.isLoading ? this.loadingText : this.$slots.default,
@@ -123,8 +121,7 @@ export default {
           ml: this.iconSpacing,
           mb: 'px',
           icon: this.rightIcon,
-          size: '1em',
-          ...forwardProps(this.$props)
+          size: '1em'
         }
       })
     ])

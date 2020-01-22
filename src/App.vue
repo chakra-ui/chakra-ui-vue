@@ -8,16 +8,8 @@
       </Anchor>
       <div class="wrapper">
 
-        <Tooltip placement="top" label="Abort">
-          <Button m="3" variant="ghost" variant-color="gray">Cancel</Button>
-        </Tooltip>
-
-        <Tooltip placement="left" label="Deleting all user events will result in irrecovery of the data.">
-          <Button m="3" variant="outline" variant-color="red">Delete</Button>
-        </Tooltip>
-
-        <Tooltip placement="right" label="Save your game progress">
-          <Button m="3" variant="solid" variant-color="blue">Save</Button>
+        <Tooltip label="Aborts requests for display">
+          <Button left-icon="user-slash" variant-color="red">Delete Account</Button>
         </Tooltip>
 
       </div>

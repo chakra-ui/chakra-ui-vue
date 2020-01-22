@@ -8,9 +8,9 @@
       </Anchor>
       <div class="wrapper">
 
-        <Tooltip hasArrow label="Search places" placement="top" bg="red.600">
-          <Button m="3" @click="logClick" variant-color="yellow">Update</Button>
-        </Tooltip>
+        <CircularProgress :value="60">
+          <CircularProgressLabel>60%</CircularProgressLabel>
+        </CircularProgress>
         <Button m="3" @click="logClick" variant-color="green">Main</Button>
       </div>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, Button, Icon, Tooltip, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Link as Anchor, Button, Icon, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -27,7 +27,8 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Tooltip,
+    CircularProgress,
+    CircularProgressLabel,
     Button
   },
   data () {
@@ -85,6 +86,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 }
 </style>

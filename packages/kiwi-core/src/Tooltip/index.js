@@ -132,6 +132,7 @@ const Tooltip = {
       const cloned = cloneVNode(children[0], h)
       if (cloned.componentOptions) {
         clone = h(cloned.componentOptions.Ctor, {
+          ...cloned.data,
           props: cloned.componentOptions.propsData,
           attrs: {
             id: `__wrapper-${this.tooltipId}`

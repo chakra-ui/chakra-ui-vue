@@ -8,8 +8,8 @@
       </Anchor>
       <div class="wrapper">
 
-        <Tooltip hasArrow placement="top" label="Abort">
-          <Button m="3" variant="ghost" variant-color="gray">Cancel</Button>
+        <Tooltip hasArrow label="Search places" placement="top" bg="red.400">
+          <Button>Button</Button>
         </Tooltip>
 
       </div>

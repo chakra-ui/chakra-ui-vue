@@ -21,7 +21,7 @@ const getPopperArrowStyle = ({
       transform: 'rotate(45deg)',
 
       '&::before': {
-        content: '',
+        content: '""',
         width: arrowSize,
         height: arrowSize,
         position: 'absolute',

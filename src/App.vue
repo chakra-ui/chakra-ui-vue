@@ -9,18 +9,20 @@
       </Anchor>
       <div class="wrapper">
 
-        <CircularProgress size="120px" color="blue" :thickness="0.1" :value="value">
-          <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
-        </CircularProgress>
-        <Button m="6" left-icon="bolt" @click="logClick" variant-color="green">Charge</Button>
-        <Code> import </Code>
+        <Grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
+          <Box w="100%" h="10" bg="blue.500" />
+          <Box w="100%" h="10" bg="blue.500" />
+          <Box w="100%" h="10" bg="blue.500" />
+          <Box w="100%" h="10" bg="blue.500" />
+          <Box w="100%" h="10" bg="blue.500" />
+        </Grid>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Icon, Code, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Grid, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -30,10 +32,8 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    CircularProgress,
-    CircularProgressLabel,
-    Button,
-    Code
+    Grid,
+    Box
   },
   data () {
     return {

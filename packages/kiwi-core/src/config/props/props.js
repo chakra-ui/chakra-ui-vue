@@ -119,7 +119,19 @@ const baseProps = {
   backgroundAttachment: [String, Array],
   float: [String, Array],
   willChange: [String, Array],
-  zIndex: [Number, String, Array]
+  zIndex: [Number, String, Array],
+  gridArea: [String, Number, Array],
+  gridTemplateAreas: [String, Number, Array],
+  gridGap: [String, Number, Array],
+  gridRowGap: [String, Number, Array],
+  gridColumnGap: [String, Number, Array],
+  gridAutoColumns: [String, Number, Array],
+  gridColumn: [String, Number, Array],
+  gridRow: [String, Number, Array],
+  gridAutoFlow: [String, Number, Array],
+  gridAutoRows: [String, Number, Array],
+  gridTemplateRows: [String, Number, Array],
+  gridTemplateColumns: [String, Number, Array]
 }
 
 export default baseProps

@@ -13,7 +13,8 @@ import { faCoffee,
   faCaretLeft,
   faAnchor,
   faPlus,
-  faUserSlash } from '@fortawesome/free-solid-svg-icons'
+  faUserSlash,
+  faBolt } from '@fortawesome/free-solid-svg-icons'
 
 import {
   faChevronCircleUp,
@@ -44,7 +45,8 @@ Vue.use(Kiwi, {
       faSearch,
       faPlus,
       faGithub,
-      faUserSlash
+      faUserSlash,
+      faBolt
     },
     extend: {
       'not-allowed': {

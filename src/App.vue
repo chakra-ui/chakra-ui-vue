@@ -1,6 +1,7 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
-    <div class="root">
+    <main class="root">
+      <Heading mb="50px" as="h1">Chakra-vui Circular Progress</Heading>
       <CSSReset />
       <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
@@ -8,21 +9,22 @@
       </Anchor>
       <div class="wrapper">
 
-        <CircularProgress :value="60">
-          <CircularProgressLabel>60%</CircularProgressLabel>
+        <CircularProgress size="120px" color="blue" :thickness="0.1" :value="value">
+          <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
         </CircularProgress>
-        <Button m="3" @click="logClick" variant-color="green">Main</Button>
+        <Button m="6" left-icon="bolt" @click="logClick" variant-color="green">Charge</Button>
       </div>
-    </div>
+    </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Link as Anchor, Button, Icon, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Icon, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   components: {
+    Heading,
     ThemeProvider,
     Icon,
     Anchor,
@@ -37,12 +39,24 @@ export default {
       usePortal: true,
       placement: 'auto',
       count: 0,
-      colorMode: 'light'
+      colorMode: 'light',
+      value: 0
     }
   },
   methods: {
     logClick () {
-      console.log('Tooltip click')
+      this.value = 0
+      if (this.interval) clearInterval(this.interval)
+      this.interval = setInterval(() => {
+        let internalValue = this.value
+        internalValue = internalValue + parseInt((Math.random() * 10).toFixed(0), 10)
+        if (internalValue >= 100) {
+          internalValue = 100
+          this.value = internalValue
+          clearInterval(this.interval)
+        }
+        this.value = internalValue
+      }, 1000)
     },
     showPopper () {
       this.show = !this.show

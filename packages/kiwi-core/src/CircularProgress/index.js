@@ -20,7 +20,7 @@ const CircularProgressLabel = {
         fontSize: '0.25em',
         ...forwardProps(this.$props)
       }
-    })
+    }, this.$slots.default)
   }
 }
 
@@ -46,6 +46,10 @@ const CircularProgress = {
       default: 0
     },
     isIndeterminate: Boolean,
+    isTransitioned: {
+      type: Boolean,
+      default: true
+    },
     thickness: {
       type: Number,
       default: 0.2
@@ -63,8 +67,8 @@ const CircularProgress = {
     color: {
       type: String,
       default: 'blue'
-    }
-    // ...baseProps
+    },
+    ...baseProps
   },
   render (h) {
     const _trackColor = { light: `${this.trackColor}.100`, dark: 'whiteAlpha.300' }
@@ -85,14 +89,8 @@ const CircularProgress = {
       capIsRound: this.capIsRound,
       isIndeterminate: this.isIndeterminate,
       color: _color[this.colorMode],
-      trackColor: _trackColor[this.colorMode]
-    })
-
-    console.log({
-      rootData,
-      indicatorCircleData,
-      svgData,
-      trackCircleData
+      trackColor: _trackColor[this.colorMode],
+      isTransitioned: this.isTransitioned
     })
 
     return h(Box, {

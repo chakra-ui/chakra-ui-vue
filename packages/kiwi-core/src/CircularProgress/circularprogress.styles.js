@@ -41,7 +41,8 @@ export function getComputedProps ({
   trackColor,
   color,
   capIsRound,
-  isIndeterminate
+  isIndeterminate,
+  isTransitioned
 }) {
   let radius = 50
   let diameter = radius * 2
@@ -60,7 +61,8 @@ export function getComputedProps ({
         as: 'circle',
         color,
         fill: 'transparent',
-        stroke: 'currentColor'
+        stroke: 'currentColor',
+        ...isTransitioned && { transition: 'all 250ms' }
       },
       attrs: {
         'stroke-width': thickness,
@@ -102,10 +104,10 @@ export function getComputedProps ({
         ...(isIndeterminate && {
           transformOrigin: '50% 50%',
           animation: `${spin} 2s linear infinite`
-        }),
-        attrs: {
-          viewBox: viewBoxAttr
-        }
+        })
+      },
+      attrs: {
+        viewBox: viewBoxAttr
       }
     },
 
@@ -131,6 +133,7 @@ export function getComputedProps ({
         }).attrs
       },
       props: {
+        ...isTransitioned && { transition: 'all 250ms' },
         stroke: 'currentColor',
         ...getCircleProps({
           thickness: strokeWidth,

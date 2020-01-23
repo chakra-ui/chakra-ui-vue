@@ -24,12 +24,16 @@ const Heading = {
     forwardRef: {
       type: HTMLElement
     },
+    as: {
+      type: String,
+      default: 'h1'
+    },
     ...baseProps
   },
   render (h) {
     return h(Box, {
       props: {
-        as: 'h2',
+        as: this.as,
         fontSize: sizes[this.size],
         lineHeight: 'shorter',
         fontWeight: 'bold',

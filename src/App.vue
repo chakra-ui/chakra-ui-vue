@@ -13,13 +13,14 @@
           <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
         </CircularProgress>
         <Button m="6" left-icon="bolt" @click="logClick" variant-color="green">Charge</Button>
+        <Code> import </Code>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Icon, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Icon, Code, CSSReset, CircularProgress, CircularProgressLabel } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -31,7 +32,8 @@ export default {
     CSSReset,
     CircularProgress,
     CircularProgressLabel,
-    Button
+    Button,
+    Code
   },
   data () {
     return {

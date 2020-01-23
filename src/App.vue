@@ -9,12 +9,12 @@
       </Anchor>
       <div class="wrapper">
 
-        <Grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
-          <Box w="100%" h="10" bg="blue.500" />
-          <Box w="100%" h="10" bg="blue.500" />
-          <Box w="100%" h="10" bg="blue.500" />
-          <Box w="100%" h="10" bg="blue.500" />
-          <Box w="100%" h="10" bg="blue.500" />
+        <Grid :template-columns="['repeat(2, 1fr)', 'repeat(4, 1fr)']" gap="6">
+          <Box w="100px" h="10" bg="blue.500" />
+          <Box w="100px" h="10" bg="blue.500" />
+          <Box w="100px" h="10" bg="blue.500" />
+          <Box w="100px" h="10" bg="blue.500" />
+          <Box w="100px" h="10" bg="blue.500" />
         </Grid>
       </div>
     </main>

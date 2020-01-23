@@ -1,11 +1,12 @@
 {
   "name": "kiwi-core",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
   "private": false,
   "scripts": {
@@ -14,8 +15,13 @@
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "color": "^3.1.2",
+    "emotion": "^10.0.27",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15"

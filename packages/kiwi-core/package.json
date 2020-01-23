@@ -21,13 +21,13 @@
   ],
   "dependencies": {
     "color": "^3.1.2",
-    "emotion": "^10.0.27",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15"
   },
   "peerDependencies": {
     "breadstick": "^0.1.21",
+    "emotion": "^10.0.27",
     "vue": "^2.6.10",
     "vue-styled-components": "git+https://github.com/codebender828/vsc.git"
   },

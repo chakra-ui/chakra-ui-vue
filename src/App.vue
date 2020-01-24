@@ -8,17 +8,18 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <CircularProgress color="tomato" :value="value">
-          <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
-        </CircularProgress>
-        <Button variant-color="blue" left-icon="coffee"> Nice Button </Button>
+        <Progress rounded="sm" color="green" size="sm" :value="value" />
+        <Progress color="green" size="md" :value="value" />
+        <Progress color="green" size="lg" :value="value" />
+        <Progress color="green" height="32px" :value="value" />
+        <Button left-icon="bolt" mt="3" @click="logClick" variant-color="green">Charge</Button>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, CircularProgress, CircularProgressLabel, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Progress, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -28,9 +29,8 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Button,
-    CircularProgress,
-    CircularProgressLabel
+    Progress,
+    Button
   },
   data () {
     return {
@@ -96,11 +96,11 @@ body {
   align-items: center;
 
   .wrapper {
-    /* display: flex; */
-    /* flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 600px; */
+    width: 600px;
   }
 }
 </style>

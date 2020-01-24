@@ -11,7 +11,7 @@
         <CircularProgress color="tomato" :value="value">
           <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
         </CircularProgress>
-        <Button variant-color="blue" right-icon="star"> Nice Button </Button>
+        <Button variant-color="blue" left-icon="coffee"> Nice Button </Button>
       </div>
     </main>
   </theme-provider>

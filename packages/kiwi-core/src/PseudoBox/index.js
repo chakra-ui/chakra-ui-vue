@@ -3,7 +3,6 @@ import __css from '@styled-system/css'
 import Box from '../Box'
 import { pseudoProps, baseProps } from '../config/props'
 import { parsePseudoStyles } from './utils'
-import { forwardProps } from '../utils'
 
 const PseudoBox = {
   name: 'PseudoBox',
@@ -23,13 +22,11 @@ const PseudoBox = {
   },
   render (h) {
     const pseudoBoxStylesObject = __css(this.$props)(this.theme)
-    const parsedStyleObject = parsePseudoStyles(pseudoBoxStylesObject)
-    const className = css(parsedStyleObject)
-
+    const [pseudoStyleObject, baseStyleObject] = parsePseudoStyles(pseudoBoxStylesObject)
+    const className = css(pseudoStyleObject)
     return h(Box, {
       props: {
-        as: this.as,
-        ...forwardProps(this.$props)
+        ...baseStyleObject
       },
       class: [className]
     }, this.$slots.default)

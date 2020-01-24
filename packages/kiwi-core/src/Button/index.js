@@ -62,18 +62,20 @@ export default {
   computed: {
     colorMode () {
       return this.$colorMode()
+    },
+    theme () {
+      return this.$theme()
     }
   },
   render (h) {
     const buttonStyles = createButtonStyles({
       color: this.variantColor || this.cast,
       variant: this.variant,
-      theme: this.$theme,
+      theme: this.theme,
       ripple: this.ripple,
       colorMode: this.colorMode,
       size: this.size || 'md'
     })
-
     return h(PseudoBox, {
       props: {
         as: this.as,
@@ -94,10 +96,11 @@ export default {
         ariaDisabled: this.disabled || this.isLoading,
         dataActive: this.isActive ? 'true' : undefined
       },
-      on: {
+      nativeOn: {
         click: ($event) => this.$emit('click', $event)
       }
     }, [
+      // TODO: fix icon spacing bug? Not really a bug but translation fo style values is weird
       this.leftIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           mr: this.iconSpacing,

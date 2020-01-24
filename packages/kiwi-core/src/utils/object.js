@@ -24,6 +24,18 @@ export function filterPseudo (props) {
 }
 
 /**
+ * Extracts style props from merged spseudo styes object
+ * @param {Object} props
+ * @returns {Object} Base styles object
+ */
+export function filterBaseStyles (props) {
+  const pseudos = pickBy(props, (_value, key) => {
+    return !startsWith(key, '_')
+  })
+  return pseudos
+}
+
+/**
  * Unwraps `value` getter values from ref property values in refs object.
  * @param {Object} props
  * @returns {Object} Unwrapped values object

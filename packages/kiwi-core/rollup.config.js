@@ -90,23 +90,23 @@ const entries = {
  * Configurations
  */
 export default () => {
-  const mapComponent = (name) => {
-    return [{
-      input: baseFolder + `${name}/index.js`,
-      external: externals,
-      output: {
-        format: 'umd',
-        name: capitalize(name),
-        file: `dist/components/${name}/index.js`,
-        banner: bannerTxt,
-        exports: 'named',
-        globals: {
-          vue: 'Vue'
-        }
-      },
-      ...commons
-    }]
-  }
+  // const mapComponent = (name) => {
+  //   return [{
+  //     input: baseFolder + `${name}/index.js`,
+  //     external: externals,
+  //     output: {
+  //       format: 'umd',
+  //       name: capitalize(name),
+  //       file: `dist/components/${name}/index.js`,
+  //       banner: bannerTxt,
+  //       exports: 'named',
+  //       globals: {
+  //         vue: 'Vue'
+  //       }
+  //     },
+  //     ...commons
+  //   }]
+  // }
 
   let config = [{
     input: entries,
@@ -133,20 +133,20 @@ export default () => {
     },
     ...commons
   },
-  {
-    input: './src/index.js',
-    output: {
-      file: `dist/umd/index.js/`,
-      name: capitalize('chakra'),
-      format: 'umd',
-      exports: 'named',
-      banner: bannerTxt,
-      globals: {
-        vue: 'Vue'
-      }
-    },
-    ...commons
-  },
+  // {
+  //   input: './src/index.js',
+  //   output: {
+  //     file: `dist/umd/index.js/`,
+  //     name: capitalize('chakra'),
+  //     format: 'umd',
+  //     exports: 'named',
+  //     banner: bannerTxt,
+  //     globals: {
+  //       vue: 'Vue'
+  //     }
+  //   },
+  //   ...commons
+  // },
   {
     input: './src/index.js',
     output: {
@@ -157,20 +157,20 @@ export default () => {
       banner: bannerTxt
     },
     ...commons
-  },
-  // Individual components
-  ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
-  ]
-  if (process.env.MINIFY === 'true') {
-    config = config.filter((c) => !!c.output.file)
-    config.forEach((c) => {
-      c.output.file = c.output.file.replace(/\.js/g, '.min.js')
-      c.plugins.push(terser({
-        output: {
-          comments: '/^!/'
-        }
-      }))
-    })
   }
+  // Individual components
+  // ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
+  ]
+  // if (process.env.MINIFY === 'true') {
+  //   config = config.filter((c) => !!c.output.file)
+  //   config.forEach((c) => {
+  //     c.output.file = c.output.file.replace(/\.js/g, '.min.js')
+  //     c.plugins.push(terser({
+  //       output: {
+  //         comments: '/^!/'
+  //       }
+  //     }))
+  //   })
+  // }
   return config
 }

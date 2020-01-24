@@ -12,9 +12,6 @@ You can also view all developed components in Storybook!
 
 <a href="https://kiwi-ui.netlify.com" target="_blank" style="background: #2a4106; color: #9fdc3c; padding: 0.7em; border-radius: 4px; font-weight: 700; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">🔖 View Storybook</a>
 
-## Development
-This current verison of Kiwi uses a forked version of `vue-styled-components`. This will be replaced in the near future. I order to get started with the development environment, run the following commands to install all packages and then build `vue-styled-components` dist. And voila! You're good to go. You only need to run this once after running `yarn install` on this repository.
-
 ```bash
 yarn install
 yarn build-vsc
@@ -30,10 +27,6 @@ yarn serve
   - [x] Observe theme and set it dynamically in javascript with ease.
 - [x] Provide icons API for icons component
 - [x] Accessibility (Focus) Styling
-- [ ] Make Vue toaster API to render custom elements inside default slot
-- [ ] Make `createContext` API for Kiwi
-  - [ ] This component should return provider and corresponding consumer. Should be used for component creation.
 - [ ] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
-- [ ] Publish `vue-styled-components` alternative and link as peer dependency
 

@@ -101,8 +101,7 @@ export default () => {
         banner: bannerTxt,
         exports: 'named',
         globals: {
-          vue: 'Vue',
-          'vue-styled-components': 'styled'
+          vue: 'Vue'
         }
       },
       ...commons
@@ -143,8 +142,7 @@ export default () => {
       exports: 'named',
       banner: bannerTxt,
       globals: {
-        vue: 'Vue',
-        'vue-styled-components': 'styled'
+        vue: 'Vue'
       }
     },
     ...commons

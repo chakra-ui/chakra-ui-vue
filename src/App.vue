@@ -8,33 +8,9 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Box as="label" display="flex" alignItems="center" cursor="pointer" for="control-checkbox">
-          <!-- This is the sibling input, it's visually hidden -->
-          <VisuallyHidden as="input" id="control-checkbox" type="checkbox" checked="true" />
-
-          <!-- This is the control box with a check icon as children -->
-          <ControlBox
-            borderWidth="1px"
-            size="24px"
-            rounded="sm"
-            :_checked="{
-              bg: 'green.500',
-              color: 'white',
-              borderColor: 'green.500'
-            }"
-            :_focus="{
-              borderColor: 'green.600',
-              boxShadow: 'outline'
-            }"
-          >
-            <Icon name="check" size="16px" />
-          </ControlBox>
-
-          <!-- You can pass additional text -->
-          <Box ml="2" as="span" vertical-align="center" user-select="none">
-            Checkbox Label
-          </Box>
-        </Box>
+        <CircularProgress color="tomato" :value="value">
+          <CircularProgressLabel>{{ value }}%</CircularProgressLabel>
+        </CircularProgress>
         <Button variant-color="blue" right-icon="star"> Nice Button </Button>
       </div>
     </main>
@@ -42,7 +18,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, VisuallyHidden, ControlBox, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, CircularProgress, CircularProgressLabel, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -52,10 +28,9 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    VisuallyHidden,
-    ControlBox,
-    Box,
-    Button
+    Button,
+    CircularProgress,
+    CircularProgressLabel
   },
   data () {
     return {
@@ -64,7 +39,7 @@ export default {
       placement: 'auto',
       count: 0,
       colorMode: 'light',
-      value: 0
+      value: 60
     }
   },
   methods: {

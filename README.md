@@ -1,9 +1,5 @@
 <br />
-<p align="center">
-  <a href="https://codebender828.github.io/kiwi-ui">
-    <img src="https://res.cloudinary.com/xtellar/image/upload/v1575300764/kiwi-ui/kiwi-ui-logo-h_y75i1x.png" alt="Reakit symbol" width="300" />
-  </a>
-</p>
+<h1 align="center">🥝 Kiwi UI</h1>
 <h4 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease.</h4>
 
 ### 📦 Components
@@ -14,20 +10,23 @@ A complete list of all components to be built can be found here 👇🏽.
 ### Browsing Components
 You can also view all developed components in Storybook!
 
-<a href="https://codebender828.github.io/kiwi-ui" target="_blank" style="background: #2a4106; color: #9fdc3c; padding: 0.7em; border-radius: 4px; font-weight: 700; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">🔖 View Storybook</a>
+<a href="https://kiwi-ui.netlify.com" target="_blank" style="background: #2a4106; color: #9fdc3c; padding: 0.7em; border-radius: 4px; font-weight: 700; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">🔖 View Storybook</a>
 
-## Development
-This current verison of Kiwi uses a forked version of `vue-styled-components`. This will be replaced in the near future.
+```bash
+yarn install
+yarn build-vsc
+yarn serve
+```
 
 #### Project TODO:
-- [ ] Make `createContext` API for Kiwi
-  - [ ] This component should return provider and corresponding consumer. Should be used for component creation.
-- [ ] Explore named exports with rollup
-- [ ] Add vue plugin to rollup build?
-  - https://github.com/tournantdev/ui/blob/master/_build/rollup.config.js
-- [x] Setup NPM distribution
+- [x] Setup Storybook for components UI
+- [x] Theme Provider
+- [x] Develop styling scheme for components with styled components
+- [x] Setup Vue.js plugin system
+  - [x] Provide Theme
+  - [x] Observe theme and set it dynamically in javascript with ease.
+- [x] Provide icons API for icons component
+- [x] Accessibility (Focus) Styling
+- [ ] Setup NPM distribution
 - [ ] Set up type system for components with Typescript
 
-- [ ] Link packages for local development.
-- [ ] Setup other project for development.
-- [ ] Setup Babel

@@ -1,71 +1,91 @@
-import styled from 'vue-styled-components'
-import css from '@styled-system/css'
+import { css } from 'emotion'
+import __css from '@styled-system/css'
 import Box from '../Box'
-// import { baseProps } from '../config/props'
-import { tx } from '../utils'
+import { tx, forwardProps } from '../utils'
+import { baseProps } from '../config'
 
 // Default ControlBox props types
 const PropTypes = [Object, Array]
 
-const ControlBox = styled(Box, {
-  type: {
-    type: String,
-    default: 'checkbox'
+const ControlBox = {
+  name: 'ControlBox',
+  inject: ['$theme'],
+  props: {
+    type: {
+      type: String,
+      default: 'checkbox'
+    },
+    size: {
+      type: [Number, String, Array],
+      default: 'auto'
+    },
+    _hover: PropTypes,
+    _invalid: PropTypes,
+    _disabled: PropTypes,
+    _focus: PropTypes,
+    _checked: PropTypes,
+    _child: {
+      type: PropTypes,
+      default: () => ({ opacity: 0 })
+    },
+    _checkedAndChild: {
+      type: PropTypes,
+      default: () => ({ opacity: 1 })
+    },
+    _checkedAndDisabled: PropTypes,
+    _checkedAndFocus: PropTypes,
+    _checkedAndHover: PropTypes,
+    ...baseProps
   },
-  size: {
-    type: [Number, String, Array],
-    default: 'auto'
-  },
-  _hover: PropTypes,
-  _invalid: PropTypes,
-  _disabled: PropTypes,
-  _focus: PropTypes,
-  _checked: PropTypes,
-  _child: {
-    type: PropTypes,
-    default: () => ({ opacity: 0 })
-  },
-  _checkedAndChild: {
-    type: PropTypes,
-    default: () => ({ opacity: 1 })
-  },
-  _checkedAndDisabled: PropTypes,
-  _checkedAndFocus: PropTypes,
-  _checkedAndHover: PropTypes
-})`
-  ${(props) => {
-    const checkedAndDisabled = `input[type=${props.type}]:checked:disabled + &, input[type=${props.type}][aria-checked=mixed]:disabled + &`
-    const checkedAndHover = `input[type=${props.type}]:checked:hover:not(:disabled) + &, input[type=${props.type}][aria-checked=mixed]:hover:not(:disabled) + &`
-    const checkedAndFocus = `input[type=${props.type}]:checked:focus + &, input[type=${props.type}][aria-checked=mixed]:focus + &`
-    const disabled = `input[type=${props.type}]:disabled + &`
-    const focus = `input[type=${props.type}]:focus + &`
-    const hover = `input[type=${props.type}]:hover:not(:disabled):not(:checked) + &`
-    const checked = `input[type=${props.type}]:checked + &, input[type=${props.type}][aria-checked=mixed] + &`
-    const invalid = `input[type=${props.type}][aria-invalid=true] + &`
+  computed: {
+    theme () {
+      return this.$theme()
+    },
+    className () {
+      const checkedAndDisabled = `input[type=${this.type}]:checked:disabled + &, input[type=${this.type}][aria-checked=mixed]:disabled + &`
+      const checkedAndHover = `input[type=${this.type}]:checked:hover:not(:disabled) + &, input[type=${this.type}][aria-checked=mixed]:hover:not(:disabled) + &`
+      const checkedAndFocus = `input[type=${this.type}]:checked:focus + &, input[type=${this.type}][aria-checked=mixed]:focus + &`
+      const disabled = `input[type=${this.type}]:disabled + &`
+      const focus = `input[type=${this.type}]:focus + &`
+      const hover = `input[type=${this.type}]:hover:not(:disabled):not(:checked) + &`
+      const checked = `input[type=${this.type}]:checked + &, input[type=${this.type}][aria-checked=mixed] + &`
+      const invalid = `input[type=${this.type}][aria-invalid=true] + &`
 
-    return css({
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all 120ms',
-      flexShrink: '0',
-      'aria-hidden': 'true',
-      width: props.size,
-      height: props.size,
-      [focus]: tx(props._focus),
-      [hover]: tx(props._hover),
-      [disabled]: tx(props._disabled),
-      [invalid]: tx(props._invalid),
-      [checkedAndDisabled]: tx(props._checkedAndDisabled),
-      [checkedAndFocus]: tx(props._checkedAndFocus),
-      [checkedAndHover]: tx(props._checkedAndHover),
-      '& > *': tx(props._child),
-      [checked]: {
-        ...tx(props._checked),
-        '& > *': tx(props._checkedAndChild)
+      const controlBoxStyleObject = __css({
+        [focus]: tx(this._focus),
+        [hover]: tx(this._hover),
+        [disabled]: tx(this._disabled),
+        [invalid]: tx(this._invalid),
+        [checkedAndDisabled]: tx(this._checkedAndDisabled),
+        [checkedAndFocus]: tx(this._checkedAndFocus),
+        [checkedAndHover]: tx(this._checkedAndHover),
+        '& > *': tx(this._child),
+        [checked]: {
+          ...tx(this._checked),
+          '& > *': tx(this._checkedAndChild)
+        }
+      })(this.theme)
+      return css(controlBoxStyleObject)
+    }
+  },
+  render (h) {
+    return h(Box, {
+      class: [this.className],
+      props: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 120ms',
+        flexShrink: '0',
+        width: this.size,
+        height: this.size,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        'aria-hidden': 'true'
       }
-    })
+    }, this.$slots.default)
   }
-}`
+}
 
 export default ControlBox

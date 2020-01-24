@@ -8,21 +8,41 @@
         Github
       </Anchor>
       <div class="wrapper">
+        <Box as="label" display="flex" alignItems="center" cursor="pointer" for="control-checkbox">
+          <!-- This is the sibling input, it's visually hidden -->
+          <VisuallyHidden as="input" id="control-checkbox" type="checkbox" checked="true" />
 
-        <Grid :template-columns="['repeat(2, 1fr)', 'repeat(4, 1fr)']" gap="6">
-          <Box w="100px" h="10" bg="blue.500" />
-          <Box w="100px" h="10" bg="blue.500" />
-          <Box w="100px" h="10" bg="blue.500" />
-          <Box w="100px" h="10" bg="blue.500" />
-          <Box w="100px" h="10" bg="blue.500" />
-        </Grid>
+          <!-- This is the control box with a check icon as children -->
+          <ControlBox
+            borderWidth="1px"
+            size="24px"
+            rounded="sm"
+            :_checked="{
+              bg: 'green.500',
+              color: 'white',
+              borderColor: 'green.500'
+            }"
+            :_focus="{
+              borderColor: 'green.600',
+              boxShadow: 'outline'
+            }"
+          >
+            <Icon name="check" size="16px" />
+          </ControlBox>
+
+          <!-- You can pass additional text -->
+          <Box ml="2" as="span" vertical-align="center" user-select="none">
+            Checkbox Label
+          </Box>
+        </Box>
+        <Button variant-color="blue" right-icon="star"> Nice Button </Button>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Grid, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, VisuallyHidden, ControlBox, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -32,8 +52,10 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Grid,
-    Box
+    VisuallyHidden,
+    ControlBox,
+    Box,
+    Button
   },
   data () {
     return {
@@ -99,10 +121,11 @@ body {
   align-items: center;
 
   .wrapper {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 600px; */
   }
 }
 </style>

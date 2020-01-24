@@ -1,19 +1,39 @@
-import styled from 'vue-styled-components'
-import css from '@styled-system/css'
+import { css } from 'emotion'
+import __css from '@styled-system/css'
 import Box from '../Box'
-import { pseudoProps } from '../config/props'
+import { pseudoProps, baseProps } from '../config/props'
 import { parsePseudoStyles } from './utils'
+import { forwardProps } from '../utils'
 
-/**
- * The PseudoBox component is a wrapper for the Box component that allows us to provide pseudo styles for `_focus`, `_hover`, `_active`, etc. and `aria-*` attributes
- */
-const PseudoBox = styled(Box, {
-  ...pseudoProps
-})`
-  ${(props) => {
-    const styles = parsePseudoStyles(props)
-    return css(styles)
+const PseudoBox = {
+  name: 'PseudoBox',
+  inject: ['$theme'],
+  props: {
+    as: {
+      type: String,
+      default: 'div'
+    },
+    ...pseudoProps,
+    ...baseProps
+  },
+  computed: {
+    theme () {
+      return this.$theme()
+    }
+  },
+  render (h) {
+    const pseudoBoxStylesObject = __css(this.$props)(this.theme)
+    const parsedStyleObject = parsePseudoStyles(pseudoBoxStylesObject)
+    const className = css(parsedStyleObject)
+
+    return h(Box, {
+      props: {
+        as: this.as,
+        ...forwardProps(this.$props)
+      },
+      class: [className]
+    }, this.$slots.default)
   }
-}`
+}
 
 export default PseudoBox

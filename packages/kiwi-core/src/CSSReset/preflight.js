@@ -1,4 +1,4 @@
-import { injectGlobal } from 'vue-styled-components'
+import { injectGlobal } from 'emotion'
 
 export function useTailwindPreflight (theme) {
   injectGlobal`
@@ -217,7 +217,7 @@ export function useTailwindPreflight (theme) {
     }
 
     html {
-      font-family: ${theme.value.fonts.body};
+      font-family: ${theme.fonts.body};
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -webkit-text-size-adjust: 100%;
@@ -278,7 +278,7 @@ export function useTailwindPreflight (theme) {
     code,
     kbd,
     samp {
-      font-family: ${theme.value.fonts.mono};
+      font-family: ${theme.fonts.mono};
     }
 
     img,
@@ -289,8 +289,8 @@ export function useTailwindPreflight (theme) {
     iframe,
     embed,
     object {
-      display: block;
       vertical-align: middle;
+      display: block;
     }
 
     img,

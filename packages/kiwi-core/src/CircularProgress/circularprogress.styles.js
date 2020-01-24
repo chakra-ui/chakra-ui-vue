@@ -1,4 +1,4 @@
-import { keyframes } from 'vue-styled-components'
+import { keyframes } from 'emotion'
 
 export const circularProgressCircle = keyframes`
   0% {

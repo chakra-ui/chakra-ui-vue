@@ -1,4 +1,4 @@
-import styled from 'vue-styled-components'
+import { css } from 'emotion'
 import Box from '../Box'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
@@ -6,13 +6,28 @@ import { baseProps } from '../config/props'
 
 const fallbackIcon = iconPaths['question-outline']
 
-const Svg = styled(Box)`
-  flex-shrink: 0;
-  backface-visibility: hidden;
-  &:not(:root) {
-    overflow: hidden;
+const Svg = {
+  name: 'IconSvg',
+  props: {
+    ...baseProps
+  },
+  render (h) {
+    const className = css`
+      flex-shrink: 0;
+      backface-visibility: hidden;
+      &:not(:root) {
+        overflow: hidden;
+      }
+    `
+    return h(Box, {
+      props: {
+        as: 'svg',
+        ...forwardProps(this.$props)
+      },
+      class: [className]
+    }, this.$slots.default)
   }
-`
+}
 
 /**
  * The Icon component renders SVGs for visual aid

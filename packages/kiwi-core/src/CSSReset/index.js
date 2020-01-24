@@ -1,8 +1,5 @@
-import { injectGlobal } from 'vue-styled-components'
-import { onMounted } from '@vue/composition-api'
-import { useColorMode, useTheme } from '../ThemeProvider'
+import { injectGlobal } from 'emotion'
 import { useTailwindPreflight } from './preflight'
-// import canUseDOM from 'can-use-dom'
 
 const defaultConfig = theme => ({
   light: {
@@ -21,37 +18,29 @@ const defaultConfig = theme => ({
 
 export default {
   name: 'CSSReset',
+  inject: ['$theme', '$colorMode'],
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    },
+    theme () {
+      return this.$theme()
+    },
+    styleConfig () {
+      const _defaultConfig = defaultConfig(this.theme)
+      return this.config
+        ? this.config(this.theme, _defaultConfig)
+        : defaultConfig(this.theme)
+    }
+  },
   props: {
     config: Object
   },
-  setup (props) {
-    const colorMode = useColorMode()
-    const { theme } = useTheme()
-    const _defaultConfig = defaultConfig(theme.value)
+  mounted () {
+    const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
 
-    const _config = props.config
-      ? props.config(theme.value, _defaultConfig)
-      : defaultConfig(theme.value)
-    const { color, bg, borderColor, placeholderColor } = _config[colorMode.value]
-
-    /**
-     * Commmented out because I still need some information about buttons
-     * in Firefox and Safari on MacOS. Maybe it's intentional that when you click a button,
-     * It by default doesn not become the active element.
-     */
-
-    // const focusFirefoxButtonsOnClick = () => {
-    //   document.addEventListener('click', function (event) {
-    //     if (event.target.matches('button')) {
-    //       event.target.focus()
-    //     }
-    //   })
-    // }
-
-    onMounted(() => {
-      // canUseDOM && focusFirefoxButtonsOnClick()
-      useTailwindPreflight(theme)
-      injectGlobal`
+    useTailwindPreflight(this.theme)
+    injectGlobal`
       html {
         line-height: 1.5;
         color: ${color};
@@ -81,10 +70,8 @@ export default {
         color: ${placeholderColor};
       }
     `
-    })
-
-    return () => {
-      return null
-    }
+  },
+  render () {
+    return null
   }
 }

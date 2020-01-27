@@ -1,12 +1,12 @@
 import Fragment from '../Fragment'
 import VisuallyHidden from '../VisuallyHidden'
 import { Popper, PopperArrow } from '../Popper'
-import { cloneVNode, useId, forwardProps } from '../utils'
+import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import Box from '../Box'
 
 const tooltipProps = {
-  label: [String],
+  label: String,
   _ariaLabel: String,
   showDelay: {
     type: Number,
@@ -31,6 +31,7 @@ const tooltipProps = {
   ...baseProps
 }
 
+// TODO: Add isControlled support.
 const Tooltip = {
   inject: ['$colorMode'],
   name: 'Tooltip',
@@ -153,7 +154,7 @@ const Tooltip = {
           nativeOn: {
             'mouseenter': this.handleOpen,
             'mouseleave': this.handleClose,
-            'click': this.handleClick,
+            'click': wrapEvent(this.handleClick, (e) => this.$emit('click', e)),
             'focus': this.handleOpen,
             'blur': this.handleClose
           }

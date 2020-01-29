@@ -223,7 +223,8 @@ const MenuButton = {
     const { isOpen, buttonId, menuId, closeMenu, autoSelect, focusOnFirstItem, focusOnLastItem, openMenu } = this.context
     return h(Button, {
       props: {
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        isLoading: false
       },
       attrs: {
         id: buttonId,

@@ -5,8 +5,11 @@ import Button from '../Button'
 import { buttonProps } from '../Button/button.props'
 import { useMenuListStyle, useMenuItemStyle } from './menu.styles'
 import { Popper } from '../Popper'
+import Text from '../Text'
 import PseudoBox from '../PseudoBox'
 import Fragment from '../Fragment'
+import Divider from '../Divider'
+import Box from '../Box'
 
 const menuProps = {
   controlledIsOpen: Boolean,
@@ -203,7 +206,11 @@ const Menu = {
     }
   },
   render (h) {
-    return h(Fragment, this.$slots.default)
+    return h(Fragment, [
+      this.$scopedSlots.default({
+        isOpen: this.isOpen
+      })
+    ])
   }
 }
 
@@ -459,9 +466,43 @@ const MenuItem = {
   }
 }
 
+const MenuDivider = {
+  name: 'MenuDivider',
+  props: baseProps,
+  render (h) {
+    return h(Divider, {
+      props: {
+        marginTop: '0.5rem',
+        marginBottom: '0.5rem',
+        ...forwardProps(this.$props)
+      }
+    })
+  }
+}
+
+const MenuGroup = {
+  name: 'MenuGroup',
+  props: {
+    title: String,
+    ...baseProps
+  },
+  render (h) {
+    return h(Box, {
+      attrs: { role: 'group' }
+    }, [
+      this.title && h(Text, {
+        props: { mx: '1', my: 'px', fontWeight: 'semibold', fontSize: 'sm', ...forwardProps(this.$props) }
+      }, this.title),
+      this.$slots.default
+    ])
+  }
+}
+
 export {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem
+  MenuItem,
+  MenuGroup,
+  MenuDivider
 }

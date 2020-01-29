@@ -9,17 +9,24 @@
       </Anchor>
       <div class="wrapper">
         <Menu>
-          <MenuButton right-icon="chevron-down">
-            Actions
+          <MenuButton
+            px="4"
+            py="2"
+            transition="all 0.2s"
+            rounded="md"
+            borderWidth="1px"
+            :_hover="{ bg: 'gray.100' }"
+            :_expanded="{ bg: 'red.200' }"
+            :_focus="{ outline: 0, boxShadow: 'outline' }"
+          >
+            File <Icon name="chevron-down" />
           </MenuButton>
           <MenuList>
-            <MenuItem @click="logClick">Download</MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem as="a" href="#">
-              Attend a Workshop
-            </MenuItem>
+            <MenuItem>New File</MenuItem>
+            <MenuItem>New Window</MenuItem>
+            <MenuDivider />
+            <MenuItem>Open...</MenuItem>
+            <MenuItem>Save File</MenuItem>
           </MenuList>
         </Menu>
       </div>
@@ -28,7 +35,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Menu, Button, MenuButton, MenuList, MenuItem, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Menu, Button, MenuButton, MenuList, MenuItem, MenuDivider, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -41,7 +48,8 @@ export default {
     Menu,
     MenuList,
     MenuItem,
-    MenuButton
+    MenuButton,
+    MenuDivider
   },
   data () {
     return {

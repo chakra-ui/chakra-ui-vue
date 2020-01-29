@@ -88,6 +88,27 @@ const sizes = {
  */
 const sizeProps = ({ size }) => sizes[size]
 
+const graySolidStyle = {
+  light: {
+    bg: 'gray.100',
+    _hover: {
+      bg: 'gray.200'
+    },
+    _active: {
+      bg: 'gray.300'
+    }
+  },
+  dark: {
+    bg: 'whiteAlpha.200',
+    _hover: {
+      bg: 'whiteAlpha.300'
+    },
+    _active: {
+      bg: 'whiteAlpha.400'
+    }
+  }
+}
+
 /**
  * @description Get solid button style values
  * @param {Object} props - Style props object
@@ -104,7 +125,21 @@ const getSolidStyles = ({ color, colorMode }) => {
       _active: {
         bg: `${color}.600`
       }
+    },
+    dark: {
+      bg: `${color}.200`,
+      color: 'gray.800',
+      _hover: {
+        bg: `${color}.300`
+      },
+      _active: {
+        bg: `${color}.400`
+      }
     }
+  }
+
+  if (color === 'gray') {
+    style = graySolidStyle
   }
   return style[colorMode]
 }
@@ -115,8 +150,7 @@ const getSolidStyles = ({ color, colorMode }) => {
  * @returns {Object} - Ghost styles object
  */
 const getGhostStyles = ({ color, colorMode, theme }) => {
-  const _theme = theme()
-  const _color = _theme.colors[color] && _theme.colors[color][200]
+  const _color = theme.colors[color] && theme.colors[color][200]
   let result = {
     light: {
       color: `${color}.400`,
@@ -148,8 +182,7 @@ const getGhostStyles = ({ color, colorMode, theme }) => {
  * @returns {Object} - Ghost styles object
  */
 const getFlatStyles = ({ color, colorMode, theme }) => {
-  const _theme = theme()
-  const _color = _theme.colors[color] && _theme.colors[color][200]
+  const _color = theme.colors[color] && theme.colors[color][200]
   let result = {
     light: {
       color: `${color}.400`,

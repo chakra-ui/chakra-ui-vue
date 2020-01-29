@@ -9,8 +9,8 @@ const PseudoBox = {
   inject: ['$theme'],
   props: {
     as: {
-      type: String,
-      default: 'div'
+      type: [String, Object],
+      default: () => 'div'
     },
     ...pseudoProps,
     ...baseProps

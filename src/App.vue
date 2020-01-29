@@ -1,25 +1,34 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
     <main class="root">
-      <Heading mb="50px" as="h1">Chakra-vui Circular Progress</Heading>
+      <Heading mb="50px" as="h1">Chakra-vui Menu</Heading>
       <CSSReset />
       <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Progress rounded="sm" color="green" size="sm" :value="value" />
-        <Progress color="green" size="md" :value="value" />
-        <Progress color="green" size="lg" :value="value" />
-        <Progress color="green" height="32px" :value="value" />
-        <Button left-icon="bolt" mt="3" @click="logClick" variant-color="green">Charge</Button>
+        <Menu>
+          <MenuButton right-icon="chevron-down">
+            Actions
+          </MenuButton>
+          <MenuList>
+            <MenuItem @click="logClick">Download</MenuItem>
+            <MenuItem>Create a Copy</MenuItem>
+            <MenuItem>Mark as Draft</MenuItem>
+            <MenuItem>Delete</MenuItem>
+            <MenuItem as="a" href="#">
+              Attend a Workshop
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Progress, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Menu, Button, MenuButton, MenuList, MenuItem, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -29,8 +38,10 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Progress,
-    Button
+    Menu,
+    MenuList,
+    MenuItem,
+    MenuButton
   },
   data () {
     return {
@@ -39,23 +50,13 @@ export default {
       placement: 'auto',
       count: 0,
       colorMode: 'light',
-      value: 60
+      value: 60,
+      Button
     }
   },
   methods: {
     logClick () {
-      this.value = 0
-      if (this.interval) clearInterval(this.interval)
-      this.interval = setInterval(() => {
-        let internalValue = this.value
-        internalValue = internalValue + parseInt((Math.random() * 10).toFixed(0), 10)
-        if (internalValue >= 100) {
-          internalValue = 100
-          this.value = internalValue
-          clearInterval(this.interval)
-        }
-        this.value = internalValue
-      }, 1000)
+      console.log('downloading')
     },
     showPopper () {
       this.show = !this.show

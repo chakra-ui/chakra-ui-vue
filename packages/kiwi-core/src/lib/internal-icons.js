@@ -88,6 +88,55 @@ const icons = {
         fill="currentColor"
         d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
       />`
+  },
+  'chevron-right': {
+    path: `
+    <path
+      fill="currentColor"
+      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+    />`
+  },
+  'chevron-left': {
+    path: `
+      <path
+        fill="currentColor"
+        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />`
+  },
+  'chevron-down': {
+    path: `
+    <path
+      fill="currentColor"
+      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+    />`
+  },
+  'chevron-up': {
+    path: `
+    <path
+      fill="currentColor"
+      d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+    />`
+  },
+  'arrow-forward': {
+    path: `
+    <path
+      fill="currentColor"
+      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    />`
+  },
+  'arrow-up': {
+    path: `
+    <path
+      fill="currentColor"
+      d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+    />`
+  },
+  'arrow-down': {
+    path: `
+      <path
+        fill="currentColor"
+        d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+      />`
   }
 }
 

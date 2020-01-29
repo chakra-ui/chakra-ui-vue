@@ -118,7 +118,7 @@ export default {
           size: '1em'
         }
       }),
-      this.isLoading ? this.loadingText : this.$slots.default,
+      this.isLoading ? this.loadingText : this.$slots.default || 'text',
       this.rightIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           ml: this.iconSpacing,

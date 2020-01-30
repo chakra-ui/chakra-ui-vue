@@ -72,7 +72,7 @@ const baseProps = {
   bgPos: [String, Array],
   bgRepeat: [String, Array],
   borderWidth: [String, Array],
-  fontWeight: [String, Array],
+  fontWeight: [String, Number, Array],
   fontFamily: [String, Array],
   fontSize: [String, Array],
   textAlign: [String, Array],
@@ -141,7 +141,8 @@ const baseProps = {
   gridAutoFlow: [String, Number, Array],
   gridAutoRows: [String, Number, Array],
   gridTemplateRows: [String, Number, Array],
-  gridTemplateColumns: [String, Number, Array]
+  gridTemplateColumns: [String, Number, Array],
+  opacity: [String, Number, Array]
 }
 
 export default baseProps

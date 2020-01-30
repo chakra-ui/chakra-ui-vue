@@ -349,6 +349,7 @@ const MenuList = {
         modifiers: {
           preventOverflow: { enabled: true, boundariesElement: 'viewport' }
         },
+        closeOnClickAway: true,
         minW: '3xs',
         rounded: 'md',
         py: 2,

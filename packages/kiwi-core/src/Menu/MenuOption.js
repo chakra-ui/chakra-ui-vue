@@ -62,7 +62,7 @@ const MenuItemOption = {
       if (this.isDisabled) return
       if (['Enter', ' '].includes(event.key)) {
         event.preventDefault()
-        this.handleSelect()
+        this.handleSelect(event)
       }
 
       this.$emit('keydown', event)
@@ -239,6 +239,12 @@ const MenuOptionGroup = {
           nativeOn: {
             click: (event) => {
               this.handleChange(cloned.componentOptions.propsData['value'])
+            },
+            keydown: (event) => {
+              if (['Enter', ' '].includes(event.key)) {
+                event.preventDefault()
+                this.handleChange(cloned.componentOptions.propsData['value'])
+              }
             }
           }
         }, cloned.componentOptions.children)
@@ -257,6 +263,12 @@ const MenuOptionGroup = {
           nativeOn: {
             click: (event) => {
               this.handleChange(cloned.componentOptions.propsData['value'])
+            },
+            keydown: (event) => {
+              if (['Enter', ' '].includes(event.key)) {
+                event.preventDefault()
+                this.handleChange(cloned.componentOptions.propsData['value'])
+              }
             }
           }
         }, cloned.componentOptions.children)

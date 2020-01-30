@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider } from '../packages/kiwi-core/src'
+import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Menu', module)
   .addDecorator(centered)
@@ -68,5 +68,27 @@ storiesOf('UI | Menu', module)
         <MenuItem>Save File</MenuItem>
       </MenuList>
     </Menu>
+    `
+  }))
+  .add('With Menu Options', () => ({
+    components: { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider },
+    template: `
+      <Menu :closeOnSelect="false">
+        <MenuButton variantColor="blue">
+          MenuItem
+        </MenuButton>
+        <MenuList minWidth="240px">
+          <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
+            <MenuItemOption value="asc">Ascending</MenuItemOption>
+            <MenuItemOption value="desc">Descending</MenuItemOption>
+          </MenuOptionGroup>
+          <MenuDivider />
+          <MenuOptionGroup title="Country" type="checkbox">
+            <MenuItemOption value="email">Email</MenuItemOption>
+            <MenuItemOption value="phone">Phone</MenuItemOption>
+            <MenuItemOption value="country">Country</MenuItemOption>
+          </MenuOptionGroup>
+        </MenuList>
+      </Menu>
     `
   }))

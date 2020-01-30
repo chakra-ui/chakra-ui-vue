@@ -189,7 +189,6 @@ const MenuOptionGroup = {
      * @param {any} value selected value
      */
     handleChange (value) {
-      console.log('changed value =====>', value)
       if (this.type === 'radio') {
         if (!this.isControlled) {
           this.computedValue = value

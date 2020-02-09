@@ -1,37 +1,30 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
     <main class="root">
-      <Heading mb="50px" as="h1">Chakra-vui Menu</Heading>
+      <Heading mb="50px" as="h3">Popover</Heading>
       <CSSReset />
       <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Menu :closeOnSelect="false">
-          <MenuButton variantColor="blue">
-            MenuItem
-          </MenuButton>
-          <MenuList minWidth="240px">
-            <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
-              <MenuItemOption value="asc">Ascending</MenuItemOption>
-              <MenuItemOption value="desc">Descending</MenuItemOption>
-            </MenuOptionGroup>
-            <MenuDivider />
-            <MenuOptionGroup title="Country" type="checkbox">
-              <MenuItemOption value="email">Email</MenuItemOption>
-              <MenuItemOption value="phone">Phone</MenuItemOption>
-              <MenuItemOption value="country">Country</MenuItemOption>
-            </MenuOptionGroup>
-          </MenuList>
-        </Menu>
+        <Popover>
+          <PopoverTrigger>
+            <Button>
+              Trigger
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            I am the popoover content
+          </PopoverContent>
+        </Popover>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Menu, Button, MenuButton, MenuList, MenuDivider, MenuOptionGroup, MenuItemOption, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -41,14 +34,10 @@ export default {
     Icon,
     Anchor,
     CSSReset,
-    Menu,
-    MenuList,
-    // MenuItem,
-    MenuButton,
-    // MenuGroup,
-    MenuOptionGroup,
-    MenuItemOption,
-    MenuDivider
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    Button
   },
   data () {
     return {
@@ -57,8 +46,7 @@ export default {
       placement: 'auto',
       count: 0,
       colorMode: 'light',
-      value: 60,
-      Button
+      value: 60
     }
   },
   methods: {
@@ -111,4 +99,16 @@ body {
     width: 600px;
   }
 }
+
+/* Consumer transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 </style>

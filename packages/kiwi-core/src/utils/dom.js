@@ -56,3 +56,17 @@ export const wrapEvent = (theirHandler, ourHandler) => event => {
     return ourHandler(event)
   }
 }
+
+/**
+ * Queries an element from the DOM
+ * @param {String} selector Element selector
+ * @param {Node} domain HTML element in which to query for element
+ * @returns {Node} Node
+ */
+export const getElement = (selector, domain) => {
+  if (!domain) {
+    return document.querySelector(selector)
+  } else {
+    return domain.querySelector(selector)
+  }
+}

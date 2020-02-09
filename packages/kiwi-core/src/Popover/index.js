@@ -52,12 +52,15 @@ const Popover = {
   methods: {
     closePopover () {
       this._isOpen = false
+      this.$emit('close')
     },
     openPopover () {
       this._isOpen = true
+      this.$emit('open')
     },
     toggleOpen () {
       this._isOpen = !this._isOpen
+      this.$emit('toggle', this._isOpen)
     },
     /**
      * Sets the trigger node value to reactive context

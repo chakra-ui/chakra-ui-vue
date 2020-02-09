@@ -8,9 +8,9 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover>
+        <Popover :initial-focus-ref="$refs.pooch" :closeOnBlur="false">
           <PopoverTrigger>
-            <Button>
+            <Button ref="pooch">
               Trigger
             </Button>
           </PopoverTrigger>

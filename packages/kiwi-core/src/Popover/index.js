@@ -1,6 +1,7 @@
 import Fragment from '../Fragment'
 import { Popper } from '../Popper'
-import { useId, cloneVNode, getElement, isVueComponent } from '../utils'
+import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
+import styleProps from '../config/props'
 
 const Popover = {
   name: 'Popover',
@@ -24,6 +25,14 @@ const Popover = {
     trigger: {
       type: String,
       default: 'click'
+    },
+    closeOnBlur: {
+      type: Boolean,
+      default: true
+    },
+    closeOnEscape: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -39,7 +48,8 @@ const Popover = {
         setTriggerNode: this.setTriggerNode,
         popoverId: this.id,
         trigger: this.trigger,
-        isHovering: this.isHovering
+        isHovering: this.isHovering,
+        handleBlur: this.handleBlur
       }
     },
     isControlled () {
@@ -139,6 +149,22 @@ const Popover = {
       }
     },
     /**
+     * Handles blur event
+     * @param {Event} e `blur` event object
+     */
+    handleBlur (event) {
+      if (
+        this._isOpen &&
+        this.closeOnBlur &&
+        this.contentNode &&
+        this.triggerNode &&
+        !this.contentNode.contains(event.relatedTarget) &&
+        !this.triggerNode.contains(event.relatedTarget)
+      ) {
+        this.closePopover()
+      }
+    },
+    /**
      * Returns the HTML element of a Vue component or native element
      * @param {Vue.Component|HTMLElement} element HTMLElement or Vue Component
      */
@@ -177,6 +203,14 @@ const PopoverTrigger = {
     },
     context () {
       return this.$PopoverContext()
+    },
+    headerId () {
+      const { popoverId } = this.context
+      return `${popoverId}-header`
+    },
+    bodyId () {
+      const { popoverId } = this.context
+      return `${popoverId}-body`
     },
     eventHandlers () {
       const { trigger } = this.context
@@ -267,8 +301,9 @@ const PopoverTrigger = {
 
 const PopoverContent = {
   name: 'PopoverContent',
-  inject: ['$PopoverContext'],
+  inject: ['$PopoverContext', '$colorMode'],
   props: {
+    ...styleProps,
     gutter: {
       type: [Number, String],
       default: 4
@@ -277,7 +312,8 @@ const PopoverContent = {
     placement: {
       type: String,
       default: 'auto'
-    }
+    },
+    ariaLabel: String
   },
   computed: {
     contentId () {
@@ -285,6 +321,55 @@ const PopoverContent = {
     },
     context () {
       return this.$PopoverContext()
+    },
+    colorMode () {
+      return this.$colorMode()
+    },
+    eventHandlers () {
+      const { trigger, handleBlur } = this.context
+
+      if (trigger === 'click') {
+        return {
+          blur: (e) => {
+            this.$emit('blur', e)
+            handleBlur(e)
+          }
+        }
+      }
+
+      if (trigger === 'hover') {
+        return {
+          mouseenter: (e) => {
+            this.$emit('mouseenter', e)
+            this.context.set('isHovering', true)
+            setTimeout(this.context.openPopover(), 300)
+          },
+          mouseleave: (e) => {
+            this.$emit('mouseleave', e)
+            this.context.set('isHovering', false)
+            setTimeout(() => {
+              if (this.context.isHovering === false) {
+                this.context.closePopover()
+              }
+            }, 300)
+          }
+        }
+      }
+    },
+    calculatedAttrs () {
+      const { trigger } = this.context
+      if (trigger === 'click') {
+        return {
+          role: 'dialog',
+          'aria-modal': 'false'
+        }
+      }
+
+      if (trigger === 'hover') {
+        return {
+          role: 'tooltip'
+        }
+      }
     }
   },
   mounted () {
@@ -300,20 +385,37 @@ const PopoverContent = {
   },
   render (h) {
     const { isOpen, triggerNode, popoverId } = this.context
+    const bg = this.colorMode === 'light' ? 'white' : 'gray.700'
+
     return h(Popper, {
       props: {
+        ...forwardProps(this.$props),
         as: 'section',
         usePortal: this.usePortal,
         isOpen,
         placement: this.placement,
         anchorEl: triggerNode,
         modifiers: { offset: { enabled: true, offset: `0, ${this.gutter}` } },
-        _focus: { outline: 0, shadow: 'outline' }
-        // closeOnClickAway: true
+        bg,
+        width: '100%',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        rounded: 'md',
+        shadow: 'sm',
+        maxWidth: 'xs',
+        _focus: { outline: 0, boxShadow: 'outline' }
       },
       attrs: {
-        id: popoverId
-      }
+        id: popoverId,
+        tabIndex: -1,
+        'aria-labelledby': this.headerId,
+        'aria-describedby': this.bodyId,
+        'aria-label': this.ariaLabel,
+        'aria-hidden': !isOpen,
+        ...this.calculatedAttrs
+      },
+      nativeOn: this.eventHandlers
     }, this.$slots.default)
   }
 }

@@ -13,12 +13,14 @@ const Popover = {
     id: {
       type: String,
       default: `popover-id-${useId()}`
-    }
+    },
+    defaultIsOpen: Boolean,
+    isOpen: Boolean
   },
   computed: {
     PopoverContext () {
       return {
-        isOpen: this.isOpen,
+        isOpen: this._isOpen,
         closePopover: this.closePopover,
         openPopover: this.openPopover,
         toggleOpen: this.toggleOpen,
@@ -27,24 +29,35 @@ const Popover = {
         setTriggerNode: this.setTriggerNode,
         id: this.id
       }
+    },
+    isControlled () {
+      return this.isOpen !== false
+    },
+    _isOpen: {
+      get () {
+        return this.isControlled ? this.isOpen : this.isOpenValue
+      },
+      set (value) {
+        this.isOpenValue = value
+      }
     }
   },
   data () {
     return {
-      isOpen: false,
+      isOpenValue: this.defaultIsOpen || false,
       triggerNode: undefined,
       contentNode: undefined
     }
   },
   methods: {
     closePopover () {
-      this.isOpen = false
+      this._isOpen = false
     },
     openPopover () {
-      this.isOpen = true
+      this._isOpen = true
     },
     toggleOpen () {
-      this.isOpen = !this.isOpen
+      this._isOpen = !this._isOpen
     },
     /**
      * Sets the trigger node value to reactive context
@@ -153,8 +166,8 @@ const PopoverContent = {
         placement: this.placement,
         anchorEl: triggerNode,
         modifiers: { offset: { enabled: true, offset: `0, ${this.gutter}` } },
-        _focus: { outline: 0, shadow: 'outline' },
-        closeOnClickAway: true
+        _focus: { outline: 0, shadow: 'outline' }
+        // closeOnClickAway: true
       },
       attrs: {
         id

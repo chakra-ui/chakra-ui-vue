@@ -227,7 +227,7 @@ const Popper = {
         targetSlim: true
       },
       ref: 'portalRef'
-    }, [h(ClickOutside, {
+    }, [h(ClickOutside, { // TODO: Fix this close on clickaway handler. Could revert to useing directive instead
       props: {
         whitelist: [this.anchor],
         isDisabled: !this.closeOnClickAway,
@@ -265,8 +265,7 @@ const PopperArrow = {
         ...forwardProps(this.$props)
       },
       on: {
-        click: (e) => this.$emit('cheese', e),
-        cheese: () => console.log('cheesy event')
+        click: (e) => this.$emit('cheese', e)
       }
     })
   }

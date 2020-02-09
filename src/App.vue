@@ -16,6 +16,7 @@
           </PopoverTrigger>
           <PopoverContent>
             I am the popoover content
+            <button>Nice popover button</button>
           </PopoverContent>
         </Popover>
       </div>

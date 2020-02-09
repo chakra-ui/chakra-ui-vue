@@ -83,7 +83,8 @@ const Menu = {
       activeIndex: this.defaultActiveIndex || -1,
       focusableItems: null,
       menuNode: undefined,
-      buttonNode: undefined
+      buttonNode: undefined,
+      prevIsOpen: undefined
     }
   },
   mounted () {
@@ -96,6 +97,12 @@ const Menu = {
 
       buttonNode = canUseDOM && document.querySelector(`#${this.buttonId}`)
       this.buttonNode = buttonNode
+    })
+
+    this.$watch('isOpen', (_newVal, oldVal) => {
+      this.prevIsOpen = oldVal
+    }, {
+      immediate: true
     })
 
     this.$watch('isOpen', (isOpen) => {
@@ -116,7 +123,7 @@ const Menu = {
           this.focusableItems[this.activeIndex].focus()
         this.updateTabIndex(this.activeIndex)
       }
-      if (this.activeIndex === -1 && !this.isOpen /* && wasPreviouslyOpen */) {
+      if (this.activeIndex === -1 && !this.isOpen && this.prevIsOpen) {
         this.buttonNode && this.buttonNode.focus()
       }
       if (this.activeIndex === -1 && this.isOpen) {

@@ -1,6 +1,6 @@
 import Fragment from '../Fragment'
 import { Popper } from '../Popper'
-import { useId, cloneVNode, getElement } from '../utils'
+import { useId, cloneVNode, getElement, isVueComponent } from '../utils'
 
 const Popover = {
   name: 'Popover',
@@ -15,11 +15,21 @@ const Popover = {
       default: `popover-id-${useId()}`
     },
     defaultIsOpen: Boolean,
-    isOpen: Boolean
+    isOpen: Boolean,
+    returnFocusOnClose: {
+      type: Boolean,
+      default: true
+    },
+    initialFocusRef: [HTMLElement, Object],
+    trigger: {
+      type: String,
+      default: 'click'
+    }
   },
   computed: {
     PopoverContext () {
       return {
+        set: this.set,
         isOpen: this._isOpen,
         closePopover: this.closePopover,
         openPopover: this.openPopover,
@@ -27,7 +37,9 @@ const Popover = {
         triggerNode: this.triggerNode,
         contentNode: this.contentNode,
         setTriggerNode: this.setTriggerNode,
-        id: this.id
+        popoverId: this.id,
+        trigger: this.trigger,
+        isHovering: this.isHovering
       }
     },
     isControlled () {
@@ -40,41 +52,111 @@ const Popover = {
       set (value) {
         this.isOpenValue = value
       }
+    },
+    _initialFocusRef () {
+      return this.getNode(this.initialFocusRef)
     }
   },
   data () {
     return {
       isOpenValue: this.defaultIsOpen || false,
       triggerNode: undefined,
-      contentNode: undefined
+      contentNode: undefined,
+      prevIsOpen: false,
+      isHovering: false
     }
   },
+  mounted () {
+    /**
+     * The purpose of this watcher is to keep record of the previous
+     * isOpen value.
+     */
+    this.$watch('isOpen', (_newVal, oldVal) => {
+      this.prevIsOpen = oldVal
+    }, {
+      immediate: true
+    })
+
+    this.$watch(vm => [
+      vm._isOpen,
+      vm._initialFocusRef,
+      vm.trigger,
+      vm.contentNode,
+      vm.triggerNode,
+      vm.prevIsOpen,
+      vm.returnFocusOnClose
+    ], () => {
+      if (this._isOpen && this.trigger === 'click') {
+        requestAnimationFrame(() => {
+          if (this._initialFocusRef) {
+            this._initialFocusRef.focus()
+          } else {
+            if (this.contentNode) {
+              this.contentNode.focus()
+            }
+          }
+        })
+      }
+
+      if (!this._isOpen && this.prevIsOpen && this.trigger === 'click' && this.returnFocusOnClose) {
+        if (this.triggerNode) {
+          this.triggerNode.focus()
+        }
+      }
+    })
+  },
   methods: {
+    /**
+     * Closes popover
+     */
     closePopover () {
-      this._isOpen = false
+      if (!this.isControlled) {
+        this._isOpen = false
+      }
       this.$emit('close')
     },
+    /**
+     * Opens popover
+     */
     openPopover () {
-      this._isOpen = true
+      if (!this.isControlled) {
+        this._isOpen = true
+      }
       this.$emit('open')
     },
+    /**
+     * Toggles disclosure state of popover
+     */
     toggleOpen () {
-      this._isOpen = !this._isOpen
-      this.$emit('toggle', this._isOpen)
+      if (!this.isControlled) {
+        this._isOpen = !this._isOpen
+      }
+
+      if (this._isOpen !== true) {
+        this.$emit('open')
+      } else {
+        this.$emit('close')
+      }
     },
     /**
-     * Sets the trigger node value to reactive context
-     * @param {Node} node
+     * Returns the HTML element of a Vue component or native element
+     * @param {Vue.Component|HTMLElement} element HTMLElement or Vue Component
      */
-    setTriggerNode (node) {
-      this.triggerNode = node
+    getNode (element) {
+      const isVue = isVueComponent(element)
+      return isVue ? element.$el : element
     },
     /**
-     * Sets the content node value to reactive context
-     * @param {Node} node
+     * Sets the value of any component instance property.
+     * This function is to be passed down to context so that consumers
+     * can mutate context values with out doing it directly.
+     * Serves as a temporary fix until Vue 3 comes out
+     * @param {String} prop Component instance property
+     * @param {Any} value Property value
      */
-    setContentNode (node) {
-      this.contentNode = node
+    set (prop, value) {
+      this[prop] = value
+      return this[prop]
     }
   },
   render (h) {
@@ -95,16 +177,61 @@ const PopoverTrigger = {
     },
     context () {
       return this.$PopoverContext()
+    },
+    eventHandlers () {
+      const { trigger } = this.context
+
+      if (trigger === 'click') {
+        return {
+          click: (e) => {
+            this.$emit('click', e)
+            this.context.toggleOpen()
+          }
+        }
+      }
+
+      if (trigger === 'hover') {
+        return {
+          focus: (e) => {
+            this.$emit('focus', e)
+            this.context.openPopover()
+          },
+          keydown: (e) => {
+            this.$emit('keydown', e)
+            if (e.key === 'Escape') {
+              setTimeout(this.context.closePopover(), 300)
+            }
+          },
+          blur: (e) => {
+            this.$emit('blur', e)
+            this.context.closePopover()
+          },
+          mouseenter: (e) => {
+            this.$emit('mouseenter', e)
+            this.context.set('isHovering', true)
+            setTimeout(this.context.openPopover(), 300)
+          },
+          mouseleave: (e) => {
+            this.$emit('mouseleave', e)
+            this.context.set('isHovering', false)
+            setTimeout(() => {
+              if (this.context.isHovering === false) {
+                this.context.closePopover()
+              }
+            }, 300)
+          }
+        }
+      }
     }
   },
   mounted () {
-    const { setTriggerNode } = this.context
+    const { set } = this.context
     this.$nextTick(() => {
       const triggerNode = getElement(`#${this.triggerId}`)
       if (!triggerNode) {
         console.warn('[Chakra-ui]: Unable to locate PopoverTrigger node')
       } else {
-        setTriggerNode(triggerNode)
+        set('triggerNode', triggerNode)
       }
     })
   },
@@ -115,7 +242,7 @@ const PopoverTrigger = {
     if (children.length && children.length > 1) return console.error('[Chakra-ui]: Popover Trigger can only have a single child element')
     const cloned = cloneVNode(children[0], h)
 
-    const { toggleOpen } = this.context
+    const { isOpen, popoverId } = this.context
 
     // TODO: Make provision for text node popovers
     clone = h(cloned.componentOptions.Ctor, {
@@ -126,11 +253,12 @@ const PopoverTrigger = {
         ...cloned.componentOptions.propsData
       },
       attrs: {
-        id: this.triggerId
+        id: this.triggerId,
+        'aria-haspopup': 'dialog',
+        'aria-expanded': isOpen,
+        'aria-controls': popoverId
       },
-      nativeOn: {
-        click: toggleOpen
-      }
+      nativeOn: this.eventHandlers
     }, cloned.componentOptions.children)
 
     return clone
@@ -159,8 +287,19 @@ const PopoverContent = {
       return this.$PopoverContext()
     }
   },
+  mounted () {
+    const { set, popoverId } = this.context
+    this.$nextTick(() => {
+      const contentNode = getElement(`#${popoverId}`)
+      if (!contentNode) {
+        console.warn('[Chakra-ui]: Unable to locate PopoverContent node')
+      } else {
+        set('contentNode', contentNode)
+      }
+    })
+  },
   render (h) {
-    const { isOpen, triggerNode, id } = this.context
+    const { isOpen, triggerNode, popoverId } = this.context
     return h(Popper, {
       props: {
         as: 'section',
@@ -173,7 +312,7 @@ const PopoverContent = {
         // closeOnClickAway: true
       },
       attrs: {
-        id
+        id: popoverId
       }
     }, this.$slots.default)
   }

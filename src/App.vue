@@ -8,7 +8,7 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover closeOnBlur initialFocusRef="#pooch">
+        <Popover initialFocusRef="#pooch">
           <PopoverTrigger>
             <Button>
               Trigger

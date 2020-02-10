@@ -205,7 +205,8 @@ const Popover = {
   render (h) {
     return h(Fragment, [
       this.$scopedSlots.default({
-        isOpen: this.isOpen
+        isOpen: this.isOpen,
+        onClose: this.closePopover
       })
     ])
   }

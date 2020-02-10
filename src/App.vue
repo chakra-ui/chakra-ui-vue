@@ -15,6 +15,7 @@
             </Button>
           </PopoverTrigger>
           <PopoverContent>
+            <PopoverHeader>Confirmation!</PopoverHeader>
             I am the popoover content
             <Button id="pooch">Nice popover button</Button>
           </PopoverContent>
@@ -25,7 +26,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -38,6 +39,7 @@ export default {
     Popover,
     PopoverTrigger,
     PopoverContent,
+    PopoverHeader,
     Button
   },
   data () {

@@ -1,7 +1,8 @@
 import Fragment from '../Fragment'
 import { Popper } from '../Popper'
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
-import styleProps from '../config/props'
+import styleProps, { baseProps } from '../config/props'
+import Box from '../Box'
 
 const Popover = {
   name: 'Popover',
@@ -50,7 +51,9 @@ const Popover = {
         trigger: this.trigger,
         isHovering: this.isHovering,
         handleBlur: this.handleBlur,
-        closeOnEscape: this.closeOnEscape
+        closeOnEscape: this.closeOnEscape,
+        headerId: this.headerId,
+        bodyId: this.bodyId
       }
     },
     isControlled () {
@@ -66,6 +69,12 @@ const Popover = {
     },
     _initialFocusRef () {
       return this.getNode(this.initialFocusRef)
+    },
+    headerId () {
+      return `${this.id}-header`
+    },
+    bodyId () {
+      return `${this.id}-body`
     }
   },
   data () {
@@ -223,12 +232,10 @@ const PopoverTrigger = {
       return this.$PopoverContext()
     },
     headerId () {
-      const { popoverId } = this.context
-      return `${popoverId}-header`
+      return this.context.headerId
     },
     bodyId () {
-      const { popoverId } = this.context
-      return `${popoverId}-body`
+      return this.context.bodyId
     },
     eventHandlers () {
       const { trigger } = this.context
@@ -333,11 +340,11 @@ const PopoverContent = {
     ariaLabel: String
   },
   computed: {
-    contentId () {
-      return `popover-content-${useId()}`
-    },
     context () {
       return this.$PopoverContext()
+    },
+    contentId () {
+      return `popover-content-${useId()}`
     },
     colorMode () {
       return this.$colorMode()
@@ -452,8 +459,35 @@ const PopoverContent = {
   }
 }
 
+const PopoverHeader = {
+  name: 'PopoverHeader',
+  inject: ['$PopoverContext'],
+  props: baseProps,
+  computed: {
+    context () {
+      return this.$PopoverContext()
+    },
+    headerId () {
+      return this.context.headerId
+    }
+  },
+  render (h) {
+    return h(Box, {
+      props: {
+        ...forwardProps(this.$props),
+        as: 'header',
+        id: this.headerId,
+        px: '0.75rem',
+        py: '0.5rem',
+        borderBottomWidth: '1px'
+      }
+    }, this.$slots.default)
+  }
+}
+
 export {
   Popover,
   PopoverTrigger,
-  PopoverContent
+  PopoverContent,
+  PopoverHeader
 }

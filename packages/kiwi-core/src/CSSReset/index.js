@@ -38,38 +38,32 @@ export default {
   },
   mounted () {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
-
     useTailwindPreflight(this.theme)
-    injectGlobal`
-      html {
-        line-height: 1.5;
-        color: ${color};
-        background-color: ${bg};
-      }
+    injectGlobal({
+      'html': {
+        lineHeight: 1.5,
+        color: color,
+        backgroundColor: bg
+      },
 
-      *,
-      *::before,
-      *::after {
-        border-width: 0;
-        border-style: solid;
-        border-color: ${borderColor};
-      }
+      '*, *::before, *::after': {
+        borderWidth: 0,
+        borderStyle: 'solid',
+        borderColor: borderColor
+      },
 
-      input:-ms-input-placeholder,
-      textarea:-ms-input-placeholder {
-        color: ${placeholderColor};
-      }
+      'input:-ms-input-placeholder, textarea:-ms-input-placeholder': {
+        color: placeholderColor
+      },
 
-      input::-ms-input-placeholder,
-      textarea::-ms-input-placeholder {
-        color: ${placeholderColor};
-      }
+      'input::-ms-input-placeholder, textarea::-ms-input-placeholder': {
+        color: placeholderColor
+      },
 
-      input::placeholder,
-      textarea::placeholder {
-        color: ${placeholderColor};
+      'input::placeholder, textarea::placeholder': {
+        color: placeholderColor
       }
-    `
+    })
   },
   render () {
     return null

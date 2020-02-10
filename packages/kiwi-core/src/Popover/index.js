@@ -1,8 +1,9 @@
 import Fragment from '../Fragment'
-import { Popper } from '../Popper'
+import { Popper, PopperArrow } from '../Popper'
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
 import Box from '../Box'
+import CloseButton from '../CloseButton'
 
 const Popover = {
   name: 'Popover',
@@ -476,12 +477,81 @@ const PopoverHeader = {
       props: {
         ...forwardProps(this.$props),
         as: 'header',
-        id: this.headerId,
         px: '0.75rem',
         py: '0.5rem',
         borderBottomWidth: '1px'
+      },
+      attrs: {
+        id: this.headerId
       }
     }, this.$slots.default)
+  }
+}
+
+const PopoverBody = {
+  name: 'PopoverBody',
+  props: baseProps,
+  inject: ['$PopoverContext'],
+  computed: {
+    context () {
+      return this.$PopoverContext()
+    },
+    bodyId () {
+      return this.context.bodyId
+    }
+  },
+  render (h) {
+    return h(Box, {
+      props: {
+        ...forwardProps(this.$props),
+        flex: 1,
+        px: '0.75rem',
+        py: '0.5rem'
+      },
+      attrs: {
+        id: this.bodyId
+      }
+    }, this.$slots.default)
+  }
+}
+
+const PopoverArrow = {
+  name: 'PopoverArrow',
+  props: baseProps,
+  render (h) {
+    return h(PopperArrow, {
+      props: forwardProps(this.$props)
+    })
+  }
+}
+
+const PopoverCloseButton = {
+  name: 'PopoverCloseButton',
+  inject: ['$PopoverContext'],
+  props: styleProps,
+  computed: {
+    context () {
+      return this.$PopoverContext()
+    }
+  },
+  render (h) {
+    return h(CloseButton, {
+      props: {
+        ...forwardProps(this.$props),
+        size: 'sm',
+        pos: 'absolute',
+        rounded: 'md',
+        top: 1,
+        right: 2,
+        p: 2
+      },
+      on: {
+        click: (e) => {
+          this.$emit('click', e)
+          this.context.closePopover()
+        }
+      }
+    })
   }
 }
 
@@ -489,5 +559,8 @@ export {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader
+  PopoverHeader,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton
 }

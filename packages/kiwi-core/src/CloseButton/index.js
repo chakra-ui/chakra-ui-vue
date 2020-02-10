@@ -82,8 +82,10 @@ export default {
         ...baseProps,
         ...forwardProps(this.$props)
       },
-      on: {
-        click: ($e) => this.$emit('click', $e)
+      nativeOn: {
+        click: ($e) => {
+          this.$emit('click', $e)
+        }
       },
       attrs: {
         ariaLabel: this._ariaLabel,

@@ -15,9 +15,13 @@
             </Button>
           </PopoverTrigger>
           <PopoverContent>
+            <PopoverCloseButton />
+            <PopoverArrow />
             <PopoverHeader>Confirmation!</PopoverHeader>
-            I am the popoover content
-            <Button id="pooch">Nice popover button</Button>
+            <PopoverBody>
+              <p>Are you sure you want to have that milkshake?</p>
+              <Button left-icon="coffee" id="pooch">Drink coffee</Button>
+            </PopoverBody>
           </PopoverContent>
         </Popover>
       </div>
@@ -26,7 +30,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -40,6 +44,9 @@ export default {
     PopoverTrigger,
     PopoverContent,
     PopoverHeader,
+    PopoverBody,
+    PopoverArrow,
+    PopoverCloseButton,
     Button
   },
   data () {

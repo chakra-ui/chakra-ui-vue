@@ -239,10 +239,12 @@ const Popper = {
         display: this.isOpen ? 'unset' : 'none'
       },
       attrs: {
-        id: `chakra-popper-${this.popperId}`
+        ...this.$attrs,
+        id: this.$attrs.id || `chakra-${this.popperId}`,
+        'data-popper-id': `chakra-${this.popperId}`
       },
       scopedSlots: {
-        popperId: `chakra-popper-${this.popperId}`
+        popperId: `chakra-${this.popperId}`
       },
       props: {
         ...forwardProps(this.$props)

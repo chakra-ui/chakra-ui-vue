@@ -35,7 +35,8 @@ const Popover = {
     closeOnEscape: {
       type: Boolean,
       default: true
-    }
+    },
+    usePortal: Boolean
   },
   computed: {
     PopoverContext () {
@@ -54,7 +55,8 @@ const Popover = {
         handleBlur: this.handleBlur,
         closeOnEscape: this.closeOnEscape,
         headerId: this.headerId,
-        bodyId: this.bodyId
+        bodyId: this.bodyId,
+        usePortal: this.usePortal
       }
     },
     isControlled () {
@@ -333,7 +335,6 @@ const PopoverContent = {
       type: [Number, String],
       default: 4
     },
-    usePortal: Boolean,
     placement: {
       type: String,
       default: 'auto'
@@ -424,14 +425,14 @@ const PopoverContent = {
     })
   },
   render (h) {
-    const { isOpen, triggerNode, popoverId } = this.context
+    const { isOpen, triggerNode, popoverId, usePortal } = this.context
     const bg = this.colorMode === 'light' ? 'white' : 'gray.700'
 
     return h(Popper, {
       props: {
         ...forwardProps(this.$props),
         as: 'section',
-        usePortal: this.usePortal,
+        usePortal: usePortal,
         isOpen,
         placement: this.placement,
         anchorEl: triggerNode,
@@ -509,7 +510,8 @@ const PopoverBody = {
         py: '0.5rem'
       },
       attrs: {
-        id: this.bodyId
+        id: this.bodyId,
+        'data-id': this.bodyId
       }
     }, this.$slots.default)
   }

@@ -8,15 +8,15 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover :initialFocusRef="$refs.pooch">
+        <Popover closeOnBlur initialFocusRef="#pooch">
           <PopoverTrigger>
-            <Button :data-noop="count">
+            <Button>
               Trigger
             </Button>
           </PopoverTrigger>
           <PopoverContent>
             I am the popoover content
-            <Button id="pooch" ref="pooch">Nice popover button</Button>
+            <Button id="pooch">Nice popover button</Button>
           </PopoverContent>
         </Popover>
       </div>

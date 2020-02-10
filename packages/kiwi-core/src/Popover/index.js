@@ -49,7 +49,8 @@ const Popover = {
         popoverId: this.id,
         trigger: this.trigger,
         isHovering: this.isHovering,
-        handleBlur: this.handleBlur
+        handleBlur: this.handleBlur,
+        closeOnEscape: this.closeOnEscape
       }
     },
     isControlled () {
@@ -184,7 +185,7 @@ const Popover = {
         const isVue = isVueComponent(element)
         return isVue ? element.$el : element
       } else if (typeof element === 'string') {
-        return getElement(element, this.$el)
+        return getElement(element)
       }
       return null
     },
@@ -294,7 +295,6 @@ const PopoverTrigger = {
 
     const { isOpen, popoverId } = this.context
 
-    // TODO: Make provision for text node popover triggers
     clone = h(cloned.componentOptions.Ctor, {
       ...cloned.data,
       ...(cloned.componentOptions.listeners || {}),
@@ -342,10 +342,12 @@ const PopoverContent = {
       return this.$colorMode()
     },
     eventHandlers () {
-      const { trigger, handleBlur } = this.context
+      const { trigger, handleBlur, closePopover, closeOnEscape } = this.context
+
+      let eventHandlers = {}
 
       if (trigger === 'click') {
-        return {
+        eventHandlers = {
           blur: (e) => {
             this.$emit('blur', e)
             handleBlur(e)
@@ -354,7 +356,8 @@ const PopoverContent = {
       }
 
       if (trigger === 'hover') {
-        return {
+        eventHandlers = {
+          ...eventHandlers,
           mouseenter: (e) => {
             this.$emit('mouseenter', e)
             this.context.set('isHovering', true)
@@ -371,6 +374,18 @@ const PopoverContent = {
           }
         }
       }
+
+      eventHandlers = {
+        ...eventHandlers,
+        keydown: (e) => {
+          this.$emit('keydown', e)
+          if (e.key === 'Escape' && closeOnEscape) {
+            closePopover && closePopover()
+          }
+        }
+      }
+
+      return eventHandlers
     },
     calculatedAttrs () {
       const { trigger } = this.context

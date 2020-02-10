@@ -3,25 +3,48 @@
     <main class="root">
       <Heading mb="50px" as="h3">Popover</Heading>
       <CSSReset />
-      <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
+      <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.700" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover initialFocusRef="#pooch">
+        <Popover
+          initialFocusRef="#next"
+          placement="bottom"
+        >
           <PopoverTrigger>
-            <Button>
-              Trigger
-            </Button>
+            <Button>Trigger</Button>
           </PopoverTrigger>
-          <PopoverContent>
-            <PopoverCloseButton />
+          <PopoverContent
+            zIndex="4"
+            color="white"
+            backgroundColor="blue.700"
+            borderColor="blue.700"
+          >
+            <PopoverHeader pt="4" fontWeight="bold" border="0">
+              Manage Your Channels
+            </PopoverHeader>
             <PopoverArrow />
-            <PopoverHeader>Confirmation!</PopoverHeader>
+            <PopoverCloseButton />
             <PopoverBody>
-              <p>Are you sure you want to have that milkshake?</p>
-              <Button left-icon="coffee" id="pooch">Drink coffee</Button>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore.
             </PopoverBody>
+            <PopoverFooter
+              border="0"
+              d="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              pb="4"
+            >
+              <Box fontSize="sm">Step 2 of 4</Box>
+              <ButtonGroup size="sm">
+                <Button variantColor="green">Setup Email</Button>
+                <Button variantColor="blue" id="next">
+                  Next
+                </Button>
+              </ButtonGroup>
+            </PopoverFooter>
           </PopoverContent>
         </Popover>
       </div>
@@ -30,7 +53,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -47,7 +70,10 @@ export default {
     PopoverBody,
     PopoverArrow,
     PopoverCloseButton,
-    Button
+    Button,
+    PopoverFooter,
+    Box,
+    ButtonGroup
   },
   data () {
     return {

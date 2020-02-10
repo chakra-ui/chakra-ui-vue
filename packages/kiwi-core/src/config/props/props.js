@@ -1,6 +1,7 @@
 const baseProps = {
   color: String,
   bg: String,
+  background: String,
   w: [Number, String, Array],
   width: [Number, String, Array],
   minW: [Number, String, Array],

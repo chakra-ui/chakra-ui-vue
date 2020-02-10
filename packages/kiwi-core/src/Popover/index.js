@@ -555,6 +555,22 @@ const PopoverCloseButton = {
   }
 }
 
+const PopoverFooter = {
+  name: 'PopoverFooter',
+  props: baseProps,
+  render (h) {
+    return h(Box, {
+      props: {
+        ...forwardProps(this.$props),
+        as: 'footer',
+        px: '0.75rem',
+        py: '0.5rem',
+        borderTopWidth: '1px'
+      }
+    }, this.$slots.default)
+  }
+}
+
 export {
   Popover,
   PopoverTrigger,
@@ -562,5 +578,6 @@ export {
   PopoverHeader,
   PopoverBody,
   PopoverArrow,
-  PopoverCloseButton
+  PopoverCloseButton,
+  PopoverFooter
 }

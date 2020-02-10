@@ -12,3 +12,15 @@ it.todo('should preserve inherited event listeners')
 
 // PopoverContent
 it.todo('should inject provided popover context')
+
+// PopoverArrow
+it.todo('should render arrow')
+
+// PopoverHeader
+it.todo('should render slot content')
+
+// PopoverBody
+it.todo('should render slot content')
+
+// PopoverFooter
+it.todo('should render slot content')

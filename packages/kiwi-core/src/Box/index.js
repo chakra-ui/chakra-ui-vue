@@ -79,7 +79,9 @@ const Box = {
   },
   render (h) {
     const cleanedStyleProps = forwardProps(this.$props)
-    const boxStylesObject = __css(system(cleanedStyleProps))(this.theme)
+    // Something creepy is going on here.
+    // But somehow it works. LOL
+    const boxStylesObject = __css(system(__css(cleanedStyleProps)(this.theme)))(this.theme)
     const className = css(boxStylesObject)
     return h(this.as, {
       class: [className]

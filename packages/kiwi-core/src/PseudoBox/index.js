@@ -1,7 +1,7 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import Box from '../Box'
-import { pseudoProps, baseProps } from '../config/props'
+import styleProps from '../config/props'
 import { parsePseudoStyles } from './utils'
 
 const PseudoBox = {
@@ -12,8 +12,7 @@ const PseudoBox = {
       type: [String, Object],
       default: () => 'div'
     },
-    ...pseudoProps,
-    ...baseProps
+    ...styleProps
   },
   computed: {
     theme () {
@@ -23,7 +22,7 @@ const PseudoBox = {
   render (h) {
     const pseudoBoxStylesObject = __css(this.$props)(this.theme)
     const [pseudoStyleObject, baseStyleObject] = parsePseudoStyles(pseudoBoxStylesObject)
-    const className = css(pseudoStyleObject)
+    const className = css(__css(pseudoStyleObject)(this.theme))
     return h(Box, {
       props: {
         ...baseStyleObject

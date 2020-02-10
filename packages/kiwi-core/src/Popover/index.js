@@ -21,7 +21,7 @@ const Popover = {
       type: Boolean,
       default: true
     },
-    initialFocusRef: [HTMLElement, Object],
+    initialFocusRef: [Object, String],
     trigger: {
       type: String,
       default: 'click'
@@ -81,7 +81,7 @@ const Popover = {
      * The purpose of this watcher is to keep record of the previous
      * isOpen value.
      */
-    this.$watch('isOpen', (_newVal, oldVal) => {
+    this.$watch('_isOpen', (_newVal, oldVal) => {
       this.prevIsOpen = oldVal
     }, {
       immediate: true
@@ -97,7 +97,18 @@ const Popover = {
       vm.returnFocusOnClose
     ], () => {
       if (this._isOpen && this.trigger === 'click') {
-        requestAnimationFrame(() => {
+        /**
+         * Caveat here:
+         * Until Vue 3 is reease, using it's $refs as props may not always return a value
+         * in the props unless the consumer component updates it's context. This is because
+         * Vue asynchronously updtaes the DOM and is also not reactive.
+         *
+         * Where this doesnt' work, we fallback to using an element selector to query
+         * the element from the DOM. And use it as the initial focus ref.
+         *
+         * Work-around could be to use plain old JS selectors
+         */
+        setTimeout(() => {
           if (this._initialFocusRef) {
             this._initialFocusRef.focus()
           } else {
@@ -166,11 +177,16 @@ const Popover = {
     },
     /**
      * Returns the HTML element of a Vue component or native element
-     * @param {Vue.Component|HTMLElement} element HTMLElement or Vue Component
+     * @param {Vue.Component|HTMLElement|String} element HTMLElement or Vue Component
      */
     getNode (element) {
-      const isVue = isVueComponent(element)
-      return isVue ? element.$el : element
+      if (typeof element === 'object') {
+        const isVue = isVueComponent(element)
+        return isVue ? element.$el : element
+      } else if (typeof element === 'string') {
+        return getElement(element, this.$el)
+      }
+      return null
     },
     /**
      * Sets the value of any component instance property.
@@ -278,7 +294,7 @@ const PopoverTrigger = {
 
     const { isOpen, popoverId } = this.context
 
-    // TODO: Make provision for text node popovers
+    // TODO: Make provision for text node popover triggers
     clone = h(cloned.componentOptions.Ctor, {
       ...cloned.data,
       ...(cloned.componentOptions.listeners || {}),
@@ -404,7 +420,7 @@ const PopoverContent = {
         rounded: 'md',
         shadow: 'sm',
         maxWidth: 'xs',
-        _focus: { outline: 0, boxShadow: 'outline' }
+        _focus: { outline: 0, shadow: 'outline' }
       },
       attrs: {
         id: popoverId,

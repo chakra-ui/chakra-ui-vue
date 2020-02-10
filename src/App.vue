@@ -3,20 +3,20 @@
     <main class="root">
       <Heading mb="50px" as="h3">Popover</Heading>
       <CSSReset />
-      <Anchor is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
+      <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.900" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover :initial-focus-ref="$refs.pooch" :closeOnBlur="false">
+        <Popover :initialFocusRef="$refs.pooch">
           <PopoverTrigger>
-            <Button ref="pooch">
+            <Button :data-noop="count">
               Trigger
             </Button>
           </PopoverTrigger>
           <PopoverContent>
             I am the popoover content
-            <button>Nice popover button</button>
+            <Button id="pooch" ref="pooch">Nice popover button</Button>
           </PopoverContent>
         </Popover>
       </div>
@@ -49,6 +49,12 @@ export default {
       colorMode: 'light',
       value: 60
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.count++
+    })
+    console.log('mounted', this.$refs)
   },
   methods: {
     logClick () {

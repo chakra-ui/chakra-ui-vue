@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup } from '../packages/kiwi-core/src'
+import { Button, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Popover', module)
   .addDecorator(centered)
@@ -80,6 +80,99 @@ storiesOf('UI | Popover', module)
             </ButtonGroup>
           </PopoverFooter>
         </PopoverContent>
+      </Popover>
+    `
+  }))
+  .add('Accessing Internal state', () => ({
+    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    template: `
+      <Popover
+        initialFocusRef="#initRef"
+        placement="right"
+        v-slot="{ isOpen, onClose }"
+      >
+        <PopoverTrigger>
+          <Button>Click to {{ isOpen ? "close" : "open" }}</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverHeader>This is the header</PopoverHeader>
+          <PopoverCloseButton />
+          <PopoverArrow />
+          <PopoverBody>
+            <Box>
+              Hello. Nice to meet you! This is the body of the popover
+            </Box>
+            <Button
+              mt="4"
+              variantColor="blue"
+              @click="onClose"
+              id="initRef"
+            >
+              Close
+            </Button>
+          </PopoverBody>
+          <PopoverFooter>This is the footer</PopoverFooter>
+        </PopoverContent>
+      </Popover>
+    `
+  }))
+  .add('Customizing the Popover', () => ({
+    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    template: `
+      <Popover>
+        <PopoverTrigger>
+          <Box
+            tabIndex="0"
+            role="button"
+            aria-label="Some box"
+            p="5"
+            w="120px"
+            bg="gray.300"
+          >
+            Click
+          </Box>
+        </PopoverTrigger>
+        <PopoverContent zIndex="4" backgroundColor="tomato" color="white">
+          <PopoverHeader fontWeight="semibold">Customization</PopoverHeader>
+          <PopoverArrow backgroundColor="pink.500" />
+          <PopoverCloseButton backgroundColor="purple.500" />
+          <PopoverBody>
+            Tadaa!! The arrow color and background color is customized. Check the
+            props for each component.
+          </PopoverBody>
+        </PopoverContent>
+      </Popover>
+    `
+  }))
+  .add('Hover Trigger', () => ({
+    components: { DarkMode, KText: Text, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    template: `
+      <Popover trigger="hover">
+        <PopoverTrigger>
+          <Anchor href="#" color="blue.500">
+            Hover to see @swyx profile
+          </Anchor>
+        </PopoverTrigger>
+        <DarkMode>
+          <PopoverContent border="0" zIndex="4" width="400px" color="white">
+            <Box p="5">
+              <Avatar
+                name="swyx"
+                src="https://pbs.twimg.com/profile_images/990728399873232896/CMPn3IxT_reasonably_small.jpg"
+              />
+              <KText mt="4" fontWeight="bold">
+                swyx
+                <Badge ml="3" variant="solid" fontSize="xs">
+                  Follows you
+                </Badge>
+              </KText>
+              <KText mt="3">
+                Infinite Builder working on DX @Netlify. Helping people
+                #LearnInPublic
+              </KText>
+            </Box>
+          </PopoverContent>
+        </DarkMode>
       </Popover>
     `
   }))

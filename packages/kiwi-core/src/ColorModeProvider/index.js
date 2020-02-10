@@ -10,8 +10,8 @@ const ColorModeProvider = {
   },
   provide () {
     return {
-      colorMode: () => this._colorMode,
-      toggleColorMode: this.toggleColorMode
+      $colorMode: () => this._colorMode,
+      $toggleColorMode: this.toggleColorMode
     }
   },
   computed: {

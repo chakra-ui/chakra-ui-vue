@@ -36,7 +36,11 @@ const Popover = {
       type: Boolean,
       default: true
     },
-    usePortal: Boolean
+    usePortal: Boolean,
+    placement: {
+      type: String,
+      default: 'auto'
+    }
   },
   computed: {
     PopoverContext () {
@@ -56,7 +60,8 @@ const Popover = {
         closeOnEscape: this.closeOnEscape,
         headerId: this.headerId,
         bodyId: this.bodyId,
-        usePortal: this.usePortal
+        usePortal: this.usePortal,
+        placement: this.placement
       }
     },
     isControlled () {
@@ -217,7 +222,7 @@ const Popover = {
   render (h) {
     return h(Fragment, [
       this.$scopedSlots.default({
-        isOpen: this.isOpen,
+        isOpen: this._isOpen,
         onClose: this.closePopover
       })
     ])
@@ -335,10 +340,6 @@ const PopoverContent = {
       type: [Number, String],
       default: 4
     },
-    placement: {
-      type: String,
-      default: 'auto'
-    },
     ariaLabel: String
   },
   computed: {
@@ -425,7 +426,7 @@ const PopoverContent = {
     })
   },
   render (h) {
-    const { isOpen, triggerNode, popoverId, usePortal } = this.context
+    const { isOpen, triggerNode, popoverId, usePortal, placement } = this.context
     const bg = this.colorMode === 'light' ? 'white' : 'gray.700'
 
     return h(Popper, {
@@ -434,7 +435,7 @@ const PopoverContent = {
         as: 'section',
         usePortal: usePortal,
         isOpen,
-        placement: this.placement,
+        placement,
         anchorEl: triggerNode,
         modifiers: { offset: { enabled: true, offset: `0, ${this.gutter}` } },
         bg,

@@ -8,44 +8,32 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover
-          initialFocusRef="#next"
-          placement="bottom"
-        >
+        <Popover trigger="hover">
           <PopoverTrigger>
-            <Button>Trigger</Button>
+            <Anchor href="#" color="blue.500">
+              Hover to see @swyx profile
+            </Anchor>
           </PopoverTrigger>
-          <PopoverContent
-            zIndex="4"
-            color="white"
-            backgroundColor="blue.700"
-            borderColor="blue.700"
-          >
-            <PopoverHeader pt="4" fontWeight="bold" border="0">
-              Manage Your Channels
-            </PopoverHeader>
-            <PopoverArrow />
-            <PopoverCloseButton />
-            <PopoverBody>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore.
-            </PopoverBody>
-            <PopoverFooter
-              border="0"
-              d="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              pb="4"
-            >
-              <Box fontSize="sm">Step 2 of 4</Box>
-              <ButtonGroup size="sm">
-                <Button variantColor="green">Setup Email</Button>
-                <Button variantColor="blue" id="next">
-                  Next
-                </Button>
-              </ButtonGroup>
-            </PopoverFooter>
-          </PopoverContent>
+          <DarkMode>
+            <PopoverContent border="0" zIndex="4" width="400px" color="white">
+              <Box p="5">
+                <Avatar
+                  name="swyx"
+                  src="https://pbs.twimg.com/profile_images/990728399873232896/CMPn3IxT_reasonably_small.jpg"
+                />
+                <KText mt="4" fontWeight="bold">
+                  swyx
+                  <Badge ml="3" variant="solid" fontSize="xs">
+                    Follows you
+                  </Badge>
+                </KText>
+                <KText mt="3">
+                  Infinite Builder working on DX @Netlify. Helping people
+                  #LearnInPublic
+                </KText>
+              </Box>
+            </PopoverContent>
+          </DarkMode>
         </Popover>
       </div>
     </main>
@@ -53,7 +41,7 @@
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Link as Anchor, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, DarkMode, Link as Anchor, Popover, PopoverTrigger, PopoverContent, Box, Avatar, Text, Badge, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -66,14 +54,11 @@ export default {
     Popover,
     PopoverTrigger,
     PopoverContent,
-    PopoverHeader,
-    PopoverBody,
-    PopoverArrow,
-    PopoverCloseButton,
-    Button,
-    PopoverFooter,
     Box,
-    ButtonGroup
+    Avatar,
+    KText: Text,
+    Badge,
+    DarkMode
   },
   data () {
     return {

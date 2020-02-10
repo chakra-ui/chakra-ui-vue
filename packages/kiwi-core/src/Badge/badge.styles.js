@@ -2,14 +2,14 @@ import { addOpacity, generateAlphas, get } from '../utils'
 
 const solidStyle = ({ theme: { colors }, color }) => {
   const _color = colors[color] && colors[color][500]
-  const darkModeBg = addOpacity(_color, 0.6)
+  const darkModebackgroundColor = addOpacity(_color, 0.6)
   return {
     light: {
-      bg: get(color, 500),
+      backgroundColor: get(color, 500),
       color: 'white'
     },
     dark: {
-      bg: darkModeBg,
+      backgroundColor: darkModebackgroundColor,
       color: 'whiteAlpha.800'
     }
   }
@@ -18,15 +18,15 @@ const solidStyle = ({ theme: { colors }, color }) => {
 const subtleStyle = ({ theme: { colors }, color }) => {
   const _color = colors[color] && colors[color][200]
   const alphaColors = generateAlphas(_color)
-  const darkModeBg = alphaColors[300]
+  const darkModebackgroundColor = alphaColors[300]
 
   return {
     light: {
-      bg: get(color, 100),
+      backgroundColor: get(color, 100),
       color: get(color, 800)
     },
     dark: {
-      bg: darkModeBg,
+      backgroundColor: darkModebackgroundColor,
       color: get(color, 200)
     }
   }

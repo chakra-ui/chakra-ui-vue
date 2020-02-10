@@ -8,7 +8,7 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <!-- <Popover
+        <Popover
           initialFocusRef="#next"
           placement="bottom"
         >
@@ -46,23 +46,7 @@
               </ButtonGroup>
             </PopoverFooter>
           </PopoverContent>
-        </Popover> -->
-        <Popover usePortal>
-          <PopoverTrigger>
-            <Button>Trigger</Button>
-          </PopoverTrigger>
-          <PopoverContent zIndex="4">
-            <PopoverArrow />
-            <PopoverHeader>Header</PopoverHeader>
-            <PopoverCloseButton />
-            <PopoverBody>
-              <Button variantColor="blue">Button</Button>
-            </PopoverBody>
-            <PopoverFooter>This is the footer</PopoverFooter>
-          </PopoverContent>
         </Popover>
-        <Box />
-        <ButtonGroup />
       </div>
     </main>
   </theme-provider>
@@ -88,9 +72,7 @@ export default {
     PopoverCloseButton,
     Button,
     PopoverFooter,
-    // eslint-ignore-next-line
     Box,
-    // eslint-ignore-next-line
     ButtonGroup
   },
   data () {

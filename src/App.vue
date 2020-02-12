@@ -8,18 +8,12 @@
         Github
       </Anchor>
       <div class="wrapper">
-        <Box v-for="box in 10" p="6" w="100%" :key="'blue' + box" h="100px" bg="blue.300">
-          Box index {{ box }}
-        </Box>
         <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
-        <Collapse :isOpen="showCollapsed" :animateOpacity="false">
-          <Box bg="tomato" w="100%">
+        <Collapse :isOpen="showCollapsed">
+          <Box bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
           </Box>
         </Collapse>
-        <Box v-for="box in 10" p="6" w="100%" :key="'pink' + box" h="100px" bg="pink.300">
-          Box {{ box }}
-        </Box>
       </div>
     </main>
   </theme-provider>
@@ -92,7 +86,7 @@ body {
 }
 
 .root {
-  height: auto;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;

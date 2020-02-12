@@ -367,7 +367,11 @@ const AnimateHeight = {
   },
   render (h) {
     const children = this.$slots.default
-    return h(Box, children)
+    return h(Box, {
+      props: {
+        overflow: 'hidden'
+      }
+    }, children)
   }
 }
 

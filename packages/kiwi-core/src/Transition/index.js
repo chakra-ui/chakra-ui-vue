@@ -326,7 +326,7 @@ const AnimateHeight = {
     enter (el, complete) {
       this.$emit('enter', el)
       el.style.visibility = 'hidden'
-      el.style.height = 'auto'
+      el.style.height = this.finalHeight || 'auto'
       const { height } = getComputedStyle(el)
       el.style.height = this.initialHeight || 0
 

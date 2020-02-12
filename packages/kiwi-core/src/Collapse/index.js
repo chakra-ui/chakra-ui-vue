@@ -1,5 +1,6 @@
 import { AnimateHeight } from '../Transition'
 import Box from '../Box'
+import { forwardProps } from '../utils'
 
 const Collapse = {
   name: 'Collapse',
@@ -37,7 +38,12 @@ const Collapse = {
         enter: (e) => this.$emit('start', e),
         leave: (e) => this.$emit('finish', e)
       }
-    }, [h(Box, { props: { overflow: 'hidden' } }, children)])
+    }, [h(Box, {
+      props: {
+        ...forwardProps(this.$props),
+        overflow: 'hidden'
+      }
+    }, children)])
   }
 }
 

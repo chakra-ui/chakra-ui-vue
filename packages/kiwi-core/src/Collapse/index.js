@@ -4,6 +4,7 @@ import Box from '../Box'
 const Collapse = {
   name: 'Collapse',
   props: {
+    isOpen: Boolean,
     duration: {
       type: Number,
       default: 250
@@ -24,14 +25,19 @@ const Collapse = {
 
     return h(AnimateHeight, {
       props: {
+        isOpen: this.isOpen,
         duration: this.duration,
         enterEasing: this.easing,
         leaveEasing: this.easing,
-        startingHeight: this.startingHeight,
+        initialHeight: this.startingHeight,
         finalHeight: this.endingHeight,
         animateOpacity: this.animateOpacity
+      },
+      on: {
+        enter: (e) => this.$emit('start', e),
+        leave: (e) => this.$emit('finish', e)
       }
-    }, children ? [h(Box, { props: { overflow: 'hidden' } }, children)] : null)
+    }, [h(Box, { props: { overflow: 'hidden' } }, children)])
   }
 }
 

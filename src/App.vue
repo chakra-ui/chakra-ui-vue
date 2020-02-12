@@ -12,8 +12,8 @@
           Box index {{ box }}
         </Box>
         <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
-        <Collapse :animateOpacity="false" :duration="200">
-          <Box bg="tomato" w="100%" v-if="showCollapsed">
+        <Collapse :isOpen="showCollapsed" :animateOpacity="false">
+          <Box bg="tomato" w="100%">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
           </Box>
         </Collapse>

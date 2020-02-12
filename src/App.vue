@@ -1,47 +1,32 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
     <main class="root">
-      <Heading mb="50px" as="h3">Popover</Heading>
+      <Heading mb="50px" as="h3">Collapse</Heading>
       <CSSReset />
       <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.700" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Popover trigger="hover">
-          <PopoverTrigger>
-            <Anchor href="#" color="blue.500">
-              Hover to see @swyx profile
-            </Anchor>
-          </PopoverTrigger>
-          <DarkMode>
-            <PopoverContent border="0" zIndex="4" width="400px" color="white">
-              <Box p="5">
-                <Avatar
-                  name="swyx"
-                  src="https://pbs.twimg.com/profile_images/990728399873232896/CMPn3IxT_reasonably_small.jpg"
-                />
-                <KText mt="4" fontWeight="bold">
-                  swyx
-                  <Badge ml="3" variant="solid" fontSize="xs">
-                    Follows you
-                  </Badge>
-                </KText>
-                <KText mt="3">
-                  Infinite Builder working on DX @Netlify. Helping people
-                  #LearnInPublic
-                </KText>
-              </Box>
-            </PopoverContent>
-          </DarkMode>
-        </Popover>
+        <Box v-for="box in 10" p="6" w="100%" :key="'blue' + box" h="100px" bg="blue.300">
+          Box index {{ box }}
+        </Box>
+        <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
+        <Collapse :animateOpacity="false" :duration="200">
+          <Box bg="tomato" w="100%" v-if="showCollapsed">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
+          </Box>
+        </Collapse>
+        <Box v-for="box in 10" p="6" w="100%" :key="'pink' + box" h="100px" bg="pink.300">
+          Box {{ box }}
+        </Box>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, DarkMode, Link as Anchor, Popover, PopoverTrigger, PopoverContent, Box, Avatar, Text, Badge, Icon, CSSReset } from '../packages/kiwi-core/dist/esm'
+import { ThemeProvider, Heading, Collapse, Link as Anchor, Button, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -50,15 +35,10 @@ export default {
     ThemeProvider,
     Icon,
     Anchor,
+    Button,
     CSSReset,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    Box,
-    Avatar,
-    KText: Text,
-    Badge,
-    DarkMode
+    Collapse,
+    Box
   },
   data () {
     return {
@@ -67,7 +47,8 @@ export default {
       placement: 'auto',
       count: 0,
       colorMode: 'light',
-      value: 60
+      value: 60,
+      showCollapsed: true
     }
   },
   mounted () {
@@ -111,7 +92,7 @@ body {
 }
 
 .root {
-  height: 100vh;
+  height: auto;
   width: 100vw;
   display: flex;
   flex-direction: column;

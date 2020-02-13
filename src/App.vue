@@ -1,26 +1,30 @@
 <template>
   <theme-provider :theme="$kiwi.theme" :color-mode="colorMode" :icons="$kiwi.icons">
     <main class="root">
-      <Heading mb="50px" as="h3">Collapse</Heading>
+      <Heading mb="50px" as="h3">Accordion</Heading>
       <CSSReset />
       <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.700" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
         <Icon name="github" mr="2" size="6" />
         Github
       </Anchor>
       <div class="wrapper">
-        <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
-        <Collapse :isOpen="showCollapsed">
-          <Box bg="tomato" w="250px">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
-          </Box>
-        </Collapse>
+        <Accordion>
+          <KText>Hello Accordion</KText>
+        </Accordion>
       </div>
     </main>
   </theme-provider>
 </template>
 
 <script lang="js">
-import { ThemeProvider, Heading, Collapse, Link as Anchor, Button, Icon, Box, CSSReset } from '../packages/kiwi-core/dist/esm'
+import {
+  ThemeProvider,
+  Heading,
+  Link as Anchor,
+  Icon,
+  CSSReset,
+  Accordion,
+  Text as KText } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -29,10 +33,9 @@ export default {
     ThemeProvider,
     Icon,
     Anchor,
-    Button,
     CSSReset,
-    Collapse,
-    Box
+    Accordion,
+    KText
   },
   data () {
     return {

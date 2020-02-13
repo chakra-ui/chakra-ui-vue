@@ -149,8 +149,6 @@ const Progress = {
       })
     }
 
-    console.log({ _borderRadius, trackColor, value: this.value, indicatorColor: this.indicatorColor })
-
     return h(ProgressTrack, {
       props: {
         size: this.size,

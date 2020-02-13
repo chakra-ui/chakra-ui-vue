@@ -3,13 +3,22 @@
     <main class="root">
       <Heading mb="50px" as="h3">Accordion</Heading>
       <CSSReset />
-      <Anchor ref="anchor" is-external href="https://github.com/codebender828/kiwi-ui" color="white" bg="blue.700" px="3" py="2" rounded="md" position="fixed" top="3" right="3" d="flex" align-items="center">
-        <Icon name="github" mr="2" size="6" />
+      <Button
+        as="a"
+        target="_blank"
+        href="https://github.com/codebender828/kiwi-ui"
+        position="fixed"
+        top="3"
+        right="3"
+        left-icon="github"
+      >
         Github
-      </Anchor>
+      </Button>
       <div class="wrapper">
         <Accordion>
-          <KText>Hello Accordion</KText>
+          <AccordionItem>
+            <KText>Hello Accordion</KText>
+          </AccordionItem>
         </Accordion>
       </div>
     </main>
@@ -20,10 +29,10 @@
 import {
   ThemeProvider,
   Heading,
-  Link as Anchor,
-  Icon,
   CSSReset,
   Accordion,
+  AccordionItem,
+  Button,
   Text as KText } from '../packages/kiwi-core/dist/esm'
 
 export default {
@@ -31,10 +40,10 @@ export default {
   components: {
     Heading,
     ThemeProvider,
-    Icon,
-    Anchor,
+    Button,
     CSSReset,
     Accordion,
+    AccordionItem,
     KText
   },
   data () {

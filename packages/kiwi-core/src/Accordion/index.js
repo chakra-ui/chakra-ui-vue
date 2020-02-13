@@ -1,6 +1,7 @@
 import { baseProps } from '../config'
 import Box from '../Box'
 import { forwardProps, cloneVNodes, useId } from '../utils'
+import PseudoBox from '../PseudoBox'
 
 const Accordion = {
   name: 'Accordion',
@@ -109,27 +110,82 @@ const Accordion = {
   }
 }
 
-const AccordionItems = {
-  name: 'AccordionItems',
+const AccordionItem = {
+  name: 'AccordionItem',
   props: {
     isOpen: Boolean,
-    defaultIsOpen: Number,
+    defaultIsOpen: Boolean,
     id: {
       type: String,
       default: useId()
     },
-    isDisabled: {}
+    isDisabled: Boolean
+  },
+  provide () {
+    return {
+      $AccordionContext: () => this.AccordionContext
+    }
+  },
+  data () {
+    return {
+      isExpanded: this.defaultIsOpen || false
+    }
   },
   computed: {
     AccordionContext () {
       return {
-
+        isExpanded: this._isExpanded,
+        isDisabled: this.isDisabled,
+        headerId: this.headerId,
+        panelId: this.panelId,
+        onToggle: this.onToggle
+      }
+    },
+    isControlled () {
+      return this.isOpen !== false
+    },
+    _isExpanded: {
+      get () {
+        return this.isControlled ? this.isOpen : this.isExpanded
+      },
+      set (value) {
+        this.isExpanded = value
+      }
+    },
+    headerId () {
+      return `accordion-header-${this.id}`
+    },
+    panelId () {
+      return `accordion-panel-${this.id}`
+    }
+  },
+  methods: {
+    onToggle () {
+      this.$emit('change', this._isExpanded)
+      if (!this.isControlled) {
+        this._isExpanded = !this._isExpanded
       }
     }
+  },
+  render (h) {
+    return h(PseudoBox, {
+      props: {
+        borderTopWidth: '1px',
+        _last: { borderBottomWidth: '1px' }
+      },
+      attrs: {
+        'data-accordion-item': ''
+      }
+    }, [
+      this.$scopedSlots.default({
+        isExpanded: this._isExpanded,
+        isDisabled: this.isDisabled
+      })
+    ])
   }
 }
 
 export {
   Accordion,
-  AccordionItems
+  AccordionItem
 }

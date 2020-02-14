@@ -39,7 +39,8 @@ const AspectRatioBox = {
           d: 'block',
           pb: `${(1 / this.ratio) * 100}%`
         }
-      }
+      },
+      attrs: this.$attrs
     }, [clone])
   }
 }

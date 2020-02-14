@@ -15,14 +15,36 @@
         Github
       </Button>
       <div class="wrapper">
-        <AspectRatioBox maxW="560px" :ratio="1">
-          <Box
-            as="iframe"
-            title="naruto"
-            src="https://www.youtube.com/embed/QhBnZ6NPOY0"
-            allowFullScreen
-          />
-        </AspectRatioBox>
+          <Accordion allowToggle allowMultiple>
+            <AccordionItem>
+              <AccordionHeader>
+                <Box flex="1" textAlign="left">
+                  Section 1 title
+                </Box>
+                <AccordionIcon />
+              </AccordionHeader>
+              <AccordionPanel pb="4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem v-slot="{ isExpanded }">
+              <AccordionHeader>
+                <Box flex="1" textAlign="left">
+                  Section 2 title | isExpanded: {{ isExpanded }}
+                </Box>
+                <AccordionIcon size="12px" :name="isExpanded ? 'minus' : 'add'" />
+              </AccordionHeader>
+              <AccordionPanel pb="4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
       </div>
     </main>
   </theme-provider>
@@ -34,7 +56,7 @@ import {
   Heading,
   CSSReset,
   Button,
-  AspectRatioBox,
+  Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon,
   Box } from '../packages/kiwi-core/dist/esm'
 
 export default {
@@ -44,7 +66,11 @@ export default {
     ThemeProvider,
     Button,
     CSSReset,
-    AspectRatioBox,
+    Accordion,
+    AccordionItem,
+    AccordionHeader,
+    AccordionPanel,
+    AccordionIcon,
     Box
   },
   data () {

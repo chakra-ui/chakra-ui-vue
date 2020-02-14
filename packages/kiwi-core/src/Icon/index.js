@@ -3,12 +3,14 @@ import Box from '../Box'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
 import { baseProps } from '../config/props'
+import { iconProps } from './icon.props'
 
 const fallbackIcon = iconPaths['question-outline']
 
 const Svg = {
   name: 'IconSvg',
   props: {
+    ...iconProps,
     ...baseProps
   },
   render (h) {
@@ -36,27 +38,7 @@ export default {
   name: 'Icon',
   inject: ['$theme', '$icons'],
   props: {
-    name: {
-      type: [String, Array]
-    },
-    use: {
-      type: [String, Array],
-      required: false
-    },
-    pack: {
-      type: String,
-      required: false,
-      default: 'fas',
-      validator: value => value.match(/^(fas|fal|fad)$/)
-    },
-    size: {
-      type: [String, Number, Array],
-      default: '1em'
-    },
-    color: {
-      type: [String, Array],
-      default: 'currentColor'
-    },
+    ...iconProps,
     ...baseProps
   },
   render (h) {

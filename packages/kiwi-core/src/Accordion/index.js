@@ -4,7 +4,8 @@ import { forwardProps, cloneVNodes, useId, isDef } from '../utils'
 import PseudoBox from '../PseudoBox'
 import styleProps from '../config/props'
 import Collapse from '../Collapse'
-import { Icon } from '..'
+import Icon from '../Icon'
+import { iconProps } from '../Icon/icon.props'
 
 const Accordion = {
   name: 'Accordion',
@@ -277,7 +278,10 @@ const AccordionPanel = {
 const AccordionIcon = {
   name: 'AccordionIcon',
   inject: ['$AccordionContext'],
-  props: baseProps,
+  props: {
+    ...baseProps,
+    ...iconProps
+  },
   computed: {
     context () {
       return this.$AccordionContext()
@@ -288,8 +292,8 @@ const AccordionIcon = {
     return h(Icon, {
       props: {
         ...forwardProps(this.$props),
-        size: '1.25em',
-        name: 'chevron-down',
+        size: this.size || '1.25em',
+        name: this.name || 'chevron-down',
         opacity: isDisabled ? 0.4 : 1,
         transform: isExpanded ? 'rotate(-180deg)' : null,
         transition: 'transform 0.2s',

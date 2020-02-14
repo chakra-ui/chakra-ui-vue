@@ -15,36 +15,14 @@
         Github
       </Button>
       <div class="wrapper">
-        <Accordion>
-          <AccordionItem>
-            <AccordionHeader>
-              <Box flex="1" textAlign="left">
-                Section 1 title
-              </Box>
-              <AccordionIcon />
-            </AccordionHeader>
-            <AccordionPanel pb="4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionHeader>
-              <Box flex="1" textAlign="left">
-                Section 2 title
-              </Box>
-              <AccordionIcon />
-            </AccordionHeader>
-            <AccordionPanel pb="4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              commodo consequat.
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
+        <AspectRatioBox maxW="560px" :ratio="1">
+          <Box
+            as="iframe"
+            title="naruto"
+            src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+            allowFullScreen
+          />
+        </AspectRatioBox>
       </div>
     </main>
   </theme-provider>
@@ -55,12 +33,8 @@ import {
   ThemeProvider,
   Heading,
   CSSReset,
-  Accordion,
   Button,
-  AccordionItem,
-  AccordionHeader,
-  AccordionPanel,
-  AccordionIcon,
+  AspectRatioBox,
   Box } from '../packages/kiwi-core/dist/esm'
 
 export default {
@@ -70,12 +44,8 @@ export default {
     ThemeProvider,
     Button,
     CSSReset,
-    Accordion,
-    AccordionItem,
-    AccordionHeader,
-    AccordionPanel,
-    Box,
-    AccordionIcon
+    AspectRatioBox,
+    Box
   },
   data () {
     return {

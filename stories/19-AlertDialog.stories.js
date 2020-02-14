@@ -46,15 +46,13 @@ storiesOf('UI | Alert Dialog', module)
     },
     methods: {
       action: action('Button Clicked'),
-      methods: {
-        open () {
-          action('Alert Dialog Opened')
-          this.isOpen = true
-        },
-        close () {
-          action('Alert Dialog Closed')
-          this.isOpen = false
-        }
+      open () {
+        action('Alert Dialog Opened')
+        this.isOpen = true
+      },
+      close () {
+        action('Alert Dialog Closed')
+        this.isOpen = false
       }
     }
   }))

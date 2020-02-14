@@ -1,47 +1,47 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { CSSReset, Progress, Stack } from '../packages/kiwi-core/src'
+import { CSSReset, Progress as KProgress, Stack } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Progress', module)
   .addDecorator(centered)
   .add('Default Progress', () => ({
-    components: { CSSReset, Progress },
+    components: { CSSReset, KProgress },
     template: `
       <div>
         <CSSReset />
-        <Progress value={80} />
+        <KProgress :value="80" />
       </div>
     `
   }))
   .add('With stripe', () => ({
-    components: { CSSReset, Progress },
+    components: { CSSReset, KProgress },
     template: `
       <div>
         <CSSReset />
-        <Progress hasStripe value={64} />
+        <KProgress hasStripe :value="64" />
       </div>
     `
   }))
   .add('With sizes', () => ({
-    components: { CSSReset, Progress, Stack },
+    components: { CSSReset, KProgress, Stack },
     template: `
-    <div>
-    <CSSReset />
+      <div>
+        <CSSReset />
         <Stack :spacing="5">
-        <Progress rounded="sm" color="green" size="sm" />
-        <Progress color="green" size="md" />
-        <Progress color="green" size="lg" />
-        <Progress color="green" height="32px" />
+          <KProgress rounded="sm" color="green" size="sm" />
+          <KProgress color="green" size="md" />
+          <KProgress color="green" size="lg" />
+          <KProgress color="green" height="32px" />
         </Stack>
-        </div>
-        `
+      </div>
+    `
   }))
   .add('With color', () => ({
-    components: { CSSReset, Progress },
+    components: { CSSReset, KProgress },
     template: `
     <div>
       <CSSReset />
-      <Progress color="pink" hasStripe />
+      <KProgress color="pink" hasStripe />
     </div>
   `
   }))

@@ -7,10 +7,6 @@ const ThemeProvider = {
       type: Object,
       default: () => null
     },
-    colorMode: {
-      type: String,
-      default: 'light'
-    },
     icons: {
       type: Object,
       required: false
@@ -19,7 +15,6 @@ const ThemeProvider = {
   provide () {
     return {
       $theme: () => this.theme,
-      $colorMode: () => this.colorMode,
       $icons: this.icons
     }
   },

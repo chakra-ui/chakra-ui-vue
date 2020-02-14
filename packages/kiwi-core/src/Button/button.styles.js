@@ -43,6 +43,19 @@ const createCustomSize = (size) => {
   }
 }
 
+const unstyledStyle = {
+  userSelect: 'inherit',
+  bg: 'none',
+  border: 0,
+  color: 'inherit',
+  display: 'inline',
+  font: 'inherit',
+  lineHeight: 'inherit',
+  m: 0,
+  p: 0,
+  textAlign: 'inherit'
+}
+
 /**
  * @description Evaluates button icon sizes and returns wight and height parameters
  * @param {Object} props
@@ -90,21 +103,21 @@ const sizeProps = ({ size }) => sizes[size]
 
 const graySolidStyle = {
   light: {
-    bg: 'gray.100',
+    color: 'inherit',
     _hover: {
-      bg: 'gray.200'
+      bg: 'gray.100'
     },
     _active: {
-      bg: 'gray.300'
+      bg: 'gray.200'
     }
   },
   dark: {
-    bg: 'whiteAlpha.200',
+    color: 'whiteAlpha.900',
     _hover: {
-      bg: 'whiteAlpha.300'
+      bg: 'whiteAlpha.200'
     },
     _active: {
-      bg: 'whiteAlpha.400'
+      bg: 'whiteAlpha.300'
     }
   }
 }
@@ -153,13 +166,13 @@ const getGhostStyles = ({ color, colorMode, theme }) => {
   const _color = theme.colors[color] && theme.colors[color][200]
   let result = {
     light: {
-      color: `${color}.400`,
-      bg: `${color}.50`,
+      color: `${color}.500`,
+      bg: 'transparent',
       _hover: {
-        bg: `${color}.100`
+        bg: `${color}.50`
       },
       _active: {
-        bg: `${color}.200`
+        bg: `${color}.100`
       }
     },
     dark: {
@@ -264,6 +277,8 @@ const getVariantStyles = (props) => {
       return getFlatStyles(props)
     case 'link':
       return getLinkStyles(props)
+    case 'unstyled':
+      return unstyledStyle
     default:
       return {}
   }

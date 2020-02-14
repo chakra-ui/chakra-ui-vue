@@ -45,3 +45,4 @@ export { useColorMode as useColorModeHook, DarkMode, LightMode } from './ColorMo
 export { default as Collapse } from './Collapse'
 export * from './Accordion'
 export { default as AspectRatioBox } from './AspectRatioBox'
+export { default as ColorModeProvider } from './ColorModeProvider'

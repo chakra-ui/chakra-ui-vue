@@ -43,13 +43,13 @@ export default {
         p: 0,
         rounded: this.isRound ? 'full' : 'md',
         size: this.size,
-        _hover: {
-          cursor: 'pointer'
-        },
         ...forwardProps(props)
       },
       attrs: {
         'aria-label': this._ariaLabel
+      },
+      on: {
+        click: (e) => this.$emit('click', e)
       }
     },
     [typeof this.icon === 'string'

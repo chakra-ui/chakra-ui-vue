@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { CSSReset, Progress, Stack } from 'kiwi-core'
+import { CSSReset, Progress, Stack } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Progress', module)
   .addDecorator(centered)

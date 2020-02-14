@@ -1,7 +1,10 @@
 import { baseProps } from '../config'
 import Box from '../Box'
-import { forwardProps, cloneVNodes, useId } from '../utils'
+import { forwardProps, cloneVNodes, useId, isDef } from '../utils'
 import PseudoBox from '../PseudoBox'
+import styleProps from '../config/props'
+import Collapse from '../Collapse'
+import { Icon } from '..'
 
 const Accordion = {
   name: 'Accordion',
@@ -113,13 +116,23 @@ const Accordion = {
 const AccordionItem = {
   name: 'AccordionItem',
   props: {
-    isOpen: Boolean,
-    defaultIsOpen: Boolean,
+    ...styleProps,
+    isOpen: {
+      type: Boolean,
+      default: null
+    },
+    defaultIsOpen: {
+      type: Boolean,
+      default: false
+    },
     id: {
       type: String,
       default: useId()
     },
-    isDisabled: Boolean
+    isDisabled: {
+      type: Boolean,
+      default: false
+    }
   },
   provide () {
     return {
@@ -142,7 +155,7 @@ const AccordionItem = {
       }
     },
     isControlled () {
-      return this.isOpen !== false
+      return isDef(this.isOpen)
     },
     _isExpanded: {
       get () {
@@ -161,7 +174,7 @@ const AccordionItem = {
   },
   methods: {
     onToggle () {
-      this.$emit('change', this._isExpanded)
+      this.$emit('change', !this._isExpanded)
       if (!this.isControlled) {
         this._isExpanded = !this._isExpanded
       }
@@ -170,6 +183,7 @@ const AccordionItem = {
   render (h) {
     return h(PseudoBox, {
       props: {
+        ...forwardProps(this.$props),
         borderTopWidth: '1px',
         _last: { borderBottomWidth: '1px' }
       },
@@ -185,7 +199,110 @@ const AccordionItem = {
   }
 }
 
+const AccordionHeader = {
+  name: 'AccordionHeader',
+  inject: ['$AccordionContext'],
+  props: styleProps,
+  computed: {
+    context () {
+      return this.$AccordionContext()
+    }
+  },
+  render (h) {
+    const { isExpanded, panelId, headerId, isDisabled, onToggle } = this.context
+    return h(PseudoBox, {
+      props: {
+        ...forwardProps(this.$props),
+        as: 'button',
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        outline: 0,
+        transition: 'all 0.2s',
+        px: 4,
+        py: 2,
+        _focus: { boxShadow: 'outline' },
+        _hover: { bg: 'blackAlpha.50' },
+        _disabled: { opacity: '0.4', cursor: 'not-allowed' }
+      },
+      attrs: {
+        id: headerId,
+        type: 'button',
+        disabled: isDisabled,
+        'aria-disabled': isDisabled,
+        'aria-expanded': isExpanded,
+        'aria-controls': panelId
+      },
+      nativeOn: {
+        click: (e) => {
+          onToggle()
+          this.$emit('click', e)
+        }
+      }
+    }, this.$slots.default)
+  }
+}
+
+const AccordionPanel = {
+  name: 'AccordionPanel',
+  inject: ['$AccordionContext'],
+  props: baseProps,
+  computed: {
+    context () {
+      return this.$AccordionContext()
+    }
+  },
+  render (h) {
+    const { isExpanded, panelId, headerId } = this.context
+
+    return h(Collapse, {
+      props: {
+        ...forwardProps(this.$props),
+        isOpen: isExpanded,
+        pt: 2,
+        px: 4,
+        pb: 5
+      },
+      attrs: {
+        id: panelId,
+        'data-accordion-panel': '',
+        'aria-labelledby': headerId,
+        'aria-hidden': !isExpanded,
+        role: 'region'
+      }
+    }, this.$slots.default)
+  }
+}
+
+const AccordionIcon = {
+  name: 'AccordionIcon',
+  inject: ['$AccordionContext'],
+  props: baseProps,
+  computed: {
+    context () {
+      return this.$AccordionContext()
+    }
+  },
+  render (h) {
+    const { isExpanded, isDisabled } = this.context
+    return h(Icon, {
+      props: {
+        ...forwardProps(this.$props),
+        size: '1.25em',
+        name: 'chevron-down',
+        opacity: isDisabled ? 0.4 : 1,
+        transform: isExpanded ? 'rotate(-180deg)' : null,
+        transition: 'transform 0.2s',
+        transformOrigin: 'center'
+      }
+    })
+  }
+}
+
 export {
   Accordion,
-  AccordionItem
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+  AccordionIcon
 }

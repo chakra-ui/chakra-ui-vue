@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { Button, ButtonGroup } from 'kiwi-core'
+import { Button, ButtonGroup } from '../packages/kiwi-core/src'
 
 storiesOf('UI | ButtonGroup', module)
   .addDecorator(centered)

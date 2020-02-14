@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import centered from '@storybook/addon-centered/vue'
-import { CloseButton } from 'kiwi-core'
+import { CloseButton } from '../packages/kiwi-core/src'
 
 storiesOf('UI | CloseButton', module)
   .addDecorator(centered)

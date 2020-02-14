@@ -17,7 +17,32 @@
       <div class="wrapper">
         <Accordion>
           <AccordionItem>
-            <KText>Hello Accordion</KText>
+            <AccordionHeader>
+              <Box flex="1" textAlign="left">
+                Section 1 title
+              </Box>
+              <AccordionIcon />
+            </AccordionHeader>
+            <AccordionPanel pb="4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat.
+            </AccordionPanel>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader>
+              <Box flex="1" textAlign="left">
+                Section 2 title
+              </Box>
+              <AccordionIcon />
+            </AccordionHeader>
+            <AccordionPanel pb="4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo consequat.
+            </AccordionPanel>
           </AccordionItem>
         </Accordion>
       </div>
@@ -31,9 +56,12 @@ import {
   Heading,
   CSSReset,
   Accordion,
-  AccordionItem,
   Button,
-  Text as KText } from '../packages/kiwi-core/dist/esm'
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+  AccordionIcon,
+  Box } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -44,7 +72,10 @@ export default {
     CSSReset,
     Accordion,
     AccordionItem,
-    KText
+    AccordionHeader,
+    AccordionPanel,
+    Box,
+    AccordionIcon
   },
   data () {
     return {

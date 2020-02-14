@@ -17,7 +17,7 @@ const Accordion = {
       default: null
     },
     defaultIndex: {
-      type: Number,
+      type: [Array, Number],
       default: 0
     }
   },

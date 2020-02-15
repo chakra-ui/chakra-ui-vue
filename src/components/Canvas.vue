@@ -7,7 +7,7 @@
         :color="colorMode === 'light' ? 'gray.800' : 'gray.50'"
         class="root"
       >
-        <Heading mb="50px" as="h3">Accordion</Heading>
+        <Heading mb="50px" pos="absolute" top="12" left="6" as="h3">Chakra-ui/vue</Heading>
         <CSSReset />
         <Button
           as="a"

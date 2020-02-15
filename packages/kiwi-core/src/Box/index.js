@@ -67,7 +67,7 @@ const Box = {
   inject: ['$theme'],
   props: {
     as: {
-      type: String,
+      type: [String, Object],
       default: 'div'
     },
     ...baseProps

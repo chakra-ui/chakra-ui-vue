@@ -1,6 +1,6 @@
 <template>
   <Canvas>
-    <Accordion allowToggle allowMultiple>
+    <Accordion w="360px" allowToggle allowMultiple>
       <AccordionItem>
         <AccordionHeader>
           <Box flex="1" textAlign="left">

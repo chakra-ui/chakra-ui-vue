@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { AvatarBadge, Avatar, AvatarGroup } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Avatar', module)
-  .addDecorator(centered)
   .add('Avatars', () => ({
     components: {
       Avatar

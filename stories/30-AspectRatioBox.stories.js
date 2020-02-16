@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { AspectRatioBox, Box } from '../packages/kiwi-core/src'
 
 storiesOf('UI | AspectRatioBox', module)
-  .addDecorator(centered)
   .add('Basic Usage', () => ({
     components: { AspectRatioBox, Box },
     template: `

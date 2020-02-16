@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Menu', module)
-  .addDecorator(centered)
   .add('Default Menu', () => ({
     components: { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider },
     template: `

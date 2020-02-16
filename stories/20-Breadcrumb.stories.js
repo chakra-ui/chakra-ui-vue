@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Breadcrumb', module)
-  .addDecorator(centered)
   .add('With custom separator', () => ({
     components: { CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator },
     template: `

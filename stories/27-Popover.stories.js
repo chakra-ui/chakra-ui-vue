@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Button, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Popover', module)
-  .addDecorator(centered)
   .add('Basic Usage', () => ({
     components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
     template: `

@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { VisuallyHidden, ControlBox, Box, Icon } from '../packages/kiwi-core/src'
 
 storiesOf('UI | ControlBox', module)
-  .addDecorator(centered)
   .add('With checkbox', () => ({
     components: { VisuallyHidden, ControlBox, Box, Icon },
     template: `

@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Flex, Box, Text as KText } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Flex', module)
-  .addDecorator(centered)
   .add('Flex', () => ({
     components: { Flex, Box, KText },
     template: `

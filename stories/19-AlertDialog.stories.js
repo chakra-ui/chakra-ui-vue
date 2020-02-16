@@ -1,10 +1,8 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Alert Dialog', module)
-  .addDecorator(centered)
   .add('Alert Dialog', () => ({
     components: { CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader },
     template: `

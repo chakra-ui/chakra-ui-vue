@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Box } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Box', module)
-  .addDecorator(centered)
   .add('Box', () => ({
     components: { Box },
     template: `

@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Box, PseudoBox } from '../packages/kiwi-core/src'
 
 storiesOf('UI | PseudoBox', module)
-  .addDecorator(centered)
   .add('PseudoBox | :hover', () => ({
     components: { PseudoBox },
     template: `

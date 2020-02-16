@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, Grid, Box } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Grid', module)
-  .addDecorator(centered)
   .add('Default Grid', () => ({
     components: { CSSReset, Grid, Box },
     template: `

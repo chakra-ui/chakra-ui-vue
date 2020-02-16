@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { useToast, Button } from '../packages/kiwi-core/src'
 
 const toastMixin = {
@@ -8,13 +7,13 @@ const toastMixin = {
       toast: undefined
     }
   },
+  inject: ['$colorMode'],
   created () {
-    this.toast = useToast({ theme: this.$theme(), icons: this.$icons })
+    this.toast = useToast({ theme: this.$theme(), icons: this.$icons, colorMode: this.$colorMode() })
   }
 }
 
 storiesOf('UI | Toast', module)
-  .addDecorator(centered)
   .add('Simple Toast', () => ({
     components: { Button },
     inject: ['$theme', '$icons'],

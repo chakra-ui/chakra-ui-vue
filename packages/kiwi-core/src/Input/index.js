@@ -37,8 +37,8 @@ const Input = {
       type: String,
       default: 'input'
     },
-    'aria-label': String,
-    'aria-describedby': String,
+    _ariaLabel: String,
+    _ariaDescribedby: String,
     isFullWidth: {
       type: Boolean,
       default: true
@@ -98,7 +98,16 @@ const Input = {
         ...inputStyles
       },
       attrs: {
-        value: this.value
+        value: this.value,
+        'aria-readonly': this.isReadOnly,
+        'read-only': this.formControl.isReadOnly,
+        disabled: this.formControl.isDisabled,
+        'aria-disabled': this.formControl.isDisabled,
+        'aria-label': this._ariaLabel,
+        'aria-describedby': this._ariaDescribedby,
+        'aria-invalid': this.formControl.isInvalid,
+        required: this.formControl.isRequired,
+        'aria-required': this.formControl.isRequired
       },
       nativeOn: {
         input: this.emitValue

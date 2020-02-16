@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, Code, Stack } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Code', module)
-  .addDecorator(centered)
   .add('Default Code', () => ({
     components: { CSSReset, Code },
     template: `

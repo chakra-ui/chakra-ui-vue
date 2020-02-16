@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Heading } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Heading', module)
-  .addDecorator(centered)
   .add('Button Group', () => ({
     components: { Heading },
     template: `

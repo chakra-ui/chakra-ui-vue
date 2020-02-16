@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, CircularProgress, CircularProgressLabel, Button } from '../packages/kiwi-core/src'
 
 storiesOf('UI | CircularProgress', module)
-  .addDecorator(centered)
   .add('default circular progress', () => ({
     components: { CSSReset, CircularProgress, CircularProgressLabel, Button },
     template: `

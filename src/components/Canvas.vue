@@ -1,5 +1,5 @@
 <template>
-  <ThemeProvider :theme="$kiwi.theme" :icons="$kiwi.icons">
+  <ThemeProvider :theme="theme || $kiwi.theme" :icons="icons || $kiwi.icons">
     <ColorModeProvider v-slot="{ colorMode, toggleColorMode }">
       <Box
         as="main"
@@ -7,7 +7,7 @@
         :color="colorMode === 'light' ? 'gray.800' : 'gray.50'"
         class="root"
       >
-        <Heading mb="50px" pos="absolute" top="12" left="6" as="h3">Chakra-ui/vue</Heading>
+        <Heading mb="50px" pos="absolute" top="3" left="50%" transform="translateX(-50%)" as="h3">Chakra-ui/vue</Heading>
         <CSSReset />
         <Button
           as="a"
@@ -16,7 +16,7 @@
           position="fixed"
           top="3"
           left="3"
-          variant="ghost"
+          shadow="sm"
           left-icon="github"
         >
           Github
@@ -51,6 +51,10 @@ import {
 
 export default {
   name: 'Canvas',
+  props: {
+    theme: Object,
+    icons: Object
+  },
   components: {
     ThemeProvider,
     Heading,

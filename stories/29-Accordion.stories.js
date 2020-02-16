@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Box, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Accordion', module)
-  .addDecorator(centered)
   .add('Basic Usage', () => ({
     components: { Box, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon },
     template: `

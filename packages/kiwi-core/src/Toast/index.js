@@ -5,6 +5,7 @@ import CloseButton from '../CloseButton'
 import ThemeProvider from '../ThemeProvider'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
+import ColorModeProvider from '../ColorModeProvider'
 
 // Create breadstick instance.
 const breadstick = new Breadstick()
@@ -96,7 +97,7 @@ const Toast = {
  * TODO: In Vue 3 this should be exposed as a hook of it's own so as to
  * to inject theme and icons variables provided by theme provider component.
  */
-function useToast ({ theme, icons }) {
+function useToast ({ theme, icons, colorMode }) {
   /**
    * @description Notify Method for Kiwi
    * @param {Object} options
@@ -146,6 +147,10 @@ function useToast ({ theme, icons }) {
           icons,
           theme
         }
+      }, [h(ColorModeProvider, {
+        props: {
+          value: colorMode || 'light'
+        }
       }, [h(Toast, {
         props: {
           status,
@@ -156,7 +161,7 @@ function useToast ({ theme, icons }) {
           onClose,
           description
         }
-      })])
+      })])])
     },
     options
     )

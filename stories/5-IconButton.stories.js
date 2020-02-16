@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { IconButton } from '../packages/kiwi-core/src'
 
 storiesOf('UI | IconButton', module)
-  .addDecorator(centered)
   .add('Default IconButton', () => ({
     components: { IconButton },
     template: `

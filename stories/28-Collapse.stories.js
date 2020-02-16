@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { Button, Collapse, Box } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Collapse', module)
-  .addDecorator(centered)
   .add('Basic Usage', () => ({
     components: { Button, Collapse, Box },
     template: `

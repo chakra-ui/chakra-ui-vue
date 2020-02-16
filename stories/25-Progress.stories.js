@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import centered from '@storybook/addon-centered/vue'
 import { CSSReset, Progress as KProgress, Stack } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Progress', module)
-  .addDecorator(centered)
   .add('Default Progress', () => ({
     components: { CSSReset, KProgress },
     template: `

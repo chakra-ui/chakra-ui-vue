@@ -1,11 +1,10 @@
 <template>
   <Canvas>
     <div>
-      <KImage
-        shadow="sm"
-        htmlWidth="100px"
-        src="https://avatars3.githubusercontent.com/u/37928?s=52&v=4"
-      />
+      <FormControl isRequired>
+        <FormLabel for="fname">First name</FormLabel>
+        <Input id="fname" v-model="inputValue" placeholder="First name" />
+      </FormControl>
     </div>
   </Canvas>
 </template>
@@ -13,13 +12,27 @@
 <script lang="js">
 import Canvas from './components/Canvas'
 import {
-  Image as KImage } from '../packages/kiwi-core/dist/esm'
+  Input,
+  FormControl,
+  FormLabel } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   components: {
     Canvas,
-    KImage
+    Input,
+    FormControl,
+    FormLabel
+  },
+  data () {
+    return {
+      inputValue: 'Default value'
+    }
+  },
+  watch: {
+    inputValue (newVal) {
+      console.log(newVal)
+    }
   }
 }
 </script>

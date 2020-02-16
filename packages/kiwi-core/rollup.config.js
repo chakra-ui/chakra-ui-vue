@@ -86,27 +86,29 @@ const entries = {
   }, {})
 }
 
+// console.log(entries)
+
 /**
  * Configurations
  */
 export default () => {
-  const mapComponent = (name) => {
-    return [{
-      input: baseFolder + `${name}/index.js`,
-      external: externals,
-      output: {
-        format: 'umd',
-        name: capitalize(name),
-        file: `dist/components/${name}/index.js`,
-        banner: bannerTxt,
-        exports: 'named',
-        globals: {
-          vue: 'Vue'
-        }
-      },
-      ...commons
-    }]
-  }
+  // const mapComponent = (name) => {
+  //   return [{
+  //     input: baseFolder + `${name}/index.js`,
+  //     external: externals,
+  //     output: {
+  //       format: 'umd',
+  //       name: capitalize(name),
+  //       file: `dist/components/${name}/index.js`,
+  //       banner: bannerTxt,
+  //       exports: 'named',
+  //       globals: {
+  //         vue: 'Vue'
+  //       }
+  //     },
+  //     ...commons
+  //   }]
+  // }
 
   let config = [{
     input: entries,
@@ -116,14 +118,14 @@ export default () => {
     },
     ...commons
   },
-  {
-    input: entries,
-    output: {
-      dir: `dist/es/`,
-      format: 'es'
-    },
-    ...commons
-  },
+  // {
+  //   input: entries,
+  //   output: {
+  //     dir: `dist/es/`,
+  //     format: 'es'
+  //   },
+  //   ...commons
+  // },
   {
     input: entries,
     output: {
@@ -146,20 +148,20 @@ export default () => {
       }
     },
     ...commons
-  },
-  {
-    input: './src/index.js',
-    output: {
-      file: 'dist/chakra-vui.esm.js',
-      name: capitalize('chakra'),
-      format: 'esm',
-      exports: 'named',
-      banner: bannerTxt
-    },
-    ...commons
-  },
+  }
+  // {
+  //   input: './src/index.js',
+  //   output: {
+  //     file: 'dist/chakra-vui.esm.js',
+  //     name: capitalize('chakra'),
+  //     format: 'esm',
+  //     exports: 'named',
+  //     banner: bannerTxt
+  //   },
+  //   ...commons
+  // }
   // Individual components
-  ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
+  // ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
   ]
   if (process.env.MINIFY === 'true') {
     config = config.filter((c) => !!c.output.file)

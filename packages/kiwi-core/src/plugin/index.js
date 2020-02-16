@@ -25,8 +25,6 @@ const Kiwi = {
       theme: options.theme,
       icons
     }
-    // TODO
-    // Make kiwi theme object ad color mode reactive and accessible via privode and inject API
 
     /** Install dependant plugins */
     Vue.use(VueCompositionApi)

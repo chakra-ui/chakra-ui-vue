@@ -17,11 +17,14 @@ const addonProps = {
 
 const InputAddon = {
   name: 'InputAddon',
-  inject: ['$colorMode'],
+  inject: ['$colorMode', '$theme'],
   props: addonProps,
   computed: {
     colorMode () {
       return this.$colorMode()
+    },
+    theme () {
+      return this.$theme()
     }
   },
   render (h) {
@@ -40,7 +43,12 @@ const InputAddon = {
     }
 
     const styleProps = {
-      ...useInputStyle({ size: this.size, variant: 'outline' }),
+      ...useInputStyle({
+        size: this.size,
+        variant: 'outline',
+        colorMode: this.colorMode,
+        theme: this.theme
+      }),
       flex: '0 0 auto',
       whiteSpace: 'nowrap',
       bg: bg[this.colorMode],

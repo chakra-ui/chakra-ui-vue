@@ -66,14 +66,14 @@ const commons = {
   ]
 }
 
-const bannerTxt = `/*! Chakra-Vui v${pkg.version} | MIT License | github.com/codebender828/kiwi-ui */`
+// const bannerTxt = `/*! Chakra-Vui v${pkg.version} | MIT License | github.com/codebender828/kiwi-ui */`
 
 const baseFolder = './src/'
 
-const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
+// const capitalize = (s) => {
+//   if (typeof s !== 'string') return ''
+//   return s.charAt(0).toUpperCase() + s.slice(1)
+// }
 
 const components = fs.readdirSync(baseFolder)
   .filter((f) => fs.statSync(path.join(baseFolder, f)).isDirectory())
@@ -117,7 +117,7 @@ export default () => {
       format: 'esm'
     },
     ...commons
-  },
+  }
   // {
   //   input: entries,
   //   output: {
@@ -126,29 +126,29 @@ export default () => {
   //   },
   //   ...commons
   // },
-  {
-    input: entries,
-    output: {
-      dir: `dist/cjs/`,
-      format: 'cjs',
-      exports: 'named'
-    },
-    ...commons
-  },
-  {
-    input: './src/index.js',
-    output: {
-      file: `dist/umd/index.js/`,
-      name: capitalize('chakra'),
-      format: 'umd',
-      exports: 'named',
-      banner: bannerTxt,
-      globals: {
-        vue: 'Vue'
-      }
-    },
-    ...commons
-  }
+  // {
+  //   input: entries,
+  //   output: {
+  //     dir: `dist/cjs/`,
+  //     format: 'cjs',
+  //     exports: 'named'
+  //   },
+  //   ...commons
+  // },
+  // {
+  //   input: './src/index.js',
+  //   output: {
+  //     file: `dist/umd/index.js/`,
+  //     name: capitalize('chakra'),
+  //     format: 'umd',
+  //     exports: 'named',
+  //     banner: bannerTxt,
+  //     globals: {
+  //       vue: 'Vue'
+  //     }
+    // },
+  //   ...commons
+  // }
   // {
   //   input: './src/index.js',
   //   output: {

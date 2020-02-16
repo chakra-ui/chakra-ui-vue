@@ -92,7 +92,7 @@ const baseProps = {
   flex: [String, Array, Number],
   justifySelf: [String, Array],
   alignSelf: [String, Array],
-  order: [String, Array],
+  order: [String, Number, Array],
   outline: [String, Array, Number],
   cursor: [String, Array],
   transition: [String, Array],

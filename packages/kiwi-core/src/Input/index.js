@@ -5,7 +5,9 @@ import useInputStyle from './input.styles'
 import { forwardProps } from '../utils'
 
 const Input = {
-  name: 'Input',
+  // We prefix the input name because we need to compare the
+  // VNode names inside InputGroup component
+  name: 'CInput',
   inject: {
     '$colorMode': {
       default: 'light'

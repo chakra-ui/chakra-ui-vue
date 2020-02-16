@@ -1,28 +1,20 @@
 <template>
   <Canvas>
     <div>
-      <Stack spacing="4">
+      <Stack spacing="4" fontFamily="body" width="300px">
+        <Heading as="h3">Login</Heading>
         <InputGroup>
-          <InputLeftElement><Icon name="phone" color="gray.300" /></InputLeftElement>
-          <Input type="phone" placeholder="Phone number" />
+          <InputLeftElement><Icon name="envelope" color="gray.300" /></InputLeftElement>
+          <Input type="email" placeholder="email@example.com" />
         </InputGroup>
 
         <InputGroup>
-          <InputLeftElement color="gray.300" fontSize="1.2em" >$</InputLeftElement>
-          <Input placeholder="Enter amount" />
-          <InputRightElement><Icon name="check" color="green.500" /></InputRightElement>
+          <InputLeftElement color="gray.300" fontSize="1.2em"><Icon name="lock" /></InputLeftElement>
+          <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Enter amount" />
+          <InputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><Icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></InputRightElement>
         </InputGroup>
 
-        <InputGroup>
-          <InputLeftAddon>+256</InputLeftAddon>
-          <Input type="tel" roundedLeft="0" placeholder="phone number" />
-        </InputGroup>
-
-        <InputGroup>
-          <InputLeftAddon>https://</InputLeftAddon>
-          <Input rounded="0" placeholder="mysite" />
-          <InputRightAddon>.com</InputRightAddon>
-        </InputGroup>
+        <Button left-icon="sign-in-alt" variantColor="blue">Login</Button>
       </Stack>
     </div>
   </Canvas>
@@ -35,10 +27,10 @@ import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
-  InputLeftAddon,
-  InputRightAddon,
   Icon,
-  Stack } from '../packages/kiwi-core/dist/esm'
+  Stack,
+  Button,
+  Heading } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -48,14 +40,15 @@ export default {
     InputGroup,
     InputLeftElement,
     InputRightElement,
-    InputLeftAddon,
-    InputRightAddon,
     Icon,
-    Stack
+    Stack,
+    Button,
+    Heading
   },
   data () {
     return {
-      inputValue: 'Default value'
+      inputValue: 'Default value',
+      shouldShowPassword: false
     }
   },
   watch: {

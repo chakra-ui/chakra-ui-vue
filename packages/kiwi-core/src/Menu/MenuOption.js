@@ -218,7 +218,7 @@ const MenuOptionGroup = {
       }
     }
 
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
 
     const clonedChildNodes = children.map(vnode => {
       let result

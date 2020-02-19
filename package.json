@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "yarn build:dist && vue-cli-service build",
+    "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "lerna:build": "lerna run build",
@@ -26,7 +27,7 @@
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
     "now-build-storybook": "build-storybook -o dist/storybook"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
@@ -106,6 +107,5 @@
     "vue-lorem-ipsum": "^0.0.1",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.2.0"
-  },
-  "dependencies": {}
+  }
 }

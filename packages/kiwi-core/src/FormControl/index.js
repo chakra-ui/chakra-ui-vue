@@ -1,15 +1,13 @@
 import { baseProps } from '../config'
 import Box from '../Box'
 import { forwardProps } from '../utils'
+import { formControlProps } from './formcontrol.props'
 
 const FormControl = {
   name: 'FormControl',
   props: {
     ...baseProps,
-    isInvalid: Boolean,
-    isRequired: Boolean,
-    isDisabled: Boolean,
-    isReadOnly: Boolean
+    ...formControlProps
   },
   inject: {
     $FormControlContext: {
@@ -28,7 +26,8 @@ const FormControl = {
         isInvalid: this.isInvalid,
         isRequired: this.isRequired,
         isDisabled: this.isDisabled,
-        isReadOnly: this.isReadOnly
+        isReadOnly: this.isReadOnly,
+        id: this.$attrs.id
       }
     }
   },

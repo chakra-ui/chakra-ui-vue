@@ -8,12 +8,15 @@
           <Input type="email" placeholder="Email" />
         </InputGroup>
 
-        <InputGroup>
-          <InputLeftElement color="gray.300" fontSize="1.2em"><Icon name="lock" /></InputLeftElement>
-          <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
-          <InputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><Icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></InputRightElement>
-        </InputGroup>
-
+        <FormControl isInvalid id="test-error">
+          <InputGroup>
+            <InputLeftElement color="gray.300" fontSize="1.2em"><Icon name="lock" /></InputLeftElement>
+            <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
+            <InputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><Icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></InputRightElement>
+          </InputGroup>
+          <!-- <FormErrorMessage id="url-error">Website is invalid</FormErrorMessage> -->
+          <FormHelperText>Add your website here</FormHelperText>
+        </FormControl>
         <Button @click="showToast" left-icon="sign-in-alt" variantColor="blue">Login</Button>
       </Stack>
     </div>
@@ -31,7 +34,9 @@ import {
   Stack,
   Button,
   Heading,
-  useToast } from '../packages/kiwi-core/dist/esm'
+  useToast,
+  FormControl,
+  FormHelperText } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -45,7 +50,9 @@ export default {
     Icon,
     Stack,
     Button,
-    Heading
+    Heading,
+    FormControl,
+    FormHelperText
   },
   data () {
     return {

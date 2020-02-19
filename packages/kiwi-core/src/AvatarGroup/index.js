@@ -58,7 +58,7 @@ const AvatarGroup = {
   },
   render (h) {
     // Get the number of slot nodes inside AvatarGroup
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
     const count = children.length
     const max = parseInt(this.max, 10)
 

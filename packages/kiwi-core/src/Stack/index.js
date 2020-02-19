@@ -53,7 +53,7 @@ const Stack = {
       _direction = 'column'
     }
 
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
     const stackables = children.map((node, index) => {
       let isLastChild = children.length === index + 1
       let spacingProps = _isInline

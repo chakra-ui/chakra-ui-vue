@@ -1,12 +1,12 @@
 import { storiesOf } from '@storybook/vue'
-import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider } from '../packages/kiwi-core/src'
+import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider, Icon } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Menu', module)
   .add('Default Menu', () => ({
-    components: { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider },
+    components: { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider, Icon },
     template: `
     <Menu>
-      <MenuButton as={Button} rightIcon="chevron-down">
+      <MenuButton as="Button" rightIcon="chevron-down">
         Actions
       </MenuButton>
       <MenuList>
@@ -43,7 +43,7 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('With letter navigation', () => ({
-    components: { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider },
+    components: { Menu, MenuGroup, MenuButton, MenuList, MenuItem, MenuDivider, Icon },
     template: `
     <Menu>
       <MenuButton

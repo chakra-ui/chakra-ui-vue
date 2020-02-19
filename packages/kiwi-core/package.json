@@ -11,7 +11,7 @@
   "private": false,
   "scripts": {
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
-    "build:watch": "rollup -c rollup.dev.config.js --watch",
+    "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
   },

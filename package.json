@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "yarn build:dist && vue-cli-service build",
+    "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "lerna:build": "lerna run build",

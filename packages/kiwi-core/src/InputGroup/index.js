@@ -26,7 +26,7 @@ const InputGroup = {
     let pl = null
     let pr = null
     const height = inputSizes[this.size] && inputSizes[this.size]['height']
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
     const clones = children
       .map((vnode) => {
         if (vnode.tag.includes(InputLeftElement.name)) {

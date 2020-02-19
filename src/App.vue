@@ -14,7 +14,8 @@
             <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
             <InputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><Icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></InputRightElement>
           </InputGroup>
-          <FormErrorMessage id="url-error">Website is invalid</FormErrorMessage>
+          <!-- <FormErrorMessage id="url-error">Website is invalid</FormErrorMessage> -->
+          <FormHelperText>Add your website here</FormHelperText>
         </FormControl>
         <Button @click="showToast" left-icon="sign-in-alt" variantColor="blue">Login</Button>
       </Stack>
@@ -35,7 +36,7 @@ import {
   Heading,
   useToast,
   FormControl,
-  FormErrorMessage } from '../packages/kiwi-core/dist/esm'
+  FormHelperText } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -51,7 +52,7 @@ export default {
     Button,
     Heading,
     FormControl,
-    FormErrorMessage
+    FormHelperText
   },
   data () {
     return {

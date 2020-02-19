@@ -90,6 +90,7 @@
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "register-service-worker": "^1.6.2",
+    "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",

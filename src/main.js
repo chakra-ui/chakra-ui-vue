@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from '../packages/kiwi-core/dist/esm'
 import theme from '../packages/kiwi-core/src/lib/theme'
+import Canvas from './components/Canvas'
 
 // Import FA Icons
 import { faCoffee,
@@ -72,5 +73,5 @@ Vue.use(Kiwi, {
 })
 
 new Vue({
-  render: h => h(App)
+  render: h => h(Canvas, [h(App)])
 }).$mount('#app')

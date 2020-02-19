@@ -5,16 +5,16 @@
         <Heading as="h3">Login</Heading>
         <InputGroup>
           <InputLeftElement><Icon name="envelope" color="gray.300" /></InputLeftElement>
-          <Input type="email" placeholder="email@example.com" />
+          <Input type="email" placeholder="Email" />
         </InputGroup>
 
         <InputGroup>
           <InputLeftElement color="gray.300" fontSize="1.2em"><Icon name="lock" /></InputLeftElement>
-          <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Enter amount" />
+          <Input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
           <InputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><Icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></InputRightElement>
         </InputGroup>
 
-        <Button left-icon="sign-in-alt" variantColor="blue">Login</Button>
+        <Button @click="showToast" left-icon="sign-in-alt" variantColor="blue">Login</Button>
       </Stack>
     </div>
   </Canvas>
@@ -30,10 +30,12 @@ import {
   Icon,
   Stack,
   Button,
-  Heading } from '../packages/kiwi-core/dist/esm'
+  Heading,
+  useToast } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
+  inject: ['$theme', '$colorMode'],
   components: {
     Canvas,
     Input,
@@ -49,6 +51,28 @@ export default {
     return {
       inputValue: 'Default value',
       shouldShowPassword: false
+    }
+  },
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    },
+    theme () {
+      return this.$theme()
+    }
+  },
+  mounted () {
+    this.toast = useToast({ theme: this.theme, icons: this.$kiwi.icons, colorMode: this.colorMode })
+  },
+  methods: {
+    showToast () {
+      return this.toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'info',
+        duration: 20000,
+        isClosable: true
+      })
     }
   },
   watch: {

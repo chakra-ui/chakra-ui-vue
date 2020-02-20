@@ -56,7 +56,8 @@ const Accordion = {
     }
   },
   render (h) {
-    const cloned = cloneVNodes(this.$slots.default, h)
+    const children = this.$slots.default.filter(e => e.tag)
+    const cloned = cloneVNodes(children, h)
     const clones = cloned.map((vnode, index) => {
       const clone = h(vnode.componentOptions.Ctor, {
         ...vnode.data,

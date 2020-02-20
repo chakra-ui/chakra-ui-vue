@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Button, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/kiwi-core/src'
+import { Avatar, Button, Badge, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Popover', module)
   .add('Basic Usage', () => ({
@@ -82,7 +82,7 @@ storiesOf('UI | Popover', module)
     `
   }))
   .add('Accessing Internal state', () => ({
-    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box },
     template: `
       <Popover
         initialFocusRef="#initRef"
@@ -115,7 +115,7 @@ storiesOf('UI | Popover', module)
     `
   }))
   .add('Customizing the Popover', () => ({
-    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    components: { Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box },
     template: `
       <Popover>
         <PopoverTrigger>
@@ -143,13 +143,13 @@ storiesOf('UI | Popover', module)
     `
   }))
   .add('Hover Trigger', () => ({
-    components: { DarkMode, KText: Text, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter },
+    components: { DarkMode, KText: Text, Button, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, Avatar, Badge },
     template: `
       <Popover trigger="hover">
         <PopoverTrigger>
-          <Anchor href="#" color="blue.500">
+          <Button color="blue.500">
             Hover to see @swyx profile
-          </Anchor>
+          </Button>
         </PopoverTrigger>
         <DarkMode>
           <PopoverContent border="0" zIndex="4" width="400px" color="white">

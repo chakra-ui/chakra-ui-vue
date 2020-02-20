@@ -304,7 +304,7 @@ const PopoverTrigger = {
   },
   render (h) {
     let clone
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
     if (!children) return console.error('[Chakra-ui]: Popover Trigger expects at least one child')
     if (children.length && children.length > 1) return console.error('[Chakra-ui]: Popover Trigger can only have a single child element')
     const cloned = cloneVNode(children[0], h)

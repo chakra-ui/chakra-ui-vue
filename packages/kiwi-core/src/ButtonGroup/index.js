@@ -16,7 +16,7 @@ const ButtonGroup = {
     ...baseProps
   },
   render (h) {
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => e.tag)
     const count = children.length
 
     const clones = children.map((node, index) => {

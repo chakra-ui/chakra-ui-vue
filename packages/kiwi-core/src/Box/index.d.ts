@@ -1,43 +1,13 @@
+import Vue from 'vue'
 import * as StyledSystem from 'styled-system';
-import * as Vue from 'vue';
-import baseProps from '../config/props/props'
+import { baseProps } from '../config/props'
 import { Omit } from '../common-types'
-import { RecordPropsDefinition, PropsDefinition } from 'vue/types/options';
+import { CSSProperties } from '../types/css';
+import { ComponentOptions } from 'vue';
 
-
+type CSS = CSSProperties
 type borderRadius = StyledSystem.BorderRadiusProps['borderRadius'];
 type borderColor = StyledSystem.BorderColorProps['borderColor'];
-
-interface CSS {
-  backgroundAttachment?: String
-  textDecoration?: String
-  textTransform?: String
-  appearance?: String
-  transform?: String
-  transformOrigin?: String
-  animation?: String
-  userSelect?: String
-  pointerEvents?: String
-  boxSizing?: String
-  cursor?: String
-  resize?: String
-  transition?: String
-  objectFit?: String
-  objectPosition?: String
-  wordBreak?: String
-  overflowWrap?: String
-  whiteSpace?: String
-  listStyleType?: String
-  outline?: String
-  float?: String
-  willChange?: String
-  borderTopWidth?: String
-  borderBottomWidth?: String
-  borderLeftWidth?: String
-  borderRightWidth?: String
-  listStyleImage?: String
-  listStylePosition?: String
-}
 
 interface ICustomConfig {
   // Custom borderRadius alias
@@ -234,13 +204,12 @@ export type BoxProps = BoxHTMLProps &
   As &
   Truncated;
 
-interface BoxProps {
-  height?: string | number
-}
+interface BoxComponent extends Vue, ComponentOptions<never, {}, never, {}, BoxProps> {}
+
 /**
  * The Box component is the base reusable component which is the building block for all other Kiwi UI components.
  * It by default renders the `<div/>`  HTMLElement.
  */
-declare const Box: Vue.Component<PropsDefinition<BoxProps>>
+declare const Box: BoxComponent;
 
 export default Box;

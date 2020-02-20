@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "yarn build:dist && vue-cli-service build",
+    "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "lerna:build": "lerna run build",
@@ -24,7 +25,7 @@
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
     "now-build-storybook": "build-storybook -o dist/storybook"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
@@ -41,7 +42,7 @@
     "@storybook/addons": "^5.2.1",
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/theming": "^5.2.8",
-    "@storybook/vue": "^5.2.1",
+    "@storybook/vue": "^5.3.3",
     "@styled-system/css": "^5.0.23",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
@@ -74,6 +75,7 @@
     "can-use-dom": "^0.1.0",
     "color": "^3.1.2",
     "core-js": "^3.4.5",
+    "emotion": "^10.0.27",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "eslint-plugin-vue-a11y": "^0.0.31",
@@ -87,6 +89,7 @@
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "register-service-worker": "^1.6.2",
+    "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -100,7 +103,6 @@
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
-    "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.2.0"
   }

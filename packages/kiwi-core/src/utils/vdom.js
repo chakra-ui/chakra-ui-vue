@@ -7,7 +7,7 @@ import { isDef } from './validators'
  * @returns {Vue.VNode} Cloned VNodes
  */
 export function cloneVNode (vnode, createElement) {
-  const clonedChildren = vnode.children && vnode.children.map(vnode => cloneVNode(vnode))
+  const clonedChildren = vnode.children && vnode.children.map(vnode => cloneVNode(vnode, createElement))
   const cloned = createElement(vnode.tag, vnode.data, clonedChildren)
   cloned.text = vnode.text
   cloned.isComment = vnode.isComment

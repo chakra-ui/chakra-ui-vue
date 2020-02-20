@@ -86,7 +86,7 @@ const BreadcrumbItem = {
   },
   setup (props, context) {
     return () => {
-      const children = context.slots.default()
+      const children = context.slots.default().filter(e => e.tag)
       const clones = cloneVNodes(children, h).map((clone) => {
         if (clone.componentOptions.tag === BreadcrumbLink.name) {
           const { propsData } = clone.componentOptions
@@ -142,7 +142,7 @@ const Breadcrumb = {
   },
   setup (props, context) {
     return () => {
-      const children = context.slots.default()
+      const children = context.slots.default().filter(e => e.tag)
       const clones = cloneVNodes(children, h)
         .map((node, index, array) => {
           const { propsData } = node.componentOptions

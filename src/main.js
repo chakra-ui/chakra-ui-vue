@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import Kiwi from 'kiwi-core'
+import Kiwi from '../packages/kiwi-core/dist/esm'
 import theme from '../packages/kiwi-core/src/lib/theme'
+import Canvas from './components/Canvas'
 
 // Import FA Icons
 import { faCoffee,
@@ -12,7 +13,14 @@ import { faCoffee,
   faBraille,
   faCaretLeft,
   faAnchor,
-  faPlus } from '@fortawesome/free-solid-svg-icons'
+  faPlus,
+  faUserSlash,
+  faBolt,
+  faSignInAlt,
+  faEnvelope,
+  faEyeSlash,
+  faEye,
+  faLock } from '@fortawesome/free-solid-svg-icons'
 
 import {
   faChevronCircleUp,
@@ -42,7 +50,14 @@ Vue.use(Kiwi, {
       faTimesCircle,
       faSearch,
       faPlus,
-      faGithub
+      faGithub,
+      faUserSlash,
+      faBolt,
+      faSignInAlt,
+      faEnvelope,
+      faEyeSlash,
+      faEye,
+      faLock
     },
     extend: {
       'not-allowed': {
@@ -58,5 +73,5 @@ Vue.use(Kiwi, {
 })
 
 new Vue({
-  render: h => h(App)
+  render: h => h(Canvas, [h(App)])
 }).$mount('#app')

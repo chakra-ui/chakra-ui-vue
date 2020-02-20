@@ -127,8 +127,6 @@ export const Avatar = {
     name: [String, Array],
     src: [String, Array],
     borderColor: [String],
-    onLoad: [Function],
-    onError: [Function],
     ...baseProps
   },
   data () {
@@ -138,17 +136,22 @@ export const Avatar = {
     }
   },
   mounted () {
-    const image = new window.Image()
-    image.src = this.src
+    this.loadImage(this.src)
+  },
+  methods: {
+    loadImage (src) {
+      const image = new window.Image()
+      image.src = src
 
-    image.onload = event => {
-      this.hasLoaded = true
-      this.onLoad && this.onLoad(event)
-    }
+      image.onload = event => {
+        this.hasLoaded = true
+        this.$emit('load', event)
+      }
 
-    image.onError = event => {
-      this.hasLoaded = false
-      this.onError && this.onError(event)
+      image.onError = event => {
+        this.hasLoaded = false
+        this.$emit('error', event)
+      }
     }
   },
   render (h) {

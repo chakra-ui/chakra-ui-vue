@@ -1,6 +1,7 @@
 import { computed, createElement as h } from '@vue/composition-api'
 import anime from 'animejs'
-import { isUndef } from '../utils'
+import { isUndef, isVueComponent } from '../utils'
+import Box from '../Box'
 
 /**
  * Renders transition component's children
@@ -192,8 +193,192 @@ const SlideIn = {
   }
 }
 
+const RevealHeight = {
+  name: 'RevealHeight',
+  props: {
+    initialHeight: {
+      type: Number,
+      default: 0
+    },
+    duration: {
+      type: Number,
+      default: 150
+    },
+    enterEasing: {
+      type: String,
+      default: enterEasing
+    },
+    leaveEasing: {
+      type: String,
+      default: leaveEasing
+    },
+    finalHeight: Number,
+    animateOpacity: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    enter (el, complete) {
+      this.$emit('enter', el)
+      el.style.visibility = 'hidden'
+      el.style.height = 'auto'
+      const { height } = getComputedStyle(el)
+      el.style.height = this.initialHeight || 0
+
+      requestAnimationFrame(() => {
+        el.style.visibility = 'visible'
+        anime({
+          targets: el,
+          ...this.animateOpacity && { opacity: [0, 1] },
+          height: [this.initialHeight || 0, this.finalHeight || height],
+          easing: this.enterEasing,
+          duration: this.duration,
+          complete
+        })
+      })
+    },
+    leave (el, complete) {
+      this.$emit('leave', el)
+      const { height } = getComputedStyle(el)
+
+      requestAnimationFrame(() => {
+        anime({
+          targets: el,
+          ...this.animateOpacity && { opacity: [1, 0] },
+          height: [this.finalHeight || height, this.initialHeight || 0],
+          easing: this.leaveEasing,
+          duration: this.duration,
+          complete
+        })
+      })
+    },
+    handleEmit (event, payload) {
+      this.$emit(event, payload)
+    }
+  },
+  render (h) {
+    const children = this.$slots.default
+    const TransitionElement = children ? children.length > 1 ? 'TransitionGroup' : 'Transition' : 'Transition'
+    return h(TransitionElement, {
+      props: {
+        css: false
+      },
+      on: {
+        beforeEnter: (el) => {
+          if (el) {
+            el.style.setProperty('will-change', 'opacity, transform')
+          }
+          this.handleEmit('beforeEnter', el)
+        },
+        enter: this.enter,
+        leave: this.leave,
+        afterEnter: (el) => {
+          el.style.height = 'auto'
+          this.handleEmit('afterEnter', el)
+        }
+      }
+    }, children)
+  }
+}
+
+const AnimateHeight = {
+  name: 'AnimateHeight',
+  props: {
+    isOpen: Boolean,
+    initialHeight: {
+      type: Number,
+      default: 0
+    },
+    duration: {
+      type: Number,
+      default: 150
+    },
+    enterEasing: {
+      type: String,
+      default: enterEasing
+    },
+    leaveEasing: {
+      type: String,
+      default: leaveEasing
+    },
+    finalHeight: Number,
+    animateOpacity: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data () {
+    return {
+      el: undefined
+    }
+  },
+  mounted () {
+    this.el = this.getNode(this.$el)
+    this.$watch('isOpen', (isOpen) => {
+      if (isOpen) this.enter(this.el, () => {})
+      else this.leave(this.el, () => {})
+    }, {
+      immediate: true
+    })
+  },
+  methods: {
+    enter (el, complete) {
+      this.$emit('enter', el)
+      el.style.visibility = 'hidden'
+      el.style.height = this.finalHeight || 'auto'
+      const { height } = getComputedStyle(el)
+      el.style.height = this.initialHeight || 0
+
+      requestAnimationFrame(() => {
+        el.style.visibility = 'visible'
+        anime({
+          targets: el,
+          ...this.animateOpacity && { opacity: [0, 1] },
+          height: [this.initialHeight || 0, this.finalHeight || height],
+          easing: this.enterEasing,
+          duration: this.duration,
+          complete
+        })
+      })
+    },
+    leave (el, complete) {
+      this.$emit('leave', el)
+      const { height } = getComputedStyle(el)
+
+      requestAnimationFrame(() => {
+        anime({
+          targets: el,
+          ...this.animateOpacity && { opacity: [1, 0] },
+          height: [this.finalHeight || height, this.initialHeight || 0],
+          easing: this.leaveEasing,
+          duration: this.duration,
+          complete
+        })
+      })
+    },
+    handleEmit (event, payload) {
+      this.$emit(event, payload)
+    },
+    getNode (element) {
+      const isVue = isVueComponent(element)
+      return isVue ? element.$el : element
+    }
+  },
+  render (h) {
+    const children = this.$slots.default
+    return h(Box, {
+      props: {
+        overflow: 'hidden'
+      }
+    }, children)
+  }
+}
+
 export {
   Slide,
   Scale,
-  SlideIn
+  SlideIn,
+  AnimateHeight,
+  RevealHeight
 }

@@ -1,18 +1,35 @@
-import styled from 'vue-styled-components'
+import { css } from 'emotion'
 import Box from '../Box'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
 import { baseProps } from '../config/props'
+import { iconProps } from './icon.props'
 
 const fallbackIcon = iconPaths['question-outline']
 
-const Svg = styled(Box)`
-  flex-shrink: 0;
-  backface-visibility: hidden;
-  &:not(:root) {
-    overflow: hidden;
+const Svg = {
+  name: 'IconSvg',
+  props: {
+    ...iconProps,
+    ...baseProps
+  },
+  render (h) {
+    const className = css`
+      flex-shrink: 0;
+      backface-visibility: hidden;
+      &:not(:root) {
+        overflow: hidden;
+      }
+    `
+    return h(Box, {
+      props: {
+        as: 'svg',
+        ...forwardProps(this.$props)
+      },
+      class: [className]
+    }, this.$slots.default)
   }
-`
+}
 
 /**
  * The Icon component renders SVGs for visual aid
@@ -21,27 +38,7 @@ export default {
   name: 'Icon',
   inject: ['$theme', '$icons'],
   props: {
-    name: {
-      type: [String, Array]
-    },
-    use: {
-      type: [String, Array],
-      required: false
-    },
-    pack: {
-      type: String,
-      required: false,
-      default: 'fas',
-      validator: value => value.match(/^(fas|fal|fad)$/)
-    },
-    size: {
-      type: [String, Number, Array],
-      default: '1em'
-    },
-    color: {
-      type: [String, Array],
-      default: 'currentColor'
-    },
+    ...iconProps,
     ...baseProps
   },
   render (h) {
@@ -49,7 +46,7 @@ export default {
     if (this.name) {
       icon = this.$icons[this.name]
     } else {
-      console.warn(`[Kiwi]: You need to provide the "name" or "use" prop to for the Icon component`)
+      console.warn(`[Chakra]: You need to provide the "name" or "use" prop to for the Icon component`)
     }
 
     if (!icon) {

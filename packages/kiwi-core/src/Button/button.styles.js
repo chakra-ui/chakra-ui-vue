@@ -43,6 +43,19 @@ const createCustomSize = (size) => {
   }
 }
 
+const unstyledStyle = {
+  userSelect: 'inherit',
+  bg: 'none',
+  border: 0,
+  color: 'inherit',
+  display: 'inline',
+  font: 'inherit',
+  lineHeight: 'inherit',
+  m: 0,
+  p: 0,
+  textAlign: 'inherit'
+}
+
 /**
  * @description Evaluates button icon sizes and returns wight and height parameters
  * @param {Object} props
@@ -88,6 +101,27 @@ const sizes = {
  */
 const sizeProps = ({ size }) => sizes[size]
 
+const graySolidStyle = {
+  light: {
+    color: 'inherit',
+    _hover: {
+      bg: 'gray.100'
+    },
+    _active: {
+      bg: 'gray.200'
+    }
+  },
+  dark: {
+    color: 'whiteAlpha.900',
+    _hover: {
+      bg: 'whiteAlpha.200'
+    },
+    _active: {
+      bg: 'whiteAlpha.300'
+    }
+  }
+}
+
 /**
  * @description Get solid button style values
  * @param {Object} props - Style props object
@@ -104,7 +138,21 @@ const getSolidStyles = ({ color, colorMode }) => {
       _active: {
         bg: `${color}.600`
       }
+    },
+    dark: {
+      bg: `${color}.200`,
+      color: 'gray.800',
+      _hover: {
+        bg: `${color}.300`
+      },
+      _active: {
+        bg: `${color}.400`
+      }
     }
+  }
+
+  if (color === 'gray') {
+    style = graySolidStyle
   }
   return style[colorMode]
 }
@@ -115,17 +163,16 @@ const getSolidStyles = ({ color, colorMode }) => {
  * @returns {Object} - Ghost styles object
  */
 const getGhostStyles = ({ color, colorMode, theme }) => {
-  const _theme = theme()
-  const _color = _theme.colors[color] && _theme.colors[color][200]
+  const _color = theme.colors[color] && theme.colors[color][200]
   let result = {
     light: {
-      color: `${color}.400`,
-      bg: `${color}.50`,
+      color: `${color}.500`,
+      bg: 'transparent',
       _hover: {
-        bg: `${color}.100`
+        bg: `${color}.50`
       },
       _active: {
-        bg: `${color}.200`
+        bg: `${color}.100`
       }
     },
     dark: {
@@ -148,8 +195,7 @@ const getGhostStyles = ({ color, colorMode, theme }) => {
  * @returns {Object} - Ghost styles object
  */
 const getFlatStyles = ({ color, colorMode, theme }) => {
-  const _theme = theme()
-  const _color = _theme.colors[color] && _theme.colors[color][200]
+  const _color = theme.colors[color] && theme.colors[color][200]
   let result = {
     light: {
       color: `${color}.400`,
@@ -231,6 +277,8 @@ const getVariantStyles = (props) => {
       return getFlatStyles(props)
     case 'link':
       return getLinkStyles(props)
+    case 'unstyled':
+      return unstyledStyle
     default:
       return {}
   }

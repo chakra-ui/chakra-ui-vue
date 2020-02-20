@@ -1,9 +1,11 @@
-import { createElement as h, ref, watch, computed } from '@vue/composition-api'
 import PopperJS from 'popper.js'
-// import PseudoBox from '../PseudoBox'
+import PseudoBox from '../PseudoBox'
+import ClickOutside from '../ClickOutside'
+import Portal from '../Portal'
+import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId } from '../utils'
+import styleProps from '../config/props'
+import getPopperArrowStyle from './popper.styles'
 import Box from '../Box'
-import { createChainedFunction, forwardProps } from '../utils'
-import { baseProps } from '../config/props'
 
 /**
  * Flips placement if in <body dir="rtl" />
@@ -11,7 +13,7 @@ import { baseProps } from '../config/props'
  */
 function flipPlacement (placement) {
   const direction =
-    (typeof window !== 'undefined' && document.body.getAttribute('dir')) ||
+    (canUseDOM && document.body.getAttribute('dir')) ||
     'ltr'
 
   if (direction !== 'rtl') {
@@ -32,26 +34,28 @@ function flipPlacement (placement) {
   }
 }
 
-/**
- * Gets Anchor element for Popper.js
- * @param {HTMLElement|import('@vue/composition-api').Ref} anchorEl
- * @returns {HTMLElement}
- */
-function getAnchorEl (anchorEl) {
-  return typeof anchorEl === 'object' ? anchorEl.value : anchorEl
-}
-
 const Popper = {
   name: 'Popper',
   props: {
-    anchorEl: [HTMLElement, Object],
-    gutter: [String, Array],
-    container: [HTMLElement, Object],
+    _id: {
+      type: String,
+      default: useId(3)
+    },
+    as: String,
+    isOpen: Boolean,
+    placement: {
+      type: String,
+      default: 'bottom'
+    },
     usePortal: {
       type: Boolean,
       default: true
     },
-    unmountOnExit: {
+    onClose: {
+      type: Function,
+      default: () => null
+    },
+    closeOnClickAway: {
       type: Boolean,
       default: true
     },
@@ -59,155 +63,217 @@ const Popper = {
       type: Object,
       default: () => {}
     },
-    isOpen: Boolean,
-    placement: {
-      type: String,
-      default: 'bottom'
-    },
-    popperOptions: {
-      type: Object,
-      default: () => {}
-    },
-    popperRef: [HTMLElement, Object],
-    willUseTransition: {
+    anchorEl: [HTMLElement, Object],
+    eventsEnabled: {
       type: Boolean,
-      default: false
+      default: true
     },
-    arrowSize: [String, Array],
-    arrowShadowColor: [String, Array],
-    hasArrow: [String, Array],
-    ...baseProps
+    arrowSize: {
+      type: String,
+      default: '1rem'
+    },
+    arrowShadowColor: {
+      type: String,
+      default: 'rgba(0, 0, 0, 0.1)'
+    },
+    hasArrow: {
+      type: Boolean,
+      default: true
+    },
+    positionFixed: Boolean,
+    usePortalTarget: String,
+    ...styleProps
   },
-  setup (props, context) {
-    const initialPlacement = computed(() => props.placement)
-    // const popperRefProp = computed(() => props.popperRef)
-    const tooltipRef = ref(null)
-    // const ownRef = ref(null)
-    const popperRef = ref(null)
-    const handlePopperRef = ref(null)
-    const exited = ref(true)
-
-    const rtlPlacement = flipPlacement(initialPlacement.value)
-    const placement = ref(rtlPlacement)
-
-    if (rtlPlacement !== placement.value) {
-      placement.value = rtlPlacement
+  data () {
+    return {
+      popper: null
     }
-
-    // Methods
-    const handleOpen = (anchorEl, usePortal, modifiers, isOpen, rtlPlacement, popperOptions) => {
-      const popperNode = tooltipRef.value
-
-      if (!popperNode || !anchorEl || !isOpen) {
-        return
+  },
+  watch: {
+    placement (newValue) {
+      if (this.popper) {
+        this.popper.options.placement = newValue
+        this.popper.scheduleUpdate()
       }
-
-      // Might need to directly use popperRef
-      if (popperRef.value) {
-        popperRef.value.destroy()
-        handlePopperRef.value = null
-      }
-
-      const handlePopperUpdate = data => {
-        placement.value = data.placement
-      }
-
-      const popper = new PopperJS(getAnchorEl(anchorEl), popperNode, {
-        placement: rtlPlacement,
-        ...popperOptions,
-        modifiers: {
-          ...(usePortal && {
-            preventOverflow: {
-              boundariesElement: 'window'
-            }
-          }),
-          ...modifiers,
-          ...popperOptions.modifiers
-        },
-        onUpdate: createChainedFunction(
-          handlePopperUpdate,
-          popperOptions.onUpdate
-        )
+    },
+    isOpen (newValue) {
+      if (newValue) this.handleOpen()
+      else this.handleClose()
+    }
+  },
+  computed: {
+    arrowStyles () {
+      return getPopperArrowStyle({
+        arrowSize: this.arrowSize,
+        arrowShadowColor: this.arrowShadowColor,
+        hasArrow: this.hasArrow
       })
-      handlePopperRef.value = popper
+    },
+    portalTarget () {
+      return this.usePortalTarget || `#chakra-portal-${useId(4)}`
+    },
+    popperId () {
+      return `popper_${useId(4)}`
+    },
+    rtlPlacement () {
+      return flipPlacement(this.placement)
+    },
+    anchor () {
+      return this.getNode(this.anchorEl)
+    },
+    reference () {
+      const ref = this.usePortal
+        // There should be a much cleaner way to do this.
+        // But for now this works. Should return with bigger guns.
+        ? canUseDOM && document.querySelector(this.portalTarget).firstChild
+        : this.getNode(this.$el)
+      return ref
     }
+  },
+  methods: {
+    /**
+     * Handles open state for Popper
+     */
+    handleOpen () {
+      // Double check to make sure portal target is mounted
+      // If it already is mounted, Portal component will use
+      // the existing portal target to mount popper children
+      (this.usePortal && this.$refs.portalRef) && this.$refs.portalRef.mountTarget()
 
-    watch([props.anchorEl, props.usePortal, props.modifiers, props.isOpen, props.rtlPlacement, props.popperOptions],
-      ([anchorEl, usePortal, modifiers, isOpen, rtlPlacement, popperOptions]) => {
-        handleOpen(anchorEl, usePortal, modifiers, isOpen, rtlPlacement, popperOptions)
-      })
-
-    // const handleRef = computed(() => {
-    //   handleOpen()
-    //   return ownRef
-    // })
-
-    // const handleEnter = () => {
-    //   exited.value = false
-    // }
-
-    const handleClose = () => {
-      if (!popperRef.value) {
-        return
+      if (!this.anchor || !this.reference) return
+      if (this.popper) {
+        this.popper.scheduleUpdate()
+      } else {
+        this.popper = new PopperJS(this.anchor, this.reference, {
+          placement: this.rtlPlacement,
+          modifiers: {
+            ...(this.usePortal && {
+              preventOverflow: {
+                boundariesElement: 'window'
+              }
+            }),
+            ...this.modifiers
+          },
+          onUpdate: createChainedFunction(
+            this.handlePopperUpdate
+          ),
+          onCreate: createChainedFunction(
+            this.handlePopperCreated
+          ),
+          eventsEnabled: this.eventsEnabled,
+          positionFixed: this.positionFixed
+        })
+        this.popper.scheduleUpdate()
       }
-
-      popperRef.value.destroy()
-      handlePopperRef.value = null
-    }
-
-    // const handleExited = () => {
-    //   exited.value = true
-    //   handleClose()
-    // }
-
-    watch(() => {
-      if (!props.isOpen && !props.willUseTransition) {
-        handleClose()
-      }
-    })
-
-    if (props.unmountOnExit && !props.isOpen && (!props.willUseTransition || exited.value)) {
-      return () => null
-    }
+    },
 
     /**
-     * TODO: Create styles for transitions in portal
+     * Returns the HTML element of a Vue component or native element
+     * @param {Vue.Component|HTMLElement} element HTMLElement or Vue Component
      */
-    // const childProps = { placement: placement.value }
+    getNode (element) {
+      const isVue = isVueComponent(element)
+      return isVue ? element.$el : element
+    },
 
-    // watch(() => {
-    //   if (props.willUseTransition) {
-    //     childProps.transition = {
-    //       in: props.isOpen,
-    //       onEnter: handleEnter,
-    //       onExited: handleExited
-    //     }
-    //   }
-    // })
+    /**
+     * Closes Popper Element
+     */
+    handleClose () {
+      if (this.popper) {
+        this.popper.destroy()
+        this.popper = null
+        this.$emit('popper:close', {})
+      }
+    },
+    /**
+     * Wrapped handler for close events
+     */
+    wrapClose () {
+      if (this.popper) {
+        if (this.onClose) this.onClose()
+        this.$emit('popper:close', {})
+      }
+    },
 
-    return () => {
+    /**
+     * Handle's popper updates when update is called
+     * @param {Object} payload
+     */
+    handlePopperUpdate (payload) {
+      this.$emit('popper:update', payload)
+      this.isOpen && this.$emit('popper:open')
+    },
 
+    /**
+     * Handle's popper updates when update is called
+     * @param {Object} payload
+     */
+    handlePopperCreated (payload) {
+      this.$emit('popper:create', payload)
     }
+  },
+  render (h) {
+    if (this.isOpen && !this.popper) {
+      this.handleOpen()
+    }
+    return h(Portal, {
+      props: {
+        append: true,
+        target: this.portalTarget,
+        disabled: !this.usePortal,
+        slim: true,
+        unmountOnDestroy: true,
+        targetSlim: true
+      },
+      ref: 'portalRef'
+    }, [h(ClickOutside, { // TODO: Fix this close on clickaway handler. Could revert to useing directive instead
+      props: {
+        whitelist: [this.anchor],
+        isDisabled: !this.closeOnClickAway,
+        do: this.wrapClose
+      }
+    }, [h(PseudoBox, {
+      class: [this.arrowStyles],
+      style: {
+        display: this.isOpen ? 'unset' : 'none'
+      },
+      attrs: {
+        ...this.$attrs,
+        id: this.$attrs.id || `chakra-${this.popperId}`,
+        'data-popper-id': `chakra-${this.popperId}`
+      },
+      scopedSlots: {
+        popperId: `chakra-${this.popperId}`
+      },
+      props: {
+        ...forwardProps(this.$props)
+      },
+      ref: 'handleRef'
+    }, this.$slots.default)])])
   }
 }
 
-export const PoopperArrow = {
+const PopperArrow = {
   name: 'PopperArrow',
-  props: {
-    ...baseProps
-  },
-  setup (props) {
+  render (h) {
     return h(Box, {
+      attrs: {
+        'x-arrow': true,
+        role: 'presentation'
+      },
       props: {
         bg: 'inherit',
-        ...forwardProps(props)
+        ...forwardProps(this.$props)
       },
-      attrs: {
-        'x-arrow': '',
-        role: 'presentation'
+      on: {
+        click: (e) => this.$emit('cheese', e)
       }
     })
   }
 }
 
-export default Popper
+export {
+  Popper,
+  PopperArrow
+}

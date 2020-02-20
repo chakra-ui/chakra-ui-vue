@@ -1,6 +1,12 @@
 
 import { focusableElList, htmlElements } from './dom-elements'
 
+export const canUseDOM = !!(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+)
+
 /**
  * Checks if a given element is an HTML element.
  * @param {String} element HTML element tag name
@@ -48,5 +54,19 @@ export const wrapEvent = (theirHandler, ourHandler) => event => {
 
   if (!event.defaultPrevented) {
     return ourHandler(event)
+  }
+}
+
+/**
+ * Queries an element from the DOM
+ * @param {String} selector Element selector
+ * @param {Node} domain HTML element in which to query for element
+ * @returns {Node} Node
+ */
+export const getElement = (selector, domain) => {
+  if (!domain) {
+    return document.querySelector(selector)
+  } else {
+    return domain.querySelector(selector)
   }
 }

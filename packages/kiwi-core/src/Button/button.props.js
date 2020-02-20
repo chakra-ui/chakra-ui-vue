@@ -46,8 +46,7 @@ export const buttonProps = {
   },
   iconSpacing: {
     type: [String, Number],
-    default: 2,
-    validator: (value) => value >= 0
+    default: '1'
   },
   leftIcon: {
     type: String,

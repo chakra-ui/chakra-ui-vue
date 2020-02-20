@@ -1,32 +1,40 @@
 {
   "name": "kiwi-core",
-  "version": "1.4.3",
+  "version": "1.4.10",
   "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
   "private": false,
   "scripts": {
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
-    "build:watch": "rollup -c --watch",
+    "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
+    "@styled-system/css": "^5.0.23",
     "color": "^3.1.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15"
   },
   "peerDependencies": {
+    "breadstick": "^0.1.21",
+    "emotion": "^10.0.27",
     "vue": "^2.6.10",
-    "vue-styled-components": "git+https://github.com/codebender828/vsc.git",
-    "breadstick": "^0.1.21"
+    "styled-system": "^5.1.2"
   },
   "devDependencies": {
-    "core-js": "^3.4.5"
+    "core-js": "^3.4.5",
+    "csstype": "^2.6.8"
   },
   "gitHead": "3edafd2f90f3aa3c5a44ec9f5b0e960430caaad0"
 }

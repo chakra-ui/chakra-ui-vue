@@ -1,4 +1,4 @@
-import { forwardProps, useUUID, getFocusables, wrapEvent } from '../utils'
+import { forwardProps, useId, getFocusables, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import props from './modal.props'
 import { ref, reactive, createElement as h, watch, inject, provide, toRefs } from '@vue/composition-api'
@@ -19,7 +19,7 @@ const Modal = {
   name: 'Modal',
   props,
   setup (props, context) {
-    const uuid = useUUID(4)
+    const uuid = useId(4)
     const contentRef = ref(null)
 
     // Initial props values
@@ -137,7 +137,6 @@ const Modal = {
           } else if (props.initialFocusRef.$el) {
             props.initialFocusRef.$el.focus()
           } else if (typeof props.initialFocusRef === 'string') {
-            console.log('initial', { initialFocusRef: props.initialFocusRef })
             canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
           }
         } else {

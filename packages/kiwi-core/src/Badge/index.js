@@ -20,16 +20,22 @@ export default {
     },
     ...baseProps
   },
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   render (h) {
     const badgeStyleProps = useBadgeStyles({
       theme: this.$theme(),
-      colorMode: this.$colorMode,
+      colorMode: this.colorMode,
       color: this.variantColor,
       variant: this.variant
     })
 
     return h(Box, {
       props: {
+        ...forwardProps(this.$props),
         d: 'inline-block',
         textTransform: 'uppercase',
         fontSize: 'xs',
@@ -39,8 +45,7 @@ export default {
         fontWeight: 'bold',
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
-        ...badgeStyleProps,
-        ...forwardProps(this.$props)
+        ...badgeStyleProps
       }
     }, this.$slots.default)
   }

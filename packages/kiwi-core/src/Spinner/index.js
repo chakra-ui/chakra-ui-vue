@@ -1,4 +1,4 @@
-import { keyframes } from 'vue-styled-components'
+import { keyframes } from 'emotion'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import Box from '../Box'

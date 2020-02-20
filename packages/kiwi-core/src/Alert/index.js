@@ -20,6 +20,11 @@ const Alert = {
       _variant: this.variant
     }
   },
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   props: {
     status: {
       type: [String, Array],
@@ -35,7 +40,7 @@ const Alert = {
     const alertStyles = useAlertStyle({
       variant: this.variant,
       color: statuses[this.status] && statuses[this.status]['color'],
-      colorMode: this.$colorMode,
+      colorMode: this.colorMode,
       theme: this.$theme()
     })
 
@@ -61,11 +66,15 @@ const AlertIcon = {
     },
     ...baseProps
   },
-
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   render (h) {
     const alertIconStyles = useAlertIconStyle({
       variant: this._variant,
-      colorMode: this.$colorMode,
+      colorMode: this.colorMode,
       color: statuses[this._status] && statuses[this._status]['color']
     })
 

@@ -21,8 +21,6 @@
     "push": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna version --conventional-commits",
     "storybook": "start-storybook -p 9000",
     "build-storybook": "build-storybook --quiet",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
     "now-build-storybook": "build-storybook -o dist/storybook"
@@ -105,7 +103,6 @@
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
-    "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.2.0"
+    "vue-template-compiler": "^2.6.10"
   }
 }

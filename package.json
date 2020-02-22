@@ -23,7 +23,8 @@
     "build-storybook": "build-storybook --quiet",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
-    "now-build-storybook": "build-storybook -o dist/storybook"
+    "now-build-storybook": "build-storybook -o dist/storybook",
+    "docs:dev": "yarn workspace docs dev "
   },
   "dependencies": {
     "@babel/core": "^7.7.4",
@@ -74,7 +75,7 @@
     "breadstick": "^0.1.21",
     "can-use-dom": "^0.1.0",
     "color": "^3.1.2",
-    "core-js": "^3.4.5",
+    "core-js": "^3.6.4",
     "emotion": "^10.0.27",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
@@ -100,9 +101,9 @@
     "rollup-plugin-vue": "^5.1.4",
     "sass-loader": "^8.0.0",
     "styled-system": "^5.1.2",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   }
 }

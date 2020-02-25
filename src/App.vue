@@ -11,8 +11,8 @@
           @change="handleChange"
           ref="rg"
         >
-        <Radio value="male">Male</Radio>
-        <Radio value="female">Female</Radio>
+        <Radio variantColor="red" value="male">Male</Radio>
+        <Radio variantColor="red" value="female">Female</Radio>
       </RadioGroup>
       </Fragment>
     </div>

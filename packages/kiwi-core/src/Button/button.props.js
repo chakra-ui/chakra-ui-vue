@@ -23,7 +23,7 @@ export const buttonProps = {
     type: [String, Array],
     default: 'gray'
   },
-  disabled: {
+  isDisabled: {
     type: Boolean,
     default: false
   },

@@ -32,6 +32,26 @@ export function cloneVNodes (vnodes, createElement) {
 }
 
 /**
+ * Clones VNode with merged data
+ * @param {Vue.VNode} vnode VNode
+ * @param {Object} data VNode data
+ * @param {Function} h Render function
+ */
+export function cloneVNodeElement (vnode, { props, ...rest }, h) {
+  const cloned = cloneVNode(vnode, h)
+  return h(cloned.componentOptions.Ctor, {
+    ...cloned.data,
+    ...(cloned.componentOptions.listeners || {}),
+    props: {
+      ...(cloned.data.props || {}),
+      ...cloned.componentOptions.propsData,
+      ...props
+    },
+    ...rest
+  }, cloned.componentOptions.children)
+}
+
+/**
  * Checks whether a vnode is an async placeholder
  * @param {Vue.VNode} node
  * @returns {Boolean}

@@ -48,7 +48,6 @@ const Radio = {
   },
   render (h) {
     const children = this.$slots.default.filter(e => (e.tag || e.text))
-    // const children = this.$slots.default
 
     return h(Box, {
       props: {

@@ -1,61 +1,63 @@
 <template>
-  <Canvas>
-    <div>
-      <Fragment>
-        <RadioButtonGroup
-          defaultValue="item-2"
-          @change="handleChange"
-          isInline
-          :spacing="4"
-        >
-          <CustomRadio value="item-1" mx="2">Custom Radio 1</CustomRadio>
-          <CustomRadio value="item-2" mx="2">Custom Radio 2</CustomRadio>
-          <CustomRadio value="item-3" mx="2">Custom Radio 3</CustomRadio>
-          <CustomRadio isDisabled value="item-4" mx="2">Custom Radio 4</CustomRadio>
-      </RadioButtonGroup>
-      </Fragment>
-    </div>
-  </Canvas>
+  <div>
+      <Box mb="3">
+        <Tag v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size" mx="1" variantColor="green">
+          <TagIcon icon="add" size="12px" />
+          <TagLabel>Green</TagLabel>
+        </Tag>
+      </Box>
+      <!-- With right Icon -->
+
+      <Box mb="3">
+        <Tag v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size + 'indigo'" mx="1" variantColor="indigo">
+          <TagLabel>Green</TagLabel>
+          <TagIcon icon="sun" size="12px" />
+        </Tag>
+      </Box>
+
+      <!-- With close button -->
+      <Box mb="3">
+        <Tag rounded="full" v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size + 'cyan'" mx="1" variantColor="cyan">
+          <TagLabel>Green</TagLabel>
+          <TagCloseButton icon="sun" size="12px" />
+        </Tag>
+      </Box>
+
+      <!-- With custom element -->
+      <Box mb="3">
+        <Tag rounded="full" mx="1" variantColor="red">
+          <Avatar
+            name="Jonathan Bakebwa"
+            size="xs"
+            src="https://res.cloudinary.com/xtellar/image/upload/v1572857445/me_zqos4e.jpg"
+            :ml="-2"
+            :mr="2"
+           />
+          <TagLabel>Jonathan</TagLabel>
+        </Tag>
+      </Box>
+  </div>
 </template>
 
 <script lang="js">
-import Canvas from './components/Canvas'
 import {
-  Fragment,
-  Button,
-  RadioButtonGroup } from '../packages/kiwi-core/dist/esm'
-
-const CustomRadio = {
-  name: 'CustomRadio',
-  props: {
-    isChecked: Boolean,
-    isDisabled: Boolean,
-    value: [String, Number],
-    mx: String
-  },
-  render (h) {
-    return h(Button, {
-      props: {
-        ...this.$props,
-        isDisabled: this.isDisabled,
-        variantColor: this.isChecked ? 'red' : 'gray'
-      },
-      attrs: {
-        role: 'radio',
-        'aria-checked': this.isChecked
-      }
-    }, this.$slots.default)
-  }
-}
+  Box,
+  Tag,
+  TagLabel,
+  TagIcon,
+  TagCloseButton,
+  Avatar } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Canvas,
-    Fragment,
-    RadioButtonGroup,
-    CustomRadio
+    Tag,
+    TagLabel,
+    TagIcon,
+    Box,
+    TagCloseButton,
+    Avatar
   },
   data () {
     return {

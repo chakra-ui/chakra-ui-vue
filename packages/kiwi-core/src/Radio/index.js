@@ -47,7 +47,8 @@ const Radio = {
     }
   },
   render (h) {
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => (e.tag || e.text))
+    // const children = this.$slots.default
 
     return h(Box, {
       props: {
@@ -104,6 +105,7 @@ const Radio = {
         props: {
           ml: 2,
           fontSize: this.size,
+          fontFamily: 'body',
           userSelect: 'none',
           opacity: this.isDisabled ? 0.32 : 1
         }

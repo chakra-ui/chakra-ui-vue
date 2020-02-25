@@ -12,6 +12,7 @@
     "serve": "vue-cli-service serve",
     "build": "yarn build:dist && vue-cli-service build",
     "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
+    "dev": "cd ./packages/kiwi-core && yarn dev",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "lerna:build": "lerna run build",

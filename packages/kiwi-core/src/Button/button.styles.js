@@ -13,6 +13,14 @@ const baseStyles = {
   outline: 'none'
 }
 
+const disabledProps = {
+  _disabled: {
+    opacity: '40%',
+    cursor: 'not-allowed',
+    boxShadow: 'none'
+  }
+}
+
 const buttonSizes = {
   xs: {
     w: '0.75rem',
@@ -103,21 +111,21 @@ const sizeProps = ({ size }) => sizes[size]
 
 const graySolidStyle = {
   light: {
-    color: 'inherit',
+    bg: 'gray.100',
     _hover: {
-      bg: 'gray.100'
+      bg: 'gray.200'
     },
     _active: {
-      bg: 'gray.200'
+      bg: 'gray.300'
     }
   },
   dark: {
-    color: 'whiteAlpha.900',
+    bg: 'whiteAlpha.200',
     _hover: {
-      bg: 'whiteAlpha.200'
+      bg: 'whiteAlpha.300'
     },
     _active: {
-      bg: 'whiteAlpha.300'
+      bg: 'whiteAlpha.400'
     }
   }
 }
@@ -280,7 +288,7 @@ const getVariantStyles = (props) => {
     case 'unstyled':
       return unstyledStyle
     default:
-      return {}
+      return graySolidStyle
   }
 }
 
@@ -305,7 +313,8 @@ const createButtonStyles = (props) => {
     ...baseStyles,
     ...focusStyles,
     ...sizeProps(props),
-    ...getVariantStyles(props)
+    ...getVariantStyles(props),
+    ...disabledProps
   }
 }
 

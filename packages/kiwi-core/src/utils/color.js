@@ -120,5 +120,5 @@ export function useVariantColorWarning (theme, componentName, variantColor) {
  */
 function colorHasAllVariants (color) {
   const keys = ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-  keys.every(key => isDef(color[key]))
+  return keys.every(key => isDef(color[key]))
 }

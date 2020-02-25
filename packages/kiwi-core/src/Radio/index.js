@@ -47,7 +47,7 @@ const Radio = {
     }
   },
   render (h) {
-    const children = this.$slots.default
+    const children = this.$slots.default.filter(e => (e.tag))
 
     return h(Box, {
       props: {
@@ -78,6 +78,9 @@ const Radio = {
           defaultChecked: this.defaultIsChecked,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled
+        },
+        nativeOn: {
+          change: (e) => this.$emit('change', e)
         }
       }),
       h(ControlBox, {
@@ -104,6 +107,7 @@ const Radio = {
         props: {
           ml: 2,
           fontSize: this.size,
+          fontFamily: 'body',
           userSelect: 'none',
           opacity: this.isDisabled ? 0.32 : 1
         }

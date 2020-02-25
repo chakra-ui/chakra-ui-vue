@@ -78,6 +78,9 @@ const Radio = {
           defaultChecked: this.defaultIsChecked,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled
+        },
+        nativeOn: {
+          change: (e) => this.$emit('change', e)
         }
       }),
       h(ControlBox, {

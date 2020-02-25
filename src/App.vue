@@ -2,12 +2,18 @@
   <Canvas>
     <div>
       <Fragment>
-        <Radio value="male" defaultChecked name="bee">
-          Male
-        </Radio>
-        <Radio ml="3" value="female" name="bee" defaultChecked>
-          Female
-        </Radio>
+        <Button @click="focusRadioGroup">
+          Focus RadioGroup
+        </Button>
+        <RadioGroup
+          size="lg"
+          defaultValue="male"
+          @change="handleChange"
+          ref="rg"
+        >
+        <Radio value="male">Male</Radio>
+        <Radio value="female">Female</Radio>
+      </RadioGroup>
       </Fragment>
     </div>
   </Canvas>
@@ -17,7 +23,9 @@
 import Canvas from './components/Canvas'
 import {
   Fragment,
-  Radio } from '../packages/kiwi-core/dist/esm'
+  Radio,
+  RadioGroup,
+  Button } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -25,7 +33,9 @@ export default {
   components: {
     Canvas,
     Fragment,
-    Radio
+    Radio,
+    RadioGroup,
+    Button
   },
   data () {
     return {
@@ -44,6 +54,13 @@ export default {
   watch: {
     inputValue (newVal) {
       console.log(newVal)
+    }
+  },
+
+  methods: {
+    handleChange: (value) => console.log(value),
+    focusRadioGroup () {
+      this.$refs.rg.focus()
     }
   }
 }

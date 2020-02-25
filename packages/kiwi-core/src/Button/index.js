@@ -92,8 +92,8 @@ export default {
       attrs: {
         type: this.type,
         tabIndex: 0,
-        disabled: this.disabled || this.isLoading,
-        ariaDisabled: this.disabled || this.isLoading,
+        disabled: this.isDisabled || this.isLoading,
+        'aria-disabled': this.isDisabled || this.isLoading,
         dataActive: this.isActive ? 'true' : undefined
       },
       nativeOn: {

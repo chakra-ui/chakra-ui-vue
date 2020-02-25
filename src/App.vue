@@ -2,18 +2,17 @@
   <Canvas>
     <div>
       <Fragment>
-        <Button @click="focusRadioGroup">
-          Focus RadioGroup
-        </Button>
-        <RadioGroup
-          size="lg"
-          defaultValue="male"
+        <RadioButtonGroup
+          defaultValue="item-2"
           @change="handleChange"
-          ref="rg"
+          isInline
+          :spacing="4"
         >
-        <Radio variantColor="red" value="male">Male</Radio>
-        <Radio variantColor="red" value="female">Female</Radio>
-      </RadioGroup>
+          <CustomRadio value="item-1" mx="2">Custom Radio 1</CustomRadio>
+          <CustomRadio value="item-2" mx="2">Custom Radio 2</CustomRadio>
+          <CustomRadio value="item-3" mx="2">Custom Radio 3</CustomRadio>
+          <CustomRadio isDisabled value="item-4" mx="2">Custom Radio 4</CustomRadio>
+      </RadioButtonGroup>
       </Fragment>
     </div>
   </Canvas>
@@ -23,9 +22,31 @@
 import Canvas from './components/Canvas'
 import {
   Fragment,
-  Radio,
-  RadioGroup,
-  Button } from '../packages/kiwi-core/dist/esm'
+  Button,
+  RadioButtonGroup } from '../packages/kiwi-core/dist/esm'
+
+const CustomRadio = {
+  name: 'CustomRadio',
+  props: {
+    isChecked: Boolean,
+    isDisabled: Boolean,
+    value: [String, Number],
+    mx: String
+  },
+  render (h) {
+    return h(Button, {
+      props: {
+        ...this.$props,
+        isDisabled: this.isDisabled,
+        variantColor: this.isChecked ? 'red' : 'gray'
+      },
+      attrs: {
+        role: 'radio',
+        'aria-checked': this.isChecked
+      }
+    }, this.$slots.default)
+  }
+}
 
 export default {
   name: 'App',
@@ -33,9 +54,8 @@ export default {
   components: {
     Canvas,
     Fragment,
-    Radio,
-    RadioGroup,
-    Button
+    RadioButtonGroup,
+    CustomRadio
   },
   data () {
     return {

@@ -105,5 +105,10 @@
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-template-compiler": "^2.6.10"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/user-event": "^10.0.0",
+    "@testing-library/vue": "^4.1.0"
   }
 }

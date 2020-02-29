@@ -14,7 +14,7 @@ module.exports = {
     '/node_modules/(?!lodash-es)'
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/$1'
   },
   snapshotSerializers: [
     'jest-serializer-vue'

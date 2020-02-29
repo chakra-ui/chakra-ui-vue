@@ -5,7 +5,7 @@ import Input from '../Input'
 import PseudoBox from '../PseudoBox'
 import Icon from '../Icon'
 import numberInputStyles from './numberinput.styles'
-import { isDef, useId, getElement, canUseDOM } from '../utils'
+import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
 import { calculatePrecision, roundToPrecision } from './utils'
 
 /**
@@ -69,33 +69,92 @@ const NumberInput = {
       inputNode: undefined,
       incrementPressed: false,
       decrementPressed: false,
-      incrementSpeed: 200,
-      decrementSpeed: 200,
-      incrementEvents: {}
+      incrementEvents: {},
+      decrementEvents: {},
+      clickEvent: canUseDOM && !!document.documentElement.ontouchstart
+        ? 'touchstart'
+        : 'mousedown',
+      incrementStepperProps: undefined,
+      decrementStepperProps: undefined,
+      incrementTimerId: null,
+      decrementTimerId: null
     }
   },
   computed: {
     NumberInputContext () {
       return {
         set: this.set,
-        value: this.value,
-        onChange: this.onChange,
-        defaultValue: this.defaultValue,
-        focusInputOnChange: this.focusInputOnChange,
-        clampValueOnBlur: this.clampValueOnBlur,
-        keepWithinRange: this.keepWithinRange,
-        min: this.min,
-        max: this.max,
-        step: this.step,
-        precision: this.precision,
-        getAriaValueText: this.getAriaValueText,
+        value: this._value,
         isReadOnly: this.isReadOnly,
         isInvalid: this.isInvalid,
         isDisabled: this.isDisabled,
-        handleBlur: this.handleBlur,
-        handleFocus: this.handleFocus,
-        handleKeydown: this.handleKeydown,
-        handleChange: this.handleChange,
+        isFocused: this.isFocused,
+        incrementStepper: this.incrementStepperProps,
+        decrementStepper: this.decrementStepperProps,
+        incrementButton: {
+          nativeOn: {
+            click: () => this.handleIncrement()
+          },
+          attrs: {
+            'aria-label': 'add',
+            ...(this.keepWithinRange & {
+              disabled: this.value === this.max,
+              'aria-disabled': this.value === this.max
+            })
+          }
+        },
+        decrementButton: {
+          nativeOn: {
+            click: () => this.handleDecrement()
+          },
+          attrs: {
+            'aria-label': 'subtract',
+            ...(this.keepWithinRange & {
+              disabled: this.value === this.min,
+              'aria-disabled': this.value === this.min
+            })
+          }
+        },
+        input: {
+          value: this._value,
+          onChange: this.handleChange,
+          onKeydown: this.handleKeydown,
+          onFocus: () => {
+            this.isFocused = true
+          },
+          onBlur: () => {
+            this.isFocused = false
+            if (this.clampValueOnBlur) {
+              this.validateAndClamp()
+            }
+          },
+          role: 'spinbutton',
+          type: 'text',
+          'aria-valuemin': this.min,
+          'aria-valuemax': this.max,
+          'aria-disabled': this.isDisabled,
+          'aria-valuenow': this.value,
+          'aria-invalid': this.isInvalid || this.isOutOfRange,
+          ...(this.getAriaValueText && { 'aria-valuetext': this.ariaValueText }),
+          readOnly: this.isReadOnly,
+          disabled: this.isDisabled,
+          autoComplete: 'off'
+        },
+        hiddenLabel: {
+          'aria-live': 'polite',
+          text: this.getAriaValueText ? this.ariaValueText : this._value,
+          style: {
+            position: 'absolute',
+            clip: 'rect(0px, 0px, 0px, 0px)',
+            height: 1,
+            width: 1,
+            margin: -1,
+            whiteSpace: 'nowrap',
+            border: 0,
+            overflow: 'hidden',
+            padding: 0
+          }
+        },
         inputId: this.inputId
       }
     },
@@ -126,6 +185,12 @@ const NumberInput = {
     },
     isInteractive () {
       return !(this.isReadOnly || this.isDisabled)
+    },
+    isOutOfRange () {
+      return this._value > this.max || this.value < this.min
+    },
+    ariaValueText () {
+      return this.getAriaValueText ? this.getAriaValueText(this._value) : null
     }
   },
   mounted () {
@@ -133,66 +198,74 @@ const NumberInput = {
       this.inputNode = getElement(`#${this.inputId}`, this.$el)
     })
 
-    // =========== Long press interactions handlers ============
-    const clickEvent =
-      canUseDOM && !!document.documentElement.ontouchstart
-        ? 'onTouchStart'
-        : 'onMouseDown'
-
-    // INCREMENT ==========================================
-    let incrementTimerId
-    this.$watch(vm => [vm.incrementPressed, vm.handleIncrement, vm.incrementSpeed], () => {
-      if (incrementTimerId) clearTimeout(incrementTimerId)
+    // ================================= INCREMENT WATCHER
+    this.$watch(vm => [vm.incrementPressed, vm._value], () => {
+      if (this.incrementTimerId) clearTimeout(this.incrementTimerId)
       if (this.incrementPressed) {
-        incrementTimerId = setTimeout(this.handleIncrement, this.incrementSpeed)
+        this.incrementTimerId = setTimeout(this.handleIncrement, 200)
       } else {
-        clearTimeout(incrementTimerId)
+        clearTimeout(this.incrementTimerId)
       }
     })
 
-    const incrementStart = () => {
-      this.incrementCallback && this.incrementCallback()
+    const startIncrement = () => {
+      this.handleIncrement()
       this.incrementPressed = true
     }
-    const incrementStop = () => {
+    const stopIncrement = () => {
       this.incrementPressed = false
     }
 
-    this.incrementEvents = {
-      [clickEvent]: incrementStart,
-      onMouseUp: incrementStop,
-      onMouseLeave: incrementStop,
-      onTouchEnd: incrementStop
+    this.incrementStepperProps = {
+      [this.clickEvent]: startIncrement,
+      mouseup: stopIncrement,
+      mouseleave: stopIncrement,
+      touchend: stopIncrement
     }
-    // =====================================================
 
-    // DECREMENT ==========================================
-    let decrementTimerId
-    this.$watch(vm => [vm.incrementPressed, vm.handleDecrement, vm.decrementSpeed], () => {
-      if (decrementTimerId) clearTimeout(decrementTimerId)
+    // ================================= DECREMENT WATCHER
+    this.$watch(vm => [vm.decrementPressed, vm._value], () => {
+      if (this.decrementTimerId) clearTimeout(this.decrementTimerId)
       if (this.decrementPressed) {
-        decrementTimerId = setTimeout(this.handleDecrement, this.decrementSpeed)
+        this.decrementTimerId = setTimeout(this.handleDecrement, 200)
       } else {
-        clearTimeout(decrementTimerId)
+        clearTimeout(this.decrementTimerId)
       }
     })
-    const decrementStart = () => {
-      this.incrementCallback && this.incrementCallback()
-      this.incrementPressed = true
+
+    const startDecrement = () => {
+      this.handleDecrement()
+      this.decrementPressed = true
     }
-    const decrementStop = () => {
-      this.incrementPressed = false
+    const stopDecrement = () => {
+      this.decrementPressed = false
     }
 
-    this.incrementEvents = {
-      [clickEvent]: decrementStart,
-      onMouseUp: decrementStop,
-      onMouseLeave: decrementStop,
-      onTouchEnd: decrementStop
+    this.decrementStepperProps = {
+      [this.clickEvent]: startDecrement,
+      mouseup: stopDecrement,
+      mouseleave: stopDecrement,
+      touchend: stopDecrement
     }
-    // =====================================================
   },
   methods: {
+
+    /**
+     * Validates and clamps input values
+     */
+    validateAndClamp () {
+      const maxExists = isDef(this.max)
+      const minExists = isDef(this.min)
+
+      if (maxExists && this._value > this.max) {
+        this.updateValue(this.max)
+      }
+
+      if (minExists && this._value < this.min) {
+        this.updateValue(this.min)
+      }
+    },
+
     /**
      * Determines whether a value should be converted to number
      * @param {String} value
@@ -239,7 +312,7 @@ const NumberInput = {
 
       nextValue = roundToPrecision(nextValue, this._precision)
       this.updateValue(nextValue)
-
+      this.$emit('increment', nextValue)
       this.focusInput()
     },
 
@@ -257,7 +330,7 @@ const NumberInput = {
 
       nextValue = roundToPrecision(nextValue, this._precision)
       this.updateValue(nextValue)
-
+      this.$emit('decrement', nextValue)
       this.focusInput()
     },
 
@@ -300,8 +373,8 @@ const NumberInput = {
      * @param {Event} event Event object
      * @param {Any} value Value
      */
-    handleChange (event) {
-      this.$emit('change', event, event.target.value)
+    handleChange (value, event) {
+      this.$emit('change', value, event)
     },
 
     /**
@@ -343,7 +416,17 @@ const NumberInputField = {
   },
   props: styleProps,
   render (h) {
-    const { size, inputId, handleBlur, handleFocus, handleChange, handleKeydown, isDisabled, isReadOnly, ...inputProps } = this.context
+    const { size, inputId, input: {
+      value,
+      onBlur: _onBlur,
+      onFocus: _onFocus,
+      onChange: _onChange,
+      onKeydown: _onKeydown,
+      disabled: isDisabled,
+      readOnly: isReadOnly,
+      ...otherInputAttrs
+    }
+    } = this.context
 
     return h(Input, {
       props: {
@@ -351,33 +434,25 @@ const NumberInputField = {
         isReadOnly,
         isDisabled,
         size,
-        ...inputProps
+        value
       },
       attrs: {
-        id: inputId
+        id: inputId,
+        ...otherInputAttrs
       },
       nativeOn: {
-        input: (e) => {
-          handleChange(e)
-          this.$emit('change', e, e.target.value)
-        },
-        blur: (e) => {
-          handleBlur(e)
-          this.$emit('blur', e)
-        },
-        focus: (e) => {
-          handleFocus(e)
-          this.$emit('focus', e)
-        },
-        keydown: (e) => {
-          handleKeydown(e)
-          this.$emit('keydown', e)
-        }
+        input: wrapEvent((e) => this.$emit('change', e), _onChange),
+        blur: wrapEvent((e) => this.$emit('blur', e), _onBlur),
+        focus: wrapEvent((e) => this.$emit('focus', e), _onFocus),
+        keydown: wrapEvent((e) => this.$emit('keydown', e), _onKeydown)
       }
     })
   }
 }
 
+/**
+ * NumberInputStepper component
+ */
 const NumberInputStepper = {
   name: 'NumberInputStepper',
   props: baseProps,
@@ -397,6 +472,9 @@ const NumberInputStepper = {
   }
 }
 
+/**
+ * StepperButton component
+ */
 const StepperButton = {
   name: 'StepperButton',
   inject: ['$NumberInputContext', '$colorMode'],
@@ -450,14 +528,15 @@ const NumberIncrementStepper = {
         }
       })]
 
-    const { size } = this.context
+    const { size, incrementStepper } = this.context
     const iconSize = size === 'sm' ? '11px' : '15px'
 
     return h(StepperButton, {
       props: {
         ...this.$props,
         fontSize: iconSize
-      }
+      },
+      nativeOn: incrementStepper
     }, children)
   }
 }
@@ -481,14 +560,15 @@ const NumberDecrementStepper = {
         }
       })]
 
-    const { size } = this.context
+    const { size, decrementStepper } = this.context
     const iconSize = size === 'sm' ? '11px' : '15px'
 
     return h(StepperButton, {
       props: {
         ...this.$props,
         fontSize: iconSize
-      }
+      },
+      nativeOn: decrementStepper
     }, children)
   }
 }

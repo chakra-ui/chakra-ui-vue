@@ -81,7 +81,7 @@ const Input = {
   },
   methods: {
     emitValue (event) {
-      this.$emit('input', event.target.value)
+      this.$emit('input', event.target.value, event)
     }
   },
   render (h) {

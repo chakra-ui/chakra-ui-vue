@@ -1,39 +1,33 @@
 <template>
   <div>
     <!-- With custom element -->
-    <Box mb="3">
-      <Toggle
-        size="sm"
-        @change="handleChange"
-        color="green"
-        mr="3"
-      />
-      <Toggle
-        size="md"
-        @change="handleChange"
-        color="blue"
-        mr="3"
-      />
-      <Toggle
-        size="lg"
-        @change="handleChange"
-        color="cyan"
-      />
-    </Box>
+    <NumberInput>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
   </div>
 </template>
 
 <script lang="js">
 import {
-  Box,
-  Switch } from '../packages/kiwi-core/dist/esm'
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Box,
-    Toggle: Switch
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper
   },
   data () {
     return {

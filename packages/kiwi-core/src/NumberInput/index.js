@@ -163,7 +163,7 @@ const NumberInput = {
     },
     _value: {
       get () {
-        return this.isControlled ? this.value : this.innerValue
+        return this.isControlled ? roundToPrecision(this.value, this._precision) : roundToPrecision(this.innerValue, this._precision)
       },
       set (val) {
         if (!this.defaultValue) {

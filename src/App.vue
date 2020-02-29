@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- With custom element -->
-    <NumberInput>
+    <NumberInput :defaultValue="15" :precision="2" :step="5">
       <NumberInputField />
       <NumberInputStepper>
         <NumberIncrementStepper />

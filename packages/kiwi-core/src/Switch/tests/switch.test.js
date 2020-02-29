@@ -30,3 +30,20 @@ it('should switch', async () => {
   userEvent.click(label)
   expect(input).toBeChecked()
 })
+
+it('should emit a change event', async () => {
+  const events = []
+  const eventsHandler = jest.fn(evt => events.push(evt.type))
+  const { getByTestId } = renderComponent(
+    {
+      methods: {
+        handleChange: eventsHandler
+      },
+      template: `<Toggle data-testid="label" @change="handleChange"  /> `
+    }
+  )
+
+  const label = getByTestId('label')
+  userEvent.click(label)
+  expect(events).toEqual(['change'])
+})

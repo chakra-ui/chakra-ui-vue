@@ -104,6 +104,11 @@ const Switch = {
           defaultChecked: this.defaultIsChecked,
           checked: this.isChecked,
           disabled: this.isDisabled
+        },
+        nativeOn: {
+          change: ($event) => {
+            this.$emit('change', $event)
+          }
         }
       }),
       h(ControlBox, {

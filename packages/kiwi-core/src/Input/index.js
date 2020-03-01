@@ -83,7 +83,7 @@ const Input = {
         input: this.emitValue
       },
       ref: 'input'
-    })
+    }, this.$slots.default)
   }
 }
 

@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import numberInputStyles from './numberinput.styles'
 import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
 import { calculatePrecision, roundToPrecision, preventNonNumberKey } from './utils'
+import { inputProps } from '../Input/input.props'
 
 /**
  * NumberInput component
@@ -21,7 +22,6 @@ const NumberInput = {
       type: Boolean,
       default: true
     },
-    // TODO: implement clampValueOnBlur
     clampValueOnBlur: {
       type: Boolean,
       default: true
@@ -84,7 +84,7 @@ const NumberInput = {
   computed: {
     NumberInputContext () {
       return {
-        set: this.set,
+        size: this.size,
         value: this._value,
         isReadOnly: this.isReadOnly,
         isInvalid: this.isInvalid,
@@ -164,7 +164,11 @@ const NumberInput = {
     },
     _value: {
       get () {
-        return this.isControlled ? roundToPrecision(this.value, this._precision) : roundToPrecision(this.innerValue, this._precision)
+        return this.isControlled
+          ? roundToPrecision(this.value, this._precision)
+          : this.innerValue
+            ? roundToPrecision(this.innerValue, this._precision)
+            : this.innerValue
       },
       set (val) {
         if (!this.defaultValue) {
@@ -418,19 +422,6 @@ const NumberInput = {
     handleChange (event, value) {
       this.updateValue(event.target.value)
       this.$emit('change', event, value)
-    },
-
-    /**
-     * Sets the value of any component instance property.
-     * This function is to be passed down to context so that consumers
-     * can mutate context values with out doing it directly.
-     * Serves as a temporary fix until Vue 3 comes out
-     * @param {String} prop Component instance property
-     * @param {Any} value Property value
-     */
-    set (prop, value) {
-      this[prop] = value
-      return this[prop]
     }
   },
   render (h) {
@@ -457,7 +448,10 @@ const NumberInputField = {
       return this.$NumberInputContext()
     }
   },
-  props: styleProps,
+  props: {
+    ...styleProps,
+    ...inputProps
+  },
   render (h) {
     const { size, inputId, input: {
       value,

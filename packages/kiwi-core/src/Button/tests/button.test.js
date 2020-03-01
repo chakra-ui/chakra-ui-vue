@@ -2,7 +2,7 @@ import Button from '@/packages/kiwi-core/src/Button'
 import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
 
 const renderComponent = (props) => {
-  const baseButton = {
+  const base = {
     components: {
       Button
     },
@@ -22,7 +22,7 @@ const renderComponent = (props) => {
     template: `<Button>Works</Button>`,
     ...props
   }
-  return render(baseButton)
+  return render(base)
 }
 
 it('should render correctly', () => {

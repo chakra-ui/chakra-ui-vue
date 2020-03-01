@@ -3,7 +3,7 @@ import ButtonGroup from '@/packages/kiwi-core/src/ButtonGroup'
 import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
 
 const renderComponent = (props) => {
-  const baseButton = {
+  const base = {
     components: {
       Button,
       ButtonGroup
@@ -16,7 +16,7 @@ const renderComponent = (props) => {
     </ButtonGroup>`,
     ...props
   }
-  return render(baseButton)
+  return render(base)
 }
 
 it('should render correctly', () => {

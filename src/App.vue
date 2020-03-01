@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- With custom element -->
-    <NumberInput :defaultValue="15" :precision="2" :step="5">
+    <NumberInput :defaultValue="15" clampValueOnBlur :max="30">
       <NumberInputField />
       <NumberInputStepper>
         <NumberIncrementStepper />

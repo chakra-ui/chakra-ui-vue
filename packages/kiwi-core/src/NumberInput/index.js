@@ -6,7 +6,7 @@ import PseudoBox from '../PseudoBox'
 import Icon from '../Icon'
 import numberInputStyles from './numberinput.styles'
 import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
-import { calculatePrecision, roundToPrecision } from './utils'
+import { calculatePrecision, roundToPrecision, preventNonNumberKey } from './utils'
 
 /**
  * NumberInput component
@@ -21,6 +21,7 @@ const NumberInput = {
       type: Boolean,
       default: true
     },
+    // TODO: implement clampValueOnBlur
     clampValueOnBlur: {
       type: Boolean,
       default: true
@@ -267,13 +268,28 @@ const NumberInput = {
     },
 
     /**
+     * Get increment factor
+     */
+    getIncrementFactor (event) {
+      let ratio = 1
+      if (event.metaKey || event.ctrlKey) {
+        ratio = 0.1
+      }
+      if (event.shiftKey) {
+        ratio = 10
+      }
+      return ratio
+    },
+
+    /**
      * Determines whether a value should be converted to number
      * @param {String} value
      */
     shouldConvertToNumber (value) {
-      const hasDot = value.indexOf('.') > -1
-      const hasTrailingZero = value.substr(value.length - 1) === '0'
-      const hasTrailingDot = value.substr(value.length - 1) === '.'
+      const _value = typeof value !== 'string' ? String(value) : value
+      const hasDot = _value.indexOf('.') > -1
+      const hasTrailingZero = _value.substr(_value.length - 1) === '0'
+      const hasTrailingDot = _value.substr(_value.length - 1) === '.'
       if (hasDot && hasTrailingZero) return false
       if (hasDot && hasTrailingDot) return false
       return true
@@ -285,10 +301,8 @@ const NumberInput = {
      */
     updateValue (nextValue) {
       if (this.prevNextValue === nextValue) return
-
       const shouldConvert = this.shouldConvertToNumber(nextValue)
       const converted = shouldConvert ? +nextValue : nextValue
-
       if (!this.isControlled) {
         this._value = converted
       }
@@ -366,15 +380,44 @@ const NumberInput = {
      */
     handleKeydown (event) {
       this.$emit('keydown', event)
+      preventNonNumberKey(event)
+      if (!this.isInteractive) return
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault()
+        const ratio = this.getIncrementFactor(event)
+        this.handleIncrement(ratio * this.step)
+      }
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault()
+        const ratio = this.getIncrementFactor(event)
+        this.handleDecrement(ratio * this.step)
+      }
+
+      if (event.key === 'Home') {
+        event.preventDefault()
+        if (isDef(this.min)) {
+          this.updateValue(this.max)
+        }
+      }
+
+      if (event.key === 'End') {
+        event.preventDefault()
+        if (isDef(this.max)) {
+          this.updateValue(this.min)
+        }
+      }
     },
 
     /**
      *
      * @param {Event} event Event object
-     * @param {Any} value Value
+     * @param {Any} event Value
      */
-    handleChange (value, event) {
-      this.$emit('change', value, event)
+    handleChange (event, value) {
+      this.updateValue(event.target.value)
+      this.$emit('change', event, value)
     },
 
     /**
@@ -439,6 +482,9 @@ const NumberInputField = {
       attrs: {
         id: inputId,
         ...otherInputAttrs
+      },
+      on: {
+        change: wrapEvent((e) => this.$emit('change', e), _onChange)
       },
       nativeOn: {
         input: wrapEvent((e) => this.$emit('change', e), _onChange),

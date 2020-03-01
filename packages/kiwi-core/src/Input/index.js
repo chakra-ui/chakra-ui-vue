@@ -82,7 +82,7 @@ const Input = {
   methods: {
     emitValue (event) {
       this.$emit('input', event.target.value, event)
-      this.$emit('change', event.target.value, event)
+      this.$emit('change', event)
     }
   },
   render (h) {
@@ -98,8 +98,10 @@ const Input = {
         as: this.as,
         ...inputStyles
       },
+      domProps: {
+        value: this.value
+      },
       attrs: {
-        value: this.value,
         'aria-readonly': this.isReadOnly,
         'read-only': this.formControl.isReadOnly,
         disabled: this.formControl.isDisabled,

@@ -44,3 +44,17 @@ storiesOf('UI | NumberInput', module)
       </Box>
     `
   }))
+  .add('With precision', () => ({
+    components: { Box, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper },
+    template: `
+      <Box mb="3">
+        <NumberInput :defaultValue="15" :precision="2">
+          <NumberInputField />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+      </Box>
+    `
+  }))

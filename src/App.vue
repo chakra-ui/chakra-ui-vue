@@ -1,23 +1,34 @@
 <template>
-  <div>
-    <Select
-      backgroundColor="tomato"
-      borderColor="tomato"
-      color="white"
-      placeholder="Woohoo! A new background color!"
-    />
-  </div>
+  <Box w="300px">
+    <Slider :defaultValue="30">
+      <SliderTrack bg="red.100" />
+      <SliderFilledTrack bg="tomato" />
+      <SliderThumb p="3" d="flex" alignItems="center" justifyContent="center">
+        <Icon name="coffee" color="tomato" />
+      </SliderThumb>
+    </Slider>
+  </Box>
 </template>
 
 <script lang="js">
 import {
-  Select } from '../packages/kiwi-core/dist/esm'
+  Slider,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  Box,
+  Icon } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Select
+    Slider,
+    SliderTrack,
+    SliderFilledTrack,
+    SliderThumb,
+    Box,
+    Icon
   },
   data () {
     return {

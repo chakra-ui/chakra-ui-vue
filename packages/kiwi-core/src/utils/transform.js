@@ -47,7 +47,7 @@ export const transformAlias = props => {
 
 /**
  * Converts value to percentage
- * @param {Number} valye Value
+ * @param {Number} value Value
  * @param {Number} min Minimum value
  * @param {Number} max Maximum value
  * @returns {Number} Percentage value

@@ -1,9 +1,11 @@
 <template>
   <Box w="300px">
     <Slider :defaultValue="30">
-      <SliderTrack />
-      <SliderFilledTrack />
-      <SliderThumb />
+      <SliderTrack bg="red.100" />
+      <SliderFilledTrack bg="tomato" />
+      <SliderThumb p="3" d="flex" alignItems="center" justifyContent="center">
+        <Icon name="coffee" color="tomato" />
+      </SliderThumb>
     </Slider>
   </Box>
 </template>
@@ -14,7 +16,8 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  Box } from '../packages/kiwi-core/dist/esm'
+  Box,
+  Icon } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -24,7 +27,8 @@ export default {
     SliderTrack,
     SliderFilledTrack,
     SliderThumb,
-    Box
+    Box,
+    Icon
   },
   data () {
     return {

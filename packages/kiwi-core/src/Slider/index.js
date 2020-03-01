@@ -324,8 +324,8 @@ const SliderTrack = {
     const { isDisabled, trackId } = this.context
     return h(Box, {
       props: {
-        ...this.$props,
-        ...this.trackStyles
+        ...this.trackStyles,
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: trackId,
@@ -366,8 +366,8 @@ const SliderFilledTrack = {
     const { isDisabled } = this.context
     return h(PseudoBox, {
       props: {
-        ...this.$props,
-        ...this.filledTrackStyles
+        ...this.filledTrackStyles,
+        ...forwardProps(this.$props)
       },
       attrs: {
         'aria-disabled': isDisabled,
@@ -378,57 +378,8 @@ const SliderFilledTrack = {
 }
 
 /**
- * export const SliderThumb = forwardRef((props, ref) => {
-  const {
-    thumbRef,
-    isDisabled,
-    onFocus,
-    onThumbKeyDown: onKeyDown,
-    min,
-    max,
-    valueText,
-    orientation,
-    trackPercent,
-    size,
-    color,
-    value,
-    ariaLabelledBy,
-  } = useSliderContext();
-  const { thumbStyle } = useSliderStyle({
-    trackPercent,
-    orientation,
-    size,
-    color,
-  });
-
-  const sliderThumbRef = useForkRef(thumbRef, ref);
-  return (
-    <PseudoBox
-      data-slider-thumb=""
-      d="flex"
-      alignItems="center"
-      outline="none"
-      justifyContent="center"
-      onFocus={onFocus}
-      ref={sliderThumbRef}
-      role="slider"
-      tabIndex={isDisabled ? undefined : 0}
-      aria-disabled={isDisabled}
-      aria-valuemin={min}
-      aria-valuetext={valueText}
-      aria-orientation={orientation}
-      aria-valuenow={value}
-      aria-valuemax={max}
-      aria-labelledby={ariaLabelledBy}
-      onKeyDown={onKeyDown}
-      {...thumbStyle}
-      {...props}
-    />
-  );
-});
-
+ * SliderThumb component
  */
-
 const SliderThumb = {
   name: 'SliderThumb',
   inject: ['$SliderContext', '$theme', '$colorMode'],

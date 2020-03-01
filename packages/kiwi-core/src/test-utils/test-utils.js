@@ -10,11 +10,11 @@ const defaultProviders = (options) => ({
   ...options
 })
 
-const customRender = (component) => {
+const customRender = (component, ...rest) => {
   const defaults = {
     provide: () => defaultProviders()
   }
-  const utils = render({ ...defaults, ...component })
+  const utils = render({ ...defaults, ...component }, ...rest)
   return {
     ...utils,
     asFragment: () => {

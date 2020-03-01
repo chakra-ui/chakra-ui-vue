@@ -32,7 +32,8 @@ const VisuallyHidden = {
       class: [this.className],
       props: {
         as: this.as
-      }
+      },
+      attrs: this.$attrs
     }, this.$slots.default)
   }
 }

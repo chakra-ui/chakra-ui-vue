@@ -36,6 +36,10 @@ const interactionProps = ({ color, colorMode }) => {
   }
 }
 
+/**
+ * Creates checkbox styles
+ * @param {{colorMode: String, size: String, color: String, type: String}} props
+ */
 const useCheckboxStyle = props => {
   const sizes = {
     lg: 5,

@@ -1,43 +1,44 @@
 <template>
   <div>
-    <NumberInput size="sm" :defaultValue="15" clampValueOnBlur :max="30">
-      <NumberInputField focusBorderColor="red.200" />
-      <NumberInputStepper>
-        <NumberIncrementStepper
-          bg="green.200"
-          :_active="{ bg: 'green.300' }"
-        >+</NumberIncrementStepper>
-        <NumberDecrementStepper
-          bg="pink.200"
-          :_active="{ bg: 'pink.300' }"
-        >-</NumberDecrementStepper>
-      </NumberInputStepper>
-    </NumberInput>
+    <Checkbox
+      :isChecked="allChecked"
+      :isIndeterminate="isIndeterminate"
+      @change="(val, $e) => { checkedItems = [$e.target.checked, $e.target.checked] }"
+    >
+      Parent Checkbox
+    </Checkbox>
+    <Stack pl="6" mt="1" spacing="1">
+      <Checkbox
+        :isChecked="checkedItems[0]"
+        @change="(val, $e) => { checkedItems = [$e.target.checked, checkedItems[1]] }"
+      >
+        Child Checkbox 1
+      </Checkbox>
+      <Checkbox
+        :isChecked="checkedItems[1]"
+        @change="(val, $e) => { checkedItems = [checkedItems[0], $e.target.checked] }"
+      >
+        Child Checkbox 2
+      </Checkbox>
+    </Stack>
   </div>
 </template>
 
 <script lang="js">
 import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper } from '../packages/kiwi-core/dist/esm'
+  Stack,
+  Checkbox } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper
+    Stack,
+    Checkbox
   },
   data () {
     return {
-      inputValue: 'Default value',
-      shouldShowPassword: false
+      checkedItems: [false, false]
     }
   },
   computed: {
@@ -46,6 +47,12 @@ export default {
     },
     theme () {
       return this.$theme()
+    },
+    allChecked () {
+      return this.checkedItems.every(Boolean)
+    },
+    isIndeterminate () {
+      return this.checkedItems.some(Boolean) && !this.allChecked
     }
   },
   watch: {

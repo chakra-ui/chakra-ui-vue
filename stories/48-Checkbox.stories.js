@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { Box, Checkbox } from '../packages/kiwi-core/src'
+import { Box, Checkbox, Stack } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Checkbox', module)
   .add('Basic Usage', () => ({
@@ -20,4 +20,15 @@ storiesOf('UI | Checkbox', module)
     methods: {
       action: action()
     }
+  }))
+  .add('Disabled', () => ({
+    components: { Stack, Checkbox },
+    template: `
+      <Stack spacing="10" isInline>
+        <Checkbox isDisabled>Checkbox</Checkbox>
+        <Checkbox isDisabled defaultIsChecked>
+          Checkbox
+        </Checkbox>
+      </Stack>
+    `
   }))

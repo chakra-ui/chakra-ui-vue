@@ -1,19 +1,26 @@
 <template>
   <div>
-    <Checkbox v-model="isChecked">
-      Checkbox
-    </Checkbox>
+    <Stack spacing="10" isInline>
+      <Checkbox variantColor="red" defaultIsChecked>
+        Checkbox
+      </Checkbox>
+      <Checkbox variantColor="green" defaultIsChecked>
+        Checkbox
+      </Checkbox>
+    </Stack>
   </div>
 </template>
 
 <script lang="js">
 import {
+  Stack,
   Checkbox } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
+    Stack,
     Checkbox
   },
   data () {

@@ -16,10 +16,7 @@ const Checkbox = {
   },
   props: {
     ...baseProps,
-    id: {
-      type: String,
-      default: `checkbox-${useId()}`
-    },
+    id: String,
     name: String,
     value: [String, Boolean],
     ariaLabel: String,
@@ -61,6 +58,9 @@ const Checkbox = {
         size: this.size,
         colorMode: this.colorMode
       })
+    },
+    _id () {
+      return this.id || `checkbox-${useId(4)}`
     }
   },
   created () {
@@ -86,7 +86,7 @@ const Checkbox = {
         cursor: this.isDisabled ? 'not-allowed' : 'pointer'
       },
       attrs: {
-        for: this.id
+        for: this._id
       }
     }, [
       h(VisuallyHidden, {
@@ -107,7 +107,7 @@ const Checkbox = {
         attrs: {
           name: this.name,
           type: 'checkbox',
-          id: this.id,
+          id: this._id,
           'aria-label': this.ariaLabel,
           'aria-labelledby': this.ariaLabelledBy,
           disabled: this.isDisabled,

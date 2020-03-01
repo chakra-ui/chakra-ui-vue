@@ -22,6 +22,10 @@ const switchSizes = {
 const Switch = {
   name: '_Switch',
   inject: ['$colorMode'],
+  model: {
+    prop: 'isChecked',
+    event: 'change'
+  },
   props: {
     ...styleProps,
     id: String,
@@ -80,6 +84,11 @@ const Switch = {
       }
     }
   },
+  methods: {
+    handleChange (event) {
+      this.$emit('change', !this.isChecked, event)
+    }
+  },
   render (h) {
     return h(Box, {
       props: {
@@ -106,9 +115,7 @@ const Switch = {
           disabled: this.isDisabled
         },
         nativeOn: {
-          change: ($event) => {
-            this.$emit('change', $event)
-          }
+          change: this.handleChange
         }
       }),
       h(ControlBox, {

@@ -16,7 +16,7 @@ const thumbStyle = ({ thumbSize, trackPercent, theme }) => {
     left: `calc(${trackPercent}% - ${thumbSize} / 2)`,
     border: '1px',
     borderColor: 'transparent',
-    transition: 'transform 0.2s',
+    transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)',
     _focus: {
       shadow: 'outline'
     },
@@ -35,7 +35,8 @@ const filledTrackStyle = ({ trackHeight, trackPercent, color, colorMode }) => {
     height: trackHeight,
     bg: colorMode === 'light' ? `${color}.500` : `${color}.200`,
     width: `${trackPercent}%`,
-    rounded: 'sm'
+    rounded: 'sm',
+    transition: 'width 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)'
   }
 }
 

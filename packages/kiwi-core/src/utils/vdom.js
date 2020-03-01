@@ -75,3 +75,13 @@ export function getFirstComponentChild (children) {
     }
   }
 }
+
+/**
+ * Clears out all undefined or nullish vnodes
+ * @param {Array<Vue.VNode>} vnodes Array of VNodes
+ * @returns {Array<Vue.VNode>}
+ */
+export function cleanChildren (vnodes) {
+  if (!vnodes) return []
+  return vnodes.filter(vnode => vnode.tag)
+}

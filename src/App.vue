@@ -1,38 +1,31 @@
 <template>
   <Box w="300px">
-    <Slider :defaultValue="30">
-      <SliderTrack bg="red.100" />
-      <SliderFilledTrack bg="tomato" />
-      <SliderThumb p="3" d="flex" alignItems="center" justifyContent="center">
-        <Icon name="coffee" color="tomato" />
-      </SliderThumb>
-    </Slider>
+    <CheckboxGroup v-model="selectedValues" variantColor="green" :defaultValue="['two']">
+      <Checkbox value="one">One</Checkbox>
+      <Checkbox value="two">Two</Checkbox>
+      <Checkbox value="three">Three</Checkbox>
+    </CheckboxGroup>
   </Box>
 </template>
 
 <script lang="js">
 import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Box,
-  Icon } from '../packages/kiwi-core/dist/esm'
+  Checkbox,
+  CheckboxGroup,
+  Box } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Slider,
-    SliderTrack,
-    SliderFilledTrack,
-    SliderThumb,
-    Box,
-    Icon
+    Checkbox,
+    CheckboxGroup,
+    Box
   },
   data () {
     return {
-      checkedItems: [false, false]
+      checkedItems: [false, false],
+      selectedValues: []
     }
   },
   computed: {

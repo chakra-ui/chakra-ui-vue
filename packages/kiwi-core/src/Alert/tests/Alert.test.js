@@ -1,9 +1,11 @@
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../'
-import { render } from '@/packages/kiwi-core/src/test-utils'
+import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
+import icons from '@/packages/kiwi-core/src/lib/internal-icons'
 
 const renderComponent = (props) => {
   const base = {
     components: { Alert, AlertTitle, AlertDescription, AlertIcon },
+    provide: () => defaultProviders({ $icons: { add: icons.add } }),
     template: `
     <Alert>
       <AlertIcon />
@@ -29,4 +31,15 @@ it('should display description', () => {
   const { getByText } = renderComponent()
 
   expect(getByText('alert description')).toBeInTheDocument()
+})
+
+it('should override icon if set explicitly', () => {
+  const { asFragment } = renderComponent({
+    template: `
+    <Alert status="error">
+      <AlertIcon name="add" />
+    </Alert>`
+  })
+
+  expect(asFragment()).toMatchSnapshot()
 })

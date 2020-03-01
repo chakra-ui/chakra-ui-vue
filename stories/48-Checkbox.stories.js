@@ -64,8 +64,49 @@ storiesOf('UI | Checkbox', module)
   .add('Invalid checkbox', () => ({
     components: { Box, Checkbox },
     template: `
-      <Box mb="3">
-        <Checkbox isInvalid>Checkbox</Checkbox>
-      </Box>
+    <Box mb="3">
+    <Checkbox isInvalid>Checkbox</Checkbox>
+    </Box>
     `
+  }))
+  .add('Is indeterminate example', () => ({
+    components: { Stack, Box, Checkbox },
+    template: `
+      <Box>
+        <Checkbox
+        :isChecked="allChecked"
+        :isIndeterminate="isIndeterminate"
+        @change="(val, $e) => { checkedItems = [$e.target.checked, $e.target.checked] }"
+      >
+        Parent Checkbox
+      </Checkbox>
+      <Stack pl="6" mt="1" spacing="1">
+        <Checkbox
+          :isChecked="checkedItems[0]"
+          @change="(val, $e) => { checkedItems = [$e.target.checked, checkedItems[1]] }"
+        >
+          Child Checkbox 1
+        </Checkbox>
+        <Checkbox
+          :isChecked="checkedItems[1]"
+          @change="(val, $e) => { checkedItems = [checkedItems[0], $e.target.checked] }"
+        >
+          Child Checkbox 2
+        </Checkbox>
+      </Stack>
+      </Box>
+    `,
+    data () {
+      return {
+        checkedItems: [false, false]
+      }
+    },
+    computed: {
+      allChecked () {
+        return this.checkedItems.every(Boolean)
+      },
+      isIndeterminate () {
+        return this.checkedItems.some(Boolean) && !this.allChecked
+      }
+    }
   }))

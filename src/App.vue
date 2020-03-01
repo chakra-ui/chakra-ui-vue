@@ -21,11 +21,6 @@
         Child Checkbox 2
       </Checkbox>
     </Stack>
-    <Checkbox
-      isIndeterminate
-    >
-      Indeterminate Checkbox
-    </Checkbox>
   </div>
 </template>
 

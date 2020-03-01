@@ -1,15 +1,25 @@
 import { StringNumber, StringArray } from '../config/props/props.types'
 import { baseProps } from '../config'
-import { useVariantColorWarning } from '../utils'
+import { useVariantColorWarning, useId } from '../utils'
 import useCheckboxStyle from './checkbox.styles'
 import Box from '../Box'
+import VisuallyHidden from '../VisuallyHidden'
+import ControlBox from '../ControlBox'
+import Icon from '../Icon'
 
 const Checkbox = {
   name: 'Checkbox',
   inject: ['$theme', '$colorMode'],
+  model: {
+    prop: 'isChecked',
+    event: 'change'
+  },
   props: {
     ...baseProps,
-    id: String,
+    id: {
+      type: String,
+      default: `checkbox-${useId()}`
+    },
     name: String,
     value: [String, Boolean],
     ariaLabel: String,
@@ -19,7 +29,10 @@ const Checkbox = {
       default: 'blue'
     },
     defaultIsChecked: Boolean,
-    isChecked: Boolean,
+    isChecked: {
+      type: Boolean,
+      default: false
+    },
     isFullWidth: Boolean,
     size: {
       type: String,
@@ -54,7 +67,14 @@ const Checkbox = {
     // Ensure that the use of the variantColor props is consistent with theme.
     useVariantColorWarning(this.theme, 'Checkbox', this.variantColor)
   },
+  methods: {
+    handleChange (e) {
+      this.$emit('change', !this.isChecked, e)
+    }
+  },
   render (h) {
+    const children = this.$slots.default
+
     return h(Box, {
       props: {
         ...this.$props,
@@ -64,8 +84,66 @@ const Checkbox = {
         alignItems: 'center',
         width: this.isFullWidth ? 'full' : undefined,
         cursor: this.isDisabled ? 'not-allowed' : 'pointer'
+      },
+      attrs: {
+        for: this.id
       }
-    })
+    }, [
+      h(VisuallyHidden, {
+        props: {
+          as: 'input'
+        },
+        domProps: {
+          value: this.value,
+          defaultChecked: this.isReadOnly ? undefined : this.defaultIsChecked,
+          checked:
+            this.isReadOnly
+              ? this.isChecked
+              : this.defaultIsChecked
+                ? undefined
+                : this.isChecked,
+          'aria-checked': this.isIndeterminate ? 'mixed' : this.isChecked
+        },
+        attrs: {
+          name: this.name,
+          type: 'checkbox',
+          id: this.id,
+          'aria-label': this.ariaLabel,
+          'aria-labelledby': this.ariaLabelledBy,
+          disabled: this.isDisabled,
+          readOnly: this.isReadOnly,
+          'aria-readonly': this.isReadOnly,
+          'aria-invalid': this.isInvalid
+        },
+        nativeOn: {
+          change: this.isReadOnly ? undefined : this.handleChange
+        }
+      }),
+      h(ControlBox, {
+        props: {
+          opacity: this.isReadOnly ? 0.8 : 1,
+          ...this.checkBoxStyles
+        }
+      }, [
+        h(Icon, {
+          props: {
+            name: this.isIndeterminate ? 'minus' : 'check',
+            size: this.iconSize,
+            color: this.iconColor,
+            transition: 'transform 240ms, opacity 240ms'
+          }
+        })
+      ]),
+      children && h(Box, {
+        props: {
+          ml: 2,
+          fontSize: this.size,
+          fontFamily: 'body',
+          userSelect: 'none',
+          opacity: this.isDisabled ? 0.4 : 1
+        }
+      }, children)
+    ])
   }
 }
 

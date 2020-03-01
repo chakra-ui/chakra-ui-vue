@@ -1,43 +1,26 @@
 <template>
   <div>
-    <NumberInput size="sm" :defaultValue="15" clampValueOnBlur :max="30">
-      <NumberInputField focusBorderColor="red.200" />
-      <NumberInputStepper>
-        <NumberIncrementStepper
-          bg="green.200"
-          :_active="{ bg: 'green.300' }"
-        >+</NumberIncrementStepper>
-        <NumberDecrementStepper
-          bg="pink.200"
-          :_active="{ bg: 'pink.300' }"
-        >-</NumberDecrementStepper>
-      </NumberInputStepper>
-    </NumberInput>
+    <Checkbox v-model="isChecked">
+      Checkbox
+    </Checkbox>
   </div>
 </template>
 
 <script lang="js">
 import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper } from '../packages/kiwi-core/dist/esm'
+  Checkbox } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper
+    Checkbox
   },
   data () {
     return {
       inputValue: 'Default value',
-      shouldShowPassword: false
+      shouldShowPassword: false,
+      isChecked: false
     }
   },
   computed: {

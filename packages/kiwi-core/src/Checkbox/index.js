@@ -101,8 +101,7 @@ const Checkbox = {
               ? this.isChecked
               : this.defaultIsChecked
                 ? undefined
-                : this.isChecked,
-          'aria-checked': this.isIndeterminate ? 'mixed' : this.isChecked
+                : this.isChecked
         },
         attrs: {
           name: this.name,
@@ -113,7 +112,8 @@ const Checkbox = {
           disabled: this.isDisabled,
           readOnly: this.isReadOnly,
           'aria-readonly': this.isReadOnly,
-          'aria-invalid': this.isInvalid
+          'aria-invalid': this.isInvalid,
+          'aria-checked': this.isIndeterminate ? 'mixed' : this.isChecked
         },
         nativeOn: {
           change: this.isReadOnly ? undefined : this.handleChange

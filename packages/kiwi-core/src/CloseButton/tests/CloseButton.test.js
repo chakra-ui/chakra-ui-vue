@@ -23,3 +23,12 @@ it('should allow setting a custom aria-label for the button', () => {
     'my aria label'
   )
 })
+
+test('a11y - should have aria-label set to "Close"', () => {
+  const { container } = renderComponent()
+
+  expect(container.querySelector('button')).toHaveAttribute(
+    'aria-label',
+    'Close'
+  )
+})

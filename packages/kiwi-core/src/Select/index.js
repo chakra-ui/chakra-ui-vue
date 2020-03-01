@@ -48,6 +48,9 @@ const SelectInput = {
         pr: '2rem',
         pb: 'px',
         lineHeight: 'normal'
+      },
+      on: {
+        change: (e) => this.$emit('change', e)
       }
     }, [
       this.placeholder && h('option', {
@@ -65,6 +68,7 @@ const Select = {
   inject: ['$colorMode'],
   props: {
     ...styleProps,
+    ...inputProps,
     rootProps: {
       type: Object,
       default: () => ({})
@@ -73,6 +77,10 @@ const Select = {
     iconSize: {
       type: Number,
       default: 5
+    },
+    size: {
+      type: String,
+      default: 'md'
     },
     isReadOnly: Boolean,
     isDisabled: Boolean,
@@ -105,6 +113,9 @@ const Select = {
           color: this._color,
           placeholder: this.placeholder,
           ...select
+        },
+        on: {
+          change: (e) => this.$emit('change', e.target.value)
         }
       }, this.$slots.default),
       h(SelectIconWrapper, {

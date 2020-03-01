@@ -32,12 +32,11 @@ it('should switch', async () => {
 })
 
 it('should emit a change event', async () => {
-  const events = []
-  const eventsHandler = jest.fn(evt => events.push(evt.type))
+  const spy = jest.fn()
   const { getByTestId } = renderComponent(
     {
       methods: {
-        handleChange: eventsHandler
+        handleChange: spy
       },
       template: `<Toggle data-testid="label" @change="handleChange"  /> `
     }
@@ -45,5 +44,6 @@ it('should emit a change event', async () => {
 
   const label = getByTestId('label')
   userEvent.click(label)
-  expect(events).toEqual(['change'])
+
+  expect(spy).toHaveBeenCalledTimes(1)
 })

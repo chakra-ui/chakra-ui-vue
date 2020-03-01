@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="40"
+    class="css-xqz7ss"
+    data-testid="CircularProgress"
+    role="progressbar"
+  >
+    <svg
+      class="css-1hoc9jg"
+      viewBox="55.55555555555556 55.55555555555556 111.11111111111111 111.11111111111111"
+    >
+      <circle
+        class="css-ykn8or"
+        cx="111.11111111111111"
+        cy="111.11111111111111"
+        r="50"
+        stroke-dasharray="314.159"
+        stroke-dashoffset="0"
+        stroke-width="11.111111111111112"
+      />
+      <circle
+        class="css-1h10kks"
+        cx="111.11111111111111"
+        cy="111.11111111111111"
+        r="50"
+        stroke-dasharray="314.159"
+        stroke-dashoffset="188.4955592153876"
+        stroke-width="11.111111111111112"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

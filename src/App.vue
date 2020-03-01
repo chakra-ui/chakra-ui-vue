@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       checkedItems: [false, false],
-      selectedValues: []
+      selectedValues: ['two']
     }
   },
   computed: {

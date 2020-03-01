@@ -1,39 +1,38 @@
 <template>
   <div>
-    <!-- With custom element -->
-    <Box mb="3">
-      <Toggle
-        size="sm"
-        @change="handleChange"
-        color="green"
-        mr="3"
-      />
-      <Toggle
-        size="md"
-        @change="handleChange"
-        color="blue"
-        mr="3"
-      />
-      <Toggle
-        size="lg"
-        @change="handleChange"
-        color="cyan"
-      />
-    </Box>
+    <NumberInput size="sm" :defaultValue="15" clampValueOnBlur :max="30">
+      <NumberInputField focusBorderColor="red.200" />
+      <NumberInputStepper>
+        <NumberIncrementStepper
+          bg="green.200"
+          :_active="{ bg: 'green.300' }"
+        >+</NumberIncrementStepper>
+        <NumberDecrementStepper
+          bg="pink.200"
+          :_active="{ bg: 'pink.300' }"
+        >-</NumberDecrementStepper>
+      </NumberInputStepper>
+    </NumberInput>
   </div>
 </template>
 
 <script lang="js">
 import {
-  Box,
-  Switch } from '../packages/kiwi-core/dist/esm'
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Box,
-    Toggle: Switch
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper
   },
   data () {
     return {

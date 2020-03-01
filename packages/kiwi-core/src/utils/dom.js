@@ -70,3 +70,13 @@ export const getElement = (selector, domain) => {
     return domain.querySelector(selector)
   }
 }
+
+/**
+ * Queries an element by ID from the DOM
+ * @param {String} id Element id
+ * @param {Node} domain HTML element in which to query for element
+ * @returns {Node} Node
+ */
+export const getElById = (id, domain) => {
+  return getElement(`#${id}`, domain)
+}

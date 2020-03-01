@@ -8,16 +8,17 @@ const thumbStyle = ({ thumbSize, trackPercent, theme }) => {
   return {
     ...centeredProps,
     zIndex: 1,
-    size: thumbSize,
+    width: thumbSize,
+    height: thumbSize,
     rounded: 'full',
     bg: '#fff',
-    boxShadow: 'sm',
+    shadow: 'sm',
     left: `calc(${trackPercent}% - ${thumbSize} / 2)`,
     border: '1px',
     borderColor: 'transparent',
     transition: 'transform 0.2s',
     _focus: {
-      boxShadow: 'outline'
+      shadow: 'outline'
     },
     _disabled: {
       backgroundColor: 'gray.300'

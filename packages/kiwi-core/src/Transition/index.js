@@ -1,6 +1,6 @@
 import { computed, createElement as h } from '@vue/composition-api'
 import anime from 'animejs'
-import { isUndef, isVueComponent } from '../utils'
+import { isUndef, isVueComponent, cloneVNodeElement, cleanChildren } from '../utils'
 import Box from '../Box'
 
 /**
@@ -120,38 +120,71 @@ const Slide = {
 const Scale = {
   name: 'Scale',
   props: {
-    in: Boolean,
-    initialScale: {
+    initialHeight: {
       type: Number,
-      default: 0.97
+      default: 0
     },
     duration: {
       type: Number,
       default: 150
+    },
+    enterEasing: {
+      type: String,
+      default: enterEasing
+    },
+    leaveEasing: {
+      type: String,
+      default: leaveEasing
+    },
+    finalHeight: Number,
+    animateOpacity: {
+      type: Boolean,
+      default: true
     }
   },
-  setup (props, context) {
-    const enter = (el, complete) => {
+  methods: {
+    enter (el, complete) {
       anime({
         targets: el,
         opacity: [0, 1],
-        scale: [props.initialScale, 1],
+        scale: [this.initialScale, 1],
         easing: enterEasing,
         complete
       })
-    }
-
-    const leave = (el, complete) => {
+    },
+    leave (el, complete) {
       anime({
         targets: el,
         opacity: [1, 0],
-        scale: [1, props.initialScale],
+        scale: [1, this.initialScale],
         easing: leaveEasing,
         complete
       })
     }
+  },
+  render (h) {
+    let children
 
-    return () => renderChildren(props, context, { enter, leave })
+    const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
+    const clean = cleanChildren(children)
+    const clones = clean.map((vnode, index) => {
+      return cloneVNodeElement(vnode, {
+        key: `scale-${index}`
+      }, h)
+    })
+
+    return h(TransitionElement, {
+      props: {
+        css: false
+      },
+      on: {
+        beforeEnter (el) {
+          el && el.style.setProperty('will-change', 'opacity, transform')
+        },
+        enter: this.enter,
+        leave: this.leave
+      }
+    }, clones)
   }
 }
 
@@ -259,7 +292,14 @@ const RevealHeight = {
   },
   render (h) {
     const children = this.$slots.default
+    if (!children) return h()
     const TransitionElement = children ? children.length > 1 ? 'TransitionGroup' : 'Transition' : 'Transition'
+    const clones = children.map((vnode, index) => {
+      return cloneVNodeElement(vnode, {
+        key: `scale-${index}`
+      })
+    })
+
     return h(TransitionElement, {
       props: {
         css: false
@@ -278,7 +318,7 @@ const RevealHeight = {
           this.handleEmit('afterEnter', el)
         }
       }
-    }, children)
+    }, clones)
   }
 }
 

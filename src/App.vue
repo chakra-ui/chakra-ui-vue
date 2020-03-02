@@ -1,40 +1,55 @@
 <template>
   <Box w="300px">
-    <CheckboxGroup v-model="selectedValues" variantColor="green" :defaultValue="['two']">
-      <Checkbox value="one">One</Checkbox>
-      <Checkbox value="two">Two</Checkbox>
-      <Checkbox value="three">Three</Checkbox>
-    </CheckboxGroup>
-    <MModal :isOpen="isOpen">
-      <Box>
-        <Button>InitialFocusRef</Button>
-      </Box>
-    </MModal>
+    <Button @click="isOpen = true">Open Modal</Button>
+    <Modal :isOpen="isOpen">
+      <ModalContent>
+        <ModalHeader>
+          <h3>Modal Header</h3>
+        </ModalHeader>
+        <ModalBody>
+          <Lorem add="2s" />
+        </ModalBody>
+        <ModalFooter>
+          <Button mr="3">Cancel</Button>
+          <Button id="delete" variantColor="red">Delete Account</Button>
+        </ModalFooter>
+        <ModalCloseButton @click="isOpen = false" />
+      </ModalContent>
+      <ModalOverlay />
+    </Modal>
   </Box>
 </template>
 
 <script lang="js">
 import {
-  Checkbox,
-  CheckboxGroup,
   Box,
   Button,
-  MModal } from '../packages/kiwi-core/dist/esm'
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton } from '../packages/kiwi-core/dist/esm'
+import Lorem from 'vue-lorem-ipsum'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Checkbox,
-    CheckboxGroup,
     Box,
     Button,
-    MModal
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Lorem
   },
   data () {
     return {
-      checkedItems: [false, false],
-      selectedValues: ['two'],
       isOpen: false
     }
   },
@@ -47,9 +62,6 @@ export default {
     }
   },
   mounted () {
-    setInterval(() => {
-      this.isOpen = !this.isOpen
-    }, 4000)
   },
   methods: {
     handleChange: (value) => console.log(value),

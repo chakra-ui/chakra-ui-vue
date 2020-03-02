@@ -61,9 +61,10 @@ const Input = {
 
     return h(PseudoBox, {
       props: {
-        ...forwardProps(this.$props),
+        ...inputStyles,
         as: this.as,
-        ...inputStyles
+        fontFamily: 'body',
+        ...forwardProps(this.$props)
       },
       domProps: {
         value: this.value

@@ -1,30 +1,27 @@
 <template>
   <Box>
-    <AlertDialog
-      :is-open="isOpen"
-      :least-destructive-ref="$refs.cancelRef"
-      :on-close="close"
+    <Drawer
+      :isOpen="isOpen"
+      placement="top"
+      :onClose="close"
     >
-      <AlertDialogOverlay />
-      <AlertDialogContent>
-        <AlertDialogHeader font-size="lg" font-weight="bold">
-          Delete Customer
-        </AlertDialogHeader>
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerCloseButton @click="close"/>
+        <DrawerHeader>Create your account</DrawerHeader>
 
-        <AlertDialogBody>
-          Are you sure? You can't undo this action afterwards.
-        </AlertDialogBody>
+        <DrawerBody>
+          <Input placeholder="Type here..." />
+        </DrawerBody>
 
-        <AlertDialogFooter>
-          <Button ref="cancelRef" @click="close">
+        <DrawerFooter>
+          <Button variant="outline" mr="3" @click="close">
             Cancel
           </Button>
-          <Button variantColor="red" @click="close" ml="3">
-            Delete
-          </Button>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+          <Button variant-color="blue">Save</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
     <Button variant-color="red" @click="open">
       Delete Customer
     </Button>
@@ -35,12 +32,13 @@
 import {
   Box,
   Button,
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogOverlay,
-  AlertDialogHeader } from '../packages/kiwi-core/dist/esm'
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -48,12 +46,13 @@ export default {
   components: {
     Box,
     Button,
-    AlertDialog,
-    AlertDialogContent,
-    AlertDialogBody,
-    AlertDialogFooter,
-    AlertDialogOverlay,
-    AlertDialogHeader
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton
   },
   data () {
     return {

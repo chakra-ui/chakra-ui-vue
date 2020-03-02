@@ -1,4 +1,4 @@
-import { inject, computed } from '@vue/composition-api'
+import { colorModeObserver } from '../utils/color-mode-observer'
 
 const ThemeProvider = {
   name: 'ThemeProvider',
@@ -18,23 +18,23 @@ const ThemeProvider = {
       $icons: this.icons
     }
   },
+  watch: {
+    theme: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.theme = newVal
+      }
+    },
+    icons: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.icons = newVal
+      }
+    }
+  },
   render () {
     return this.$slots.default
   }
-}
-
-export function useTheme () {
-  const $theme = inject('$theme')
-  const theme = computed(() => $theme())
-  return {
-    theme
-  }
-}
-
-export function useColorMode () {
-  const $colorMode = inject('$colorMode')
-  const colorMode = computed(() => $colorMode())
-  return colorMode
 }
 
 export default ThemeProvider

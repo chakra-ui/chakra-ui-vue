@@ -1,3 +1,5 @@
+import { colorModeObserver } from '../utils/color-mode-observer'
+
 const ColorModeProvider = {
   name: 'ColorModeProvider',
   props: {
@@ -21,6 +23,14 @@ const ColorModeProvider = {
       },
       set (value) {
         this.colorMode = value
+      }
+    }
+  },
+  watch: {
+    _colorMode: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.colorMode = newVal
       }
     }
   },
@@ -59,24 +69,9 @@ const LightMode = {
   }
 }
 
-// TODO: Use composition API hooks.
-const inject = (val) => val
-const computed = (val) => val
-
-function useColorMode () {
-  const $colorMode = inject('$colorMode')
-  const colorMode = computed(() => $colorMode())
-  const toggleColorMode = inject('$toggleColorMode')
-  return {
-    colorMode,
-    toggleColorMode
-  }
-}
-
 export default ColorModeProvider
 
 export {
-  useColorMode,
   DarkMode,
   LightMode
 }

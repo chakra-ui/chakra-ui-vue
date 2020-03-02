@@ -1,4 +1,3 @@
-import { createElement as h, ref } from '@vue/composition-api'
 import baseProps from '../config/props'
 import { forwardProps } from '../utils'
 import {
@@ -31,37 +30,29 @@ const AlertDialog = {
     leastDestructiveRef: [HTMLElement, Object],
     ...baseProps
   },
-  setup (props, context) {
-    return () => {
-      return h(Modal, {
-        props: {
-          isOpen: props.isOpen,
-          onClose: props.onClose,
-          initialFocusRef: props.leastDestructiveRef,
-          formatIds,
-          ...forwardProps(props)
-        }
-      }, context.slots.default())
-    }
+  render (h) {
+    return h(Modal, {
+      props: {
+        isOpen: this.isOpen,
+        onClose: this.onClose,
+        initialFocusRef: this.leastDestructiveRef,
+        formatIds,
+        ...forwardProps(this.$props)
+      }
+    }, this.$slots.default)
   }
 }
 
 const AlertDialogContent = {
   name: 'AlertDialogContent',
   props: baseProps,
-  setup (props, context) {
-    const innerRef = ref(null)
-    return () => {
-      return h(ModalContent, {
-        props: {
-          ...forwardProps(props)
-        },
-        attrs: {
-          role: 'alertdialog'
-        },
-        ref: innerRef.value
-      }, context.slots.default())
-    }
+  render (h) {
+    return h(ModalContent, {
+      props: forwardProps(this.$props),
+      attrs: {
+        role: 'alertdialog'
+      }
+    }, this.$slots.default)
   }
 }
 

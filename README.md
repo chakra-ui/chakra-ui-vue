@@ -15,7 +15,7 @@ A complete list of all components to be built can be found here 👇🏽.
 ### Browsing Components
 You can also view all developed components in Storybook!
 
-<a href="https://codebender828.github.io/kiwi-ui/" target="_blank"><h3>🔖 View Storybook</h3></a>
+<a href="https://kiwi-ui.netlify.com" target="_blank"><h3>🔖 View Storybook</h3></a>
 
 ```bash
 yarn install

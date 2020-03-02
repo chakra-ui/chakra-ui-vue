@@ -37,7 +37,7 @@ export function cloneVNodes (vnodes, createElement) {
  * @param {Object} data VNode data
  * @param {Function} h Render function
  */
-export function cloneVNodeElement (vnode, { props, ...rest }, h) {
+export function cloneVNodeElement (vnode, { props, children, ...rest }, h) {
   const cloned = cloneVNode(vnode, h)
   return h(cloned.componentOptions.Ctor, {
     ...cloned.data,
@@ -48,7 +48,7 @@ export function cloneVNodeElement (vnode, { props, ...rest }, h) {
       ...props
     },
     ...rest
-  }, cloned.componentOptions.children)
+  }, cloned.componentOptions.children || children)
 }
 
 /**
@@ -74,4 +74,14 @@ export function getFirstComponentChild (children) {
       }
     }
   }
+}
+
+/**
+ * Clears out all undefined or nullish vnodes
+ * @param {Array<Vue.VNode>} vnodes Array of VNodes
+ * @returns {Array<Vue.VNode>}
+ */
+export function cleanChildren (vnodes) {
+  if (!vnodes) return []
+  return vnodes.filter(vnode => vnode.tag)
 }

@@ -1,26 +1,13 @@
 import { storiesOf } from '@storybook/vue'
-import { useToast, Button } from '../packages/kiwi-core/src'
-
-const toastMixin = {
-  data () {
-    return {
-      toast: undefined
-    }
-  },
-  inject: ['$colorMode'],
-  created () {
-    this.toast = useToast({ theme: this.$theme(), icons: this.$icons, colorMode: this.$colorMode() })
-  }
-}
+import { Button } from '../packages/kiwi-core/src'
 
 storiesOf('UI | Toast', module)
   .add('Simple Toast', () => ({
     components: { Button },
     inject: ['$theme', '$icons'],
-    mixins: [toastMixin],
     methods: {
       showToast () {
-        this.toast({
+        this.$toast({
           title: 'Account created.',
           description: "We've created your account for you.",
           status: 'info',
@@ -38,10 +25,9 @@ storiesOf('UI | Toast', module)
   .add('With status', () => ({
     components: { Button },
     inject: ['$theme', '$icons'],
-    mixins: [toastMixin],
     methods: {
       infoToast () {
-        this.toast({
+        this.$toast({
           title: 'Compression complete',
           description: "We've created your account for you.",
           status: 'info',
@@ -51,7 +37,7 @@ storiesOf('UI | Toast', module)
         })
       },
       successToast () {
-        this.toast({
+        this.$toast({
           title: 'Account created.',
           description: "We've created your account for you.",
           status: 'success',
@@ -61,7 +47,7 @@ storiesOf('UI | Toast', module)
         })
       },
       warningToast () {
-        this.toast({
+        this.$toast({
           title: 'Warning',
           description: "We've created your account for you.",
           status: 'warning',
@@ -71,7 +57,7 @@ storiesOf('UI | Toast', module)
         })
       },
       errorToast () {
-        this.toast({
+        this.$toast({
           title: 'Error',
           description: "We've created your account for you.",
           status: 'error',
@@ -93,10 +79,9 @@ storiesOf('UI | Toast', module)
   .add('With variant', () => ({
     components: { Button },
     inject: ['$theme', '$icons'],
-    mixins: [toastMixin],
     methods: {
       successToast (variant = 'solid') {
-        this.toast({
+        this.$toast({
           title: 'Account created.',
           description: "We've created your account for you.",
           status: 'success',

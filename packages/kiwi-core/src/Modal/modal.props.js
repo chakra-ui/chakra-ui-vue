@@ -6,10 +6,6 @@ export default {
   initialFocusRef: [HTMLElement, Object, String],
   finalFocusRef: [HTMLElement, Object, String],
   contentRef: [HTMLElement, Object, String],
-  onClose: {
-    type: Function,
-    default: () => null
-  },
   blockScrollOnMount: {
     type: Boolean,
     default: true

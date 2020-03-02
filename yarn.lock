@@ -18983,6 +18983,13 @@ uuid@^3.0.1, uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
 
+v-scroll-lock@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/v-scroll-lock/-/v-scroll-lock-1.1.0.tgz#42835d13959f4f81f016bc81d0b5d8a99393e893"
+  integrity sha512-P7Zx9bvVsPGsbjqqm6OCfRp+gfKh/x9OIv5vpy8Ghco5AsJrx1+L574r8896GC7brhDz7ExYdFo73rl5as7PTA==
+  dependencies:
+    body-scroll-lock "^2.6.4"
+
 validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"

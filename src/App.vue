@@ -1,12 +1,24 @@
 <template>
   <Box>
     <Tabs>
-      <TabList>
-        <Tab>Tabs 1</Tab>
-        <Tab>Tabs 2</Tab>
-        <Tab>Tabs 3</Tab>
-      </TabList>
-    </Tabs>
+    <TabList>
+      <Tab>One</Tab>
+      <Tab>Two</Tab>
+      <Tab>Three</Tab>
+    </TabList>
+
+    <TabPanels>
+      <TabPanel>
+        <p>one!</p>
+      </TabPanel>
+      <TabPanel>
+        <p>two!</p>
+      </TabPanel>
+      <TabPanel>
+        <p>three!</p>
+      </TabPanel>
+    </TabPanels>
+  </Tabs>
   </Box>
 </template>
 
@@ -15,7 +27,9 @@ import {
   Box,
   Tabs,
   TabList,
-  Tab } from '../packages/kiwi-core/dist/esm'
+  Tab,
+  TabPanels,
+  TabPanel } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -24,7 +38,9 @@ export default {
     Box,
     Tabs,
     TabList,
-    Tab
+    Tab,
+    TabPanels,
+    TabPanel
   },
   computed: {
     colorMode () {

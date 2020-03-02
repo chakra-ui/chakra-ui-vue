@@ -168,61 +168,6 @@ const Tabs = {
   }
 }
 
-const Tab = {
-  name: 'TTab',
-  inject: ['$theme', '$colorMode', '$TabContext'],
-  props: {
-    ...styleProps,
-    isSelected: Boolean,
-    isDisabled: Boolean,
-    id: String
-  },
-  computed: {
-    context () {
-      return this.$TabContext()
-    },
-    tabStyleProps () {
-      const { color, isFitted, orientation, size, variant } = this.context
-      const styles = useTabStyle({
-        colorMode: this.colorMode,
-        theme: this.theme,
-        color,
-        isFitted,
-        orientation,
-        size,
-        variant
-      })
-      return styles
-    },
-    theme () {
-      return this.$theme()
-    },
-    colorMode () {
-      return this.$colorMode()
-    }
-  },
-  render (h) {
-    return h(PseudoBox, {
-      props: {
-        outline: 'none',
-        as: 'button',
-        ...this.tabStyleProps,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        role: 'tab',
-        tabIndex: this.isSelected ? 0 : -1,
-        id: `tab:${this.id}`,
-        type: 'button',
-        disabled: this.isDisabled,
-        'aria-disabled': this.isDisabled,
-        'aria-selected': this.isSelected,
-        'aria-controls': `panel:${this.id}`
-      }
-    }, this.$slots.default)
-  }
-}
-
 const TabList = {
   name: 'TabList',
   props: baseProps,
@@ -371,8 +316,125 @@ const TabList = {
   }
 }
 
+const Tab = {
+  name: 'TTab',
+  inject: ['$theme', '$colorMode', '$TabContext'],
+  props: {
+    ...styleProps,
+    isSelected: Boolean,
+    isDisabled: Boolean,
+    id: String
+  },
+  computed: {
+    context () {
+      return this.$TabContext()
+    },
+    tabStyleProps () {
+      const { color, isFitted, orientation, size, variant } = this.context
+      const styles = useTabStyle({
+        colorMode: this.colorMode,
+        theme: this.theme,
+        color,
+        isFitted,
+        orientation,
+        size,
+        variant
+      })
+      return styles
+    },
+    theme () {
+      return this.$theme()
+    },
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
+  render (h) {
+    return h(PseudoBox, {
+      props: {
+        outline: 'none',
+        as: 'button',
+        ...this.tabStyleProps,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        role: 'tab',
+        tabIndex: this.isSelected ? 0 : -1,
+        id: `tab:${this.id}`,
+        type: 'button',
+        disabled: this.isDisabled,
+        'aria-disabled': this.isDisabled,
+        'aria-selected': this.isSelected,
+        'aria-controls': `panel:${this.id}`
+      }
+    }, this.$slots.default)
+  }
+}
+
+const TabPanel = {
+  name: 'TabPanel',
+  props: {
+    ...baseProps,
+    isSelected: Boolean,
+    selectedPanelNode: Object,
+    id: String
+  },
+  render (h) {
+    return h(Box, {
+      attrs: {
+        role: 'tabpanel',
+        tabIndex: -1,
+        'aria-labelledby': `tab:${this.id}`,
+        hidden: !this.isSelected,
+        id: `panel:${this.id}`,
+        outline: 0,
+        ...forwardProps(this.$props)
+      }
+    }, this.$slots.default)
+  }
+}
+
+const TabPanels = {
+  name: 'TabPanels',
+  inject: ['$TabContext'],
+  props: baseProps,
+  computed: {
+    context () {
+      return this.$TabContext()
+    }
+  },
+  render (h) {
+    const {
+      selectedIndex,
+      id,
+      isManual,
+      manualIndex
+    } = this.context
+
+    const validChildren = cleanChildren(this.$slots.default)
+
+    const clones = validChildren.map((child, index) => {
+      return cloneVNodeElement(child, {
+        props: {
+          isSelected: isManual ? index === manualIndex : index === selectedIndex,
+          id: `${id}-${index}`
+        }
+      }, h)
+    })
+
+    return h(Box, {
+      props: forwardProps(this.$props),
+      attrs: {
+        tabIndex: -1
+      }
+    }, clones)
+  }
+}
+
 export {
   Tabs,
   TabList,
-  Tab
+  Tab,
+  TabPanels,
+  TabPanel
 }

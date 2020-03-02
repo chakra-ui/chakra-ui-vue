@@ -307,7 +307,7 @@ const TabList = {
       },
       props: {
         ...this.tabListStyleProps,
-        ...this.$props
+        ...forwardProps()
       },
       nativeOn: {
         keydown: this.handleKeyDown
@@ -317,7 +317,7 @@ const TabList = {
 }
 
 const Tab = {
-  name: 'TTab',
+  name: 'Tab',
   inject: ['$theme', '$colorMode', '$TabContext'],
   props: {
     ...styleProps,

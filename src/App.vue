@@ -1,6 +1,6 @@
 <template>
-  <Box>
-    <Tabs>
+  <Box w="600px">
+    <Tabs isFitted variant="soft-rounded" variantColor="pink">
     <TabList>
       <Tab>One</Tab>
       <Tab>Two</Tab>

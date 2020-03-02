@@ -1,3 +1,5 @@
+import { colorModeObserver } from '../utils/color-mode-observer'
+
 const ColorModeProvider = {
   name: 'ColorModeProvider',
   props: {
@@ -21,6 +23,14 @@ const ColorModeProvider = {
       },
       set (value) {
         this.colorMode = value
+      }
+    }
+  },
+  watch: {
+    _colorMode: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.colorMode = newVal
       }
     }
   },

@@ -1,3 +1,5 @@
+import { colorModeObserver } from '../utils/color-mode-observer'
+
 const ThemeProvider = {
   name: 'ThemeProvider',
   props: {
@@ -14,6 +16,20 @@ const ThemeProvider = {
     return {
       $theme: () => this.theme,
       $icons: this.icons
+    }
+  },
+  watch: {
+    theme: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.theme = newVal
+      }
+    },
+    icons: {
+      immediate: true,
+      handler (newVal) {
+        colorModeObserver.icons = newVal
+      }
     }
   },
   render () {

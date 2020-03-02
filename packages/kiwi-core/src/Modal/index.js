@@ -2,7 +2,7 @@ import props from './modal.props'
 import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
 import Portal from '../Portal'
 import PseudoBox from '../PseudoBox'
-import { Scale } from '../Transition'
+import { Fade } from '../Transition'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
 import { baseProps } from '../config'
@@ -202,7 +202,20 @@ const Modal = {
             value: this.isOpen && this.blockScrollOnMount
           }]
         }, [
-          h(Scale, this.isOpen && children)
+          h(Fade, {
+            props: {
+              enterEasing: 'easeInCubic',
+              leaveEasing: 'easeOutCubic'
+            }
+          }, this.isOpen && [h('div', {
+            style: {
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            }
+          }, children)])
         ])
       ])
     ])

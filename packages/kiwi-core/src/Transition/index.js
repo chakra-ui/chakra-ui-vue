@@ -148,7 +148,8 @@ const Scale = {
         targets: el,
         opacity: [0, 1],
         scale: [this.initialScale, 1],
-        easing: enterEasing,
+        easing: this.enterEasing,
+        duration: this.duration,
         complete
       })
     },
@@ -157,21 +158,28 @@ const Scale = {
         targets: el,
         opacity: [1, 0],
         scale: [1, this.initialScale],
-        easing: leaveEasing,
+        easing: this.leaveEasing,
+        duration: this.duration,
         complete
       })
     }
   },
   render (h) {
-    let children
+    let finalChildren
+    const children = this.$slots.default || [h(null)]
 
-    const TransitionElement = children.length > 1 ? 'TransitionGroup' : 'Transition'
-    const clean = cleanChildren(children)
-    const clones = clean.map((vnode, index) => {
-      return cloneVNodeElement(vnode, {
-        key: `scale-${index}`
-      }, h)
-    })
+    if (children.length > 1) {
+      const clean = cleanChildren(children)
+      finalChildren = clean.map((vnode, index) => {
+        return cloneVNodeElement(vnode, {
+          key: `scale-${index}`
+        }, h)
+      })
+    } else {
+      finalChildren = children
+    }
+
+    const TransitionElement = finalChildren.length > 1 ? 'TransitionGroup' : 'Transition'
 
     return h(TransitionElement, {
       props: {
@@ -184,7 +192,84 @@ const Scale = {
         enter: this.enter,
         leave: this.leave
       }
-    }, clones)
+    }, finalChildren)
+  }
+}
+
+const Fade = {
+  name: 'Fade',
+  props: {
+    initialHeight: {
+      type: Number,
+      default: 0
+    },
+    duration: {
+      type: Number,
+      default: 150
+    },
+    enterEasing: {
+      type: String,
+      default: enterEasing
+    },
+    leaveEasing: {
+      type: String,
+      default: leaveEasing
+    },
+    finalHeight: Number,
+    animateOpacity: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    enter (el, complete) {
+      anime({
+        targets: el,
+        opacity: [0, 1],
+        easing: this.enterEasing,
+        duration: this.duration,
+        complete
+      })
+    },
+    leave (el, complete) {
+      anime({
+        targets: el,
+        opacity: [1, 0],
+        easing: this.leaveEasing,
+        duration: this.duration,
+        complete
+      })
+    }
+  },
+  render (h) {
+    let finalChildren
+    const children = this.$slots.default || [h(null)]
+
+    if (children.length > 1) {
+      const clean = cleanChildren(children)
+      finalChildren = clean.map((vnode, index) => {
+        return cloneVNodeElement(vnode, {
+          key: `scale-${index}`
+        }, h)
+      })
+    } else {
+      finalChildren = children
+    }
+
+    const TransitionElement = finalChildren.length > 1 ? 'TransitionGroup' : 'Transition'
+
+    return h(TransitionElement, {
+      props: {
+        css: false
+      },
+      on: {
+        beforeEnter (el) {
+          el && el.style.setProperty('will-change', 'opacity, transform')
+        },
+        enter: this.enter,
+        leave: this.leave
+      }
+    }, finalChildren)
   }
 }
 
@@ -420,5 +505,6 @@ export {
   Scale,
   SlideIn,
   AnimateHeight,
-  RevealHeight
+  RevealHeight,
+  Fade
 }

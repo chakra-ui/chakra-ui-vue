@@ -16,7 +16,9 @@ import {
   faCar,
   faCaretLeft,
   faBolt,
-  faUserSlash } from '@fortawesome/free-solid-svg-icons'
+  faUserSlash,
+  faCheckCircle,
+  faCog } from '@fortawesome/free-solid-svg-icons'
 
 import {
   faChevronCircleUp,
@@ -44,27 +46,12 @@ Vue.use(Kiwi, {
       faChevronCircleUp,
       faSearch,
       faTimesCircle,
-      faGithub
+      faGithub,
+      faCheckCircle,
+      faCog
     }
   }
 })
-
-const faIcons = {
-  faBraille,
-  faAnchor,
-  faPlus,
-  faCoffee,
-  faAmbulance,
-  faCalendar,
-  faCar,
-  faCaretLeft,
-  faBolt,
-  faUserSlash,
-  faChevronCircleUp,
-  faSearch,
-  faTimesCircle,
-  faGithub
-}
 
 addParameters({
   options: {

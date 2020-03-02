@@ -59,6 +59,8 @@ export * from './InputElement'
 export { default as InputGroup } from './InputGroup'
 
 export { default as Link } from './Link'
+export { default as List } from './List'
+export * from './List'
 
 export * from './Menu'
 export * from './Menu/MenuOption'

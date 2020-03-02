@@ -20,7 +20,9 @@ import { faCoffee,
   faEnvelope,
   faEyeSlash,
   faEye,
-  faLock } from '@fortawesome/free-solid-svg-icons'
+  faLock,
+  faCheckCircle,
+  faCog } from '@fortawesome/free-solid-svg-icons'
 
 import {
   faChevronCircleUp,
@@ -57,7 +59,9 @@ Vue.use(Kiwi, {
       faEnvelope,
       faEyeSlash,
       faEye,
-      faLock
+      faLock,
+      faCheckCircle,
+      faCog
     },
     extend: {
       'not-allowed': {

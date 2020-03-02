@@ -1,6 +1,6 @@
 {
   "name": "kiwi-core",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
@@ -21,20 +21,24 @@
   ],
   "dependencies": {
     "@styled-system/css": "^5.0.23",
+    "animejs": "^3.1.0",
+    "aria-hidden": "^1.1.1",
+    "breadstick": "^0.1.21",
     "color": "^3.1.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.15",
+    "popper.js": "^1.16.0",
+    "portal-vue": "^2.1.6",
+    "styled-system": "^5.1.2",
+    "v-scroll-lock": "^1.1.0"
   },
   "peerDependencies": {
-    "breadstick": "^0.1.21",
     "emotion": "^10.0.27",
-    "vue": "^2.6.10",
-    "styled-system": "^5.1.2"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
-    "core-js": "^3.4.5",
-    "csstype": "^2.6.8"
+    "core-js": "^3.4.5"
   },
   "gitHead": "3edafd2f90f3aa3c5a44ec9f5b0e960430caaad0"
 }

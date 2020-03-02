@@ -51,7 +51,7 @@ const components = [
   // 'Tabs',
   'Tag',
   'Text',
-  'Textarea',
+  // 'Textarea',
   'Toast',
   'Tooltip'
 ]

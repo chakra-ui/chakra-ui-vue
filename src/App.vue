@@ -2,11 +2,13 @@
   <Box w="300px">
     <Button variant-color="blue" @click="showToast">Show Toast</Button>
     <Textarea
+      v-model="textareaContent"
       maxWidth="sm"
       mx="auto"
       mt="2"
       placeholder="Here is a sample placeholder"
       size="md"
+      :value="textareaContent"
     />
   </Box>
 </template>
@@ -27,7 +29,8 @@ export default {
   },
   data () {
     return {
-      isOpen: false
+      isOpen: false,
+      textareaContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quo molestias eveniet nemo fugiat incidunt dolore laboriosam minus voluptate, odit beatae, explicabo facere corporis asperiores optio? Delectus laboriosam quis accusamus.'
     }
   },
   computed: {

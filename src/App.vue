@@ -1,19 +1,20 @@
 <template>
   <Box>
-    <Anchor href="https://chakra-ui.com"> Anchor </Anchor>
+    <Toggle v-model="isOpen" />
   </Box>
 </template>
 
 <script lang="js">
 import {
-  Box, Link } from '../packages/kiwi-core/dist/esm'
+  Box,
+  Switch } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Anchor: Link
+    Toggle: Switch
   },
   data () {
     return {

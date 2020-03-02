@@ -1,22 +1,33 @@
 <template>
-  <Box w="300px">
-    <Button @click="isOpen = true">Open Modal</Button>
-    <Modal :isOpen="isOpen">
-      <ModalContent>
-        <ModalHeader>
-          <h3>Modal Header</h3>
-        </ModalHeader>
-        <ModalBody>
-          <Lorem add="2s" />
-        </ModalBody>
-        <ModalFooter>
-          <Button mr="3">Cancel</Button>
-          <Button id="delete" variantColor="red">Delete Account</Button>
-        </ModalFooter>
-        <ModalCloseButton @click="isOpen = false" />
-      </ModalContent>
-      <ModalOverlay />
-    </Modal>
+  <Box>
+    <AlertDialog
+      :is-open="isOpen"
+      :least-destructive-ref="$refs.cancelRef"
+      :on-close="close"
+    >
+      <AlertDialogOverlay />
+      <AlertDialogContent>
+        <AlertDialogHeader font-size="lg" font-weight="bold">
+          Delete Customer
+        </AlertDialogHeader>
+
+        <AlertDialogBody>
+          Are you sure? You can't undo this action afterwards.
+        </AlertDialogBody>
+
+        <AlertDialogFooter>
+          <Button ref="cancelRef" @click="close">
+            Cancel
+          </Button>
+          <Button variantColor="red" @click="close" ml="3">
+            Delete
+          </Button>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+    <Button variant-color="red" @click="open">
+      Delete Customer
+    </Button>
   </Box>
 </template>
 
@@ -24,14 +35,12 @@
 import {
   Box,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton } from '../packages/kiwi-core/dist/esm'
-import Lorem from 'vue-lorem-ipsum'
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogOverlay,
+  AlertDialogHeader } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -39,14 +48,12 @@ export default {
   components: {
     Box,
     Button,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-    Lorem
+    AlertDialog,
+    AlertDialogContent,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogOverlay,
+    AlertDialogHeader
   },
   data () {
     return {
@@ -67,6 +74,12 @@ export default {
     handleChange: (value) => console.log(value),
     focusRadioGroup () {
       this.$refs.rg.focus()
+    },
+    open () {
+      this.isOpen = true
+    },
+    close () {
+      this.isOpen = false
     }
   }
 }

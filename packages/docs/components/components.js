@@ -33,7 +33,7 @@ const components = [
   'Image',
   'Input',
   'Link',
-  // 'List',
+  'List',
   'Menu',
   'Modal',
   'NumberInput',
@@ -48,10 +48,10 @@ const components = [
   // 'Stat',
   'Stack',
   'Switch',
-  // 'Tabs',
+  'Tabs',
   'Tag',
   'Text',
-  // 'Textarea',
+  'Textarea',
   'Toast',
   'Tooltip'
 ]

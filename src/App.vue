@@ -1,42 +1,30 @@
 <template>
-  <Box w="600px">
-    <Button variant-color="blue" @click="showToast">Show Toast</Button>
-    <List spacing="3">
-      <ListItem>
-        <ListIcon icon="check-circle" color="green.500" />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit
-      </ListItem>
-      <ListItem>
-        <ListIcon icon="check-circle" color="green.500" />
-        Assumenda, quia temporibus eveniet a libero incidunt suscipit
-      </ListItem>
-      <ListItem>
-        <ListIcon icon="check-circle" color="green.500" />
-        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-      </ListItem>
-      <ListItem>
-        <ListIcon icon="cog" color="green.500" />
-        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-      </ListItem>
-    </List>
+  <Box>
+    <Tabs>
+      <TabList>
+        <Tab>Tabs 1</Tab>
+        <Tab>Tabs 2</Tab>
+        <Tab>Tabs 3</Tab>
+      </TabList>
+    </Tabs>
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Button,
-  List, ListItem, ListIcon } from '../packages/kiwi-core/dist/esm'
+  Tabs,
+  TabList,
+  Tab } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Button,
-    List,
-    ListItem,
-    ListIcon
+    Tabs,
+    TabList,
+    Tab
   },
   computed: {
     colorMode () {

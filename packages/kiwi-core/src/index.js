@@ -86,6 +86,7 @@ export { default as Spinner } from './Spinner'
 export { default as Stack } from './Stack'
 export { default as Switch } from './Switch'
 
+export * from './Tabs'
 export * from './Tag'
 export { default as Text } from './Text'
 export { default as Textarea } from './Textarea'

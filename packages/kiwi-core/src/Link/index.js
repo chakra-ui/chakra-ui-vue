@@ -1,6 +1,5 @@
 import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
-import { createElement as h } from '@vue/composition-api'
 import { forwardProps, kebabify } from '../utils'
 
 /**
@@ -28,39 +27,36 @@ const Link = {
     },
     ...styleProps
   },
-  setup (props, context) {
-    const externalAttrs = props.isExternal
+  render (h) {
+    const externalAttrs = this.isExternal
       ? { target: '_blank', rel: 'noopener noreferrer' }
       : null
 
-    return () => {
-      return h(PseudoBox, {
-        props: {
-          as: props.as,
-          ...kebabify(props.as) === 'router-link' && { to: props.to },
-          transition: `all 0.15s ease-out`,
-          cursor: 'pointer',
-          textDecoration: 'none',
-          outline: 'none',
-          _focus: {
-            boxShadow: 'outline'
-          },
-          _hover: { textDecoration: 'underline' },
-          _disabled: {
-            opacity: '0.4',
-            cursor: 'not-allowed',
-            textDecoration: 'none'
-          },
-          ...forwardProps(props)
+    return h(PseudoBox, {
+      props: {
+        as: this.as,
+        ...kebabify(this.as) === 'router-link' && { to: this.to },
+        transition: `all 0.15s ease-out`,
+        cursor: 'pointer',
+        textDecoration: 'none',
+        outline: 'none',
+        _focus: {
+          boxShadow: 'outline'
         },
-        attrs: {
-          tabIndex: props.isDisabled ? -1 : undefined,
-          'aria-disabled': props.isDisabled,
-          ...externalAttrs
+        _hover: { textDecoration: 'underline' },
+        _disabled: {
+          opacity: '0.4',
+          cursor: 'not-allowed',
+          textDecoration: 'none'
         },
-        ref: props.innerRef
-      }, context.slots.default())
-    }
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        tabIndex: this.isDisabled ? -1 : undefined,
+        'aria-disabled': this.isDisabled,
+        ...externalAttrs
+      }
+    }, this.$slots.default)
   }
 }
 

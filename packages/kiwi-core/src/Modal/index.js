@@ -114,11 +114,11 @@ const Modal = {
       returnFocusOnClose: props.returnFocusOnClose,
       contentRef,
       scrollBehavior: props.scrollBehavior,
+      size: props.size,
       isCentered: props.isCentered,
       headerId,
       bodyId,
       contentId,
-      size: props.size,
       addAriaLabelledby,
       addAriaDescribedby
     })

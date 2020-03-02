@@ -5,6 +5,11 @@
       <Checkbox value="two">Two</Checkbox>
       <Checkbox value="three">Three</Checkbox>
     </CheckboxGroup>
+    <MModal :isOpen="isOpen">
+      <Box>
+        <Button>InitialFocusRef</Button>
+      </Box>
+    </MModal>
   </Box>
 </template>
 
@@ -12,7 +17,9 @@
 import {
   Checkbox,
   CheckboxGroup,
-  Box } from '../packages/kiwi-core/dist/esm'
+  Box,
+  Button,
+  MModal } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -20,12 +27,15 @@ export default {
   components: {
     Checkbox,
     CheckboxGroup,
-    Box
+    Box,
+    Button,
+    MModal
   },
   data () {
     return {
       checkedItems: [false, false],
-      selectedValues: ['two']
+      selectedValues: ['two'],
+      isOpen: false
     }
   },
   computed: {
@@ -36,12 +46,11 @@ export default {
       return this.$theme()
     }
   },
-  watch: {
-    inputValue (newVal) {
-      console.log(newVal)
-    }
+  mounted () {
+    setInterval(() => {
+      this.isOpen = !this.isOpen
+    }, 4000)
   },
-
   methods: {
     handleChange: (value) => console.log(value),
     focusRadioGroup () {

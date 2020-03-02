@@ -101,6 +101,7 @@
     "rollup-plugin-vue": "^5.1.4",
     "sass-loader": "^8.0.0",
     "styled-system": "^5.1.2",
+    "v-scroll-lock": "^1.1.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",

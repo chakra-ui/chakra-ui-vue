@@ -6,6 +6,7 @@ import ThemeProvider from '../ThemeProvider'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import ColorModeProvider from '../ColorModeProvider'
+import { colorModeObserver } from '../utils/color-mode-observer'
 
 // Create breadstick instance.
 const breadstick = new Breadstick()
@@ -91,13 +92,11 @@ const Toast = {
 
 /**
  * @description Toast initialization API
- * @param {Object} options
- * @property {Object} theme
- * @property {Object} icons
  * TODO: In Vue 3 this should be exposed as a hook of it's own so as to
  * to inject theme and icons variables provided by theme provider component.
  */
-function useToast ({ theme, icons, colorMode }) {
+function useToast () {
+  const { theme } = colorModeObserver
   /**
    * @description Notify Method for Kiwi
    * @param {Object} options
@@ -142,6 +141,7 @@ function useToast ({ theme, icons, colorMode }) {
      * @todo Need to battletest breadstick to RELIABLY support JSX API and render function API globally.
      */
     breadstick.notify(({ h, onClose, id }) => {
+      const { theme, colorMode, icons } = colorModeObserver
       return h(ThemeProvider, {
         props: {
           icons,

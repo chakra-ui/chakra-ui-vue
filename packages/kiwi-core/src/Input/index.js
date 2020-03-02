@@ -63,6 +63,7 @@ const Input = {
       props: {
         ...inputStyles,
         as: this.as,
+        fontFamily: 'body',
         ...forwardProps(this.$props)
       },
       domProps: {

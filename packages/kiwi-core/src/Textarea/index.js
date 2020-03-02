@@ -21,6 +21,7 @@ const Textarea = {
         as: 'textarea',
         py: '8px',
         minHeight: '80px',
+        fontFamily: 'body',
         lineHeight: 'shorter'
       },
       on: {
@@ -28,10 +29,6 @@ const Textarea = {
       }
     }, this.$slots.default)
   }
-}
-
-export const ExpandingTextarea = {
-  name: 'ExpandingTextarea'
 }
 
 export default Textarea

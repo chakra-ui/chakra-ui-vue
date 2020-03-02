@@ -1,32 +1,26 @@
-import { ref, createElement as h } from '@vue/composition-api'
 import { baseProps } from '../config/props'
 import Box from '../Box'
 import Link from '../Link'
-import { forwardProps, cloneVNodes } from '../utils'
+import { forwardProps, cloneVNodeElement, cleanChildren } from '../utils'
 
 const BreadcrumbSeparator = {
   name: 'BreadcrumbSeparator',
   props: {
+    ...baseProps,
     spacing: [String, Number, Array],
-    separator: [String, Object],
-    ...baseProps
+    separator: [String, Object]
   },
-  setup (props) {
-    const innerRef = ref(null)
-
-    return () => {
-      return h(Box, {
-        props: {
-          as: 'span',
-          mx: props.spacing,
-          ...forwardProps(props)
-        },
-        attrs: {
-          role: 'presentation'
-        },
-        ref: innerRef.value
-      }, [props.separator])
-    }
+  render (h) {
+    return h(Box, {
+      props: {
+        as: 'span',
+        mx: this.spacing,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        role: 'presentation'
+      }
+    }, [this.separator])
   }
 }
 
@@ -35,91 +29,82 @@ const Span = {
   props: {
     ...baseProps
   },
-  setup (props, context) {
-    const innerRef = ref(null)
-
-    return () => {
-      return h(Box, {
-        props: {
-          as: 'span',
-          ...forwardProps(props)
-        },
-        ref: innerRef.value
-      }, context.slots.default())
-    }
+  render (h) {
+    return h(Box, {
+      props: {
+        as: 'span',
+        ...forwardProps(this.$props)
+      }
+    }, this.$slots.default)
   }
 }
 
 const BreadcrumbLink = {
   name: 'BreadcrumbLink',
   props: {
-    isCurrentPage: Boolean,
-    ...baseProps
+    ...baseProps,
+    isCurrentPage: Boolean
   },
-  setup (props, context) {
-    const innerRef = ref(null)
-    const Comp = props.isCurrentPage ? Span : Link
+  render (h) {
+    const Comp = this.isCurrentPage ? Span : Link
 
-    return () => {
-      return h(Comp, {
-        props: {
-          ...forwardProps(props)
-        },
-        attrs: {
-          'aria-current': props.isCurrentPage ? 'page' : null
-        },
-        ref: innerRef.value
-      }, context.slots.default())
-    }
+    return h(Comp, {
+      props: forwardProps(this.$props),
+      attrs: {
+        'aria-current': this.isCurrentPage ? 'page' : null
+      }
+    }, this.$slots.default)
   }
 }
 
 const BreadcrumbItem = {
   name: 'BreadcrumbItem',
   props: {
+    ...baseProps,
     isCurrentPage: Boolean,
     isLastChild: Boolean,
     separator: [Object, String],
     addSeparator: Boolean,
-    spacing: [String, Number, Array],
-    ...baseProps
+    spacing: [String, Number, Array]
   },
-  setup (props, context) {
-    return () => {
-      const children = context.slots.default().filter(e => e.tag)
-      const clones = cloneVNodes(children, h).map((clone) => {
-        if (clone.componentOptions.tag === BreadcrumbLink.name) {
-          const { propsData } = clone.componentOptions
-          propsData['isCurrentPage'] = props.isCurrentPage
-          clone.componentOptions.propsData = propsData
-          return clone
-        }
-        if (clone.componentOptions.tag === BreadcrumbSeparator.name) {
-          const { propsData } = clone.componentOptions
-          propsData['spacing'] = props.spacing
-          propsData['separator'] = props.separator
-          clone.componentOptions.children = clone.componentOptions.children || props.separator
-          clone.componentOptions.propsData = propsData
-          return clone
+  render (h) {
+    const children = this.$slots.default.filter(e => e.tag)
+    const clones = children.map((vnode) => {
+      if (vnode.componentOptions.tag === BreadcrumbLink.name) {
+        const clone = cloneVNodeElement(vnode, {
+          props: {
+            isCurrentPage: this.isCurrentPage
+          }
+        }, h)
+        return clone
+      }
+      if (vnode.componentOptions.tag === BreadcrumbSeparator.name) {
+        const clone = cloneVNodeElement(vnode, {
+          props: {
+            spacing: this.spacing,
+            separator: this.separator
+          },
+          children: vnode.componentOptions.children || this.separator
+        }, h)
+        return clone
+      }
+    })
+
+    return h(Box, {
+      props: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        as: 'li'
+      }
+    }, [
+      ...clones,
+      !this.isLastChild && this.addSeparator && h(BreadcrumbSeparator, {
+        props: {
+          spacing: this.spacing,
+          separator: this.separator
         }
       })
-
-      return h(Box, {
-        props: {
-          display: 'inline-flex',
-          alignItems: 'center',
-          as: 'li'
-        }
-      }, [
-        ...clones,
-        !props.isLastChild && props.addSeparator && h(BreadcrumbSeparator, {
-          props: {
-            spacing: props.spacing,
-            separator: props.separator
-          }
-        })
-      ])
-    }
+    ])
   }
 }
 
@@ -140,34 +125,39 @@ const Breadcrumb = {
     },
     ...baseProps
   },
-  setup (props, context) {
-    return () => {
-      const children = context.slots.default().filter(e => e.tag)
-      const clones = cloneVNodes(children, h)
-        .map((node, index, array) => {
-          const { propsData } = node.componentOptions
-          propsData['addSeparator'] = props.addSeparator
-          propsData['separator'] = props.separator
-          propsData['spacing'] = props.spacing
-          propsData['isLastChild'] = array.length === index + 1
-          node.componentOptions.propsData = propsData
-          return node
-        })
-
-      return h(Box, {
-        props: {
-          as: 'nav',
-          ...forwardProps(props)
-        },
-        attrs: {
-          'aria-label': 'breadcrumb'
-        }
-      }, [h(Box, {
-        props: {
-          as: 'ol'
-        }
-      }, clones)])
+  render (h) {
+    const children = this.$slots.default
+    if (!children) {
+      console.error(
+        `[Chakra-ui:Breadcrumb]: Breadcrumb component should have at least one child`
+      )
+      return null
     }
+    const cleaned = cleanChildren(children)
+    const clones = cleaned.map((node, index, array) => {
+      return cloneVNodeElement(node, {
+        props: {
+          addSeparator: this.addSeparator,
+          separator: this.separator,
+          spacing: this.spacing,
+          isLastChild: array.length === index + 1
+        }
+      }, h)
+    })
+
+    return h(Box, {
+      props: {
+        as: 'nav',
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        'aria-label': 'breadcrumb'
+      }
+    }, [h(Box, {
+      props: {
+        as: 'ol'
+      }
+    }, clones)])
   }
 }
 

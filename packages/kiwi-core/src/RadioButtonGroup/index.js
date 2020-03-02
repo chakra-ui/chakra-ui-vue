@@ -1,6 +1,6 @@
 import Box from '../Box'
 import { baseProps } from '../config'
-import { StringNumber, NumberStringArray } from '../config/props/props.types'
+import { StringNumber, SNA } from '../config/props/props.types'
 import { isDef, useId, cloneVNodeElement, forwardProps } from '../utils'
 
 const RadioButtonGroup = {
@@ -17,7 +17,7 @@ const RadioButtonGroup = {
     },
     value: StringNumber,
     spacing: {
-      type: NumberStringArray,
+      type: SNA,
       default: '12px'
     },
     isInline: Boolean

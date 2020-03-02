@@ -20,19 +20,29 @@ const switchSizes = {
 }
 
 const Switch = {
-  name: '_Switch',
+  name: 'CSwitch',
+  model: {
+    prop: 'isChecked',
+    event: 'change'
+  },
   inject: ['$colorMode'],
   props: {
     ...styleProps,
     id: String,
     name: String,
-    value: String,
+    value: Boolean,
     _ariaLabel: String,
     _ariaLabelledBy: String,
-    color: String,
+    color: {
+      type: String,
+      default: 'blue'
+    },
     defaultIsChecked: Boolean,
     isChecked: Boolean,
-    size: String,
+    size: {
+      type: String,
+      default: 'md'
+    },
     isDisabled: Boolean,
     isInvalid: Boolean
   },
@@ -104,6 +114,9 @@ const Switch = {
           defaultChecked: this.defaultIsChecked,
           checked: this.isChecked,
           disabled: this.isDisabled
+        },
+        nativeOn: {
+          change: (e) => this.$emit('change', !this.isChecked, e)
         }
       }),
       h(ControlBox, {

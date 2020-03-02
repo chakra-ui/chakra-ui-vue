@@ -1,7 +1,7 @@
 import Flex from '../Flex'
 import Box from '../Box'
 import { baseProps } from '../config/props'
-import { StringArray, NumberStringArray } from '../config/props/props.types'
+import { StringArray, SNA } from '../config/props/props.types'
 import { forwardProps, cloneVNode } from '../utils'
 
 /**
@@ -23,7 +23,7 @@ const Stack = {
     align: StringArray,
     justify: StringArray,
     spacing: {
-      type: NumberStringArray,
+      type: SNA,
       default: 2
     },
     shouldWrapChildren: {

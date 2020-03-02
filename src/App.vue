@@ -1,38 +1,63 @@
 <template>
-  <Box w="300px">
-    <Slider :defaultValue="30">
-      <SliderTrack bg="red.100" />
-      <SliderFilledTrack bg="tomato" />
-      <SliderThumb p="3" d="flex" alignItems="center" justifyContent="center">
-        <Icon name="coffee" color="tomato" />
-      </SliderThumb>
-    </Slider>
+  <Box>
+    <AlertDialog
+      :is-open="isOpen"
+      :least-destructive-ref="$refs.cancelRef"
+      :on-close="close"
+    >
+      <AlertDialogOverlay />
+      <AlertDialogContent>
+        <AlertDialogHeader font-size="lg" font-weight="bold">
+          Delete Customer
+        </AlertDialogHeader>
+
+        <AlertDialogBody>
+          Are you sure? You can't undo this action afterwards.
+        </AlertDialogBody>
+
+        <AlertDialogFooter>
+          <Button ref="cancelRef" @click="close">
+            Cancel
+          </Button>
+          <Button variantColor="red" @click="close" ml="3">
+            Delete
+          </Button>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+    <Button variant-color="red" @click="open">
+      Delete Customer
+    </Button>
   </Box>
 </template>
 
 <script lang="js">
 import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
   Box,
-  Icon } from '../packages/kiwi-core/dist/esm'
+  Button,
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogOverlay,
+  AlertDialogHeader } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
-    Slider,
-    SliderTrack,
-    SliderFilledTrack,
-    SliderThumb,
     Box,
-    Icon
+    Button,
+    AlertDialog,
+    AlertDialogContent,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogOverlay,
+    AlertDialogHeader
   },
   data () {
     return {
-      checkedItems: [false, false]
+      isOpen: false
     }
   },
   computed: {
@@ -43,16 +68,18 @@ export default {
       return this.$theme()
     }
   },
-  watch: {
-    inputValue (newVal) {
-      console.log(newVal)
-    }
+  mounted () {
   },
-
   methods: {
     handleChange: (value) => console.log(value),
     focusRadioGroup () {
       this.$refs.rg.focus()
+    },
+    open () {
+      this.isOpen = true
+    },
+    close () {
+      this.isOpen = false
     }
   }
 }

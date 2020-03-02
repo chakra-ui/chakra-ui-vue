@@ -1,149 +1,136 @@
-import { forwardProps, useId, getFocusables, wrapEvent } from '../utils'
-import { baseProps } from '../config/props'
 import props from './modal.props'
-import { ref, reactive, createElement as h, watch, inject, provide, toRefs } from '@vue/composition-api'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock/lib/bodyScrollLock.es6'
-import { useColorMode } from '../ThemeProvider'
-import canUseDOM from 'can-use-dom'
+import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
+import Portal from '../Portal'
+import PseudoBox from '../PseudoBox'
+import { Fade } from '../Transition'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
+import { baseProps } from '../config'
 import Box from '../Box'
+import styleProps from '../config/props'
 import CloseButton from '../CloseButton'
 
-const ModalContext = Symbol('ModalContext')
-
-/**
-  * Main Modal Root component
-  */
 const Modal = {
   name: 'Modal',
   props,
-  setup (props, context) {
-    const uuid = useId(4)
-    const contentRef = ref(null)
+  data () {
+    return {
+      addAriaLabelledby: false,
+      addAriaDescribedby: false,
+      modalNode: undefined,
+      contentNode: undefined
+    }
+  },
+  provide () {
+    return {
+      $ModalContext: () => this.ModalContext
+    }
+  },
+  computed: {
+    _id () {
+      return this.id || useId(4)
+    },
+    contentId () {
+      return this.formatIds(this._id)['content']
+    },
+    headerId () {
+      return this.formatIds(this._id)['header']
+    },
+    bodyId () {
+      return this.formatIds(this._id)['body']
+    },
+    modalId () {
+      return `modal-${this._id}`
+    },
+    portalTarget () {
+      return `#modal-portal-${this._id}`
+    },
+    ModalContext () {
+      return {
+        isOpen: this.isOpen,
+        initialFocusRef: this.initialFocusRef,
+        onClose: this.onClose,
+        blockScrollOnMount: this.blockScrollOnMount,
+        closeOnEsc: this.closeOnEsc,
+        closeOnOverlayClick: this.closeOnOverlayClick,
+        returnFocusOnClose: this.returnFocusOnClose,
+        contentNode: this.contentNode,
+        scrollBehavior: this.scrollBehavior,
+        isCentered: this.isCentered,
+        size: this.size,
+        headerId: this.headerId,
+        bodyId: this.bodyId,
+        contentId: this.contentId,
+        addAriaLabelledby: this.addAriaLabelledby,
+        addAriaDescribedby: this.addAriaDescribedby
+      }
+    }
+  },
+  mounted () {
+    if (typeof this.addAriaLabels === 'object') {
+      this.addAriaLabelledby = this.addAriaLabels['header']
+      this.addAriaDescribedby = this.addAriaLabels['body']
+    }
 
-    // Initial props values
-    const _id = props.id || uuid
-    const contentId = props.formatIds(_id)['content']
-    const headerId = props.formatIds(_id)['header']
-    const bodyId = props.formatIds(_id)['body']
+    if (typeof addAriaLabels === 'boolean') {
+      this.addAriaLabelledby = this.addAriaLabels
+      this.addAriaDescribedby = this.addAriaLabels
+    }
 
-    // ARIA labels
-    let addAriaLabelledby = false
-    let addAriaDescribedby = false
-
-    // Ref of the modal portal target node
-    const mountRef = ref(
-      canUseDOM
-        ? document.getElementById(props.id) || document.createElement('div')
-        : null
-    )
-
-    // Container in which modal portal target will be located
-    const container = props.container || canUseDOM ? document.body : null
+    this.$nextTick(() => {
+      this.modalNode = getElById(this.modalId)
+    })
 
     /**
      * Escape key press event handler for modal
      * @param {Event} event Keyboard Event
      */
     const handler = event => {
-      if (event.key === 'Escape' && props.closeOnEsc) {
-        props.onClose(event, 'pressedEscape')
+      if (event.key === 'Escape' && this.closeOnEsc) {
+        this.$emit('pressedEscape', event)
       }
     }
 
-    if (typeof props.addAriaLabels === 'object') {
-      addAriaLabelledby = props.addAriaLabels['header']
-      addAriaDescribedby = props.addAriaLabels['body']
-    }
-
-    if (typeof props.addAriaLabels === 'boolean') {
-      addAriaLabelledby = props.addAriaLabels
-      addAriaDescribedby = props.addAriaLabels
-    }
-
-    watch((onCleanup) => {
-      const dialogNode = contentRef.value
-      if (props.isOpen && props.blockScrollOnMount) {
-        disableBodyScroll(dialogNode, {
-          reserveScrollBarGap: props.preserveScrollBarGap
-        })
-      }
-      onCleanup(() => enableBodyScroll(dialogNode))
-    })
-
-    watch((onCleanup) => {
-      if (props.isOpen && !props.closeOnOverlayClick) {
+    this.$watch(vm => [vm.isOpen, vm.blockScrollOnMount], () => {
+      if (this.isOpen && !this.closeOnOverlayClick) {
         canUseDOM && document.addEventListener('keydown', handler)
+      } else {
+        document.addEventListener('keydown', handler)
       }
-
-      onCleanup(() => {
-        canUseDOM && document.removeEventListener('keydown', handler)
-      })
     })
 
-    watch((onCleanup) => {
-      let undoAriaHidden = null
-      let mountNode = mountRef
-      if (props.isOpen && canUseDOM) {
-        mountRef.value.id = 'chakra-portal'
-        container.appendChild(mountRef.value)
-        if (props.useInert) {
-          undoAriaHidden = hideOthers(mountNode.value)
+    let undoAriaHidden = null
+    this.$watch(vm => [vm.isOpen, vm.useInert], () => {
+      let mountNode = this.mountNode
+      if (this.isOpen && canUseDOM) {
+        if (this.useInert) {
+          undoAriaHidden = hideOthers(mountNode)
         }
-        contentRef.value = document.getElementById(contentId)
-      }
-
-      onCleanup(() => {
-        if (props.useInert && undoAriaHidden != null) {
+        this.contentNode = getElById(this.contentId)
+      } else {
+        if (this.useInert && undoAriaHidden != null) {
           undoAriaHidden()
         }
-        if (mountNode.value.parentElement) {
-          mountNode.value.parentElement.removeChild(mountNode.value)
-        }
-      })
+      }
     })
-
-    const modalContext = reactive({
-      isOpen: props.isOpen,
-      initialFocusRef: props.initialFocusRef,
-      onClose: props.onClose,
-      blockScrollOnMount: props.blockScrollOnMount,
-      closeOnEsc: props.closeOnEsc,
-      closeOnOverlayClick: props.closeOnOverlayClick,
-      returnFocusOnClose: props.returnFocusOnClose,
-      contentRef,
-      scrollBehavior: props.scrollBehavior,
-      isCentered: props.isCentered,
-      headerId,
-      bodyId,
-      contentId,
-      size: props.size,
-      addAriaLabelledby,
-      addAriaDescribedby
-    })
-
-    // Provide modal context to compound children components
-    provide(ModalContext, { ...toRefs(modalContext) })
-
-    // Methods
-    const activateFocusLock = () => {
-      // We need to defer this procedure to the next browser tick because elements
-      // may not yet be in the DOM.
+  },
+  methods: {
+    /**
+     * Handles focus trap activation
+     */
+    activateFocusLock () {
       setTimeout(() => {
-        if (props.initialFocusRef) {
-          if (props.initialFocusRef instanceof HTMLElement) {
-            props.initialFocusRef.focus()
-          } else if (props.initialFocusRef.$el) {
-            props.initialFocusRef.$el.focus()
-          } else if (typeof props.initialFocusRef === 'string') {
-            canUseDOM && mountRef.value.querySelector(props.initialFocusRef).focus()
+        if (this.initialFocusRef) {
+          const initialFocusRef = this.getNode(this.initialFocusRef)
+          if (initialFocusRef) {
+            initialFocusRef.focus()
           }
         } else {
-          if (contentRef.value) {
-            let focusables = getFocusables(contentRef.value)
+          const contentNode = getElById(this.contentId)
+          if (contentNode) {
+            let focusables = getFocusables(contentNode)
             if (focusables.length === 0) {
-              contentRef.value.focus()
+              contentNode.focus()
             } else {
               const [el] = focusables
               el instanceof HTMLElement && el.focus()
@@ -151,129 +138,159 @@ const Modal = {
           }
         }
       })
-    }
+    },
 
-    const deactivateFocusLock = () => {
-      // We need to defer this procedure to the next browser tick because elements
-      // may not yet be in the DOM.
+    /**
+     * Handles focus trap deactivation
+     */
+    deactivateFocusLock () {
       setTimeout(() => {
-        if (props.finalFocusRef && props.finalFocusRef instanceof HTMLElement) {
-          props.finalFocusRef.focus()
-        } else if (props.finalFocusRef && props.finalFocusRef.$el) {
-          props.finalFocusRef.$el.focus()
-        } else if (typeof props.finalFocusRef === 'string') {
-          const finalFocusNode = document.querySelector(props.finalFocusRef)
-          if (!finalFocusNode) console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${props.finalFocusRef}".`)
-          else canUseDOM && finalFocusNode.focus()
+        if (this.finalFocusRef) {
+          const finalFocusRef = this.getNode(this.finalFocusRef)
+          if (finalFocusRef) {
+            canUseDOM && finalFocusRef.focus()
+          } else {
+            console.warn(`[ChakraUI Modal]: Unable to locate final focus node "${this.finalFocusRef}".`)
+          }
         }
       })
-    }
+    },
 
-    return () => {
-      const children = context.slots.default()
-
-      // Append Portal target node before rendering
-      if (props.isOpen && canUseDOM) {
-        mountRef.value.id = 'chakra-portal'
-        container.appendChild(mountRef.value)
+    /**
+     * Gets the HTML element for a component or selector
+     * @param {Object|String} element Element or selector
+     */
+    getNode (element) {
+      if (typeof element === 'object') {
+        const isVue = isVueComponent(element)
+        return isVue ? element.$el : element
+      } else if (typeof element === 'string') {
+        return getElement(element)
       }
+      return null
+    }
+  },
+  render (h) {
+    const children = cleanChildren(this.$slots.default)
 
-      return props.isOpen && h('MountingPortal', {
+    return h(Portal, {
+      props: {
+        append: true,
+        target: this.portalTarget,
+        disabled: false,
+        slim: true,
+        unmountOnDestroy: true,
+        targetSlim: true
+      }
+    }, [
+      h(FocusTrap, {
         props: {
-          mountTo: `#${mountRef.value.id}`,
-          append: true
-        }
-      }, [h(FocusTrap, {
-        props: {
-          returnFocusOnDeactivate: props.returnFocusOnClose && !props.finalFocusRef,
-          active: props.isOpen
+          returnFocusOnDeactivate: this.returnFocusOnClose && this.finalFocusRef,
+          active: this.isOpen
         },
         on: {
-          activate: activateFocusLock,
-          deactivate: deactivateFocusLock
+          activate: this.activateFocusLock,
+          deactivate: this.deactivateFocusLock
         }
-      }, [h('div', {}, children)])])
-    }
+      }, [
+        h(PseudoBox, {
+          props: {
+            position: 'relative'
+          },
+          directives: [{
+            name: 'scroll-lock',
+            value: this.isOpen && this.blockScrollOnMount
+          }]
+        }, [
+          h(Fade, {
+            props: {
+              enterEasing: 'easeInCubic',
+              leaveEasing: 'easeOutCubic'
+            }
+          }, this.isOpen && [h('div', {
+            style: {
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            }
+          }, children)])
+        ])
+      ])
+    ])
   }
 }
 
 /**
- * Modal Overlay
+ * ModalOverlay component
  */
 const ModalOverlay = {
   name: 'ModalOverlay',
-  props: {
-    forwardRef: HTMLElement,
-    ...baseProps
-  },
-  setup (props) {
-    return () => {
-      return h(Box, {
-        props: {
-          pos: 'fixed',
-          bg: 'rgba(0,0,0,0.4)',
-          left: '0',
-          top: '0',
-          w: '100vw',
-          h: '100vh',
-          ref: props.forwardRef,
-          zIndex: 'overlay',
-          ...forwardProps(props)
-        }
-      })
-    }
+  props: baseProps,
+  render (h) {
+    return h(Box, {
+      props: {
+        pos: 'fixed',
+        bg: 'rgba(0,0,0,0.4)',
+        left: '0',
+        top: '0',
+        w: '100vw',
+        h: '100vh',
+        zIndex: 'overlay',
+        ...forwardProps(this.$props)
+      }
+    })
   }
 }
 
 const ModalContent = {
   name: 'ModalContent',
+  inject: ['$ModalContext', '$colorMode'],
   props: {
-    onClick: Function,
+    ...baseProps,
     noStyles: Boolean,
     forwardRef: HTMLElement,
-    // Need to figure out why this prop is sometimes not resolved.
-    // As a workaround I use the double pipe to default to 'modal' in the render function
     zIndex: {
       type: String,
       default: 'modal'
-    },
-    ...baseProps
-  },
-  setup (props, context) {
-    const {
-      contentRef,
-      onClose,
-      isCentered,
-      bodyId,
-      headerId,
-      contentId,
-      size,
-      closeOnEsc,
-      addAriaLabelledby,
-      addAriaDescribedby,
-      scrollBehavior,
-      closeOnOverlayClick
-    } = inject(ModalContext)
-
-    const colorMode = useColorMode()
-    const _contentRef = ref(null)
-    _contentRef.value = contentRef.value || props.forwardRef
-    const colorModeStyles = {
-      light: {
-        bg: 'white',
-        shadow: '0 7px 14px 0 rgba(0,0,0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07)'
-      },
-      dark: {
-        bg: 'gray.700',
-        shadow: `rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px`
-      }
     }
+  },
+  data () {
+    return {
+      colorModeStyles: {
+        light: {
+          bg: 'white',
+          shadow: '0 7px 14px 0 rgba(0,0,0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07)'
+        },
+        dark: {
+          bg: 'gray.700',
+          shadow: `rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px`,
+          color: 'whiteAlpha.900'
+        }
+      },
+      wrapperStyle: {},
+      contentStyle: {}
+    }
+  },
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    },
+    context () {
+      return this.$ModalContext()
+    },
+    boxStyleProps () {
+      return this.colorModeStyles[this.colorMode]
+    }
+  },
+  created () {
+    const { isCentered, scrollBehavior } = this.context
 
-    const boxStyleProps = colorModeStyles[colorMode]
     let wrapperStyle = {}
     let contentStyle = {}
 
-    if (isCentered.value) {
+    if (isCentered) {
       wrapperStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -286,7 +303,7 @@ const ModalContent = {
       }
     }
 
-    if (scrollBehavior.value === 'inside') {
+    if (scrollBehavior === 'inside') {
       wrapperStyle = {
         ...wrapperStyle,
         maxHeight: 'calc(100vh - 7.5rem)',
@@ -301,7 +318,7 @@ const ModalContent = {
       }
     }
 
-    if (scrollBehavior.value === 'outside') {
+    if (scrollBehavior === 'outside') {
       wrapperStyle = {
         ...wrapperStyle,
         overflowY: 'auto',
@@ -315,202 +332,195 @@ const ModalContent = {
       }
     }
 
-    if (props.noStyles) {
+    if (this.noStyles) {
       wrapperStyle = {}
       contentStyle = {}
     }
-    return () => {
-      return h(Box, {
-        props: {
-          pos: 'fixed',
-          left: '0',
-          top: '0',
-          w: '100%',
-          h: '100%',
-          zIndex: props.zIndex || 'modal',
-          ...wrapperStyle,
-          ...forwardProps(props)
+
+    this.wrapperStyle = wrapperStyle
+    this.contentStyle = contentStyle
+  },
+  render (h) {
+    const {
+      onClose,
+      bodyId,
+      headerId,
+      contentId,
+      size,
+      closeOnEsc,
+      addAriaLabelledby,
+      addAriaDescribedby,
+      closeOnOverlayClick
+    } = this.context
+
+    return h(Box, {
+      props: {
+        ...forwardProps(this.$props),
+        ...this.wrapperStyle,
+        pos: 'fixed',
+        left: '0',
+        top: '0',
+        w: '100%',
+        h: '100%',
+        zIndex: this.zIndex || 'modal'
+      },
+      nativeOn: {
+        click: (event) => {
+          event.stopPropagation()
+          if (closeOnOverlayClick) {
+            onClose && onClose(event, 'clickedOverlay')
+            this.$emit('clickedOverlay', event)
+          }
         },
-        on: {
-          click: (event) => {
+        keydown: (event) => {
+          if (event.key === 'Escape') {
             event.stopPropagation()
-            if (closeOnOverlayClick.value) {
-              onClose.value(event, 'clickedOverlay')
-            }
-          },
-          keydown: (event) => {
-            if (event.key === 'Escape') {
-              event.stopPropagation()
-              if (closeOnEsc.value) {
-                onClose.value(event, 'pressedEscape')
-              }
+            if (closeOnEsc) {
+              this.$emit('pressedEscape', event)
             }
           }
         }
-      }, [h(Box, {
+      }
+    }, [
+      h(Box, {
         props: {
           as: 'section',
           outline: 0,
-          maxWidth: size.value,
+          maxWidth: size,
           w: '100%',
           pos: 'relative',
           d: 'flex',
           flexDir: 'column',
-          zIndex: props.zIndex,
+          zIndex: this.zIndex,
           fontFamily: 'body',
-          ...boxStyleProps,
-          ...contentStyle,
-          ...forwardProps(props)
+          ...this.boxStyleProps,
+          ...this.contentStyle,
+          ...forwardProps(this.$props)
         },
         attrs: {
+          role: 'dialog',
           'aria-modal': 'true',
           tabIndex: -1,
-          id: contentId.value,
-          ...(addAriaDescribedby.value && { 'aria-describedby': bodyId.value }),
-          ...(addAriaLabelledby.value && { 'aria-labelledby': headerId.value })
+          id: contentId,
+          ...(addAriaDescribedby && { 'aria-describedby': bodyId }),
+          ...(addAriaLabelledby && { 'aria-labelledby': headerId })
         },
-        on: {
-          click: wrapEvent(props.onClick, event => event.stopPropagation())
-        },
-        ref: _contentRef.value
-      }, context.slots.default())])
-    }
+        nativeOn: {
+          click: wrapEvent((e) => this.$emit('click', e), event => event.stopPropagation())
+        }
+      }, this.$slots.default)
+    ])
   }
 }
 
-/**
- * Header Component for modal
- */
 const ModalHeader = {
   name: 'ModalHeader',
-  props: {
-    forwardRef: {
-      type: HTMLElement,
-      default: null
-    },
-    ...baseProps
-  },
-  setup (props, context) {
-    const { headerId } = inject(ModalContext)
-
-    return () => {
-      return h(Box, {
-        props: {
-          px: 6,
-          py: 4,
-          position: 'relative',
-          fontSize: 'xl',
-          fontWeight: 'semibold',
-          ...forwardProps(props)
-        },
-        attrs: {
-          id: headerId.value
-        },
-        ref: props.forwardRef
-      }, [context.slots.default()])
+  inject: ['$ModalContext'],
+  props: baseProps,
+  computed: {
+    context () {
+      return this.$ModalContext()
     }
+  },
+  render (h) {
+    const { headerId } = this.context
+
+    return h(Box, {
+      props: {
+        px: 6,
+        py: 4,
+        position: 'relative',
+        fontSize: 'xl',
+        fontWeight: 'semibold',
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        id: headerId
+      },
+      ref: props.forwardRef
+    }, this.$slots.default)
   }
 }
 
-/**
- * Footer Component for modal
- */
 const ModalFooter = {
   name: 'ModalFooter',
-  props: {
-    ...baseProps,
-    forwardRef: {
-      type: HTMLElement,
-      default: null
-    }
-  },
-  setup (props, context) {
-    return () => {
-      return h(Box, {
-        props: {
-          as: 'footer',
-          display: 'flex',
-          px: 6,
-          py: 4,
-          justifyContent: 'flex-end',
-          ...forwardProps(props)
-        },
-        ref: props.forwardRef
-      }, context.slots.default())
-    }
+  props: baseProps,
+  render (h) {
+    return h(Box, {
+      props: {
+        as: 'footer',
+        display: 'flex',
+        px: 6,
+        py: 4,
+        justifyContent: 'flex-end',
+        ...forwardProps(this.$props)
+      }
+    }, this.$slots.default)
   }
 }
 
-/**
- * Modal Body Component for modal
- */
 const ModalBody = {
   name: 'ModalBody',
-  props: {
-    ...baseProps,
-    forwardRef: {
-      type: HTMLElement,
-      default: null
+  props: baseProps,
+  inject: ['$ModalContext'],
+  computed: {
+    context () {
+      return this.$ModalContext()
     }
   },
-  setup (props, context) {
-    const { bodyId, scrollBehavior } = inject(ModalContext)
+  render (h) {
+    const { bodyId, scrollBehavior } = this.context
 
     let style = {}
-    if (scrollBehavior.value === 'inside') {
+    if (scrollBehavior === 'inside') {
       style = { overflowY: 'auto' }
     }
 
-    return () => {
-      return h(Box, {
-        props: {
-          px: 6,
-          py: 2,
-          flex: 1,
-          ...style,
-          ...forwardProps(props)
-        },
-        attrs: {
-          id: bodyId.value
-        },
-        ref: props.forwardRef
-      }, context.slots.default())
-    }
+    return h(Box, {
+      props: {
+        px: 6,
+        py: 2,
+        flex: 1,
+        ...style,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        id: bodyId
+      }
+    }, this.$slots.default)
   }
 }
 
-/**
- * Close Button for Modal
- */
 const ModalCloseButton = {
   name: 'ModalCloseButton',
-  props: {
-    ...baseProps,
-    forwardRef: {
-      type: HTMLElement,
-      default: null
+  props: styleProps,
+  inject: ['$ModalContext'],
+  computed: {
+    context () {
+      return this.$ModalContext()
     }
   },
-  setup (props, context) {
-    const { onClose } = inject(ModalContext)
-    return () => {
-      return h(CloseButton, {
-        props: {
-          position: 'absolute',
-          top: '8px',
-          right: '12px',
-          ...forwardProps(props)
-        },
-        on: {
-          click: wrapEvent(onClose.value, event => context.emit('click', event))
-        },
-        ref: props.forwardRef
-      })
-    }
+  render (h) {
+    const { onClose } = this.context
+    return h(CloseButton, {
+      props: {
+        position: 'absolute',
+        top: '8px',
+        right: '12px',
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        'x-close-button': ''
+      },
+      on: {
+        click: (e) => {
+          wrapEvent(onClose, event => this.$emit('click', event))(e)
+        }
+      }
+    })
   }
 }
 
-// Modal Exports
 export {
   Modal,
   ModalOverlay,

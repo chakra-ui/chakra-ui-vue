@@ -1,6 +1,6 @@
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
-import VueCompositionApi from '@vue/composition-api'
+import VScrollLock from 'v-scroll-lock'
 
 /**
  * Kiwi Component library plugin
@@ -27,7 +27,7 @@ const Kiwi = {
     }
 
     /** Install dependant plugins */
-    Vue.use(VueCompositionApi)
+    Vue.use(VScrollLock)
   }
 }
 

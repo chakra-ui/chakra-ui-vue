@@ -1,8 +1,8 @@
-import { NumberStringArray, StringArray } from '../config/props/props.types'
+import { SNA, StringArray } from '../config/props/props.types'
 
 export const inputProps = {
   size: {
-    type: NumberStringArray,
+    type: SNA,
     default: 'md'
   },
   variant: {

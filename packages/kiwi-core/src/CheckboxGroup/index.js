@@ -1,4 +1,4 @@
-import { NumberStringArray } from '../config/props/props.types'
+import { SNA } from '../config/props/props.types'
 import { baseProps } from '../config'
 import Box from '../Box'
 import { isDef, useId, cleanChildren, cloneVNodeElement, forwardProps } from '../utils'
@@ -18,7 +18,7 @@ const CheckboxGroup = {
     isInline: Boolean,
     value: Array,
     spacing: {
-      type: NumberStringArray,
+      type: SNA,
       default: 2
     }
   },

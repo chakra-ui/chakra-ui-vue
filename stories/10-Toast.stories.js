@@ -1,9 +1,26 @@
 import { storiesOf } from '@storybook/vue'
 import { Button } from '../packages/kiwi-core/src'
+import { colorModeObserver } from '../packages/kiwi-core/src/utils/color-mode-observer'
+
+const watch = {
+  $theme: {
+    immediate: true,
+    handler (theme) {
+      colorModeObserver.theme = theme()
+    }
+  },
+  $icons: {
+    immediate: true,
+    handler (icons) {
+      colorModeObserver.icons = icons
+    }
+  }
+}
 
 storiesOf('UI | Toast', module)
   .add('Simple Toast', () => ({
     components: { Button },
+    watch,
     inject: ['$theme', '$icons'],
     methods: {
       showToast () {
@@ -24,6 +41,7 @@ storiesOf('UI | Toast', module)
   }))
   .add('With status', () => ({
     components: { Button },
+    watch,
     inject: ['$theme', '$icons'],
     methods: {
       infoToast () {
@@ -78,6 +96,7 @@ storiesOf('UI | Toast', module)
   }))
   .add('With variant', () => ({
     components: { Button },
+    watch,
     inject: ['$theme', '$icons'],
     methods: {
       successToast (variant = 'solid') {

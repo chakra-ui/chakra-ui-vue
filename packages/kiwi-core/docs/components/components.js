@@ -1,4 +1,9 @@
-// Dear maintainers, please arrange components alphabetically. Thanks :)
+/**
+ * NOTE:
+ *
+ * Dear maintainers,
+ * Components listed in this file should be listed alphabetically. Thanks :)
+ */
 
 const components = [
   'Accordion',

@@ -1,6 +1,5 @@
 import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
-import VueCompositionAPI from '@vue/composition-api'
 import Kiwi, { ThemeProvider, ColorModeProvider, CSSReset } from '../packages/kiwi-core/src'
 import Canvas from '../src/components/Canvas.vue'
 import theme from '../packages/kiwi-core/src/lib/theme'
@@ -28,7 +27,6 @@ import {
   faGithub
 } from '@fortawesome/free-brands-svg-icons'
 
-Vue.use(VueCompositionAPI)
 Vue.use(Kiwi, {
   icons: {
     iconPack: 'fa',

@@ -61,9 +61,9 @@ const Input = {
 
     return h(PseudoBox, {
       props: {
-        ...forwardProps(this.$props),
+        ...inputStyles,
         as: this.as,
-        ...inputStyles
+        ...forwardProps(this.$props)
       },
       domProps: {
         value: this.value

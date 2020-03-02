@@ -86,6 +86,7 @@ export { default as Switch } from './Switch'
 
 export * from './Tag'
 export { default as Text } from './Text'
+export { default as Textarea } from './Textarea'
 export { default as ThemeProvider } from './ThemeProvider'
 export { default as useToast } from './Toast'
 export { default as Tooltip } from './Tooltip'

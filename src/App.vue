@@ -1,19 +1,28 @@
 <template>
-  <Box>
+  <Box w="300px">
     <Button variant-color="blue" @click="showToast">Show Toast</Button>
+    <Textarea
+      maxWidth="sm"
+      mx="auto"
+      mt="2"
+      placeholder="Here is a sample placeholder"
+      size="md"
+    />
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Button } from '../packages/kiwi-core/dist/esm'
+  Button,
+  Textarea } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
+    Textarea,
     Button
   },
   data () {

@@ -1,58 +1,32 @@
 <template>
   <Box>
-    <Drawer
-      :isOpen="isOpen"
-      placement="top"
-      :onClose="close"
-    >
-      <DrawerOverlay />
-      <DrawerContent>
-        <DrawerCloseButton @click="close"/>
-        <DrawerHeader>Create your account</DrawerHeader>
-
-        <DrawerBody>
-          <Input placeholder="Type here..." />
-        </DrawerBody>
-
-        <DrawerFooter>
-          <Button variant="outline" mr="3" @click="close">
-            Cancel
-          </Button>
-          <Button variant-color="blue">Save</Button>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
-    <Button variant-color="red" @click="open">
-      Delete Customer
-    </Button>
+    <Breadcrumb :add-separator="false">
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Breadcrumb 1</BreadcrumbLink>
+        <BreadcrumbSeparator color="tomato" font-size="10px" font-weight="bold" />
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="#">Breadcrumb 2</BreadcrumbLink>
+        <BreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
+      </BreadcrumbItem>
+    </Breadcrumb>
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton } from '../packages/kiwi-core/dist/esm'
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Button,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbSeparator
   },
   data () {
     return {

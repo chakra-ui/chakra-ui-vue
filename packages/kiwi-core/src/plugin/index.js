@@ -1,5 +1,6 @@
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
+import defaultTheme from '../lib/theme'
 import VScrollLock from 'v-scroll-lock'
 import useToast from '../Toast'
 
@@ -23,7 +24,7 @@ const Kiwi = {
 
     // Bind theme and icons to prototype
     Vue.prototype.$kiwi = {
-      theme: options.theme,
+      theme: options.theme || defaultTheme,
       icons
     }
 

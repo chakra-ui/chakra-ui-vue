@@ -1,5 +1,5 @@
 <template>
-  <ThemeProvider :theme="theme || $kiwi.theme" :icons="icons || $kiwi.icons">
+  <ThemeProvider>
     <ColorModeProvider v-slot="{ colorMode, toggleColorMode }">
       <Box
         as="main"
@@ -51,10 +51,6 @@ import {
 
 export default {
   name: 'Canvas',
-  props: {
-    theme: Object,
-    icons: Object
-  },
   components: {
     ThemeProvider,
     Heading,

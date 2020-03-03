@@ -24,6 +24,19 @@
         <AvatarBadge size="1.0em" borderColor="papayawhip" bg="tomato" />
       </Avatar>
     </AvatarGroup>
+    <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
+    <!-- <Modal :isOpen="showModal">
+      <ModalContent>
+        <ModalCloseButton @click="showModal = false" />
+        <ModalHeader>Are you sure?</ModalHeader>
+        <ModalBody>Deleting user cannot be undone</ModalBody>
+        <ModalFooter>
+          <Button @click="showModal = false">Cancel</Button>
+          <Button variantColor="red" @click="showModal = false">Delete User</Button>
+        </ModalFooter>
+      </ModalContent>
+      <ModalOverlay/>
+    </Modal> -->
   </Box>
 </template>
 
@@ -53,6 +66,11 @@ export default {
       return this.$theme()
     }
   },
+  data () {
+    return {
+      showModal: false
+    }
+  },
   methods: {
     showToast () {
       this.$toast({
@@ -62,16 +80,6 @@ export default {
         duration: 10000,
         isClosable: true
       })
-    },
-    handleChange: (value) => console.log(value),
-    focusRadioGroup () {
-      this.$refs.rg.focus()
-    },
-    open () {
-      this.isOpen = true
-    },
-    close () {
-      this.isOpen = false
     }
   }
 }

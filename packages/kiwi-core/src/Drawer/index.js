@@ -22,7 +22,7 @@ const Drawer = {
       default: 'right'
     },
     finalFocusRef: {
-      type: [HTMLElement, Object],
+      type: Object,
       default: () => null
     },
     size: {

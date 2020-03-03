@@ -22,7 +22,7 @@ const Link = {
       default: () => null
     },
     innerRef: {
-      type: HTMLElement,
+      type: Object,
       default: null
     },
     ...styleProps

@@ -15,9 +15,6 @@ export default {
       type: String,
       default: 'gray'
     },
-    forwardRef: {
-      type: HTMLElement
-    },
     ...baseProps
   },
   computed: {

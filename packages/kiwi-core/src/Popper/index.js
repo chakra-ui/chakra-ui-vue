@@ -63,7 +63,7 @@ const Popper = {
       type: Object,
       default: () => {}
     },
-    anchorEl: [HTMLElement, Object],
+    anchorEl: Object,
     eventsEnabled: {
       type: Boolean,
       default: true

@@ -3,9 +3,9 @@ import { baseProps } from '../config/props'
 
 export default {
   isOpen: Boolean,
-  initialFocusRef: [HTMLElement, Object, String],
-  finalFocusRef: [HTMLElement, Object, String],
-  contentRef: [HTMLElement, Object, String],
+  initialFocusRef: [Object, String],
+  finalFocusRef: [Object, String],
+  contentRef: [Object, String],
   blockScrollOnMount: {
     type: Boolean,
     default: true
@@ -40,7 +40,7 @@ export default {
       body: `modal-${id}-body`
     })
   },
-  container: [HTMLElement, Object],
+  container: Object,
   returnFocusOnClose: {
     type: Boolean,
     default: true

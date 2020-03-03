@@ -28,6 +28,14 @@ export const AvatarBadge = {
     size: [String, Number, Array],
     ...baseProps
   },
+  computed: {
+    theme () {
+      return this.$theme()
+    },
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   render (h) {
     const borderColorStyle = { light: 'white', dark: 'gray.800' }
     return h(Box, {
@@ -42,7 +50,7 @@ export const AvatarBadge = {
         bottom: '0',
         right: '0',
         border: '0.2em solid',
-        borderColor: borderColorStyle[this.$colorMode],
+        borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
         ...forwardProps(this.$props)
       }
@@ -55,7 +63,6 @@ export const AvatarBadge = {
  */
 const AvatarName = {
   name: 'AvatarName',
-  inject: ['$theme', '$colorMode'],
   props: {
     name: [String, Array],
     size: [String, Array],
@@ -115,6 +122,14 @@ const DefaultAvatar = {
 export const Avatar = {
   name: 'Avatar',
   inject: ['$theme', '$colorMode'],
+  computed: {
+    theme () {
+      return this.$theme()
+    },
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   props: {
     size: {
       type: String,
@@ -160,11 +175,11 @@ export const Avatar = {
       name: this.name,
       showBorder: this.showBorder,
       borderColor: this.borderColor,
-      theme: this.$theme,
-      colorMode: this.$colorMode
+      theme: this.theme,
+      colorMode: this.colorMode
     })
 
-    const theme = this.$theme()
+    const theme = this.theme
     const sizeKey = avatarSizes[this.size]
     const _size = theme.sizes[sizeKey]
     const fontSize = `calc(${_size} / 2.5)`

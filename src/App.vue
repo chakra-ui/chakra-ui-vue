@@ -1,46 +1,20 @@
 <template>
   <Box w="600px">
-    <Tabs isFitted variant="soft-rounded" variantColor="pink">
-    <TabList>
-      <Tab>One</Tab>
-      <Tab>Two</Tab>
-      <Tab>Three</Tab>
-    </TabList>
-
-    <TabPanels>
-      <TabPanel>
-        <p>one!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>two!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>three!</p>
-      </TabPanel>
-    </TabPanels>
-  </Tabs>
+    <Button @click="showToast"> Show Toast</Button>
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel } from '../packages/kiwi-core/dist/esm'
+  Button } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Tabs,
-    TabList,
-    Tab,
-    TabPanels,
-    TabPanel
+    Button
   },
   computed: {
     colorMode () {

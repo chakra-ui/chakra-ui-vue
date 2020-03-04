@@ -1,5 +1,5 @@
 import { baseProps } from '../config/props'
-import { forwardProps } from '../utils/'
+import { forwardProps, canUseDOM } from '../utils/'
 import useAvatarStyles, { avatarSizes } from './avatar.styles'
 import Box from '../Box'
 
@@ -155,6 +155,10 @@ export const Avatar = {
   },
   methods: {
     loadImage (src) {
+      if (!canUseDOM) {
+        return
+      }
+
       const image = new window.Image()
       image.src = src
 

@@ -1,7 +1,7 @@
 import Fragment from '../Fragment'
 import VisuallyHidden from '../VisuallyHidden'
 import { Popper, PopperArrow } from '../Popper'
-import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
+import { cloneVNode, useId, forwardProps, wrapEvent, canUseDOM } from '../utils'
 import { baseProps } from '../config/props'
 import Box from '../Box'
 
@@ -149,8 +149,11 @@ const Tooltip = {
             ...cloned.componentOptions.propsData
           },
           attrs: {
+            // TODO: use separate tooltip attribute to serve as selector.
+            // This will preserve id as a consumer prop
             id: `__wrapper-${this.tooltipId}`
           },
+          on: cloned.componentOptions.listeners,
           nativeOn: {
             'mouseenter': this.handleOpen,
             'mouseleave': this.handleClose,
@@ -162,8 +165,12 @@ const Tooltip = {
       }
     }
 
-    this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
+    // If current environment is server-side we return the clone child
+    if (!canUseDOM) {
+      return clone
+    }
 
+    this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
     return h(Fragment, [
       clone,
       h(Popper, {

@@ -24,7 +24,14 @@
         <AvatarBadge size="1.0em" borderColor="papayawhip" bg="tomato" />
       </Avatar>
     </AvatarGroup>
-    <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
+    <!-- <Tooltip label="Deletes customer permanently from list">
+      <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
+    </Tooltip> -->
+    <Tooltip label="Adds new customer">
+      <Button left-icon="add" my="3" variant-color="blue" @click="showModal = true">
+        Add Customer
+      </Button>
+    </Tooltip>
     <Modal :isOpen="showModal">
       <ModalContent>
         <ModalHeader>Are you sure?</ModalHeader>
@@ -53,7 +60,8 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  ModalCloseButton } from '../packages/kiwi-core/dist/esm'
+  ModalCloseButton,
+  Tooltip } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -70,7 +78,8 @@ export default {
     ModalFooter,
     ModalHeader,
     ModalOverlay,
-    ModalCloseButton
+    ModalCloseButton,
+    Tooltip
   },
   computed: {
     colorMode () {

@@ -98,6 +98,7 @@ const AvatarGroup = {
     return h(Flex, {
       props: {
         alignItems: 'center',
+        zIndex: 0,
         ...forwardProps(this.$props)
       }
     }, clones)

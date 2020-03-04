@@ -2,7 +2,7 @@ import PopperJS from 'popper.js'
 import PseudoBox from '../PseudoBox'
 import ClickOutside from '../ClickOutside'
 import Portal from '../Portal'
-import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId } from '../utils'
+import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
 import styleProps from '../config/props'
 import getPopperArrowStyle from './popper.styles'
 import Box from '../Box'
@@ -63,7 +63,7 @@ const Popper = {
       type: Object,
       default: () => {}
     },
-    anchorEl: Object,
+    anchorEl: HTMLElement,
     eventsEnabled: {
       type: Boolean,
       default: true

@@ -1,7 +1,7 @@
 import Fragment from '../Fragment'
 import VisuallyHidden from '../VisuallyHidden'
 import { Popper, PopperArrow } from '../Popper'
-import { cloneVNode, useId, forwardProps, wrapEvent, canUseDOM } from '../utils'
+import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
 import { baseProps } from '../config/props'
 import Box from '../Box'
 
@@ -91,6 +91,7 @@ const Tooltip = {
     // Attached immediately.
     this.$nextTick(() => {
       this.noop++
+      this.tooltipAnchor = document.querySelector(`[x-tooltip-anchor=${this.tooltipId}]`)
     })
   },
   render (h) {
@@ -164,12 +165,6 @@ const Tooltip = {
       }
     }
 
-    // If current environment is server-side we return the clone child
-    if (!canUseDOM) {
-      return clone
-    }
-
-    this.tooltipAnchor = document.querySelector(`[x-tooltip-anchor=${this.tooltipId}]`)
     return h(Fragment, [
       clone,
       h(Popper, {

@@ -1,6 +1,6 @@
 import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import { MountingPortal } from 'portal-vue'
-
+import NoSsr from '../NoSsr'
 /**
  * Portal Component
  */
@@ -85,18 +85,20 @@ const Portal = {
   },
   render (h) {
     const children = this.$slots.default
-    return !this.disabled ? h(MountingPortal, {
-      props: {
-        append: this.append,
-        mountTo: `#${this.targetId}`,
-        disabled: this.disabled,
-        name: this.name,
-        order: this.order,
-        slim: this.slim,
-        bail: this.bail,
-        targetSlim: this.targetSlim
-      }
-    }, children) : children[0]
+    return !this.disabled ? h(NoSsr, [
+      h(MountingPortal, {
+        props: {
+          append: this.append,
+          mountTo: `#${this.targetId}`,
+          disabled: this.disabled,
+          name: this.name,
+          order: this.order,
+          slim: this.slim,
+          bail: this.bail,
+          targetSlim: this.targetSlim
+        }
+      }, children)
+    ]) : children[0]
   }
 }
 

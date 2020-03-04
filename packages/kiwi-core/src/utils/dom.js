@@ -7,11 +7,10 @@ export const canUseDOM = !!(
   window.document.createElement
 )
 
-export const HTMLElement = !!(
+export const HTMLElement =
   canUseDOM
     ? window.HTMLElement
     : Object
-)
 
 /**
  * Checks if a given element is an HTML element.

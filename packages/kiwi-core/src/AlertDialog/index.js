@@ -1,5 +1,5 @@
 import baseProps from '../config/props'
-import { forwardProps } from '../utils'
+import { forwardProps, HTMLElement } from '../utils'
 import {
   Modal,
   ModalContent,
@@ -27,7 +27,7 @@ const AlertDialog = {
       type: Function,
       default: () => null
     },
-    leastDestructiveRef: Object,
+    leastDestructiveRef: HTMLElement,
     ...baseProps
   },
   render (h) {

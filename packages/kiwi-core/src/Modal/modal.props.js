@@ -1,11 +1,12 @@
 import { StringArray } from '../config/props/props.types'
 import { baseProps } from '../config/props'
+import { HTMLElement } from '../utils'
 
 export default {
   isOpen: Boolean,
-  initialFocusRef: [Object, String],
-  finalFocusRef: [Object, String],
-  contentRef: [Object, String],
+  initialFocusRef: [HTMLElement, Object, String],
+  finalFocusRef: [HTMLElement, Object, String],
+  contentRef: [HTMLElement, Object, String],
   blockScrollOnMount: {
     type: Boolean,
     default: true
@@ -40,7 +41,7 @@ export default {
       body: `modal-${id}-body`
     })
   },
-  container: Object,
+  container: HTMLElement,
   returnFocusOnClose: {
     type: Boolean,
     default: true

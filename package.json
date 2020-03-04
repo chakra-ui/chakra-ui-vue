@@ -107,7 +107,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
-    "rollup-plugin-css-only": "^2.0.0",
     "rollup-plugin-scss": "^2.1.0"
   }
 }

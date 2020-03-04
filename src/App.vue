@@ -27,13 +27,13 @@
     <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
     <Modal :isOpen="showModal">
       <ModalContent>
-        <ModalCloseButton @click="showModal = false" />
         <ModalHeader>Are you sure?</ModalHeader>
         <ModalBody>Deleting user cannot be undone</ModalBody>
         <ModalFooter>
-          <Button @click="showModal = false">Cancel</Button>
+          <Button mr="3" @click="showModal = false">Cancel</Button>
           <Button variantColor="red" @click="showModal = false">Delete User</Button>
         </ModalFooter>
+        <ModalCloseButton @click="showModal = false" />
       </ModalContent>
       <ModalOverlay/>
     </Modal>

@@ -28,6 +28,7 @@ const Portal = {
     }
   },
   created () {
+    console.log('===============browser?', process.browser)
     if (!this.disabled) {
       this.mountTarget()
       this.unmountOnDestroy && this.$once('hook:destroyed', () => {

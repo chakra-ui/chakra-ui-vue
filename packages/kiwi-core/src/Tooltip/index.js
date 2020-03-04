@@ -116,7 +116,7 @@ const Tooltip = {
           },
           attrs: {
             tabIndex: 0,
-            id: `__wrapper-${this.tooltipId}`,
+            'x-tooltip-anchor': `${this.tooltipId}`,
             ...(this.isOpen && { 'aria-describedby': this.tooltipId })
           },
           on: {
@@ -149,9 +149,8 @@ const Tooltip = {
             ...cloned.componentOptions.propsData
           },
           attrs: {
-            // TODO: use separate tooltip attribute to serve as selector.
-            // This will preserve id as a consumer prop
-            id: `__wrapper-${this.tooltipId}`
+            ...cloned.data.attrs,
+            'x-tooltip-anchor': `${this.tooltipId}`
           },
           on: cloned.componentOptions.listeners,
           nativeOn: {
@@ -170,7 +169,7 @@ const Tooltip = {
       return clone
     }
 
-    this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
+    this.tooltipAnchor = document.querySelector(`[x-tooltip-anchor=${this.tooltipId}]`)
     return h(Fragment, [
       clone,
       h(Popper, {

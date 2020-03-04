@@ -6,7 +6,7 @@
         name="Evan You"
         src="https://pbs.twimg.com/profile_images/1206997998900850688/cTXTQiHm_400x400.jpg"
       >
-        <AvatarBadge size="1.0em" bg="green.500" />
+        <AvatarBadge size="1.0em" bg="red.500" />
       </Avatar>
       <Avatar
         name="Jonathan Bakebwa"
@@ -28,7 +28,7 @@
       <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
     </Tooltip> -->
     <Tooltip label="Adds new customer">
-      <Button left-icon="add" my="3" variant-color="blue" @click="showModal = true">
+      <Button left-icon="add" my="3" id="test-button-id" variant-color="blue" @click="showModal = true">
         Add Customer
       </Button>
     </Tooltip>

@@ -14,11 +14,19 @@ const MoreAvatarLabel = {
     label: String,
     ...baseProps
   },
+  computed: {
+    theme () {
+      return this.$theme()
+    },
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   render (h) {
     const borderColor = { light: '#fff', dark: 'gray.800' }
     const bg = { light: 'gray.200', dark: 'whiteAlpha.400' }
 
-    const theme = this.$theme()
+    const theme = this.theme
     const sizeKey = avatarSizes[this.size]
     const _size = theme.sizes[sizeKey]
     const fontSize = `calc(${_size} / 2.75)`
@@ -27,13 +35,13 @@ const MoreAvatarLabel = {
       props: {
         w: avatarSizes[this.size],
         h: avatarSizes[this.size],
-        bg: bg[this.$colorMode],
+        bg: bg[this.colorMode],
         color: 'inherit',
         rounded: 'full',
         alignItems: 'center',
         justifyContent: 'center',
         border: '2px',
-        borderColor: borderColor[this.$colorMode],
+        borderColor: borderColor[this.colorMode],
         fontSize: fontSize,
         ...forwardProps(this.$props)
       }
@@ -90,6 +98,7 @@ const AvatarGroup = {
     return h(Flex, {
       props: {
         alignItems: 'center',
+        zIndex: 0,
         ...forwardProps(this.$props)
       }
     }, clones)

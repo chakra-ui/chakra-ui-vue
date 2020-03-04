@@ -21,10 +21,6 @@ const Link = {
       type: Function,
       default: () => null
     },
-    innerRef: {
-      type: HTMLElement,
-      default: null
-    },
     ...styleProps
   },
   render (h) {

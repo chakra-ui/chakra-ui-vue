@@ -91,6 +91,7 @@ const Tooltip = {
     // Attached immediately.
     this.$nextTick(() => {
       this.noop++
+      this.tooltipAnchor = document.querySelector(`[x-tooltip-anchor=${this.tooltipId}]`)
     })
   },
   render (h) {
@@ -116,7 +117,7 @@ const Tooltip = {
           },
           attrs: {
             tabIndex: 0,
-            id: `__wrapper-${this.tooltipId}`,
+            'x-tooltip-anchor': `${this.tooltipId}`,
             ...(this.isOpen && { 'aria-describedby': this.tooltipId })
           },
           on: {
@@ -149,8 +150,10 @@ const Tooltip = {
             ...cloned.componentOptions.propsData
           },
           attrs: {
-            id: `__wrapper-${this.tooltipId}`
+            ...cloned.data.attrs,
+            'x-tooltip-anchor': `${this.tooltipId}`
           },
+          on: cloned.componentOptions.listeners,
           nativeOn: {
             'mouseenter': this.handleOpen,
             'mouseleave': this.handleClose,
@@ -161,8 +164,6 @@ const Tooltip = {
         }, cloned.componentOptions.children)
       }
     }
-
-    this.tooltipAnchor = document.querySelector(`#__wrapper-${this.tooltipId}`)
 
     return h(Fragment, [
       clone,

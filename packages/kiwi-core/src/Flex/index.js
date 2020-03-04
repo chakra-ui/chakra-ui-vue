@@ -1,7 +1,6 @@
 import Box from '../Box'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
-import Vue from 'vue'
 
 /**
  * Flex is Box with display: flex and comes with helpful style shorthand. It renders a div element.
@@ -9,7 +8,6 @@ import Vue from 'vue'
 const Flex = {
   name: 'Flex',
   props: {
-    forwardRef: [HTMLElement, Vue.component],
     align: [String, Array],
     justify: [String, Array],
     wrap: [String, Array],

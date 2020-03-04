@@ -38,7 +38,7 @@ export const avatarSizes = {
  * @returns {Object} Style props object
  */
 export default function useAvatarStyles ({ size, name, showBorder, borderColor, theme, colorMode }) {
-  const { colors } = theme()
+  const { colors } = theme
 
   const bg = name ? string2Hex(name) : colors.gray[400]
   const color = name ? (isDarkColor(bg) ? '#fff' : 'gray.800') : '#fff'

@@ -2,20 +2,18 @@ import { colorModeObserver } from '../utils/color-mode-observer'
 
 const ThemeProvider = {
   name: 'ThemeProvider',
-  props: {
-    theme: {
-      type: Object,
-      default: () => null
-    },
-    icons: {
-      type: Object,
-      required: false
-    }
-  },
   provide () {
     return {
       $theme: () => this.theme,
       $icons: this.icons
+    }
+  },
+  computed: {
+    icons () {
+      return this.$kiwi ? this.$kiwi.icons : {}
+    },
+    theme () {
+      return this.$kiwi.theme
     }
   },
   watch: {

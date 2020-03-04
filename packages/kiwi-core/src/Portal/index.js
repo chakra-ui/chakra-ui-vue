@@ -66,6 +66,9 @@ const Portal = {
       }
     },
     mountTarget () {
+      if (!canUseDOM) {
+        return
+      }
       this.portalTarget = this.createPortalTarget(this.target, this.as)
       this.targetId = this.portalTarget.id
       this.$forceUpdate() // Force re-render in case of changes.

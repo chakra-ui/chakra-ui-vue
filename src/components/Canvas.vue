@@ -1,6 +1,6 @@
 <template>
   <ThemeProvider>
-    <ColorModeProvider>
+    <ColorModeProvider v-slot="{ colorMode, toggleColorMode }">
       <Box
         as="main"
         :bg="colorMode === 'light' ? 'white' : 'gray.800'"

@@ -150,7 +150,7 @@ export const Avatar = {
       hasLoaded: false
     }
   },
-  mounted () {
+  created () {
     this.loadImage(this.src)
   },
   methods: {

@@ -5,7 +5,6 @@
   "keywords": [
     "chakra",
     "ui",
-    "css",
     "vue",
     "theme"
   ],
@@ -21,7 +20,7 @@
     "url": "git+https://github.com/codebender828/kiwi-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Test: run test on theme\""
   },
   "bugs": {
     "url": "https://github.com/codebender828/kiwi-ui/issues"

@@ -25,7 +25,7 @@
       </Avatar>
     </AvatarGroup>
     <Button left-icon="close" variantColor="red" mt="3" @click="showModal = true">Delete Account</Button>
-    <!-- <Modal :isOpen="showModal">
+    <Modal :isOpen="showModal">
       <ModalContent>
         <ModalCloseButton @click="showModal = false" />
         <ModalHeader>Are you sure?</ModalHeader>
@@ -36,7 +36,7 @@
         </ModalFooter>
       </ModalContent>
       <ModalOverlay/>
-    </Modal> -->
+    </Modal>
   </Box>
 </template>
 
@@ -46,7 +46,14 @@ import {
   Button,
   AvatarGroup,
   Avatar,
-  AvatarBadge } from '../packages/kiwi-core/dist/esm'
+  AvatarBadge,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalCloseButton } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
@@ -56,7 +63,14 @@ export default {
     Button,
     AvatarGroup,
     Avatar,
-    AvatarBadge
+    AvatarBadge,
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    ModalCloseButton
   },
   computed: {
     colorMode () {

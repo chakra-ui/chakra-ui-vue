@@ -1,6 +1,6 @@
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
-import defaultTheme from '../lib/theme'
+import defaultTheme from '../../../chakra-ui-theme'
 import VScrollLock from 'v-scroll-lock'
 import useToast from '../Toast'
 

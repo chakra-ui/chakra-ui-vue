@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-v7ibj3"
+    class="css-1a4vveh"
   >
     <input
       class="css-0 css-f8n5zr"
@@ -11,10 +11,10 @@ exports[`should render correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="css-avl0nn css-wg9t5e"
+      class="css-tunaov css-14rwhig"
     >
       <div
-        class="css-gbfeqa"
+        class="css-4b8l73"
       />
     </div>
   </label>

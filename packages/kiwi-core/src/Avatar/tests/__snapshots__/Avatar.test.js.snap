@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1mn9ixo"
+    class="css-k167l9"
     data-testid="avatar"
   >
     <div
@@ -19,7 +19,7 @@ exports[`should render correctly 1`] = `
 exports[`should render default avatar if name is not provided and image didn't load 1`] = `
 <DocumentFragment>
   <div
-    class="css-1p9jk12"
+    class="css-ao2yc1"
     data-testid="avatar"
   >
     <div

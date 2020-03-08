@@ -14,7 +14,7 @@ exports[`should render correctly 1`] = `
     </label>
      
     <input
-      class="css-rkwzsg css-1yew1ol"
+      class="css-d8aoyp css-1yew1ol"
       id="fname"
       placeholder="First name"
     />

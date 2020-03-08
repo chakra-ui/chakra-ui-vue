@@ -1,6 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../'
 import { render } from '@/tests/test-utils'
-import CompositionApi from '@vue/composition-api'
 
 const renderComponent = (props) => {
   const base = {
@@ -23,9 +22,7 @@ const renderComponent = (props) => {
    `,
     ...props
   }
-  return render(base, {}, vue => {
-    vue.use(CompositionApi)
-  })
+  return render(base)
 }
 
 it('should render correctly', () => {

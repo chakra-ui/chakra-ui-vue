@@ -14,7 +14,6 @@
     "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
     "dev": "yarn workspace chakra-ui-core dev",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
     "lerna:build": "lerna run build",
     "test": "lerna run test",
     "clean": "lerna run clean",

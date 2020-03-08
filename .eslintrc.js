@@ -3,13 +3,9 @@ module.exports = {
   env: {
     node: true
   },
-  plugins: [
-    // 'vue-a11y'
-  ],
   'extends': [
     'plugin:vue/essential',
     '@vue/standard',
-    // 'plugin:vue-a11y/base'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

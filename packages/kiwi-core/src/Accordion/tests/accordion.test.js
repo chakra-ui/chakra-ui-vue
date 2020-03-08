@@ -1,5 +1,5 @@
 import { Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '@/packages/kiwi-core/src/Accordion'
-import { render, userEvent, fireEvent } from '@/packages/kiwi-core/src/test-utils'
+import { render, userEvent, fireEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

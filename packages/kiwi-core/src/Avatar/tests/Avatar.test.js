@@ -1,5 +1,5 @@
 import { Avatar, AvatarBadge } from '../'
-import { render, fireEvent } from '@/packages/kiwi-core/src/test-utils'
+import { render, fireEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

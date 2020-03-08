@@ -1,5 +1,5 @@
 import Checkbox from '../'
-import { render, userEvent } from '@/packages/kiwi-core/src/test-utils'
+import { render, userEvent } from '@/tests/test-utils'
 
 jest.mock('@/packages/kiwi-core/src/utils/generators.js', () => {
   return {

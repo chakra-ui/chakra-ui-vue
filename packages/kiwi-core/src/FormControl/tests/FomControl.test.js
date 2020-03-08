@@ -1,5 +1,5 @@
 import FormControl from '../'
-import { render } from '@/packages/kiwi-core/src/test-utils'
+import { render } from '@/tests/test-utils'
 import FormLabel from '@/packages/kiwi-core/src/FormLabel'
 import Input from '@/packages/kiwi-core/src/Input'
 

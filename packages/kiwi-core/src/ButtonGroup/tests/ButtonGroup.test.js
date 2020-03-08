@@ -1,6 +1,6 @@
 import Button from '@/packages/kiwi-core/src/Button'
 import ButtonGroup from '@/packages/kiwi-core/src/ButtonGroup'
-import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
+import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

@@ -1,5 +1,5 @@
 import Badge from '../'
-import { render } from '@/packages/kiwi-core/src/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

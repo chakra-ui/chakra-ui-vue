@@ -1,5 +1,5 @@
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../'
-import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
+import { render, defaultProviders } from '@/tests/test-utils'
 import icons from '@/packages/kiwi-core/src/lib/internal-icons'
 
 const renderComponent = (props) => {

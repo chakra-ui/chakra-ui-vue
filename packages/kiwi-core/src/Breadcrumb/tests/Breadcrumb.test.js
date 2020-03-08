@@ -1,5 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../'
-import { render } from '@/packages/kiwi-core/src/test-utils'
+import { render } from '@/tests/test-utils'
 import CompositionApi from '@vue/composition-api'
 
 const renderComponent = (props) => {

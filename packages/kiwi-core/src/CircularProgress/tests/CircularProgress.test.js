@@ -1,5 +1,5 @@
 import { CircularProgress, CircularProgressLabel } from '@/packages/kiwi-core/src/CircularProgress'
-import { render, defaultProviders } from '@/packages/kiwi-core/src/test-utils'
+import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

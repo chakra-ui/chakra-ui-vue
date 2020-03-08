@@ -1,6 +1,6 @@
 import { Avatar } from '@/packages/kiwi-core/src/Avatar'
 import AvatarGroup from '@/packages/kiwi-core/src/AvatarGroup'
-import { render } from '@/packages/kiwi-core/src/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

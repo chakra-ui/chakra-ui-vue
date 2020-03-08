@@ -1,5 +1,5 @@
 import Switch from '../'
-import { render, userEvent } from '@/packages/kiwi-core/src/test-utils'
+import { render, userEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

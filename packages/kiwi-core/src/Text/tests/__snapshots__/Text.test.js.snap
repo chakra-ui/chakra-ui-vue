@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should change the style 1`] = `
+<DocumentFragment>
+  <p
+    class="css-zlhv1"
+    data-testid="text"
+  >
+    Text Works
+  </p>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "abbr" 1`] = `
+<DocumentFragment>
+  <abbr
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </abbr>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "cite" 1`] = `
+<DocumentFragment>
+  <cite
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </cite>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "del" 1`] = `
+<DocumentFragment>
+  <del
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </del>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "em" 1`] = `
+<DocumentFragment>
+  <em
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </em>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "ins" 1`] = `
+<DocumentFragment>
+  <ins
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </ins>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "kbd" 1`] = `
+<DocumentFragment>
+  <kbd
+    class="css-1r9kfq"
+    data-testid="text"
+  >
+    Text Works
+  </kbd>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "mark" 1`] = `
+<DocumentFragment>
+  <mark
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </mark>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "s" 1`] = `
+<DocumentFragment>
+  <s
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </s>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "sub" 1`] = `
+<DocumentFragment>
+  <sub
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </sub>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "sup" 1`] = `
+<DocumentFragment>
+  <sup
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </sup>
+</DocumentFragment>
+`;
+
+exports[`should display text type as "u" 1`] = `
+<DocumentFragment>
+  <u
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </u>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <p
+    class="css-fzcsno"
+    data-testid="text"
+  >
+    Text Works
+  </p>
+</DocumentFragment>
+`;

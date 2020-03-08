@@ -5,7 +5,6 @@ dotenv.config({
   defaults: '../../config/.env.defaults'
 })
 
-
 export default {
   mode: 'universal',
   modulesDir: ['../../node_modules'],
@@ -28,9 +27,9 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/pwa',
+    '@nuxtjs/pwa'
   ],
   build: {
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   }
 }

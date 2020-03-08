@@ -81,7 +81,6 @@ const capitalize = (s) => {
 
 const components = fs.readdirSync(baseFolder)
   .filter((f) => fs.statSync(path.join(baseFolder, f)).isDirectory())
-  .filter(f => f !== 'test-utils')
 
 const entries = {
   'index': './src/index.js',

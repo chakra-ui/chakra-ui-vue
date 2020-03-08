@@ -11,5 +11,8 @@
       "conventionalCommits": true,
       "message": "chore(release): publish"
     }
+  },
+  "publishConfig": {
+    "directory": "dist"
   }
 }

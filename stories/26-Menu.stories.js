@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider, Icon } from '../packages/kiwi-core/src'
+import { Menu, MenuGroup, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, MenuItem, MenuDivider, Icon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Menu', module)
   .add('Default Menu', () => ({

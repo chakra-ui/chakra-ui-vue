@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Input } from '../packages/kiwi-core/src'
+import { Input } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Input', module)
   .add('Basic Usage', () => ({

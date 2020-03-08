@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Tabs, TabList, Tab, TabPanels, TabPanel } from '../packages/kiwi-core/src'
+import { Box, Tabs, TabList, Tab, TabPanels, TabPanel } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Tabs', module)
   .add('Basic Usage', () => ({

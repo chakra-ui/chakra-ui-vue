@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Fragment, Radio } from '../packages/kiwi-core/src'
+import { Fragment, Radio } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Radio', module)
   .add('Basic Usage', () => ({

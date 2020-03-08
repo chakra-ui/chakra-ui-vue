@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Progress as KProgress, Stack } from '../packages/kiwi-core/src'
+import { CSSReset, Progress as KProgress, Stack } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Progress', module)
   .add('Default Progress', () => ({

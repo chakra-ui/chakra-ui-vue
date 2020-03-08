@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CloseButton } from '../packages/kiwi-core/src'
+import { CloseButton } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | CloseButton', module)
   .add('Default CloseButton', () => ({

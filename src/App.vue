@@ -1,6 +1,6 @@
 <template>
   <Box d="flex" flexDir="column" justifyContent="center">
-    <Editable defaultValue="Take some chakra">
+    <Editable v-model="text">
       <EditablePreview />
       <EditableInput />
     </Editable>
@@ -12,7 +12,7 @@ import {
   Box,
   Editable,
   EditablePreview,
-  EditableInput } from '../packages/kiwi-core/dist/esm'
+  EditableInput } from '../packages/chakra-ui-core/dist/esm'
 
 export default {
   name: 'App',
@@ -33,7 +33,8 @@ export default {
   },
   data () {
     return {
-      showModal: false
+      showModal: false,
+      text: 'Demo editable text'
     }
   },
   methods: {

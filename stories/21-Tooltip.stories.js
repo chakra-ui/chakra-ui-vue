@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Tooltip, Button } from '../packages/kiwi-core/src'
+import { CSSReset, Tooltip, Button } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Tooltip', module)
   .add('With custom separator', () => ({

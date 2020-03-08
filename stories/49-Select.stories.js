@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Stack, Select } from '../packages/kiwi-core/src'
+import { Box, Stack, Select } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Select', module)
   .add('Basic Usage', () => ({

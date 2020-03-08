@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Button, Collapse, Box } from '../packages/kiwi-core/src'
+import { Button, Collapse, Box } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Collapse', module)
   .add('Basic Usage', () => ({

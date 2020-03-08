@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '../packages/kiwi-core/src'
+import { Box, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Accordion', module)
   .add('Basic Usage', () => ({

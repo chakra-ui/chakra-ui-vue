@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Input, FormControl, FormLabel, Icon, Stack, InputGroup, InputLeftElement, InputRightElement, FormHelperText, FormErrorMessage } from '../packages/kiwi-core/src'
+import { Input, FormControl, FormLabel, Icon, Stack, InputGroup, InputLeftElement, InputRightElement, FormHelperText, FormErrorMessage } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | FormControl', module)
   .add('Basic Usage', () => ({

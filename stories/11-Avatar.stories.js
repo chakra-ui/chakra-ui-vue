@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { AvatarBadge, Avatar, AvatarGroup } from '../packages/kiwi-core/src'
+import { AvatarBadge, Avatar, AvatarGroup } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Avatar', module)
   .add('Avatars', () => ({

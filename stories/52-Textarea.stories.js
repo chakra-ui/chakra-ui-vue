@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { Box, Textarea } from '../packages/kiwi-core/src'
+import { Box, Textarea } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Textarea', module)
   .add('Basic Usage', () => ({

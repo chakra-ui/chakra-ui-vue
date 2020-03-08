@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Tag, TagLabel, TagIcon, TagCloseButton, Avatar } from '../packages/kiwi-core/src'
+import { Box, Tag, TagLabel, TagIcon, TagCloseButton, Avatar } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Tag', module)
   .add('Basic Usage', () => ({

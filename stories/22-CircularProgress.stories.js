@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, CircularProgress, CircularProgressLabel, Button } from '../packages/kiwi-core/src'
+import { CSSReset, CircularProgress, CircularProgressLabel, Button } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | CircularProgress', module)
   .add('default circular progress', () => ({

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box } from '../packages/kiwi-core/src'
+import { Box } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Box', module)
   .add('Box', () => ({

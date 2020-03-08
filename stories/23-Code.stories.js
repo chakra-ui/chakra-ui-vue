@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Code, Stack } from '../packages/kiwi-core/src'
+import { CSSReset, Code, Stack } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Code', module)
   .add('Default Code', () => ({

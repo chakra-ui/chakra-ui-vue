@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, PseudoBox } from '../packages/kiwi-core/src'
+import { Box, PseudoBox } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | PseudoBox', module)
   .add('PseudoBox | :hover', () => ({

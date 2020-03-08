@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Checkbox, CheckboxGroup } from '../packages/kiwi-core/src'
+import { Box, Checkbox, CheckboxGroup } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | CheckboxGroup', module)
   .add('Basic Usage', () => ({

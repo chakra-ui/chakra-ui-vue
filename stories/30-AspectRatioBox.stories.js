@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { AspectRatioBox, Box } from '../packages/kiwi-core/src'
+import { AspectRatioBox, Box } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | AspectRatioBox', module)
   .add('Basic Usage', () => ({

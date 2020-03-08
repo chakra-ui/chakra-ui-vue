@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Heading } from '../packages/kiwi-core/src'
+import { Heading } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Heading', module)
   .add('Button Group', () => ({

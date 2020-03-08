@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Badge } from '../packages/kiwi-core/src'
+import { Badge } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Badge', module)
   .add('Default Badge', () => ({

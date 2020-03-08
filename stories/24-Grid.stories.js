@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Grid, Box } from '../packages/kiwi-core/src'
+import { CSSReset, Grid, Box } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Grid', module)
   .add('Default Grid', () => ({

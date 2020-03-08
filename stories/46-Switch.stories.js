@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Switch } from '../packages/kiwi-core/src'
+import { Box, Switch } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Switch', module)
   .add('Basic Usage', () => ({

@@ -2,7 +2,7 @@ import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
 import { baseProps, propsConfig } from '../config/props'
-import { forwardProps } from '../utils/'
+import { forwardProps } from '../utils'
 
 const baseEllipsis = {
   overflow: 'hidden',

@@ -1,5 +1,5 @@
 import styleProps, { baseProps } from '../config/props'
-import { isDef, getElement, useId, forwardProps } from '../utils/'
+import { isDef, getElement, useId, forwardProps } from '../utils'
 import Box from '../Box'
 import PseudoBox from '../PseudoBox'
 

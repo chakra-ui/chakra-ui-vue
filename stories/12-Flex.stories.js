@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Flex, Box, Text as KText } from '../packages/kiwi-core/src'
+import { Flex, Box, Text as KText } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Flex', module)
   .add('Flex', () => ({

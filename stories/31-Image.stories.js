@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Image as KImage } from '../packages/kiwi-core/src'
+import { Image as KImage } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Image', module)
   .add('Basic Usage', () => ({

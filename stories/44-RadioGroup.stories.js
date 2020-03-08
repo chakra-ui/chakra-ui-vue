@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Fragment, Button, Radio, RadioGroup, RadioButtonGroup } from '../packages/kiwi-core/src'
+import { Fragment, Button, Radio, RadioGroup, RadioButtonGroup } from '../packages/chakra-ui-core/src'
 
 const CustomRadio = {
   name: 'CustomRadio',

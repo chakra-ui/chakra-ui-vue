@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { Box, Checkbox, Stack } from '../packages/kiwi-core/src'
+import { Box, Checkbox, Stack } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Checkbox', module)
   .add('Basic Usage', () => ({

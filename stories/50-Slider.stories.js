@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Icon } from '../packages/kiwi-core/src'
+import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Icon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Slider', module)
   .add('Basic Usage', () => ({

@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { Button } from '../packages/kiwi-core/src'
+import { Button } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Button', module)
   .add('Unstyled', () => ({

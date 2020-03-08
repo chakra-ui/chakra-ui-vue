@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Text as KText } from '../packages/kiwi-core/src'
+import { Text as KText } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Text', module)
   .add('Paragraph', () => ({

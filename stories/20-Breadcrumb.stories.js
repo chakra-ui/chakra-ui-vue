@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../packages/kiwi-core/src'
+import { CSSReset, Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Breadcrumb', module)
   .add('With custom separator', () => ({

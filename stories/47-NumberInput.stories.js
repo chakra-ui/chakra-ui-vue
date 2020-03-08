@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Stack, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from '../packages/kiwi-core/src'
+import { Box, Stack, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | NumberInput', module)
   .add('Basic Usage', () => ({

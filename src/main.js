@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
-import Kiwi from '../packages/kiwi-core/dist/esm'
+import Kiwi from '../packages/chakra-ui-core/dist/esm'
 import Canvas from './components/Canvas'
 
 // Import FA Icons

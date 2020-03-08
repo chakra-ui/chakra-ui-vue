@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, List, ListItem, ListIcon } from '../packages/kiwi-core/src'
+import { Box, List, ListItem, ListIcon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | List', module)
   .add('Basic Usage', () => ({

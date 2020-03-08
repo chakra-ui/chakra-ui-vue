@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Heading, Text as KText, Stack, Box } from '../packages/kiwi-core/src'
+import { Heading, Text as KText, Stack, Box } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Stack', module)
   .add('With vertical stack', () => ({

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Avatar, Button, Badge, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/kiwi-core/src'
+import { Avatar, Button, Badge, Popover, PopoverTrigger, PopoverContent, DarkMode, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, PopoverFooter, Box, ButtonGroup, Text } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Popover', module)
   .add('Basic Usage', () => ({

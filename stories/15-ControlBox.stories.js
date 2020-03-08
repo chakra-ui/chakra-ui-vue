@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { VisuallyHidden, ControlBox, Box, Icon } from '../packages/kiwi-core/src'
+import { VisuallyHidden, ControlBox, Box, Icon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | ControlBox', module)
   .add('With checkbox', () => ({

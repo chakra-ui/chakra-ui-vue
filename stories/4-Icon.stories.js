@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Icon } from '../packages/kiwi-core/src'
+import { Icon } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Icon', module)
   .add('Base Icon', () => ({

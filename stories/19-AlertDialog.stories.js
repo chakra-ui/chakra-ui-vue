@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader } from '../packages/kiwi-core/src'
+import { CSSReset, Button, AlertDialog, AlertDialogContent, AlertDialogBody, AlertDialogFooter, AlertDialogOverlay, AlertDialogHeader } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Alert Dialog', module)
   .add('Alert Dialog', () => ({

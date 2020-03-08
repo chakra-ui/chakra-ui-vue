@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../packages/kiwi-core/src'
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../packages/chakra-ui-core/src'
 
 storiesOf('UI | Alert', module)
   .add('Default Alert', () => ({

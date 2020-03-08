@@ -1,5 +1,5 @@
 import baseProps from '../config/props'
-import { forwardProps } from '../utils'
+import { forwardProps, HTMLElement } from '../utils'
 import {
   Modal,
   ModalContent,

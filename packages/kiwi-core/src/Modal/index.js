@@ -133,7 +133,7 @@ const Modal = {
               contentNode.focus()
             } else {
               const [el] = focusables
-              el instanceof HTMLElement && el.focus()
+              el && el.focus()
             }
           }
         }
@@ -250,7 +250,6 @@ const ModalContent = {
   props: {
     ...baseProps,
     noStyles: Boolean,
-    forwardRef: HTMLElement,
     zIndex: {
       type: String,
       default: 'modal'
@@ -436,8 +435,7 @@ const ModalHeader = {
       },
       attrs: {
         id: headerId
-      },
-      ref: props.forwardRef
+      }
     }, this.$slots.default)
   }
 }

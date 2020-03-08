@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import Kiwi from '../packages/kiwi-core/dist/esm'
-import theme from '../packages/kiwi-core/src/lib/theme'
 import Canvas from './components/Canvas'
 
 // Import FA Icons
@@ -37,7 +36,6 @@ Vue.config.productionTip = false
 
 // Install Kiwi plugin
 Vue.use(Kiwi, {
-  theme,
   icons: {
     iconPack: 'fa',
     iconSet: {

@@ -156,7 +156,7 @@ const NumberInput = {
             padding: 0
           }
         },
-        inputId: this.inputId
+        inputId: this._inputId
       }
     },
     isControlled () {
@@ -196,11 +196,14 @@ const NumberInput = {
     },
     ariaValueText () {
       return this.getAriaValueText ? this.getAriaValueText(this._value) : null
+    },
+    _inputId () {
+      return `number-input-${this.inputId || useId()}`
     }
   },
   mounted () {
     this.$nextTick(() => {
-      this.inputNode = getElement(`#${this.inputId}`, this.$el)
+      this.inputNode = getElement(`#${this._inputId}`, this.$el)
     })
 
     // ================================= INCREMENT WATCHER

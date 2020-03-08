@@ -1,10 +1,9 @@
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import cjs from 'rollup-plugin-commonjs'
-import {
-  terser
-} from 'rollup-plugin-terser'
+import { terser } from 'rollup-plugin-terser'
 import buble from 'rollup-plugin-buble'
+import scss from 'rollup-plugin-scss'
 import vue from 'rollup-plugin-vue'
 import pkg from './package.json'
 import fs from 'fs'
@@ -54,6 +53,9 @@ const commons = {
   plugins: [
     resolve({
       extensions: ['.vue', '.js']
+    }),
+    scss({
+      output: false
     }),
     bubelConfig,
     babelConfig,

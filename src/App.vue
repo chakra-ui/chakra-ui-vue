@@ -1,46 +1,27 @@
 <template>
-  <Box w="600px">
-    <Tabs isFitted variant="soft-rounded" variantColor="pink">
-    <TabList>
-      <Tab>One</Tab>
-      <Tab>Two</Tab>
-      <Tab>Three</Tab>
-    </TabList>
-
-    <TabPanels>
-      <TabPanel>
-        <p>one!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>two!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>three!</p>
-      </TabPanel>
-    </TabPanels>
-  </Tabs>
+  <Box d="flex" flexDir="column" justifyContent="center">
+    <Editable defaultValue="Take some chakra">
+      <EditablePreview />
+      <EditableInput />
+    </Editable>
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel } from '../packages/kiwi-core/dist/esm'
+  Editable,
+  EditablePreview,
+  EditableInput } from '../packages/kiwi-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Tabs,
-    TabList,
-    Tab,
-    TabPanels,
-    TabPanel
+    Editable,
+    EditablePreview,
+    EditableInput
   },
   computed: {
     colorMode () {
@@ -48,6 +29,11 @@ export default {
     },
     theme () {
       return this.$theme()
+    }
+  },
+  data () {
+    return {
+      showModal: false
     }
   },
   methods: {
@@ -59,16 +45,6 @@ export default {
         duration: 10000,
         isClosable: true
       })
-    },
-    handleChange: (value) => console.log(value),
-    focusRadioGroup () {
-      this.$refs.rg.focus()
-    },
-    open () {
-      this.isOpen = true
-    },
-    close () {
-      this.isOpen = false
     }
   }
 }

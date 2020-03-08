@@ -21,9 +21,6 @@ const Heading = {
       type: [String, Array, Object],
       default: 'xl'
     },
-    forwardRef: {
-      type: HTMLElement
-    },
     as: {
       type: String,
       default: 'h1'

@@ -1,0 +1,28 @@
+{
+  "name": "kiwi-ui-theme",
+  "version": "0.0.0",
+  "description": "chakra-ui/vue default theme object",
+  "keywords": [
+    "chakra",
+    "ui",
+    "vue",
+    "theme"
+  ],
+  "author": "Jonathan Bakebwa <excellence@jbakebwa.dev>",
+  "homepage": "https://github.com/codebender828/kiwi-ui#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebender828/kiwi-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Test: run test on theme\""
+  },
+  "bugs": {
+    "url": "https://github.com/codebender828/kiwi-ui/issues"
+  }
+}

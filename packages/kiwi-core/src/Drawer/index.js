@@ -1,6 +1,6 @@
 import styleProps, { baseProps } from '../config/props'
 import { Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, ModalOverlay, ModalCloseButton } from '../Modal'
-import { forwardProps } from '../utils'
+import { forwardProps, HTMLElement } from '../utils'
 
 const Drawer = {
   name: 'Drawer',
@@ -22,7 +22,7 @@ const Drawer = {
       default: 'right'
     },
     finalFocusRef: {
-      type: [HTMLElement, Object],
+      type: HTMLElement,
       default: () => null
     },
     size: {

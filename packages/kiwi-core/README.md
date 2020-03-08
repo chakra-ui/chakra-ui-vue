@@ -28,5 +28,4 @@ yarn serve
 - [x] Provide icons API for icons component
 - [x] Accessibility (Focus) Styling
 - [ ] Setup NPM distribution
-- [ ] Set up type system for components with Typescript
 

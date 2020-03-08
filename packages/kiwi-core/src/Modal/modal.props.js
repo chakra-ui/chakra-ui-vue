@@ -1,5 +1,6 @@
 import { StringArray } from '../config/props/props.types'
 import { baseProps } from '../config/props'
+import { HTMLElement } from '../utils'
 
 export default {
   isOpen: Boolean,
@@ -40,7 +41,7 @@ export default {
       body: `modal-${id}-body`
     })
   },
-  container: [HTMLElement, Object],
+  container: HTMLElement,
   returnFocusOnClose: {
     type: Boolean,
     default: true

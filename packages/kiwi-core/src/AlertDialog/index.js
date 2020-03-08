@@ -27,7 +27,7 @@ const AlertDialog = {
       type: Function,
       default: () => null
     },
-    leastDestructiveRef: HTMLElement,
+    leastDestructiveRef: [HTMLElement, Object],
     ...baseProps
   },
   render (h) {

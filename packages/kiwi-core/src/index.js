@@ -37,6 +37,9 @@ export { default as CSSReset } from './CSSReset'
 export { default as Divider } from './Divider'
 export * from './Drawer'
 
+export { default as Editable } from './Editable'
+export * from './Editable'
+
 export { default as Flex } from './Flex'
 export { default as FormControl } from './FormControl'
 export { default as FormLabel } from './FormLabel'

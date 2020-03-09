@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should change orientation 1`] = `
+exports[`should change styles 1`] = `
 <DocumentFragment>
   <div
-    class="css-70qvj9"
+    class="css-b93e9j"
+    data-testid="flex"
   >
     Flex Me
   </div>
@@ -14,6 +15,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-k008qs"
+    data-testid="flex"
   >
     Flex Me
   </div>

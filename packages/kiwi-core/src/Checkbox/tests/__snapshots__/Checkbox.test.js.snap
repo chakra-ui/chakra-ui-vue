@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="css-1qf83f9"
+    for="checkbox-1"
+  >
+    <input
+      class="css-0 css-f8n5zr"
+      id="checkbox-1"
+      type="checkbox"
+      value="false"
+    />
+    <div
+      aria-hidden="true"
+      class="css-1ra3zj0 css-xkdust"
+    >
+      <svg
+        class="css-1dx9t0m css-y3asau"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+    
+      </svg>
+    </div>
+    <div
+      class="css-np4rym"
+    >
+      checkbox
+    </div>
+  </label>
+</DocumentFragment>
+`;

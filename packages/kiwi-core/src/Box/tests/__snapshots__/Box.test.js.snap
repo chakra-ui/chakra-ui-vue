@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should change the style 1`] = `
+<DocumentFragment>
+  <div
+    class="css-mr4uxt"
+    data-testid="box"
+  >
+    Box Works
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should display Box with type as "header" 1`] = `
+<DocumentFragment>
+  <header
+    class="css-0"
+    data-testid="box"
+  >
+    Box Works
+  </header>
+</DocumentFragment>
+`;
+
+exports[`should display Box with type as "p" 1`] = `
+<DocumentFragment>
+  <p
+    class="css-0"
+    data-testid="box"
+  >
+    Box Works
+  </p>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-0"
+    data-testid="box"
+  >
+    Box Works
+  </div>
+</DocumentFragment>
+`;

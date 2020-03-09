@@ -1,3 +1,0 @@
-it.todo('should have style property of display: grid when rendered')
-it.todo('should apply gap property calues in gutter')
-// ...

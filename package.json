@@ -107,6 +107,9 @@
     "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
-    "rollup-plugin-scss": "^2.1.0"
+    "rollup-plugin-scss": "^2.1.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/user-event": "^10.0.0",
+    "@testing-library/vue": "^4.1.0"
   }
 }

@@ -64,6 +64,7 @@ const AlertIcon = {
     size: {
       default: 5
     },
+    name: String,
     ...baseProps
   },
   computed: {
@@ -82,7 +83,7 @@ const AlertIcon = {
       props: {
         mr: this.$props.mr || 3,
         size: this.size,
-        name: statuses[this._status] && statuses[this._status]['icon'],
+        name: this.name || (statuses[this._status] && statuses[this._status]['icon']),
         ...alertIconStyles,
         ...forwardProps(this.$props)
       },

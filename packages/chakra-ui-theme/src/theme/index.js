@@ -21,7 +21,7 @@ const theme = {
   borderWidths,
   sizes,
   shadows,
-  space,
+  space
 }
 
 export default theme

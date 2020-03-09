@@ -11,7 +11,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn build:dist && vue-cli-service build",
-    "build:dist": "cd ./packages/kiwi-core && yarn build && cd ../../",
+    "build:dist": "cd ./packages/chakra-ui-core && yarn build && cd ../../",
     "dev": "yarn workspace chakra-ui-core dev",
     "lint": "vue-cli-service lint",
     "lerna:build": "lerna run build",

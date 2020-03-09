@@ -1,4 +1,4 @@
-import { CircularProgress, CircularProgressLabel } from '@/packages/kiwi-core/src/CircularProgress'
+import { CircularProgress, CircularProgressLabel } from '@/packages/chakra-ui-core/src/CircularProgress'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

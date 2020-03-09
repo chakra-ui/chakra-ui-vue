@@ -1,7 +1,7 @@
 import FormControl from '../'
 import { render } from '@/tests/test-utils'
-import FormLabel from '@/packages/kiwi-core/src/FormLabel'
-import Input from '@/packages/kiwi-core/src/Input'
+import FormLabel from '@/packages/chakra-ui-core/src/FormLabel'
+import Input from '@/packages/chakra-ui-core/src/Input'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''

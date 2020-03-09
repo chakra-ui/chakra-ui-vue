@@ -1,7 +1,7 @@
 import Checkbox from '../'
 import { render, userEvent } from '@/tests/test-utils'
 
-jest.mock('@/packages/kiwi-core/src/utils/generators.js', () => {
+jest.mock('@/packages/chakra-ui-core/src/utils/generators.js', () => {
   return {
     useId () {
       return '1'

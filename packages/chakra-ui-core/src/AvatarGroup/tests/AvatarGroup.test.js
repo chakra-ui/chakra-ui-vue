@@ -1,5 +1,5 @@
-import { Avatar } from '@/packages/kiwi-core/src/Avatar'
-import AvatarGroup from '@/packages/kiwi-core/src/AvatarGroup'
+import { Avatar } from '@/packages/chakra-ui-core/src/Avatar'
+import AvatarGroup from '@/packages/chakra-ui-core/src/AvatarGroup'
 import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

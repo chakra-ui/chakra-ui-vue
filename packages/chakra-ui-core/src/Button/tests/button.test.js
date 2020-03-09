@@ -1,4 +1,4 @@
-import Button from '@/packages/kiwi-core/src/Button'
+import Button from '@/packages/chakra-ui-core/src/Button'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

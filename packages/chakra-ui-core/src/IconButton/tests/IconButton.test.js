@@ -1,6 +1,6 @@
 import IconButton from '../'
 import { render, defaultProviders } from '@/tests/test-utils'
-import icons from '@/packages/kiwi-core/src/lib/internal-icons'
+import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''

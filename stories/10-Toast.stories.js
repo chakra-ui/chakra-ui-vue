@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { Button } from '../packages/chakra-ui-core/src'
-import { colorModeObserver } from '../packages/kiwi-core/src/utils/color-mode-observer'
+import { colorModeObserver } from '../packages/chakra-ui-core/src/utils/color-mode-observer'
 
 const watch = {
   $theme: {

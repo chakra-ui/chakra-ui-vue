@@ -73,5 +73,10 @@ addDecorator(() => ({
   components: { ThemeProvider, ColorModeProvider, CSSReset, Canvas }
 }));
 
-// automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /\.stories\.js$/), module);
+
+function loadStories() {
+  const req = require.context('../packages/kiwi-core/src', true, /\.stories\.(js|mdx)$/);
+  req.keys().forEach(filename => req(filename));
+}
+
+configure(loadStories, module);

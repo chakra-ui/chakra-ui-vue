@@ -16,8 +16,8 @@ const theme = {
   opacity,
   radii,
   shadows,
-  sizes,
   space,
+  sizes,
   zIndices,
   ...typography
 }

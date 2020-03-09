@@ -13,6 +13,11 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_workbox_2725bd4b from 'nuxt_plugin_workbox_2725bd4b' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_nuxticons_77163eb9 from 'nuxt_plugin_nuxticons_77163eb9' // Source: ./nuxt-icons.js (mode: 'all')
+import nuxt_plugin_emotion_fc564b2c from 'nuxt_plugin_emotion_fc564b2c' // Source: ./emotion.js (mode: 'client')
+import nuxt_plugin_router_6bb3fcc0 from 'nuxt_plugin_router_6bb3fcc0' // Source: ./router.js (mode: 'all')
+import nuxt_plugin_links_d264fdba from 'nuxt_plugin_links_d264fdba' // Source: ../plugins/links.js (mode: 'all')
+import nuxt_plugin_editor_345fd885 from 'nuxt_plugin_editor_345fd885' // Source: ../plugins/editor.js (mode: 'all')
+import nuxt_plugin_chakraui_0734c5ce from 'nuxt_plugin_chakraui_0734c5ce' // Source: ../plugins/chakra-ui.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -152,6 +157,26 @@ async function createApp (ssrContext) {
 
   if (typeof nuxt_plugin_nuxticons_77163eb9 === 'function') {
     await nuxt_plugin_nuxticons_77163eb9(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_emotion_fc564b2c === 'function') {
+    await nuxt_plugin_emotion_fc564b2c(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_router_6bb3fcc0 === 'function') {
+    await nuxt_plugin_router_6bb3fcc0(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_links_d264fdba === 'function') {
+    await nuxt_plugin_links_d264fdba(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_editor_345fd885 === 'function') {
+    await nuxt_plugin_editor_345fd885(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_chakraui_0734c5ce === 'function') {
+    await nuxt_plugin_chakraui_0734c5ce(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

@@ -44,10 +44,10 @@ const decorate = props => {
   }
 }
 
-const system = compose(
+const systemProps = compose(
+  space,
   layout,
   color,
-  space,
   background,
   border,
   borderRadius,
@@ -78,12 +78,12 @@ const Box = {
     }
   },
   render (h) {
-    const cleanedStyleProps = forwardProps(this.$props)
-    // Something creepy is going on here.
-    // But somehow it works. LOL
-    const boxStylesObject = __css(system(__css(cleanedStyleProps)(this.theme)))(this.theme)
+    const { as, ...cleanedStyleProps } = forwardProps(this.$props)
+    const boxStylesObject = __css(systemProps(cleanedStyleProps))(this.theme)
+    console.log({ boxStylesObject })
     const className = css(boxStylesObject)
-    return h(this.as, {
+
+    return h(as, {
       class: [className]
     }, this.$slots.default)
   }

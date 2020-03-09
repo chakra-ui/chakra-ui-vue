@@ -22,14 +22,35 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: { color: '#fff' },
-  plugins: [],
+  plugins: [
+    'plugins/links.js',
+    'plugins/editor.js',
+    'plugins/chakra-ui.js'
+  ],
+  css: [
+    'css/page.css',
+    'css/night-owl.css'
+  ],
   buildModules: [
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/emotion',
+    '@nuxtjs/pwa',
+    '@nuxtjs/router'
   ],
   build: {
-    extend (config, ctx) {}
+    extend (config, ctx) {
+      config.resolve.alias.vue = 'vue/dist/vue.common'
+      config.module.rules.push({
+        test: /\.mdx$/,
+        use: [
+          'babel-loader',
+          {
+            loader: '@mdx-js/vue-loader'
+          }
+        ]
+      })
+    }
   }
 }

@@ -20,9 +20,14 @@
     }
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/router": "^1.5.0",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.11",
+    "vue-live": "^1.5.1",
+    "vue-router": "^3.1.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

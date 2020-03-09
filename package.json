@@ -109,6 +109,9 @@
     "@babel/runtime-corejs2": "^7.8.7",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/user-event": "^10.0.0",
+    "@testing-library/vue": "^4.1.0",
     "babel-eslint": "^10.0.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-loader": "^3.0.3",
@@ -125,6 +128,13 @@
     "rollup-plugin-scss": "^2.1.0",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.1.4",
-    "watch": "^1.0.2"
+    "watch": "^1.0.2",
+    "sass-loader": "^8.0.0",
+    "styled-system": "^5.1.2",
+    "v-scroll-lock": "^1.1.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-lorem-ipsum": "^0.0.1",
+    "vue-template-compiler": "^2.6.10"
   }
 }

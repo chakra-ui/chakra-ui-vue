@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display custom seperator  1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="breadcrumb"
+    class="css-0"
+  >
+    <ol
+      class="css-0"
+    >
+      <li
+        class="css-18biwo"
+      >
+        <a
+          class="css-1kvwaf7 css-7ey7in"
+          href="/"
+        >
+          Home
+        </a>
+        <span
+          class="css-dp0f2t"
+          role="presentation"
+        >
+          -
+        </span>
+      </li>
+      <li
+        class="css-18biwo"
+      >
+        <a
+          class="css-1kvwaf7 css-7ey7in"
+          href="/about"
+        >
+          About
+        </a>
+        <span
+          class="css-dp0f2t"
+          role="presentation"
+        >
+          -
+        </span>
+      </li>
+      <li
+        class="css-18biwo"
+      >
+        <span
+          aria-current="page"
+          class="css-0"
+          href="/contact"
+        >
+          Contact
+        </span>
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <nav
+      aria-label="breadcrumb"
+      class="css-0"
+    >
+      <ol
+        class="css-0"
+      >
+        <li
+          class="css-18biwo"
+        >
+          <a
+            class="css-1kvwaf7 css-7ey7in"
+            href="#"
+          >
+            Breadcrumb 1
+          </a>
+          <span
+            class="css-6eovvf"
+            role="presentation"
+          >
+            /
+          </span>
+        </li>
+        <li
+          class="css-18biwo"
+        >
+          <a
+            class="css-1kvwaf7 css-7ey7in"
+            href="#"
+          >
+            Breadcrumb 2
+          </a>
+          <span
+            class="css-1hgjpgb"
+            role="presentation"
+          >
+            /
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</DocumentFragment>
+`;

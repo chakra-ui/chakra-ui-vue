@@ -88,8 +88,8 @@ export default {
         }
       },
       attrs: {
-        ariaLabel: this._ariaLabel,
-        ariaDisabled: this.isDisabled
+        'aria-label': this._ariaLabel,
+        'aria-disabled': this.isDisabled
       }
     }, [h(Icon, {
       props: {
@@ -99,7 +99,7 @@ export default {
       },
       attrs: {
         focusable: false,
-        ariaHidden: true
+        'aria-hidden': true
       }
     })])
   }

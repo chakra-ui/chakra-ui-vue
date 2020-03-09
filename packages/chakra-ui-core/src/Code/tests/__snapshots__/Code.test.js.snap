@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <code
+    class="css-6de9to"
+  >
+    content
+  </code>
+</DocumentFragment>
+`;

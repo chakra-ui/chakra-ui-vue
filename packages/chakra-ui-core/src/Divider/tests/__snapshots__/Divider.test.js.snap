@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should change orientation 1`] = `
+<DocumentFragment>
+  <hr
+    aria-orientation="vertical"
+    class="css-1n8n8cf"
+  />
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <hr
+    aria-orientation="horizontal"
+    class="css-boncrs"
+  />
+</DocumentFragment>
+`;

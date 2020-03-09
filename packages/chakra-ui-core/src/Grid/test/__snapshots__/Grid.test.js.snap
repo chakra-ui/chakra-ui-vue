@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should change gap 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1w4meme"
+  >
+    Grid Me
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-lgj0h8"
+  >
+    Grid Me
+  </div>
+</DocumentFragment>
+`;

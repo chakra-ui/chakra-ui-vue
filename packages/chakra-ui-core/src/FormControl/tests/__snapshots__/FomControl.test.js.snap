@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-0"
+    role="group"
+  >
+    <label
+      class="css-3wkg7s"
+      for="fname"
+    >
+      First name
+    </label>
+     
+    <input
+      class="css-d8aoyp css-1yew1ol"
+      id="fname"
+      placeholder="First name"
+    />
+  </div>
+</DocumentFragment>
+`;

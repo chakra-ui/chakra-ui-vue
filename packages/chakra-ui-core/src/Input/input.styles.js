@@ -1,4 +1,4 @@
-import { get } from 'styled-system'
+import { __get } from '../utils'
 
 const outlinedStyle = ({
   theme,
@@ -16,12 +16,12 @@ const outlinedStyle = ({
    * - key to get
    * - fallback value
    */
-  const _focusBorderColor = get(
+  const _focusBorderColor = __get(
     theme.colors,
     focusBorderColor,
     focusBorderColor // If color doesn't exist in theme, use it's raw value
   )
-  const _errorBorderColor = get(
+  const _errorBorderColor = __get(
     theme.colors,
     errorBorderColor,
     errorBorderColor
@@ -68,12 +68,12 @@ const filledStyle = ({
   const bg = { light: 'gray.100', dark: 'whiteAlpha.50' }
   const hoverColor = { light: 'gray.200', dark: 'whiteAlpha.100' }
 
-  const _focusBorderColor = get(
+  const _focusBorderColor = __get(
     theme.colors,
     focusBorderColor,
     focusBorderColor
   )
-  const _errorBorderColor = get(
+  const _errorBorderColor = __get(
     theme.colors,
     errorBorderColor,
     errorBorderColor
@@ -103,12 +103,12 @@ const filledStyle = ({
 }
 
 const flushedStyle = ({ theme, focusBorderColor, errorBorderColor }) => {
-  const _focusBorderColor = get(
+  const _focusBorderColor = __get(
     theme.colors,
     focusBorderColor,
     focusBorderColor
   )
-  const _errorBorderColor = get(
+  const _errorBorderColor = __get(
     theme.colors,
     errorBorderColor,
     errorBorderColor

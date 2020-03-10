@@ -30,7 +30,6 @@
     "lodash-es": "^4.17.15",
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
-    "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0"
   },
   "peerDependencies": {

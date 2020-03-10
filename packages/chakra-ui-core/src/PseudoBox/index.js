@@ -1,25 +1,9 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
-// import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
 import Box from '../Box'
 import styleProps from '../config/props'
 import { parsePseudoStyles } from './utils'
-// import { forwardProps } from '../utils'
-
-// const system = compose(
-//   layout,
-//   color,
-//   space,
-//   background,
-//   border,
-//   borderRadius,
-//   grid,
-//   position,
-//   shadow,
-//   typography,
-//   flexbox,
-//   propsConfig
-// )
+import { proxyAliases as pxls } from '../config/props/proxy'
 
 /**
  * FWIW, I'm still figuring out how styled sytem works with your deisgn system
@@ -44,9 +28,7 @@ const PseudoBox = {
   render (h) {
     const pseudoBoxStylesObject = __css(this.$props)(this.theme)
     const [pseudoStyleObject, baseStyleObject] = parsePseudoStyles(pseudoBoxStylesObject)
-    // const cleanedStyleProps = forwardProps(pseudoStyleObject)
-    const className = css(__css(pseudoStyleObject)(this.theme))
-    // console.log('baseStyleObject', baseStyleObject)
+    const className = css(__css(pxls(pseudoStyleObject))(this.theme))
     return h(Box, {
       props: {
         ...baseStyleObject

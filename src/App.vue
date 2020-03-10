@@ -1,6 +1,6 @@
 <template>
   <Box d="flex" flexDir="column" justifyContent="center">
-    <Box :bg="['pink.100', 'green.200', 'yellow.400']" d="flex" flexDir="column" justifyContent="center" :fontSize="['sm', 'md', 'lg', 'xl']" mb="2" padding="2" w="300px">
+    <Box :bg="['pink.100', 'green.200', 'yellow.400']" d="flex" flexDir="column" justifyContent="center" :fontSize="['sm', 'md', 'lg', 'xl']" mb="2" p="2" w="300px">
       I am a box component
     </Box>
     <Button left-icon="github">Button component</Button>

@@ -39,7 +39,6 @@ export const selectors = {
 export function parsePseudoStyles (props) {
   const pseudoStyles = {}
   const clean = forwardProps(props)
-  // TODO: Make these two base and pseudo styles single function.
   const pseudoProps = getPseudoStyles(clean)
   const baseProps = filterBaseStyles(clean)
   const result = map(pseudoProps, (value, prop) => ({ prop, value }))
@@ -48,6 +47,6 @@ export function parsePseudoStyles (props) {
       pseudoStyles[selectors[pair.prop]] = tx(pair.value)
     }
   })
-  const mergedPseudoBoxStyles = [pseudoStyles, baseProps]
+  const mergedPseudoBoxStyles = { pseudoStyles, baseProps }
   return mergedPseudoBoxStyles
 }

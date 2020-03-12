@@ -1,14 +1,24 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
+import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
 import Box from '../Box'
-import styleProps from '../config/props'
+import styleProps, { propsConfig } from '../config/props'
 import { parsePseudoStyles } from './utils'
-import { proxyAliases as pxls } from '../config/props/proxy'
 
-/**
- * FWIW, I'm still figuring out how styled sytem works with your deisgn system
- * tokens. So I guess I'll just go back to reading docs :(
- */
+const systemProps = compose(
+  layout,
+  color,
+  space,
+  background,
+  border,
+  borderRadius,
+  grid,
+  position,
+  shadow,
+  typography,
+  flexbox,
+  propsConfig
+)
 
 const PseudoBox = {
   name: 'PseudoBox',
@@ -26,14 +36,17 @@ const PseudoBox = {
     }
   },
   render (h) {
-    const pseudoBoxStylesObject = __css(this.$props)(this.theme)
-    const [pseudoStyleObject, baseStyleObject] = parsePseudoStyles(pseudoBoxStylesObject)
-    const className = css(__css(pxls(pseudoStyleObject))(this.theme))
+    const { as, ...cleanedStyleProps } = this.$props
+    const { pseudoStyles, baseProps } = parsePseudoStyles(cleanedStyleProps)
+    const baseStyles = systemProps({ ...baseProps, theme: this.theme })
+    const _pseudoStyles = __css(pseudoStyles)(this.theme)
+    const className = css({ ...baseStyles, ..._pseudoStyles })
+
     return h(Box, {
+      class: [className],
       props: {
-        ...baseStyleObject
-      },
-      class: [className]
+        as
+      }
     }, this.$slots.default)
   }
 }

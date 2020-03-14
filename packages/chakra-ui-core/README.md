@@ -1,5 +1,5 @@
 <br />
-<h1 align="center">🥝 Kiwi UI</h1>
+<h1 align="center">chakra-ui/vue</h1>
 <h4 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease.</h4>
 
 ### 📦 Components
@@ -14,7 +14,6 @@ You can also view all developed components in Storybook!
 
 ```bash
 yarn install
-yarn build-vsc
 yarn serve
 ```
 

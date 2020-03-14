@@ -1,23 +1,40 @@
 <template>
   <Box as="nav" h="60px" px="4" d="flex" alignItems="center" shadow="sm">
-    <Anchor fontWeight="bold" fontSize="1.2rem">
-      chakra-ui/vue
+    <Anchor w="130px" fontWeight="bold" fontSize="1.2rem">
+      <Logo />
     </Anchor>
-    <Box as="ul" ml="auto">
-      <Icon name="github" :size="['30px', '25px', '20px']" />
+    <Box as="ul" :color="colorMode === 'light' ? 'gray.500' : 'whiteAlpha.900'" d="flex" alignItems="center" listStyleType="none" ml="auto">
+      <Box as="li" mr="4">
+        <Icon name="github" size="20px" />
+      </Box>
+      <Box as="li">
+        <IconButton @click="$toggleColorMode" variant="ghost" variantColor="gray" :icon="colorMode === 'light' ? 'moon' : 'sun'" />
+      </Box>
+      <MobileNav />
     </Box>
   </Box>
 </template>
 
 <script>
-import { Box, Link as Anchor, Icon } from 'chakra-ui-core'
+import { Box, Link as Anchor, Icon, IconButton } from 'chakra-ui-core'
+import Logo from './Logo.vue'
+import MobileNav from './MobileNav.vue'
 
 export default {
   name: 'Navbar',
+  inject: ['$colorMode', '$toggleColorMode'],
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
+  },
   components: {
     Box,
     Anchor,
-    Icon
+    Icon,
+    Logo,
+    IconButton,
+    MobileNav
   }
 }
 </script>

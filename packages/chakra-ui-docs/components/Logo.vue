@@ -1,40 +1,47 @@
 <template>
-  <svg
-    class="NuxtLogo"
-    width="245"
-    height="180"
-    viewBox="0 0 452 342"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g fill="none" fill-rule="evenodd">
-      <path
-        d="M139 330l-1-2c-2-4-2-8-1-13H29L189 31l67 121 22-16-67-121c-1-2-9-14-22-14-6 0-15 2-22 15L5 303c-1 3-8 16-2 27 4 6 10 12 24 12h136c-14 0-21-6-24-12z"
-        fill="#00C58E"
-      />
-      <path
-        d="M447 304L317 70c-2-2-9-15-22-15-6 0-15 3-22 15l-17 28v54l39-67 129 230h-49a23 23 0 0 1-2 14l-1 1c-6 11-21 12-23 12h76c3 0 17-1 24-12 3-5 5-14-2-26z"
-        fill="#108775"
-      />
-      <path
-        d="M376 330v-1l1-2c1-4 2-8 1-12l-4-12-102-178-15-27h-1l-15 27-102 178-4 12a24 24 0 0 0 2 15c4 6 10 12 24 12h190c3 0 18-1 25-12zM256 152l93 163H163l93-163z"
-        fill="#2F495E"
-        fill-rule="nonzero"
-      />
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 803.02 216">
+    <defs>
+      <linearGradient id="linear-gradient" y1="108" x2="216" y2="108" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1a72ff" />
+        <stop offset="1" stop-color="#9cc4ff" />
+      </linearGradient>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+      <g :fill="colorMode === 'light' ? 'black' : 'rgba(255, 255, 255, 0.92)'" id="Layer_1-2" data-name="Layer 1"><text class="cls-1" transform="translate(273.17 150.87)">chak<tspan
+            class="cls-2" x="375.71" y="0">r</tspan>
+          <tspan x="438" y="0">a</tspan>
+        </text>
+        <path class="cls-3"
+          d="M108,0A108,108,0,1,0,216,108,108,108,0,0,0,108,0ZM74.16,173,103.46,119l-33.85.65,65.62-76.59L106.88,99l39.85-1.85Z" />
+      </g>
     </g>
   </svg>
 </template>
-<style>
-.NuxtLogo {
-  animation: 1s appear;
-  margin: auto;
-}
 
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+<script>
+export default {
+  name: 'ChakraUILogo',
+  inject: ['$colorMode'],
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    }
   }
 }
+</script>
+
+<style>
+  .cls-1 {
+    font-size: 158.29px;
+    font-family: Inter-Bold, Inter;
+    font-weight: 700;
+  }
+
+  .cls-2 {
+    letter-spacing: -0.02em;
+  }
+
+  .cls-3 {
+    fill: url(#linear-gradient);
+  }
 </style>

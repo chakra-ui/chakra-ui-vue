@@ -10,13 +10,7 @@
         >
           <Navbar />
           <CSSReset />
-            <Sidebar />
-            <Box :pl="[0, null, '18rem']"  mt="4rem">
-              <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
-                <Nuxt />
-              </Box>
-            </Box>
-            <Footer />
+          <Nuxt />
         </Box>
       </ColorModeProvider>
     </ThemeProvider>
@@ -25,19 +19,15 @@
 <script>
 import { ThemeProvider, ColorModeProvider, CSSReset, Box } from 'chakra-ui-core'
 import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
-import Footer from '../components/Footer'
 
 export default {
-  name: 'DefaultLayout',
+  name: 'HomeLayout',
   components: {
     ThemeProvider,
     ColorModeProvider,
     CSSReset,
     Box,
-    Navbar,
-    Sidebar,
-    Footer
+    Navbar
   }
 }
 </script>

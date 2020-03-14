@@ -93,6 +93,7 @@
     "nuxt": "^2.0.0",
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
+    "prismjs": "^1.19.0",
     "register-service-worker": "^1.6.2",
     "sass-loader": "^8.0.0",
     "styled-system": "^5.1.2",
@@ -101,6 +102,7 @@
     "vue-live": "^1.5.1",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
+    "vue-prism-editor": "^0.5.1",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.11"
   },
@@ -128,11 +130,11 @@
     "rollup-plugin-scss": "^2.1.0",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.1.4",
-    "watch": "^1.0.2",
     "sass-loader": "^8.0.0",
     "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0",
     "vue-loader": "^15.7.1",
-    "vue-lorem-ipsum": "^0.0.1"
+    "vue-lorem-ipsum": "^0.0.1",
+    "watch": "^1.0.2"
   }
 }

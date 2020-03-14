@@ -1,9 +1,10 @@
 import { baseProps } from '../config/props'
 import Box from '../Box'
+import NoSsr from '../NoSsr'
 import { forwardProps } from '../utils'
 
 const Image = {
-  name: 'Image',
+  name: 'CImage',
   props: {
     ...baseProps,
     src: String,
@@ -18,7 +19,7 @@ const Image = {
       hasLoaded: false
     }
   },
-  mounted () {
+  created () {
     this.loadImage(this.src)
   },
   methods: {
@@ -44,18 +45,20 @@ const Image = {
     } else {
       imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc }
     }
-    return h(Box, {
-      props: {
-        ...forwardProps(this.$props),
-        as: 'img'
-      },
-      attrs: {
-        ...imageProps,
-        ...this.$attrs,
-        width: this.htmlWidth,
-        height: this.htmlHeight
-      }
-    })
+    return h(NoSsr, [
+      h(Box, {
+        props: {
+          ...forwardProps(this.$props),
+          as: 'img'
+        },
+        attrs: {
+          ...imageProps,
+          ...this.$attrs,
+          width: this.htmlWidth,
+          height: this.htmlHeight
+        }
+      })
+    ])
   }
 }
 

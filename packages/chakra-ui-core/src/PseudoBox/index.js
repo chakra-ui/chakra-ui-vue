@@ -28,6 +28,7 @@ const PseudoBox = {
       type: [String, Object],
       default: () => 'div'
     },
+    to: [String, Object],
     ...styleProps
   },
   computed: {
@@ -36,16 +37,16 @@ const PseudoBox = {
     }
   },
   render (h) {
-    const { as, ...cleanedStyleProps } = this.$props
+    const { as, to, ...cleanedStyleProps } = this.$props
     const { pseudoStyles, baseProps } = parsePseudoStyles(cleanedStyleProps)
     const baseStyles = systemProps({ ...baseProps, theme: this.theme })
     const _pseudoStyles = __css(pseudoStyles)(this.theme)
-    const className = css({ ...baseStyles, ..._pseudoStyles })
 
     return h(Box, {
-      class: [className],
+      class: css({ ...baseStyles, ..._pseudoStyles}),
       props: {
-        as
+        as,
+        to
       }
     }, this.$slots.default)
   }

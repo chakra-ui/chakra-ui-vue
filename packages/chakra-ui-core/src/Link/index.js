@@ -1,6 +1,7 @@
 import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
 import { forwardProps, kebabify } from '../utils'
+import { SNA } from '../config/props/props.types'
 
 /**
  * Issue:
@@ -14,7 +15,7 @@ const Link = {
       type: String,
       default: 'a'
     },
-    to: String,
+    to: SNA,
     isDisabled: Boolean,
     isExternal: Boolean,
     onClick: {

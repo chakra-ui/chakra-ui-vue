@@ -44,7 +44,7 @@ const decorate = props => {
   }
 }
 
-const systemProps = compose(
+export const systemProps = compose(
   space,
   layout,
   color,
@@ -70,6 +70,7 @@ const Box = {
       type: [String, Object],
       default: 'div'
     },
+    to: [String, Object],
     ...baseProps
   },
   computed: {
@@ -78,12 +79,13 @@ const Box = {
     }
   },
   render (h) {
-    const { as, ...cleanedStyleProps } = forwardProps(this.$props)
+    const { as, to, ...cleanedStyleProps } = forwardProps(this.$props)
     const boxStylesObject = systemProps({ ...cleanedStyleProps, theme: this.theme })
-    const className = css(boxStylesObject)
 
     return h(as, {
-      class: [className]
+      props: { to },
+      class: css(boxStylesObject),
+      on: this.$listeners
     }, this.$slots.default)
   }
 }

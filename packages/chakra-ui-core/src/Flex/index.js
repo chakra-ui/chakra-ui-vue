@@ -8,6 +8,7 @@ import { forwardProps } from '../utils'
 const Flex = {
   name: 'Flex',
   props: {
+    as: String,
     align: [String, Array],
     justify: [String, Array],
     wrap: [String, Array],
@@ -18,6 +19,7 @@ const Flex = {
   render (h) {
     return h(Box, {
       props: {
+        as: this.as,
         display: 'flex',
         flexDirection: this.direction,
         alignItems: this.align,

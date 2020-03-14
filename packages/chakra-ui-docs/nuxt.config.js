@@ -6,7 +6,7 @@ dotenv.config({
 })
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   modulesDir: ['../../node_modules'],
   head: {
     title: process.env.npm_package_name || '',
@@ -29,7 +29,8 @@ export default {
   ],
   css: [
     'css/page.css',
-    'css/night-owl.css'
+    'css/night-owl.css',
+    'css/fonts/fonts.css'
   ],
   buildModules: [
     '@nuxtjs/eslint-module'

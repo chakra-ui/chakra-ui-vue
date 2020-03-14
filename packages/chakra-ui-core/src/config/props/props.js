@@ -126,6 +126,7 @@ const baseProps = {
   textOverflow: SNA,
   boxSizing: SNA,
   resize: SNA,
+  listStyle: SNA,
   listStyleType: SNA,
   listStylePosition: SNA,
   listStyleImage: SNA,

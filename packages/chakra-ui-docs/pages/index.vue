@@ -1,68 +1,65 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        chakra-ui-docs
-      </h1>
-      <h2 class="subtitle">
-        Chakra UI Vue documentation site
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <Box as="main" fontFamily="body">
+    <Hero />
+    <Flex
+      as="section"
+      :px="[10, 10, 24]"
+      py="10"
+      :flexDir="['column', 'column', 'row']"
+      fontFamily="body"
+    >
+      <Grid :templateColumns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
+        <Box m="3">
+          <Flex alignItems="center" mb="5">
+            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="blue.400" w="50px" h="50px" rounded="full">
+              <Icon size="25px" name="universal-access" />
+            </Flex>
+            <Heading as="h4" size="md">Accessible</Heading>
+          </Flex>
+          Chakra UI strictly follows WAI-ARIA standards. All components come with proper attributes and keyboard interactions out of the box.
+        </Box>
+        <Box m="3">
+          <Flex alignItems="center" mb="5">
+            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="blue.400" w="50px" h="50px" rounded="full">
+              <Icon size="25px" name="palette" />
+            </Flex>
+            <Heading as="h4" size="md">Themeable</Heading>
+          </Flex>
+          Quickly and easily reference values from your theme throughout your entire application, on any component.
+        </Box>
+        <Box m="3">
+          <Flex alignItems="center" mb="5">
+            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="blue.400" w="50px" h="50px" rounded="full">
+              <Icon size="25px" name="cubes" />
+            </Flex>
+            <Heading as="h4" size="md">Composable</Heading>
+          </Flex>
+          Components were built with composition in mind. You can leverage any component to create new things.
+        </Box>
+      </Grid>
+    </Flex>
+    <Example />
+    <Footer />
+  </Box>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { Box, Flex, Icon, Heading, Grid } from 'chakra-ui-core'
+import Hero from '~/components/Hero.vue'
+import Footer from '~/components/Footer.vue'
+import Example from '~/components/Example.vue'
 
 export default {
+  layout: 'home',
   components: {
-    Logo
+    Hero,
+    Box,
+    Flex,
+    Icon,
+    Heading,
+    Footer,
+    Example,
+    Grid
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

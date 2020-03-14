@@ -99,3 +99,6 @@ export { default as Tooltip } from './Tooltip'
 export * from './Transition'
 
 export { default as VisuallyHidden } from './VisuallyHidden'
+
+// Props objects
+export { baseProps as boxProps, pseudoProps as pseudoBoxProps } from './config'

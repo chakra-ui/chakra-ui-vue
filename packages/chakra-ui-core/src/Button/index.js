@@ -57,7 +57,8 @@ export default {
   inject: ['$theme', '$colorMode'],
   props: {
     ...buttonProps,
-    ...styleProps
+    ...styleProps,
+    to: [String, Object],
   },
   computed: {
     colorMode () {
@@ -76,9 +77,11 @@ export default {
       colorMode: this.colorMode,
       size: this.size || 'md'
     })
+
     return h(PseudoBox, {
       props: {
         as: this.as,
+        to: this.to,
         outline: 'none',
         cursor: 'pointer',
         fontSize: 'md',

@@ -13,7 +13,6 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_workbox_2725bd4b from 'nuxt_plugin_workbox_2725bd4b' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_nuxticons_77163eb9 from 'nuxt_plugin_nuxticons_77163eb9' // Source: ./nuxt-icons.js (mode: 'all')
-import nuxt_plugin_emotion_fc564b2c from 'nuxt_plugin_emotion_fc564b2c' // Source: ./emotion.js (mode: 'client')
 import nuxt_plugin_router_6bb3fcc0 from 'nuxt_plugin_router_6bb3fcc0' // Source: ./router.js (mode: 'all')
 import nuxt_plugin_links_d264fdba from 'nuxt_plugin_links_d264fdba' // Source: ../plugins/links.js (mode: 'all')
 import nuxt_plugin_editor_345fd885 from 'nuxt_plugin_editor_345fd885' // Source: ../plugins/editor.js (mode: 'all')
@@ -46,7 +45,7 @@ Vue.component(Nuxt.name, Nuxt)
 
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
-const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
+const defaultTransition = {"name":"page","mode":"out-in","appear":true,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 async function createApp (ssrContext) {
   const router = await createRouter(ssrContext)
@@ -157,10 +156,6 @@ async function createApp (ssrContext) {
 
   if (typeof nuxt_plugin_nuxticons_77163eb9 === 'function') {
     await nuxt_plugin_nuxticons_77163eb9(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_emotion_fc564b2c === 'function') {
-    await nuxt_plugin_emotion_fc564b2c(app.context, inject)
   }
 
   if (typeof nuxt_plugin_router_6bb3fcc0 === 'function') {

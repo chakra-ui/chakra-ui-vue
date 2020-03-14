@@ -25,8 +25,10 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/router": "^1.5.0",
     "nuxt": "^2.0.0",
+    "prismjs": "^@1.19.0",
     "vue": "^2.6.11",
     "vue-live": "^1.5.1",
+    "vue-prism-editor": "^@0.5.1",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {

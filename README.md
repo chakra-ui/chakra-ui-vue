@@ -53,7 +53,7 @@ new Vue({
 ```
 **2. Wrap your application inside the Chakra `ThemeProvider`.** We also recommend that you include the `CSSReset` component to normalize all browser styling.
 
-_In `App.vue` file._
+_In the `App.vue` file._
 ```html
 <template>
   <ThemeProvider>

@@ -123,21 +123,11 @@ You can also view all developed components in Storybook!
 ```bash
 yarn install
 yarn bootstrap
-yarn serve
+yarn dev
 ```
 
-
-
-#### Project TODO:
-- [x] Setup Storybook for components UI
-- [x] Theme Provider
-- [x] Develop styling scheme for components with styled system
-- [x] Setup Vue.js plugin system
-  - [x] Provide Theme
-  - [x] Observe theme and set it dynamically in javascript plugin.
-- [x] Provide icons API for icons component
-- [x] Accessibility and WIA-ARIA standard implementation
-- [ ] Setup NPM distribution
+#### Project TODOs:
+- [ ] Documentation site (Ongoing)
 - [ ] Set up type system for plugin & components export with Typescript
 
 

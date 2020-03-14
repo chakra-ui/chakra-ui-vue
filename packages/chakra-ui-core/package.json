@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Build Accessible and Scalable Vue.js applications with ease",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",

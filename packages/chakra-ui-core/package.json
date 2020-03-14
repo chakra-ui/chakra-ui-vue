@@ -8,12 +8,14 @@
   "module": "dist/esm/index.js",
   "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
-  "private": false,
   "scripts": {
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",

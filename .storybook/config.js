@@ -77,7 +77,7 @@ addDecorator(() => ({
 
 
 function loadStories() {
-  const req = require.context('../packages/kiwi-core/src', true, /\.stories\.(js|mdx)$/);
+  const req = require.context('../packages/chakra-ui-core/src', true, /\.stories\.(js|mdx)$/);
   req.keys().forEach(filename => req(filename));
 }
 

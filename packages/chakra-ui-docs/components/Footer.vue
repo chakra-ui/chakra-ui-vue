@@ -14,7 +14,7 @@
         isExternal
         transition="color 0.2s ease-in-out"
         :_hover="{
-          color: 'blue.400'
+          color: '#41b883'
         }"
         color="gray.400"
       >
@@ -25,7 +25,7 @@
         isExternal
         transition="color 0.2s ease-in-out"
         :_hover="{
-          color: 'blue.400'
+          color: 'vue.500'
         }"
         color="gray.400"
       >
@@ -36,7 +36,7 @@
         isExternal
         transition="color 0.2s ease-in-out"
         :_hover="{
-          color: 'blue.400'
+          color: 'vue.500'
         }"
         color="gray.400"
       >
@@ -47,7 +47,7 @@
         isExternal
         transition="color 0.2s ease-in-out"
         :_hover="{
-          color: 'blue.400'
+          color: 'vue.500'
         }"
         color="gray.400"
       >

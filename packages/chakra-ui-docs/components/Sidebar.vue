@@ -5,6 +5,10 @@
     :display="['none', null, 'block']"
     maxWidth="18rem"
     width="full"
+    borderRight="1px"
+    borderColor="gray.200"
+    h="calc(100vh - 60px)"
+    overflowY="scroll"
   >
     <SideNavContent />
   </Box>

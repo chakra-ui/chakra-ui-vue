@@ -6,8 +6,8 @@ storiesOf('UI | PseudoBox', module)
     components: { PseudoBox },
     template: `
       <PseudoBox
-        bg="teal.300"
-        color="teal.800"
+        bg="vue.300"
+        color="vue.800"
         p="3"
         rounded="md"
         bl="4px"

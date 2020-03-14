@@ -4,26 +4,27 @@
       <ColorModeProvider v-slot="{ colorMode }">
         <Box
           font-family="body"
-          as="main"
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
           <Navbar />
-          <CSSReset />
-            <Sidebar />
-            <Box :pl="[0, null, '18rem']"  mt="4rem">
-              <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
-                <Nuxt />
+            <Box as="section" d="flex">
+              <Sidebar />
+              <Box as="main" minH="calc(100vh - 60px)" :w="['auto', 'auto', '46rem']">
+                <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
+                  <Nuxt />
+                  <Footer />
+                </Box>
               </Box>
             </Box>
-            <Footer />
         </Box>
       </ColorModeProvider>
     </ThemeProvider>
   </div>
 </template>
 <script>
-import { ThemeProvider, ColorModeProvider, CSSReset, Box } from 'chakra-ui-core'
+/* eslint-disable vue/no-unused-components */
+import { ThemeProvider, ColorModeProvider, Box } from 'chakra-ui-core'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
@@ -33,7 +34,6 @@ export default {
   components: {
     ThemeProvider,
     ColorModeProvider,
-    CSSReset,
     Box,
     Navbar,
     Sidebar,

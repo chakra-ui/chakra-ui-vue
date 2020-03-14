@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-**/dist
+**/dist/
 /public
 /storybook-static
 
@@ -29,3 +29,4 @@ yarn-error.log*
 packages/*/coverage
 packages/*/dist
 packages/*/node_modules
+packages/chakra-ui-docs/.nuxt

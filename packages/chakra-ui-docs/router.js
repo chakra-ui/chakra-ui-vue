@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from './docs/index.mdx'
-import Tabs from './docs/tabs.mdx'
-import Home from './pages/index.vue'
+import Home from './docs/index.vue'
+import GettingStarted from './docs/getting-started.mdx'
+import Principles from './docs/principles.mdx'
 
 Vue.use(Router)
 
@@ -11,19 +11,19 @@ export function createRouter () {
     mode: 'history',
     routes: [
       {
-        path: '/home',
-        name: '_home',
+        path: '/',
+        name: 'Home',
         component: Home
       },
       {
-        path: '/',
+        path: '/getting-started',
         name: 'home',
-        component: Index
+        component: GettingStarted
       },
       {
-        path: '/tabs',
+        path: '/principles',
         name: 'tabs',
-        component: Tabs
+        component: Principles
       }
     ]
   })

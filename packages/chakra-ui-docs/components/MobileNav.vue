@@ -11,7 +11,7 @@
     <Drawer size="xs" :isOpen="isOpen" placement="left" :onClose="handleClose">
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerBody pos="relative" p="0">
+        <DrawerBody  pos="relative" p="0" overflowY="scroll" h="100vh">
           <CloseButton pos="absolute" top="4" right="4" @click="handleClose" />
           <SideNavContent contentHeight="100vh" top="0" />
         </DrawerBody>

@@ -150,7 +150,8 @@ const baseProps = {
   gridAutoRows: SNA,
   gridTemplateRows: SNA,
   gridTemplateColumns: SNA,
-  opacity: SNA
+  opacity: SNA,
+  letterSpacing: SNA
 }
 
 export default baseProps

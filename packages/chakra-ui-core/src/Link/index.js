@@ -18,11 +18,12 @@ const Link = {
     to: SNA,
     isDisabled: Boolean,
     isExternal: Boolean,
-    onClick: {
-      type: Function,
-      default: () => null
-    },
     ...styleProps
+  },
+  computed: {
+    isRouterLink () {
+      return ['router-link', 'nuxt-link'].includes(kebabify(this.as))
+    }
   },
   render (h) {
     const externalAttrs = this.isExternal
@@ -32,7 +33,7 @@ const Link = {
     return h(PseudoBox, {
       props: {
         as: this.as,
-        ...kebabify(this.as) === 'router-link' && { to: this.to },
+        ...this.isRouterLink && { to: this.to },
         transition: `all 0.15s ease-out`,
         cursor: 'pointer',
         textDecoration: 'none',
@@ -52,6 +53,9 @@ const Link = {
         tabIndex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
         ...externalAttrs
+      },
+      on: {
+        click: (e) => this.$emit('click', e)
       }
     }, this.$slots.default)
   }

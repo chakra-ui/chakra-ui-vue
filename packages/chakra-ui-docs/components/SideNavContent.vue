@@ -1,22 +1,66 @@
 <template>
-  <Box>
+  <Box
+    p="3"
+    :color="colorMode === 'light' ? 'gray.600': 'whiteAlpha.700'"
+  >
     <Heading size="xs" color="gray.400" letterSpacing="wide" mb="2" textTransform="uppercase">
       Getting Started
     </Heading>
-    <NavLink
-      v-for="(link, index) in topNavLinks"
-      to="/home"
-      :key="index"
+    <Box v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
+      <NuxtLink
+        :to="link.path"
+      >
+        <PseudoBox
+          as="a"
+          p="0.2rem"
+          outline="none"
+          :_focus="{
+            shadow: 'outline',
+          }"
+          :_hover="{
+            textDecoration: 'none'
+          }"
+          d="block"
+          rounded="md"
+          fontWeight="bold"
+          fontSize="sm"
+          textDecoration="none"
+        >
+          {{ link.name }}
+        </PseudoBox>
+      </NuxtLink>
+    </Box>
+    <Heading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
+      Components
+    </Heading>
+    <PseudoBox
+      v-for="(link, index) in componentLinks"
+      :key="`${index}-components`"
+      as="a"
+      :href="link.path"
+      outline="none"
+      p="0.2rem"
+      :_focus="{
+        shadow: 'outline',
+      }"
+      :_hover="{
+        textDecoration: 'none'
+      }"
       d="block"
+      rounded="md"
+      fontWeight="bold"
+      fontSize="sm"
+      textDecoration="none"
     >
-      {{ link }}
-    </NavLink>
+      {{ link.name }}
+    </PseudoBox>
   </Box>
 </template>
 
 <script>
-import { boxProps, Box, Heading } from 'chakra-ui-core'
-import NavLink from './NavLink'
+import { boxProps, Box, Heading, PseudoBox } from 'chakra-ui-core'
+import { stringToUrl } from '../utils'
+import componentLinks from './components'
 
 const topNavLinks = [
   'Getting Started',
@@ -29,6 +73,8 @@ const topNavLinks = [
 ]
 
 export default {
+  name: 'SideNavContent',
+  inject: ['$colorMode'],
   props: {
     contentHeight: {
       type: String,
@@ -39,11 +85,17 @@ export default {
   components: {
     Box,
     Heading,
-    NavLink
+    PseudoBox
   },
-  data () {
-    return {
-      topNavLinks
+  computed: {
+    colorMode () {
+      return this.$colorMode()
+    },
+    topNavLinks () {
+      return topNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))
+    },
+    componentLinks () {
+      return componentLinks.map(link => ({ name: link, path: stringToUrl(link) }))
     }
   }
 }

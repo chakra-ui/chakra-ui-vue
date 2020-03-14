@@ -137,6 +137,7 @@ export const config = {
   listStyleType: true,
   listStylePosition: true,
   listStyleImage: true,
+  letterSpacing: true,
   fill: {
     property: 'fill',
     scale: 'colors'

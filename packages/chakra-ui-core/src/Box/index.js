@@ -70,7 +70,10 @@ const Box = {
       type: [String, Object],
       default: 'div'
     },
-    to: [String, Object],
+    to: {
+      type: [String, Object],
+      default: ''
+    },
     ...baseProps
   },
   computed: {

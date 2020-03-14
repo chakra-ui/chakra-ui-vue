@@ -11,7 +11,7 @@ exports[`should change the style 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should display Box with type as "header" 1`] = `
+exports[`should display Box with type as header 1`] = `
 <DocumentFragment>
   <header
     class="css-0"
@@ -22,7 +22,7 @@ exports[`should display Box with type as "header" 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should display Box with type as "p" 1`] = `
+exports[`should display Box with type as p 1`] = `
 <DocumentFragment>
   <p
     class="css-0"

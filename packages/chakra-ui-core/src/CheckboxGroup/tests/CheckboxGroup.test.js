@@ -2,8 +2,8 @@ import { Box, Checkbox, CheckboxGroup } from '@/packages/kiwi-core/src'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 // mocks
-import { useId } from '@/packages/kiwi-core/src/utils'
-jest.mock('@/packages/kiwi-core/src/utils/generators.js')
+import { useId } from '@/packages/chakra-ui-core/src/utils'
+jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
 
 const renderComponent = (props) => {

@@ -1,4 +1,4 @@
-import { Box, Tag, TagLabel, TagIcon, TagCloseButton, Avatar } from '@/packages/kiwi-core/dist/esm'
+import { Box, Tag, TagLabel, TagIcon, TagCloseButton, Avatar } from '@/packages/chakra-ui-core/dist/esm'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

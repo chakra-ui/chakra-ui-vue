@@ -1,7 +1,7 @@
 <template>
   <Fragment>
     <IconButton
-      :display="['inline-flex', 'none']"
+      :display="['inline-flex', 'inline-flex', 'none']"
       aria-label="Navigation Menu"
       fontSize="20px"
       variant="ghost"

@@ -1,16 +1,21 @@
 import { shallowMount } from '@vue/test-utils'
-import ThemeProvider from '../ThemeProvider'
-import Theme from '../../../kiwi.config'
+import ThemeProvider from '../../ThemeProvider'
+import theme from '../../../chakra-ui-theme/src'
 
 describe('===== ThemeProvider Component =====', () => {
   let themeProvider
   const ChildComponent = {
-    inject: ['$theme', '$colorMode'],
+    inject: ['$theme'],
     render: h => h('div', {})
   }
 
   it('should be a Vue component', () => {
     themeProvider = shallowMount(ThemeProvider, {
+      mocks: {
+        $kiwi: {
+          theme
+        }
+      },
       slots: {
         default: [ChildComponent]
       }
@@ -23,12 +28,15 @@ describe('===== ThemeProvider Component =====', () => {
       slots: {
         default: [ChildComponent]
       },
+      mocks: {
+        $kiwi: {
+          theme
+        }
+      },
       propsData: {
-        theme: Theme,
-        colorMode: 'light'
+        theme
       }
     })
-    expect(themeProvider.find(ChildComponent).vm.$theme()).toBe(Theme)
-    expect(themeProvider.find(ChildComponent).vm.$colorMode).toBe('light')
+    expect(themeProvider.find(ChildComponent).vm.$theme()).toBe(theme)
   })
 })

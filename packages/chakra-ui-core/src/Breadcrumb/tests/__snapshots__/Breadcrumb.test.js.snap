@@ -13,7 +13,7 @@ exports[`should display custom seperator  1`] = `
         class="css-18biwo"
       >
         <a
-          class="css-1kvwaf7 css-7ey7in"
+          class="css-0 css-19ysyim"
           href="/"
         >
           Home
@@ -29,7 +29,7 @@ exports[`should display custom seperator  1`] = `
         class="css-18biwo"
       >
         <a
-          class="css-1kvwaf7 css-7ey7in"
+          class="css-0 css-19ysyim"
           href="/about"
         >
           About
@@ -71,7 +71,7 @@ exports[`should render correctly 1`] = `
           class="css-18biwo"
         >
           <a
-            class="css-1kvwaf7 css-7ey7in"
+            class="css-0 css-19ysyim"
             href="#"
           >
             Breadcrumb 1
@@ -87,7 +87,7 @@ exports[`should render correctly 1`] = `
           class="css-18biwo"
         >
           <a
-            class="css-1kvwaf7 css-7ey7in"
+            class="css-0 css-19ysyim"
             href="#"
           >
             Breadcrumb 2

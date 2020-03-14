@@ -7,13 +7,13 @@ exports[`should render correctly 1`] = `
     data-accordion=""
   >
     <div
-      class="css-1qle02e css-96xnk"
+      class="css-0 css-1b3isn8"
       data-accordion-item=""
     >
       <button
         aria-controls="accordion-panel-ac-1"
         aria-expanded="true"
-        class="css-6nx9ib css-1ysngpw"
+        class="css-0 css-12lgae2"
         id="accordion-header-ac-1"
         type="button"
       >

@@ -6,14 +6,14 @@ exports[`should render correctly 1`] = `
     class="css-1baulvz"
   >
     <button
-      class="css-1ppt08m css-20g85r"
+      class="css-0 css-1egt1u4"
       tabindex="0"
       type="button"
     >
       Button1
     </button>
     <button
-      class="css-1d4j08k css-20g85r"
+      class="css-0 css-pt9fef"
       tabindex="0"
       type="button"
     >

@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '@/packages/chakra-ui-core/src/Accordion'
+import { Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon } from '..'
 import { render, userEvent, fireEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

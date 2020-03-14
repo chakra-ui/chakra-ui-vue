@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
     aria-label="Close"
-    class="css-1mh4jqf css-mzb2b3"
+    class="css-0 css-12btrym"
   >
     <svg
       aria-hidden="true"

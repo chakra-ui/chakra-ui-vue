@@ -1,4 +1,4 @@
-import Switch from '../'
+import Switch from '..'
 import { render, userEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

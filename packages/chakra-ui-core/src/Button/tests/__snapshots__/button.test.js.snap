@@ -3,7 +3,7 @@
 exports[`should display button with left icon 1`] = `
 <DocumentFragment>
   <button
-    class="css-1d4j08k css-aawvf3"
+    class="css-0 css-rup5mm"
     tabindex="0"
     type="button"
   >
@@ -29,7 +29,7 @@ exports[`should display button with left icon 1`] = `
 exports[`should display button with right icon 1`] = `
 <DocumentFragment>
   <button
-    class="css-1d4j08k css-aawvf3"
+    class="css-0 css-rup5mm"
     tabindex="0"
     type="button"
   >
@@ -55,7 +55,7 @@ exports[`should display button with right icon 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
-    class="css-1d4j08k css-aawvf3"
+    class="css-0 css-rup5mm"
     tabindex="0"
     type="button"
   >

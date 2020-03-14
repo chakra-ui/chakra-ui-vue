@@ -1,7 +1,7 @@
 {
-  "name": "chakra-ui-core",
+  "name": "@chakra-ui/vue",
   "version": "0.1.0",
-  "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
+  "description": "Build Accessible and Scalable Vue.js applications with ease",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",

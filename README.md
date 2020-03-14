@@ -11,6 +11,7 @@
 
 <h2 align="center">Build scalable and accessible Vue.js applications with ease.</h2>
 
+
 **chakra-ui-vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
 
 > Hello, friend! 😄
@@ -125,6 +126,7 @@ yarn install
 yarn bootstrap
 yarn dev
 ```
+
 
 #### Project TODOs:
 - [ ] Documentation site (Ongoing)

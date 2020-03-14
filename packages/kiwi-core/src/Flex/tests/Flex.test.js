@@ -5,7 +5,7 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { Flex },
-    template: `<Flex ${inlineAttrs}>Flex Me</Flex>`,
+    template: `<Flex ${inlineAttrs} data-testid="flex">Flex Me</Flex>`,
     ...props
   }
   return render(base)
@@ -17,9 +17,15 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should change orientation', () => {
-  const inlineAttrs = 'align="center"'
-  const { asFragment } = renderComponent({ inlineAttrs })
+it('should change styles', () => {
+  const inlineAttrs = 'align="center" justify="center" direction="column"'
+  const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
 
   expect(asFragment()).toMatchSnapshot()
+
+  const flex = getByTestId('flex')
+  expect(flex).toHaveStyle('display: flex')
+  expect(flex).toHaveStyle('align-items: center')
+  expect(flex).toHaveStyle('justify-content: center')
+  expect(flex).toHaveStyle('flex-direction: column')
 })

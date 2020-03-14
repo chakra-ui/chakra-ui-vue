@@ -1,4 +1,5 @@
 import { colorModeObserver } from '../utils/color-mode-observer'
+import Fragment from '../Fragment'
 
 const ThemeProvider = {
   name: 'ThemeProvider',
@@ -30,8 +31,8 @@ const ThemeProvider = {
       }
     }
   },
-  render () {
-    return this.$slots.default
+  render (h) {
+    return h(Fragment, this.$slots.default)
   }
 }
 

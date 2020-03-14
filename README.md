@@ -5,38 +5,131 @@
 
 <p align="center">
   <a href="https://github.com/chakra-ui/chakra-ui-vue">
-    <img src="https://res.cloudinary.com/xtellar/image/upload/v1584203487/chakra-ui/chakra-ui-vue-logo.png" alt="chakra-ui symbol" width="300" />
+    <img src="https://res.cloudinary.com/xtellar/image/upload/v1584203487/chakra-ui/chakra-ui-vue.png" alt="chakra-ui symbol" width="300" />
   </a>
 </p>
 
-<h1 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease. [WIP]</h1>
+<h2 align="center">Build scalable and accessible Vue.js applications with ease.</h2>
 
-### 📦 Components
-A complete list of all components to be built can be found here 👇🏽.
 
-<a href="https://www.notion.so/b379efc7b0f24060b840be7f6c2d0bbb?v=e32ed8a0bce04621975feef3ff344c07" target="_blank"><h3>🥝 View All Components</h3></a>
+**chakra-ui-vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
+
+> Hello, friend! 😄
+> **chakra-ui-vue** is currently under development. A more detailed documentation site is in the pipeline soon! Check out our [storybook]() and [Codesandbox Starters]().
+
+## Features
+
+- **Ease of Styling:** Chakra UI contains a set of layout components like `Box` and
+  `Stack` that make it easy to style your components by passing props.
+  [Learn more](https://chakra-ui.com/style-props)
+- **Flexible & composable**: Chakra UI components are built on top of a Vue UI Primitive for endless composability.
+- **Accessible**. Chakra UI components follows the WAI-ARIA guidelines
+  specifications and have the right `aria-*` attributes.
+- **Dark Mode 😍**: Most components in Chakra UI are dark mode compatible.
+
+## Installation
+```bash
+yarn add @chakra-ui/vue emotion
+```
+or
+```bash
+npm install @chakra-ui/vue emotion
+```
+
+## Usage
+**1. Import the Chakra UI plugin in your `main.js` file.**
+
+```js
+import Vue from 'vue';
+import Chakra from '@chakra-ui/vue'
+import App from './App.vue'
+
+Vue.use(Chakra)
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+}).$mount()
+
+```
+**2. Wrap your application inside the Chakra `ThemeProvider`.** We also recommend that you include the `CSSReset` component to normalize all browser styling.
+
+_In `App.vue` file._
+```html
+<template>
+  <ThemeProvider>
+    <CSSReset />
+
+    <!--
+      Your application code goes here! 😁
+    -->
+
+  </ThemeProvider>
+</template>
+
+<script>
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+
+export default {
+  name: 'App',
+  components: {
+    ThemeProvider,
+    CSSReset
+  }
+}
+</script>
+```
+If you'd like to toggle your app between dark and light mode, you can also wrap your application inside the `ColorModeProvider` component.
+
+**3. Hurray!🎉 Now the fun can begin**. You can start using components like so:
+```html
+<template>
+  <ThemeProvider>
+    <CSSReset />
+
+    <!--
+      Your application code goes here! 😁
+    -->
+    <Button variantColor="blue">
+      Chakra consumed ⚡️
+    </Button>
+  </ThemeProvider>
+</template>
+
+<script>
+import {
+  ThemeProvider,
+  CSSReset,
+  Button
+} from '@chakra-ui/core'
+
+export default {
+  name: 'App',
+  components: {
+    ThemeProvider,
+    CSSReset,
+    Button
+  }
+}
+</script>
+```
 
 ### Browse All Components
 You can also view all developed components in Storybook!
 
-<a href="https://kiwi-ui.netlify.com" target="_blank"><h3>🔖 View Storybook</h3></a>
+<a href="https://chakra-ui-vue.netlify.com" target="_blank"><h3>🔖 View Storybook</h3></a>
 
+
+### Development:
 ```bash
 yarn install
 yarn bootstrap
-yarn serve
+yarn dev
 ```
 
-#### Project TODO:
-- [x] Setup Storybook for components UI
-- [x] Theme Provider
-- [x] Develop styling scheme for components with styled system
-- [x] Setup Vue.js plugin system
-  - [x] Provide Theme
-  - [x] Observe theme and set it dynamically in javascript with ease.
-- [x] Provide icons API for icons component
-- [x] Accessibility and WIA-ARIA standard implementation
-- [ ] Setup NPM distribution
+
+#### Project TODOs:
+- [ ] Documentation site (Ongoing)
 - [ ] Set up type system for plugin & components export with Typescript
 
 

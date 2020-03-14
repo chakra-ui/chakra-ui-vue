@@ -30,3 +30,4 @@ packages/*/coverage
 packages/*/dist
 packages/*/node_modules
 **/.nuxt/
+lerna-debug.log

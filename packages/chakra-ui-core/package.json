@@ -1,19 +1,21 @@
 {
-  "name": "chakra-ui-core",
-  "version": "0.1.0",
-  "description": "🥝  A Scalable, Accessible, High Performance, Vue.js UI component library",
+  "name": "@chakra-ui/vue",
+  "version": "0.2.1",
+  "description": "Build Accessible and Scalable Vue.js applications with ease",
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
-  "private": false,
   "scripts": {
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",
@@ -40,5 +42,5 @@
   "devDependencies": {
     "core-js": "^3.4.5"
   },
-  "gitHead": "3edafd2f90f3aa3c5a44ec9f5b0e960430caaad0"
+  "gitHead": "cb7ffb7adeb926b99c75f195300d09780e8910e6"
 }

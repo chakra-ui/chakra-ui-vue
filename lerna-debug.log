@@ -7,7 +7,7 @@
 1 notice cli v3.20.2
 2 verbose rootPath /Users/jonathanbakebwa/Github/kiwi
 3 info versioning independent
-4 error Error: Invalid tag name "^@1.19.0": Tags may not have any characters that encodeURIComponent encodes.
+4 error Error: Invalid tag name "^@0.5.1": Tags may not have any characters that encodeURIComponent encodes.
 4 error     at invalidTagName (/Users/jonathanbakebwa/Github/kiwi/node_modules/npm-package-arg/npa.js:91:15)
 4 error     at fromRegistry (/Users/jonathanbakebwa/Github/kiwi/node_modules/npm-package-arg/npa.js:296:13)
 4 error     at Function.resolve (/Users/jonathanbakebwa/Github/kiwi/node_modules/npm-package-arg/npa.js:81:12)

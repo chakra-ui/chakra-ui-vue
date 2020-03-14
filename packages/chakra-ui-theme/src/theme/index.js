@@ -6,20 +6,22 @@ import radii from './radii'
 import shadows from './shadows'
 import sizes, { baseSizes } from './sizes'
 import zIndices from './z-indices'
+import breakpoints from './breakpoints'
 
 const space = baseSizes
 
 const theme = {
-  colors,
-  borders,
-  borderWidths,
-  opacity,
-  radii,
-  shadows,
-  sizes,
-  space,
+  breakpoints,
   zIndices,
-  ...typography
+  radii,
+  opacity,
+  borders,
+  colors,
+  ...typography,
+  borderWidths,
+  sizes,
+  shadows,
+  space
 }
 
 export default theme

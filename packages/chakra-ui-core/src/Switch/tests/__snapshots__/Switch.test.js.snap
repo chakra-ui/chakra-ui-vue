@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="css-l5ub9m"
+  >
+    <input
+      class="css-0 css-f8n5zr"
+      type="checkbox"
+    />
+    <div
+      aria-hidden="true"
+      class="css-tunaov css-14rwhig"
+    >
+      <div
+        class="css-4b8l73"
+      />
+    </div>
+  </label>
+</DocumentFragment>
+`;

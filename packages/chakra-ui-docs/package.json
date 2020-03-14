@@ -1,0 +1,46 @@
+{
+  "name": "chakra-ui-docs",
+  "version": "0.1.0",
+  "description": "Chakra UI Vue documentation site",
+  "author": "codebender828",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "lint-staged": {
+    "*.{js,vue}": "yarn lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@mdx-js/vue-loader": "^1.5.7",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/router": "^1.5.0",
+    "nuxt": "^2.0.0",
+    "prismjs": "^1.19.0",
+    "vue": "^2.6.11",
+    "vue-live": "^1.5.1",
+    "vue-prism-editor": "^0.5.1",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.0.0",
+    "prettier": "^1.19.1"
+  }
+}

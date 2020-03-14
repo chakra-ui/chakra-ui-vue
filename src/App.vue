@@ -1,27 +1,23 @@
 <template>
   <Box d="flex" flexDir="column" justifyContent="center">
-    <Editable defaultValue="Take some chakra">
-      <EditablePreview />
-      <EditableInput />
-    </Editable>
+    <Box :bg="['pink.100', 'green.200', 'yellow.400']" d="flex" flexDir="column" justifyContent="center" :fontSize="['sm', 'md', 'lg', 'xl']" mb="2" p="2" w="300px">
+      I am a box component
+    </Box>
+    <Button left-icon="github">Button component</Button>
   </Box>
 </template>
 
 <script lang="js">
 import {
   Box,
-  Editable,
-  EditablePreview,
-  EditableInput } from '../packages/kiwi-core/dist/esm'
+  Button } from '../packages/chakra-ui-core/dist/esm'
 
 export default {
   name: 'App',
   inject: ['$theme', '$colorMode'],
   components: {
     Box,
-    Editable,
-    EditablePreview,
-    EditableInput
+    Button
   },
   computed: {
     colorMode () {
@@ -33,7 +29,8 @@ export default {
   },
   data () {
     return {
-      showModal: false
+      showModal: false,
+      text: 'Demo editable text'
     }
   },
   methods: {

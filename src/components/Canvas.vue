@@ -47,7 +47,7 @@ import {
   Button,
   Box,
   IconButton,
-  ColorModeProvider } from '../../packages/kiwi-core/dist/esm'
+  ColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
 
 export default {
   name: 'Canvas',

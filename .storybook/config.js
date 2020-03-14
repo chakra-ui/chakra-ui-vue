@@ -55,7 +55,9 @@ Vue.use(Kiwi, {
 
 addParameters({
   options: {
-   theme: storyBookTheme
+   theme: storyBookTheme,
+   storySort: (a, b) =>
+      a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
  }
 })
 
@@ -73,5 +75,10 @@ addDecorator(() => ({
   components: { ThemeProvider, ColorModeProvider, CSSReset, Canvas }
 }));
 
-// automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /\.stories\.js$/), module);
+
+function loadStories() {
+  const req = require.context('../packages/kiwi-core/src', true, /\.stories\.(js|mdx)$/);
+  req.keys().forEach(filename => req(filename));
+}
+
+configure(loadStories, module);

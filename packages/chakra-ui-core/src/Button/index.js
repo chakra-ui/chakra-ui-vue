@@ -58,7 +58,7 @@ export default {
   props: {
     ...buttonProps,
     ...styleProps,
-    to: [String, Object],
+    to: [String, Object]
   },
   computed: {
     colorMode () {

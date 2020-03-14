@@ -43,7 +43,7 @@ const PseudoBox = {
     const _pseudoStyles = __css(pseudoStyles)(this.theme)
 
     return h(Box, {
-      class: css({ ...baseStyles, ..._pseudoStyles}),
+      class: css({ ...baseStyles, ..._pseudoStyles }),
       props: {
         as,
         to

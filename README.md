@@ -3,9 +3,13 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+<p align="center">
+  <a href="https://github.com/chakra-ui/chakra-ui-vue">
+    <img src="https://res.cloudinary.com/xtellar/image/upload/v1584203487/chakra-ui/chakra-ui-vue-logo.png" alt="chakra-ui symbol" width="300" />
+  </a>
+</p>
 
-<h1 align="center">chakra-ui/vue</h1>
-<h4 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease. [WIP]</h4>
+<h1 align="center">Build scalable, accessible, and light-weight, Vue.js applications with ease. [WIP]</h1>
 
 ### 📦 Components
 A complete list of all components to be built can be found here 👇🏽.
@@ -33,7 +37,7 @@ yarn serve
 - [x] Provide icons API for icons component
 - [x] Accessibility and WIA-ARIA standard implementation
 - [ ] Setup NPM distribution
-- [ ] Set up type system for components export with Typescript
+- [ ] Set up type system for plugin & components export with Typescript
 
 
 ## Contributors ✨

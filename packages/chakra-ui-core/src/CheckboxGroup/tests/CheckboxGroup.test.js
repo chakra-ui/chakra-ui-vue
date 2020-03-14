@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup } from '@/packages/kiwi-core/src'
+import { Box, Checkbox, CheckboxGroup } from '@/packages/chakra-ui-core/src'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 // mocks

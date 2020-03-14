@@ -6,7 +6,7 @@ exports[`should display tag with custom element 1`] = `
     class="css-82qlwu"
   >
     <div
-      class="css-75n5th css-0"
+      class="css-0 css-1jxztok"
     >
       <div
         class="css-1x49bir"
@@ -35,7 +35,7 @@ exports[`should display tag with right icon 1`] = `
     class="css-82qlwu"
   >
     <div
-      class="css-jen7yr css-0"
+      class="css-0 css-1mwiunl"
     >
       <div
         class="css-0"
@@ -95,7 +95,7 @@ exports[`should render correctly 1`] = `
     class="css-82qlwu"
   >
     <div
-      class="css-jen7yr css-0"
+      class="css-0 css-1mwiunl"
     >
       <svg
         class="css-10whti9 css-y3asau css-9r03b"

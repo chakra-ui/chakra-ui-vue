@@ -29,3 +29,4 @@ yarn-error.log*
 packages/*/coverage
 packages/*/dist
 packages/*/node_modules
+**/.nuxt

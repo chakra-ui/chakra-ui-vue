@@ -1,5 +1,4 @@
 import { colorModeObserver } from '../utils/color-mode-observer'
-import Fragment from '../Fragment'
 
 const ThemeProvider = {
   name: 'ThemeProvider',
@@ -32,7 +31,11 @@ const ThemeProvider = {
     }
   },
   render (h) {
-    return h(Fragment, this.$slots.default)
+    return h('div', {
+      attrs: {
+        id: '__chakra-app'
+      }
+    }, this.$slots.default)
   }
 }
 

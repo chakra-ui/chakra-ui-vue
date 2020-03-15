@@ -70,7 +70,13 @@ const commons = {
   ]
 }
 
-const bannerTxt = `/*! Chakra-ui/vue v${pkg.version} | MIT License | github.com/codebender828/kiwi-ui */`
+const bannerTxt = `
+/*
+ * ! @chakra-ui/vue v${pkg.version} by Jonathan Bakebwa @codebender828
+ * MIT License
+ * https://github.com/chakra-ui/chakra-ui-vue
+ */
+`
 
 const baseFolder = './src/'
 

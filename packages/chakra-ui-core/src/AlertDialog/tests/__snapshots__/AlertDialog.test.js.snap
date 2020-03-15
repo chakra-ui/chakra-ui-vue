@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Breadstick"
+    id="breadstick-kitchen"
+  >
+    <span>
+      <span
+        class="Breadstick__manager-top"
+        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-top-left"
+        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-top-right"
+        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom-left"
+        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom"
+        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom-right"
+        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
+      />
+    </span>
+    <span>
+      <span
+        class="Breadstick__manager-top"
+        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-top-left"
+        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-top-right"
+        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom-left"
+        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom"
+        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
+      />
+      <span
+        class="Breadstick__manager-bottom-right"
+        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
+      />
+    </span>
+  </div>
+  <div>
+    <div>
+      <!---->
+    </div>
+  </div>
+  <span
+    id="modal-portal-1"
+  >
+    <div
+      class="css-0 css-79elbk"
+    >
+      <div
+        style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+      >
+        <div
+          class="css-l5w8ps"
+          data-testid="overlay"
+        />
+        <div
+          class="css-aibg9d"
+          data-testid="content"
+          role="alertdialog"
+        >
+          <section
+            aria-modal="true"
+            class="css-i76yoi"
+            id="alert-dialog-1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="css-kniazf"
+              id="alert-dialog-1-label"
+            >
+              Dialog Header
+            </div>
+             
+            <div
+              class="css-5m10fw"
+              id="alert-dialog-1-desc"
+            >
+              Are you sure?
+            </div>
+             
+            <footer
+              class="css-plnu2w"
+            >
+              <button
+                class="css-0 css-rup5mm"
+                data-testid="close-btn"
+                tabindex="0"
+                type="button"
+              >
+                Cancel
+              </button>
+               
+              <button
+                class="css-0 css-mbmse4"
+                tabindex="0"
+                type="button"
+              >
+                Delete
+              </button>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </div>
+  </span>
+</DocumentFragment>
+`;

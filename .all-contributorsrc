@@ -11,7 +11,9 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/21237954?v=4",
       "profile": "https://jbakebwa.dev",
       "contributions": [
-        "code"
+        "code",
+        "test",
+        "doc"
       ]
     },
     {
@@ -20,7 +22,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/342666?v=4",
       "profile": "http://twitter.com/imesutkoca",
       "contributions": [
-        "code"
+        "code",
+        "test"
       ]
     },
     {

@@ -1,0 +1,9 @@
+describe('Tooltip tests', () => {
+  it.todo('should display tooltip for test nodes')
+  it.todo('should display tooltip for component children')
+  it.todo('should announce tooltip value with screenreader for ally')
+  it.todo('should place tooltip in corresponding placement')
+  it.todo('should style tooltip accordingly')
+  it.todo('should display tooltip with arrow')
+  it.todo('should insert tooltip in portal')
+})

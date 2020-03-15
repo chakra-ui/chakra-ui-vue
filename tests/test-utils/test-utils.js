@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import { render } from '@testing-library/vue'
 
-import theme from '@/packages/kiwi-core/src/lib/theme'
+import theme from '@/packages/chakra-ui-core/src/lib/theme'
 
 const defaultProviders = (options) => ({
   $theme: () => theme,

@@ -47,7 +47,7 @@ const Radio = {
     }
   },
   render (h) {
-    const children = this.$slots.default.filter(e => (e.tag))
+    const children = this.$slots.default
 
     return h(Box, {
       props: {
@@ -66,6 +66,9 @@ const Radio = {
       h(VisuallyHidden, {
         props: {
           as: 'input'
+        },
+        domProps: {
+          defaultChecked: this.defaultIsChecked
         },
         attrs: {
           type: 'radio',
@@ -103,7 +106,7 @@ const Radio = {
           }
         })
       ]),
-      ...children && h(Box, {
+      children && h(Box, {
         props: {
           ml: 2,
           fontSize: this.size,

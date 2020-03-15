@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="css-1qf83f9"
+  >
+    <input
+      class="css-0 css-f8n5zr"
+      type="radio"
+    />
+    <div
+      aria-hidden="true"
+      class="css-1kfhqjz css-aufuif"
+    >
+      <span
+        class="css-1qfw50u"
+      />
+    </div>
+    <div
+      class="css-np4rym"
+    >
+      radio
+    </div>
+  </label>
+</DocumentFragment>
+`;

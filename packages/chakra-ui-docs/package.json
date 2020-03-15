@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Chakra UI Vue documentation site",
   "author": "codebender828",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

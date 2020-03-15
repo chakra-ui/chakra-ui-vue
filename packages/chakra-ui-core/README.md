@@ -114,14 +114,14 @@ export default {
 ```
 
 ### chakra-ui/vue Codesandbox starters
-- [**_Vue Starter_**](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
-- [**_Nuxt Starter_**](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
   
 ### Storybook Components
 You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!
 
 ### Development for Contributing:
-Interested in contributing? See our open issues! Remember to take a look at our CONTRIBUTORS guide.
+Interested in contributing? See our open issues! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
 
 ```bash
 yarn install

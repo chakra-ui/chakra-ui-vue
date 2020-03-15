@@ -1,25 +1,29 @@
 {
   "name": "@chakra-ui/vue",
   "version": "0.2.2",
-  "description": "Build Accessible and Scalable Vue.js applications with ease",
-  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
-  "license": "MIT",
+  "description": "Build Accessible and Resonsible Vue.js applications with ease",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
+  "maintainers": [
+    "Jonathan Bakebwa <jonas@akkadu-team.com>"
+  ],
+  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rm -rf ./dist"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "dependencies": {
     "@styled-system/css": "^5.0.23",
@@ -42,5 +46,18 @@
   "devDependencies": {
     "core-js": "^3.4.5"
   },
+  "keywords": [
+    "vue",
+    "ui",
+    "design-system",
+    "vue-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "styled-system",
+    "kittens ;)"
+  ],
   "gitHead": "cb7ffb7adeb926b99c75f195300d09780e8910e6"
 }

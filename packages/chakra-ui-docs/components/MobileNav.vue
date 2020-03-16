@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Drawer, Fragment, CloseButton, DrawerBody, IconButton, DrawerOverlay, DrawerContent } from 'chakra-ui-core'
+import { Drawer, Fragment, CloseButton, DrawerBody, IconButton, DrawerOverlay, DrawerContent } from '@chakra-ui/vue'
 import SideNavContent from './SideNavContent'
 
 export default {

@@ -39,7 +39,7 @@ import 'prismjs'
 import '~/css/night-owl.css'
 import 'vue-prism-editor/dist/VuePrismEditor.css'
 
-import { Flex, Text as CText, Box, Badge, Icon, Grid, Image as CImage } from 'chakra-ui-core'
+import { Flex, Text as CText, Box, Badge, Icon, Grid, Image as CImage } from '@chakra-ui/vue'
 export default {
   name: 'Example',
   components: {

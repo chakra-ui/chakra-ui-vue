@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Kiwi from 'chakra-ui-core'
+import Kiwi from '@chakra-ui/vue'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import {

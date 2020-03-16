@@ -6,9 +6,9 @@
 
 <script>
 import { css } from 'emotion'
-import { systemProps } from 'chakra-ui-core/src/Box'
-import { baseProps } from 'chakra-ui-core/src/config'
-import { forwardProps } from 'chakra-ui-core/src/utils'
+import { systemProps } from '@chakra-ui/vue/src/Box'
+import { baseProps } from '@chakra-ui/vue/src/config'
+import { forwardProps } from '@chakra-ui/vue/src/utils'
 
 export default {
   props: {

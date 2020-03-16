@@ -8,6 +8,7 @@
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
+        <CSSReset />
           <Navbar />
           <Nuxt />
         </Box>
@@ -16,7 +17,7 @@
   </div>
 </template>
 <script>
-import { ThemeProvider, ColorModeProvider, Box } from 'chakra-ui-core'
+import { ThemeProvider, ColorModeProvider, Box, CSSReset } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 
 export default {
@@ -25,7 +26,8 @@ export default {
     ThemeProvider,
     ColorModeProvider,
     Box,
-    Navbar
+    Navbar,
+    CSSReset
   }
 }
 </script>

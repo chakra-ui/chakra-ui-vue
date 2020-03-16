@@ -19,10 +19,8 @@ const Image = {
       hasLoaded: false
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.loadImage(this.src)
-    })
+  created () {
+    this.loadImage(this.src)
   },
   methods: {
     loadImage (src) {
@@ -50,9 +48,8 @@ const Image = {
     return h(NoSsr, [
       h(Box, {
         props: {
-          as: 'img',
-          width: '100%',
           ...forwardProps(this.$props),
+          as: 'img'
         },
         attrs: {
           ...imageProps,

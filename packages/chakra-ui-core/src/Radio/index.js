@@ -78,7 +78,6 @@ const Radio = {
           name: this.name,
           value: this.value,
           'aria-invalid': this.isInvalid,
-          defaultChecked: this.defaultIsChecked,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled
         },

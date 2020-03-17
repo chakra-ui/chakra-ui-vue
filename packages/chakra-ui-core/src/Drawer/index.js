@@ -13,6 +13,10 @@ const Drawer = {
       type: Function,
       default: () => null
     },
+    closeOnEsc: {
+      type: Boolean,
+      default: true
+    },
     isFullHeight: {
       type: Boolean,
       default: true
@@ -55,6 +59,7 @@ const Drawer = {
       props: {
         isOpen: this.isOpen,
         onClose: this.onClose,
+        closeOnEsc: this.closeOnEsc,
         initialFocusRef: this.initialFocusRef,
         finalFocusRef: this.finalFocusRef,
         formatIds: (id) => ({

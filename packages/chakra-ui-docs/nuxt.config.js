@@ -6,7 +6,15 @@ dotenv.config({
 })
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
+  generate: {
+    routes: [
+      '/docs/index.vue',
+      '/docs/getting-started.mdx',
+      '/docs/principles.mdx',
+      '/docs/tabs.mdx'
+    ]
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [

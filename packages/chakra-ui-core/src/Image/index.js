@@ -20,7 +20,10 @@ const Image = {
     }
   },
   created () {
-    this.loadImage(this.src)
+    if (process.browser) {
+      console.log('isBrowser', process.browser)
+      this.loadImage(this.src)
+    }
   },
   methods: {
     loadImage (src) {

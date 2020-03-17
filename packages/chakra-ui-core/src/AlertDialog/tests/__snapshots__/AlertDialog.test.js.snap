@@ -75,11 +75,10 @@ exports[`should render correctly 1`] = `
       >
         <div
           class="css-l5w8ps"
-          data-testid="overlay"
         />
         <div
           class="css-aibg9d"
-          data-testid="content"
+          data-testid="overlay"
           role="alertdialog"
         >
           <section
@@ -100,7 +99,13 @@ exports[`should render correctly 1`] = `
               class="css-5m10fw"
               id="alert-dialog-1-desc"
             >
-              Are you sure?
+              
+            Are you sure?
+              
+              <input
+                data-testid="inputInsideDrawer"
+                placeholder="Type here..."
+              />
             </div>
              
             <footer

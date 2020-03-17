@@ -51,5 +51,9 @@ export default {
     type: String,
     default: 'md'
   },
+  onClose: {
+    type: Function,
+    default: () => null
+  },
   ...baseProps
 }

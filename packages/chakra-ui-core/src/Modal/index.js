@@ -88,7 +88,7 @@ const Modal = {
      */
     const handler = event => {
       if (event.key === 'Escape' && this.closeOnEsc) {
-        this.$emit('pressedEscape', event)
+        this.onClose(event, 'pressedEscape')
       }
     }
 
@@ -376,7 +376,7 @@ const ModalContent = {
           if (event.key === 'Escape') {
             event.stopPropagation()
             if (closeOnEsc) {
-              this.$emit('pressedEscape', event)
+              onClose(event, 'pressedEscape')
             }
           }
         }

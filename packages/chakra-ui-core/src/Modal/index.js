@@ -100,6 +100,12 @@ const Modal = {
       }
     })
 
+    this.$watch('isOpen', () => {
+      if (!this.isOpen) {
+        document.removeEventListener('keydown', handler)
+      }
+    })
+
     let undoAriaHidden = null
     this.$watch(vm => [vm.isOpen, vm.useInert], () => {
       let mountNode = this.mountNode

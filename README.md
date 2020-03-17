@@ -99,7 +99,7 @@ _In your `App.vue` file._
 </template>
 
 <script>
-  import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+  import { ThemeProvider, CSSReset } from '@chakra-ui/vue'
 
   export default {
     name: 'App',
@@ -130,7 +130,7 @@ If you'd like to toggle your app between dark and light mode, you can also wrap 
 </template>
 
 <script>
-  import { ThemeProvider, CSSReset, Button } from '@chakra-ui/core'
+  import { ThemeProvider, CSSReset, Button } from '@chakra-ui/vue'
 
   export default {
     name: 'App',

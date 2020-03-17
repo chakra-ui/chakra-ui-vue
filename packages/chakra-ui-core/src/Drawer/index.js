@@ -21,8 +21,12 @@ const Drawer = {
       type: String,
       default: 'right'
     },
+    initialFocusRef: {
+      type: [HTMLElement, Object, String, Function],
+      default: () => null
+    },
     finalFocusRef: {
-      type: HTMLElement,
+      type: [HTMLElement, Object, String, Function],
       default: () => null
     },
     size: {
@@ -51,6 +55,7 @@ const Drawer = {
       props: {
         isOpen: this.isOpen,
         onClose: this.onClose,
+        initialFocusRef: this.initialFocusRef,
         finalFocusRef: this.finalFocusRef,
         formatIds: (id) => ({
           content: `drawer-${id}`,

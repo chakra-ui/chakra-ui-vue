@@ -9,6 +9,7 @@ import { baseProps } from '../config'
 import Box from '../Box'
 import styleProps from '../config/props'
 import CloseButton from '../CloseButton'
+import isFunction from 'lodash-es/isFunction'
 
 const Modal = {
   name: 'Modal',
@@ -121,7 +122,7 @@ const Modal = {
     activateFocusLock () {
       setTimeout(() => {
         if (this.initialFocusRef) {
-          const initialFocusRef = this.getNode(this.initialFocusRef)
+          const initialFocusRef = isFunction(this.initialFocusRef) ? this.getNode(this.initialFocusRef()) : this.getNode(this.initialFocusRef)
           if (initialFocusRef) {
             initialFocusRef.focus()
           }
@@ -185,7 +186,7 @@ const Modal = {
     }, [
       h(FocusTrap, {
         props: {
-          returnFocusOnDeactivate: this.returnFocusOnClose && this.finalFocusRef,
+          returnFocusOnDeactivate: this.returnFocusOnClose && !this.finalFocusRef,
           active: this.isOpen
         },
         on: {

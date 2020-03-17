@@ -145,7 +145,7 @@ export default {
 You can also view all developed components in **[Storybook](https://chakra-ui-vue.netlify.com)!**
 
 ### Development for Contributing:
-Interested in contributing? See our open issues! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
+Interested in contributing? See our [open issues](/issues)! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
 
 ```bash
 yarn install

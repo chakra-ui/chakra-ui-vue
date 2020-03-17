@@ -20,8 +20,8 @@ const Image = {
     }
   },
   created () {
+    // Should only invoke window.Image in the browser.
     if (process.browser) {
-      console.log('isBrowser', process.browser)
       this.loadImage(this.src)
     }
   },

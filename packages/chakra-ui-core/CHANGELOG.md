@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.2.4...@chakra-ui/vue@0.2.6) (2020-03-17)
+
+
+### Bug Fixes
+
+* **radio:** remove defaultchecked from attrs ([3f5e067](https://github.com/chakra-ui/chakra-ui-vue/commit/3f5e0673bfdae0a39ad59006ade7e61149bb6982))
+* **radio-button-group:** clean RadioButtonGroup children ([9c0890e](https://github.com/chakra-ui/chakra-ui-vue/commit/9c0890e0553aee6a2324513d4345c07e2914d762))
+* **select:** fix select slot issue ([70fd1cf](https://github.com/chakra-ui/chakra-ui-vue/commit/70fd1cf7efa15478c649b674053d20a51cc027e9))
+* **storybook:** refactor progress story ([428d0fb](https://github.com/chakra-ui/chakra-ui-vue/commit/428d0fbce83a45119ffc5561113c311c6cb7bf5f))
+
+
+
+## 0.2.5 (2020-03-15)
+
+
+### Bug Fixes
+
+* added signature to themeprovider ([f209251](https://github.com/chakra-ui/chakra-ui-vue/commit/f2092514eb2b809ce5a188d646fd8b5b554d4915))
+
+
+
+
+
+## [0.2.4](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.2.3...@chakra-ui/vue@0.2.4) (2020-03-15)
+
+**Note:** Version bump only for package @chakra-ui/vue
+
+
+
+
+
 ## [0.2.3](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.2.2...@chakra-ui/vue@0.2.3) (2020-03-15)
 
 **Note:** Version bump only for package @chakra-ui/vue

@@ -103,7 +103,7 @@ export default () => {
       exports: 'named'
     },
     ...commons
-  },
+  }
   ]
   return config
 }

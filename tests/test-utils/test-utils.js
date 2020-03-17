@@ -31,6 +31,10 @@ const customRender = (component, ...rest) => {
   }
 }
 
+export function waitMs (ms = 0) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 export { default as userEvent } from '@testing-library/user-event'
 export { fireEvent } from '@testing-library/vue'
 export {

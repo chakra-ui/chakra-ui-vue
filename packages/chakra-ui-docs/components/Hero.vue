@@ -24,7 +24,7 @@
         <Flex
           flexDir="row"
         >
-          <Button as="a" href="/getting-started" left-icon="bolt" variantColor="vue">Get started</Button>
+          <Button as="nuxt-link" to="/getting-started" left-icon="bolt" variantColor="vue">Get started</Button>
           <Button as="a" href="https://github.com/codebender828/kiwi-ui" left-icon="github" ml="4" variant="outline" variantColor="vue">Github</Button>
         </Flex>
       </Flex>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { Flex, Box, Heading, Button, Text as KText } from 'chakra-ui-core'
+import { Flex, Box, Heading, Button, Text as KText } from '@chakra-ui/vue'
 export default {
   components: {
     Flex,

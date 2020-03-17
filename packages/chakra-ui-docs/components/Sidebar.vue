@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { Box } from 'chakra-ui-core'
+import { Box } from '@chakra-ui/vue'
 import SideNavContent from './SideNavContent'
 
 export default {

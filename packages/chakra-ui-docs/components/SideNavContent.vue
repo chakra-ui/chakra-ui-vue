@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { boxProps, Box, Heading, PseudoBox } from 'chakra-ui-core'
+import { boxProps, Box, Heading, PseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
 import componentLinks from './components'
 

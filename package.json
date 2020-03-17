@@ -5,9 +5,12 @@
     "Jonathan Bakebwa <jonas@akkadu-team.com>"
   ],
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": ["core-js"]
+  },
   "scripts": {
     "build": "yarn workspace @chakra-ui/vue build",
     "dev": "yarn workspace @chakra-ui/vue dev",

@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { Box, Flex, Icon, Heading, Grid } from 'chakra-ui-core'
+import { Box, Flex, Icon, Heading, Grid } from '@chakra-ui/vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Example from '~/components/Example.vue'

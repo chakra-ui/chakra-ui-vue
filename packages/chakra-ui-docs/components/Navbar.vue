@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { Box, Link as Anchor, Icon, IconButton } from 'chakra-ui-core'
+import { Box, Link as Anchor, Icon, IconButton } from '@chakra-ui/vue'
 import Logo from './Logo.vue'
 import MobileNav from './MobileNav.vue'
 

@@ -6,8 +6,7 @@ dotenv.config({
 })
 
 export default {
-  mode: 'universal',
-  modulesDir: ['../../node_modules'],
+  mode: 'spa',
   head: {
     title: process.env.npm_package_name || '',
     meta: [

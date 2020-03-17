@@ -8,7 +8,7 @@
       <prism-editor v-model="code" :readonly="true" language="vue"/>
     </Box>
     <Box w="300px" shadow="md" rounded="lg" p="5">
-      <CImage rounded="md" src="https://bit.ly/2k1H1t6"/>
+      <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6"/>
       <Flex align="baseline" mt="2">
         <Badge variantColor="pink">Plus</Badge>
         <CText
@@ -39,7 +39,7 @@ import 'prismjs'
 import '~/css/night-owl.css'
 import 'vue-prism-editor/dist/VuePrismEditor.css'
 
-import { Flex, Text as CText, Box, Badge, Icon, Grid, Image as CImage } from 'chakra-ui-core'
+import { Flex, Text as CText, Box, Badge, Icon, Grid, Image as CImage } from '@chakra-ui/vue'
 export default {
   name: 'Example',
   components: {

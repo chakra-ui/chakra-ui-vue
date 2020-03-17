@@ -9,7 +9,9 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": ["core-js"]
+    "nohoist": [
+      "core-js"
+    ]
   },
   "scripts": {
     "build": "yarn workspace @chakra-ui/vue build",
@@ -41,6 +43,7 @@
     "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",
+    "@nuxtjs/now-builder": "^0.17.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/router": "^1.5.0",
     "@storybook/addon-actions": "^5.2.1",

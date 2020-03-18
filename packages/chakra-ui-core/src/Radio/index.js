@@ -47,7 +47,7 @@ const Radio = {
     }
   },
   render (h) {
-    const children = this.$slots.default.filter(e => (e.tag))
+    const children = this.$slots.default
 
     return h(Box, {
       props: {
@@ -67,6 +67,9 @@ const Radio = {
         props: {
           as: 'input'
         },
+        domProps: {
+          defaultChecked: this.defaultIsChecked
+        },
         attrs: {
           type: 'radio',
           'aria-label': this._ariaLabel,
@@ -75,7 +78,6 @@ const Radio = {
           name: this.name,
           value: this.value,
           'aria-invalid': this.isInvalid,
-          defaultChecked: this.defaultIsChecked,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled
         },
@@ -103,7 +105,7 @@ const Radio = {
           }
         })
       ]),
-      ...children && h(Box, {
+      children && h(Box, {
         props: {
           ml: 2,
           fontSize: this.size,

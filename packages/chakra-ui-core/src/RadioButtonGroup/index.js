@@ -1,7 +1,7 @@
 import Box from '../Box'
 import { baseProps } from '../config'
 import { StringNumber, SNA } from '../config/props/props.types'
-import { isDef, useId, cloneVNodeElement, forwardProps } from '../utils'
+import { isDef, useId, cloneVNodeElement, forwardProps, cleanChildren } from '../utils'
 
 const RadioButtonGroup = {
   name: 'RadioButtonGroup',
@@ -43,7 +43,7 @@ const RadioButtonGroup = {
     }
   },
   mounted () {
-    const children = this.$slots.default
+    const children = cleanChildren(this.$slots.default)
     this.focusableValues = children.map(child => child.componentOptions.propsData.isDisabled === true
       ? null
       : child.componentOptions.propsData.value)

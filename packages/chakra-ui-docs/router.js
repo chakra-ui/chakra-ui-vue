@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './docs/index.vue'
 import GettingStarted from './docs/getting-started.mdx'
 import Principles from './docs/principles.mdx'
+import StyleProps from './docs/style-props.mdx'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export function createRouter () {
         path: '/principles',
         name: 'tabs',
         component: Principles
+      },
+      {
+        path: '/style-props',
+        name: 'style-props',
+        component: StyleProps
       }
     ]
   })

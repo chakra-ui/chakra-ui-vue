@@ -9,8 +9,8 @@ design problems. In order to do that, we developed a set of principles that help
 us always be on that path.
 
 - **Style Props:** All component styles can be overriden or extended via style
-  props to reduce the use of `css` prop or `styled()`. Compose new components
-  from `Box` or `PseudoBox`.
+  props to reduce the use of inline styles. You can also compose new components by
+  extending the `Box` or `PseudoBox` components.
 
 - **Simplicity:** Strive to keep the component API fairly simple and show real
   world scenarios of using the component.
@@ -23,8 +23,9 @@ us always be on that path.
   This includes keyboard navigation, focus management, color contrast, voice
   over, and the correct `aria-*` attributes.
 
-- **Dark Mode:** Try to make components dark mode compatible. Use our
-  `ColorModeProvider`, `useColorMode` hook to handle styling.
+- **Dark Mode:** Try to make components dark mode compatible. The
+  `ColorModeProvider` component provides the `$colorMode` value
+  that can be injected in your components to handle styling for different color modes.
   [Learn more about Dark mode](/color-mode)
 
 - **Naming Props:** We all know naming is the hardest thing in this industry.

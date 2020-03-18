@@ -1,4 +1,5 @@
 import dotenv from 'dotenv-defaults'
+import rehypePrism from '@mapbox/rehype-prism'
 
 // Configuring dotenv variables.
 dotenv.config({
@@ -6,14 +7,21 @@ dotenv.config({
 })
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   generate: {
     routes: [
-      '/docs/index.vue',
-      '/docs/getting-started.mdx',
-      '/docs/principles.mdx',
-      '/docs/tabs.mdx'
+      './docs/index.vue',
+      './docs/getting-started.mdx',
+      './docs/principles.mdx',
+      './docs/tabs.mdx'
     ]
+  },
+  hooks: {
+    generate: {
+      done (page, errors) {
+        errors.forEach(error => console.error({ ERROR: error.error }))
+      }
+    }
   },
   head: {
     title: process.env.npm_package_name || '',
@@ -26,7 +34,9 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
   loading: { color: '#fff' },
   plugins: [
@@ -36,7 +46,7 @@ export default {
   ],
   css: [
     'css/page.css',
-    // 'css/night-owl.css',
+    'css/night-owl.css',
     'css/fonts/fonts.css'
   ],
   buildModules: [
@@ -55,7 +65,10 @@ export default {
         use: [
           'babel-loader',
           {
-            loader: '@mdx-js/vue-loader'
+            loader: '@mdx-js/vue-loader',
+            options: {
+              rehypePlugins: [rehypePrism]
+            }
           }
         ]
       })

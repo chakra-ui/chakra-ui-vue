@@ -32,3 +32,9 @@ it('should render correctly', () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
 })
+
+test('renders a number avatar showing count of truncated avatars', () => {
+  const { getByText } = renderComponent()
+
+  getByText('+1')
+})

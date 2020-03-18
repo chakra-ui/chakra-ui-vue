@@ -73,7 +73,7 @@ const Modal = {
       this.addAriaDescribedby = this.addAriaLabels['body']
     }
 
-    if (typeof addAriaLabels === 'boolean') {
+    if (typeof this.addAriaLabels === 'boolean') {
       this.addAriaLabelledby = this.addAriaLabels
       this.addAriaDescribedby = this.addAriaLabels
     }

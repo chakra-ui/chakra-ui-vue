@@ -39,6 +39,8 @@ exports[`should render correctly 1`] = `
           data-testid="overlay"
         >
           <section
+            aria-describedby="drawer-1-body"
+            aria-labelledby="drawer-1-header"
             aria-modal="true"
             class="css-iv9bja"
             id="drawer-1"

@@ -25,6 +25,8 @@ exports[`should render correctly 1`] = `
           role="alertdialog"
         >
           <section
+            aria-describedby="alert-dialog-1-desc"
+            aria-labelledby="alert-dialog-1-label"
             aria-modal="true"
             class="css-i76yoi"
             id="alert-dialog-1"

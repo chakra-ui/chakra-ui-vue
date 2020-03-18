@@ -36,13 +36,13 @@ exports[`should render correctly 1`] = `
         />
         <div
           class="css-aibg9d"
-          data-testid="overlay"
         >
           <section
             aria-describedby="modal-1-body"
             aria-labelledby="modal-1-header"
             aria-modal="true"
             class="css-i76yoi"
+            data-testid="overlay"
             id="modal-1"
             role="dialog"
             tabindex="-1"

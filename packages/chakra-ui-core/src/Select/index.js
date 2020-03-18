@@ -58,7 +58,7 @@ const SelectInput = {
           value: ''
         }
       }, this.placeholder),
-      ...this.$slots.default
+      this.$slots.default
     ])
   }
 }

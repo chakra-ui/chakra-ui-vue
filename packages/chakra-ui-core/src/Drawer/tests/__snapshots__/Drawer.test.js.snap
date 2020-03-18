@@ -94,12 +94,12 @@ exports[`should render correctly 1`] = `
               </svg>
             </button>
              
-            <div
+            <header
               class="css-kniazf"
               id="drawer-1-header"
             >
               Create your account
-            </div>
+            </header>
              
             <div
               class="css-5m10fw"

@@ -31,12 +31,12 @@ exports[`should render correctly 1`] = `
             role="dialog"
             tabindex="-1"
           >
-            <div
+            <header
               class="css-kniazf"
               id="alert-dialog-1-label"
             >
               Dialog Header
-            </div>
+            </header>
              
             <div
               class="css-5m10fw"

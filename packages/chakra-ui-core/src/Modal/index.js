@@ -433,6 +433,7 @@ const ModalHeader = {
 
     return h(Box, {
       props: {
+        as: 'header',
         px: 6,
         py: 4,
         position: 'relative',

@@ -154,7 +154,8 @@ You can also view all developed components in **[Storybook](https://chakra-ui-vu
 
 ### Development for Contributing:
 
-Interested in contributing? See our open issues! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
+Interested in contributing? See our [open issues](https://github.com/chakra-ui/chakra-ui-vue/issues)! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
+
 
 ```bash
 yarn install

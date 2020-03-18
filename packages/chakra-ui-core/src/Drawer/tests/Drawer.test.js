@@ -123,19 +123,17 @@ test('returns focus when closed - finalFocusRef', async () => {
   expect(inputOutside).toHaveFocus()
 })
 
-// TODO: A11y
-// ⚠️ remove skip
-it.skip('should have proper aria', async () => {
+it('should have proper aria', async () => {
+  useId.mockReturnValueOnce('1')
   const inlineAttrs = 'isOpen'
-  const { getByTestId } = renderComponent({ inlineAttrs })
+  renderComponent({ inlineAttrs })
 
   await Vue.nextTick()
-  const dialog = getByTestId('content') // eslint-disable-line
+  const dialog = document.querySelector('section') // eslint-disable-line
+  await waitMs()
 
-  // TODO: A11y role dialog or alertdialog?
-  // expect(dialog).toHaveAttribute('role', 'dialog')
-  // TODO: A11y aria modal?
-  // expect(dialog).toHaveAttribute('aria-modal', 'true')
-  // TODO: describedBy?
-  // expect(dialog).toHaveAttribute('aria-describedby', 'chakra-dialog--body-3')
+  expect(dialog).toHaveAttribute('role', 'dialog')
+  expect(dialog).toHaveAttribute('aria-modal', 'true')
+  expect(dialog).toHaveAttribute('aria-labelledby', 'drawer-1-header')
+  expect(dialog).toHaveAttribute('aria-describedby', 'drawer-1-body')
 })

@@ -2,63 +2,6 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="Breadstick"
-    id="breadstick-kitchen"
-  >
-    <span>
-      <span
-        class="Breadstick__manager-top"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-left"
-        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-right"
-        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-left"
-        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-right"
-        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
-      />
-    </span>
-    <span>
-      <span
-        class="Breadstick__manager-top"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-left"
-        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-right"
-        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-left"
-        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-right"
-        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
-      />
-    </span>
-  </div>
   <div>
     <div>
       <input

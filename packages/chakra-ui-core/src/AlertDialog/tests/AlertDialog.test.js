@@ -7,7 +7,7 @@ import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
 jest.mock('@/packages/chakra-ui-core/src/utils/dom.js')
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 jest.mock('v-scroll-lock', () => ({}))
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({}))
+jest.mock('@/packages/chakra-ui-core/src/Toast/index.js', () => {})
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''

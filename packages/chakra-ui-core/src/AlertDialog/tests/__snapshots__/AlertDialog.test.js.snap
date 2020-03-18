@@ -22,7 +22,6 @@ exports[`should render correctly 1`] = `
         <div
           class="css-aibg9d"
           data-testid="overlay"
-          role="alertdialog"
         >
           <section
             aria-describedby="alert-dialog-1-desc"
@@ -30,7 +29,7 @@ exports[`should render correctly 1`] = `
             aria-modal="true"
             class="css-i76yoi"
             id="alert-dialog-1"
-            role="dialog"
+            role="alertdialog"
             tabindex="-1"
           >
             <header

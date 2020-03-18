@@ -8,7 +8,7 @@ dotenv.config({
 export default {
   mode: 'spa',
   head: {
-    title: "Chakra UI Vue | Chakra UI Design system built with Vue",
+    title: 'Chakra UI Vue | Chakra UI Design system built with Vue',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

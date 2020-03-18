@@ -102,7 +102,7 @@ it('should have proper aria', async () => {
   renderComponent({ inlineAttrs })
 
   await Vue.nextTick()
-  const dialog = document.querySelector('section') // eslint-disable-line
+  const dialog = document.querySelector('section')
   await waitMs()
 
   expect(dialog).toHaveAttribute('role', 'alertdialog')

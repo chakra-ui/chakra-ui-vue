@@ -7,17 +7,21 @@
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-        <CSSReset />
+          <CSSReset />
           <Navbar />
-            <Box as="section" d="flex">
-              <Sidebar />
-              <Box as="main" minH="calc(100vh - 60px)" :w="['auto', 'auto', '100%']">
-                <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
-                  <Nuxt />
-                  <Footer />
-                </Box>
+          <Box as="section" d="flex">
+            <Sidebar />
+            <Box
+              as="main"
+              minH="calc(100vh - 60px)"
+              :w="['auto', 'auto', '100%']"
+            >
+              <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
+                <Nuxt />
+                <Footer />
               </Box>
             </Box>
+          </Box>
         </Box>
       </ColorModeProvider>
     </ThemeProvider>

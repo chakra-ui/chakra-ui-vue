@@ -8,7 +8,7 @@
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-        <CSSReset />
+          <CSSReset />
           <Navbar />
           <Nuxt />
         </Box>

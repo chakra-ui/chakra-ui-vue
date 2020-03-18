@@ -1,7 +1,7 @@
 <template>
   <Box
     as="nav"
-    p="3"
+    p="4"
     :display="['none', null, 'block']"
     maxWidth="18rem"
     width="full"
@@ -9,6 +9,8 @@
     borderColor="gray.200"
     h="calc(100vh - 60px)"
     overflowY="scroll"
+    pos="fixed"
+    mt="3.8rem"
   >
     <SideNavContent />
   </Box>

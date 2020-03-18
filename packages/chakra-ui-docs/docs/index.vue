@@ -11,30 +11,60 @@
       <Grid :templateColumns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
         <Box m="3">
           <Flex alignItems="center" mb="5">
-            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="vue.400" w="50px" h="50px" rounded="full">
+            <Flex
+              justifyContent="center"
+              color="white"
+              alignItems="center"
+              mr="5"
+              bg="vue.400"
+              w="50px"
+              h="50px"
+              rounded="full"
+            >
               <Icon size="25px" name="universal-access" />
             </Flex>
             <Heading as="h4" size="md">Accessible</Heading>
           </Flex>
-          Chakra UI strictly follows WAI-ARIA standards. All components come with proper attributes and keyboard interactions out of the box.
+          Chakra UI strictly follows WAI-ARIA standards. All components come
+          with proper attributes and keyboard interactions out of the box.
         </Box>
         <Box m="3">
           <Flex alignItems="center" mb="5">
-            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="vue.400" w="50px" h="50px" rounded="full">
+            <Flex
+              justifyContent="center"
+              color="white"
+              alignItems="center"
+              mr="5"
+              bg="vue.400"
+              w="50px"
+              h="50px"
+              rounded="full"
+            >
               <Icon size="25px" name="palette" />
             </Flex>
             <Heading as="h4" size="md">Themeable</Heading>
           </Flex>
-          Quickly and easily reference values from your theme throughout your entire application, on any component.
+          Quickly and easily reference values from your theme throughout your
+          entire application, on any component.
         </Box>
         <Box m="3">
           <Flex alignItems="center" mb="5">
-            <Flex justifyContent="center" color="white" alignItems="center" mr="5" bg="vue.400" w="50px" h="50px" rounded="full">
+            <Flex
+              justifyContent="center"
+              color="white"
+              alignItems="center"
+              mr="5"
+              bg="vue.400"
+              w="50px"
+              h="50px"
+              rounded="full"
+            >
               <Icon size="25px" name="cubes" />
             </Flex>
             <Heading as="h4" size="md">Composable</Heading>
           </Flex>
-          Components were built with composition in mind. You can leverage any component to create new things.
+          Components were built with composition in mind. You can leverage any
+          component to create new things.
         </Box>
       </Grid>
     </Flex>

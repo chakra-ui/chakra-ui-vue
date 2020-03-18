@@ -19,8 +19,6 @@
 <script>
 import { ThemeProvider, ColorModeProvider, Box, CSSReset } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
-import { cache } from 'emotion'
-global.__emotionCache = cache
 
 export default {
   name: 'HomeLayout',

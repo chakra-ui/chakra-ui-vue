@@ -22,13 +22,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable import/first */
-import { cache } from 'emotion'
-global.__emotionCache = cache
-
-/* eslint-disable vue/no-unused-components */
 import { ThemeProvider, ColorModeProvider, CSSReset, Box, Flex } from '@chakra-ui/vue'
-// eslint-disable-next-line import/first
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'

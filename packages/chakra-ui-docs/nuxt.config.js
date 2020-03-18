@@ -1,6 +1,4 @@
 import dotenv from 'dotenv-defaults'
-import rehypePrism from '@mapbox/rehype-prism'
-
 // Configuring dotenv variables.
 dotenv.config({
   defaults: '../../config/.env.defaults'
@@ -8,21 +6,6 @@ dotenv.config({
 
 export default {
   mode: 'spa',
-  generate: {
-    routes: [
-      './docs/index.vue',
-      './docs/getting-started.mdx',
-      './docs/principles.mdx',
-      './docs/tabs.mdx'
-    ]
-  },
-  hooks: {
-    generate: {
-      done (page, errors) {
-        errors.forEach(error => console.error({ ERROR: error.error }))
-      }
-    }
-  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -65,10 +48,7 @@ export default {
         use: [
           'babel-loader',
           {
-            loader: '@mdx-js/vue-loader',
-            options: {
-              rehypePlugins: [rehypePrism]
-            }
+            loader: '@mdx-js/vue-loader'
           }
         ]
       })

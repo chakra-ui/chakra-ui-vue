@@ -96,8 +96,6 @@ test('clicking overlay calls the onClose callback', async () => {
   expect(onClose).toHaveBeenCalled()
 })
 
-// TODO: A11y
-// ⚠️ remove skip
 it('should have proper aria', async () => {
   useId.mockReturnValueOnce('1')
   const inlineAttrs = 'isOpen'

@@ -1,45 +1,35 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Progress as KProgress, Stack } from '..'
+import { CSSReset, Progress as KProgress, Stack, Box } from '..'
 
 storiesOf('UI | Progress', module)
-  .add('Default Progress', () => ({
-    components: { CSSReset, KProgress },
+  .addDecorator(story => ({
+    components: { CSSReset, Box, story: story() },
     template: `
-      <div>
-        <CSSReset />
-        <KProgress :value="80" />
-      </div>
-    `
+      <Box w="full" maxWidth="400px" mx="auto" mt="8" p="3">
+        <CSSReset></CSSReset>
+        <story></story>
+      </Box>`
+  }))
+
+  .add('Default Progress', () => ({
+    components: { KProgress },
+    template: `<KProgress :value="80" />`
   }))
   .add('With stripe', () => ({
-    components: { CSSReset, KProgress },
-    template: `
-      <div>
-        <CSSReset />
-        <KProgress hasStripe :value="64" />
-      </div>
-    `
+    components: { KProgress },
+    template: `<KProgress hasStripe :value="64" />`
   }))
   .add('With sizes', () => ({
-    components: { CSSReset, KProgress, Stack },
+    components: { KProgress, Stack },
     template: `
-      <div>
-        <CSSReset />
-        <Stack :spacing="5">
-          <KProgress rounded="sm" color="green" size="sm" />
-          <KProgress color="green" size="md" />
-          <KProgress color="green" size="lg" />
-          <KProgress color="green" height="32px" />
-        </Stack>
-      </div>
-    `
+      <Stack :spacing="5">
+        <KProgress rounded="sm" color="green" size="sm" />
+        <KProgress color="green" size="md" />
+        <KProgress color="green" size="lg" />
+        <KProgress color="green" height="32px" />
+      </Stack>`
   }))
   .add('With color', () => ({
-    components: { CSSReset, KProgress },
-    template: `
-    <div>
-      <CSSReset />
-      <KProgress color="pink" hasStripe />
-    </div>
-  `
+    components: { KProgress },
+    template: `<KProgress color="pink" hasStripe />`
   }))

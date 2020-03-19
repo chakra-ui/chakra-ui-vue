@@ -17,18 +17,22 @@ const customRender = (component, ...rest) => {
   const utils = render({ ...defaults, ...component }, ...rest)
   return {
     ...utils,
-    asFragment: () => {
+    asFragment: (innerHTML = utils.container.innerHTML) => {
       if (typeof document.createRange === 'function') {
         return document
           .createRange()
-          .createContextualFragment(utils.container.innerHTML)
+          .createContextualFragment(innerHTML)
       }
 
       const template = document.createElement('template')
-      template.innerHTML = utils.container.innerHTML
+      template.innerHTML = innerHTML
       return template.content
     }
   }
+}
+
+export function waitMs (ms = 0) {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 export { default as userEvent } from '@testing-library/user-event'

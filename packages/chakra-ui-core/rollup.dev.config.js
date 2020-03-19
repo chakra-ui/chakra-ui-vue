@@ -94,6 +94,15 @@ export default () => {
       format: 'esm'
     },
     ...commons
+  },
+  {
+    input: entries,
+    output: {
+      dir: `dist/cjs/`,
+      format: 'cjs',
+      exports: 'named'
+    },
+    ...commons
   }
   ]
   return config

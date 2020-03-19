@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/theme-vue",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Default theme for @chakra-ui/vue default theme object",
   "keywords": [
     "chakra",

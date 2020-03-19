@@ -1,6 +1,6 @@
 <template>
   <Box as="nav" h="60px" px="4" d="flex" alignItems="center" shadow="sm">
-    <Anchor w="130px" href="/" fontWeight="bold" fontSize="1.2rem">
+    <Anchor as="nuxt-link" w="130px" to="/" fontWeight="bold" fontSize="1.2rem">
       <Logo />
     </Anchor>
     <Box as="ul" :color="colorMode === 'light' ? 'gray.500' : 'whiteAlpha.900'" d="flex" alignItems="center" listStyleType="none" ml="auto">

@@ -9,6 +9,7 @@ import { baseProps } from '../config'
 import Box from '../Box'
 import styleProps from '../config/props'
 import CloseButton from '../CloseButton'
+import isFunction from 'lodash-es/isFunction'
 
 const Modal = {
   name: 'Modal',
@@ -87,7 +88,7 @@ const Modal = {
      */
     const handler = event => {
       if (event.key === 'Escape' && this.closeOnEsc) {
-        this.$emit('pressedEscape', event)
+        this.onClose(event, 'pressedEscape')
       }
     }
 
@@ -96,6 +97,12 @@ const Modal = {
         canUseDOM && document.addEventListener('keydown', handler)
       } else {
         document.addEventListener('keydown', handler)
+      }
+    })
+
+    this.$watch('isOpen', () => {
+      if (!this.isOpen) {
+        document.removeEventListener('keydown', handler)
       }
     })
 
@@ -121,7 +128,7 @@ const Modal = {
     activateFocusLock () {
       setTimeout(() => {
         if (this.initialFocusRef) {
-          const initialFocusRef = this.getNode(this.initialFocusRef)
+          const initialFocusRef = isFunction(this.initialFocusRef) ? this.getNode(this.initialFocusRef()) : this.getNode(this.initialFocusRef)
           if (initialFocusRef) {
             initialFocusRef.focus()
           }
@@ -185,7 +192,7 @@ const Modal = {
     }, [
       h(FocusTrap, {
         props: {
-          returnFocusOnDeactivate: this.returnFocusOnClose && this.finalFocusRef,
+          returnFocusOnDeactivate: this.returnFocusOnClose && !this.finalFocusRef,
           active: this.isOpen
         },
         on: {
@@ -375,7 +382,7 @@ const ModalContent = {
           if (event.key === 'Escape') {
             event.stopPropagation()
             if (closeOnEsc) {
-              this.$emit('pressedEscape', event)
+              onClose(event, 'pressedEscape')
             }
           }
         }

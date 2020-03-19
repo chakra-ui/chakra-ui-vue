@@ -252,7 +252,6 @@ const EditableInput = {
       onKeyDown,
       value,
       onSubmit,
-      onCancel,
       submitOnBlur,
       placeholder,
       isDisabled
@@ -274,7 +273,7 @@ const EditableInput = {
       },
       nativeOn: {
         blur: event => {
-          submitOnBlur ? onSubmit() : onCancel()
+          submitOnBlur && onSubmit()
           this.$emit('blur', event)
         },
         change: onChange,

@@ -276,7 +276,7 @@ const EditableInput = {
           submitOnBlur && onSubmit()
           this.$emit('blur', event)
         },
-        change: onChange,
+        input: onChange,
         keydown: onKeyDown
       },
       attrs: {

@@ -7,7 +7,7 @@ import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
 jest.mock('@/packages/chakra-ui-core/src/utils/dom.js')
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 jest.mock('v-scroll-lock', () => ({}))
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({}))
+jest.mock('@/packages/chakra-ui-core/src/Toast/index.js', () => {})
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -123,19 +123,17 @@ test('returns focus when closed - finalFocusRef', async () => {
   expect(inputOutside).toHaveFocus()
 })
 
-// TODO: A11y
-// ⚠️ remove skip
-it.skip('should have proper aria', async () => {
+it('should have proper aria', async () => {
+  useId.mockReturnValueOnce('1')
   const inlineAttrs = 'isOpen'
-  const { getByTestId } = renderComponent({ inlineAttrs })
+  renderComponent({ inlineAttrs })
 
   await Vue.nextTick()
-  const dialog = getByTestId('content') // eslint-disable-line
+  const dialog = document.querySelector('section')
+  await waitMs()
 
-  // TODO: A11y role dialog or alertdialog?
-  // expect(dialog).toHaveAttribute('role', 'dialog')
-  // TODO: A11y aria modal?
-  // expect(dialog).toHaveAttribute('aria-modal', 'true')
-  // TODO: describedBy?
-  // expect(dialog).toHaveAttribute('aria-describedby', 'chakra-dialog--body-3')
+  expect(dialog).toHaveAttribute('role', 'dialog')
+  expect(dialog).toHaveAttribute('aria-modal', 'true')
+  expect(dialog).toHaveAttribute('aria-labelledby', 'modal-1-header')
+  expect(dialog).toHaveAttribute('aria-describedby', 'modal-1-body')
 })

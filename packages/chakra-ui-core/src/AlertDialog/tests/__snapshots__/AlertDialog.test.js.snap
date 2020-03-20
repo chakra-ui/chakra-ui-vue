@@ -2,63 +2,6 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="Breadstick"
-    id="breadstick-kitchen"
-  >
-    <span>
-      <span
-        class="Breadstick__manager-top"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-left"
-        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-right"
-        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-left"
-        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-right"
-        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
-      />
-    </span>
-    <span>
-      <span
-        class="Breadstick__manager-top"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; top: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-left"
-        style="position: fixed; z-index: 5500; top: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-top-right"
-        style="position: fixed; z-index: 5500; top: 0px; right: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-left"
-        style="position: fixed; z-index: 5500; bottom: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom"
-        style="position: fixed; z-index: 5500; margin: 0px auto; text-align: center; bottom: 0px; right: 0px; left: 0px;"
-      />
-      <span
-        class="Breadstick__manager-bottom-right"
-        style="position: fixed; z-index: 5500; bottom: 0px; right: 0px;"
-      />
-    </span>
-  </div>
   <div>
     <div>
       <!---->
@@ -79,21 +22,22 @@ exports[`should render correctly 1`] = `
         <div
           class="css-aibg9d"
           data-testid="overlay"
-          role="alertdialog"
         >
           <section
+            aria-describedby="alert-dialog-1-desc"
+            aria-labelledby="alert-dialog-1-label"
             aria-modal="true"
             class="css-i76yoi"
             id="alert-dialog-1"
-            role="dialog"
+            role="alertdialog"
             tabindex="-1"
           >
-            <div
+            <header
               class="css-kniazf"
               id="alert-dialog-1-label"
             >
               Dialog Header
-            </div>
+            </header>
              
             <div
               class="css-5m10fw"

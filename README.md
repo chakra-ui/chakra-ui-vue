@@ -121,9 +121,9 @@ If you'd like to toggle your app between dark and light mode, you can also wrap 
     <!--
       Your application code goes here! 😁
     -->
-    <button variantColor="blue">
+    <Button variantColor="blue">
       Chakra consumed ⚡️
-    </button>
+    </Button>
   </ThemeProvider>
 </template>
 

@@ -282,7 +282,7 @@ const EditableInput = {
       attrs: {
         id: editableId,
         disabled: isDisabled,
-        'aria-diabled': isDisabled,
+        'aria-disabled': isDisabled,
         value,
         placeholder
       }

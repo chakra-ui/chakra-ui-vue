@@ -47,3 +47,30 @@ it('should display custom seperator ', () => {
   })
   expect(asFragment()).toMatchSnapshot()
 })
+
+it('should have the proper aria-attributes', () => {
+  const { getByText, getAllByRole, getByLabelText } = renderComponent({
+    template: `
+    <Breadcrumb>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/about">About</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem isCurrentPage>
+        <BreadcrumbLink href="/contact">Contact</BreadcrumbLink>
+      </BreadcrumbItem>
+    </Breadcrumb>`
+  })
+
+  // surrounding `nav` has aria-label="breadcrumb"
+  getByLabelText('breadcrumb', { selector: 'nav' })
+
+  // `isCurrentPage` link has aria-current="page"
+  const currentPageLink = getByText('Contact')
+  expect(currentPageLink).toHaveAttribute('aria-current', 'page')
+
+  // separator receives presentation="role"
+  expect(getAllByRole('presentation')).toHaveLength(2)
+})

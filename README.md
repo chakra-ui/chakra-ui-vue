@@ -1,7 +1,5 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
@@ -154,7 +152,8 @@ You can also view all developed components in **[Storybook](https://chakra-ui-vu
 
 ### Development for Contributing:
 
-Interested in contributing? See our open issues! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
+Interested in contributing? See our [open issues](https://github.com/chakra-ui/chakra-ui-vue/issues)! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
+
 
 ```bash
 yarn install
@@ -178,15 +177,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://jbakebwa.dev"><img src="https://avatars2.githubusercontent.com/u/21237954?v=4" width="100px;" alt=""/><br /><sub><b>Jonathan Bakebwa</b></sub></a><br /><a href="https://github.com/codebender828/kiwi-ui/commits?author=codebender828" title="Code">💻</a> <a href="https://github.com/codebender828/kiwi-ui/commits?author=codebender828" title="Tests">⚠️</a> <a href="https://github.com/codebender828/kiwi-ui/commits?author=codebender828" title="Documentation">📖</a></td>
-    <td align="center"><a href="http://twitter.com/imesutkoca"><img src="https://avatars2.githubusercontent.com/u/342666?v=4" width="100px;" alt=""/><br /><sub><b>Mesut</b></sub></a><br /><a href="https://github.com/codebender828/kiwi-ui/commits?author=koca" title="Code">💻</a> <a href="https://github.com/codebender828/kiwi-ui/commits?author=koca" title="Tests">⚠️</a></td>
-    <td align="center"><a href="http://bit.ly/becomeworldclass"><img src="https://avatars0.githubusercontent.com/u/24433274?v=4" width="100px;" alt=""/><br /><sub><b>Omereshone Kelvin Oghenerhoro</b></sub></a><br /><a href="https://github.com/codebender828/kiwi-ui/commits?author=DominusKelvin" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://jbakebwa.dev"><img src="https://avatars2.githubusercontent.com/u/21237954?v=4" width="100px;" alt=""/><br /><sub><b>Jonathan Bakebwa</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=codebender828" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=codebender828" title="Tests">⚠️</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=codebender828" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://twitter.com/imesutkoca"><img src="https://avatars2.githubusercontent.com/u/342666?v=4" width="100px;" alt=""/><br /><sub><b>Mesut</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=koca" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=koca" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://bit.ly/becomeworldclass"><img src="https://avatars0.githubusercontent.com/u/24433274?v=4" width="100px;" alt=""/><br /><sub><b>Omereshone Kelvin Oghenerhoro</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=DominusKelvin" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://convenientstop.netlify.com"><img src="https://avatars0.githubusercontent.com/u/1885157?v=4" width="100px;" alt=""/><br /><sub><b>Eric Carboni</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=convenientstop" title="Documentation">📖</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -43,3 +43,14 @@ it('should override icon if set explicitly', () => {
 
   expect(asFragment()).toMatchSnapshot()
 })
+
+it('should have role=alert', () => {
+  const { getByRole } = renderComponent({
+    template: `
+    <Alert status="error">
+      <AlertIcon name="add" />
+    </Alert>`
+  })
+
+  getByRole('alert')
+})

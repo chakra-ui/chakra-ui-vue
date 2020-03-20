@@ -30,13 +30,9 @@ storiesOf('UI | RadioGroup', module)
     template: `
       <div>
         <Fragment>
-          <Button @click="focusRadioGroup">
-            Focus RadioGroup
-          </Button>
           <RadioGroup
             size="lg"
             defaultValue="male"
-            @change="handleChange"
             ref="rg"
           >
           <Radio variantColor="red" value="male">Male</Radio>
@@ -53,7 +49,6 @@ storiesOf('UI | RadioGroup', module)
         <Fragment>
           <RadioButtonGroup
             defaultValue="item-2"
-            @change="handleChange"
             isInline
             :spacing="4"
           >

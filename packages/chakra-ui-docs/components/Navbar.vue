@@ -12,7 +12,7 @@
       ml="auto"
     >
       <Box as="li" mr="4">
-        <Icon name="github" size="20px" />
+        <Anchor color="gray.500" :_hover="{ color : 'vue.400' }" isExternal href="https://github.com/chakra-ui/chakra-ui-vue"><Icon name="github" size="20px" /></Anchor>
       </Box>
       <Box as="li">
         <IconButton

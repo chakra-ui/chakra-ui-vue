@@ -24,8 +24,8 @@
         <Flex
           flexDir="row"
         >
-          <Button as="nuxt-link" to="/getting-started" left-icon="bolt" variantColor="vue" size="lg">Get started</Button>
-          <Button as="a" href="https://github.com/codebender828/kiwi-ui" left-icon="github" ml="4" variant="outline" variantColor="vue" size="lg">Github</Button>
+          <Button as="nuxt-link" textDecoration="none" to="/getting-started" left-icon="bolt" variantColor="vue" size="lg">Get started</Button>
+          <Button as="a" textDecoration="none" href="https://github.com/codebender828/kiwi-ui" left-icon="github" ml="4" variant="outline" variantColor="vue" size="lg">Github</Button>
         </Flex>
       </Flex>
     </Flex>

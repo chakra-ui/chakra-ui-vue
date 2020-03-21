@@ -12,15 +12,17 @@
           <Flex maxH="calc(100vh - 60px)">
             <Sidebar />
             <Box
+              :class="styles(colorMode)"
               as="section"
               w="100%"
               height="calc(100vh - 60px)"
               overflowY="scroll"
               pt="20"
-              :px="[10, 10, '25rem']"
+              :px="[10, 10, 20, '14rem']"
             >
               <Nuxt />
-              <Footer />
+              <Footer v-if="$route.path === '/index'" />
+              <FileContributors v-else />
             </Box>
           </Flex>
         </Box>
@@ -34,15 +36,19 @@ import {
   ColorModeProvider,
   CSSReset,
   Box,
-  Flex
+  Flex,
+  Css
 } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
+import FileContributors from '../components/FileContributors'
+import { css } from 'emotion'
 
 export default {
   name: 'DefaultLayout',
   components: {
+    FileContributors,
     ThemeProvider,
     ColorModeProvider,
     Box,
@@ -51,6 +57,43 @@ export default {
     Footer,
     CSSReset,
     Flex
+  },
+  data () {
+    return {
+      thBg: {
+        light: 'gray.50',
+        dark: 'whiteAlpha.100'
+      },
+      callout: {
+        light: {
+          bg: 'rgb(254, 235, 200)',
+          color: 'black',
+          borderLeft: '4px solid rgb(221, 107, 32)'
+        },
+        dark: {
+          bg: 'rgba(251, 211, 141, 0.16)',
+          color: 'inherit',
+          borderLeft: '4px solid rgb(251, 211, 141);'
+        }
+      }
+    }
+  },
+  computed: {
+    styles () {
+      return colorMode => css(Css({
+        'th': {
+          bg: this.thBg[colorMode]
+        },
+        '.preview-panel': {
+          borderColor: this.thBg[colorMode]
+        },
+        'blockquote': this.callout[colorMode]
+      })(this.$kiwi.theme))
+    }
   }
 }
 </script>
+
+<style lang="scss">
+@import '../css/components.scss';
+</style>

@@ -3,7 +3,6 @@
     <Hero />
     <Flex
       as="section"
-      :px="[10, 10, 24]"
       py="10"
       :flexDir="['column', 'column', 'row']"
       fontFamily="body"

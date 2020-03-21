@@ -1,13 +1,12 @@
 <template>
   <Grid
-    :templateColumns="['1fr', '1fr', '1fr', '3fr 500px']"
+    :templateColumns="['1fr', '1fr', '1fr', '3fr 300px']"
     alignItems="start"
-    :p="[10, 10, '150px']"
   >
     <Box fontSize="sm" maxW="100%" rounded="md" overflow="hidden" :mr="[0, 0, 5]" :mb="[5, 5, 0]">
       <prism-editor v-model="code" :readonly="true" language="vue"/>
     </Box>
-    <Box w="450px" shadow="md" rounded="lg" p="5">
+    <Box w="350px" shadow="md" rounded="lg" p="5">
       <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6"/>
       <Flex align="baseline" mt="2">
         <Badge variantColor="pink">Plus</Badge>

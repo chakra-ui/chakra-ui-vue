@@ -43,7 +43,6 @@ const lineStyle = ({ color, colorMode }) => {
   }
 }
 
-// TODO: Create new issue in @styled-system/css to allow custom alias
 const enclosedStyle = ({ color, colorMode, theme }) => {
   const _selectedColor = { light: `${color}.600`, dark: `${color}.300` }
   const _selectedBg = { light: '#fff', dark: theme.colors.gray[800] }

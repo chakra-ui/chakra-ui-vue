@@ -103,7 +103,6 @@ export default {
         click: ($event) => this.$emit('click', $event)
       }
     }, [
-      // TODO: fix icon spacing bug? Not really a bug but translation fo style values is weird
       this.leftIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           mr: this.iconSpacing,

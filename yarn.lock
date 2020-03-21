@@ -9520,6 +9520,11 @@ figures@^3.0.0:
   dependencies:
     escape-string-regexp "^1.0.5"
 
+file-contributors@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/file-contributors/-/file-contributors-1.0.2.tgz#33e895eb231b0b636c626a2dcf8bcddce66dd7a4"
+  integrity sha512-zOt1/MWBW2dnfLk0roOTpXn7HkBBArfPuxqjsVXMUXwLFuYKg9kYZaZvCDcG0EaABF/hfQeuOQvIimhX44qpyw==
+
 file-entry-cache@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-2.0.0.tgz#c392990c3e684783d838b8c84a45d8a048458361"

@@ -21,7 +21,8 @@
               :px="[10, 10, 20, '14rem']"
             >
               <Nuxt />
-              <Footer />
+              <Footer v-if="$route.path === '/index'" />
+              <FileContributors v-else />
             </Box>
           </Flex>
         </Box>
@@ -41,11 +42,13 @@ import {
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
+import FileContributors from '../components/FileContributors'
 import { css } from 'emotion'
 
 export default {
   name: 'DefaultLayout',
   components: {
+    FileContributors,
     ThemeProvider,
     ColorModeProvider,
     Box,

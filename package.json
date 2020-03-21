@@ -87,6 +87,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "eslint-plugin-vue-a11y": "^0.0.31",
+    "file-contributors": "^1.0.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "husky": "^3.0.8",

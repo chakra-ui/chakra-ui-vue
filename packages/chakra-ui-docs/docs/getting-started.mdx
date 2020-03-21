@@ -1,17 +1,36 @@
 import Vue from 'vue'
-import LiveEditor from '../components/live-editor.vue'
-import { Box, Input } from '@chakra-ui/vue'
-
+import LiveEditor from '../components/LiveEditor'
+import { Box, Input, Button } from '@chakra-ui/vue'
+import CodeBlock from '../components/CodeBlock'
+Vue.component('Box', Box)
+Vue.component('Button', Button)
+Vue.component('Input', Input)
 
 # Getting Started
 
 ## Installation
 
+<CodeBlock isReadOnly>
+{`yarn install @chakra-ui/vue`}
+</CodeBlock>
+
+
+<LiveEditor>
+{`
+<template>
+  <Button>
+    Text
+  </Button>
+</template>
+`}
+</LiveEditor>
+
 ### How's this?
 
-```js
-const foo = 'bar'
-```
+<CodeBlock lang="js">
+{`const foo = 'bar'`}
+</CodeBlock>
+
 |Name|Size|Age|
 |---|---|---|
 |Jonas|`23`|24|

@@ -148,9 +148,11 @@ blockquote {
   overflow: hidden;
   border-left: 4px solid rgb(221, 107, 32);
   border-color: rgb(221, 107, 32);
+  color: black;
 
   > *:first-of-type {
     margin-top: 0;
+    color: inherit;
   }
 }
 

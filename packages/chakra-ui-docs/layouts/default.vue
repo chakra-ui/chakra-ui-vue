@@ -11,7 +11,7 @@
         <Navbar />
         <Flex maxH="calc(100vh - 60px)">
           <Sidebar />
-          <Box as="section" w="100%" height="calc(100vh - 60px)" overflowY="scroll" pt="8" :px="[10, 10, 24]">
+          <Box :class="styles(colorMode)" as="section" w="100%" height="calc(100vh - 60px)" overflowY="scroll" pt="8" :px="[10, 10, 24]">
             <Nuxt />
             <Footer />
           </Box>
@@ -22,10 +22,11 @@
   </div>
 </template>
 <script>
-import { ThemeProvider, ColorModeProvider, CSSReset, Box, Flex } from '@chakra-ui/vue'
+import { ThemeProvider, ColorModeProvider, CSSReset, Box, Flex, Css } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
+import { css } from 'emotion'
 
 export default {
   name: 'DefaultLayout',
@@ -38,6 +39,23 @@ export default {
     Footer,
     CSSReset,
     Flex
+  },
+  data () {
+    return {
+      thBg: {
+        light: 'gray.50',
+        dark: 'whiteAlpha.100'
+      }
+    }
+  },
+  computed: {
+    styles () {
+      return colorMode => css(Css({
+        'th': {
+          bg: this.thBg[colorMode]
+        }
+      })(this.$kiwi.theme))
+    }
   }
 }
 </script>

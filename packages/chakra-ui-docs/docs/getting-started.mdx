@@ -4,3 +4,115 @@ import { Box, Input } from '@chakra-ui/vue'
 
 
 # Getting Started
+
+<br />
+
+Install Chakra UI and it's peer dependencies
+
+``` sh
+yarn add @chakra-ui/vue emotion
+```
+
+or
+
+<br />
+
+``` sh
+npm install @chakra-ui/vue emotion
+```
+<br />
+
+> **Note:**
+> If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
+
+<br />
+
+```bash
+yarn add @chakra-ui/vue emotion @nuxtjs/emotion
+```
+
+## Usage
+
+**1. Import the Chakra UI plugin in your `main.js` file.**
+
+```js
+import Vue from 'vue'
+import Chakra from '@chakra-ui/vue'
+import App from './App.vue'
+
+Vue.use(Chakra)
+
+new Vue({
+  el: '#app',
+  render: (h) => h(App)
+}).$mount()
+```
+
+**2. Wrap your application inside the Chakra `ThemeProvider`.** We also recommend that you include the `CSSReset` component to normalize all browser styling.
+
+_In your `App.vue` file._
+
+```html
+<template>
+  <ThemeProvider>
+    <CSSReset />
+
+    <!--
+      Your application code goes here! 😁
+    -->
+  </ThemeProvider>
+</template>
+
+<script>
+  import { ThemeProvider, CSSReset } from '@chakra-ui/vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ThemeProvider,
+      CSSReset
+    }
+  }
+</script>
+```
+
+If you'd like to toggle your app between dark and light mode, you can also wrap your application inside the `ColorModeProvider` component.
+
+**3. Hurray!🎉 Now the fun can begin**. You can start using components like so:
+
+```html
+<template>
+  <ThemeProvider>
+    <CSSReset />
+
+    <!--
+      Your application code goes here! 😁
+    -->
+    <button variantColor="blue">
+      Chakra consumed ⚡️
+    </button>
+  </ThemeProvider>
+</template>
+
+<script>
+  import { ThemeProvider, CSSReset, Button } from '@chakra-ui/vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ThemeProvider,
+      CSSReset,
+      Button
+    }
+  }
+</script>
+```
+
+### Codesandbox starters
+
+- [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+
+### Storybook Components
+
+You can also view all developed components in **[Storybook](https://chakra-ui-vue.netlify.com)!**

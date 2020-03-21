@@ -1,7 +1,7 @@
 <template>
   <Box
     as="nav"
-    p="3"
+    p="4"
     :display="['none', null, 'block']"
     maxWidth="18rem"
     width="full"

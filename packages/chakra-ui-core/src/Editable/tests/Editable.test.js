@@ -128,20 +128,6 @@ test('has the proper aria attributes', async () => {
   expect(input).not.toHaveAttribute('aria-disabled')
 })
 
-test('has the proper aria attributes', async () => {
-  const inlineAttrs = 'defaultValue=""'
-  const { getByTestId } = renderComponent({ inlineAttrs })
-
-  const preview = getByTestId('preview')
-
-  await userEvent.click(preview)
-  const input = getByTestId('input')
-
-  // preview and input do not have aria-disabled when `Editable` is not disabled
-  expect(preview).not.toHaveAttribute('aria-disabled')
-  expect(input).not.toHaveAttribute('aria-disabled')
-})
-
 test('has the proper aria attributes when disabled', async () => {
   const inlineAttrs = 'isDisabled defaultValue=""'
   const { getByTestId } = renderComponent({ inlineAttrs })

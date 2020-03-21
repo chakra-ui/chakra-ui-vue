@@ -54,7 +54,7 @@ h2, h3 {
 }
 
 h3 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1rem;
 }
 
@@ -100,16 +100,9 @@ a {
   }
 }
 
-// code {
-//   display: inline-block;
-//   font-family: var(--font-mono);
-//   font-size: 0.84em;
-//   padding-left: 0.2em;
-//   padding-right: 0.2em;
-//   background-color: rgb(254, 252, 191);
-//   color: rgb(116, 66, 16);
-//   border-radius: 0.125rem;
-// }
+code {
+  font-family: var(--font-mono);
+}
 
 br {
   height: 24px;

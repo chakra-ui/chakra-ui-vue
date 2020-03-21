@@ -7,22 +7,37 @@
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-        <CSSReset />
-        <Navbar />
-        <Flex maxH="calc(100vh - 60px)">
-          <Sidebar />
-          <Box :class="styles(colorMode)" as="section" w="100%" height="calc(100vh - 60px)" overflowY="scroll" pt="8" :px="[10, 10, 24]">
-            <Nuxt />
-            <Footer />
-          </Box>
-        </Flex>
+          <CSSReset />
+          <Navbar />
+          <Flex maxH="calc(100vh - 60px)">
+            <Sidebar />
+            <Box
+              :class="styles(colorMode)"
+              as="section"
+              w="100%"
+              height="calc(100vh - 60px)"
+              overflowY="scroll"
+              pt="20"
+              :px="[10, 10, 20, '14rem']"
+            >
+              <Nuxt />
+              <Footer />
+            </Box>
+          </Flex>
         </Box>
       </ColorModeProvider>
     </ThemeProvider>
   </div>
 </template>
 <script>
-import { ThemeProvider, ColorModeProvider, CSSReset, Box, Flex, Css } from '@chakra-ui/vue'
+import {
+  ThemeProvider,
+  ColorModeProvider,
+  CSSReset,
+  Box,
+  Flex,
+  Css
+} from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'

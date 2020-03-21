@@ -15,7 +15,7 @@
         :alignItems="['flex-start', 'center']"
         justifyContent="center"
         :textAlign="['left', 'center']"
-        w="500px"
+        w="550px"
       >
         <Heading as="h1">Build Accessible Vue apps with Speed ⚡️</Heading>
         <KText mt="4" mb="6">
@@ -24,8 +24,8 @@
         <Flex
           flexDir="row"
         >
-          <Button as="a" href="/getting-started" left-icon="bolt" variantColor="vue">Get started</Button>
-          <Button as="a" href="https://github.com/codebender828/kiwi-ui" left-icon="github" ml="4" variant="outline" variantColor="vue">Github</Button>
+          <Button as="nuxt-link" textDecoration="none" to="/getting-started" left-icon="bolt" variantColor="vue" size="lg">Get started</Button>
+          <Button as="a" textDecoration="none" href="https://github.com/codebender828/kiwi-ui" left-icon="github" ml="4" variant="outline" variantColor="vue" size="lg">Github</Button>
         </Flex>
       </Flex>
     </Flex>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { Flex, Box, Heading, Button, Text as KText } from 'chakra-ui-core'
+import { Flex, Box, Heading, Button, Text as KText } from '@chakra-ui/vue'
 export default {
   components: {
     Flex,

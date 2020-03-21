@@ -36,7 +36,7 @@ export default {
   props: {
     config: Object
   },
-  created () {
+  mounted () {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
     useTailwindPreflight(this.theme)
     injectGlobal({

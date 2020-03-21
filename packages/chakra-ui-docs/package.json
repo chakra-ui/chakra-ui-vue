@@ -20,10 +20,18 @@
     }
   },
   "dependencies": {
+    "@chakra-ui/vue": "^0.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/emotion": "^0.0.1",
+    "@nuxtjs/now-builder": "^0.17.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/router": "^1.5.0",
+    "core-js": "2",
+    "dotenv-defaults": "^1.1.1",
+    "emotion": "^10.0.27",
     "nuxt": "^2.0.0",
     "prismjs": "^1.19.0",
     "vue": "^2.6.11",

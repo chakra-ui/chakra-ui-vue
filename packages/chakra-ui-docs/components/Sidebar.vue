@@ -1,7 +1,7 @@
 <template>
   <Box
     as="nav"
-    p="3"
+    p="4"
     :display="['none', null, 'block']"
     maxWidth="18rem"
     width="full"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { Box } from 'chakra-ui-core'
+import { Box } from '@chakra-ui/vue'
 import SideNavContent from './SideNavContent'
 
 export default {

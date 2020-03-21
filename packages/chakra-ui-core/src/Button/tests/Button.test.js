@@ -54,9 +54,8 @@ it('should display spinner and hide text', () => {
   expect(button).toHaveAttribute('disabled')
   expect(button).toHaveAttribute('aria-disabled', 'true')
 
-  // TODO: find a way to easily grab the spinner element
-  // Maybe? expect(getByTestId('Spinner')).toBeInTheDocument()
-  expect(container.querySelector('button > div')).toBeInTheDocument()
+  const spinner = container.querySelector('[chakra-button-spinner]')
+  expect(spinner).toBeInTheDocument()
   expect(button).toHaveStyle('opacity: 0.4')
 })
 
@@ -64,8 +63,8 @@ it('should display spinner with text', () => {
   const { getByText, container } = renderComponent({ template: `<Button isLoading loadingText="Submitting" data-testid="Spinner">Button</Button>` })
 
   expect(getByText('Submitting')).toBeInTheDocument()
-  // TODO: find a way to easily grab the spinner element
-  expect(container.querySelector('button > div')).toBeInTheDocument()
+  const spinner = container.querySelector('[chakra-button-spinner]')
+  expect(spinner).toBeInTheDocument()
 })
 
 it('should display a disabled button', () => {

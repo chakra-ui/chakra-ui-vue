@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.2.6...@chakra-ui/vue@0.3.0) (2020-03-21)
+
+
+### Bug Fixes
+
+* **button:** preserve button width on loading ([caba0aa](https://github.com/chakra-ui/chakra-ui-vue/commit/caba0aadc5f40928660c5250e9e2c99dc4ca7fe0))
+* **modal:** add removeeventhandler for potential memory leak ([b13a14c](https://github.com/chakra-ui/chakra-ui-vue/commit/b13a14c3b8be93a26b11c46f0c830a64f69a7df2))
+* **modal:** change modal header div to header ([eb066cb](https://github.com/chakra-ui/chakra-ui-vue/commit/eb066cbab4c771ec5ca360a2b0b52bce3e2f9dd0))
+* **modal:** disable inherit attrs for ModalContent component ([d226e50](https://github.com/chakra-ui/chakra-ui-vue/commit/d226e501c9624af076732de3479df9df2268c9fa))
+* **modal:** fix aria for modal component ([757df81](https://github.com/chakra-ui/chakra-ui-vue/commit/757df8147939fa575b44b4f54228d7521243cb7c))
+* **modal:** fix initialFocusRef and finalFocusRef ([211130a](https://github.com/chakra-ui/chakra-ui-vue/commit/211130a75c0ed9a32290b0209264a4a10aa9c9f8))
+* **modal:** fix onclose prop for modal and drawers etc ([a9e8e99](https://github.com/chakra-ui/chakra-ui-vue/commit/a9e8e991ff816dbf1c28f1f61d0f39d4c8049693))
+
+
+### Features
+
+* **drawer:** add closeOnEsc support for drawer ([bad4f81](https://github.com/chakra-ui/chakra-ui-vue/commit/bad4f81a84f3dbc254c9aced5e45876be8be0e9e))
+* **drawer:** add stories for Drawer component ([e5ff0c3](https://github.com/chakra-ui/chakra-ui-vue/commit/e5ff0c31aa7af90b34301ac083f321a70ff13563))
+* **styles:** add docs styles ([5d37a47](https://github.com/chakra-ui/chakra-ui-vue/commit/5d37a471d9314a263722cb7d45605ed66672e29d))
+* **test:** update button tests ([aceedf4](https://github.com/chakra-ui/chakra-ui-vue/commit/aceedf4033d870e663f9a98296b481202141e9f2))
+* promote layouts ([9671e9b](https://github.com/chakra-ui/chakra-ui-vue/commit/9671e9b1415ff326b767abef957dfa2e6c68e687))
+
+
+
+
+
 ## [0.2.6](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.2.4...@chakra-ui/vue@0.2.6) (2020-03-17)
 
 

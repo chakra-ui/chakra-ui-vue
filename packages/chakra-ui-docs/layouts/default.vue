@@ -88,7 +88,7 @@ export default {
           borderColor: this.thBg[colorMode]
         },
         'blockquote': this.callout[colorMode]
-      })(this.$kiwi.theme))
+      })(this.$chakra.theme))
     }
   }
 }

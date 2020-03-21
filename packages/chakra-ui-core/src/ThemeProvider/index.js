@@ -5,15 +5,16 @@ const ThemeProvider = {
   provide () {
     return {
       $theme: () => this.theme,
-      $icons: this.icons
+      $icons: this.icons,
+      $colorMode: () => 'light'
     }
   },
   computed: {
     icons () {
-      return this.$kiwi ? this.$kiwi.icons : {}
+      return this.$chakra ? this.$chakra.icons : {}
     },
     theme () {
-      return this.$kiwi.theme
+      return this.$chakra.theme
     }
   },
   watch: {

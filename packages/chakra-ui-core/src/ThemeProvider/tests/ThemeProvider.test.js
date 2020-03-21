@@ -12,7 +12,7 @@ describe('===== ThemeProvider Component =====', () => {
   it('should be a Vue component', () => {
     themeProvider = shallowMount(ThemeProvider, {
       mocks: {
-        $kiwi: {
+        $chakra: {
           theme
         }
       },
@@ -29,7 +29,7 @@ describe('===== ThemeProvider Component =====', () => {
         default: [ChildComponent]
       },
       mocks: {
-        $kiwi: {
+        $chakra: {
           theme
         }
       },

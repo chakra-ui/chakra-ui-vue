@@ -41,3 +41,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '../css/components.scss';
+</style>

@@ -29,7 +29,6 @@ export default {
   ],
   css: [
     'css/page.css',
-    'css/night-owl.css',
     'css/fonts/fonts.css'
   ],
   buildModules: [

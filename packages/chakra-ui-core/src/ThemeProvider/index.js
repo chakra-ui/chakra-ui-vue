@@ -6,6 +6,11 @@ const ThemeProvider = {
     return {
       $theme: () => this.theme,
       $icons: this.icons,
+      /**
+       * By default the ThemeProvider exposes a colorMode value of light
+       * If no `ColorModeProvider` is provided in children/ consumer app, all chakra
+       * components will consume the $colorMode from here.
+       */
       $colorMode: () => 'light'
     }
   },

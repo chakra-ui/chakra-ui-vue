@@ -1,6 +1,6 @@
 {
   "name": "chakra-ui-docs",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Chakra UI Vue documentation site",
   "author": "codebender828",
   "private": true,
@@ -20,9 +20,9 @@
     }
   },
   "dependencies": {
-    "@chakra-ui/vue": "^0.2.6",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@chakra-ui/vue": "^0.3.0",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",

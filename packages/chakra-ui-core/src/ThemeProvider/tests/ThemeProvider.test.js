@@ -5,14 +5,14 @@ import theme from '../../../../chakra-ui-theme/src'
 describe('===== ThemeProvider Component =====', () => {
   let themeProvider
   const ChildComponent = {
-    inject: ['$theme'],
+    inject: ['$theme', '$colorMode'],
     render: h => h('div', {})
   }
 
   it('should be a Vue component', () => {
     themeProvider = shallowMount(ThemeProvider, {
       mocks: {
-        $kiwi: {
+        $chakra: {
           theme
         }
       },
@@ -29,7 +29,7 @@ describe('===== ThemeProvider Component =====', () => {
         default: [ChildComponent]
       },
       mocks: {
-        $kiwi: {
+        $chakra: {
           theme
         }
       },
@@ -38,5 +38,6 @@ describe('===== ThemeProvider Component =====', () => {
       }
     })
     expect(themeProvider.find(ChildComponent).vm.$theme()).toBe(theme)
+    expect(themeProvider.find(ChildComponent).vm.$colorMode()).toBe('light')
   })
 })

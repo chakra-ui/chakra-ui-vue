@@ -119,9 +119,17 @@ export default {
           mb: '-4px',
           mr: this.loadingText ? this.iconSpacing : 0,
           size: '1em'
+        },
+        attrs: {
+          'chakra-button-spinner': ''
         }
       }),
-      this.isLoading ? this.loadingText : this.$slots.default,
+      this.isLoading ? this.loadingText || h(Box, {
+        props: {
+          as: 'span',
+          opacity: 0
+        }
+      }, this.$slots.default) : this.$slots.default,
       this.rightIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           ml: this.iconSpacing,

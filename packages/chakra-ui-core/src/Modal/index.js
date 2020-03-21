@@ -73,7 +73,7 @@ const Modal = {
       this.addAriaDescribedby = this.addAriaLabels['body']
     }
 
-    if (typeof addAriaLabels === 'boolean') {
+    if (typeof this.addAriaLabels === 'boolean') {
       this.addAriaLabelledby = this.addAriaLabels
       this.addAriaDescribedby = this.addAriaLabels
     }
@@ -253,6 +253,7 @@ const ModalOverlay = {
 
 const ModalContent = {
   name: 'ModalContent',
+  inheritAttrs: false,
   inject: ['$ModalContext', '$colorMode'],
   props: {
     ...baseProps,
@@ -409,7 +410,8 @@ const ModalContent = {
           tabIndex: -1,
           id: contentId,
           ...(addAriaDescribedby && { 'aria-describedby': bodyId }),
-          ...(addAriaLabelledby && { 'aria-labelledby': headerId })
+          ...(addAriaLabelledby && { 'aria-labelledby': headerId }),
+          ...this.$attrs
         },
         nativeOn: {
           click: wrapEvent((e) => this.$emit('click', e), event => event.stopPropagation())
@@ -433,6 +435,7 @@ const ModalHeader = {
 
     return h(Box, {
       props: {
+        as: 'header',
         px: 6,
         py: 4,
         position: 'relative',

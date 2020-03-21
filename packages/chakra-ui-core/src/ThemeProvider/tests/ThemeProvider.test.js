@@ -5,7 +5,7 @@ import theme from '../../../../chakra-ui-theme/src'
 describe('===== ThemeProvider Component =====', () => {
   let themeProvider
   const ChildComponent = {
-    inject: ['$theme'],
+    inject: ['$theme', '$colorMode'],
     render: h => h('div', {})
   }
 
@@ -38,5 +38,6 @@ describe('===== ThemeProvider Component =====', () => {
       }
     })
     expect(themeProvider.find(ChildComponent).vm.$theme()).toBe(theme)
+    expect(themeProvider.find(ChildComponent).vm.$colorMode()).toBe('light')
   })
 })

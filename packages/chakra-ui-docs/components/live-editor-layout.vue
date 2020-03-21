@@ -42,7 +42,9 @@ export default {
 .preview-panel {
   height: auto;
   background: inherit;
-  border: #CBD5E0 1px solid;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
   border-radius: 5px;
   overflow: hidden;
   padding: 10px;

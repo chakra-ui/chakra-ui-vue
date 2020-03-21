@@ -45,6 +45,18 @@ export default {
       thBg: {
         light: 'gray.50',
         dark: 'whiteAlpha.100'
+      },
+      callout: {
+        light: {
+          bg: 'rgb(254, 235, 200)',
+          color: 'black',
+          borderLeft: '4px solid rgb(221, 107, 32)'
+        },
+        dark: {
+          bg: 'rgba(251, 211, 141, 0.16)',
+          color: 'inherit',
+          borderLeft: '4px solid rgb(251, 211, 141);'
+        }
       }
     }
   },
@@ -53,7 +65,11 @@ export default {
       return colorMode => css(Css({
         'th': {
           bg: this.thBg[colorMode]
-        }
+        },
+        '.preview-panel': {
+          borderColor: this.thBg[colorMode]
+        },
+        'blockquote': this.callout[colorMode]
       })(this.$kiwi.theme))
     }
   }

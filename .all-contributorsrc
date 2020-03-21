@@ -34,11 +34,20 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "convenientstop",
+      "name": "Eric Carboni",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1885157?v=4",
+      "profile": "https://convenientstop.netlify.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "kiwi-ui",
-  "projectOwner": "codebender828",
+  "projectName": "chakra-ui-vue",
+  "projectOwner": "chakra-ui",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true

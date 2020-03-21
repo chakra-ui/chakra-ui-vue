@@ -9,27 +9,33 @@
         >
           <CSSReset />
           <Navbar />
-          <Box as="section" d="flex">
+          <Flex maxH="calc(100vh - 60px)">
             <Sidebar />
             <Box
-              as="main"
-              minH="calc(100vh - 60px)"
-              :w="['auto', 'auto', '100%']"
+              as="section"
+              w="100%"
+              height="calc(100vh - 60px)"
+              overflowY="scroll"
+              pt="8"
+              :px="[10, 10, 24]"
             >
-              <Box as="main" mx="auto" mb="3rem" maxWidth="46rem" pt="8" px="5">
-                <Nuxt />
-                <Footer />
-              </Box>
+              <Nuxt />
+              <Footer />
             </Box>
-          </Box>
+          </Flex>
         </Box>
       </ColorModeProvider>
     </ThemeProvider>
   </div>
 </template>
 <script>
-/* eslint-disable vue/no-unused-components */
-import { ThemeProvider, ColorModeProvider, CSSReset, Box } from '@chakra-ui/vue'
+import {
+  ThemeProvider,
+  ColorModeProvider,
+  CSSReset,
+  Box,
+  Flex
+} from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
@@ -43,7 +49,8 @@ export default {
     Navbar,
     Sidebar,
     Footer,
-    CSSReset
+    CSSReset,
+    Flex
   }
 }
 </script>

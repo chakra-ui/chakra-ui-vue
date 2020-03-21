@@ -1,5 +1,4 @@
 import dotenv from 'dotenv-defaults'
-
 // Configuring dotenv variables.
 dotenv.config({
   defaults: '../../config/.env.defaults'
@@ -18,7 +17,9 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
   loading: { color: '#fff' },
   plugins: [
@@ -28,7 +29,7 @@ export default {
   ],
   css: [
     'css/page.css',
-    // 'css/night-owl.css',
+    'css/night-owl.css',
     'css/fonts/fonts.css'
   ],
   buildModules: [

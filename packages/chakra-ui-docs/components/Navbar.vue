@@ -1,16 +1,6 @@
 <template>
-  <Box
-    as="nav"
-    h="60px"
-    px="4"
-    d="flex"
-    alignItems="center"
-    shadow="sm"
-    pos="fixed"
-    width="100%"
-    zIndex="2"
-  >
-    <Anchor w="130px" href="/" fontWeight="bold" fontSize="1.2rem">
+  <Box as="nav" h="60px" px="4" d="flex" alignItems="center" shadow="sm">
+    <Anchor as="nuxt-link" w="130px" to="/" fontWeight="bold" fontSize="1.2rem">
       <Logo />
     </Anchor>
     <Box
@@ -46,7 +36,7 @@ export default {
   name: 'Navbar',
   inject: ['$colorMode', '$toggleColorMode'],
   computed: {
-    colorMode () {
+    colorMode() {
       return this.$colorMode()
     }
   },

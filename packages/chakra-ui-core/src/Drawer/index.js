@@ -13,6 +13,10 @@ const Drawer = {
       type: Function,
       default: () => null
     },
+    closeOnEsc: {
+      type: Boolean,
+      default: true
+    },
     isFullHeight: {
       type: Boolean,
       default: true
@@ -21,8 +25,12 @@ const Drawer = {
       type: String,
       default: 'right'
     },
+    initialFocusRef: {
+      type: [HTMLElement, Object, String, Function],
+      default: () => null
+    },
     finalFocusRef: {
-      type: HTMLElement,
+      type: [HTMLElement, Object, String, Function],
       default: () => null
     },
     size: {
@@ -51,6 +59,8 @@ const Drawer = {
       props: {
         isOpen: this.isOpen,
         onClose: this.onClose,
+        closeOnEsc: this.closeOnEsc,
+        initialFocusRef: this.initialFocusRef,
         finalFocusRef: this.finalFocusRef,
         formatIds: (id) => ({
           content: `drawer-${id}`,

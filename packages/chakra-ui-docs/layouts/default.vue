@@ -16,8 +16,8 @@
               w="100%"
               height="calc(100vh - 60px)"
               overflowY="scroll"
-              pt="8"
-              :px="[10, 10, 24]"
+              pt="20"
+              :px="[10, 10, '25rem']"
             >
               <Nuxt />
               <Footer />

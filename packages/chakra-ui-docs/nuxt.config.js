@@ -14,7 +14,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Simple, Modular and Accessible UI Components for your Vue Applications.Built with Styled System.'
       }
     ],
     link: [

@@ -36,7 +36,7 @@ export default {
   name: 'Navbar',
   inject: ['$colorMode', '$toggleColorMode'],
   computed: {
-    colorMode() {
+    colorMode () {
       return this.$colorMode()
     }
   },

@@ -9,8 +9,6 @@
     borderColor="gray.200"
     h="calc(100vh - 60px)"
     overflowY="scroll"
-    pos="fixed"
-    mt="3.8rem"
   >
     <SideNavContent />
   </Box>

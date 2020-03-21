@@ -10,7 +10,9 @@
         >
           <CSSReset />
           <Navbar />
-          <Nuxt />
+          <Box px="12rem">
+            <Nuxt />
+          </Box>
         </Box>
       </ColorModeProvider>
     </ThemeProvider>

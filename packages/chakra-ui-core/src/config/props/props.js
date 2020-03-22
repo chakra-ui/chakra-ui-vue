@@ -78,6 +78,7 @@ const baseProps = {
   fontWeight: SNA,
   fontFamily: SNA,
   fontSize: SNA,
+  fontStyle: SNA,
   textAlign: SNA,
   textDecoration: SNA,
   overflow: SNA,

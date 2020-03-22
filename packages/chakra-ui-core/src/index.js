@@ -87,6 +87,7 @@ export { default as Slider } from './Slider'
 export * from './Slider'
 export { default as Spinner } from './Spinner'
 export { default as Stack } from './Stack'
+export * from './Stat'
 export { default as Switch } from './Switch'
 
 export * from './Tabs'

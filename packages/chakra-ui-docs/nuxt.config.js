@@ -1,25 +1,25 @@
 import dotenv from 'dotenv-defaults'
-
 // Configuring dotenv variables.
 dotenv.config({
   defaults: '../../config/.env.defaults'
 })
 
 export default {
-  mode: 'universal',
-  modulesDir: ['../../node_modules'],
+  mode: 'spa',
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Chakra UI Vue | Chakra UI Design system built with Vue',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Simple, Modular and Accessible UI Components for your Vue Applications.Built with Styled System.'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
   },
   loading: { color: '#fff' },
   plugins: [
@@ -29,7 +29,6 @@ export default {
   ],
   css: [
     'css/page.css',
-    // 'css/night-owl.css',
     'css/fonts/fonts.css'
   ],
   buildModules: [

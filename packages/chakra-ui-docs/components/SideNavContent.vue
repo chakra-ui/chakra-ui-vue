@@ -7,28 +7,28 @@
       Getting Started
     </Heading>
     <Box v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
-      <NuxtLink
+      <PseudoBox
+        as="nuxt-link"
         :to="link.path"
+        p="0.2rem"
+        outline="none"
+        :_focus="{
+          shadow: 'outline',
+        }"
+        :_hover="{
+          textDecoration: 'none'
+        }"
+        d="block"
+        rounded="md"
+        :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
+        :color="$route.path === link.path ? 'vue.700' : 'inherit'"
+        fontWeight="bold"
+        fontSize="sm"
+        textDecoration="none"
+        transition="background-color 0.15s ease-in"
       >
-        <PseudoBox
-          as="a"
-          p="0.2rem"
-          outline="none"
-          :_focus="{
-            shadow: 'outline',
-          }"
-          :_hover="{
-            textDecoration: 'none'
-          }"
-          d="block"
-          rounded="md"
-          fontWeight="bold"
-          fontSize="sm"
-          textDecoration="none"
-        >
-          {{ link.name }}
-        </PseudoBox>
-      </NuxtLink>
+        {{ link.name }}
+      </PseudoBox>
     </Box>
     <Heading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
       Components
@@ -36,8 +36,8 @@
     <PseudoBox
       v-for="(link, index) in componentLinks"
       :key="`${index}-components`"
-      as="a"
-      :href="link.path"
+      as="nuxt-link"
+      :to="link.path"
       outline="none"
       p="0.2rem"
       :_focus="{
@@ -51,6 +51,8 @@
       fontWeight="bold"
       fontSize="sm"
       textDecoration="none"
+      :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
+      :color="$route.path === link.path ? 'vue.700' : 'inherit'"
     >
       {{ link.name }}
     </PseudoBox>
@@ -58,7 +60,7 @@
 </template>
 
 <script>
-import { boxProps, Box, Heading, PseudoBox } from 'chakra-ui-core'
+import { boxProps, Box, Heading, PseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
 import componentLinks from './components'
 

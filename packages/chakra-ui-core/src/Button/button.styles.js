@@ -259,7 +259,6 @@ const getLinkStyles = ({ color, colorMode }) => {
     lineHeight: 'normal',
     color: _color[colorMode],
     _hover: {
-      // TODO: Figure out why styled system doesn't support `textDecoration` property.
       textDecoration: 'underline'
     },
     _active: {

@@ -4,10 +4,30 @@
       <slot name="preview" />
     </div>
     <div class="editor-panel">
+      <Button
+        chakra-copy-button
+        variantColor="vue"
+        position="absolute"
+        size="sm"
+        top="0.2rem"
+        right="0.125rem"
+        textTransform="uppercase"
+        transform="scale(0.8)"
+      >Copy</Button>
       <slot name="editor" />
     </div>
   </div>
 </template>
+<script>
+import { Button } from '@chakra-ui/vue'
+
+export default {
+  name: 'EditorLayout',
+  components: {
+    Button
+  }
+}
+</script>
 
 <style>
 .preview-code {
@@ -15,14 +35,16 @@
   flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
-  padding: 10px;
-  background: #fff;
+  margin-top: 10px;
+  background: inherit;
 }
 
 .preview-panel {
   height: auto;
-  background: #fff;
-  border: #efefef 1px solid;
+  background: inherit;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
   border-radius: 5px;
   overflow: hidden;
   padding: 10px;
@@ -34,5 +56,6 @@
   border-radius: inherit;
   overflow: hidden;
   font-size: 0.85em;
+  position: relative;
 }
 </style>

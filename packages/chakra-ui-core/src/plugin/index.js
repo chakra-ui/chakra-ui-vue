@@ -23,7 +23,7 @@ const Kiwi = {
     }
 
     // Bind theme and icons to prototype
-    Vue.prototype.$kiwi = {
+    Vue.prototype.$chakra = {
       theme: options.theme || defaultTheme,
       icons
     }

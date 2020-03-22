@@ -5,9 +5,15 @@
     "Jonathan Bakebwa <jonas@akkadu-team.com>"
   ],
   "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "core-js",
+      "emotion"
+    ]
+  },
   "scripts": {
     "build": "yarn workspace @chakra-ui/vue build",
     "dev": "yarn workspace @chakra-ui/vue dev",
@@ -38,6 +44,7 @@
     "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",
+    "@nuxtjs/now-builder": "^0.17.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/router": "^1.5.0",
     "@storybook/addon-actions": "^5.2.1",
@@ -80,19 +87,20 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "eslint-plugin-vue-a11y": "^0.0.31",
+    "file-contributors": "^1.0.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "husky": "^3.0.8",
     "install": "^0.13.0",
     "lerna": "^3.19.0",
     "lint-staged": "^9.4.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "prismjs": "^1.19.0",
     "register-service-worker": "^1.6.2",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^8.0.2",
     "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0",
     "vue": "^2.6.11",
@@ -128,11 +136,23 @@
     "rollup-plugin-scss": "^2.1.0",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.1.4",
-    "sass-loader": "^8.0.0",
     "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "watch": "^1.0.2"
-  }
+  },
+  "keywords": [
+    "vue",
+    "ui",
+    "design-system",
+    "vue-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "styled-system",
+    "kittens ;)"
+  ]
 }

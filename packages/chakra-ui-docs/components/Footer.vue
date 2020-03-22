@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { Flex, Text as CText, Link as Anchor, Icon, Stack } from 'chakra-ui-core'
+import { Flex, Text as CText, Link as Anchor, Icon, Stack } from '@chakra-ui/vue'
 
 export default {
   name: 'Footer',

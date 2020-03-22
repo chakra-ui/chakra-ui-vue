@@ -1,6 +1,124 @@
 import Vue from 'vue'
-import LiveEditor from '../components/live-editor.vue'
-import { Box, Input } from 'chakra-ui-core'
-
+import LiveEditor from '../components/LiveEditor'
+import { Box, Input, Button } from '@chakra-ui/vue'
+import Code from '../components/CodeBlock'
+Vue.component('Box', Box)
+Vue.component('Button', Button)
+Vue.component('Input', Input)
 
 # Getting Started
+
+Install Chakra UI and it's peer dependencies
+<br />
+
+<Code isReadOnly>
+{`
+yarn add @chakra-ui/vue emotion
+`}
+</Code>
+
+or (with npm)
+<br />
+<Code isReadOnly lang="bash">
+{`
+npm install @chakra-ui/vue emotion
+`}
+</Code>
+
+### With Nuxt.js
+> **Note:**<br />
+> If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
+
+<br />
+<Code isReadOnly>
+{`
+yarn add @chakra-ui/vue emotion @nuxtjs/emotion
+`}
+</Code>
+
+## Usage
+**1. Import the Chakra UI plugin in your `main.js` file.**
+<br />
+<Code isReadOnly lang="js">
+{`import Vue from 'vue'
+import Chakra from '@chakra-ui/vue'
+import App from './App.vue'\n
+Vue.use(Chakra)\n
+new Vue({
+  el: '#app',
+  render: (h) => h(App)
+}).$mount()`}
+</Code>
+
+<!-- For some reason something breaks ehere -->
+**2. Wrap your application inside the Chakra `ThemeProvider`.** 
+We also recommend that you include the `CSSReset` component to normalize all browser styling.
+_In your `App.vue` file._
+<br />
+<Code isReadOnly lang="vue">
+{`
+<template>
+  <ThemeProvider>
+    <CSSReset />
+    <!--
+      Your application code goes here! 😁
+    -->
+  </ThemeProvider>
+</template>
+
+<script>
+  import { ThemeProvider, CSSReset } from '@chakra-ui/vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ThemeProvider,
+      CSSReset
+    }
+  }
+<\/script>
+`}
+</Code>
+
+<br />
+<p>If you'd like to toggle your app between dark and light mode, you can also wrap your application inside the <code>ColorModeProvider</code> component.</p>
+<br />
+<p><strong>3. Hurray!🎉 Now the fun can begin</strong>. You can start using components like so:</p>
+<br />
+<Code isReadOnly lang="vue">
+{`
+<template>
+  <ThemeProvider>
+    <CSSReset />
+    <!--
+      Your application code goes here! 😁
+    -->
+    <Button variantColor="blue">
+      Chakra consumed ⚡️
+    </Button>
+  </ThemeProvider>
+</template>
+
+<script>
+  import { ThemeProvider, CSSReset, Button } from '@chakra-ui/vue'
+
+  export default {
+    name: 'App',
+    components: {
+      ThemeProvider,
+      CSSReset,
+      Button
+    }
+  }
+<\/script>
+`}
+</Code>
+
+<h3>Codesandbox starters</h3>
+<ul>
+  <li><a href="https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g">Vue Starter</a></li>
+  <li><a href="https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4">Nuxt Starter</a></li>
+</ul>
+
+<h3> Storybook Components</h3>
+<p>You can also view all developed components in <a href="https://chakra-ui-vue.netlify.com"><strong>Storybook!</strong></a></p>

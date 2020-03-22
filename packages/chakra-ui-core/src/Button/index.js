@@ -103,7 +103,6 @@ export default {
         click: ($event) => this.$emit('click', $event)
       }
     }, [
-      // TODO: fix icon spacing bug? Not really a bug but translation fo style values is weird
       this.leftIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           mr: this.iconSpacing,
@@ -119,9 +118,17 @@ export default {
           mb: '-4px',
           mr: this.loadingText ? this.iconSpacing : 0,
           size: '1em'
+        },
+        attrs: {
+          'chakra-button-spinner': ''
         }
       }),
-      this.isLoading ? this.loadingText : this.$slots.default,
+      this.isLoading ? this.loadingText || h(Box, {
+        props: {
+          as: 'span',
+          opacity: 0
+        }
+      }, this.$slots.default) : this.$slots.default,
       this.rightIcon && !this.isLoading && h(ButtonIcon, {
         props: {
           ml: this.iconSpacing,

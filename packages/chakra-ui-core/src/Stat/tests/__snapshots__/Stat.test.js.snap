@@ -80,31 +80,6 @@ exports[`"StatArrow" should display corresponding icon for "type" prop 2`] = `
 </DocumentFragment>
 `;
 
-exports[`sanity props eval test 1`] = `
-<DocumentFragment>
-  <div
-    class="css-hkmnjw"
-  >
-    <p
-      class="css-vpd0fn"
-      data-testid="stat-label"
-    >
-      Collected Fees
-    </p>
-    <p
-      class="css-1ecn2q9"
-    >
-      £0.00
-    </p>
-    <p
-      class="css-1x22fzm"
-    >
-      Feb 12 - Feb 28
-    </p>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div

@@ -20,24 +20,20 @@ storiesOf('UI | Input', module)
       />
     `
   }))
-
-const variantStories = storiesOf('Input/Variants', module)
-
-variantStories.add('Filled', () => ({
-  components: { Input },
-  template: `
-  <Input variant="filled" placeholder="Text goes here"></Input>
-`
-}))
-
-variantStories.add('Filled', () => ({
-  components: { Input },
-  template: `
-    <Input
-      variant="filled"
-      errorBorderColor="red.200"
-      focusBorderColor="blue.400"
-      placeholder="Text goes here"
-    />
+  .add('Filled', () => ({
+    components: { Input },
+    template: `
+    <Input variant="filled" placeholder="Text goes here"></Input>
   `
-}))
+  }))
+  .add('Filled w/ custom focus and error border colors', () => ({
+    components: { Input },
+    template: `
+      <Input
+        variant="filled"
+        errorBorderColor="red.200"
+        focusBorderColor="blue.400"
+        placeholder="Text goes here"
+      />
+    `
+  }))

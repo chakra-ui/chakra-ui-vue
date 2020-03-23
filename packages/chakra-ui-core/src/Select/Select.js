@@ -37,7 +37,8 @@ const SelectInput = {
   props: {
     ...styleProps,
     ...inputProps,
-    placeholder: String
+    placeholder: String,
+    value: String
   },
   render (h) {
     return h(Input, {
@@ -51,6 +52,9 @@ const SelectInput = {
       },
       on: {
         change: (e) => this.$emit('change', e)
+      },
+      domProps: {
+        value: this.value
       }
     }, [
       this.placeholder && h('option', {
@@ -66,6 +70,10 @@ const SelectInput = {
 const Select = {
   name: 'Select',
   inject: ['$colorMode'],
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...styleProps,
     ...inputProps,
@@ -84,7 +92,11 @@ const Select = {
     },
     isReadOnly: Boolean,
     isDisabled: Boolean,
-    placeholder: String
+    placeholder: String,
+    value: {
+      type: String,
+      default: ''
+    }
   },
   computed: {
     colorMode () {
@@ -95,6 +107,9 @@ const Select = {
     },
     _opacity () {
       return this.isReadOnly || this.isDisabled ? 0.5 : null
+    },
+    _value () {
+      return this.value
     }
   },
   render (h) {
@@ -116,6 +131,9 @@ const Select = {
         },
         on: {
           change: (e) => this.$emit('change', e.target.value)
+        },
+        domProps: {
+          value: this._value
         }
       }, this.$slots.default),
       h(SelectIconWrapper, {

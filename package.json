@@ -22,6 +22,7 @@
     "test": "jest",
     "clean": "lerna run clean",
     "release": "lerna publish",
+    "patch": "lerna version patch",
     "push": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna version --conventional-commits",
     "storybook": "start-storybook -p 9000",
     "build-storybook": "build-storybook --quiet",

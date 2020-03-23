@@ -18,7 +18,10 @@ import {
   faBolt,
   faUserSlash,
   faCheckCircle,
-  faCog } from '@fortawesome/free-solid-svg-icons'
+  faCog,
+  faLock,
+  faEye,
+  faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 import {
   faChevronCircleUp,
@@ -48,7 +51,10 @@ Vue.use(Kiwi, {
       faTimesCircle,
       faGithub,
       faCheckCircle,
-      faCog
+      faCog,
+      faLock,
+      faEye,
+      faEyeSlash
     }
   }
 })

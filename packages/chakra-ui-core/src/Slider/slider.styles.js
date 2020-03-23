@@ -16,7 +16,9 @@ const thumbStyle = ({ thumbSize, trackPercent, theme }) => {
     left: `calc(${trackPercent}% - ${thumbSize} / 2)`,
     border: '1px',
     borderColor: 'transparent',
-    transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)',
+    // TODO: Find another more performant way to implement the slider transitions
+    // We could use the CSS "will-change: width;" property. So for now, abrupt transitions :D
+    // transition: 'width 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)'
     _focus: {
       shadow: 'outline'
     },
@@ -35,8 +37,10 @@ const filledTrackStyle = ({ trackHeight, trackPercent, color, colorMode }) => {
     height: trackHeight,
     bg: colorMode === 'light' ? `${color}.500` : `${color}.200`,
     width: `${trackPercent}%`,
-    rounded: 'sm',
-    transition: 'width 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)'
+    rounded: 'sm'
+    // TODO: Find another more performant way to implement the slider transitions
+    // We could use the CSS "will-change: width;" property. So for now, abrupt transitions :D
+    // transition: 'width 0.3s cubic-bezier(0.25, 0.8, 0.5, 1)'
   }
 }
 

@@ -1,5 +1,4 @@
 import Box from '../Box'
-import styleProps from '../config/props'
 import { forwardProps } from '../utils'
 import VisuallyHidden from '../VisuallyHidden'
 import ControlBox from '../ControlBox'
@@ -21,13 +20,13 @@ const switchSizes = {
 
 const Switch = {
   name: 'CSwitch',
+  extends: Box,
   model: {
     prop: 'isChecked',
     event: 'change'
   },
   inject: ['$colorMode'],
   props: {
-    ...styleProps,
     id: String,
     name: String,
     value: Boolean,

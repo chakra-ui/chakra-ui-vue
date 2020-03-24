@@ -74,7 +74,7 @@ storiesOf('UI | Button', module)
           this.loading = false
           this.buttonText = 'Success'
           this.variantColor = 'green'
-        }, 1500)
+        }, 60000)
       }
     }
   }))

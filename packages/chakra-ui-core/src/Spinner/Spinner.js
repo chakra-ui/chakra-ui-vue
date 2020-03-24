@@ -1,5 +1,4 @@
 import { keyframes } from 'emotion'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import Box from '../Box'
 import VisuallyHidden from '../VisuallyHidden'
@@ -49,6 +48,7 @@ const setSizes = (props) => {
 
 export default {
   name: 'Spinner',
+  extends: Box,
   props: {
     size: {
       type: [String, Array],
@@ -74,8 +74,7 @@ export default {
       type: [String, Array],
       default: 'transparent'
     },
-    forwardRef: Object,
-    ...baseProps
+    forwardRef: Object
   },
   render (h) {
     return h(Box, {

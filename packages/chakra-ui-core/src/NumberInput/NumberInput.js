@@ -1,21 +1,18 @@
-import { baseProps } from '../config'
 import Flex from '../Flex'
-import styleProps from '../config/props'
 import Input from '../Input'
 import PseudoBox from '../PseudoBox'
 import Icon from '../Icon'
 import numberInputStyles from './numberinput.styles'
 import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
 import { calculatePrecision, roundToPrecision, preventNonNumberKey } from './utils'
-import { inputProps } from '../Input/input.props'
 
 /**
  * NumberInput component
  */
 const NumberInput = {
   name: 'NumberInput',
+  extends: Flex,
   props: {
-    ...baseProps,
     value: Number,
     defaultValue: Number,
     focusInputOnChange: {
@@ -451,10 +448,7 @@ const NumberInputField = {
       return this.$NumberInputContext()
     }
   },
-  props: {
-    ...styleProps,
-    ...inputProps
-  },
+  extends: Input,
   render (h) {
     const { size, inputId, input: {
       value,
@@ -498,7 +492,7 @@ const NumberInputField = {
  */
 const NumberInputStepper = {
   name: 'NumberInputStepper',
-  props: baseProps,
+  extends: Flex,
   render (h) {
     return h(Flex, {
       props: {
@@ -521,7 +515,7 @@ const NumberInputStepper = {
 const StepperButton = {
   name: 'StepperButton',
   inject: ['$NumberInputContext', '$colorMode'],
-  props: styleProps,
+  extends: PseudoBox,
   computed: {
     context () {
       return this.$NumberInputContext()
@@ -560,7 +554,7 @@ const NumberIncrementStepper = {
       return this.$NumberInputContext()
     }
   },
-  props: styleProps,
+  extends: StepperButton,
   render (h) {
     const children = this.$slots.default ||
       [h(Icon, {
@@ -592,7 +586,7 @@ const NumberDecrementStepper = {
       return this.$NumberInputContext()
     }
   },
-  props: styleProps,
+  extends: StepperButton,
   render (h) {
     const children = this.$slots.default ||
       [h(Icon, {

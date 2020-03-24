@@ -3,7 +3,6 @@ import PseudoBox from '../PseudoBox'
 import ClickOutside from '../ClickOutside'
 import Portal from '../Portal'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
-import styleProps from '../config/props'
 import getPopperArrowStyle from './popper.styles'
 import Box from '../Box'
 
@@ -40,6 +39,7 @@ function flipPlacement (placement) {
 
 const Popper = {
   name: 'Popper',
+  extends: PseudoBox,
   props: {
     _id: {
       type: String,
@@ -85,8 +85,7 @@ const Popper = {
       default: true
     },
     positionFixed: Boolean,
-    usePortalTarget: String,
-    ...styleProps
+    usePortalTarget: String
   },
   data () {
     return {

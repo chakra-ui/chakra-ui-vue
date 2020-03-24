@@ -2,7 +2,6 @@ import Fragment from '../Fragment'
 import VisuallyHidden from '../VisuallyHidden'
 import { Popper, PopperArrow } from '../Popper'
 import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
-import { baseProps } from '../config/props'
 import Box from '../Box'
 
 const tooltipProps = {
@@ -27,14 +26,15 @@ const tooltipProps = {
   controlledIsOpen: Boolean,
   isControlled: Boolean,
   onOpen: Function,
-  onClose: Function,
-  ...baseProps
+  onClose: Function
 }
 
 // TODO: Add isControlled support.
 const Tooltip = {
   inject: ['$colorMode'],
   name: 'Tooltip',
+  extends: Box,
+  props: tooltipProps,
   data () {
     return {
       isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,
@@ -84,7 +84,6 @@ const Tooltip = {
       this.$emit('click')
     }
   },
-  props: tooltipProps,
   mounted () {
     // When component is mounted we force re-render because component
     // children may not yet be rendered so event listeners may not be

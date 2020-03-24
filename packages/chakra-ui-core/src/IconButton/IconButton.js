@@ -1,9 +1,7 @@
 import Button from '../Button'
 import Icon from '../Icon'
 import Box from '../Box'
-import styleProps from '../config/props'
 import { forwardProps } from '../utils'
-import { buttonProps } from '../Button/button.props'
 
 const baseStyles = {
   display: 'inline-flex',
@@ -22,6 +20,7 @@ const baseStyles = {
 export default {
   name: 'IconButton',
   inject: ['$theme', '$colorMode'],
+  extends: Button,
   props: {
     icon: {
       type: [String]
@@ -31,9 +30,7 @@ export default {
     },
     _ariaLabel: {
       type: [String]
-    },
-    ...buttonProps,
-    ...styleProps
+    }
   },
   render (h) {
     const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = this.$props

@@ -71,8 +71,8 @@ const StatArrow = {
         mr: 1,
         size: '14px',
         verticalAlign: 'middle',
-        ...arrowOptions[this.type],
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        ...arrowOptions[this.type]
       }
     })
   }

@@ -1,17 +1,15 @@
-import { baseProps } from '../config'
 import { isDef, valueToPercent, useId, getElById, forwardProps } from '../utils'
 import { clampValue, roundValueToStep } from './slider.utils'
 import Box from '../Box'
 import useSliderStyle from './slider.styles'
 import { percentToValue } from '../utils/transform'
-import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
 
 const Slider = {
   name: 'Slider',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   props: {
-    ...baseProps,
     value: Number,
     defaultValue: Number,
     isDisabled: Boolean,
@@ -300,7 +298,7 @@ const Slider = {
 const SliderTrack = {
   name: 'SliderTrack',
   inject: ['$SliderContext', '$theme', '$colorMode'],
-  props: baseProps,
+  extends: Box,
   computed: {
     context () {
       return this.$SliderContext()
@@ -342,7 +340,7 @@ const SliderTrack = {
 const SliderFilledTrack = {
   name: 'SliderFilledTrack',
   inject: ['$SliderContext', '$theme', '$colorMode'],
-  props: styleProps,
+  extends: PseudoBox,
   computed: {
     context () {
       return this.$SliderContext()
@@ -383,7 +381,7 @@ const SliderFilledTrack = {
 const SliderThumb = {
   name: 'SliderThumb',
   inject: ['$SliderContext', '$theme', '$colorMode'],
-  props: baseProps,
+  extends: Box,
   computed: {
     context () {
       return this.$SliderContext()

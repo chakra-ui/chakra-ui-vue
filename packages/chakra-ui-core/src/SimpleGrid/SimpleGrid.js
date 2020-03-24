@@ -1,16 +1,15 @@
 import Grid from '../Grid'
-import { baseProps } from '../config/props'
 import { countToColumns, widthToColumns } from './grid.styles'
 
 const SimpleGrid = {
   name: 'SimpleGrid',
+  extends: Grid,
   props: {
     columns: [String, Number, Array],
     spacingX: [String, Number, Array],
     spacingY: [String, Number, Array],
     spacing: [String, Number, Array],
-    minChildWidth: [String, Number, Array],
-    ...baseProps
+    minChildWidth: [String, Number, Array]
   },
   computed: {
     templateColumns () {

@@ -1,6 +1,5 @@
 import { StringNumber, StringArray } from '../config/props/props.types'
-import { baseProps } from '../config'
-import { useVariantColorWarning, useId } from '../utils'
+import { useVariantColorWarning, useId, forwardProps } from '../utils'
 import useCheckboxStyle from './checkbox.styles'
 import Box from '../Box'
 import VisuallyHidden from '../VisuallyHidden'
@@ -10,12 +9,12 @@ import Icon from '../Icon'
 const Checkbox = {
   name: 'Checkbox',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   model: {
     prop: 'isChecked',
     event: 'change'
   },
   props: {
-    ...baseProps,
     id: String,
     name: String,
     value: [String, Boolean],
@@ -77,7 +76,7 @@ const Checkbox = {
 
     return h(Box, {
       props: {
-        ...this.$props,
+        ...forwardProps(this.$props),
         as: 'label',
         display: 'inline-flex',
         verticalAlign: 'top',

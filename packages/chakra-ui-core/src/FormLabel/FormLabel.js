@@ -58,7 +58,7 @@ const FormLabel = {
         verticalAlign: 'middle',
         display: 'inline-block',
         ...forwardProps(this.$props),
-        as: 'label',
+        as: 'label'
       }
     }, [
       ...this.$slots.default,

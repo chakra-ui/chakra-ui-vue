@@ -3,7 +3,6 @@ import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../Alert'
 import Box from '../Box'
 import CloseButton from '../CloseButton'
 import ThemeProvider from '../ThemeProvider'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import ColorModeProvider from '../ColorModeProvider'
 import { colorModeObserver } from '../utils/color-mode-observer'
@@ -16,6 +15,7 @@ const breadstick = new Breadstick()
  */
 const Toast = {
   name: 'Toast',
+  extends: Alert,
   props: {
     status: {
       type: String,
@@ -43,8 +43,7 @@ const Toast = {
     description: {
       type: String,
       default: ''
-    },
-    ...baseProps
+    }
   },
   render (h) {
     return h(Alert, {

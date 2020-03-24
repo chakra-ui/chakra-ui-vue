@@ -1,4 +1,3 @@
-import styleProps, { baseProps } from '../config/props'
 import { css } from 'emotion'
 import PseudoBox from '../PseudoBox'
 import Icon from '../Icon'
@@ -28,8 +27,8 @@ const tagSizes = {
 
 const TagCloseButton = {
   name: 'TagCloseButton',
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     isDisabled: Boolean
   },
   render (h) {
@@ -81,8 +80,8 @@ const TagCloseButton = {
 
 const TagIcon = {
   name: 'TagIcon',
+  extends: Box,
   props: {
-    ...baseProps,
     icon: [String, Object]
   },
   render (h) {
@@ -117,7 +116,7 @@ const TagIcon = {
 
 const TagLabel = {
   name: 'TagLabel',
-  props: baseProps,
+  extends: Box,
   render (h) {
     return h(Box, {
       ...forwardProps(this.$props),
@@ -131,8 +130,8 @@ const TagLabel = {
 const Tag = {
   name: 'Tag',
   inject: ['$theme', '$colorMode'],
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     variant: {
       type: String,
       default: 'subtle'

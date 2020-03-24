@@ -1,8 +1,6 @@
 // eslint-disable-next-line
 import { useId, getFocusables, canUseDOM, forwardProps } from '../utils'
-import styleProps, { baseProps } from '../config/props'
 import Button from '../Button'
-import { buttonProps } from '../Button/button.props'
 import { useMenuListStyle, useMenuItemStyle } from './menu.styles'
 import { Popper } from '../Popper'
 import Text from '../Text'
@@ -30,8 +28,7 @@ const menuProps = {
     default: true
   },
   defaultActiveIndex: Number,
-  placement: String,
-  ...baseProps
+  placement: String
 }
 
 const Menu = {
@@ -224,10 +221,7 @@ const Menu = {
 const MenuButton = {
   name: 'MenuButton',
   inject: ['$MenuContext'],
-  props: {
-    ...buttonProps,
-    ...styleProps
-  },
+  extends: Button,
   computed: {
     context () {
       return this.$MenuContext()
@@ -278,7 +272,7 @@ const MenuButton = {
 
 const MenuList = {
   name: 'MenuList',
-  props: styleProps,
+  extends: Popper,
   inject: ['$MenuContext', '$colorMode'],
   computed: {
     context () {
@@ -384,8 +378,8 @@ const MenuList = {
 const MenuItem = {
   name: 'MenuItem',
   inject: ['$MenuContext', '$theme', '$colorMode'],
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     isDisabled: Boolean,
     role: {
       type: String,
@@ -476,7 +470,7 @@ const MenuItem = {
 
 const MenuDivider = {
   name: 'MenuDivider',
-  props: baseProps,
+  extends: Divider,
   render (h) {
     return h(Divider, {
       props: {
@@ -490,9 +484,9 @@ const MenuDivider = {
 
 const MenuGroup = {
   name: 'MenuGroup',
+  extends: Box,
   props: {
-    title: String,
-    ...baseProps
+    title: String
   },
   render (h) {
     return h(Box, {

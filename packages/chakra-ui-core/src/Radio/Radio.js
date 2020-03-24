@@ -1,4 +1,3 @@
-import styleProps from '../config/props'
 import { useVariantColorWarning, forwardProps } from '../utils'
 import useCheckboxStyle from '../Checkbox/checkbox.styles'
 import Box from '../Box'
@@ -8,8 +7,8 @@ import ControlBox from '../ControlBox'
 const Radio = {
   name: 'Radio',
   inject: ['$colorMode', '$theme'],
+  extends: ControlBox,
   props: {
-    ...styleProps,
     id: String,
     name: String,
     value: String,

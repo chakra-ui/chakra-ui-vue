@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.3...@chakra-ui/vue@0.3.4) (2020-03-24)
+
+
+### Bug Fixes
+
+* improve MenuGroup spacing variables ([5289734](https://github.com/chakra-ui/chakra-ui-vue/commit/5289734b3fc75f03b74e18a3bff442eca2888eed))
+* improve Modal exports ([461d5fa](https://github.com/chakra-ui/chakra-ui-vue/commit/461d5fa6e9c39ff363501fe78a3149e99918ca41))
+* improve Slider exports and fix slider transition perf ([5d44f09](https://github.com/chakra-ui/chakra-ui-vue/commit/5d44f09b9a507253349da5004e67a70a4f075a51))
+* resolve Switch imports ([5f16bbd](https://github.com/chakra-ui/chakra-ui-vue/commit/5f16bbda8ebea061b00e67709f2ecfc80284a52e))
+
+
+### Features
+
+* **select:** implement v-model ([34b1156](https://github.com/chakra-ui/chakra-ui-vue/commit/34b1156b7c3e90cb950264f0fcea313357b06ef3))
+
+
+
+
+
 ## [0.3.3](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.2...@chakra-ui/vue@0.3.3) (2020-03-22)
 
 **Note:** Version bump only for package @chakra-ui/vue

@@ -1,12 +1,11 @@
-import { baseProps } from '../config/props'
 import Box from '../Box'
 import Link from '../Link'
 import { forwardProps, cloneVNodeElement, cleanChildren } from '../utils'
 
 const BreadcrumbSeparator = {
   name: 'BreadcrumbSeparator',
+  extends: Box,
   props: {
-    ...baseProps,
     spacing: [String, Number, Array],
     separator: [String, Object]
   },
@@ -26,9 +25,7 @@ const BreadcrumbSeparator = {
 
 const Span = {
   name: 'Span',
-  props: {
-    ...baseProps
-  },
+  extends: Box,
   render (h) {
     return h(Box, {
       props: {
@@ -41,8 +38,8 @@ const Span = {
 
 const BreadcrumbLink = {
   name: 'BreadcrumbLink',
+  extends: Box,
   props: {
-    ...baseProps,
     isCurrentPage: Boolean
   },
   render (h) {
@@ -59,8 +56,8 @@ const BreadcrumbLink = {
 
 const BreadcrumbItem = {
   name: 'BreadcrumbItem',
+  extends: Box,
   props: {
-    ...baseProps,
     isCurrentPage: Boolean,
     isLastChild: Boolean,
     separator: [Object, String],
@@ -110,6 +107,7 @@ const BreadcrumbItem = {
 
 const Breadcrumb = {
   name: 'Breadcrumb',
+  extends: Box,
   props: {
     spacing: {
       type: [String, Number, Array],
@@ -122,8 +120,7 @@ const Breadcrumb = {
     separator: {
       type: [String, Object],
       default: '/'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const children = this.$slots.default

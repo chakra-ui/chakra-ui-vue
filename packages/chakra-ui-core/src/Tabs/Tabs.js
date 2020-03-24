@@ -1,7 +1,5 @@
-import { baseProps } from '../config'
 import { useVariantColorWarning, isDef, useId, forwardProps, cleanChildren, cloneVNodeElement } from '../utils'
 import { useTabListStyle, useTabStyle } from './tabs.styles'
-import styleProps from '../config/props'
 import Flex from '../Flex'
 import Box from '../Box'
 import PseudoBox from '../PseudoBox'
@@ -9,8 +7,8 @@ import PseudoBox from '../PseudoBox'
 const Tabs = {
   name: 'Tabs',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   props: {
-    ...baseProps,
     index: Number,
     defaultIndex: Number,
     isManual: Boolean,
@@ -170,7 +168,7 @@ const Tabs = {
 
 const TabList = {
   name: 'TabList',
-  props: baseProps,
+  extends: Flex,
   inject: ['$TabContext', '$theme', '$colorMode'],
   data () {
     return {
@@ -319,8 +317,8 @@ const TabList = {
 const Tab = {
   name: 'Tab',
   inject: ['$theme', '$colorMode', '$TabContext'],
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     isSelected: Boolean,
     isDisabled: Boolean,
     id: String
@@ -373,8 +371,8 @@ const Tab = {
 
 const TabPanel = {
   name: 'TabPanel',
+  extends: Box,
   props: {
-    ...baseProps,
     isSelected: Boolean,
     selectedPanelNode: Object,
     id: String
@@ -397,7 +395,7 @@ const TabPanel = {
 const TabPanels = {
   name: 'TabPanels',
   inject: ['$TabContext'],
-  props: baseProps,
+  extends: Box,
   computed: {
     context () {
       return this.$TabContext()

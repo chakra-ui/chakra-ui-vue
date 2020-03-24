@@ -1,9 +1,9 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 const ButtonGroup = {
   name: 'ButtonGroup',
+  extends: Box,
   props: {
     size: [String, Array],
     variantColor: [String, Array],
@@ -12,8 +12,7 @@ const ButtonGroup = {
     spacing: {
       type: [Number, Array, String],
       default: 2
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const children = this.$slots.default.filter(e => e.tag)

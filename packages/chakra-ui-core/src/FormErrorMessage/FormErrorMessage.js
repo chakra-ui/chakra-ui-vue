@@ -1,4 +1,3 @@
-import { baseProps } from '../config'
 import { formControlProps } from '../FormControl/formcontrol.props'
 import Flex from '../Flex'
 import Icon from '../Icon'
@@ -8,8 +7,8 @@ import { forwardProps } from '../utils'
 const FormErrorMessage = {
   name: 'FormErrorMessage',
   inject: ['$colorMode', '$useFormControl'],
+  extends: Flex,
   props: {
-    ...baseProps,
     icon: {
       type: String,
       default: 'warning'

@@ -1,11 +1,10 @@
 import Text from '../Text'
-import { baseProps } from '../config'
 import { forwardProps } from '../utils'
 
 const FormHelperText = {
   name: 'FormHelperText',
   inject: ['$useFormControl', '$colorMode'],
-  props: baseProps,
+  extends: Text,
   computed: {
     formControl () {
       return this.$useFormControl(this.$props)

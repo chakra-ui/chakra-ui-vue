@@ -1,5 +1,3 @@
-import styleProps from '../config/props'
-import { inputProps } from '../Input/input.props'
 import Input from '../Input'
 import { forwardProps } from '../utils'
 
@@ -9,9 +7,8 @@ const Textarea = {
     prop: 'inputValue',
     event: 'change'
   },
+  extends: Input,
   props: {
-    ...styleProps,
-    ...inputProps,
     inputValue: String
   },
   render (h) {

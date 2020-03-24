@@ -1,7 +1,6 @@
 import Fragment from '../Fragment'
 import { Popper, PopperArrow } from '../Popper'
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
-import styleProps, { baseProps } from '../config/props'
 import Box from '../Box'
 import CloseButton from '../CloseButton'
 
@@ -334,8 +333,8 @@ const PopoverTrigger = {
 const PopoverContent = {
   name: 'PopoverContent',
   inject: ['$PopoverContext', '$colorMode'],
+  extends: Popper,
   props: {
-    ...styleProps,
     gutter: {
       type: [Number, String],
       default: 4
@@ -465,7 +464,7 @@ const PopoverContent = {
 const PopoverHeader = {
   name: 'PopoverHeader',
   inject: ['$PopoverContext'],
-  props: baseProps,
+  extends: Box,
   computed: {
     context () {
       return this.$PopoverContext()
@@ -492,7 +491,7 @@ const PopoverHeader = {
 
 const PopoverBody = {
   name: 'PopoverBody',
-  props: baseProps,
+  extends: Box,
   inject: ['$PopoverContext'],
   computed: {
     context () {
@@ -520,7 +519,7 @@ const PopoverBody = {
 
 const PopoverArrow = {
   name: 'PopoverArrow',
-  props: baseProps,
+  extends: PopperArrow,
   render (h) {
     return h(PopperArrow, {
       props: forwardProps(this.$props)
@@ -531,7 +530,7 @@ const PopoverArrow = {
 const PopoverCloseButton = {
   name: 'PopoverCloseButton',
   inject: ['$PopoverContext'],
-  props: styleProps,
+  extends: CloseButton,
   computed: {
     context () {
       return this.$PopoverContext()
@@ -560,7 +559,7 @@ const PopoverCloseButton = {
 
 const PopoverFooter = {
   name: 'PopoverFooter',
-  props: baseProps,
+  extends: Box,
   render (h) {
     return h(Box, {
       props: {

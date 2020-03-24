@@ -1,16 +1,14 @@
-import { baseProps } from '../config'
 import Box from '../Box'
 import { forwardProps, cloneVNodes, useId, isDef } from '../utils'
 import PseudoBox from '../PseudoBox'
-import styleProps from '../config/props'
 import Collapse from '../Collapse'
 import Icon from '../Icon'
 import { iconProps } from '../Icon/icon.props'
 
 const Accordion = {
   name: 'Accordion',
+  extends: Box,
   props: {
-    ...baseProps,
     allowMultiple: Boolean,
     allowToggle: Boolean,
     index: {
@@ -117,8 +115,8 @@ const Accordion = {
 
 const AccordionItem = {
   name: 'AccordionItem',
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     isOpen: {
       type: Boolean,
       default: null
@@ -204,7 +202,7 @@ const AccordionItem = {
 const AccordionHeader = {
   name: 'AccordionHeader',
   inject: ['$AccordionContext'],
-  props: styleProps,
+  extends: PseudoBox,
   computed: {
     context () {
       return this.$AccordionContext()
@@ -248,7 +246,7 @@ const AccordionHeader = {
 const AccordionPanel = {
   name: 'AccordionPanel',
   inject: ['$AccordionContext'],
-  props: baseProps,
+  extends: Box,
   computed: {
     context () {
       return this.$AccordionContext()
@@ -279,8 +277,8 @@ const AccordionPanel = {
 const AccordionIcon = {
   name: 'AccordionIcon',
   inject: ['$AccordionContext'],
+  extends: Box,
   props: {
-    ...baseProps,
     ...iconProps
   },
   computed: {

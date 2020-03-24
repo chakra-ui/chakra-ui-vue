@@ -19,7 +19,7 @@ exports[`"StatArrow" should display corresponding icon for "type" prop 1`] = `
       class="css-1x22fzm"
     >
       <svg
-        class="css-1cxju3m css-y3asau"
+        class="css-1nhh26u css-y3asau"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -59,7 +59,7 @@ exports[`"StatArrow" should display corresponding icon for "type" prop 2`] = `
       class="css-1x22fzm"
     >
       <svg
-        class="css-1cxju3m css-y3asau"
+        class="css-es9pvn css-y3asau"
         role="presentation"
         viewBox="0 0 24 24"
       >

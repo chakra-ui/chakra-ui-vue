@@ -1,5 +1,4 @@
 import Box from '../Box'
-import { baseProps } from '../config'
 import { forwardProps } from '../utils'
 import { formControlProps } from '../FormControl/formcontrol.props'
 
@@ -32,10 +31,8 @@ const RequiredIndicator = {
 const FormLabel = {
   name: 'FormLabel',
   inject: ['$useFormControl'],
-  props: {
-    ...baseProps,
-    ...formControlProps
-  },
+  extends: Box,
+  props: formControlProps,
   computed: {
     formControlProps () {
       return {

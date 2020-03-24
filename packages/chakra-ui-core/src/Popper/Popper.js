@@ -8,6 +8,10 @@ import getPopperArrowStyle from './popper.styles'
 import Box from '../Box'
 
 /**
+ * TODO: Use Vue's extends API to debug Popper closeOnClickAway
+ */
+
+/**
  * Flips placement if in <body dir="rtl" />
  * @param {string} placement
  */

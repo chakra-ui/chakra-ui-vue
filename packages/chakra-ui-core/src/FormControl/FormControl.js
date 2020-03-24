@@ -1,14 +1,11 @@
-import { baseProps } from '../config'
 import Box from '../Box'
 import { forwardProps } from '../utils'
 import { formControlProps } from './formcontrol.props'
 
 const FormControl = {
   name: 'FormControl',
-  props: {
-    ...baseProps,
-    ...formControlProps
-  },
+  extends: Box,
+  props: formControlProps,
   inject: {
     $FormControlContext: {
       default: null

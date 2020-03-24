@@ -1,10 +1,10 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { SNA } from '../config/props/props.types'
 
 const Grid = {
   name: 'Grid',
+  extends: Box,
   props: {
     gap: SNA,
     rowGap: SNA,
@@ -17,8 +17,7 @@ const Grid = {
     templateAreas: SNA,
     area: SNA,
     column: SNA,
-    row: SNA,
-    ...baseProps
+    row: SNA
   },
   render (h) {
     return h(Box, {

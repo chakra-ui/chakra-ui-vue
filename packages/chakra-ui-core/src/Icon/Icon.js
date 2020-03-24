@@ -2,17 +2,14 @@ import { css } from 'emotion'
 import Box from '../Box'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
-import { baseProps } from '../config/props'
 import { iconProps } from './icon.props'
 
 const fallbackIcon = iconPaths['question-outline']
 
 const Svg = {
   name: 'IconSvg',
-  props: {
-    ...iconProps,
-    ...baseProps
-  },
+  extends: Box,
+  props: iconProps,
   render (h) {
     const className = css`
       flex-shrink: 0;
@@ -37,10 +34,8 @@ const Svg = {
 export default {
   name: 'Icon',
   inject: ['$theme', '$icons'],
-  props: {
-    ...iconProps,
-    ...baseProps
-  },
+  extends: Svg,
+  props: iconProps,
   render (h) {
     let icon, viewBox
     if (this.name) {
@@ -57,13 +52,13 @@ export default {
 
     return h(Svg, {
       props: {
+        ...forwardProps(this.$props),
         as: 'svg',
         w: this.size,
         h: this.size,
         color: this.color,
         d: 'inline-block',
-        verticalAlign: 'middle',
-        ...forwardProps(this.$props)
+        verticalAlign: 'middle'
       },
       attrs: {
         viewBox,

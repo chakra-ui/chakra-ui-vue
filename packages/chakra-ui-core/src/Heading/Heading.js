@@ -1,5 +1,4 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 const sizes = {
@@ -16,6 +15,7 @@ const sizes = {
  */
 const Heading = {
   name: 'Heading',
+  extends: Box,
   props: {
     size: {
       type: [String, Array, Object],
@@ -24,8 +24,7 @@ const Heading = {
     as: {
       type: String,
       default: 'h1'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     return h(Box, {

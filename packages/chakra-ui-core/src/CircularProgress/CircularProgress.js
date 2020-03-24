@@ -1,11 +1,10 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { getComputedProps } from './circularprogress.styles'
 
 const CircularProgressLabel = {
   name: 'CircularProgressLabel',
-  props: baseProps,
+  extends: Box,
   render (h) {
     return h(Box, {
       style: {
@@ -27,6 +26,7 @@ const CircularProgressLabel = {
 const CircularProgress = {
   name: 'CircularProgress',
   inject: ['$colorMode'],
+  extends: Box,
   computed: {
     colorMode () {
       return this.$colorMode()
@@ -67,8 +67,7 @@ const CircularProgress = {
     color: {
       type: String,
       default: 'blue'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const _trackColor = { light: `${this.trackColor}.100`, dark: 'whiteAlpha.300' }

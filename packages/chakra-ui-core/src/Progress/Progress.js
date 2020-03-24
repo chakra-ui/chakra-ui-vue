@@ -1,7 +1,6 @@
 import Box from '../Box'
 import { generateStripe, valueToPercent, forwardProps } from '../utils'
 import { css, keyframes } from 'emotion'
-import { baseProps } from '../config/props'
 
 const stripe = keyframes({
   from: { backgroundPosition: '1rem 0' },
@@ -20,7 +19,7 @@ const progressbarSizes = {
 
 const ProgressLabel = {
   name: 'ProgressLabel',
-  props: baseProps,
+  extends: Box,
   render (h) {
     return h(Box, {
       props: {
@@ -34,8 +33,8 @@ const ProgressLabel = {
 
 const ProgressTrack = {
   name: 'ProgressTrack',
+  extends: Box,
   props: {
-    ...baseProps,
     size: [String, Number, Array]
   },
   render (h) {
@@ -53,8 +52,8 @@ const ProgressTrack = {
 
 const ProgressIndicator = {
   name: 'ProgressIndicator',
+  extends: Box,
   props: {
-    ...baseProps,
     isIndeterminate: Boolean,
     min: Number,
     max: Number,
@@ -86,8 +85,8 @@ const ProgressIndicator = {
 const Progress = {
   name: 'Progress',
   inject: ['$colorMode'],
+  extends: Box,
   props: {
-    ...baseProps,
     color: {
       type: String,
       default: 'blue'

@@ -1,11 +1,10 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 const Divider = {
   name: 'Divider',
+  extends: Box,
   props: {
-    ...baseProps,
     orientation: {
       type: String,
       default: 'horizontal'

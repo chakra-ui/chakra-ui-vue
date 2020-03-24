@@ -1,9 +1,9 @@
-import styleProps, { baseProps } from '../config/props'
 import { Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, ModalOverlay, ModalCloseButton } from '../Modal'
 import { forwardProps, HTMLElement } from '../utils'
 
 const Drawer = {
   name: 'Drawer',
+  extends: Modal,
   props: {
     isOpen: {
       type: Boolean,
@@ -36,8 +36,7 @@ const Drawer = {
     size: {
       type: String,
       default: 'xs'
-    },
-    ...baseProps
+    }
   },
   provide () {
     return {
@@ -108,9 +107,7 @@ const getPlacementStyles = (position, { finalWidth, finalHeight }) => {
 
 const DrawerContent = {
   name: 'DrawerContent',
-  props: {
-    ...baseProps
-  },
+  extends: ModalContent,
   inject: ['$DrawerContext'],
   computed: {
     context () {
@@ -127,6 +124,7 @@ const DrawerContent = {
       props: {
         noStyles: true,
         position: 'fixed',
+        m: 0,
         ...placementStyles,
         ...forwardProps(this.$props)
       }
@@ -136,7 +134,7 @@ const DrawerContent = {
 
 const DrawerOverlay = {
   name: 'DrawerOverlay',
-  props: baseProps,
+  extends: ModalOverlay,
   render (h) {
     return h(ModalOverlay, {
       props: forwardProps(this.$props)
@@ -146,7 +144,7 @@ const DrawerOverlay = {
 
 const DrawerCloseButton = {
   name: 'DrawerCloseButton',
-  props: styleProps,
+  extends: ModalCloseButton,
   render (h) {
     return h(ModalCloseButton, {
       props: {

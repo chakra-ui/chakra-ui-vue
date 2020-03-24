@@ -1,11 +1,11 @@
-import styleProps from '../config/props'
+
 import PseudoBox from '../PseudoBox'
 import { cloneVNode, forwardProps } from '../utils'
 
 const AspectRatioBox = {
   name: 'AspectRatioBox',
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     ratio: {
       type: Number,
       default: 4 / 3

@@ -46,6 +46,10 @@ h2, h3 {
       content: "#";
     }
 
+    &:hover {
+      opacity: 1;
+    }
+
     &::focus {
       opacity: 1;
       box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);

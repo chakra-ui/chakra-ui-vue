@@ -20,7 +20,7 @@
               pt="20"
               :px="[10, 10, 20, '14rem']"
             >
-              <Nuxt />
+              <Nuxt id="page-content" />
               <Footer v-if="$route.path === '/index'" />
               <FileContributors v-else />
             </Box>
@@ -44,6 +44,7 @@ import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import FileContributors from '../components/FileContributors'
 import { css } from 'emotion'
+import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
@@ -75,6 +76,16 @@ export default {
           color: 'inherit',
           borderLeft: '4px solid rgb(251, 211, 141);'
         }
+      },
+      code: {
+        light: {
+          bg: '#fefcbf',
+          color: '#744210'
+        },
+        dark: {
+          bg: 'rgba(250, 240, 137, 0.16)',
+          color: 'rgb(250, 240, 137)'
+        }
       }
     }
   },
@@ -87,8 +98,49 @@ export default {
         '.preview-panel': {
           borderColor: this.thBg[colorMode]
         },
-        'blockquote': this.callout[colorMode]
+        'blockquote': this.callout[colorMode],
+        'table, p': {
+          'code': this.code[colorMode]
+        }
       })(this.$chakra.theme))
+    },
+    hash () {
+      return this.$route.name
+    }
+  },
+  mounted () {
+    this.setPageIds()
+  },
+  watch: {
+    hash (newVal, oldVal) {
+      console.log('Hash changed', newVal)
+      if (newVal !== oldVal) {
+        this.pushWindowToId()
+      }
+    }
+  },
+  methods: {
+    /**
+     * TODO: Finish implementing this
+     * Sets the IDs for titles to allow for scrolling.
+     */
+    setPageIds () {
+      const pageWrapper = document.getElementById('page-content')
+      const h2s = pageWrapper.querySelectorAll('h2')
+      const h3s = pageWrapper.querySelectorAll('h3')
+
+      const allTitles = [ ...h2s, ...h3s ]
+      allTitles.forEach(title => {
+        const content = `<div>${title.textContent}` + `<a aria-label="${title.textContent}" href="${stringToUrl(title.textContent, '#')}"></a></div>`
+        title.innerHTML = content
+      })
+
+      setTimeout(() => {
+        this.pushWindowToId()
+      })
+    },
+    pushWindowToId () {
+      this.$router.push(this.$route.fullPath)
     }
   }
 }

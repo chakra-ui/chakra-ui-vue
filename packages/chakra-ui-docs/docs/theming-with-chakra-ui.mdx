@@ -1,0 +1,37 @@
+import Code from '../components/CodeBlock'
+
+# Theming
+
+By default, Chakra UI exposes a [**default theme object**](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-theme/src/theme/index.js) that follows the [System UI Theme Specification](https://system-ui.com/theme/).
+
+This object/theme specification provides a way to store your design system's style values (e.g. colors), design tokens and scales.
+
+## Understanding Chakra's Theme Specification
+Chakra UI's theme object is built around the idea of _scales_. 
+
+Scales include values like a typographic scale (for your applications font styles), a spacing scale for margins and paddings, and a color scale for your application's colors.
+
+The theme is defined as a single object that exports difference scale values.
+
+<br />
+<Code lang="js" code={`// Chakra UI Theme Object
+export default {
+  breakpoints: {},
+  zIndices: {},
+  radii: {},
+  opacity: {},
+  borders: {},
+  colors: {},
+  letterSpacings: {},
+  lineHeights: {},
+  fontWeights: {},
+  fonts: {},
+  fontSizes: {},
+  borderWidths: {},
+  sizes: {},
+  shadows: {},
+  space: {}
+}
+`} />
+
+For a more detailed breakdown on the System UI theme breakdown see their [official documentation](https://system-ui.com/theme/)

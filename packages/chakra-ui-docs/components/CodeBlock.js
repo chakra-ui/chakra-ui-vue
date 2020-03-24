@@ -6,7 +6,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: 'bash'
+      default: 'vue'
     },
     isReadOnly: {
       type: Boolean,
@@ -23,7 +23,8 @@ export default {
     autoStyleLineNumbers: {
       type: Boolean,
       default: true
-    }
+    },
+    code: String
   },
   data () {
     return {
@@ -47,8 +48,8 @@ export default {
     }
   },
   render (h) {
-    const children = this.$slots.default[0]
-    const innerText = children.text.trim()
+    // const children = this.$slots.default[0]
+    const innerText = this.code.trim()
     this.text = innerText
 
     return h(Box, {

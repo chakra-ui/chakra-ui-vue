@@ -1,4 +1,3 @@
-import styleProps from '../config/props'
 import { buttonProps } from './button.props'
 import { forwardProps } from '../utils'
 import createButtonStyles, { setIconSizes } from './button.styles'
@@ -12,14 +11,14 @@ import Icon from '../Icon'
  */
 const ButtonIcon = {
   name: 'ButtonIcon',
+  extends: Box,
   props: {
     icon: {
       type: [String, Object]
     },
     size: {
       type: [String, Number]
-    },
-    ...styleProps
+    }
   },
   render (h) {
     if (typeof this.icon === 'string') {
@@ -54,10 +53,10 @@ const ButtonIcon = {
  */
 export default {
   name: 'Button',
+  extends: PseudoBox,
   inject: ['$theme', '$colorMode'],
   props: {
     ...buttonProps,
-    ...styleProps,
     to: [String, Object]
   },
   computed: {

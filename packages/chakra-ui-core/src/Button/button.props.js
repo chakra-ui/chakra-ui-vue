@@ -56,7 +56,7 @@ export const buttonProps = {
     type: String,
     default: null
   },
-  rounded: {
+  isRounded: {
     type: Boolean,
     default: false
   },

@@ -1,16 +1,15 @@
 import { SNA } from '../config/props/props.types'
-import { baseProps } from '../config'
 import Box from '../Box'
 import { isDef, useId, cleanChildren, cloneVNodeElement, forwardProps } from '../utils'
 
 const CheckboxGroup = {
   name: 'CheckboxGroup',
+  extends: Box,
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     name: String,
     variantColor: String,
     size: String,

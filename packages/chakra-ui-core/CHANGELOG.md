@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.3...@chakra-ui/vue@0.3.4) (2020-03-24)
+
+
+### Bug Fixes
+
+* improve MenuGroup spacing variables ([5289734](https://github.com/chakra-ui/chakra-ui-vue/commit/5289734b3fc75f03b74e18a3bff442eca2888eed))
+* improve Modal exports ([461d5fa](https://github.com/chakra-ui/chakra-ui-vue/commit/461d5fa6e9c39ff363501fe78a3149e99918ca41))
+* improve Slider exports and fix slider transition perf ([5d44f09](https://github.com/chakra-ui/chakra-ui-vue/commit/5d44f09b9a507253349da5004e67a70a4f075a51))
+* resolve Switch imports ([5f16bbd](https://github.com/chakra-ui/chakra-ui-vue/commit/5f16bbda8ebea061b00e67709f2ecfc80284a52e))
+
+
+### Features
+
+* **select:** implement v-model ([34b1156](https://github.com/chakra-ui/chakra-ui-vue/commit/34b1156b7c3e90cb950264f0fcea313357b06ef3))
+
+
+
+
+
+## [0.3.3](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.2...@chakra-ui/vue@0.3.3) (2020-03-22)
+
+**Note:** Version bump only for package @chakra-ui/vue
+
+
+
+
+
+## [0.3.2](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.1...@chakra-ui/vue@0.3.2) (2020-03-22)
+
+
+### Bug Fixes
+
+* **editable:** change event handler for native input ([1c3fe9d](https://github.com/chakra-ui/chakra-ui-vue/commit/1c3fe9d68414f269de5e42e252448904652c6fa6))
+* **editable:** fix aria-disabled typo ([764258e](https://github.com/chakra-ui/chakra-ui-vue/commit/764258ec8d9b2575befb772f0c82b685f01113f7))
+* **editable:** fix blur event only call onSubmit ([23c737c](https://github.com/chakra-ui/chakra-ui-vue/commit/23c737c5d60a8ee87971f8f16bce8425b1b06149))
+
+
+### Features
+
+* **editable:** add storybook for editable component ([074d2e3](https://github.com/chakra-ui/chakra-ui-vue/commit/074d2e305fdddf696b7a0661ba6314f17aff7074))
+* **edtiable:** add tests for editable component ([2801710](https://github.com/chakra-ui/chakra-ui-vue/commit/280171058ca78c2c587372ee501ecc6ebf96822d))
+* **stat:** add stat component ([767b026](https://github.com/chakra-ui/chakra-ui-vue/commit/767b026de5f5694d11225e1eed08671965d04921))
+
+
+
+
+
 ## [0.3.1](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.0...@chakra-ui/vue@0.3.1) (2020-03-21)
 
 **Note:** Version bump only for package @chakra-ui/vue

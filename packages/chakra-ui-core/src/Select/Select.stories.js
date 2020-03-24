@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/vue'
+import { action } from '@storybook/addon-actions'
 import { Box, Stack, Select } from '..'
 
 storiesOf('UI | Select', module)
@@ -6,13 +7,26 @@ storiesOf('UI | Select', module)
     components: { Box, Select },
     template: `
       <Box mb="3" w="300px">
-        <Select placeholder="Select option">
+        <Select v-model="value" placeholder="Select option">
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
         </Select>
       </Box>
-    `
+    `,
+    data () {
+      return {
+        value: 'option3'
+      }
+    },
+    watch: {
+      value (newValue) {
+        this.action('Selected value', newValue)
+      }
+    },
+    methods: {
+      action: action()
+    }
   }))
   .add('Changing select size', () => ({
     components: { Stack, Select },

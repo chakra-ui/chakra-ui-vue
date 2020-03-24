@@ -8,7 +8,7 @@ exports[`should display button with left icon 1`] = `
     type="button"
   >
     <svg
-      class="css-1awdbqy css-y3asau"
+      class="css-6lyqdc css-y3asau"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -35,7 +35,7 @@ exports[`should display button with right icon 1`] = `
   >
     Email
     <svg
-      class="css-2qwq57 css-y3asau"
+      class="css-88m0n5 css-y3asau"
       role="presentation"
       viewBox="0 0 24 24"
     >

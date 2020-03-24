@@ -165,7 +165,8 @@ yarn dev
 
 - [ ] Documentation site (Ongoing)
 - [ ] Set up type system for plugin & components export with Typescript
-
+- [ ] Create Vue CLI Plugin (Ongoing)
+ 
 <a id="contributors"></a>
 
 ## Contributors ✨

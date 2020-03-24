@@ -1,11 +1,11 @@
 import Box from '../Box'
 import { forwardProps } from '../utils'
-import { baseProps } from '../config/props'
 import useBadgeStyles from './badge.styles'
 
 export default {
   name: 'Badge',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   props: {
     variant: {
       type: String,
@@ -14,8 +14,7 @@ export default {
     variantColor: {
       type: String,
       default: 'gray'
-    },
-    ...baseProps
+    }
   },
   computed: {
     colorMode () {

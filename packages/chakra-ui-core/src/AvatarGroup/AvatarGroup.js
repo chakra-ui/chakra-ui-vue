@@ -1,6 +1,5 @@
 import Flex from '../Flex'
 import { avatarSizes } from '../Avatar/avatar.styles'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 /**
@@ -9,10 +8,10 @@ import { forwardProps } from '../utils'
 const MoreAvatarLabel = {
   name: 'MoreAvatarLabel',
   inject: ['$theme', '$colorMode'],
+  extends: Flex,
   props: {
     size: [String, Array],
-    label: String,
-    ...baseProps
+    label: String
   },
   computed: {
     theme () {
@@ -51,8 +50,9 @@ const MoreAvatarLabel = {
 
 const AvatarGroup = {
   name: 'AvatarGroup',
+  extends: Flex,
   props: {
-    groupSize: {
+    size: {
       type: [Number, String, Array],
       default: 'md'
     },
@@ -61,8 +61,7 @@ const AvatarGroup = {
     spacing: {
       type: [Number, String, Array],
       default: -3
-    },
-    ...baseProps
+    }
   },
   render (h) {
     // Get the number of slot nodes inside AvatarGroup
@@ -77,7 +76,7 @@ const AvatarGroup = {
         // Change VNode component options
         const { propsData } = node.componentOptions
         propsData['ml'] = isFirstAvatar ? 0 : this.spacing
-        propsData['size'] = this.groupSize
+        propsData['size'] = this.size
         propsData['showBorder'] = true
         propsData['borderColor'] = this.borderColor || propsData['borderColor']
         propsData['zIndex'] = count - index
@@ -87,7 +86,7 @@ const AvatarGroup = {
       if (max && index === max) {
         return h(MoreAvatarLabel, {
           props: {
-            size: this.groupSize,
+            size: this.size,
             ml: this.spacing,
             label: `+${count - max}`
           }
@@ -95,11 +94,14 @@ const AvatarGroup = {
       }
     })
 
+    // Drop size, borderColor, max, spacing props from final rendered AvatarGroup props for consistency.
+    const { size, borderColor, max: _max, spacing, ...rest } = this.$props
+
     return h(Flex, {
       props: {
         alignItems: 'center',
         zIndex: 0,
-        ...forwardProps(this.$props)
+        ...forwardProps(rest)
       }
     }, clones)
   }

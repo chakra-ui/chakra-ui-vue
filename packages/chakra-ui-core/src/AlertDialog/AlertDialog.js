@@ -1,4 +1,3 @@
-import baseProps from '../config/props'
 import { forwardProps, HTMLElement } from '../utils'
 import {
   Modal,
@@ -18,6 +17,7 @@ const formatIds = id => ({
 
 const AlertDialog = {
   name: 'AlertDialog',
+  extends: Modal,
   props: {
     isOpen: {
       type: Boolean,
@@ -27,8 +27,7 @@ const AlertDialog = {
       type: Function,
       default: () => null
     },
-    leastDestructiveRef: [HTMLElement, Object],
-    ...baseProps
+    leastDestructiveRef: [HTMLElement, Object]
   },
   render (h) {
     return h(Modal, {
@@ -45,7 +44,7 @@ const AlertDialog = {
 
 const AlertDialogContent = {
   name: 'AlertDialogContent',
-  props: baseProps,
+  props: ModalContent,
   render (h) {
     return h(ModalContent, {
       props: forwardProps(this.$props),

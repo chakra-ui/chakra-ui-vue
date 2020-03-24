@@ -1,4 +1,3 @@
-import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
 import useInputStyle from './input.styles'
 import { forwardProps } from '../utils'
@@ -19,14 +18,12 @@ const Input = {
       default: null
     }
   },
+  extends: PseudoBox,
   model: {
     prop: 'value',
     event: 'input'
   },
-  props: {
-    ...styleProps,
-    ...inputProps
-  },
+  props: inputProps,
   computed: {
     colorMode () {
       return this.$colorMode()

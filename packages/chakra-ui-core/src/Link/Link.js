@@ -1,15 +1,10 @@
-import styleProps from '../config/props'
 import PseudoBox from '../PseudoBox'
 import { forwardProps, kebabify } from '../utils'
 import { SNA } from '../config/props/props.types'
 
-/**
- * Issue:
- * - Text decoration on hover not working. Problem source could be with styled components internally
- */
-
 const Link = {
   name: 'Link',
+  extends: PseudoBox,
   props: {
     as: {
       type: String,
@@ -17,8 +12,7 @@ const Link = {
     },
     to: SNA,
     isDisabled: Boolean,
-    isExternal: Boolean,
-    ...styleProps
+    isExternal: Boolean
   },
   computed: {
     isRouterLink () {

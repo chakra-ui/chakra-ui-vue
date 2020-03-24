@@ -1,5 +1,4 @@
 import { StringArray } from '../config/props/props.types'
-import { baseProps } from '../config'
 import { inputSizes } from '../Input/input.styles'
 import Box from '../Box'
 import { cloneVNode, forwardProps } from '../utils'
@@ -8,9 +7,9 @@ import Input from '../Input'
 
 const InputGroup = {
   name: 'InputGroup',
+  extends: Box,
   inject: ['$theme'],
   props: {
-    ...baseProps,
     size: {
       type: StringArray,
       default: 'md'

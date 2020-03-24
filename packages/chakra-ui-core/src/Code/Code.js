@@ -1,17 +1,16 @@
 import Box from '../Box'
 import useBadgeStyle from '../Badge/badge.styles'
 import { useVariantColorWarning, forwardProps } from '../utils'
-import { baseProps } from '../config/props'
 
 const Code = {
   name: 'Code',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   props: {
     variantColor: {
       type: String,
       default: 'gray'
-    },
-    ...baseProps
+    }
   },
   computed: {
     theme () {

@@ -1,15 +1,13 @@
-import { baseProps } from '../config'
 import Box from '../Box'
 import PseudoBox from '../PseudoBox'
 import Icon from '../Icon'
 import { cleanChildren, isDef, cloneVNodeElement, forwardProps } from '../utils'
 import { SNA } from '../config/props/props.types'
-import styleProps from '../config/props'
 
 const List = {
   name: 'List',
+  extends: Box,
   props: {
-    ...baseProps,
     styleType: {
       type: String,
       default: 'none'
@@ -54,8 +52,8 @@ const List = {
 
 const ListItem = {
   name: 'ListItem',
+  extends: PseudoBox,
   props: {
-    ...styleProps,
     spacing: SNA
   },
   render (h) {
@@ -70,8 +68,8 @@ const ListItem = {
 
 const ListIcon = {
   name: 'ListIcon',
+  extends: Box,
   props: {
-    ...baseProps,
     icon: String
   },
   render (h) {

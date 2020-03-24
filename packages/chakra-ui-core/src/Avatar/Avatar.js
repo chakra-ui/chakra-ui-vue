@@ -1,4 +1,3 @@
-import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils/'
 import useAvatarStyles, { avatarSizes } from './avatar.styles'
 import Box from '../Box'
@@ -24,9 +23,9 @@ const getInitials = (name) => {
 export const AvatarBadge = {
   name: 'AvatarBadge',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   props: {
-    size: [String, Number, Array],
-    ...baseProps
+    size: [String, Number, Array]
   },
   computed: {
     theme () {
@@ -63,10 +62,10 @@ export const AvatarBadge = {
  */
 const AvatarName = {
   name: 'AvatarName',
+  extends: Box,
   props: {
     name: [String, Array],
-    size: [String, Array],
-    ...baseProps
+    size: [String, Array]
   },
   render (h) {
     return h(Box, {
@@ -90,9 +89,9 @@ const AvatarName = {
  */
 const DefaultAvatar = {
   name: 'DefaultAvatar',
+  extends: Box,
   props: {
-    size: [String, Number, Array],
-    ...baseProps
+    size: [String, Number, Array]
   },
   render (h) {
     return h(Box, {
@@ -122,6 +121,7 @@ const DefaultAvatar = {
 export const Avatar = {
   name: 'Avatar',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   computed: {
     theme () {
       return this.$theme()
@@ -141,8 +141,7 @@ export const Avatar = {
     },
     name: [String, Array],
     src: [String, Array],
-    borderColor: [String],
-    ...baseProps
+    borderColor: [String]
   },
   data () {
     return {

@@ -1,12 +1,11 @@
-import { baseProps } from '../config/props'
 import Box from '../Box'
 import NoSsr from '../NoSsr'
 import { forwardProps } from '../utils'
 
 const Image = {
   name: 'CImage',
+  extends: Box,
   props: {
-    ...baseProps,
     src: String,
     fallbackSrc: String,
     ignoreFalback: Boolean,

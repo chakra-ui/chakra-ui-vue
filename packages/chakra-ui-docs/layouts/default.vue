@@ -98,7 +98,11 @@ export default {
         '.preview-panel': {
           borderColor: this.thBg[colorMode]
         },
-        'blockquote': this.callout[colorMode],
+        'blockquote': {
+          ...this.callout[colorMode],
+          rounded: 'md',
+          overflow: 'hidden'
+        },
         'table, p': {
           'code': this.code[colorMode]
         }

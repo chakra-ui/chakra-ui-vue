@@ -1,12 +1,11 @@
 import Box from '../Box'
-import { baseProps } from '../config'
 import { StringNumber } from '../config/props/props.types'
 import { useId, cloneVNodeElement, forwardProps } from '../utils'
 
 const RadioGroup = {
   name: 'RadioGroup',
+  extends: Box,
   props: {
-    ...baseProps,
     name: {
       type: String,
       default: `radio-${useId()}`

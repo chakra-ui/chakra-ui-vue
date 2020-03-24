@@ -1,7 +1,4 @@
-import { baseProps } from '../config'
 import Box from '../Box'
-import styleProps from '../config/props'
-import { inputProps } from '../Input/input.props'
 import Input from '../Input'
 import splitProps from './select.utils'
 import Icon from '../Icon'
@@ -11,7 +8,7 @@ import Icon from '../Icon'
  */
 const SelectIconWrapper = {
   name: 'SelectIconWrapper',
-  props: baseProps,
+  extends: Box,
   render (h) {
     return h(Box, {
       props: {
@@ -34,9 +31,8 @@ const SelectIconWrapper = {
 
 const SelectInput = {
   name: 'SelectInput',
+  extends: Input,
   props: {
-    ...styleProps,
-    ...inputProps,
     placeholder: String,
     value: String
   },
@@ -74,9 +70,8 @@ const Select = {
     prop: 'value',
     event: 'change'
   },
+  extends: Input,
   props: {
-    ...styleProps,
-    ...inputProps,
     rootProps: {
       type: Object,
       default: () => ({})

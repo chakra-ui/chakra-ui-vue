@@ -16,7 +16,7 @@ storiesOf('UI | Drawer', module)
 
         <Drawer :isOpen="isOpen" placement="right" :on-close="close" :initialFocusRef="()=>$refs.inputInsideModal">
             <DrawerOverlay />
-            <DrawerContent data-testid="overlay">
+            <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader>Create your account</DrawerHeader>
 

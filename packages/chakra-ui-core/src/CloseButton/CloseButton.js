@@ -1,6 +1,5 @@
 import Icon from '../Icon'
 import PseudoBox from '../PseudoBox'
-import styleProps from '../config/props'
 import { forwardProps } from '../utils'
 
 const baseProps = {
@@ -40,6 +39,7 @@ const sizes = {
 export default {
   name: 'CloseButton',
   inject: ['$theme', '$colorMode'],
+  extends: PseudoBox,
   props: {
     size: {
       type: String,
@@ -57,8 +57,7 @@ export default {
     _ariaLabel: {
       type: String,
       default: 'Close'
-    },
-    ...styleProps
+    }
   },
   render (h) {
     // Pseudo styles
@@ -71,6 +70,7 @@ export default {
 
     return h(PseudoBox, {
       props: {
+        ...forwardProps(this.$props),
         as: 'button',
         outline: 'none',
         h: buttonSize,
@@ -79,8 +79,8 @@ export default {
         cursor: 'pointer',
         _hover: { bg: hoverColor[this.colorMode] },
         _active: { bg: activeColor[this.colorMode] },
-        ...baseProps,
-        ...forwardProps(this.$props)
+        _focus: { shadow: 'outline' },
+        ...baseProps
       },
       nativeOn: {
         click: ($e) => {

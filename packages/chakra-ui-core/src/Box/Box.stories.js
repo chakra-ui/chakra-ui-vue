@@ -23,3 +23,19 @@ storiesOf('UI | Box', module)
       </div>
     `
   }))
+  .add('Box with custom values', () => ({
+    components: { Box },
+    template: `
+      <div>
+        <Box
+          w="300px"
+          h="200px"
+          font-family="body"
+          objectFit="contain"
+          bgImg="url(https://lh3.googleusercontent.com/proxy/vG0O53R9-vPA2WpuC5lXWCHIVuIQiQ1R7bpQ1UcDsHnHVlz2BJMeSeJx1I1n4huq_SeB39iegxgQl1zXcnNqpq2IJfCgQwwWXpdRG9pNdA)"
+        >
+          <Box h="full" bg="red.200" :w="1/2" />
+        </Box>
+      </div>
+    `
+  }))

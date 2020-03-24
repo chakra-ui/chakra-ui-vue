@@ -67,6 +67,7 @@ import componentLinks from './components'
 const topNavLinks = [
   'Getting Started',
   'Principles',
+  'Theming with Chakra UI',
   'Style Props',
   'Color Mode',
   'Responsive Styles',

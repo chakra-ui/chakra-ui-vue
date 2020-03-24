@@ -1,6 +1,5 @@
 import Box from '../Box'
 import Icon from '../Icon'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import useAlertStyle, { useAlertIconStyle } from './alert.styles'
 
@@ -14,6 +13,7 @@ export const statuses = {
 const Alert = {
   name: 'Alert',
   inject: ['$theme', '$colorMode'],
+  extends: Box,
   provide () {
     return {
       _status: this.status,
@@ -33,8 +33,7 @@ const Alert = {
     variant: {
       type: [String, Array],
       default: 'subtle'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const alertStyles = useAlertStyle({
@@ -60,12 +59,12 @@ const Alert = {
 const AlertIcon = {
   name: 'AlertIcon',
   inject: ['_status', '_variant', '$colorMode', '$theme'],
+  extends: Box,
   props: {
     size: {
       default: 5
     },
-    name: String,
-    ...baseProps
+    name: String
   },
   computed: {
     colorMode () {
@@ -96,9 +95,7 @@ const AlertIcon = {
 
 const AlertTitle = {
   name: 'AlertTitle',
-  props: {
-    ...baseProps
-  },
+  extends: Box,
   render (h) {
     return h(Box, {
       props: {
@@ -112,9 +109,7 @@ const AlertTitle = {
 
 const AlertDescription = {
   name: 'AlertDescription',
-  props: {
-    ...baseProps
-  },
+  extends: Box,
   render (h) {
     return h(Box, { props: forwardProps(this.$props) }, this.$slots.default)
   }

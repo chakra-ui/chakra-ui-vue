@@ -5,7 +5,9 @@ import PseudoBox from '../PseudoBox'
 import { Fade } from '../Transition'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
+import { baseProps } from '../config'
 import Box from '../Box'
+import styleProps from '../config/props'
 import CloseButton from '../CloseButton'
 import isFunction from 'lodash-es/isFunction'
 
@@ -232,7 +234,7 @@ const Modal = {
  */
 const ModalOverlay = {
   name: 'ModalOverlay',
-  extends: Box,
+  props: baseProps,
   render (h) {
     return h(Box, {
       props: {
@@ -253,8 +255,8 @@ const ModalContent = {
   name: 'ModalContent',
   inheritAttrs: false,
   inject: ['$ModalContext', '$colorMode'],
-  extends: Box,
   props: {
+    ...baseProps,
     noStyles: Boolean,
     zIndex: {
       type: String,
@@ -422,7 +424,7 @@ const ModalContent = {
 const ModalHeader = {
   name: 'ModalHeader',
   inject: ['$ModalContext'],
-  extends: Box,
+  props: baseProps,
   computed: {
     context () {
       return this.$ModalContext()
@@ -450,7 +452,7 @@ const ModalHeader = {
 
 const ModalFooter = {
   name: 'ModalFooter',
-  extends: Box,
+  props: baseProps,
   render (h) {
     return h(Box, {
       props: {
@@ -467,7 +469,7 @@ const ModalFooter = {
 
 const ModalBody = {
   name: 'ModalBody',
-  extends: Box,
+  props: baseProps,
   inject: ['$ModalContext'],
   computed: {
     context () {
@@ -499,7 +501,7 @@ const ModalBody = {
 
 const ModalCloseButton = {
   name: 'ModalCloseButton',
-  extends: CloseButton,
+  props: styleProps,
   inject: ['$ModalContext'],
   computed: {
     context () {

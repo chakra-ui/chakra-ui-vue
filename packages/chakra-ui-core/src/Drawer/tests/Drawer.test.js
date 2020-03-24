@@ -30,17 +30,17 @@ const renderComponent = (props) => {
         <Drawer placement="right" ${inlineAttrs}>
             <DrawerOverlay />
             <DrawerContent data-testid="overlay">
-            <DrawerCloseButton data-testid="close-btn" />
-            <DrawerHeader>Create your account</DrawerHeader>
+              <DrawerCloseButton data-testid="close-btn" />
+              <DrawerHeader>Create your account</DrawerHeader>
 
-            <DrawerBody>
-                <Input data-testid="inputInsideDrawer" ref="inputInsideDrawer" placeholder="Type here..." />
-            </DrawerBody>
+              <DrawerBody>
+                  <Input data-testid="inputInsideDrawer" ref="inputInsideDrawer" placeholder="Type here..." />
+              </DrawerBody>
 
-            <DrawerFooter>
-                <Button variant="outline" mr="3" @click="isOpen = false">Cancel</Button>
-                <Button color="blue">Save</Button>
-            </DrawerFooter>
+              <DrawerFooter>
+                  <Button variant="outline" mr="3" @click="isOpen = false">Cancel</Button>
+                  <Button color="blue">Save</Button>
+              </DrawerFooter>
             </DrawerContent>
         </Drawer>
     </div>

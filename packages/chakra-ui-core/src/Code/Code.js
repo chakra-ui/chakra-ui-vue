@@ -32,14 +32,14 @@ const Code = {
   render (h) {
     return h(Box, {
       props: {
-        as: 'code',
         display: 'inline-block',
         fontFamily: 'mono',
         fontSize: 'sm',
         px: '0.2em',
         rounded: 'sm',
         ...this.badgeStyle,
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        as: 'code'
       }
     }, this.$slots.default)
   }

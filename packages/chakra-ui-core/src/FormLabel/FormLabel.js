@@ -49,7 +49,6 @@ const FormLabel = {
   render (h) {
     return h(Box, {
       props: {
-        as: 'label',
         fontSize: 'md',
         pr: '12px',
         pb: '4px',
@@ -58,7 +57,8 @@ const FormLabel = {
         textAlign: 'left',
         verticalAlign: 'middle',
         display: 'inline-block',
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        as: 'label',
       }
     }, [
       ...this.$slots.default,

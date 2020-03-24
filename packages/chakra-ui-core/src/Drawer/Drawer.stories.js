@@ -16,18 +16,18 @@ storiesOf('UI | Drawer', module)
 
         <Drawer :isOpen="isOpen" placement="right" :on-close="close" :initialFocusRef="()=>$refs.inputInsideModal">
             <DrawerOverlay />
-            <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
+            <DrawerContent data-testid="overlay">
+              <DrawerCloseButton />
+              <DrawerHeader>Create your account</DrawerHeader>
 
-            <DrawerBody>
-                <Input ref="inputInsideModal" placeholder="Type here..." />
-            </DrawerBody>
+              <DrawerBody>
+                  <Input ref="inputInsideModal" placeholder="Type here..." />
+              </DrawerBody>
 
-            <DrawerFooter>
-                <Button variant="outline" mr="3" @click="isOpen = false">Cancel</Button>
-                <Button color="blue">Save</Button>
-            </DrawerFooter>
+              <DrawerFooter>
+                  <Button variant="outline" mr="3" @click="isOpen = false">Cancel</Button>
+                  <Button color="blue">Save</Button>
+              </DrawerFooter>
             </DrawerContent>
         </Drawer>
     </Fragment>

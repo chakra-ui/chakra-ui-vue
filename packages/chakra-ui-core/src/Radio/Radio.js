@@ -88,11 +88,9 @@ const Radio = {
         props: {
           ...forwardProps(this.$props),
           ...this.radioStyles,
-          rounded: 'full'
+          rounded: 'full',
+          type: 'radio',
         },
-        attrs: {
-          type: 'radio'
-        }
       }, [
         h(Box, {
           props: {

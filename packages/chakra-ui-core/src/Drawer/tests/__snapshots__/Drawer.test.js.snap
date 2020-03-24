@@ -49,13 +49,13 @@ exports[`should render correctly 1`] = `
           >
             <button
               aria-label="Close"
-              class="css-0 css-1xo4iay"
+              class="css-0 css-9o9ciq"
               data-testid="close-btn"
               x-close-button=""
             >
               <svg
                 aria-hidden="true"
-                class="css-xmst1h css-y3asau"
+                class="css-1223ctv css-y3asau"
                 role="presentation"
                 viewBox="0 0 24 24"
               >

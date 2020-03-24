@@ -44,7 +44,7 @@ exports[`should display tag with right icon 1`] = `
       </div>
        
       <svg
-        class="css-10whti9 css-y3asau css-9r03b"
+        class="css-3xhelv css-y3asau css-9r03b"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ exports[`should render correctly 1`] = `
       class="css-0 css-1mwiunl"
     >
       <svg
-        class="css-10whti9 css-y3asau css-9r03b"
+        class="css-3xhelv css-y3asau css-9r03b"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"

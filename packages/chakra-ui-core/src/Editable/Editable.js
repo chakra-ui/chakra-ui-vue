@@ -14,6 +14,9 @@ const sharedEditableProps = {
   mx: '-3px'
 }
 
+/**
+ * Compose with extend API to reduce bundle size
+ */
 const Editable = {
   name: 'Editable',
   props: {

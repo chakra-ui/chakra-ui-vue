@@ -1,5 +1,4 @@
 import Box from '../Box'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 /**
@@ -7,14 +6,14 @@ import { forwardProps } from '../utils'
  */
 const Flex = {
   name: 'Flex',
+  extends: Box,
   props: {
     as: String,
     align: [String, Array],
     justify: [String, Array],
     wrap: [String, Array],
     direction: [String, Array],
-    size: [String, Array],
-    ...baseProps
+    size: [String, Array]
   },
   render (h) {
     return h(Box, {

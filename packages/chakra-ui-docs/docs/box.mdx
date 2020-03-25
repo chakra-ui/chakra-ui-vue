@@ -1,1 +1,83 @@
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import { Box, Badge, Image as CImage, Text as CText, Flex, Icon } from '@chakra-ui/vue'
+import Code from '../components/CodeBlock'
+Vue.component('Box', Box)
+Vue.component('Badge', Badge)
+Vue.component('CImage', CImage)
+Vue.component('CText', CText)
+Vue.component('Flex', Flex)
+Vue.component('Icon', Icon)
+
 # Box
+
+Box is the most abstract component on top of which all other Chakra UI
+components are built. By default, it renders a `div` element
+
+**The Box component is useful because it helps with 3 common use cases:**
+
+- Create responsive layouts with ease.
+- Provide a shorthand way to pass styles via props (`bg` instead of `backgroundColor`).
+- Compose new component and allow for override using the `as` prop.
+
+## Import
+
+<Code lang="javascript" code={`
+import { Box } from "@chakra-ui/vue";
+`} />
+
+## Usage
+
+<br />
+<LiveEditor>{`
+<Box background-color="vue.600" w="100%" p="4" color="white">
+    This is the Box
+</Box>
+`}
+</LiveEditor>
+
+### Usage
+
+<LiveEditor>
+{`
+<Box w="300px" shadow="md" rounded="lg" p="5">
+    <CImage rounded="md" src="https://bit.ly/2k1H1t6"/>
+    <Flex align="baseline" mt="2">
+    <Badge variantColor="pink">Plus</Badge>
+    <CText
+        ml="2"
+        textTransform="uppercase"
+        fontSize="sm"
+        fontWeight="bold"
+        color="pink.800"
+    >
+    Verified &bull; Cape Town
+    </CText>
+    </Flex>
+    <CText mt="2" fontSize="xl" fontWeight="semibold" lineHeight="short">
+    Modern, Chic Penthouse with Mountain, City & Sea Views
+    </CText>
+    <CText mt="2">$300/night</CText>
+    <Flex mt="2" align="center">
+    <Icon name="star" color="orange.400" />
+    <Icon name="star" color="orange.400" />
+    <Icon name="star" color="orange.400" />
+    <CText ml="1" fontSize="sm"><b>4.84</b> (190)</CText>
+    </Flex>
+</Box>
+`}
+</LiveEditor>
+
+
+### as prop
+
+You can use the `as` prop to change the element render, just like
+styled-components.
+
+<LiveEditor>
+{`
+<Box as="button" rounded="md" bg="tomato" color="white" :px="4" :h="8">
+    Button
+</Box>
+`}
+</LiveEditor>

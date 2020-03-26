@@ -105,6 +105,9 @@ export default {
         },
         'table, p': {
           'code': this.code[colorMode]
+        },
+        li: {
+          code: this.code[colorMode]
         }
       })(this.$chakra.theme))
     },

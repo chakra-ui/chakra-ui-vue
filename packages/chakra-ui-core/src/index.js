@@ -17,7 +17,7 @@ export { default as AvatarGroup } from './AvatarGroup'
 export { default as AspectRatioBox } from './AspectRatioBox'
 
 export { default as Badge } from './Badge'
-export { default as Box } from './Box'
+export { default as CBox } from './Box'
 export * from './Breadcrumb'
 export { default as Button } from './Button'
 export { default as ButtonGroup } from './ButtonGroup'

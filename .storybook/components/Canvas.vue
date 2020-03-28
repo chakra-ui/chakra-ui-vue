@@ -1,7 +1,7 @@
 <template>
   <ThemeProvider>
     <ColorModeProvider v-slot="{ colorMode, toggleColorMode }">
-      <Box
+      <CBox
         as="main"
         :bg="colorMode === 'light' ? 'white' : 'gray.800'"
         :color="colorMode === 'light' ? 'gray.800' : 'gray.50'"
@@ -34,7 +34,7 @@
         <div class="wrapper">
           <slot />
         </div>
-      </Box>
+      </CBox>
     </ColorModeProvider>
   </ThemeProvider>
 </template>
@@ -45,7 +45,7 @@ import {
   Heading,
   CSSReset,
   Button,
-  Box,
+  CBox,
   IconButton,
   ColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
 export default {
@@ -55,7 +55,7 @@ export default {
     Heading,
     CSSReset,
     Button,
-    Box,
+    CBox,
     IconButton,
     ColorModeProvider
   }

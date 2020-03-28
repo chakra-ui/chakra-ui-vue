@@ -1,16 +1,16 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
+import { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
 
 storiesOf('UI | Accordion', module)
   .add('Basic Usage', () => ({
-    components: { Box, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
+    components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `
     <CAccordion>
       <CAccordionItem>
         <CAccordionHeader>
-          <Box flex="1" textAlign="left">
+          <CBox flex="1" textAlign="left">
             Section 1 title
-          </Box>
+          </CBox>
           <CAccordionIcon />
         </CAccordionHeader>
         <CAccordionPanel pb="4">
@@ -22,9 +22,9 @@ storiesOf('UI | Accordion', module)
       </CAccordionItem>
       <CAccordionItem>
         <CAccordionHeader>
-          <Box flex="1" textAlign="left">
+          <CBox flex="1" textAlign="left">
             Section 2 title
-          </Box>
+          </CBox>
           <CAccordionIcon />
         </CAccordionHeader>
         <CAccordionPanel pb="4">
@@ -38,14 +38,14 @@ storiesOf('UI | Accordion', module)
     `
   }))
   .add('Expand multiple items at once', () => ({
-    components: { Box, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
+    components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `
       <CAccordion allowMultiple :defaultIndex="[0]">
         <CAccordionItem>
           <CAccordionHeader>
-            <Box flex="1" textAlign="left">
+            <CBox flex="1" textAlign="left">
               Section 1 title
-            </Box>
+            </CBox>
             <CAccordionIcon />
           </CAccordionHeader>
           <CAccordionPanel pb="4">
@@ -57,9 +57,9 @@ storiesOf('UI | Accordion', module)
         </CAccordionItem>
         <CAccordionItem>
           <CAccordionHeader>
-            <Box flex="1" textAlign="left">
+            <CBox flex="1" textAlign="left">
               Section 2 title
-            </Box>
+            </CBox>
             <CAccordionIcon />
           </CAccordionHeader>
           <CAccordionPanel pb="4">
@@ -73,14 +73,14 @@ storiesOf('UI | Accordion', module)
     `
   }))
   .add('Allow toggle', () => ({
-    components: { Box, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
+    components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `
       <CAccordion allowToggle>
         <CAccordionItem>
           <CAccordionHeader>
-            <Box flex="1" textAlign="left">
+            <CBox flex="1" textAlign="left">
               Section 1 title
-            </Box>
+            </CBox>
             <CAccordionIcon />
           </CAccordionHeader>
           <CAccordionPanel pb="4">
@@ -92,9 +92,9 @@ storiesOf('UI | Accordion', module)
         </CAccordionItem>
         <CAccordionItem>
           <CAccordionHeader>
-            <Box flex="1" textAlign="left">
+            <CBox flex="1" textAlign="left">
               Section 2 title
-            </Box>
+            </CBox>
             <CAccordionIcon />
           </CAccordionHeader>
           <CAccordionPanel pb="4">
@@ -108,7 +108,7 @@ storiesOf('UI | Accordion', module)
     `
   }))
   .add('Allow Toggle', () => ({
-    components: { Box, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
+    components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `
       <CAccordion allowToggle>
         <CAccordionItem>
@@ -118,9 +118,9 @@ storiesOf('UI | Accordion', module)
               color: 'white'
             }"
           >
-            <Box flex="1" textAlign="left">
+            <CBox flex="1" textAlign="left">
               Click me to see a different style
-            </Box>
+            </CBox>
             <CAccordionIcon />
           </CAccordionHeader>
           <CAccordionPanel pb="4">

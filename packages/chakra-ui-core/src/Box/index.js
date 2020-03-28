@@ -1,2 +1,2 @@
-import Box from './Box'
-export default Box
+import CBox from './Box'
+export default CBox

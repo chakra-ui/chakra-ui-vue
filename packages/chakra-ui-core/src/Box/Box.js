@@ -62,8 +62,8 @@ export const systemProps = compose(
   clamp
 )
 
-const Box = {
-  name: 'Box',
+const CBox = {
+  name: 'CBox',
   inject: ['$theme'],
   props: {
     as: {
@@ -93,4 +93,4 @@ const Box = {
   }
 }
 
-export default Box
+export default CBox

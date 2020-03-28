@@ -1,5 +1,5 @@
-import Box from '../Box'
-import Icon from '../Icon'
+import CBox from '../Box'
+import CIcon from '../Icon'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import useAlertStyle, { useAlertIconStyle } from './alert.styles'
@@ -11,8 +11,8 @@ export const statuses = {
   error: { icon: '_warning', color: 'red' }
 }
 
-const Alert = {
-  name: 'Alert',
+const CAlert = {
+  name: 'CAlert',
   inject: ['$theme', '$colorMode'],
   provide () {
     return {
@@ -44,7 +44,7 @@ const Alert = {
       theme: this.$theme()
     })
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         fontFamily: 'body',
         ...alertStyles,
@@ -57,8 +57,8 @@ const Alert = {
   }
 }
 
-const AlertIcon = {
-  name: 'AlertIcon',
+const CAlertIcon = {
+  name: 'CAlertIcon',
   inject: ['_status', '_variant', '$colorMode', '$theme'],
   props: {
     size: {
@@ -79,7 +79,7 @@ const AlertIcon = {
       color: statuses[this._status] && statuses[this._status]['color']
     })
 
-    return h(Icon, {
+    return h(CIcon, {
       props: {
         mr: this.$props.mr || 3,
         size: this.size,
@@ -94,13 +94,13 @@ const AlertIcon = {
   }
 }
 
-const AlertTitle = {
+const CAlertTitle = {
   name: 'AlertTitle',
   props: {
     ...baseProps
   },
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         fontWeight: 'bold',
         lineHeight: 'normal',
@@ -110,14 +110,14 @@ const AlertTitle = {
   }
 }
 
-const AlertDescription = {
-  name: 'AlertDescription',
+const CAlertDescription = {
+  name: 'CAlertDescription',
   props: {
     ...baseProps
   },
   render (h) {
-    return h(Box, { props: forwardProps(this.$props) }, this.$slots.default)
+    return h(CBox, { props: forwardProps(this.$props) }, this.$slots.default)
   }
 }
 
-export { Alert, AlertIcon, AlertTitle, AlertDescription }
+export { CAlert, CAlertIcon, CAlertTitle, CAlertDescription }

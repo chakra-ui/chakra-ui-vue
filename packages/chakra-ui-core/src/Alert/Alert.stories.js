@@ -1,57 +1,57 @@
 import { storiesOf } from '@storybook/vue'
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '..'
+import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription } from '..'
 
 storiesOf('UI | Alert', module)
   .add('Default Alert', () => ({
-    components: { Alert },
+    components: { CAlert },
     template: `
       <div>
-        <Alert>Kiwi is the best Vue component library</Alert>
+        <CAlert>Kiwi is the best Vue component library</CAlert>
       </div>
     `
   }))
   .add('With icon', () => ({
-    components: { Alert, AlertIcon },
+    components: { CAlert, CAlertIcon },
     template: `
       <div>
-        <Alert mb="3" status="info">
-          <AlertIcon />
+        <CAlert mb="3" status="info">
+          <CAlertIcon />
           Kiwi is the best Vue component library
-        </Alert>
+        </CAlert>
       </div>
     `
   }))
   .add('With status', () => ({
-    components: { Alert, AlertIcon },
+    components: { CAlert, CAlertIcon },
     template: `
       <div>
-        <Alert mb="3" status="error">
-          <AlertIcon />
+        <CAlert mb="3" status="error">
+          <CAlertIcon />
           There was an error processing your request
-        </Alert>
+        </CAlert>
 
-        <Alert mb="3" status="success">
-          <AlertIcon />
+        <CAlert mb="3" status="success">
+          <CAlertIcon />
           Data uploaded to the server. Fire on!
-        </Alert>
+        </CAlert>
 
-        <Alert mb="3" status="warning">
-          <AlertIcon />
+        <CAlert mb="3" status="warning">
+          <CAlertIcon />
           Seems your account is about expire, upgrade now
-        </Alert>
+        </CAlert>
 
-        <Alert mb="3" status="info">
-          <AlertIcon />
+        <CAlert mb="3" status="info">
+          <CAlertIcon />
           Kiwi is going live on December 31st. Get ready!
-        </Alert>
+        </CAlert>
       </div>
     `
   }))
   .add('With composed description', () => ({
-    components: { Alert, AlertIcon, AlertTitle, AlertDescription },
+    components: { CAlert, CAlertIcon, CAlertTitle, CAlertDescription },
     template: `
       <div>
-        <Alert
+        <CAlert
           status="success"
           variant="subtle"
           flexDirection="column"
@@ -59,14 +59,14 @@ storiesOf('UI | Alert', module)
           textAlign="center"
           height="200px"
         >
-          <AlertIcon size="40px" mr="0" />
-          <AlertTitle mt="4" mb="1" fontSize="lg">
+          <CAlertIcon size="40px" mr="0" />
+          <CAlertTitle mt="4" mb="1" fontSize="lg">
             Event created!
-          </AlertTitle>
-          <AlertDescription maxWidth="sm">
+          </CAlertTitle>
+          <CAlertDescription maxWidth="sm">
             Your event has been successfully created. Our team will get back to you soon.
-          </AlertDescription>
-        </Alert>
+          </CAlertDescription>
+        </CAlert>
       </div>
     `
   }))

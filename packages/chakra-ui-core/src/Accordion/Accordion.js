@@ -7,8 +7,8 @@ import Collapse from '../Collapse'
 import Icon from '../Icon'
 import { iconProps } from '../Icon/icon.props'
 
-const Accordion = {
-  name: 'Accordion',
+const CAccordion = {
+  name: 'CAccordion',
   props: {
     ...baseProps,
     allowMultiple: Boolean,
@@ -115,8 +115,8 @@ const Accordion = {
   }
 }
 
-const AccordionItem = {
-  name: 'AccordionItem',
+const CAccordionItem = {
+  name: 'CAccordionItem',
   props: {
     ...styleProps,
     isOpen: {
@@ -201,8 +201,8 @@ const AccordionItem = {
   }
 }
 
-const AccordionHeader = {
-  name: 'AccordionHeader',
+const CAccordionHeader = {
+  name: 'CAccordionHeader',
   inject: ['$AccordionContext'],
   props: styleProps,
   computed: {
@@ -245,8 +245,8 @@ const AccordionHeader = {
   }
 }
 
-const AccordionPanel = {
-  name: 'AccordionPanel',
+const CAccordionPanel = {
+  name: 'CAccordionPanel',
   inject: ['$AccordionContext'],
   props: baseProps,
   computed: {
@@ -276,8 +276,8 @@ const AccordionPanel = {
   }
 }
 
-const AccordionIcon = {
-  name: 'AccordionIcon',
+const CAccordionIcon = {
+  name: 'CAccordionIcon',
   inject: ['$AccordionContext'],
   props: {
     ...baseProps,
@@ -305,9 +305,9 @@ const AccordionIcon = {
 }
 
 export {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionPanel,
-  AccordionIcon
+  CAccordion,
+  CAccordionItem,
+  CAccordionHeader,
+  CAccordionPanel,
+  CAccordionIcon
 }

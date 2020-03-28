@@ -4,8 +4,8 @@ import NoSsr from '../NoSsr'
 /**
  * Portal Component
  */
-const Portal = {
-  name: 'Portal',
+const CPortal = {
+  name: 'CPortal',
   props: {
     target: String,
     append: Boolean,
@@ -102,4 +102,4 @@ const Portal = {
   }
 }
 
-export default Portal
+export default CPortal

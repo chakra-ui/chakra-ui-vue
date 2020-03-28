@@ -1,6 +1,6 @@
 import props from './modal.props'
 import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
-import Portal from '../Portal'
+import CPortal from '../Portal'
 import PseudoBox from '../PseudoBox'
 import { Fade } from '../Transition'
 import { hideOthers } from 'aria-hidden'
@@ -180,7 +180,7 @@ const Modal = {
   render (h) {
     const children = cleanChildren(this.$slots.default)
 
-    return h(Portal, {
+    return h(CPortal, {
       props: {
         append: true,
         target: this.portalTarget,

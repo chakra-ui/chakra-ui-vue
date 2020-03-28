@@ -1,11 +1,12 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, PseudoBox } from '..'
+import CBox from '../Box'
+import CPseudoBox from '../PseudoBox'
 
 storiesOf('UI | PseudoBox', module)
   .add('PseudoBox | :hover', () => ({
-    components: { PseudoBox },
+    components: { CPseudoBox },
     template: `
-      <PseudoBox
+      <CPseudoBox
         bg="vue.300"
         color="vue.800"
         p="3"
@@ -24,11 +25,11 @@ storiesOf('UI | PseudoBox', module)
         }"
       >
         This is the PseudoBox component. With it you can bind pseudo styles! Try hovering over this component.
-      </PseudoBox>
+      </CPseudoBox>
     `
   }))
   .add('Pseudobox | :odd', () => ({
-    components: { Box, PseudoBox },
+    components: { CBox, CPseudoBox },
     data () {
       return {
         boxes: [
@@ -48,14 +49,14 @@ storiesOf('UI | PseudoBox', module)
       }
     },
     template: `
-      <Box
+      <CBox
         rounded="md"
         overflow="hidden"
         mt="4"
         w="400px"
         font-family="body"
       >
-        <PseudoBox
+        <CPseudoBox
           v-for="(box, index) in boxes"
           :key="index"
           px="4"
@@ -65,7 +66,7 @@ storiesOf('UI | PseudoBox', module)
           :_odd="{ bg: 'gray.100' }"
           >
           {{ box.name }}
-        </PseudoBox>
-      </Box>
+        </CPseudoBox>
+      </CBox>
     `
   }))

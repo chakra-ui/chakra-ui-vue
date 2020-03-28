@@ -1,7 +1,7 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
-import Box from '../Box'
+import CBox from '../Box'
 import styleProps, { propsConfig } from '../config/props'
 import { parsePseudoStyles } from './utils'
 
@@ -20,8 +20,8 @@ const systemProps = compose(
   propsConfig
 )
 
-const PseudoBox = {
-  name: 'PseudoBox',
+const CPseudoBox = {
+  name: 'CPseudoBox',
   inject: ['$theme'],
   props: {
     as: {
@@ -42,7 +42,7 @@ const PseudoBox = {
     const baseStyles = systemProps({ ...baseProps, theme: this.theme })
     const _pseudoStyles = __css(pseudoStyles)(this.theme)
 
-    return h(Box, {
+    return h(CBox, {
       class: css({ ...baseStyles, ..._pseudoStyles }),
       props: {
         as,
@@ -52,4 +52,4 @@ const PseudoBox = {
   }
 }
 
-export default PseudoBox
+export default CPseudoBox

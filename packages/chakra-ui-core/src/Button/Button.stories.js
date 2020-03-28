@@ -1,63 +1,63 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { Button } from '..'
+import { CButton } from '..'
 
 storiesOf('UI | Button', module)
   .add('Unstyled', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button @click="action">Solid</Button>
-        <Button variant="outline" @click="action">Outlined</Button>
-        <Button variant="ghost" @click="action">Ghost</Button>
-        <Button variant="flat" @click="action">Flat</Button>
-        <Button variant="link" @click="action">Link</Button>
+        <CButton @click="action">Solid</CButton>
+        <CButton variant="outline" @click="action">Outlined</CButton>
+        <CButton variant="ghost" @click="action">Ghost</CButton>
+        <CButton variant="flat" @click="action">Flat</CButton>
+        <CButton variant="link" @click="action">Link</CButton>
       </div>
     `,
     methods: { action: action('Button Clicked') }
   }))
   .add('Variant Colors | Blue', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button @click="action" variant-color="blue">Solid</Button>
-        <Button variant="outline" variant-color="blue" @click="action">Outlined</Button>
-        <Button variant="ghost" variant-color="blue" @click="action">Ghost</Button>
-        <Button variant="flat" variant-color="blue" @click="action">Flat</Button>
-        <Button variant="link" variant-color="blue" @click="action">Link</Button>
+        <CButton @click="action" variant-color="blue">Solid</CButton>
+        <CButton variant="outline" variant-color="blue" @click="action">Outlined</CButton>
+        <CButton variant="ghost" variant-color="blue" @click="action">Ghost</CButton>
+        <CButton variant="flat" variant-color="blue" @click="action">Flat</CButton>
+        <CButton variant="link" variant-color="blue" @click="action">Link</CButton>
       </div>
     `,
     methods: { action: action('Button Clicked') }
   }))
   .add('Sizes', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button @click="action" variant-color="blue" size="lg">Large</Button>
-        <Button variant-color="blue" size="md" @click="action">Medium</Button>
-        <Button variant-color="blue" size="sm" @click="action">Small</Button>
+        <CButton @click="action" variant-color="blue" size="lg">Large</CButton>
+        <CButton variant-color="blue" size="md" @click="action">Medium</CButton>
+        <CButton variant-color="blue" size="sm" @click="action">Small</CButton>
       </div>
     `,
     methods: { action: action('Button Clicked') }
   }))
   .add('Rounded', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button @click="action" rounded="none" variant-color="indigo">No rounded</Button>
-        <Button @click="action" rounded="sm" variant-color="indigo">Small rounded</Button>
-        <Button @click="action" rounded="md" variant-color="indigo">Medium rounded</Button>
-        <Button @click="action" rounded="lg" variant-color="indigo">Large rounded</Button>
-        <Button @click="action" rounded="full" variant-color="indigo">Full rounded</Button>
+        <CButton @click="action" rounded="none" variant-color="indigo">No rounded</CButton>
+        <CButton @click="action" rounded="sm" variant-color="indigo">Small rounded</CButton>
+        <CButton @click="action" rounded="md" variant-color="indigo">Medium rounded</CButton>
+        <CButton @click="action" rounded="lg" variant-color="indigo">Large rounded</CButton>
+        <CButton @click="action" rounded="full" variant-color="indigo">Full rounded</CButton>
       </div>
     `,
     methods: { action: action('Button Clicked') }
   }))
   .add('With Loading', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button :variant-color="variantColor" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+        <CButton :variant-color="variantColor" @click="setLoading" :is-loading="loading"> {{ buttonText }} </CButton>
       </div>
     `,
     data () {
@@ -79,10 +79,10 @@ storiesOf('UI | Button', module)
     }
   }))
   .add('With Icon | Left', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button :variant-color="variantColor" left-icon="star" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+        <CButton :variant-color="variantColor" left-icon="star" @click="setLoading" :is-loading="loading"> {{ buttonText }} </CButton>
       </div>
     `,
     data () {
@@ -104,10 +104,10 @@ storiesOf('UI | Button', module)
     }
   }))
   .add('With Icon | Right', () => ({
-    components: { Button },
+    components: { CButton },
     template: `
       <div>
-        <Button :variant-color="variantColor" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </Button>
+        <CButton :variant-color="variantColor" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </CButton>
       </div>
     `,
     data () {

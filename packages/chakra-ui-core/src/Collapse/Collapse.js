@@ -1,9 +1,9 @@
-import { AnimateHeight } from '../Transition'
-import Box from '../Box'
+import { CAnimateHeight } from '../Transition'
+import CBox from '../Box'
 import { forwardProps } from '../utils'
 
-const Collapse = {
-  name: 'Collapse',
+const CCollapse = {
+  name: 'CCollapse',
   props: {
     isOpen: Boolean,
     duration: {
@@ -24,7 +24,7 @@ const Collapse = {
   render (h) {
     const children = this.$slots.default
 
-    return h(AnimateHeight, {
+    return h(CAnimateHeight, {
       props: {
         isOpen: this.isOpen,
         duration: this.duration,
@@ -38,7 +38,7 @@ const Collapse = {
         enter: (e) => this.$emit('start', e),
         leave: (e) => this.$emit('finish', e)
       }
-    }, [h(Box, {
+    }, [h(CBox, {
       props: {
         ...forwardProps(this.$props),
         overflow: 'hidden'
@@ -47,4 +47,4 @@ const Collapse = {
   }
 }
 
-export default Collapse
+export default CCollapse

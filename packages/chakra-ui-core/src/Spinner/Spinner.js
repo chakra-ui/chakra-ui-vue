@@ -48,7 +48,7 @@ const setSizes = (props) => {
 }
 
 export default {
-  name: 'Spinner',
+  name: 'CSpinner',
   props: {
     size: {
       type: [String, Array],

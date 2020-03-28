@@ -2,16 +2,16 @@ import styleProps from '../config/props'
 import { buttonProps } from './button.props'
 import { forwardProps } from '../utils'
 import createButtonStyles, { setIconSizes } from './button.styles'
-import Box from '../Box'
-import PseudoBox from '../PseudoBox'
-import Spinner from '../Spinner'
-import Icon from '../Icon'
+import CBox from '../Box'
+import CPseudoBox from '../PseudoBox'
+import CSpinner from '../Spinner'
+import CIcon from '../Icon'
 
 /**
  * Icon component in button.
  */
-const ButtonIcon = {
-  name: 'ButtonIcon',
+const CButtonIcon = {
+  name: 'CButtonIcon',
   props: {
     icon: {
       type: [String, Object]
@@ -23,7 +23,7 @@ const ButtonIcon = {
   },
   render (h) {
     if (typeof this.icon === 'string') {
-      return h(Icon, {
+      return h(CIcon, {
         props: {
           focusable: false,
           name: this.icon,
@@ -33,7 +33,7 @@ const ButtonIcon = {
         }
       })
     } else {
-      return h(Box, {
+      return h(CBox, {
         props: {
           as: this.icon,
           focusable: false,
@@ -53,7 +53,7 @@ const ButtonIcon = {
  * @description The Button component is an accessible rich component that does what a button does :)
  */
 export default {
-  name: 'Button',
+  name: 'CButton',
   inject: ['$theme', '$colorMode'],
   props: {
     ...buttonProps,
@@ -78,7 +78,7 @@ export default {
       size: this.size || 'md'
     })
 
-    return h(PseudoBox, {
+    return h(CPseudoBox, {
       props: {
         as: this.as,
         to: this.to,
@@ -103,7 +103,7 @@ export default {
         click: ($event) => this.$emit('click', $event)
       }
     }, [
-      this.leftIcon && h(ButtonIcon, {
+      this.leftIcon && h(CButtonIcon, {
         props: {
           mr: this.iconSpacing,
           mb: 'px',
@@ -112,7 +112,7 @@ export default {
           opacity: this.isLoading ? 0 : 1
         }
       }),
-      this.isLoading && h(Spinner, {
+      this.isLoading && h(CSpinner, {
         props: {
           position: this.loadingText ? 'relative' : 'absolute',
           color: 'currentColor',
@@ -124,13 +124,13 @@ export default {
           'chakra-button-spinner': ''
         }
       }),
-      this.isLoading ? this.loadingText || h(Box, {
+      this.isLoading ? this.loadingText || h(CBox, {
         props: {
           as: 'span',
           opacity: 0
         }
       }, this.$slots.default) : this.$slots.default,
-      this.rightIcon && h(ButtonIcon, {
+      this.rightIcon && h(CButtonIcon, {
         props: {
           ml: this.iconSpacing,
           mb: 'px',

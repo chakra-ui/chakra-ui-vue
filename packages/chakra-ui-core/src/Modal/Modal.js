@@ -1,18 +1,18 @@
 import props from './modal.props'
 import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
-import CPortal from '../Portal'
-import PseudoBox from '../PseudoBox'
-import { Fade } from '../Transition'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
 import { baseProps } from '../config'
-import Box from '../Box'
 import styleProps from '../config/props'
-import CloseButton from '../CloseButton'
+import { CFade } from '../Transition'
+import CPortal from '../Portal'
+import CBox from '../Box'
+import CPseudoBox from '../PseudoBox'
+import CCloseButton from '../CloseButton'
 import isFunction from 'lodash-es/isFunction'
 
-const Modal = {
-  name: 'Modal',
+const CModal = {
+  name: 'CModal',
   props,
   data () {
     return {
@@ -200,7 +200,7 @@ const Modal = {
           deactivate: this.deactivateFocusLock
         }
       }, [
-        h(PseudoBox, {
+        h(CPseudoBox, {
           props: {
             position: 'relative'
           },
@@ -209,7 +209,7 @@ const Modal = {
             value: this.isOpen && this.blockScrollOnMount
           }]
         }, [
-          h(Fade, {
+          h(CFade, {
             props: {
               enterEasing: 'easeInCubic',
               leaveEasing: 'easeOutCubic'
@@ -232,11 +232,11 @@ const Modal = {
 /**
  * ModalOverlay component
  */
-const ModalOverlay = {
-  name: 'ModalOverlay',
+const CModalOverlay = {
+  name: 'CModalOverlay',
   props: baseProps,
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         pos: 'fixed',
         bg: 'rgba(0,0,0,0.4)',
@@ -251,8 +251,8 @@ const ModalOverlay = {
   }
 }
 
-const ModalContent = {
-  name: 'ModalContent',
+const CModalContent = {
+  name: 'CModalContent',
   inheritAttrs: false,
   inject: ['$ModalContext', '$colorMode'],
   props: {
@@ -360,7 +360,7 @@ const ModalContent = {
       closeOnOverlayClick
     } = this.context
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         ...forwardProps(this.$props),
         ...this.wrapperStyle,
@@ -389,7 +389,7 @@ const ModalContent = {
         }
       }
     }, [
-      h(Box, {
+      h(CBox, {
         props: {
           as: 'section',
           outline: 0,
@@ -421,8 +421,8 @@ const ModalContent = {
   }
 }
 
-const ModalHeader = {
-  name: 'ModalHeader',
+const CModalHeader = {
+  name: 'CModalHeader',
   inject: ['$ModalContext'],
   props: baseProps,
   computed: {
@@ -433,7 +433,7 @@ const ModalHeader = {
   render (h) {
     const { headerId } = this.context
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         as: 'header',
         px: 6,
@@ -450,11 +450,11 @@ const ModalHeader = {
   }
 }
 
-const ModalFooter = {
-  name: 'ModalFooter',
+const CModalFooter = {
+  name: 'CModalFooter',
   props: baseProps,
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         as: 'footer',
         display: 'flex',
@@ -467,8 +467,8 @@ const ModalFooter = {
   }
 }
 
-const ModalBody = {
-  name: 'ModalBody',
+const CModalBody = {
+  name: 'CModalBody',
   props: baseProps,
   inject: ['$ModalContext'],
   computed: {
@@ -484,7 +484,7 @@ const ModalBody = {
       style = { overflowY: 'auto' }
     }
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         px: 6,
         py: 2,
@@ -499,8 +499,8 @@ const ModalBody = {
   }
 }
 
-const ModalCloseButton = {
-  name: 'ModalCloseButton',
+const CModalCloseButton = {
+  name: 'CModalCloseButton',
   props: styleProps,
   inject: ['$ModalContext'],
   computed: {
@@ -510,7 +510,7 @@ const ModalCloseButton = {
   },
   render (h) {
     const { onClose } = this.context
-    return h(CloseButton, {
+    return h(CCloseButton, {
       props: {
         position: 'absolute',
         top: '8px',
@@ -530,11 +530,11 @@ const ModalCloseButton = {
 }
 
 export {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton
+  CModal,
+  CModalOverlay,
+  CModalContent,
+  CModalHeader,
+  CModalFooter,
+  CModalBody,
+  CModalCloseButton
 }

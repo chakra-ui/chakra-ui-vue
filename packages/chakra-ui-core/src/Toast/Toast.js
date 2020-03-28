@@ -1,5 +1,5 @@
 import Breadstick from 'breadstick'
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '../Alert'
+import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription } from '../Alert'
 import Box from '../Box'
 import CloseButton from '../CloseButton'
 import ThemeProvider from '../ThemeProvider'
@@ -47,7 +47,7 @@ const Toast = {
     ...baseProps
   },
   render (h) {
-    return h(Alert, {
+    return h(CAlert, {
       props: {
         status: this.status,
         variant: this.variant,
@@ -65,14 +65,14 @@ const Toast = {
         id: this.id
       }
     }, [
-      h(AlertIcon),
+      h(CAlertIcon),
       h(Box, {
         props: {
           flex: '1'
         }
       }, [
-        this.title && h(AlertTitle, {}, this.title),
-        this.description && h(AlertDescription, {}, this.description)
+        this.title && h(CAlertTitle, {}, this.title),
+        this.description && h(CAlertDescription, {}, this.description)
       ]),
       this.isClosable && h(CloseButton, {
         props: {

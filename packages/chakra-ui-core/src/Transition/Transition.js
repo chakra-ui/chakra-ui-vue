@@ -1,12 +1,12 @@
 import anime from 'animejs'
 import { isUndef, isVueComponent, cloneVNodeElement, cleanChildren } from '../utils'
-import Box from '../Box'
+import CBox from '../Box'
 
 const enterEasing = 'spring(1, 100, 50, 0)'
 const leaveEasing = 'spring(1, 100, 70, 0)'
 
-const Slide = {
-  name: 'Slide',
+const CSlide = {
+  name: 'CSlide',
   props: {
     initialHeight: {
       type: Number,
@@ -115,8 +115,8 @@ const Slide = {
   }
 }
 
-const Scale = {
-  name: 'Scale',
+const CScale = {
+  name: 'CScale',
   props: {
     initialHeight: {
       type: Number,
@@ -194,8 +194,8 @@ const Scale = {
   }
 }
 
-const Fade = {
-  name: 'Fade',
+const CFade = {
+  name: 'CFade',
   props: {
     initialHeight: {
       type: Number,
@@ -271,8 +271,8 @@ const Fade = {
   }
 }
 
-const SlideIn = {
-  name: 'SlideIn',
+const CSlideIn = {
+  name: 'CSlideIn',
   props: {
     offset: {
       type: String,
@@ -335,8 +335,8 @@ const SlideIn = {
   }
 }
 
-const RevealHeight = {
-  name: 'RevealHeight',
+const CRevealHeight = {
+  name: 'CRevealHeight',
   props: {
     initialHeight: {
       type: Number,
@@ -431,8 +431,8 @@ const RevealHeight = {
   }
 }
 
-const AnimateHeight = {
-  name: 'AnimateHeight',
+const CAnimateHeight = {
+  name: 'CAnimateHeight',
   props: {
     isOpen: Boolean,
     initialHeight: {
@@ -516,7 +516,7 @@ const AnimateHeight = {
   },
   render (h) {
     const children = this.$slots.default
-    return h(Box, {
+    return h(CBox, {
       props: {
         overflow: 'hidden'
       }
@@ -525,10 +525,10 @@ const AnimateHeight = {
 }
 
 export {
-  Slide,
-  Scale,
-  SlideIn,
-  AnimateHeight,
-  RevealHeight,
-  Fade
+  CSlide,
+  CScale,
+  CSlideIn,
+  CAnimateHeight,
+  CRevealHeight,
+  CFade
 }

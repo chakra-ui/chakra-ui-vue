@@ -1,15 +1,15 @@
 <template>
-  <ThemeProvider>
-    <ColorModeProvider v-slot="{ colorMode, toggleColorMode }">
-      <Box
+  <CThemeProvider>
+    <CColorModeProvider v-slot="{ colorMode, toggleColorMode }">
+      <CBox
         as="main"
         :bg="colorMode === 'light' ? 'white' : 'gray.800'"
         :color="colorMode === 'light' ? 'gray.800' : 'gray.50'"
         class="root"
       >
-        <Heading mb="50px" pos="absolute" top="3" left="50%" transform="translateX(-50%)" as="h4">@chakra-ui/vue</Heading>
-        <CSSReset />
-        <Button
+        <CHeading mb="50px" pos="absolute" top="3" left="50%" transform="translateX(-50%)" as="h4">@chakra-ui/vue</CHeading>
+        <CReset />
+        <CButton
           as="a"
           target="_blank"
           href="https://github.com/chakra-ui/chakra-ui-vue"
@@ -20,8 +20,8 @@
           left-icon="github"
         >
           Github
-        </Button>
-        <IconButton
+        </CButton>
+        <CIconButton
           position="fixed"
           top="3"
           right="3"
@@ -30,34 +30,34 @@
           :icon="colorMode === 'light' ? 'sun' : 'moon'"
           @click="toggleColorMode"
         >
-        </IconButton>
+        </CIconButton>
         <div class="wrapper">
           <slot />
         </div>
-      </Box>
-    </ColorModeProvider>
-  </ThemeProvider>
+      </CBox>
+    </CColorModeProvider>
+  </CThemeProvider>
 </template>
 
 <script>
 import {
-  ThemeProvider,
-  Heading,
-  CSSReset,
-  Button,
-  Box,
-  IconButton,
-  ColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
+  CThemeProvider,
+  CHeading,
+  CReset,
+  CButton,
+  CBox,
+  CIconButton,
+  CColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
 export default {
   name: 'Canvas',
   components: {
-    ThemeProvider,
-    Heading,
-    CSSReset,
-    Button,
-    Box,
-    IconButton,
-    ColorModeProvider
+    CThemeProvider,
+    CHeading,
+    CReset,
+    CButton,
+    CBox,
+    CIconButton,
+    CColorModeProvider
   }
 }
 </script>

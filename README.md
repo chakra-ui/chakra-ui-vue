@@ -81,29 +81,29 @@ new Vue({
 }).$mount()
 ```
 
-**2. Wrap your application inside the Chakra `ThemeProvider`.** We also recommend that you include the `CSSReset` component to normalize all browser styling.
+**2. Wrap your application inside the Chakra `CThemeProvider`.** We also recommend that you include the `CReset` component to normalize all browser styling.
 
 _In your `App.vue` file._
 
 ```html
 <template>
-  <ThemeProvider>
-    <CSSReset />
+  <CThemeProvider>
+    <CReset />
 
     <!--
       Your application code goes here! 😁
     -->
-  </ThemeProvider>
+  </CThemeProvider>
 </template>
 
 <script>
-  import { ThemeProvider, CSSReset } from '@chakra-ui/vue'
+  import { CThemeProvider, CReset } from '@chakra-ui/vue'
 
   export default {
     name: 'App',
     components: {
-      ThemeProvider,
-      CSSReset
+      CThemeProvider,
+      CReset
     }
   }
 </script>
@@ -115,27 +115,27 @@ If you'd like to toggle your app between dark and light mode, you can also wrap 
 
 ```html
 <template>
-  <ThemeProvider>
-    <CSSReset />
+  <CThemeProvider>
+    <CReset />
 
     <!--
       Your application code goes here! 😁
     -->
-    <Button variantColor="blue">
+    <CButton variantColor="blue">
       Chakra consumed ⚡️
-    </Button>
-  </ThemeProvider>
+    </CButton>
+  </CThemeProvider>
 </template>
 
 <script>
-  import { ThemeProvider, CSSReset, Button } from '@chakra-ui/vue'
+  import { CThemeProvider, CReset, CButton } from '@chakra-ui/vue'
 
   export default {
     name: 'App',
     components: {
-      ThemeProvider,
-      CSSReset,
-      Button
+      CThemeProvider,
+      CReset,
+      CButton
     }
   }
 </script>

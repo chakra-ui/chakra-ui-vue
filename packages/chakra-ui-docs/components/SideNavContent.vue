@@ -77,7 +77,7 @@ const topNavLinks = [
 
 export default {
   name: 'SideNavContent',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   props: {
     contentHeight: {
       type: String,
@@ -92,7 +92,7 @@ export default {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     topNavLinks () {
       return topNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))

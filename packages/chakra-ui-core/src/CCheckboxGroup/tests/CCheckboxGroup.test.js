@@ -1,4 +1,4 @@
-import { Box, Checkbox, CheckboxGroup } from '@/packages/chakra-ui-core/src'
+import { CBox, CCheckbox, CCheckboxGroup } from '../..'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 // mocks
@@ -8,17 +8,17 @@ jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tri
 
 const renderComponent = (props) => {
   const base = {
-    components: { Box, Checkbox, CheckboxGroup },
+    components: { CBox, CCheckbox, CCheckboxGroup },
     provide: () => defaultProviders(),
     data: () => ({ selectedValues: ['two'] }),
     template: `
-    <Box w="300px">
-      <CheckboxGroup name="numbers" v-model="selectedValues" variantColor="green" :defaultValue="['two']">
-        <Checkbox data-testid="one" value="one">One</Checkbox>
-        <Checkbox data-testid="two" value="two">Two</Checkbox>
-        <Checkbox data-testid="three" value="three">Three</Checkbox>
-      </CheckboxGroup>
-    </Box>`,
+    <CBox w="300px">
+      <CCheckboxGroup name="numbers" v-model="selectedValues" variantColor="green" :defaultValue="['two']">
+        <CCheckbox data-testid="one" value="one">One</CCheckbox>
+        <CCheckbox data-testid="two" value="two">Two</CCheckbox>
+        <CCheckbox data-testid="three" value="three">Three</CCheckbox>
+      </CCheckboxGroup>
+    </CBox>`,
     ...props
   }
   return render(base)

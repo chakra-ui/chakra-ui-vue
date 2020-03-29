@@ -1,10 +1,10 @@
-import Code from '../'
+import CCode from '..'
 import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
-    components: { Code },
-    template: `<Code>content</Code>`,
+    components: { CCode },
+    template: `<CCode>content</CCode>`,
     ...props
   }
   return render(base)

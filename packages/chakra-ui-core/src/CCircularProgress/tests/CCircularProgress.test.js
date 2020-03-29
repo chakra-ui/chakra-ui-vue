@@ -1,15 +1,18 @@
-import { CircularProgress, CircularProgressLabel } from '@/packages/chakra-ui-core/src/CircularProgress'
+import { CCircularProgress, CCircularProgressLabel } from '../..'
 import { render, defaultProviders } from '@/tests/test-utils'
+
+// mocks
+jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
 
 const renderComponent = (props) => {
   const base = {
     components: {
-      CircularProgress,
-      CircularProgressLabel
+      CCircularProgress,
+      CCircularProgressLabel
     },
     provide: () => defaultProviders(),
     template: `
-    <CircularProgress :value="40" data-testid="CircularProgress" />`,
+    <CCircularProgress :value="40" data-testid="CircularProgress" />`,
     ...props
   }
   return render(base)
@@ -22,9 +25,9 @@ it('should render correctly', () => {
 
 it('should display a label', () => {
   const { queryByText } = renderComponent({ template: `
-  <CircularProgress :value="40">
-    <CircularProgressLabel>40%</CircularProgressLabel>
-  </CircularProgress>`
+  <CCircularProgress :value="40">
+    <CCircularProgressLabel>40%</CCircularProgressLabel>
+  </CCircularProgress>`
   })
 
   expect(queryByText('40%')).toBeInTheDocument()

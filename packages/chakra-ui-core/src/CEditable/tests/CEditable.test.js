@@ -3,7 +3,7 @@ import { render, defaultProviders, userEvent, fireEvent } from '@/tests/test-uti
 import { useId } from '../../utils'
 
 // mocks
-jest.mock('@/packages/chakra-ui-core/src/Toast/index.js', () => {})
+jest.mock('@/packages/chakra-ui-core/src/CToast/index.js', () => {})
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 
 const renderComponent = (props) => {

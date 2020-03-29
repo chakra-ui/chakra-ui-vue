@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <input
+        class="css-0 css-1l17jza"
+        data-testid="inputOutsideModal"
+        placeholder="Type here..."
+      />
+       
+      <button
+        class="css-0 css-rup5mm"
+        data-testid="buttonOutside"
+        tabindex="0"
+        type="button"
+      >
+        Open Modal
+      </button>
+       
+      <!---->
+    </div>
+  </div>
+  <span
+    id="modal-portal-1"
+  >
+    <div
+      class="css-0 css-79elbk"
+    >
+      <div
+        style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
+      >
+        <div
+          class="css-l5w8ps"
+        />
+        <div
+          class="css-aibg9d"
+        >
+          <section
+            aria-describedby="modal-1-body"
+            aria-labelledby="modal-1-header"
+            aria-modal="true"
+            class="css-i76yoi"
+            data-testid="overlay"
+            id="modal-1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <button
+              aria-label="Close"
+              class="css-0 css-1hoaduj"
+              data-testid="close-btn"
+              x-close-button=""
+            >
+              <svg
+                aria-hidden="true"
+                class="css-xmst1h css-y3asau"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                
+    
+                <g
+                  stroke="currentColor"
+                  strokewidth="1.5"
+                >
+                  
+      
+                  <path
+                    d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                    fill="none"
+                    strokelinecap="full"
+                  />
+                  
+      
+                  <path
+                    d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                    fill="none"
+                    strokelinecap="full"
+                  />
+                  
+      
+                  <circle
+                    cx="12"
+                    cy="12"
+                    fill="none"
+                    r="11.25"
+                    strokemiterlimit="10"
+                  />
+                  
+    
+                </g>
+                
+    
+              </svg>
+            </button>
+             
+            <header
+              class="css-kniazf"
+              id="modal-1-header"
+            >
+              Create your account
+            </header>
+             
+            <div
+              class="css-5m10fw"
+              id="modal-1-body"
+            >
+              <input
+                class="css-0 css-1l17jza"
+                data-testid="inputInsideModal"
+                placeholder="Type here..."
+              />
+            </div>
+             
+            <footer
+              class="css-plnu2w"
+            >
+              <button
+                class="css-0 css-1tex3qd"
+                tabindex="0"
+                type="button"
+              >
+                Cancel
+              </button>
+               
+              <button
+                class="css-0 css-2jmp8f"
+                tabindex="0"
+                type="button"
+              >
+                Save
+              </button>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </div>
+  </span>
+</DocumentFragment>
+`;

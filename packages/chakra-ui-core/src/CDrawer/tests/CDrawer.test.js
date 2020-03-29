@@ -7,7 +7,7 @@ import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
 jest.mock('@/packages/chakra-ui-core/src/utils/dom.js')
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 jest.mock('v-scroll-lock', () => ({}))
-jest.mock('@/packages/chakra-ui-core/src/Toast/index.js', () => {})
+jest.mock('@/packages/chakra-ui-core/src/CToast/index.js', () => {})
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -24,25 +24,23 @@ const renderComponent = (props) => {
     },
     template: `
     <div>
-        <CInput data-testid="inputOutsideDrawer" ref="inputOutsideDrawer" placeholder="Type here..." /> 
-        <CButton data-testid="buttonOutside" ref="btnRef" @click="isOpen = true">Open Drawer</CButton>
+      <CInput data-testid="inputOutsideDrawer" ref="inputOutsideDrawer" placeholder="Type here..." /> 
+      <CButton data-testid="buttonOutside" ref="btnRef" @click="isOpen = true">Open Drawer</CButton>
 
-        <CDrawer placement="right" ${inlineAttrs}>
-            <CDrawerOverlay />
-            <CDrawerContent data-testid="overlay">
-            <CDrawerCloseButton data-testid="close-btn" />
-            <CDrawerHeader>Create your account</CDrawerHeader>
-
-            <CDrawerBody>
-                <CInput data-testid="inputInsideDrawer" ref="inputInsideDrawer" placeholder="Type here..." />
-            </CDrawerBody>
-
-            <CDrawerFooter>
-                <CButton variant="outline" mr="3" @click="isOpen = false">Cancel</CButton>
-                <CButton color="blue">Save</CButton>
-            </CDrawerFooter>
-            </CDrawerContent>
-        </CDrawer>
+      <CDrawer placement="right" ${inlineAttrs}>
+        <CDrawerOverlay />
+        <CDrawerContent data-testid="overlay">
+          <CDrawerCloseButton data-testid="close-btn" />
+          <CDrawerHeader>Create your account</CDrawerHeader>
+          <CDrawerBody>
+            <CInput data-testid="inputInsideDrawer" ref="inputInsideDrawer" placeholder="Type here..." />
+          </CDrawerBody>
+          <CDrawerFooter>
+            <CButton variant="outline" mr="3" @click="isOpen = false">Cancel</CButton>
+            <CButton color="blue">Save</CButton>
+          </CDrawerFooter>
+        </CDrawerContent>
+      </CDrawer>
     </div>
     `,
     ...props

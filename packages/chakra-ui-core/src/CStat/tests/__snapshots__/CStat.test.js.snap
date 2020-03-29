@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"StatArrow" should display corresponding icon for "type" prop 1`] = `
+exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 <DocumentFragment>
   <div
     class="css-hkmnjw"
@@ -40,7 +40,7 @@ exports[`"StatArrow" should display corresponding icon for "type" prop 1`] = `
 </DocumentFragment>
 `;
 
-exports[`"StatArrow" should display corresponding icon for "type" prop 2`] = `
+exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 <DocumentFragment>
   <div
     class="css-hkmnjw"

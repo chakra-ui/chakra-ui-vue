@@ -1,105 +1,123 @@
-import Plugin from './plugin/index.js'
+import Chakra from './Chakra'
 
-// Plugin
-export default Plugin
+// Vue Plugin
+export default Chakra
 
 /**
  * All Components
  *
- * @note Dear maintainers,
+ * @note Dear contributors,
  * Components listed in this file should be listed alphabetically. Thanks :)
  */
-export * from './Accordion'
-export * from './Alert'
-export * from './AlertDialog'
-export * from './Avatar'
-export { default as AvatarGroup } from './AvatarGroup'
-export { default as AspectRatioBox } from './AspectRatioBox'
 
-export { default as Badge } from './Badge'
-export { default as CBox } from './Box'
-export * from './Breadcrumb'
-export { default as CButton } from './Button'
-export { default as ButtonGroup } from './ButtonGroup'
+// A
+export * from './CAccordion'
+export * from './CAlert'
+export * from './CAlertDialog'
+export { default as CAspectRatioBox } from './CAspectRatioBox'
+export * from './CAvatar'
+export { default as CAvatarGroup } from './CAvatarGroup'
 
-export { default as Checkbox } from './Checkbox'
-export { default as CheckboxGroup } from './CheckboxGroup'
-export * from './CircularProgress'
-export { default as CloseButton } from './CloseButton'
-export { default as Code } from './Code'
-export { default as Collapse } from './Collapse'
-export { default as ColorModeProvider } from './ColorModeProvider'
-export { DarkMode, LightMode } from './ColorModeProvider'
-export { default as ControlBox } from './ControlBox'
+// B
+export { default as CBadge } from './CBadge'
+export { default as CBox } from './CBox'
+export * from './CBreadcrumb'
+export { default as CButton } from './CButton'
+export { default as CButtonGroup } from './CButtonGroup'
+
+// C
+export { default as CCheckbox } from './CCheckbox'
+export { default as CCheckboxGroup } from './CCheckboxGroup'
+export * from './CCircularProgress'
+export { default as CCloseButton } from './CCloseButton'
+export { default as CCode } from './CCode'
+export { default as CCollapse } from './CCollapse'
+export { default as CColorModeProvider } from './CColorModeProvider'
+export { CDarkMode, CLightMode } from './CColorModeProvider'
+export { default as CControlBox } from './CControlBox'
 export { default as Css } from './Css'
-export { default as CSSReset } from './CSSReset'
+export { default as CReset } from './CReset'
 
-export { default as Divider } from './Divider'
-export * from './Drawer'
+// D
+export { default as CDivider } from './CDivider'
+export * from './CDrawer'
 
-export { default as Editable } from './Editable'
-export * from './Editable'
+// E
+export { default as CEditable } from './CEditable'
+export * from './CEditable'
 
-export { default as Flex } from './Flex'
-export { default as FormControl } from './FormControl'
-export { default as FormLabel } from './FormLabel'
-export { default as FormErrorMessage } from './FormErrorMessage'
-export { default as FormHelperText } from './FormHelperText'
-export { default as Fragment } from './Fragment'
+// F
+export { default as CFlex } from './CFlex'
+export { default as CFormControl } from './CFormControl'
+export { default as CFormLabel } from './CFormLabel'
+export { default as CFormErrorMessage } from './CFormErrorMessage'
+export { default as CFormHelperText } from './CFormHelperText'
+export { default as CFragment } from './CFragment'
 
-export { default as Grid } from './Grid'
+// G
+export { default as CGrid } from './CGrid'
 
-export { default as Heading } from './Heading'
+// H
+export { default as CHeading } from './CHeading'
 
-export { default as Icon } from './Icon'
-export { default as IconButton } from './IconButton'
-export { default as Image } from './Image'
-export { default as Input } from './Input'
-export { default as InputAddon } from './InputAddon'
-export * from './InputAddon'
-export { default as InputElement } from './InputElement'
-export * from './InputElement'
-export { default as InputGroup } from './InputGroup'
+// I
+export { default as CIcon } from './CIcon'
+export { default as CIconButton } from './CIconButton'
+export { default as CImage } from './CImage'
+export { default as CInput } from './CInput'
+export { default as InputAddon } from './CInputAddon'
+export * from './CInputAddon'
+export { default as CInputElement } from './CInputElement'
+export * from './CInputElement'
+export { default as CInputGroup } from './CInputGroup'
 
-export { default as Link } from './Link'
-export { default as List } from './List'
-export * from './List'
+// L
+export { default as CLink } from './CLink'
+export { default as CList } from './CList'
+export * from './CList'
 
-export * from './Menu'
-export * from './Menu/MenuOption'
-export * from './Modal'
+// M
+export * from './CMenu'
+export * from './CMenu/CMenuOption'
+export * from './CModal'
 
-export * from './NumberInput'
+// N
+export * from './CNumberInput'
 
-export * from './Popover'
-export * from './Popper'
-export { default as Portal } from './Portal'
-export * from './Progress'
-export { default as PseudoBox } from './PseudoBox'
+// P
+export * from './CPopover'
+export * from './CPopper'
+export { default as CPortal } from './CPortal'
+export * from './CProgress'
+export { default as CPseudoBox } from './CPseudoBox'
 
-export { default as Radio } from './Radio'
-export { default as RadioGroup } from './RadioGroup'
-export { default as RadioButtonGroup } from './RadioButtonGroup'
+// R
+export { default as CRadio } from './CRadio'
+export { default as CRadioGroup } from './CRadioGroup'
+export { default as CRadioButtonGroup } from './CRadioButtonGroup'
 
-export { default as SimpleGrid } from './SimpleGrid'
-export { default as Select } from './Select'
-export { default as Slider } from './Slider'
-export * from './Slider'
-export { default as CSpinner } from './Spinner'
-export { default as Stack } from './Stack'
-export * from './Stat'
-export { default as Switch } from './Switch'
+// S
+export { default as CSimpleGrid } from './CSimpleGrid'
+export { default as CSelect } from './CSelect'
+export { default as CSlider } from './CSlider'
+export * from './CSlider'
+export { default as CSpinner } from './CSpinner'
+export { default as CStack } from './CStack'
+export * from './CStat'
+export { default as CSwitch } from './CSwitch'
 
-export * from './Tabs'
-export * from './Tag'
-export { default as Text } from './Text'
-export { default as Textarea } from './Textarea'
-export { default as ThemeProvider } from './ThemeProvider'
-export { default as useToast } from './Toast'
-export { default as Tooltip } from './Tooltip'
-export * from './Transition'
+// T
+export * from './CTabs'
+export * from './CTag'
+export { default as CText } from './CText'
+export { default as CTextarea } from './CTextarea'
+export { default as CThemeProvider } from './CThemeProvider'
+export { default as useToast } from './CToast'
+export { default as CTooltip } from './CTooltip'
+export * from './CTransition'
 
-export { default as VisuallyHidden } from './VisuallyHidden'
+// V
+export { default as CVisuallyHidden } from './CVisuallyHidden'
 
 // Props objects
 export { baseProps as boxProps, pseudoProps as pseudoBoxProps } from './config'

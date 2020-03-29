@@ -1,7 +1,7 @@
 import merge from 'lodash-es/merge'
 
 /**
- * @description Parse all Font Awesome Icons
+ * @description Custom parse all Font Awesome Icons provided by user
  * @param {Object} iconSet - Registered Icons object
  * @returns {Object} - All Font awesome icons parsed.
  */
@@ -30,6 +30,9 @@ const parseFAIcons = (iconSet) => {
  * @returns {Object} Parsed pack icons object
  */
 export const parsePackIcons = (pack, iconSet) => {
+  // TODO: Add support for other icon libraries
+  // - Material Icons
+  // - Tailwind Icons
   const packIcons = pack === 'fa' ? parseFAIcons(iconSet) : {}
   return packIcons
 }

@@ -17,7 +17,7 @@ storiesOf('UI | Code', module)
       <div>
         <CReset />
         <CStack isInline>
-          <CCode>console.log(welcome)</Code>
+          <CCode>console.log(welcome)</CCode>
           <CCode variantColor="red">var chakra = 'awesome!'</CCode>
           <CCode variantColor="yellow" >npm install chakra</CCode>
         </CStack>

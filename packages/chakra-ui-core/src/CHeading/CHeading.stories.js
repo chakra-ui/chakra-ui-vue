@@ -1,17 +1,17 @@
 import { storiesOf } from '@storybook/vue'
-import { Heading } from '..'
+import { CHeading } from '..'
 
 storiesOf('UI | Heading', module)
   .add('Button Group', () => ({
-    components: { Heading },
+    components: { CHeading },
     template: `
       <div>
-        <Heading size="2xl">Heading 1 </Heading>
-        <Heading size="xl">Heading 2 </Heading>
-        <Heading size="lg">Heading 3 </Heading>
-        <Heading size="md">Heading 4 </Heading>
-        <Heading size="sm">Heading 5 </Heading>
-        <Heading size="xs">Heading 6 </Heading>
+        <CHeading size="2xl">Heading 1 </CHeading>
+        <CHeading size="xl">Heading 2 </CHeading>
+        <CHeading size="lg">Heading 3 </CHeading>
+        <CHeading size="md">Heading 4 </CHeading>
+        <CHeading size="sm">Heading 5 </CHeading>
+        <CHeading size="xs">Heading 6 </CHeading>
       </div>
     `
   }))

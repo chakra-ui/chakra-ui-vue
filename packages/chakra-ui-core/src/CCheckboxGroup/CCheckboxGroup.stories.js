@@ -1,17 +1,17 @@
 import { storiesOf } from '@storybook/vue'
-import { Box, Checkbox, CheckboxGroup } from '..'
+import { CBox, CCheckbox, CCheckboxGroup } from '..'
 
 storiesOf('UI | CheckboxGroup', module)
   .add('Basic Usage', () => ({
-    components: { Box, Checkbox, CheckboxGroup },
+    components: { CBox, CCheckbox, CCheckboxGroup },
     template: `
-      <Box w="300px">
-        <CheckboxGroup v-model="selectedValues" variantColor="green" :defaultValue="['two']">
-          <Checkbox value="one">One</Checkbox>
-          <Checkbox value="two">Two</Checkbox>
-          <Checkbox value="three">Three</Checkbox>
-        </CheckboxGroup>
-      </Box>
+      <CBox w="300px">
+        <CCheckboxGroup v-model="selectedValues" variantColor="green" :defaultValue="['two']">
+          <CCheckbox value="one">One</CCheckbox>
+          <CCheckbox value="two">Two</CCheckbox>
+          <CCheckbox value="three">Three</CCheckbox>
+        </CCheckboxGroup>
+      </CBox>
     `,
     data () {
       return {

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CInput, CFormControl, CFormLabel, CIcon, CStack, CInputGroup, CInputLeftElement, CInputRightElement, FormHelperText, CFormErrorMessage } from '..'
+import { CInput, CFormControl, CFormLabel, CIcon, CStack, CInputGroup, CInputLeftElement, CInputRightElement, CFormHelperText, CFormErrorMessage } from '..'
 
 storiesOf('UI | FormControl', module)
   .add('Basic Usage', () => ({
@@ -12,7 +12,7 @@ storiesOf('UI | FormControl', module)
     `
   }))
   .add('With Form Helper Text', () => ({
-    components: { CInput, CFormControl, CStack, CIcon, CInputGroup, CInputLeftElement, CInputRightElement, FormHelperText },
+    components: { CInput, CFormControl, CStack, CIcon, CInputGroup, CInputLeftElement, CInputRightElement, CFormHelperText },
     template: `
       <div>
         <CFormControl id="test-error">
@@ -21,7 +21,7 @@ storiesOf('UI | FormControl', module)
             <CInput :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
             <CInputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><CIcon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></CInputRightElement>
           </CInputGroup>
-          <FormHelperText>Enter your password</FormHelperText>
+          <CFormHelperText>Enter your password</CFormHelperText>
         </CFormControl>
       </div>
     `,

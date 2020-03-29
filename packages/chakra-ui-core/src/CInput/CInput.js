@@ -6,7 +6,7 @@ import { inputProps } from './utils/input.props'
 import CPseudoBox from '../CPseudoBox'
 
 const CInput = {
-  name: 'CInput',
+  name: 'ChakraInput',
   inject: {
     '$colorMode': {
       default: 'light'

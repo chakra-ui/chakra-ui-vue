@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider, Icon } from '..'
+import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider, CIcon } from '..'
 
 storiesOf('UI | Menu', module)
   .add('Default Menu', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, Icon },
+    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
     template: `
     <CMenu>
       <CMenuButton as="Button" rightIcon="chevron-down">
@@ -43,7 +43,7 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('With letter navigation', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, Icon },
+    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
     template: `
     <CMenu>
       <CMenuButton
@@ -56,7 +56,7 @@ storiesOf('UI | Menu', module)
         :_expanded="{ bg: 'red.200' }"
         :_focus="{ outline: 0, boxShadow: 'outline' }"
       >
-        File <Icon name="chevron-down" />
+        File <CIcon name="chevron-down" />
       </CMenuButton>
       <CMenuList>
         <CMenuItem>New File</CMenuItem>

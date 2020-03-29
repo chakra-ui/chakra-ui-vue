@@ -1,2 +1,2 @@
-import Toast from './Toast'
-export default Toast
+import CToast from './CToast'
+export default CToast

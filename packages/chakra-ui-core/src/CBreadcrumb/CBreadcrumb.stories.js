@@ -1,12 +1,12 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator } from '..'
+import { CReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator } from '..'
 
 storiesOf('UI | Breadcrumb', module)
   .add('With custom separator', () => ({
-    components: { CSSReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator },
+    components: { CReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator },
     template: `
       <div>
-        <CSSReset />
+        <CReset />
         <CBreadcrumb :add-separator="false">
           <CBreadcrumbItem>
             <CBreadcrumbLink href="#">Breadcrumb 1</CBreadcrumbLink>

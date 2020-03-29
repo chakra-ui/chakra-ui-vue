@@ -1,7 +1,8 @@
-import CBox from '../CBox'
 import styleProps from '../config/props'
 import useInputStyle from '../CInput/utils/input.styles'
 import { forwardProps } from '../utils'
+
+import CBox from '../CBox'
 
 const addonProps = {
   ...styleProps,
@@ -15,8 +16,8 @@ const addonProps = {
   }
 }
 
-const InputAddon = {
-  name: 'InputAddon',
+const CInputAddon = {
+  name: 'CInputAddon',
   inject: ['$colorMode', '$theme'],
   props: addonProps,
   computed: {
@@ -64,31 +65,37 @@ const InputAddon = {
   }
 }
 
-const InputLeftAddon = {
-  name: 'InputLeftAddon',
+const CInputLeftAddon = {
+  name: 'CInputLeftAddon',
   props: addonProps,
   render (h) {
-    return h(InputAddon, {
+    return h(CInputAddon, {
       props: {
         ...forwardProps(this.$props),
         placement: 'left'
+      },
+      attrs: {
+        'data-chakra-input-left-addon': ''
       }
     }, this.$slots.default)
   }
 }
 
-const InputRightAddon = {
-  name: 'InputRightAddon',
+const CInputRightAddon = {
+  name: 'CInputRightAddon',
   props: addonProps,
   render (h) {
-    return h(InputAddon, {
+    return h(CInputAddon, {
       props: {
         ...forwardProps(this.$props),
         placement: 'right'
+      },
+      attrs: {
+        'data-chakra-input-right-addon': ''
       }
     }, this.$slots.default)
   }
 }
 
-export default InputAddon
-export { InputLeftAddon, InputRightAddon }
+export default CInputAddon
+export { CInputLeftAddon, CInputRightAddon }

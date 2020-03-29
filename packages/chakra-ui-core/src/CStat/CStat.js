@@ -84,7 +84,7 @@ const CStatArrow = {
  */
 const CStatNumber = {
   name: 'CStatNumber',
-  extends: Text,
+  extends: CText,
   render (h) {
     return h(CText, {
       props: {
@@ -104,7 +104,7 @@ const CStatHelperText = {
   name: 'CStatHelperText',
   extends: CText,
   render (h) {
-    return h(Text, {
+    return h(CText, {
       props: {
         fontSize: 'sm',
         opacity: 0.8,
@@ -120,9 +120,9 @@ const CStatHelperText = {
  */
 const CStatLabel = {
   name: 'CStatLabel',
-  extends: Text,
+  extends: CText,
   render (h) {
-    return h(Text, {
+    return h(CText, {
       props: {
         fontWeight: 'medium',
         fontSize: 'sm',

@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import { Fragment, Input, Button, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '..'
+import { CFragment, CInput, CButton, CDrawer, CDrawerBody, CDrawerFooter, CDrawerHeader, CDrawerOverlay, CDrawerContent, CDrawerCloseButton } from '..'
 
 storiesOf('UI | Drawer', module)
   .add('Drawer', () => ({
-    components: { Fragment, Input, Button, Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton },
+    components: { CFragment, CInput, CButton, CDrawer, CDrawerBody, CDrawerFooter, CDrawerHeader, CDrawerOverlay, CDrawerContent, CDrawerCloseButton },
     data: () => ({ isOpen: false }),
     methods: {
       close () {
@@ -11,25 +11,25 @@ storiesOf('UI | Drawer', module)
       }
     },
     template: `
-    <Fragment>
-        <Button ref="btnRef" @click="isOpen =true">Open Drawer</Button>
+    <CFragment>
+        <CButton ref="btnRef" @click="isOpen =true">Open Drawer</CButton>
 
-        <Drawer :isOpen="isOpen" placement="right" :on-close="close" :initialFocusRef="()=>$refs.inputInsideModal">
-            <DrawerOverlay />
-            <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
+        <CDrawer :isOpen="isOpen" placement="right" :on-close="close" :initialFocusRef="()=>$refs.inputInsideModal">
+            <CDrawerOverlay />
+            <CDrawerContent>
+            <CDrawerCloseButton />
+            <CDrawerHeader>Create your account</CDrawerHeader>
 
-            <DrawerBody>
-                <Input ref="inputInsideModal" placeholder="Type here..." />
-            </DrawerBody>
+            <CDrawerBody>
+                <CInput ref="inputInsideModal" placeholder="Type here..." />
+            </CDrawerBody>
 
-            <DrawerFooter>
-                <Button variant="outline" mr="3" @click="isOpen = false">Cancel</Button>
-                <Button color="blue">Save</Button>
-            </DrawerFooter>
-            </DrawerContent>
-        </Drawer>
-    </Fragment>
+            <CDrawerFooter>
+                <CButton variant="outline" mr="3" @click="isOpen = false">Cancel</CButton>
+                <CButton color="blue">Save</CButton>
+            </CDrawerFooter>
+            </CDrawerContent>
+        </CDrawer>
+    </CFragment>
     `
   }))

@@ -1,22 +1,22 @@
 import { storiesOf } from '@storybook/vue'
-import { CloseButton } from '..'
+import { CCloseButton } from '..'
 
 storiesOf('UI | CloseButton', module)
   .add('Default CloseButton', () => ({
-    components: { CloseButton },
+    components: { CCloseButton },
     template: `
       <div>
-        <CloseButton />
+        <CCloseButton />
       </div>
     `
   }))
   .add('With size', () => ({
-    components: { CloseButton },
+    components: { CCloseButton },
     template: `
       <div>
-        <CloseButton mx="3" size="sm" />
-        <CloseButton mx="3" />
-        <CloseButton mx="3" size="lg" />
+        <CCloseButton mx="3" size="sm" />
+        <CCloseButton mx="3" />
+        <CCloseButton mx="3" size="lg" />
       </div>
     `
   }))

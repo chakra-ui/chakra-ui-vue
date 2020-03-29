@@ -33,7 +33,7 @@ const CInputGroup = {
         if (vnode.tag.includes('CInputRightElement')) {
           pr = sizes[height]
         }
-        if (vnode.tag.includes('CInput')) {
+        if (vnode.tag.includes('ChakraInput')) {
           const clone = cloneVNode(vnode, h)
           return h(clone.componentOptions.Ctor, {
             ...clone.data,
@@ -65,6 +65,9 @@ const CInputGroup = {
         ...forwardProps(this.$props),
         display: 'flex',
         position: 'relative'
+      },
+      attrs: {
+        'data-chakra-input-group': ''
       }
     }, clones)
   }

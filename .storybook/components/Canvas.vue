@@ -45,7 +45,7 @@ import {
   CHeading,
   CReset,
   CButton,
-  CCBox,
+  CBox,
   CIconButton,
   CColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
 export default {
@@ -55,7 +55,7 @@ export default {
     CHeading,
     CReset,
     CButton,
-    CCBox,
+    CBox,
     CIconButton,
     CColorModeProvider
   }

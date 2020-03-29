@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Button } from '..'
+import { CButton } from '..'
 import { colorModeObserver } from '../utils/color-mode-observer'
 
 const watch = {
@@ -19,7 +19,7 @@ const watch = {
 
 storiesOf('UI | Toast', module)
   .add('Simple Toast', () => ({
-    components: { Button },
+    components: { CButton },
     watch,
     inject: ['$theme', '$icons'],
     methods: {
@@ -35,12 +35,12 @@ storiesOf('UI | Toast', module)
     },
     template: `
       <div>
-        <Button variant-color="blue" @click="showToast">Show Toast</Button>
+        <CButton variant-color="blue" @click="showToast">Show Toast</CButton>
       </div>
     `
   }))
   .add('With status', () => ({
-    components: { Button },
+    components: { CButton },
     watch,
     inject: ['$theme', '$icons'],
     methods: {
@@ -87,15 +87,15 @@ storiesOf('UI | Toast', module)
     },
     template: `
       <div>
-        <Button variant-color="blue" @click="infoToast">Info Toast</Button>
-        <Button variant-color="green" @click="successToast">Success Toast</Button>
-        <Button variant-color="orange" @click="warningToast">Warning Toast</Button>
-        <Button variant-color="red" @click="errorToast">Error Toast</Button>
+        <CButton variant-color="blue" @click="infoToast">Info Toast</CButton>
+        <CButton variant-color="green" @click="successToast">Success Toast</CButton>
+        <CButton variant-color="orange" @click="warningToast">Warning Toast</CButton>
+        <CButton variant-color="red" @click="errorToast">Error Toast</CButton>
       </div>
     `
   }))
   .add('With variant', () => ({
-    components: { Button },
+    components: { CButton },
     watch,
     inject: ['$theme', '$icons'],
     methods: {
@@ -113,10 +113,10 @@ storiesOf('UI | Toast', module)
     },
     template: `
       <div>
-        <Button variant-color="green" @click="successToast('solid')">Success Toast</Button>
-        <Button variant-color="green" variant="outline" @click="successToast('subtle')">Success Toast</Button>
-        <Button variant-color="green" variant="ghost" @click="successToast('leftAccent')">Success Toast</Button>
-        <Button variant-color="green" variant="ghost" @click="successToast('topAccent')">Success Toast</Button>
+        <CButton variant-color="green" @click="successToast('solid')">Success Toast</CButton>
+        <CButton variant-color="green" variant="outline" @click="successToast('subtle')">Success Toast</CButton>
+        <CButton variant-color="green" variant="ghost" @click="successToast('leftAccent')">Success Toast</CButton>
+        <CButton variant-color="green" variant="ghost" @click="successToast('topAccent')">Success Toast</CButton>
       </div>
     `
   }))

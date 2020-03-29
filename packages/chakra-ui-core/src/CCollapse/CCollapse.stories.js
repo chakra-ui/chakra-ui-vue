@@ -1,17 +1,17 @@
 import { storiesOf } from '@storybook/vue'
-import { Button, Collapse, Box } from '..'
+import { CButton, CCollapse, CBox } from '..'
 
 storiesOf('UI | Collapse', module)
   .add('Basic Usage', () => ({
-    components: { Button, Collapse, Box },
+    components: { CButton, CCollapse, CBox },
     template: `
       <div>
-        <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
-        <Collapse :isOpen="showCollapsed">
-          <Box bg="tomato" w="250px">
+        <CButton @click="showCollapsed = !showCollapsed">Collapse</CButton>
+        <CCollapse :isOpen="showCollapsed">
+          <CBox bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
-          </Box>
-        </Collapse>
+          </CBox>
+        </CCollapse>
       </div>
     `,
     data () {
@@ -21,15 +21,15 @@ storiesOf('UI | Collapse', module)
     }
   }))
   .add('Changing the startingHeigh', () => ({
-    components: { Button, Collapse, Box },
+    components: { CButton, CCollapse, CBox },
     template: `
       <div>
-        <Button @click="showCollapsed = !showCollapsed">Collapse</Button>
-        <Collapse :isOpen="showCollapsed" :startingHeight="24">
-          <Box bg="tomato" w="250px">
+        <CButton @click="showCollapsed = !showCollapsed">Collapse</CButton>
+        <CCollapse :isOpen="showCollapsed" :startingHeight="24">
+          <CBox bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
-          </Box>
-        </Collapse>
+          </CBox>
+        </CCollapse>
       </div>
     `,
     data () {

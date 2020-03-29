@@ -1,53 +1,53 @@
 import { storiesOf } from '@storybook/vue'
-import { Editable, EditablePreview, EditableInput, Box, Button, ButtonGroup, Flex } from '..'
+import { CEditable, CEditablePreview, CEditableInput, CBox, CButton, CButtonGroup, CFlex } from '..'
 
 const ControlButtons = {
   name: 'ControlButtons',
-  components: { Button, ButtonGroup, Flex },
+  components: { CButton, CButtonGroup, CFlex },
   props: ['isEditing', 'onSubmit', 'onCancel', 'onRequestEdit'],
   template: `
-  <Flex>
-    <ButtonGroup size="sm" v-if="isEditing">
-      <Button color="green" @click="onSubmit">Save</Button>
-      <Button @click="onCancel">Cancel</Button>
-    </ButtonGroup>
-    <Button size="sm" @click="onRequestEdit" v-else>Edit</Button>
-  </Flex>
+  <CFlex>
+    <CButtonGroup size="sm" v-if="isEditing">
+      <CButton color="green" @click="onSubmit">Save</CButton>
+      <CButton @click="onCancel">Cancel</CButton>
+    </CButtonGroup>
+    <CButton size="sm" @click="onRequestEdit" v-else>Edit</CButton>
+  </CFlex>
   `
 }
 
 storiesOf('UI | Editable', module)
   .addDecorator(story => ({
-    components: { Box, story: story() },
+    components: { CBox, story: story() },
     template: `
-      <Box maxWidth="lg" mx="auto" mt="6" p="6">
+      <CBox maxWidth="lg" mx="auto" mt="6" p="6">
         <story></story>
-      </Box>`
+      </CBox>`
   }))
 
   .add('Default', () => ({
-    components: { Box, Editable, EditablePreview, EditableInput },
+    components: { CBox, CEditable, CEditablePreview, CEditableInput },
     template: `
-    <Box w="sm">
-        <Editable defaultValue="Take some chakra ⚡️ (click me)" fontSize="2xl">
-        <EditablePreview />
-        <EditableInput />
-        </Editable>
-    </Box>
+    <CBox w="sm">
+        <CEditable defaultValue="Take some chakra ⚡️ (click me)" fontSize="2xl">
+        <CEditablePreview />
+        <CEditableInput />
+        </CEditable>
+    </CBox>
     `
   }))
 
   .add('Custom Controls', () => ({
-    components: { ControlButtons, Box, Editable, EditablePreview, EditableInput },
+    components: { ControlButtons, CBox, CEditable, CEditablePreview, CEditableInput },
     template: `
-    <Box w="sm">
-        <Editable defaultValue="Click Edit Button ⚡️" :submitOnBlur="false" :isPreviewFocusable="false" fontSize="2xl">
+    <CBox w="sm">
+        <CEditable defaultValue="Click Edit Button ⚡️" :submitOnBlur="false" :isPreviewFocusable="false" fontSize="2xl">
           <template v-slot="props">
-            <EditablePreview />
-            <EditableInput />
+            <CEditablePreview />
+            <CEditableInput />
             <ControlButtons v-bind="props"></ControlButtons>
           </template>
-        </Editable>
-    </Box>
+        </CEditable>
+    </CBox>
     `
   }))

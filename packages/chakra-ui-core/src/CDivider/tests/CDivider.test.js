@@ -1,11 +1,11 @@
-import Divider from '../'
+import CDivider from '..'
 import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
-    components: { Divider },
-    template: `<Divider ${inlineAttrs} />`,
+    components: { CDivider },
+    template: `<CDivider ${inlineAttrs} />`,
     ...props
   }
   return render(base)

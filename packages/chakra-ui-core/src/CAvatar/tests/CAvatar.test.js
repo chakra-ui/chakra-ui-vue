@@ -1,4 +1,4 @@
-import { CAvatar, CAvatarBadge } from '../'
+import { CAvatar, CAvatarBadge } from '..'
 import { render, fireEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

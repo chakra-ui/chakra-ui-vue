@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { Fragment, Button, Radio, RadioGroup, RadioButtonGroup } from '..'
+import { CFragment, CButton, CRadio, CRadioGroup, CRadioButtonGroup } from '..'
 
 const CustomRadio = {
   name: 'CustomRadio',
@@ -10,7 +10,7 @@ const CustomRadio = {
     mx: String
   },
   render (h) {
-    return h(Button, {
+    return h(CButton, {
       props: {
         ...this.$props,
         isDisabled: this.isDisabled,
@@ -26,28 +26,28 @@ const CustomRadio = {
 
 storiesOf('UI | RadioGroup', module)
   .add('Basic Usage', () => ({
-    components: { Fragment, Radio, RadioGroup },
+    components: { CFragment, CRadio, CRadioGroup },
     template: `
       <div>
-        <Fragment>
-          <RadioGroup
+        <CFragment>
+          <CRadioGroup
             size="lg"
             defaultValue="male"
             ref="rg"
           >
-          <Radio variantColor="red" value="male">Male</Radio>
-          <Radio variantColor="red" value="female">Female</Radio>
-        </RadioGroup>
-        </Fragment>
+          <CRadio variantColor="red" value="male">Male</CRadio>
+          <CRadio variantColor="red" value="female">Female</CRadio>
+        </CRadioGroup>
+        </CFragment>
       </div>
     `
   }))
   .add('Custom Radio Buttons', () => ({
-    components: { Fragment, CustomRadio, RadioButtonGroup },
+    components: { CFragment, CustomRadio, CRadioButtonGroup },
     template: `
       <div>
-        <Fragment>
-          <RadioButtonGroup
+        <CFragment>
+          <CRadioButtonGroup
             defaultValue="item-2"
             isInline
             :spacing="4"
@@ -56,8 +56,8 @@ storiesOf('UI | RadioGroup', module)
             <CustomRadio value="item-2" mx="2">Custom Radio 2</CustomRadio>
             <CustomRadio value="item-3" mx="2">Custom Radio 3</CustomRadio>
             <CustomRadio isDisabled value="item-4" mx="2">Custom Radio 4</CustomRadio>
-        </RadioButtonGroup>
-        </Fragment>
+        </CRadioButtonGroup>
+        </CFragment>
       </div>
     `
   }))

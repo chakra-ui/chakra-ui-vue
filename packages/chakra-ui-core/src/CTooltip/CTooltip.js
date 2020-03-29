@@ -34,7 +34,7 @@ const tooltipProps = {
 
 // TODO: Add isControlled support.
 const CTooltip = {
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   name: 'CTooltip',
   data () {
     return {
@@ -47,7 +47,7 @@ const CTooltip = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     tooltipId () {
       return `tooltip-${useId(4)}`

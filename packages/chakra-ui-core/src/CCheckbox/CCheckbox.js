@@ -10,7 +10,7 @@ import CIcon from '../CIcon'
 
 const CCheckbox = {
   name: 'CCheckbox',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   model: {
     prop: 'isChecked',
     event: 'change'
@@ -48,10 +48,10 @@ const CCheckbox = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     checkBoxStyles () {
       return useCheckboxStyle({

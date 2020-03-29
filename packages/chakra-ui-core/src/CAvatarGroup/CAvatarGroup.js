@@ -9,7 +9,7 @@ import CFlex from '../CFlex'
  */
 const CMoreAvatarLabel = {
   name: 'CMoreAvatarLabel',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     size: [String, Array],
     label: String,
@@ -17,10 +17,10 @@ const CMoreAvatarLabel = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

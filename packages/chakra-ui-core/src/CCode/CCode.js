@@ -6,7 +6,7 @@ import CBox from '../CBox'
 
 const CCode = {
   name: 'CCode',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     variantColor: {
       type: String,
@@ -16,10 +16,10 @@ const CCode = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     badgeStyle () {
       useVariantColorWarning(this.theme, 'CCode', this.variantColor)

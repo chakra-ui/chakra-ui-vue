@@ -34,10 +34,10 @@ import MobileNav from './MobileNav.vue'
 
 export default {
   name: 'Navbar',
-  inject: ['$colorMode', '$toggleColorMode'],
+  inject: ['$chakraColorMode', '$toggleColorMode'],
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   components: {

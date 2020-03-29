@@ -4,14 +4,14 @@ import { forwardProps } from '../utils'
 
 const CFormHelperText = {
   name: 'CFormHelperText',
-  inject: ['$useFormControl', '$colorMode'],
+  inject: ['$useFormControl', '$chakraColorMode'],
   props: baseProps,
   computed: {
     formControl () {
       return this.$useFormControl(this.$props)
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

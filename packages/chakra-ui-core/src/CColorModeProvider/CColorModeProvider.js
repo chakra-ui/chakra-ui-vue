@@ -12,7 +12,7 @@ const CColorModeProvider = {
   },
   provide () {
     return {
-      $colorMode: () => this._colorMode,
+      $chakraColorMode: () => this._colorMode,
       $toggleColorMode: this.toggleColorMode
     }
   },

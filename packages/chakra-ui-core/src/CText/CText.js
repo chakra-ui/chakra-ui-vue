@@ -4,7 +4,7 @@ import { baseProps } from '../config/props'
 
 export default {
   name: 'CText',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     as: {
       type: [String, Array],

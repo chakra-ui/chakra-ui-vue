@@ -9,7 +9,7 @@ const renderComponent = (props) => {
     components: { CStat, CStatLabel, CStatNumber, CStatHelperText, CStatArrow },
     provide: () => ({
       ...defaultProviders(),
-      $icons: {
+      $chakraIcons: {
         'triangle-up': increase,
         'triangle-down': decrease
       }

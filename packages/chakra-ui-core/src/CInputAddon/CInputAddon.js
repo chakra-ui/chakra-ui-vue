@@ -18,14 +18,14 @@ const addonProps = {
 
 const CInputAddon = {
   name: 'CInputAddon',
-  inject: ['$colorMode', '$theme'],
+  inject: ['$chakraColorMode', '$chakraTheme'],
   props: addonProps,
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     }
   },
   render (h) {

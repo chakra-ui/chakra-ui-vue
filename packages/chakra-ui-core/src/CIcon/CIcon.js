@@ -36,7 +36,7 @@ const Svg = {
  */
 const CIcon = {
   name: 'CIcon',
-  inject: ['$theme', '$icons'],
+  inject: ['$chakraTheme', '$chakraIcons'],
   props: {
     ...iconProps,
     ...baseProps
@@ -44,7 +44,7 @@ const CIcon = {
   render (h) {
     let icon, viewBox
     if (this.name) {
-      icon = this.$icons[this.name]
+      icon = this.$chakraIcons[this.name]
     } else {
       console.warn(`[Chakra]: You need to provide the "name" or "use" prop to for the Icon component`)
     }

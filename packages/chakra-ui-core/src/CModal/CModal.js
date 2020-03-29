@@ -255,7 +255,7 @@ const CModalOverlay = {
 const CModalContent = {
   name: 'CModalContent',
   inheritAttrs: false,
-  inject: ['$ModalContext', '$colorMode'],
+  inject: ['$ModalContext', '$chakraColorMode'],
   props: {
     ...baseProps,
     noStyles: Boolean,
@@ -283,7 +283,7 @@ const CModalContent = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     context () {
       return this.$ModalContext()

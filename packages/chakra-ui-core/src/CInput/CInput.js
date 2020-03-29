@@ -8,10 +8,10 @@ import CPseudoBox from '../CPseudoBox'
 const CInput = {
   name: 'ChakraInput',
   inject: {
-    '$colorMode': {
+    '$chakraColorMode': {
       default: 'light'
     },
-    '$theme': {
+    '$chakraTheme': {
       default: () => ({})
     },
     '$useFormControl': {
@@ -28,10 +28,10 @@ const CInput = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     formControl () {
       if (!this.$useFormControl) {

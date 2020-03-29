@@ -70,7 +70,7 @@ const CSelectInput = {
 
 const CSelect = {
   name: 'CSelect',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   model: {
     prop: 'value',
     event: 'change'
@@ -101,7 +101,7 @@ const CSelect = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     _color () {
       return this.colorMode === 'dark' ? 'whiteAlpha.800' : 'inherit'

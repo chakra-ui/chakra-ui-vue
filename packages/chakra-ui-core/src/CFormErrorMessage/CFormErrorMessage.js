@@ -8,7 +8,7 @@ import { forwardProps } from '../utils'
 
 const CFormErrorMessage = {
   name: 'CFormErrorMessage',
-  inject: ['$colorMode', '$useFormControl'],
+  inject: ['$chakraColorMode', '$useFormControl'],
   props: {
     ...baseProps,
     icon: {
@@ -22,7 +22,7 @@ const CFormErrorMessage = {
       return this.$useFormControl(this.$props)
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

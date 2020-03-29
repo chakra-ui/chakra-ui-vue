@@ -24,17 +24,17 @@ const getInitials = (name) => {
  */
 export const CAvatarBadge = {
   name: 'CAvatarBadge',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     size: [String, Number, Array],
     ...baseProps
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {
@@ -122,13 +122,13 @@ const CDefaultAvatar = {
  */
 export const CAvatar = {
   name: 'CAvatar',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   props: {

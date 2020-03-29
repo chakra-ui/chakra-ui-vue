@@ -3,13 +3,13 @@ import { CButton } from '..'
 import { colorModeObserver } from '../utils/color-mode-observer'
 
 const watch = {
-  $theme: {
+  $chakraTheme: {
     immediate: true,
     handler (theme) {
       colorModeObserver.theme = theme()
     }
   },
-  $icons: {
+  $chakraIcons: {
     immediate: true,
     handler (icons) {
       colorModeObserver.icons = icons
@@ -21,7 +21,7 @@ storiesOf('UI | Toast', module)
   .add('Simple Toast', () => ({
     components: { CButton },
     watch,
-    inject: ['$theme', '$icons'],
+    inject: ['$chakraTheme', '$chakraIcons'],
     methods: {
       showToast () {
         this.$toast({
@@ -42,7 +42,7 @@ storiesOf('UI | Toast', module)
   .add('With status', () => ({
     components: { CButton },
     watch,
-    inject: ['$theme', '$icons'],
+    inject: ['$chakraTheme', '$chakraIcons'],
     methods: {
       infoToast () {
         this.$toast({
@@ -97,7 +97,7 @@ storiesOf('UI | Toast', module)
   .add('With variant', () => ({
     components: { CButton },
     watch,
-    inject: ['$theme', '$icons'],
+    inject: ['$chakraTheme', '$chakraIcons'],
     methods: {
       successToast (variant = 'solid') {
         this.$toast({

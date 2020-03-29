@@ -9,7 +9,7 @@ import CPseudoBox from '../CPseudoBox'
 
 const CTabs = {
   name: 'CTabs',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     ...baseProps,
     index: Number,
@@ -71,10 +71,10 @@ const CTabs = {
       }
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     isControlled () {
       return isDef(this.index)
@@ -172,7 +172,7 @@ const CTabs = {
 const CTabList = {
   name: 'CTabList',
   props: baseProps,
-  inject: ['$TabContext', '$theme', '$colorMode'],
+  inject: ['$TabContext', '$chakraTheme', '$chakraColorMode'],
   data () {
     return {
       allNodes: {},
@@ -185,10 +185,10 @@ const CTabList = {
       return this.$TabContext()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     tabListStyleProps () {
       const { align, variant, orientation } = this.context
@@ -319,7 +319,7 @@ const CTabList = {
 
 const CTab = {
   name: 'CTab',
-  inject: ['$theme', '$colorMode', '$TabContext'],
+  inject: ['$chakraTheme', '$chakraColorMode', '$TabContext'],
   props: {
     ...styleProps,
     isSelected: Boolean,
@@ -344,10 +344,10 @@ const CTab = {
       return styles
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

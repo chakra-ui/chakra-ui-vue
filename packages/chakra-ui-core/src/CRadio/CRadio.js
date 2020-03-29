@@ -7,7 +7,7 @@ import CControlBox from '../CControlBox'
 
 const CRadio = {
   name: 'CRadio',
-  inject: ['$colorMode', '$theme'],
+  inject: ['$chakraColorMode', '$chakraTheme'],
   props: {
     ...styleProps,
     id: String,
@@ -31,10 +31,10 @@ const CRadio = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     radioStyles () {
       useVariantColorWarning(this.theme, 'Radio', this.variantColor)

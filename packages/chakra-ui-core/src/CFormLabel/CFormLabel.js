@@ -6,10 +6,10 @@ import CBox from '../CBox'
 
 const CRequiredIndicator = {
   name: 'CRequiredIndicator',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     color () {
       const color = { light: 'red.500', dark: 'red.300' }

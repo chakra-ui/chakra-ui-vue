@@ -334,7 +334,7 @@ const CPopoverTrigger = {
 
 const CPopoverContent = {
   name: 'CPopoverContent',
-  inject: ['$PopoverContext', '$colorMode'],
+  inject: ['$PopoverContext', '$chakraColorMode'],
   props: {
     ...styleProps,
     gutter: {
@@ -351,7 +351,7 @@ const CPopoverContent = {
       return `popover-content-${useId()}`
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     eventHandlers () {
       const { trigger, handleBlur, closePopover, closeOnEscape } = this.context

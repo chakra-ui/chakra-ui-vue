@@ -85,7 +85,7 @@ const CProgressIndicator = {
 
 const CProgress = {
   name: 'CProgress',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   props: {
     ...baseProps,
     color: {
@@ -116,7 +116,7 @@ const CProgress = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     trackColor () {
       return { light: 'gray.100', dark: 'whiteAlpha.300' }

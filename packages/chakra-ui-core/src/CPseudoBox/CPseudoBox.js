@@ -22,7 +22,7 @@ const systemProps = compose(
 
 const CPseudoBox = {
   name: 'CPseudoBox',
-  inject: ['$theme'],
+  inject: ['$chakraTheme'],
   props: {
     as: {
       type: [String, Object],
@@ -33,7 +33,7 @@ const CPseudoBox = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     }
   },
   render (h) {

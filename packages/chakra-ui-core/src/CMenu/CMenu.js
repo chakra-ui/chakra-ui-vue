@@ -36,7 +36,7 @@ const menuProps = {
 
 const CMenu = {
   name: 'CMenu',
-  inject: ['$colorMode', '$theme'],
+  inject: ['$chakraColorMode', '$chakraTheme'],
   provide () {
     return {
       $MenuContext: () => this.MenuContext
@@ -44,10 +44,10 @@ const CMenu = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     menuId () {
       return `menu-${useId()}`
@@ -279,7 +279,7 @@ const CMenuButton = {
 const CMenuList = {
   name: 'CMenuList',
   props: styleProps,
-  inject: ['$MenuContext', '$colorMode'],
+  inject: ['$MenuContext', '$chakraColorMode'],
   computed: {
     context () {
       return this.$MenuContext()
@@ -288,7 +288,7 @@ const CMenuList = {
       return colorMode => useMenuListStyle(colorMode)
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   methods: {
@@ -383,7 +383,7 @@ const CMenuList = {
 
 const CMenuItem = {
   name: 'CMenuItem',
-  inject: ['$MenuContext', '$theme', '$colorMode'],
+  inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
   props: {
     ...styleProps,
     isDisabled: Boolean,
@@ -400,10 +400,10 @@ const CMenuItem = {
       return props => useMenuItemStyle(props)
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

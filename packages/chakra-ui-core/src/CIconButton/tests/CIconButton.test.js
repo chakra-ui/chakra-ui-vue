@@ -6,7 +6,7 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CIconButton },
-    provide: () => defaultProviders({ $icons: { add: icons.add } }),
+    provide: () => defaultProviders({ $chakraIcons: { add: icons.add } }),
     template: `<CIconButton _aria-label="Phone" variant-color="blue" icon="phone" data-testid="btn" ${inlineAttrs} />`,
     ...props
   }

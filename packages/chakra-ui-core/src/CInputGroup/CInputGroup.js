@@ -6,7 +6,7 @@ import { cloneVNode, forwardProps } from '../utils'
 
 const CInputGroup = {
   name: 'CInputGroup',
-  inject: ['$theme'],
+  inject: ['$chakraTheme'],
   props: {
     ...baseProps,
     size: {
@@ -16,7 +16,7 @@ const CInputGroup = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     }
   },
   render (h) {

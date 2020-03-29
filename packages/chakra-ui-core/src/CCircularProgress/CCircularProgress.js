@@ -27,10 +27,10 @@ const CCircularProgressLabel = {
 
 const CCircularProgress = {
   name: 'CCircularProgress',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   props: {

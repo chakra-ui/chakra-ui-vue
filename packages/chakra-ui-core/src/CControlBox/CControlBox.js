@@ -10,7 +10,7 @@ const PseudoPropTypes = [Object, Array]
 
 const CControlBox = {
   name: 'CControlBox',
-  inject: ['$theme'],
+  inject: ['$chakraTheme'],
   props: {
     type: {
       type: String,
@@ -40,7 +40,7 @@ const CControlBox = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     className () {
       const checkedAndDisabled = `input[type=${this.type}]:checked:disabled + &, input[type=${this.type}][aria-checked=mixed]:disabled + &`

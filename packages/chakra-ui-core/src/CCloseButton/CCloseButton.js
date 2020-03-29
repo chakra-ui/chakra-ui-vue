@@ -40,7 +40,7 @@ const sizes = {
 
 const CCloseButton = {
   name: 'CCloseButton',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     size: {
       type: String,

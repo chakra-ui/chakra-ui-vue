@@ -521,14 +521,14 @@ const CNumberInputStepper = {
  */
 const CStepperButton = {
   name: 'CStepperButton',
-  inject: ['$NumberInputContext', '$colorMode'],
+  inject: ['$NumberInputContext', '$chakraColorMode'],
   props: styleProps,
   computed: {
     context () {
       return this.$NumberInputContext()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

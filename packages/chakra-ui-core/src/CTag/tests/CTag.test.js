@@ -9,7 +9,7 @@ const renderComponent = (props) => {
     components: { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar },
     provide: () => ({
       ...defaultProviders(),
-      $icons: {
+      $chakraIcons: {
         'email': {
           path: `
               <path

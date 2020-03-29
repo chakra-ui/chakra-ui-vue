@@ -4,9 +4,9 @@ import { render } from '@testing-library/vue'
 import theme from '@/packages/chakra-ui-core/src/lib/theme'
 
 const defaultProviders = (options) => ({
-  $theme: () => theme,
-  $colorMode: () => 'light',
-  $icons: {},
+  $chakraTheme: () => theme,
+  $chakraColorMode: () => 'light',
+  $chakraIcons: {},
   ...options
 })
 

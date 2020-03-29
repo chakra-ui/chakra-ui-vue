@@ -26,7 +26,7 @@ const CSwitch = {
     prop: 'isChecked',
     event: 'change'
   },
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   props: {
     ...styleProps,
     id: String,
@@ -49,7 +49,7 @@ const CSwitch = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     _width () {
       return switchSizes[this.size] && switchSizes[this.size]['width']

@@ -131,7 +131,7 @@ const CTagLabel = {
 
 const CTag = {
   name: 'CTag',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     ...styleProps,
     variant: {
@@ -149,10 +149,10 @@ const CTag = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     styleProps () {
       useVariantColorWarning(this.theme, 'Tag', this.variantColor)

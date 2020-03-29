@@ -14,7 +14,7 @@ export const statuses = {
 
 const CAlert = {
   name: 'CAlert',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   provide () {
     return {
       _status: this.status,
@@ -23,7 +23,7 @@ const CAlert = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   props: {
@@ -42,7 +42,7 @@ const CAlert = {
       variant: this.variant,
       color: statuses[this.status] && statuses[this.status]['color'],
       colorMode: this.colorMode,
-      theme: this.$theme()
+      theme: this.$chakraTheme()
     })
 
     return h(CBox, {
@@ -60,7 +60,7 @@ const CAlert = {
 
 const CAlertIcon = {
   name: 'CAlertIcon',
-  inject: ['_status', '_variant', '$colorMode', '$theme'],
+  inject: ['_status', '_variant', '$chakraColorMode', '$chakraTheme'],
   props: {
     size: {
       default: 5
@@ -70,7 +70,7 @@ const CAlertIcon = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

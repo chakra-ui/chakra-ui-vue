@@ -6,7 +6,7 @@ import CBox from '../CBox'
 
 const CBadge = {
   name: 'Badge',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     variant: {
       type: String,
@@ -20,12 +20,12 @@ const CBadge = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {
     const badgeStyleProps = useBadgeStyles({
-      theme: this.$theme(),
+      theme: this.$chakraTheme(),
       colorMode: this.colorMode,
       color: this.variantColor,
       variant: this.variant

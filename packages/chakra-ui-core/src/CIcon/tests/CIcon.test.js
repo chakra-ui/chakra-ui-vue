@@ -5,7 +5,7 @@ import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
 const renderComponent = (props) => {
   const base = {
     components: { CIcon },
-    provide: () => defaultProviders({ $icons: { add: icons.add } }),
+    provide: () => defaultProviders({ $chakraIcons: { add: icons.add } }),
     template: `<CIcon name="add"></CIcon>`,
     ...props
   }

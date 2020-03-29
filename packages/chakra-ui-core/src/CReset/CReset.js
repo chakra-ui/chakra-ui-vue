@@ -18,13 +18,13 @@ const defaultConfig = theme => ({
 
 const CReset = {
   name: 'CReset',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     styleConfig () {
       const _defaultConfig = defaultConfig(this.theme)

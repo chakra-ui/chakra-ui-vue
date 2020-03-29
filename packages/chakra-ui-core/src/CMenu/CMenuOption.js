@@ -9,7 +9,7 @@ import CPseudoBox from '../CPseudoBox'
 
 const CMenuItemOption = {
   name: 'CMenuItemOption',
-  inject: ['$MenuContext', '$theme', '$colorMode'],
+  inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
   props: {
     ...styleProps,
     type: String,
@@ -28,10 +28,10 @@ const CMenuItemOption = {
       return props => useMenuItemStyle(props)
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   methods: {

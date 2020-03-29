@@ -10,7 +10,7 @@ import CPseudoBox from '../CPseudoBox'
 
 const CSlider = {
   name: 'CSlider',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     ...baseProps,
     value: Number,
@@ -73,10 +73,10 @@ const CSlider = {
       return valueToPercent(this.actualValue, this.min, this.max)
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     _id () {
       return this.id || useId()
@@ -300,17 +300,17 @@ const CSlider = {
  */
 const CSliderTrack = {
   name: 'CSliderTrack',
-  inject: ['$SliderContext', '$theme', '$colorMode'],
+  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
   props: baseProps,
   computed: {
     context () {
       return this.$SliderContext()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     trackStyles () {
       const { trackStyle } = useSliderStyle({
@@ -342,17 +342,17 @@ const CSliderTrack = {
  */
 const CSliderFilledTrack = {
   name: 'CSliderFilledTrack',
-  inject: ['$SliderContext', '$theme', '$colorMode'],
+  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
   props: styleProps,
   computed: {
     context () {
       return this.$SliderContext()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     filledTrackStyles () {
       const { filledTrackStyle } = useSliderStyle({
@@ -383,17 +383,17 @@ const CSliderFilledTrack = {
  */
 const CSliderThumb = {
   name: 'CSliderThumb',
-  inject: ['$SliderContext', '$theme', '$colorMode'],
+  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
   props: baseProps,
   computed: {
     context () {
       return this.$SliderContext()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     },
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   },
   render (h) {

@@ -64,7 +64,7 @@ export const systemProps = compose(
 
 const CBox = {
   name: 'CBox',
-  inject: ['$theme'],
+  inject: ['$chakraTheme'],
   props: {
     as: {
       type: [String, Object],
@@ -78,7 +78,7 @@ const CBox = {
   },
   computed: {
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     }
   },
   render (h) {

@@ -55,7 +55,7 @@ const CButtonIcon = {
  */
 const CButton = {
   name: 'CButton',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     ...buttonProps,
     ...styleProps,
@@ -63,10 +63,10 @@ const CButton = {
   },
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     },
     theme () {
-      return this.$theme()
+      return this.$chakraTheme()
     }
   },
   render (h) {

@@ -11,7 +11,7 @@ const renderComponent = (props) => {
     },
     provide: () => ({
       ...defaultProviders(),
-      $icons: {
+      $chakraIcons: {
         'email': {
           path: `
               <path

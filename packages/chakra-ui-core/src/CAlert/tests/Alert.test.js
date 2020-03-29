@@ -5,7 +5,7 @@ import icons from '../../lib/internal-icons'
 const renderComponent = (props) => {
   const base = {
     components: { CAlert, CAlertTitle, CAlertDescription, CAlertIcon },
-    provide: () => defaultProviders({ $icons: { add: icons.add } }),
+    provide: () => defaultProviders({ $chakraIcons: { add: icons.add } }),
     template: `
     <CAlert>
       <CAlertIcon />

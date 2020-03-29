@@ -17,10 +17,10 @@
 <script>
 export default {
   name: 'ChakraUILogo',
-  inject: ['$colorMode'],
+  inject: ['$chakraColorMode'],
   computed: {
     colorMode () {
-      return this.$colorMode()
+      return this.$chakraColorMode()
     }
   }
 }

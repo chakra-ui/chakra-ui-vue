@@ -22,7 +22,7 @@ const baseStyles = {
 
 const CIconButton = {
   name: 'CIconButton',
-  inject: ['$theme', '$colorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     icon: {
       type: [String]

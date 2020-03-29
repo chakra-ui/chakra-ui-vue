@@ -1,6 +1,6 @@
 import { baseProps } from '../config'
 import { useVariantColorWarning, isDef, useId, forwardProps, cleanChildren, cloneVNodeElement } from '../utils'
-import { useTabListStyle, useTabStyle } from './tabs.styles'
+import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
 import styleProps from '../config/props'
 
 import CFlex from '../CFlex'

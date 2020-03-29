@@ -1,7 +1,7 @@
 import styleProps, { baseProps } from '../config/props'
 import { isDef, getElement, useId, forwardProps } from '../utils'
 
-import CBox from '../Box'
+import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 
 const sharedEditableProps = {

@@ -1,4 +1,4 @@
-import CBox from '../Box'
+import CBox from '../CBox'
 import { forwardProps } from '../utils'
 import { baseProps } from '../config/props'
 

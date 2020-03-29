@@ -1,4 +1,4 @@
-import Box from '../Box'
+import CBox from '../CBox'
 import { generateStripe, valueToPercent, forwardProps } from '../utils'
 import { css, keyframes } from 'emotion'
 import { baseProps } from '../config/props'
@@ -18,11 +18,11 @@ const progressbarSizes = {
   sm: '0.5rem'
 }
 
-const ProgressLabel = {
-  name: 'ProgressLabel',
+const CProgressLabel = {
+  name: 'CProgressLabel',
   props: baseProps,
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         textAlign: 'center',
         width: '100%',
@@ -32,14 +32,14 @@ const ProgressLabel = {
   }
 }
 
-const ProgressTrack = {
-  name: 'ProgressTrack',
+const CProgressTrack = {
+  name: 'CProgressTrack',
   props: {
     ...baseProps,
     size: [String, Number, Array]
   },
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         pos: 'relative',
         height: progressbarSizes[this.size || 'md'],
@@ -51,8 +51,8 @@ const ProgressTrack = {
   }
 }
 
-const ProgressIndicator = {
-  name: 'ProgressIndicator',
+const CProgressIndicator = {
+  name: 'CProgressIndicator',
   props: {
     ...baseProps,
     isIndeterminate: Boolean,
@@ -66,7 +66,7 @@ const ProgressIndicator = {
     }
   },
   render (h) {
-    return h(Box, {
+    return h(CBox, {
       props: {
         height: '100%',
         transition: 'all 0.3s',
@@ -83,8 +83,8 @@ const ProgressIndicator = {
   }
 }
 
-const Progress = {
-  name: 'Progress',
+const CProgress = {
+  name: 'CProgress',
   inject: ['$colorMode'],
   props: {
     ...baseProps,
@@ -149,7 +149,7 @@ const Progress = {
       })
     }
 
-    return h(ProgressTrack, {
+    return h(CProgressTrack, {
       props: {
         size: this.size,
         bg: trackColor[this.colorMode],
@@ -157,7 +157,7 @@ const Progress = {
         ...forwardProps(this.$props)
       }
     }, [
-      h(ProgressIndicator, {
+      h(CProgressIndicator, {
         class: [
           this.hasStripe && stripeStyle[this.colorMode],
           this.hasStripe && this.isAnimated && stripeAnimation
@@ -183,6 +183,6 @@ const Progress = {
 }
 
 export {
-  Progress,
-  ProgressLabel
+  CProgress,
+  CProgressLabel
 }

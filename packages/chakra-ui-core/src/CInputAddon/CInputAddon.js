@@ -1,4 +1,4 @@
-import Box from '../Box'
+import CBox from '../CBox'
 import styleProps from '../config/props'
 import useInputStyle from '../CInput/utils/input.styles'
 import { forwardProps } from '../utils'
@@ -55,7 +55,7 @@ const InputAddon = {
       ..._placement[this.placement]
     }
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         ...forwardProps(this.$props),
         ...styleProps

@@ -1,5 +1,5 @@
 import { baseProps } from '../config'
-import { formControlProps } from '../FormControl/formcontrol.props'
+import { formControlProps } from '../CFormControl/utils/formcontrol.props'
 
 import CFlex from '../CFlex'
 import CIcon from '../CIcon'

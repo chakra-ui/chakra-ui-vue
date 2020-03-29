@@ -2,7 +2,7 @@ import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils'
 import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
 
-import CBox from '../Box'
+import CBox from '../CBox'
 
 /**
  * @description Generate Avatar initials from name string

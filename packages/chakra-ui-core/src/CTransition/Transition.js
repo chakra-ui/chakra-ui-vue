@@ -1,6 +1,6 @@
 import anime from 'animejs'
 import { isUndef, isVueComponent, cloneVNodeElement, cleanChildren } from '../utils'
-import CBox from '../Box'
+import CBox from '../CBox'
 
 const enterEasing = 'spring(1, 100, 50, 0)'
 const leaveEasing = 'spring(1, 100, 70, 0)'

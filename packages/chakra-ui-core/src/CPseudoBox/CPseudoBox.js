@@ -1,7 +1,7 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
-import CBox from '../Box'
+import CBox from '../CBox'
 import styleProps, { propsConfig } from '../config/props'
 import { parsePseudoStyles } from './utils'
 

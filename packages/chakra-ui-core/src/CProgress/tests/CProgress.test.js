@@ -1,14 +1,14 @@
-import { Progress, ProgressLabel } from '../'
+import { CProgress, CProgressLabel } from '../..'
 import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
     components: {
-      KProgress: Progress,
-      KProgressLabel: ProgressLabel
+      CProgress,
+      CProgressLabel
     },
     provide: () => defaultProviders(),
-    template: `<KProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />`,
+    template: `<CProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />`,
     ...props
   }
   return render(base)
@@ -27,9 +27,9 @@ it('should have the correct width', () => {
 
 it('should display a label', () => {
   const { queryByText } = renderComponent({ template: `
-  <KProgress :value="40">
-    <KProgressLabel>Label</KProgressLabel>
-  </KProgress>`
+  <CProgress :value="40">
+    <CProgressLabel>Label</CProgressLabel>
+  </CProgress>`
   })
 
   expect(queryByText('Label')).toBeInTheDocument()

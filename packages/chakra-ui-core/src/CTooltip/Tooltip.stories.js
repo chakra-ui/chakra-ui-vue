@@ -1,15 +1,15 @@
 import { storiesOf } from '@storybook/vue'
-import { CSSReset, Tooltip, Button } from '..'
+import { CReset, CTooltip, CButton } from '..'
 
 storiesOf('UI | Tooltip', module)
   .add('With custom separator', () => ({
-    components: { CSSReset, Tooltip, Button },
+    components: { CReset, CTooltip, CButton },
     template: `
       <div>
-        <CSSReset />
-        <Tooltip label="Aborts requests for display">
-          <Button left-icon="user-slash" w="400px" variant-color="red">Delete Account</Button>
-        </Tooltip>
+        <CReset />
+        <CTooltip label="Aborts requests for display">
+          <CButton left-icon="user-slash" w="400px" variant-color="red">Delete Account</CButton>
+        </CTooltip>
       </div>
     `
   }))

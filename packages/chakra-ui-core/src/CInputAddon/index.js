@@ -1,3 +1,3 @@
-import InputAddon from './InputAddon'
-export default InputAddon
-export * from './InputAddon'
+import CInputAddon from './CInputAddon'
+export default CInputAddon
+export * from './CInputAddon'

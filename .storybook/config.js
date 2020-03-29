@@ -1,6 +1,6 @@
 import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
-import Kiwi, { ThemeProvider, ColorModeProvider, CSSReset } from '../packages/chakra-ui-core/src'
+import Chakra, { CThemeProvider, CColorModeProvider, CReset } from '../packages/chakra-ui-core/src'
 import Canvas from './components/Canvas.vue'
 import theme from '../packages/chakra-ui-core/src/lib/theme'
 import icons from '../packages/chakra-ui-core/src/lib/internal-icons'
@@ -32,7 +32,7 @@ import {
   faGithub
 } from '@fortawesome/free-brands-svg-icons'
 
-Vue.use(Kiwi, {
+Vue.use(Chakra, {
   icons: {
     iconPack: 'fa',
     iconSet: {
@@ -78,7 +78,7 @@ addDecorator(() => ({
       theme,
     }
   },
-  components: { ThemeProvider, ColorModeProvider, CSSReset, Canvas }
+  components: { CThemeProvider, CColorModeProvider, CReset, Canvas }
 }));
 
 

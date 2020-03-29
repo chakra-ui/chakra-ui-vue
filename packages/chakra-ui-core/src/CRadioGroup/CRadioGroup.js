@@ -1,7 +1,8 @@
-import Box from '../Box'
 import { baseProps } from '../config'
 import { StringNumber } from '../config/props/props.types'
 import { useId, cloneVNodeElement, forwardProps } from '../utils'
+
+import CBox from '../CBox'
 
 const RadioGroup = {
   name: 'RadioGroup',
@@ -99,7 +100,7 @@ const RadioGroup = {
         }
       }, h)
 
-      return h(Box, {
+      return h(CBox, {
         props: {
           display: this.isInline ? 'inline-block' : 'block',
           ...(!isLastRadio && spacingProps)
@@ -107,7 +108,7 @@ const RadioGroup = {
       }, [clone])
     })
 
-    return h(Box, {
+    return h(CBox, {
       props: forwardProps(this.$props),
       attrs: {
         role: 'radiogroup'

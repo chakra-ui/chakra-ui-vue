@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import CBox from '../Box'
+import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 
 storiesOf('UI | PseudoBox', module)

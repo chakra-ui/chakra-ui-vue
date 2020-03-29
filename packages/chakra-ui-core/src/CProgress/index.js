@@ -1,1 +1,1 @@
-export * from './Progress'
+export * from './CProgress'

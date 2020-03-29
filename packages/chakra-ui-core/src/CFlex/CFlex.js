@@ -1,7 +1,7 @@
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
-import CBox from '../Box'
+import CBox from '../CBox'
 
 /**
  * Flex is Box with display: flex and comes with helpful style shorthand. It renders a div element.

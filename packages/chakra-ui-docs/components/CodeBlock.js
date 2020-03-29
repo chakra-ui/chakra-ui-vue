@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/vue'
+import { CBox, CButton } from '@chakra-ui/vue'
 import PrismEditor from 'vue-prism-editor'
 
 export default {
@@ -52,7 +52,7 @@ export default {
     const innerText = this.code.trim()
     this.text = innerText
 
-    return h(Box, {
+    return h(CBox, {
       props: {
         rounded: 'md',
         position: 'relative',
@@ -67,7 +67,7 @@ export default {
           ...this.$props
         }
       }),
-      h(Button, {
+      h(CButton, {
         props: {
           variantColor: 'vue',
           position: 'absolute',

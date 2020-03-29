@@ -1,48 +1,48 @@
 <template>
-  <Box
+  <CBox
     pt="10"
     pb="20"
   >
-    <Heading as="h3" fontSize="xl">
+    <CHeading as="h3" fontSize="xl">
       😍 Contributors
-    </Heading>
+    </CHeading>
     <CText my="4">
-      Caught a mistake or want to contribute to the documentation? <Anchor :href="`https://github.com/chakra-ui/chakra-ui-vue/blob/master/${filePath}`">Edit this page on GitHub!</Anchor>
+      Caught a mistake or want to contribute to the documentation? <CLink :href="`https://github.com/chakra-ui/chakra-ui-vue/blob/master/${filePath}`">Edit this page on GitHub!</CLink>
     </CText>
-    <Anchor
+    <CLink
       v-for="(contributor, index) in contributors"
       :key="index"
       :href="`https://github.com/${contributor.login}`"
       isExternal
     >
-      <Tag rounded="full" m="1" variantColor="gray">
-        <Avatar
+      <CTag rounded="full" m="1" variantColor="gray">
+        <CAvatar
           :name="contributor.login"
           size="xs"
           :src="contributor.avatar_url"
           :ml="-2"
           :mr="2"
         />
-        <TagLabel>{{ contributor.login }}</TagLabel>
-      </Tag>
-    </Anchor>
-  </Box>
+        <CTagLabel>{{ contributor.login }}</CTagLabel>
+      </CTag>
+    </CLink>
+  </CBox>
 </template>
 
 <script>
 // eslint-disable-next-line
 import getFileContributors from 'file-contributors'
-import { Box, Link as Anchor, Tag, Avatar, TagLabel, Heading, Text as CText } from '@chakra-ui/vue'
+import { CBox, CLink, CTag, CAvatar, CTagLabel, CHeading, CText } from '@chakra-ui/vue'
 
 export default {
   name: 'FileContributors',
   components: {
-    Box,
-    Anchor,
-    Tag,
-    Avatar,
-    TagLabel,
-    Heading,
+    CBox,
+    CLink,
+    CTag,
+    CAvatar,
+    CTagLabel,
+    CHeading,
     CText
   },
   data () {

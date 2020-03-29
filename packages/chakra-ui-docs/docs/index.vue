@@ -1,16 +1,16 @@
 <template>
-  <Box as="main" fontFamily="body">
+  <CBox as="main" fontFamily="body">
     <Hero />
-    <Flex
+    <CFlex
       as="section"
       py="10"
       :flexDir="['column', 'column', 'row']"
       fontFamily="body"
     >
-      <Grid :templateColumns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
-        <Box m="3">
-          <Flex alignItems="center" mb="5">
-            <Flex
+      <CGrid :templateColumns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
+        <CBox m="3">
+          <CFlex alignItems="center" mb="5">
+            <CFlex
               justifyContent="center"
               color="white"
               alignItems="center"
@@ -20,16 +20,16 @@
               h="50px"
               rounded="full"
             >
-              <Icon size="25px" name="universal-access" />
-            </Flex>
-            <Heading as="h4" size="md">Accessible</Heading>
-          </Flex>
+              <CIcon size="25px" name="universal-access" />
+            </CFlex>
+            <CHeading as="h4" size="md">Accessible</CHeading>
+          </CFlex>
           Chakra UI strictly follows WAI-ARIA standards. All components come
           with proper attributes and keyboard interactions out of the box.
-        </Box>
-        <Box m="3">
-          <Flex alignItems="center" mb="5">
-            <Flex
+        </CBox>
+        <CBox m="3">
+          <CFlex alignItems="center" mb="5">
+            <CFlex
               justifyContent="center"
               color="white"
               alignItems="center"
@@ -39,16 +39,16 @@
               h="50px"
               rounded="full"
             >
-              <Icon size="25px" name="palette" />
-            </Flex>
-            <Heading as="h4" size="md">Themeable</Heading>
-          </Flex>
+              <CIcon size="25px" name="palette" />
+            </CFlex>
+            <CHeading as="h4" size="md">Themeable</CHeading>
+          </CFlex>
           Quickly and easily reference values from your theme throughout your
           entire application, on any component.
-        </Box>
-        <Box m="3">
-          <Flex alignItems="center" mb="5">
-            <Flex
+        </CBox>
+        <CBox m="3">
+          <CFlex alignItems="center" mb="5">
+            <CFlex
               justifyContent="center"
               color="white"
               alignItems="center"
@@ -58,22 +58,22 @@
               h="50px"
               rounded="full"
             >
-              <Icon size="25px" name="cubes" />
-            </Flex>
-            <Heading as="h4" size="md">Composable</Heading>
-          </Flex>
+              <CIcon size="25px" name="cubes" />
+            </CFlex>
+            <CHeading as="h4" size="md">Composable</CHeading>
+          </CFlex>
           Components were built with composition in mind. You can leverage any
           component to create new things.
-        </Box>
-      </Grid>
-    </Flex>
+        </CBox>
+      </CGrid>
+    </CFlex>
     <Example />
     <Footer />
-  </Box>
+  </CBox>
 </template>
 
 <script>
-import { Box, Flex, Icon, Heading, Grid } from '@chakra-ui/vue'
+import { CBox, CFlex, CIcon, CHeading, CGrid } from '@chakra-ui/vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import Example from '~/components/Example.vue'
@@ -82,13 +82,13 @@ export default {
   layout: 'home',
   components: {
     Hero,
-    Box,
-    Flex,
-    Icon,
-    Heading,
     Footer,
     Example,
-    Grid
+    CBox,
+    CFlex,
+    CIcon,
+    CHeading,
+    CGrid
   }
 }
 </script>

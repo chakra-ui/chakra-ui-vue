@@ -1,5 +1,5 @@
 <template>
-  <Box
+  <CBox
     as="nav"
     p="4"
     :display="['none', null, 'block']"
@@ -11,17 +11,17 @@
     overflowY="scroll"
   >
     <SideNavContent />
-  </Box>
+  </CBox>
 </template>
 
 <script>
-import { Box } from '@chakra-ui/vue'
+import { CBox } from '@chakra-ui/vue'
 import SideNavContent from './SideNavContent'
 
 export default {
   name: 'Sidebar',
   components: {
-    Box,
+    CBox,
     SideNavContent
   }
 }

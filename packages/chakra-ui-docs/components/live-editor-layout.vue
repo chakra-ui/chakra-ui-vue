@@ -4,7 +4,7 @@
       <slot name="preview" />
     </div>
     <div class="editor-panel">
-      <Button
+      <CButton
         chakra-copy-button
         variantColor="vue"
         position="absolute"
@@ -13,18 +13,18 @@
         right="0.125rem"
         textTransform="uppercase"
         transform="scale(0.8)"
-      >Copy</Button>
+      >Copy</CButton>
       <slot name="editor" />
     </div>
   </div>
 </template>
 <script>
-import { Button } from '@chakra-ui/vue'
+import { CButton } from '@chakra-ui/vue'
 
 export default {
   name: 'EditorLayout',
   components: {
-    Button
+    CButton
   }
 }
 </script>

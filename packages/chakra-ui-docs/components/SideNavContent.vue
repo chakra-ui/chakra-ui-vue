@@ -1,13 +1,13 @@
 <template>
-  <Box
+  <CBox
     p="3"
     :color="colorMode === 'light' ? 'gray.600': 'whiteAlpha.700'"
   >
-    <Heading size="xs" color="gray.400" letterSpacing="wide" mb="2" textTransform="uppercase">
+    <CHeading size="xs" color="gray.400" letterSpacing="wide" mb="2" textTransform="uppercase">
       Getting Started
-    </Heading>
-    <Box v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
-      <PseudoBox
+    </CHeading>
+    <CBox v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
+      <CPseudoBox
         as="nuxt-link"
         :to="link.path"
         p="0.2rem"
@@ -28,12 +28,12 @@
         transition="background-color 0.15s ease-in"
       >
         {{ link.name }}
-      </PseudoBox>
-    </Box>
-    <Heading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
+      </CPseudoBox>
+    </CBox>
+    <CHeading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
       Components
-    </Heading>
-    <PseudoBox
+    </CHeading>
+    <CPseudoBox
       v-for="(link, index) in componentLinks"
       :key="`${index}-components`"
       as="nuxt-link"
@@ -55,12 +55,12 @@
       :color="$route.path === link.path ? 'vue.700' : 'inherit'"
     >
       {{ link.name }}
-    </PseudoBox>
-  </Box>
+    </CPseudoBox>
+  </CBox>
 </template>
 
 <script>
-import { boxProps, Box, Heading, PseudoBox } from '@chakra-ui/vue'
+import { boxProps, CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
 import componentLinks from './components'
 
@@ -86,9 +86,9 @@ export default {
     ...boxProps
   },
   components: {
-    Box,
-    Heading,
-    PseudoBox
+    CBox,
+    CHeading,
+    CPseudoBox
   },
   computed: {
     colorMode () {

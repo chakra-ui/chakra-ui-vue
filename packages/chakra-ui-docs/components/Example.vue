@@ -1,15 +1,15 @@
 <template>
-  <Grid
+  <CGrid
     :templateColumns="['1fr', '1fr', '1fr', '3fr 300px']"
     alignItems="start"
   >
-    <Box fontSize="sm" maxW="100%" rounded="md" overflow="hidden" :mr="[0, 0, 5]" :mb="[5, 5, 0]">
+    <CBox fontSize="sm" maxW="100%" rounded="md" overflow="hidden" :mr="[0, 0, 5]" :mb="[5, 5, 0]">
       <prism-editor v-model="code" :readonly="true" language="vue"/>
-    </Box>
-    <Box w="350px" shadow="md" rounded="lg" p="5">
+    </CBox>
+    <CBox w="350px" shadow="md" rounded="lg" p="5">
       <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6"/>
-      <Flex align="baseline" mt="2">
-        <Badge variantColor="pink">Plus</Badge>
+      <CFlex align="baseline" mt="2">
+        <CBadge variantColor="pink">Plus</CBadge>
         <CText
           ml="2"
           textTransform="uppercase"
@@ -19,17 +19,17 @@
         >
         Verified &bull; Cape Town
         </CText>
-      </Flex>
+      </CFlex>
       <CText mt="2" fontSize="xl" fontWeight="semibold" lineHeight="short">
         Modern, Chic Penthouse with Mountain, City & Sea Views
       </CText>
       <CText mt="2">$119/night</CText>
-      <Flex mt="2" align="center">
-        <Icon name="star" color="orange.400" />
+      <CFlex mt="2" align="center">
+        <CIcon name="star" color="orange.400" />
         <CText ml="1" fontSize="sm"><b>4.84</b> (190)</CText>
-      </Flex>
-    </Box>
-  </Grid>
+      </CFlex>
+    </CBox>
+  </CGrid>
 </template>
 
 <script>
@@ -38,18 +38,18 @@ import 'prismjs'
 import '~/css/night-owl.css'
 import 'vue-prism-editor/dist/VuePrismEditor.css'
 
-import { Flex, Text as CText, Box, Badge, Icon, Grid, Image as CImage } from '@chakra-ui/vue'
+import { CFlex, CText, CBox, CBadge, CIcon, CGrid, CImage } from '@chakra-ui/vue'
 export default {
   name: 'Example',
   components: {
+    CGrid,
     CImage,
-    Flex,
+    CFlex,
     CText,
-    Badge,
-    Box,
-    Icon,
-    PrismEditor,
-    Grid
+    CBadge,
+    CBox,
+    CIcon,
+    PrismEditor
   },
   data () {
     return {
@@ -58,10 +58,10 @@ export default {
 
   <!-- AirBnB Card Example -->
 
-  <Box w="300px" shadow="md" rounded="lg" p="5">
+  <CBox w="300px" shadow="md" rounded="lg" p="5">
     <CImage rounded="md" src="https://bit.ly/2k1H1t6"/>
-    <Flex align="baseline" mt="2">
-      <Badge variantColor="pink">Plus</Badge>
+    <CFlex align="baseline" mt="2">
+      <CBadge variantColor="pink">Plus</CBadge>
       <CText
         ml="2"
         textTransform="uppercase"
@@ -71,16 +71,16 @@ export default {
       >
       Verified &bull; Cape Town
       </CText>
-    </Flex>
+    </CFlex>
     <CText mt="2" fontSize="xl" fontWeight="semibold" lineHeight="short">
       Modern, Chic Penthouse with Mountain, City & Sea Views
     </CText>
     <CText mt="2">$119/night</CText>
-    <Flex mt="2" align="center">
-      <Icon name="star" color="orange.400" />
+    <CFlex mt="2" align="center">
+      <CIcon name="star" color="orange.400" />
       <CText ml="1" fontSize="sm"><b>4.84</b> (190)</CText>
-    </Flex>
-  </Box>
+    </CFlex>
+  </CBox>
 </template>
       `.trim()
     }

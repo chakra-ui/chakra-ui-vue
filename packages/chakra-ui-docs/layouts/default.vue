@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <ThemeProvider>
-      <ColorModeProvider v-slot="{ colorMode }">
-        <Box
+    <CThemeProvider>
+      <CColorModeProvider v-slot="{ colorMode }">
+        <CBox
           font-family="body"
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-          <CSSReset />
+          <CReset />
           <Navbar />
-          <Flex maxH="calc(100vh - 60px)">
+          <CFlex maxH="calc(100vh - 60px)">
             <Sidebar />
-            <Box
+            <CBox
               :class="styles(colorMode)"
               as="section"
               w="100%"
@@ -23,20 +23,20 @@
               <Nuxt id="page-content" />
               <Footer v-if="$route.path === '/index'" />
               <FileContributors v-else />
-            </Box>
-          </Flex>
-        </Box>
-      </ColorModeProvider>
-    </ThemeProvider>
+            </CBox>
+          </CFlex>
+        </CBox>
+      </CColorModeProvider>
+    </CThemeProvider>
   </div>
 </template>
 <script>
 import {
-  ThemeProvider,
-  ColorModeProvider,
-  CSSReset,
-  Box,
-  Flex,
+  CThemeProvider,
+  CColorModeProvider,
+  CReset,
+  CBox,
+  CFlex,
   Css
 } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
@@ -50,14 +50,14 @@ export default {
   name: 'DefaultLayout',
   components: {
     FileContributors,
-    ThemeProvider,
-    ColorModeProvider,
-    Box,
+    CThemeProvider,
+    CColorModeProvider,
+    CBox,
     Navbar,
     Sidebar,
     Footer,
-    CSSReset,
-    Flex
+    CReset,
+    CFlex
   },
   data () {
     return {
@@ -105,6 +105,9 @@ export default {
         },
         'table, p': {
           'code': this.code[colorMode]
+        },
+        li: {
+          code: this.code[colorMode]
         }
       })(this.$chakra.theme))
     },

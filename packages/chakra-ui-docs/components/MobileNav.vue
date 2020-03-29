@@ -1,6 +1,6 @@
 <template>
-  <Fragment>
-    <IconButton
+  <CFragment>
+    <CIconButton
       :display="['inline-flex', 'inline-flex', 'none']"
       aria-label="Navigation Menu"
       fontSize="20px"
@@ -8,32 +8,32 @@
       icon="bars"
       @click="toggleMenu"
     />
-    <Drawer size="xs" :isOpen="isOpen" placement="left" :onClose="handleClose">
-      <DrawerOverlay />
-      <DrawerContent>
-        <DrawerBody  pos="relative" p="0" overflowY="scroll" h="100vh">
-          <CloseButton pos="absolute" top="4" right="4" @click="handleClose" />
+    <CDrawer size="xs" :isOpen="isOpen" placement="left" :onClose="handleClose">
+      <CDrawerOverlay />
+      <CDrawerContent>
+        <CDrawerBody  pos="relative" p="0" overflowY="scroll" h="100vh">
+          <CCloseButton pos="absolute" top="4" right="4" @click="handleClose" />
           <SideNavContent contentHeight="100vh" top="0" />
-        </DrawerBody>
-      </DrawerContent>
-    </Drawer>
-  </Fragment>
+        </CDrawerBody>
+      </CDrawerContent>
+    </CDrawer>
+  </CFragment>
 </template>
 
 <script>
-import { Drawer, Fragment, CloseButton, DrawerBody, IconButton, DrawerOverlay, DrawerContent } from '@chakra-ui/vue'
+import { CDrawer, CFragment, CCloseButton, CDrawerBody, CIconButton, CDrawerOverlay, CDrawerContent } from '@chakra-ui/vue'
 import SideNavContent from './SideNavContent'
 
 export default {
   name: 'MobileNav',
   components: {
-    Drawer,
-    DrawerBody,
-    DrawerOverlay,
-    DrawerContent,
-    IconButton,
-    Fragment,
-    CloseButton,
+    CDrawer,
+    CDrawerBody,
+    CDrawerOverlay,
+    CDrawerContent,
+    CIconButton,
+    CFragment,
+    CCloseButton,
     SideNavContent
   },
   data () {

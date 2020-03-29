@@ -1,5 +1,5 @@
 <template>
-  <Flex
+  <CFlex
     as="footer"
     justifyContent="center"
     alignItems="center"
@@ -7,9 +7,9 @@
     color="gray.600"
     py="10"
   >
-    <CText mb="4">Designed and developed by <Anchor href="https://twitter.com/codebender828" isExternal>Jonathan Bakebwa</Anchor></CText>
-    <Stack isInline spacing="5">
-      <Anchor
+    <CText mb="4">Designed and developed by <CLink href="https://twitter.com/codebender828" isExternal>Jonathan Bakebwa</CLink></CText>
+    <CStack isInline spacing="5">
+      <CLink
         href="https://twitter.com/codebender828"
         isExternal
         transition="color 0.2s ease-in-out"
@@ -18,9 +18,9 @@
         }"
         color="gray.400"
       >
-        <Icon name="twitter" size="20px" />
-      </Anchor>
-      <Anchor
+        <CIcon name="twitter" size="20px" />
+      </CLink>
+      <CLink
         href="https://linkedin.com/in/jbakebwa"
         isExternal
         transition="color 0.2s ease-in-out"
@@ -29,9 +29,9 @@
         }"
         color="gray.400"
       >
-        <Icon name="linkedin" size="20px" />
-      </Anchor>
-      <Anchor
+        <CIcon name="linkedin" size="20px" />
+      </CLink>
+      <CLink
         href="mailto:jonas@akkadu-team.com"
         isExternal
         transition="color 0.2s ease-in-out"
@@ -40,9 +40,9 @@
         }"
         color="gray.400"
       >
-        <Icon name="envelope" size="20px" />
-      </Anchor>
-      <Anchor
+        <CIcon name="envelope" size="20px" />
+      </CLink>
+      <CLink
         href="https://jbakebwa.dev"
         isExternal
         transition="color 0.2s ease-in-out"
@@ -51,23 +51,23 @@
         }"
         color="gray.400"
       >
-        <Icon name="globe-africa" size="20px" />
-      </Anchor>
-    </Stack>
-  </Flex>
+        <CIcon name="globe-africa" size="20px" />
+      </CLink>
+    </CStack>
+  </CFlex>
 </template>
 
 <script>
-import { Flex, Text as CText, Link as Anchor, Icon, Stack } from '@chakra-ui/vue'
+import { CFlex, CText, CLink, CIcon, CStack } from '@chakra-ui/vue'
 
 export default {
   name: 'Footer',
   components: {
-    Flex,
+    CFlex,
     CText,
-    Anchor,
-    Icon,
-    Stack
+    CLink,
+    CIcon,
+    CStack
   }
 }
 </script>

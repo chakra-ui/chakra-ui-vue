@@ -1,3 +1,25 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Accordion
+ *
+ * Accordions display a list of high-level
+ * options that can expand/collapse to reveal
+ * more information.
+ *
+ * An accordion is a vertically stacked set
+ * of interactive headings that each contain
+ * a title, content snippet, or thumbnail
+ * representing a section of content.
+ * The headings function as controls that enable
+ * users to reveal or hide their associated sections
+ * of content. Accordions are commonly used to
+ * reduce the need to scroll when presenting
+ * multiple sections of content on a single page.
+ *
+ * @see Docs     https://vue.chakra-ui.com/accordion
+ * @see Source   link to source
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#accordion
+ */
+
 import { baseProps } from '../config'
 import { forwardProps, cloneVNodes, useId, isDef } from '../utils'
 import styleProps from '../config/props'
@@ -7,6 +29,16 @@ import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CCollapse from '../CCollapse'
 import CIcon from '../CIcon'
+
+/**
+ * CAccordion component
+ *
+ * The wrapper that clones it's children
+ * to pass it's prop to the `CAccordionItem`.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/accordion
+ */
 
 const CAccordion = {
   name: 'CAccordion',
@@ -116,6 +148,15 @@ const CAccordion = {
   }
 }
 
+/**
+ * CAccordionItem component
+ *
+ * A single accordion item
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/accordion
+ */
+
 const CAccordionItem = {
   name: 'CAccordionItem',
   props: {
@@ -202,6 +243,15 @@ const CAccordionItem = {
   }
 }
 
+/**
+ * CAccordionHeader component
+ *
+ * The button that toggles the expand/collapse
+ * state of the accordion item.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/accordion
+ */
 const CAccordionHeader = {
   name: 'CAccordionHeader',
   inject: ['$AccordionContext'],
@@ -246,6 +296,15 @@ const CAccordionHeader = {
   }
 }
 
+/**
+ * CAccordionPanel component
+ *
+ * The container for the accordion item
+ * details to be revealed.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/accordion
+ */
 const CAccordionPanel = {
   name: 'CAccordionPanel',
   inject: ['$AccordionContext'],
@@ -277,6 +336,15 @@ const CAccordionPanel = {
   }
 }
 
+/**
+ * CAccordionIcon component
+ *
+ * A chevron-down icon that rotates based on the
+ * expanded/collapsed state.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/accordion
+ */
 const CAccordionIcon = {
   name: 'CAccordionIcon',
   inject: ['$AccordionContext'],

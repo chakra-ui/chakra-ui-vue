@@ -104,10 +104,16 @@ export default {
           overflow: 'hidden'
         },
         'table, p': {
-          'code': this.code[colorMode]
+          'code': {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
         },
         li: {
-          code: this.code[colorMode]
+          code: {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
         }
       })(this.$chakra.theme))
     },

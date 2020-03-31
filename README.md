@@ -27,6 +27,11 @@
   specifications and have the right `aria-*` attributes.
 - **Dark Mode 😍**: Most components in Chakra UI are dark mode compatible.
 
+
+### Roadmap to release 🚀
+Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/issues/89) 🚀
+
+
 ### Table of Contents
 
 1. [Installation](#installation)

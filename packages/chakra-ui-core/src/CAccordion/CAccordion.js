@@ -302,7 +302,7 @@ const CAccordionHeader = {
  * The container for the accordion item
  * details to be revealed.
  *
- * @extends CPseudoBox
+ * @extends CBox
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionPanel = {
@@ -342,7 +342,7 @@ const CAccordionPanel = {
  * A chevron-down icon that rotates based on the
  * expanded/collapsed state.
  *
- * @extends CPseudoBox
+ * @extends CIcon
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionIcon = {

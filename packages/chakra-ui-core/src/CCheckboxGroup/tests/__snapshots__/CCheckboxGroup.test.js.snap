@@ -4,21 +4,26 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-1v5z18m"
+    data-chakra-component="CBox"
   >
     <div
       class="css-0"
+      data-chakra-component="CBox"
       role="group"
     >
       <div
         class="css-1x9mqzb"
+        data-chakra-component="CBox"
       >
         <label
           class="css-1qf83f9"
+          data-chakra-component="CBox"
           data-testid="one"
           for="checkbox-1"
         >
           <input
             class="css-0 css-f8n5zr"
+            data-chakra-component="CBox"
             id="checkbox-1"
             name="numbers-0"
             type="checkbox"
@@ -27,9 +32,11 @@ exports[`should render correctly 1`] = `
           <div
             aria-hidden="true"
             class="css-1ra3zj0 css-hpvc67"
+            data-chakra-component="CBox"
           >
             <svg
               class="css-1dx9t0m css-y3asau"
+              data-chakra-component="CBox"
               role="presentation"
               viewBox="0 0 24 24"
             >
@@ -71,6 +78,7 @@ exports[`should render correctly 1`] = `
           </div>
           <div
             class="css-np4rym"
+            data-chakra-component="CBox"
           >
             One
           </div>
@@ -78,15 +86,18 @@ exports[`should render correctly 1`] = `
       </div>
       <div
         class="css-1x9mqzb"
+        data-chakra-component="CBox"
       >
         <label
           class="css-1qf83f9"
+          data-chakra-component="CBox"
           data-testid="two"
           for="checkbox-2"
         >
           <input
             aria-checked="true"
             class="css-0 css-f8n5zr"
+            data-chakra-component="CBox"
             id="checkbox-2"
             name="numbers-1"
             type="checkbox"
@@ -95,9 +106,11 @@ exports[`should render correctly 1`] = `
           <div
             aria-hidden="true"
             class="css-1ra3zj0 css-hpvc67"
+            data-chakra-component="CBox"
           >
             <svg
               class="css-1dx9t0m css-y3asau"
+              data-chakra-component="CBox"
               role="presentation"
               viewBox="0 0 24 24"
             >
@@ -139,6 +152,7 @@ exports[`should render correctly 1`] = `
           </div>
           <div
             class="css-np4rym"
+            data-chakra-component="CBox"
           >
             Two
           </div>
@@ -146,14 +160,17 @@ exports[`should render correctly 1`] = `
       </div>
       <div
         class="css-13o7eu2"
+        data-chakra-component="CBox"
       >
         <label
           class="css-1qf83f9"
+          data-chakra-component="CBox"
           data-testid="three"
           for="checkbox-3"
         >
           <input
             class="css-0 css-f8n5zr"
+            data-chakra-component="CBox"
             id="checkbox-3"
             name="numbers-2"
             type="checkbox"
@@ -162,9 +179,11 @@ exports[`should render correctly 1`] = `
           <div
             aria-hidden="true"
             class="css-1ra3zj0 css-hpvc67"
+            data-chakra-component="CBox"
           >
             <svg
               class="css-1dx9t0m css-y3asau"
+              data-chakra-component="CBox"
               role="presentation"
               viewBox="0 0 24 24"
             >
@@ -206,6 +225,7 @@ exports[`should render correctly 1`] = `
           </div>
           <div
             class="css-np4rym"
+            data-chakra-component="CBox"
           >
             Three
           </div>

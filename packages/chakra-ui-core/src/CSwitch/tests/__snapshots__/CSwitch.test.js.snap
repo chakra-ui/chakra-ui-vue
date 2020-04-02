@@ -4,17 +4,21 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
     class="css-l5ub9m"
+    data-chakra-component="CBox"
   >
     <input
       class="css-0 css-f8n5zr"
+      data-chakra-component="CBox"
       type="checkbox"
     />
     <div
       aria-hidden="true"
       class="css-tunaov css-14rwhig"
+      data-chakra-component="CBox"
     >
       <div
         class="css-4b8l73"
+        data-chakra-component="CBox"
       />
     </div>
   </label>

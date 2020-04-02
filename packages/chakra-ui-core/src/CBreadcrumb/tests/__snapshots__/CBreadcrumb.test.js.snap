@@ -5,21 +5,26 @@ exports[`should display custom seperator  1`] = `
   <nav
     aria-label="breadcrumb"
     class="css-0"
+    data-chakra-component="CBox"
   >
     <ol
       class="css-0"
+      data-chakra-component="CBox"
     >
       <li
         class="css-18biwo"
+        data-chakra-component="CBox"
       >
         <a
           class="css-0 css-19ysyim"
+          data-chakra-component="CPseudoBox"
           href="/"
         >
           Home
         </a>
         <span
           class="css-dp0f2t"
+          data-chakra-component="CBox"
           role="presentation"
         >
           -
@@ -27,15 +32,18 @@ exports[`should display custom seperator  1`] = `
       </li>
       <li
         class="css-18biwo"
+        data-chakra-component="CBox"
       >
         <a
           class="css-0 css-19ysyim"
+          data-chakra-component="CPseudoBox"
           href="/about"
         >
           About
         </a>
         <span
           class="css-dp0f2t"
+          data-chakra-component="CBox"
           role="presentation"
         >
           -
@@ -43,10 +51,12 @@ exports[`should display custom seperator  1`] = `
       </li>
       <li
         class="css-18biwo"
+        data-chakra-component="CBox"
       >
         <span
           aria-current="page"
           class="css-0"
+          data-chakra-component="CBox"
           href="/contact"
         >
           Contact
@@ -63,21 +73,26 @@ exports[`should render correctly 1`] = `
     <nav
       aria-label="breadcrumb"
       class="css-0"
+      data-chakra-component="CBox"
     >
       <ol
         class="css-0"
+        data-chakra-component="CBox"
       >
         <li
           class="css-18biwo"
+          data-chakra-component="CBox"
         >
           <a
             class="css-0 css-19ysyim"
+            data-chakra-component="CPseudoBox"
             href="#"
           >
             Breadcrumb 1
           </a>
           <span
             class="css-6eovvf"
+            data-chakra-component="CBox"
             role="presentation"
           >
             /
@@ -85,15 +100,18 @@ exports[`should render correctly 1`] = `
         </li>
         <li
           class="css-18biwo"
+          data-chakra-component="CBox"
         >
           <a
             class="css-0 css-19ysyim"
+            data-chakra-component="CPseudoBox"
             href="#"
           >
             Breadcrumb 2
           </a>
           <span
             class="css-1hgjpgb"
+            data-chakra-component="CBox"
             role="presentation"
           >
             /

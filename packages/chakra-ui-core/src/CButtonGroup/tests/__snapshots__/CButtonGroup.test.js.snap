@@ -4,9 +4,11 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-1baulvz"
+    data-chakra-component="CBox"
   >
     <button
       class="css-0 css-1egt1u4"
+      data-chakra-component="CPseudoBox"
       tabindex="0"
       type="button"
     >
@@ -14,6 +16,7 @@ exports[`should render correctly 1`] = `
     </button>
     <button
       class="css-0 css-pt9fef"
+      data-chakra-component="CPseudoBox"
       tabindex="0"
       type="button"
     >

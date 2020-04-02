@@ -88,7 +88,10 @@ const CBox = {
     return h(as, {
       props: { to },
       class: css(boxStylesObject),
-      on: this.$listeners
+      on: this.$listeners,
+      attrs: {
+        'data-chakra-component': 'CBox'
+      }
     }, this.$slots.default)
   }
 }

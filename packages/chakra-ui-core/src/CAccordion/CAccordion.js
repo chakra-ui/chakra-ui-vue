@@ -141,9 +141,11 @@ const CAccordion = {
     })
 
     return h(CBox, {
-      props: forwardProps(this.$props),
+      props: {
+        ...forwardProps(this.$props)
+      },
       attrs: {
-        'data-accordion': ''
+        'data-chakra-component': 'CAccordion'
       }
     }, clones)
   }
@@ -233,7 +235,7 @@ const CAccordionItem = {
         _last: { borderBottomWidth: '1px' }
       },
       attrs: {
-        'data-accordion-item': ''
+        'data-chakra-component': 'CAccordionItem'
       }
     }, [
       this.$scopedSlots.default({
@@ -285,7 +287,8 @@ const CAccordionHeader = {
         disabled: isDisabled,
         'aria-disabled': isDisabled,
         'aria-expanded': isExpanded,
-        'aria-controls': panelId
+        'aria-controls': panelId,
+        'data-chakra-component': 'CAccordionHeader'
       },
       nativeOn: {
         click: (e) => {
@@ -328,7 +331,7 @@ const CAccordionPanel = {
       },
       attrs: {
         id: panelId,
-        'data-accordion-panel': '',
+        'data-chakra-component': 'CAccordionPanel',
         'aria-labelledby': headerId,
         'aria-hidden': !isExpanded,
         role: 'region'
@@ -369,6 +372,9 @@ const CAccordionIcon = {
         transform: isExpanded ? 'rotate(-180deg)' : null,
         transition: 'transform 0.2s',
         transformOrigin: 'center'
+      },
+      attrs: {
+        'data-chakra-component': 'CAccordionIcon'
       }
     })
   }

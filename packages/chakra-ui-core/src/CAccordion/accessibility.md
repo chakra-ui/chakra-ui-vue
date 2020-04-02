@@ -1,6 +1,6 @@
 # Accordion | Accessibility ♿️
 
-This report is adapted to list the [WAI-ARIA Authoring practices for Accordions](https://www.w3.org/TR/wai-aria-practices-1.2/#accordion) supported by Chakra UI for the Accordion component.
+This report is adapted to list the [WAI-ARIA Authoring practices for Accordions](https://www.w3.org/TR/wai-aria-practices-1.2/#accordion) supported by Chakra UI for the `CAccordion` component.
 
 ### Description
 An accordion is a vertically stacked set of interactive headings that each contain a title, content snippet, or thumbnail representing a section of content. The headings function as controls that enable users to reveal or hide their associated sections of content. Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.

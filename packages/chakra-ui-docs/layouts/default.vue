@@ -44,7 +44,7 @@ import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import FileContributors from '../components/FileContributors'
 import { css } from 'emotion'
-import { stringToUrl } from '../utils'
+// import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
@@ -109,6 +109,9 @@ export default {
             fontSize: 'sm'
           }
         },
+        'h1, h2, h3': {
+          'code': this.code[colorMode]
+        },
         li: {
           code: {
             ...this.code[colorMode],
@@ -121,15 +124,16 @@ export default {
       return this.$route.name
     }
   },
-  mounted () {
-    this.setPageIds()
-  },
+  // TODO: Setup title hashing
+  // mounted () {
+  //   this.setPageIds()
+  // },
   watch: {
     hash (newVal, oldVal) {
       console.log('Hash changed', newVal)
-      if (newVal !== oldVal) {
-        this.pushWindowToId()
-      }
+      // if (newVal !== oldVal) {
+      //   this.pushWindowToId()
+      // }
     }
   },
   methods: {
@@ -137,21 +141,21 @@ export default {
      * TODO: Finish implementing this
      * Sets the IDs for titles to allow for scrolling.
      */
-    setPageIds () {
-      const pageWrapper = document.getElementById('page-content')
-      const h2s = pageWrapper.querySelectorAll('h2')
-      const h3s = pageWrapper.querySelectorAll('h3')
+    // setPageIds () {
+    //   const pageWrapper = document.getElementById('page-content')
+    //   const h2s = pageWrapper.querySelectorAll('h2')
+    //   const h3s = pageWrapper.querySelectorAll('h3')
 
-      const allTitles = [ ...h2s, ...h3s ]
-      allTitles.forEach(title => {
-        const content = `<div>${title.textContent}` + `<a aria-label="${title.textContent}" href="${stringToUrl(title.textContent, '#')}"></a></div>`
-        title.innerHTML = content
-      })
+    //   const allTitles = [ ...h2s, ...h3s ]
+    //   allTitles.forEach(title => {
+    //     const content = `<div>${title.textContent}` + `<a aria-label="${title.textContent}" href="${stringToUrl(title.textContent, '#')}"></a></div>`
+    //     title.innerHTML = content
+    //   })
 
-      setTimeout(() => {
-        this.pushWindowToId()
-      })
-    },
+    //   setTimeout(() => {
+    //     this.pushWindowToId()
+    //   })
+    // },
     pushWindowToId () {
       this.$router.push(this.$route.fullPath)
     }

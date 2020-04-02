@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription } from '..'
+import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CStack } from '..'
 
 storiesOf('UI | Alert', module)
   .add('Default Alert', () => ({
@@ -68,5 +68,28 @@ storiesOf('UI | Alert', module)
           </CAlertDescription>
         </CAlert>
       </div>
+    `
+  }))
+  .add('With variant', () => ({
+    components: { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CStack },
+    template: `
+    <c-stack>
+      <c-alert status="success" variant="subtle">
+        <c-alert-icon />
+        Data uploaded to the server. Fire on!
+      </c-alert>
+      <c-alert status="success" variant="solid">
+        <c-alert-icon />
+        Data uploaded to the server. Fire on!
+      </c-alert>
+      <c-alert status="success" variant="left-accent">
+        <c-alert-icon />
+        Data uploaded to the server. Fire on!
+      </c-alert>
+      <c-alert status="success" variant="top-accent">
+        <c-alert-icon />
+        Data uploaded to the server. Fire on!
+      </c-alert>
+    </c-stack>
     `
   }))

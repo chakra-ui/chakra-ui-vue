@@ -60,7 +60,7 @@ it('should have role=alert', () => {
 
 it('should render correct variant styles', () => {
   const { asFragment } = renderComponent({
-    template:`
+    template: `
     <CStack>
       <CAlert status="success" variant="subtle">
         <CAlertIcon />

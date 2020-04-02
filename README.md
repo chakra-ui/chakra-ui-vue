@@ -150,6 +150,7 @@ If you'd like to toggle your app between dark and light mode, you can also wrap 
 
 - [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
 - [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
 
 ### Storybook Components
 

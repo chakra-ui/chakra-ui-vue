@@ -4,6 +4,7 @@ exports[`should change gap 1`] = `
 <DocumentFragment>
   <div
     class="css-1w4meme"
+    data-chakra-component="CBox"
   >
     Grid Me
   </div>
@@ -14,6 +15,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-lgj0h8"
+    data-chakra-component="CBox"
   >
     Grid Me
   </div>

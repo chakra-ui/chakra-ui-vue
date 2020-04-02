@@ -4,22 +4,24 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-0"
-    data-accordion=""
+    data-chakra-component="CAccordion"
   >
     <div
       class="css-0 css-1b3isn8"
-      data-accordion-item=""
+      data-chakra-component="CAccordionItem"
     >
       <button
         aria-controls="accordion-panel-ac-1"
         aria-expanded="true"
         class="css-0 css-12lgae2"
+        data-chakra-component="CAccordionHeader"
         id="accordion-header-ac-1"
         type="button"
       >
         Section 1 title
         <svg
           class="css-1yguofd css-y3asau"
+          data-chakra-component="CAccordionIcon"
           role="presentation"
           viewBox="0 0 24 24"
         >
@@ -63,13 +65,14 @@ exports[`should render correctly 1`] = `
       <div
         aria-labelledby="accordion-header-ac-1"
         class="css-i6bazn"
-        data-accordion-panel=""
+        data-chakra-component="CAccordionPanel"
         id="accordion-panel-ac-1"
         role="region"
         style="visibility: hidden; height: 0px;"
       >
         <div
           class="css-i6bazn"
+          data-chakra-component="CBox"
         >
           Section 1 text
         </div>

@@ -36,6 +36,14 @@ const formatIds = id => ({
   body: `alert-dialog-${id}-desc`
 })
 
+/**
+ * CAlertDialog component
+ *
+ * The wrapper for alertdialog components. It provides context and state for the dialog.
+ *
+ * @extends CModal
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
 const CAlertDialog = {
   name: 'CAlertDialog',
   props: {
@@ -58,30 +66,94 @@ const CAlertDialog = {
         initialFocusRef: this.leastDestructiveRef,
         formatIds,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAlertDialog'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CAlertDialogContent component
+ *
+ * The wrapper for the alert dialog's content.
+ *
+ * @extends CModalContent
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
 const CAlertDialogContent = {
   name: 'CAlertDialogContent',
   props: baseProps,
   render (h) {
     return h(CModalContent, {
-      props: forwardProps(this.$props),
+      props: {
+        ...forwardProps(this.$props)
+      },
       attrs: {
-        role: 'alertdialog'
+        role: 'alertdialog',
+        'data-chakra-component': 'CAlertDialogContent'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CAlertDialogOverlay component
+ *
+ * The dimmed overlay behind the dialog.
+ *
+ * @extends CModalOverlay
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
+const CAlertDialogOverlay = CModalOverlay
+
+/**
+ * CAlertDialogBody component
+ *
+ * Should contain the description announced by screen readers
+ *
+ * @extends CModalBody
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
+const CAlertDialogBody = CModalBody
+
+/**
+ * CAlertDialogHeader component
+ *
+ * Should contain the title announced by screen readers
+ *
+ * @extends CModalHeader
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
+const CAlertDialogHeader = CModalHeader
+
+/**
+ * CAlertDialogFooter component
+ *
+ * Should contain the actions of the dialog
+ *
+ * @extends CModalFooter
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
+const CAlertDialogFooter = CModalFooter
+
+/**
+ * CAlertDialogCloseButton component
+ *
+ * The button that closes the dialog.
+ *
+ * @extends CModalCloseButton
+ * @see Docs https://vue.chakra-ui.com/alertdialog
+ */
+const CAlertDialogCloseButton = CModalCloseButton
+
 export {
   CAlertDialog,
   CAlertDialogContent,
-  CModalOverlay as CAlertDialogOverlay,
-  CModalBody as CAlertDialogBody,
-  CModalHeader as CAlertDialogHeader,
-  CModalFooter as CAlertDialogFooter,
-  CModalCloseButton as CAlertDialogCloseButton
+  CAlertDialogOverlay,
+  CAlertDialogBody,
+  CAlertDialogHeader,
+  CAlertDialogFooter,
+  CAlertDialogCloseButton
 }

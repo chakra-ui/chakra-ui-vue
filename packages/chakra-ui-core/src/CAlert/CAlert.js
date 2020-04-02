@@ -76,7 +76,8 @@ const CAlert = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        role: 'alert'
+        role: 'alert',
+        'data-chakra-component': 'CAlert'
       }
     }, this.$slots.default)
   }
@@ -122,7 +123,8 @@ const CAlertIcon = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        focusable: false
+        focusable: false,
+        'data-chakra-component': 'CAlertIcon'
       }
     })
   }
@@ -148,6 +150,9 @@ const CAlertTitle = {
         fontWeight: 'bold',
         lineHeight: 'normal',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAlertTitle'
       }
     }, this.$slots.default)
   }
@@ -168,7 +173,15 @@ const CAlertDescription = {
     ...baseProps
   },
   render (h) {
-    return h(CBox, { props: forwardProps(this.$props) }, this.$slots.default)
+    return h(CBox, {
+      props: {
+        ...forwardProps(this.$props),
+        chakraId: 'CAlertDescription'
+      },
+      attrs: {
+        'data-chakra-component': 'CAlertDescription'
+      }
+    }, this.$slots.default)
   }
 }
 

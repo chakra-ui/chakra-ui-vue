@@ -4,10 +4,12 @@ exports[`should override icon if set explicitly 1`] = `
 <DocumentFragment>
   <div
     class="css-1153cbl"
+    data-chakra-component="CAlert"
     role="alert"
   >
     <svg
       class="css-9jzj25 css-y3asau"
+      data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -28,13 +30,16 @@ exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
   <div
     class="css-j7qwjs"
+    data-chakra-component="CBox"
   >
     <div
       class="css-1e0vsp5"
+      data-chakra-component="CAlert"
       role="alert"
     >
       <svg
         class="css-1gbfvwr css-y3asau"
+        data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -79,10 +84,12 @@ exports[`should render correct variant styles 1`] = `
     </div>
     <div
       class="css-13q6fi0"
+      data-chakra-component="CAlert"
       role="alert"
     >
       <svg
         class="css-vpe47c css-y3asau"
+        data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -127,10 +134,12 @@ exports[`should render correct variant styles 1`] = `
     </div>
     <div
       class="css-15bizfj"
+      data-chakra-component="CAlert"
       role="alert"
     >
       <svg
         class="css-1gbfvwr css-y3asau"
+        data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -175,10 +184,12 @@ exports[`should render correct variant styles 1`] = `
     </div>
     <div
       class="css-rtnh94"
+      data-chakra-component="CAlert"
       role="alert"
     >
       <svg
         class="css-1gbfvwr css-y3asau"
+        data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -229,10 +240,12 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-2fea6z"
+    data-chakra-component="CAlert"
     role="alert"
   >
     <svg
       class="css-10jngok css-y3asau"
+      data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -274,12 +287,14 @@ exports[`should render correctly 1`] = `
      
     <div
       class="css-11a523j"
+      data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
       class="css-0"
+      data-chakra-component="CAlertDescription"
     >
       alert description
     </div>

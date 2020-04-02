@@ -6,12 +6,14 @@ exports[`should render correctly 1`] = `
     <div>
       <input
         class="css-0 css-1l17jza"
+        data-chakra-component="CPseudoBox"
         data-testid="inputOutsideDrawer"
         placeholder="Type here..."
       />
        
       <button
         class="css-0 css-rup5mm"
+        data-chakra-component="CPseudoBox"
         data-testid="buttonOutside"
         tabindex="0"
         type="button"
@@ -27,15 +29,18 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="css-0 css-79elbk"
+      data-chakra-component="CPseudoBox"
     >
       <div
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
           class="css-l5w8ps"
+          data-chakra-component="CBox"
         />
         <div
           class="css-13c8a1c"
+          data-chakra-component="CBox"
           data-testid="overlay"
         >
           <section
@@ -43,6 +48,7 @@ exports[`should render correctly 1`] = `
             aria-labelledby="drawer-1-header"
             aria-modal="true"
             class="css-iv9bja"
+            data-chakra-component="CBox"
             id="drawer-1"
             role="dialog"
             tabindex="-1"
@@ -50,12 +56,14 @@ exports[`should render correctly 1`] = `
             <button
               aria-label="Close"
               class="css-0 css-1xo4iay"
+              data-chakra-component="CPseudoBox"
               data-testid="close-btn"
               x-close-button=""
             >
               <svg
                 aria-hidden="true"
                 class="css-xmst1h css-y3asau"
+                data-chakra-component="CBox"
                 role="presentation"
                 viewBox="0 0 24 24"
               >
@@ -98,6 +106,7 @@ exports[`should render correctly 1`] = `
              
             <header
               class="css-kniazf"
+              data-chakra-component="CBox"
               id="drawer-1-header"
             >
               Create your account
@@ -105,10 +114,12 @@ exports[`should render correctly 1`] = `
              
             <div
               class="css-5m10fw"
+              data-chakra-component="CBox"
               id="drawer-1-body"
             >
               <input
                 class="css-0 css-1l17jza"
+                data-chakra-component="CPseudoBox"
                 data-testid="inputInsideDrawer"
                 placeholder="Type here..."
               />
@@ -116,9 +127,11 @@ exports[`should render correctly 1`] = `
              
             <footer
               class="css-plnu2w"
+              data-chakra-component="CBox"
             >
               <button
                 class="css-0 css-1tex3qd"
+                data-chakra-component="CPseudoBox"
                 tabindex="0"
                 type="button"
               >
@@ -127,6 +140,7 @@ exports[`should render correctly 1`] = `
                
               <button
                 class="css-0 css-2jmp8f"
+                data-chakra-component="CPseudoBox"
                 tabindex="0"
                 type="button"
               >

@@ -29,7 +29,8 @@ const CPseudoBox = {
       default: () => 'div'
     },
     to: [String, Object],
-    ...styleProps
+    ...styleProps,
+    chakraId: String
   },
   computed: {
     theme () {
@@ -47,6 +48,9 @@ const CPseudoBox = {
       props: {
         as,
         to
+      },
+      attrs: {
+        'data-chakra-component': 'CPseudoBox'
       }
     }, this.$slots.default)
   }

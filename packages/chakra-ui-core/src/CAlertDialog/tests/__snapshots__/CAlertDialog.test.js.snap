@@ -12,15 +12,18 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="css-0 css-79elbk"
+      data-chakra-component="CPseudoBox"
     >
       <div
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
           class="css-l5w8ps"
+          data-chakra-component="CBox"
         />
         <div
           class="css-aibg9d"
+          data-chakra-component="CBox"
           data-testid="overlay"
         >
           <section
@@ -28,12 +31,14 @@ exports[`should render correctly 1`] = `
             aria-labelledby="alert-dialog-1-label"
             aria-modal="true"
             class="css-i76yoi"
+            data-chakra-component="CAlertDialogContent"
             id="alert-dialog-1"
             role="alertdialog"
             tabindex="-1"
           >
             <header
               class="css-kniazf"
+              data-chakra-component="CBox"
               id="alert-dialog-1-label"
             >
               Dialog Header
@@ -41,6 +46,7 @@ exports[`should render correctly 1`] = `
              
             <div
               class="css-5m10fw"
+              data-chakra-component="CBox"
               id="alert-dialog-1-desc"
             >
               
@@ -54,9 +60,11 @@ exports[`should render correctly 1`] = `
              
             <footer
               class="css-plnu2w"
+              data-chakra-component="CBox"
             >
               <button
                 class="css-0 css-rup5mm"
+                data-chakra-component="CPseudoBox"
                 data-testid="close-btn"
                 tabindex="0"
                 type="button"
@@ -66,6 +74,7 @@ exports[`should render correctly 1`] = `
                
               <button
                 class="css-0 css-mbmse4"
+                data-chakra-component="CPseudoBox"
                 tabindex="0"
                 type="button"
               >

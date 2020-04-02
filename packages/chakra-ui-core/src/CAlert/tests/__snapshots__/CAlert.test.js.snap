@@ -24,6 +24,207 @@ exports[`should override icon if set explicitly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`should render correct variant styles 1`] = `
+<DocumentFragment>
+  <div
+    class="css-j7qwjs"
+  >
+    <div
+      class="css-1e0vsp5"
+      role="alert"
+    >
+      <svg
+        class="css-1gbfvwr css-y3asau"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+    
+      </svg>
+      
+        Data uploaded to the server. Fire on!
+      
+    </div>
+    <div
+      class="css-13q6fi0"
+      role="alert"
+    >
+      <svg
+        class="css-vpe47c css-y3asau"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+    
+      </svg>
+      
+        Data uploaded to the server. Fire on!
+      
+    </div>
+    <div
+      class="css-15bizfj"
+      role="alert"
+    >
+      <svg
+        class="css-1gbfvwr css-y3asau"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+    
+      </svg>
+      
+        Data uploaded to the server. Fire on!
+      
+    </div>
+    <div
+      class="css-rtnh94"
+      role="alert"
+    >
+      <svg
+        class="css-1gbfvwr css-y3asau"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <g
+          stroke="currentColor"
+          strokewidth="1.5"
+        >
+          
+      
+          <path
+            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <path
+            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+            fill="none"
+            strokelinecap="full"
+          />
+          
+      
+          <circle
+            cx="12"
+            cy="12"
+            fill="none"
+            r="11.25"
+            strokemiterlimit="10"
+          />
+          
+    
+        </g>
+        
+    
+      </svg>
+      
+        Data uploaded to the server. Fire on!
+      
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div

@@ -115,8 +115,8 @@ storiesOf('UI | Toast', module)
       <div>
         <CButton variant-color="green" @click="successToast('solid')">Success Toast</CButton>
         <CButton variant-color="green" variant="outline" @click="successToast('subtle')">Success Toast</CButton>
-        <CButton variant-color="green" variant="ghost" @click="successToast('leftAccent')">Success Toast</CButton>
-        <CButton variant-color="green" variant="ghost" @click="successToast('topAccent')">Success Toast</CButton>
+        <CButton variant-color="green" variant="ghost" @click="successToast('left-accent')">Success Toast</CButton>
+        <CButton variant-color="green" variant="ghost" @click="successToast('top-accent')">Success Toast</CButton>
       </div>
     `
   }))

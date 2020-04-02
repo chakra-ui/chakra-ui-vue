@@ -102,9 +102,9 @@ const statusStyleProps = props => {
       return solid(props)
     case 'subtle':
       return subtle(props)
-    case 'topAccent':
+    case 'top-accent':
       return topAccent(props)
-    case 'leftAccent':
+    case 'left-accent':
       return leftAccent(props)
     default:
       return {}

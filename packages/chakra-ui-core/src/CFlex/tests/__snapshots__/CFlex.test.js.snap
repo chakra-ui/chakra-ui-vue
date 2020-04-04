@@ -4,6 +4,7 @@ exports[`should change styles 1`] = `
 <DocumentFragment>
   <div
     class="css-b93e9j"
+    data-chakra-component="CBox"
     data-testid="flex"
   >
     Flex Me
@@ -15,6 +16,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-k008qs"
+    data-chakra-component="CBox"
     data-testid="flex"
   >
     Flex Me

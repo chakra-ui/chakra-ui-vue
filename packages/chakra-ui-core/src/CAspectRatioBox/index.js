@@ -1,2 +1,2 @@
-import AspectRatioBox from './AspectRatioBox'
-export default AspectRatioBox
+import CAspectRatioBox from './CAspectRatioBox'
+export default CAspectRatioBox

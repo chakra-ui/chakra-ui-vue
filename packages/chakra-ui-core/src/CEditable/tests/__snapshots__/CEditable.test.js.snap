@@ -5,11 +5,13 @@ exports[`should render correctly - input 1`] = `
   <div>
     <div
       class="css-0"
+      data-chakra-component="CBox"
     >
       <!---->
        
       <input
         class="css-0 css-wl0j5d"
+        data-chakra-component="CPseudoBox"
         data-testid="input"
         id="editable-1"
         placeholder="Click to edit..."
@@ -25,9 +27,11 @@ exports[`should render correctly 1`] = `
   <div>
     <div
       class="css-0"
+      data-chakra-component="CBox"
     >
       <span
         class="css-0 css-1fsaeka"
+        data-chakra-component="CPseudoBox"
         data-testid="preview"
         tabindex="0"
       >

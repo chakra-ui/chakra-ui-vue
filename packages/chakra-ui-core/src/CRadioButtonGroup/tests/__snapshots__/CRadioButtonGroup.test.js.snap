@@ -4,10 +4,12 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-0"
+    data-chakra-component="CBox"
     role="radiogroup"
   >
     <button
       class="css-0 css-rup5mm"
+      data-chakra-component="CPseudoBox"
       data-testid="item-1"
       role="radio"
       tabindex="-1"
@@ -18,6 +20,7 @@ exports[`should render correctly 1`] = `
     <button
       aria-checked="true"
       class="css-0 css-1f3kv3a"
+      data-chakra-component="CPseudoBox"
       data-testid="item-2"
       role="radio"
       tabindex="0"
@@ -27,6 +30,7 @@ exports[`should render correctly 1`] = `
     </button>
     <button
       class="css-0 css-rup5mm"
+      data-chakra-component="CPseudoBox"
       data-testid="item-3"
       role="radio"
       tabindex="-1"
@@ -37,6 +41,7 @@ exports[`should render correctly 1`] = `
     <button
       aria-disabled="true"
       class="css-0 css-rup5mm"
+      data-chakra-component="CPseudoBox"
       data-testid="item-4"
       disabled="disabled"
       role="radio"

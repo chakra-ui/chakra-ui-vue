@@ -1,6 +1,6 @@
 # Alert | Accessibility ♿️
 
-This report is adapted to list the [WAI-ARIA Authoring practices for Alerts](https://www.w3.org/TR/wai-aria-practices-1.2/#accordion) supported by Chakra UI for the Alert component.
+This report is adapted to list the [WAI-ARIA Authoring practices for Alerts](https://www.w3.org/TR/wai-aria-practices-1.2/#accordion) supported by Chakra UI for the `CAlert` component.
 
 ### Description
 An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. Dynamically rendered alerts are automatically announced by most screen readers, and in some operating systems, they may trigger an alert sound. It is important to note that, at this time, screen readers do not inform users of alerts that are present on the page before page load completes.

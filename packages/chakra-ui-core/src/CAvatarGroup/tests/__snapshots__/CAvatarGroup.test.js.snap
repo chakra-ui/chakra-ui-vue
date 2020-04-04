@@ -4,29 +4,35 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-80aj1h"
+    data-chakra-component="CBox"
   >
     <div
       class="css-152ubph"
+      data-chakra-component="CBox"
     >
       <div
         aria-label="Mesut Koca"
         class="css-1e8yzjf"
+        data-chakra-component="CBox"
       >
         MK
       </div>
     </div>
     <div
       class="css-jq8oqj"
+      data-chakra-component="CBox"
     >
       <div
         aria-label="Evan You"
         class="css-1e8yzjf"
+        data-chakra-component="CBox"
       >
         EY
       </div>
     </div>
     <div
       class="css-3dare1"
+      data-chakra-component="CBox"
     >
       +1
     </div>

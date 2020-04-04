@@ -4,16 +4,20 @@ exports[`should display tag with custom element 1`] = `
 <DocumentFragment>
   <div
     class="css-82qlwu"
+    data-chakra-component="CBox"
   >
     <div
       class="css-0 css-1jxztok"
+      data-chakra-component="CPseudoBox"
     >
       <div
         class="css-1x49bir"
+        data-chakra-component="CBox"
       >
         <div
           aria-label="Mesut Koca"
           class="css-bbjn3h"
+          data-chakra-component="CBox"
         >
           MK
         </div>
@@ -21,6 +25,7 @@ exports[`should display tag with custom element 1`] = `
        
       <div
         class="css-0"
+        data-chakra-component="CBox"
       >
         Mesut
       </div>
@@ -33,18 +38,22 @@ exports[`should display tag with right icon 1`] = `
 <DocumentFragment>
   <div
     class="css-82qlwu"
+    data-chakra-component="CBox"
   >
     <div
       class="css-0 css-1mwiunl"
+      data-chakra-component="CPseudoBox"
     >
       <div
         class="css-0"
+        data-chakra-component="CBox"
       >
         Green
       </div>
        
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
+        data-chakra-component="CBox"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -93,12 +102,15 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-82qlwu"
+    data-chakra-component="CBox"
   >
     <div
       class="css-0 css-1mwiunl"
+      data-chakra-component="CPseudoBox"
     >
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
+        data-chakra-component="CBox"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -141,6 +153,7 @@ exports[`should render correctly 1`] = `
        
       <div
         class="css-0"
+        data-chakra-component="CBox"
       >
         Green
       </div>

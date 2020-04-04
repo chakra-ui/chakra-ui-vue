@@ -4,10 +4,12 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
     class="css-1qf83f9"
+    data-chakra-component="CBox"
     for="checkbox-1"
   >
     <input
       class="css-0 css-f8n5zr"
+      data-chakra-component="CBox"
       id="checkbox-1"
       type="checkbox"
       value="false"
@@ -15,9 +17,11 @@ exports[`should render correctly 1`] = `
     <div
       aria-hidden="true"
       class="css-1ra3zj0 css-xkdust"
+      data-chakra-component="CBox"
     >
       <svg
         class="css-1dx9t0m css-y3asau"
+        data-chakra-component="CBox"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -59,6 +63,7 @@ exports[`should render correctly 1`] = `
     </div>
     <div
       class="css-np4rym"
+      data-chakra-component="CBox"
     >
       checkbox
     </div>

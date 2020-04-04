@@ -16,7 +16,7 @@
  * multiple sections of content on a single page.
  *
  * @see Docs     https://vue.chakra-ui.com/accordion
- * @see Source   link to source
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAccordion/CAccordion.js
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAccordion/accessibility.md
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#accordion
  */

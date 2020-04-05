@@ -70,6 +70,9 @@ const CAvatarBadge = {
         borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatarBadge'
       }
     })
   }
@@ -103,7 +106,8 @@ const CAvatarName = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': this.name
+        'aria-label': this.name,
+        'data-chakra-component': 'CAvatarName'
       }
     }, [this.name && getInitials(this.name)])
   }
@@ -130,6 +134,9 @@ const CDefaultAvatar = {
         w: this.size,
         lineHeight: '1rem',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
         innerHTML: `
@@ -237,10 +244,10 @@ const CAvatar = {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover'
+            objectFit: 'cover',
           },
           attrs: {
-            alt: this.$attrs.alt || this.name,
+            alt: this.name,
             src: this.src
           }
         })
@@ -251,26 +258,38 @@ const CAvatar = {
           return h(CAvatarName, {
             props: {
               name: this.name,
-              size: _size
+              w: _size,
+              h: _size
             }
           })
         } else {
           return h(CDefaultAvatar, {
+            props: {
+              w: '100%',
+              h: '100%'
+            },
             attrs: {
               'aria-label': this.name,
-              alt: this.$attrs.alt || this.name
             }
           })
         }
       }
     }
 
+    const { size, ...avatarStyles } = avatarStyleProps
+
     return h(CBox, {
       props: {
         fontSize: fontSize,
         lineHeight: _size,
-        ...avatarStyleProps,
+        verticalAlign: 'top',
+        w: size,
+        h: size,
+        ...avatarStyles,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatar'
       }
     }, [
       renderChildren(),

@@ -152,7 +152,8 @@ const baseProps = {
   gridTemplateRows: SNA,
   gridTemplateColumns: SNA,
   opacity: SNA,
-  letterSpacing: SNA
+  letterSpacing: SNA,
+  flexShrink: SNA
 }
 
 export default baseProps

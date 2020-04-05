@@ -1,1 +1,150 @@
-# Avatar
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import Code from '../components/CodeBlock'
+import SEO from '../components/SEO'
+import { CAvatar, CAvatarGroup, CAvatarBadge, CStack } from '@chakra-ui/vue'
+Vue.component('CAvatar', CAvatar)
+Vue.component('CAvatarGroup', CAvatarGroup)
+Vue.component('CAvatarBadge', CAvatarBadge)
+
+
+<SEO
+  title="Avatars"
+  description="The Avatar component is used to display a user's profile picture, initials or fallback icon."
+/>
+
+# Avatars
+
+The `CAvatar` component is used to visually represent a user by displaying their profile picture, initials or a fallback icon.
+
+## Import
+
+Chakra UI Vue exports 3 Avatar related components.
+
+- `CAvatar`: The image that represents the user.
+- `CAvatarBadge`: A widget that displays the status of a user on the bottom-right corner of the `CAvatar`.
+- `CAvatarGroup`: A wrapper that stacks multiple `CAvatars` together.
+
+<br />
+
+<Code lang="javascript" code={`import { CAvatar, CAvatarBadge } from "@chakra-ui/vue";
+`} />
+
+## Usage
+
+<LiveEditor>
+{`
+<template>
+  <c-stack is-inline>
+    <c-avatar
+      name="Evan You"
+      src="https://bit.ly/chakra-evan-you"
+    />
+    <c-avatar
+      name="Segun Adebayo"
+      src="https://bit.ly/chakra-segun-adebayo"
+    />
+    <c-avatar
+      name="Sarah Drasner"
+      src="https://bit.ly/chakra-sarah-drasner"
+    />
+    <c-avatar
+      name="Kelvin Omereshone"
+      src="https://bit.ly/chakra-kelvin-omereshone"
+    />
+    <c-avatar
+      name="Mesut Koca"
+      src="https://bit.ly/chakra-mesut-koca"
+    />
+    <c-avatar
+      name="Gift Egwuenu"
+      src="https://bit.ly/chakra-gift-egwuenu"
+    />
+    <c-avatar
+      name="Maya Shavin"
+      src="https://bit.ly/chakra-maya-shavin"
+    />
+    <c-avatar
+      name="Jonathan Bakebwa"
+      src="https://bit.ly/chakra-jonathan-bakebwa"
+    />
+  </c-stack>
+</template>
+`}
+</LiveEditor>
+
+## Avatar Sizes
+
+The `CAvatar` component comes in 7 sizes: `2xs`, `xs`, `sm`, `md`, `lg` `xl` and `2xl` 
+
+<LiveEditor>
+{`
+<template>
+  <c-stack is-inline>
+    <c-avatar
+      name="Evan You"
+      size="2xs"
+      src="https://bit.ly/chakra-evan-you"
+    />
+    <c-avatar
+      name="Segun Adebayo"
+      size="xs"
+      src="https://bit.ly/chakra-segun-adebayo"
+    />
+    <c-avatar
+      name="Sarah Drasner"
+      size="sm"
+      src="https://bit.ly/chakra-sarah-drasner"
+    />
+    <c-avatar
+      name="Kelvin Omereshone"
+      size="md"
+      src="https://bit.ly/chakra-kelvin-omereshone"
+    />
+    <c-avatar
+      name="Mesut Koca"
+      size="lg"
+      src="https://bit.ly/chakra-mesut-koca"
+    />
+    <c-avatar
+      name="Maya Shavin"
+      size="xl"
+      src="https://bit.ly/chakra-maya-shavin"
+    />
+    <c-avatar
+      name="Jonathan Bakebwa"
+      size="2xl"
+      src="https://bit.ly/chakra-jonathan-bakebwa"
+    />
+  </c-stack>
+</template>
+`}
+</LiveEditor>
+
+## Avatar Fallbacks
+
+If there was an error loading the `src` of the `CAvatar`, there are 2 fallbacks:
+
+- If the `name` prop is provided, the `CAvatar` component will use it to generate
+ initials and a random, accessible background color.
+- If no `name` prop is provided, the `CAvatar` will use a default avatar.
+
+<LiveEditor>
+{`
+<template>
+  <c-stack is-inline>
+    <c-avatar
+      name="Lady Tsunade"
+      src="https://bit.ly/broken-link"
+    />
+    <c-avatar
+      name="Kaguya Otsutsuki"
+      src="https://bit.ly/broken-link"
+    />
+    <c-avatar
+      src="https://bit.ly/broken-link" 
+    />
+  </c-stack>
+</template>
+`}
+</LiveEditor>

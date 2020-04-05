@@ -54,6 +54,9 @@ export const CAvatarBadge = {
         borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatarBadge'
       }
     })
   }
@@ -80,7 +83,8 @@ const CAvatarName = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': this.name
+        'aria-label': this.name,
+        'data-chakra-component': 'CAvatarName'
       }
     }, [this.name && getInitials(this.name)])
   }
@@ -102,6 +106,9 @@ const CDefaultAvatar = {
         w: this.size,
         lineHeight: '1rem',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
         innerHTML: `
@@ -205,9 +212,9 @@ export const CAvatar = {
             h: '100%',
             rounded: 'full',
             objectFit: 'cover',
-            alt: this.name
           },
           attrs: {
+            alt: this.name,
             src: this.src
           }
         })
@@ -218,25 +225,38 @@ export const CAvatar = {
           return h(CAvatarName, {
             props: {
               name: this.name,
-              size: _size
+              w: _size,
+              h: _size
             }
           })
         } else {
           return h(CDefaultAvatar, {
+            props: {
+              w: '100%',
+              h: '100%'
+            },
             attrs: {
-              'aria-label': this.name
+              'aria-label': this.name,
             }
           })
         }
       }
     }
 
+    const { size, ...avatarStyles } = avatarStyleProps
+
     return h(CBox, {
       props: {
         fontSize: fontSize,
         lineHeight: _size,
-        ...avatarStyleProps,
+        verticalAlign: 'top',
+        w: size,
+        h: size,
+        ...avatarStyles,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatar'
       }
     }, [
       renderChildren(),

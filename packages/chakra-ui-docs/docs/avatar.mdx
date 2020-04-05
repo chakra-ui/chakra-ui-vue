@@ -36,38 +36,14 @@ Chakra UI Vue exports 3 Avatar related components.
 {`
 <template>
   <c-stack is-inline>
-    <c-avatar
-      name="Evan You"
-      src="https://bit.ly/chakra-evan-you"
-    />
-    <c-avatar
-      name="Segun Adebayo"
-      src="https://bit.ly/chakra-segun-adebayo"
-    />
-    <c-avatar
-      name="Sarah Drasner"
-      src="https://bit.ly/chakra-sarah-drasner"
-    />
-    <c-avatar
-      name="Kelvin Omereshone"
-      src="https://bit.ly/chakra-kelvin-omereshone"
-    />
-    <c-avatar
-      name="Mesut Koca"
-      src="https://bit.ly/chakra-mesut-koca"
-    />
-    <c-avatar
-      name="Gift Egwuenu"
-      src="https://bit.ly/chakra-gift-egwuenu"
-    />
-    <c-avatar
-      name="Maya Shavin"
-      src="https://bit.ly/chakra-maya-shavin"
-    />
-    <c-avatar
-      name="Jonathan Bakebwa"
-      src="https://bit.ly/chakra-jonathan-bakebwa"
-    />
+    <c-avatar name="Evan You" src="https://bit.ly/chakra-evan-you" />
+    <c-avatar name="Segun Adebayo" src="https://bit.ly/chakra-segun-adebayo" />
+    <c-avatar name="Sarah Drasner" src="https://bit.ly/chakra-sarah-drasner" />
+    <c-avatar name="Kelvin Omereshone" src="https://bit.ly/chakra-kelvin-omereshone" />
+    <c-avatar name="Mesut Koca" src="https://bit.ly/chakra-mesut-koca" />
+    <c-avatar name="Gift Egwuenu" src="https://bit.ly/chakra-gift-egwuenu" />
+    <c-avatar name="Maya Shavin" src="https://bit.ly/chakra-maya-shavin" />
+    <c-avatar name="Jonathan Bakebwa" src="https://bit.ly/chakra-jonathan-bakebwa" />
   </c-stack>
 </template>
 `}
@@ -81,41 +57,13 @@ The `CAvatar` component comes in 7 sizes: `2xs`, `xs`, `sm`, `md`, `lg` `xl` and
 {`
 <template>
   <c-stack is-inline>
-    <c-avatar
-      name="Evan You"
-      size="2xs"
-      src="https://bit.ly/chakra-evan-you"
-    />
-    <c-avatar
-      name="Segun Adebayo"
-      size="xs"
-      src="https://bit.ly/chakra-segun-adebayo"
-    />
-    <c-avatar
-      name="Sarah Drasner"
-      size="sm"
-      src="https://bit.ly/chakra-sarah-drasner"
-    />
-    <c-avatar
-      name="Kelvin Omereshone"
-      size="md"
-      src="https://bit.ly/chakra-kelvin-omereshone"
-    />
-    <c-avatar
-      name="Mesut Koca"
-      size="lg"
-      src="https://bit.ly/chakra-mesut-koca"
-    />
-    <c-avatar
-      name="Maya Shavin"
-      size="xl"
-      src="https://bit.ly/chakra-maya-shavin"
-    />
-    <c-avatar
-      name="Jonathan Bakebwa"
-      size="2xl"
-      src="https://bit.ly/chakra-jonathan-bakebwa"
-    />
+    <c-avatar size="2xs" name="Evan You" src="https://bit.ly/chakra-evan-you" />
+    <c-avatar size="xs" name="Segun Adebayo" src="https://bit.ly/chakra-segun-adebayo" />
+    <c-avatar size="sm" name="Sarah Drasner" src="https://bit.ly/chakra-sarah-drasner" />
+    <c-avatar size="md" name="Kelvin Omereshone" src="https://bit.ly/chakra-kelvin-omereshone" />
+    <c-avatar size="lg" name="Mesut Koca" src="https://bit.ly/chakra-mesut-koca" />
+    <c-avatar size="xl" name="Maya Shavin" src="https://bit.ly/chakra-maya-shavin" />
+    <c-avatar size="2xl" name="Jonathan Bakebwa" src="https://bit.ly/chakra-jonathan-bakebwa" />
   </c-stack>
 </template>
 `}
@@ -133,18 +81,91 @@ If there was an error loading the `src` of the `CAvatar`, there are 2 fallbacks:
 {`
 <template>
   <c-stack is-inline>
-    <c-avatar
-      name="Lady Tsunade"
-      src="https://bit.ly/broken-link"
-    />
-    <c-avatar
-      name="Kaguya Otsutsuki"
-      src="https://bit.ly/broken-link"
-    />
-    <c-avatar
-      src="https://bit.ly/broken-link" 
-    />
+    <c-avatar name="Lady Tsunade" src="https://bit.ly/broken-link" />
+    <c-avatar name="Kaguya Otsutsuki" src="https://bit.ly/broken-link" />
+    <c-avatar src="https://bit.ly/broken-link" />
   </c-stack>
 </template>
 `}
 </LiveEditor>
+
+
+## Avatar with badge
+
+In some products, you might need show a badge on the bottom-right corner of the `CAvatar`.
+We call this a **badge**. Here's an example that shows if the user is online:
+
+<LiveEditor>
+{`
+<template>
+  <c-stack is-inline>
+    <c-avatar name="Naruto Uzumaki" src="https://bit.ly/chakra-naruto-uzumaki">
+      <c-avatar-badge size="1.0em" bg="green.500" />
+    </c-avatar>
+    <c-avatar name="Sakura Haruno" src="https://bit.ly/chakra-sakura-haruno">
+      <c-avatar-badge size="1.0em" bg="green.500" />
+    </c-avatar>
+    <c-avatar name="Sasuke Uchiha" src="https://bit.ly/chakra-sasuke-uchiha">
+      <c-avatar-badge size="1.0em" bg="red.400" />
+    </c-avatar>
+    <c-avatar show-border name="Kakashi Hatake" src="https://bit.ly/chakra-kakashi-hatake">
+      <c-avatar-badge size="1.0em" bg="orange.400" />
+    </c-avatar>
+  </c-stack>
+</template>
+`}
+</LiveEditor>
+
+> Note the use of `em` for the size of the `CAvatarBadge`. this is useful to size
+> the badge relative to the avatar font size
+
+## AvatarGroup
+
+In some cases, you might need to stack avatars in a group. Use the `CAvatarGroup`
+component to do this
+
+- To limit the number of avatars to show, use the `max` prop. It'll truncate the
+  avatars and show a "+X" label (where X is the remaining number of avatars).
+- To size all the avatars equally, pass the `size` prop.
+- To adjust the spacing between the avatars, pass the `spacing` prop.
+
+
+<LiveEditor>
+{`
+<template>
+  <!--
+    Try editing the \`max\` prop to change the maximum number of avatars
+  --->
+  <c-avatar-group max="3">
+    <c-avatar name="Evan You" src="https://bit.ly/chakra-evan-you" />
+    <c-avatar name="Jonathan Bakebwa" src="https://bit.ly/chakra-jonathan-bakebwa" />
+    <c-avatar name="Segun Adebayo" src="https://bit.ly/chakra-segun-adebayo" />
+    <c-avatar name="Sarah Drasner" src="https://bit.ly/chakra-sarah-drasner" />
+    <c-avatar name="Kelvin Omereshone" src="https://bit.ly/chakra-kelvin-omereshone" />
+    <c-avatar name="Mesut Koca" src="https://bit.ly/chakra-mesut-koca" />
+    <c-avatar name="Maya Shavin" src="https://bit.ly/chakra-maya-shavin" />
+  </c-avatar-group>
+</template>
+`}
+</LiveEditor>
+
+## Props
+
+| Name       | Type                                       | Default | Description                                                                       |
+| ---------- | ------------------------------------------ | ------- | --------------------------------------------------------------------------------- |
+| size       | `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`  | `md`    | The size of the avatar                                                            |
+| showBorder | `boolean`                                  | `false` | If `true`, the `CAvatar` will show a border around it. Best for a group of avatars |
+| name       | `string`                                   |         | The name of the user in the avatar                                                |
+| src        | `string`                                   |         | The image url of the `CAvatar`                                                     |
+
+> - `CAvatar` composes the `CBox` component. So it also accepts
+> all `CBox` props.
+> - `CAvatarBadge` composes the `CBox` component. So it also accepts
+> all `CBox` props.
+> - `CAvatarGroup` composes the `CFlex` component. So it also accepts
+> all `CFlex` props.
+
+## Slots
+| Name       | Description                                                                       |
+| ---------- | --------------------------------------------------------------------------------- |
+| default    | Used for the `CAvatarBadge` at the bottom right corner of the `CAvatar`.          |

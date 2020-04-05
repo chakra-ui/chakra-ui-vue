@@ -54,9 +54,6 @@ export const CAvatarBadge = {
         borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
         ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CAvatarBadge'
       }
     })
   }
@@ -83,8 +80,7 @@ const CAvatarName = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': this.name,
-        'data-chakra-component': 'CAvatarName'
+        'aria-label': this.name
       }
     }, [this.name && getInitials(this.name)])
   }
@@ -106,9 +102,6 @@ const CDefaultAvatar = {
         w: this.size,
         lineHeight: '1rem',
         ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
         innerHTML: `
@@ -211,10 +204,10 @@ export const CAvatar = {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            alt: this.name
           },
           attrs: {
-            alt: this.name,
             src: this.src
           }
         })
@@ -225,16 +218,11 @@ export const CAvatar = {
           return h(CAvatarName, {
             props: {
               name: this.name,
-              w: _size,
-              h: _size
+              size: _size
             }
           })
         } else {
           return h(CDefaultAvatar, {
-            props: {
-              w: '100%',
-              h: '100%'
-            },
             attrs: {
               'aria-label': this.name
             }
@@ -243,20 +231,12 @@ export const CAvatar = {
       }
     }
 
-    const { size, ...avatarStyles } = avatarStyleProps
-
     return h(CBox, {
       props: {
         fontSize: fontSize,
         lineHeight: _size,
-        verticalAlign: 'top',
-        w: size,
-        h: size,
-        ...avatarStyles,
+        ...avatarStyleProps,
         ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CAvatar'
       }
     }, [
       renderChildren(),

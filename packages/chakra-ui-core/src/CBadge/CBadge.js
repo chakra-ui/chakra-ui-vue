@@ -50,7 +50,6 @@ const CBadge = {
 
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         d: 'inline-block',
         textTransform: 'uppercase',
         fontSize: 'xs',
@@ -60,7 +59,8 @@ const CBadge = {
         fontWeight: 'bold',
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
-        ...badgeStyleProps
+        ...badgeStyleProps,
+        ...forwardProps(this.$props)
       },
       attrs: {
         'data-chakra-component': 'CBadge'

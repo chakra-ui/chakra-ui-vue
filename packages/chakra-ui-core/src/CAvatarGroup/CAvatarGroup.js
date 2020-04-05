@@ -1,11 +1,26 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue AvatarGroup
+ *
+ * The AvatarGroup component serves a wrapper that stacks multiple Avatars together.
+ *
+ * @see Docs     https://vue.chakra-ui.com/avatar
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAvatarGroup/CAvatarGroup.js
+ */
+
 import { avatarSizes } from '../CAvatar/utils/avatar.styles'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 import CFlex from '../CFlex'
 
+
 /**
- * For excess avatars we dispay this to show the remaining unrendered avatars
+ * CMoreAvatarLabel component
+ *
+ * For excess avatars, the CMoreAvatarLabel displays an indicator of the surplus avatars
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CMoreAvatarLabel = {
   name: 'CMoreAvatarLabel',
@@ -50,6 +65,14 @@ const CMoreAvatarLabel = {
   }
 }
 
+/**
+ * CAvatarGroup component
+ *
+ * Clones all CAvatar children and stacks them together.
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/avatar
+ */
 const CAvatarGroup = {
   name: 'CAvatarGroup',
   props: {

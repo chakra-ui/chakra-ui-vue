@@ -27,7 +27,6 @@ storiesOf('UI | Avatar', module)
         <CAvatar
           name="Prosper Otemuyiwa"
           src="https://bit.ly/prosper-baba"
-          alt="Overwriting alt"
         />
         <CAvatar
           name="梦 龙"

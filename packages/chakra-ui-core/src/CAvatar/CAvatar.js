@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Avatar
+ *
+ * The Avatar component is used to represent user, and displays the profile picture,
+ * initials or fallback icon.
+ *
+ * @see Docs     https://vue.chakra-ui.com/avatar
+ * @ally Avatar  The CAvatar component by default applies the `alt` attribute from the `src` prop. It also can be overwritten by passing the `alt` attribute
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAvatar/CAvatar.js
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils'
 import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
@@ -20,9 +31,14 @@ const getInitials = (name) => {
 }
 
 /**
- * Avatar badge show's avatar status
+ * CAvatarBadge component
+ *
+ * Avatar badge used to indicate the avatar status
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
-export const CAvatarBadge = {
+const CAvatarBadge = {
   name: 'CAvatarBadge',
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
@@ -60,7 +76,14 @@ export const CAvatarBadge = {
 }
 
 /**
- * Avatar name displays an Avatar with name initials
+ * CAvatarName component
+ *
+ * Avatar name component displays the fallback initials fallback
+ * for the Avatar in case the image fails to load, and before the
+ * image loads.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarName = {
   name: 'CAvatarName',
@@ -87,7 +110,12 @@ const CAvatarName = {
 }
 
 /**
- * Default Avatar component shows fallback image of headshots
+ * CDefaultAvatar component
+ *
+ * Default Avatar component shows fallback image of headshots.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CDefaultAvatar = {
   name: 'CDefaultAvatar',
@@ -118,9 +146,14 @@ const CDefaultAvatar = {
 }
 
 /**
+ * CAvatar component
+ *
  * Avatar component shows images of headshots
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
-export const CAvatar = {
+const CAvatar = {
   name: 'CAvatar',
   inject: ['$chakraTheme', '$chakraColorMode'],
   computed: {
@@ -204,10 +237,10 @@ export const CAvatar = {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover',
-            alt: this.name
+            objectFit: 'cover'
           },
           attrs: {
+            alt: this.$attrs.alt || this.name,
             src: this.src
           }
         })
@@ -224,7 +257,8 @@ export const CAvatar = {
         } else {
           return h(CDefaultAvatar, {
             attrs: {
-              'aria-label': this.name
+              'aria-label': this.name,
+              alt: this.$attrs.alt || this.name
             }
           })
         }
@@ -243,4 +277,9 @@ export const CAvatar = {
       this.$slots.default
     ])
   }
+}
+
+export {
+  CAvatar,
+  CAvatarBadge
 }

@@ -11,13 +11,13 @@ exports[`should display tag with custom element 1`] = `
       data-chakra-component="CPseudoBox"
     >
       <div
-        class="css-1x49bir"
-        data-chakra-component="CBox"
+        class="css-ovunuj"
+        data-chakra-component="CAvatar"
       >
         <div
           aria-label="Mesut Koca"
           class="css-bbjn3h"
-          data-chakra-component="CBox"
+          data-chakra-component="CAvatarName"
         >
           MK
         </div>

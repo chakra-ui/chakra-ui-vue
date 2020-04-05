@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Avatar
+ *
+ * The Avatar component is used to represent user, and displays the profile picture,
+ * initials or fallback icon.
+ *
+ * @see Docs     https://vue.chakra-ui.com/avatar
+ * @ally Avatar  The CAvatar component by default applies the `alt` attribute from the `src` prop. It also can be overwritten by passing the `alt` attribute
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAvatar/CAvatar.js
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils'
 import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
@@ -20,9 +31,14 @@ const getInitials = (name) => {
 }
 
 /**
- * Avatar badge show's avatar status
+ * CAvatarBadge component
+ *
+ * Avatar badge used to indicate the avatar status
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
-export const CAvatarBadge = {
+const CAvatarBadge = {
   name: 'CAvatarBadge',
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
@@ -54,13 +70,23 @@ export const CAvatarBadge = {
         borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatarBadge'
       }
     })
   }
 }
 
 /**
- * Avatar name displays an Avatar with name initials
+ * CAvatarName component
+ *
+ * Avatar name component displays the fallback initials fallback
+ * for the Avatar in case the image fails to load, and before the
+ * image loads.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarName = {
   name: 'CAvatarName',
@@ -80,14 +106,20 @@ const CAvatarName = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': this.name
+        'aria-label': this.name,
+        'data-chakra-component': 'CAvatarName'
       }
     }, [this.name && getInitials(this.name)])
   }
 }
 
 /**
- * Default Avatar component shows fallback image of headshots
+ * CDefaultAvatar component
+ *
+ * Default Avatar component shows fallback image of headshots.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CDefaultAvatar = {
   name: 'CDefaultAvatar',
@@ -102,6 +134,9 @@ const CDefaultAvatar = {
         w: this.size,
         lineHeight: '1rem',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
         innerHTML: `
@@ -118,9 +153,14 @@ const CDefaultAvatar = {
 }
 
 /**
+ * CAvatar component
+ *
  * Avatar component shows images of headshots
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/avatar
  */
-export const CAvatar = {
+const CAvatar = {
   name: 'CAvatar',
   inject: ['$chakraTheme', '$chakraColorMode'],
   computed: {
@@ -204,10 +244,10 @@ export const CAvatar = {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover',
-            alt: this.name
+            objectFit: 'cover'
           },
           attrs: {
+            alt: this.name,
             src: this.src
           }
         })
@@ -218,11 +258,16 @@ export const CAvatar = {
           return h(CAvatarName, {
             props: {
               name: this.name,
-              size: _size
+              w: _size,
+              h: _size
             }
           })
         } else {
           return h(CDefaultAvatar, {
+            props: {
+              w: '100%',
+              h: '100%'
+            },
             attrs: {
               'aria-label': this.name
             }
@@ -231,16 +276,29 @@ export const CAvatar = {
       }
     }
 
+    const { size, ...avatarStyles } = avatarStyleProps
+
     return h(CBox, {
       props: {
         fontSize: fontSize,
         lineHeight: _size,
-        ...avatarStyleProps,
+        verticalAlign: 'top',
+        w: size,
+        h: size,
+        ...avatarStyles,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CAvatar'
       }
     }, [
       renderChildren(),
       this.$slots.default
     ])
   }
+}
+
+export {
+  CAvatar,
+  CAvatarBadge
 }

@@ -16,7 +16,7 @@ exports[`should render correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="css-1ra3zj0 css-xkdust"
+      class="css-j27u0o css-xkdust"
       data-chakra-component="CBox"
     >
       <svg

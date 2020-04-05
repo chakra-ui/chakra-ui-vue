@@ -7,25 +7,25 @@ exports[`should render correctly 1`] = `
     data-chakra-component="CBox"
   >
     <div
-      class="css-152ubph"
-      data-chakra-component="CBox"
+      class="css-lv2eyz"
+      data-chakra-component="CAvatar"
     >
       <div
         aria-label="Mesut Koca"
         class="css-1e8yzjf"
-        data-chakra-component="CBox"
+        data-chakra-component="CAvatarName"
       >
         MK
       </div>
     </div>
     <div
-      class="css-jq8oqj"
-      data-chakra-component="CBox"
+      class="css-o0a73u"
+      data-chakra-component="CAvatar"
     >
       <div
         aria-label="Evan You"
         class="css-1e8yzjf"
-        data-chakra-component="CBox"
+        data-chakra-component="CAvatarName"
       >
         EY
       </div>

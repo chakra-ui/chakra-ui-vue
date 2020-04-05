@@ -89,6 +89,16 @@ export default {
     CIcon,
     CHeading,
     CGrid
+  },
+  metaInfo () {
+    return {
+      title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: 'Simple, Modular and Accessible UI Components for your Vue Applications.'
+      }]
+    }
   }
 }
 </script>

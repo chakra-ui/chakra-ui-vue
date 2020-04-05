@@ -7,15 +7,10 @@ dotenv.config({
 export default {
   mode: 'spa',
   head: {
-    title: 'Chakra UI Vue | Chakra UI Design system built with Vue',
+    title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Simple, Modular and Accessible UI Components for your Vue Applications.Built with Styled System.'
-      }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -25,7 +20,8 @@ export default {
   plugins: [
     'plugins/links.js',
     'plugins/editor.js',
-    'plugins/chakra-ui.js'
+    'plugins/chakra-ui.js',
+    'plugins/vue-meta.js'
   ],
   css: [
     'css/page.css',

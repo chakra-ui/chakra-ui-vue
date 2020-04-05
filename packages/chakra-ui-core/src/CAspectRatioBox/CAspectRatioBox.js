@@ -65,7 +65,10 @@ const CAspectRatioBox = {
           pb: `${(1 / this.ratio) * 100}%`
         }
       },
-      attrs: this.$attrs
+      attrs: {
+        ...this.$attrs,
+        'data-chakra-component': 'CAspectRatioBox'
+      }
     }, [clone])
   }
 }

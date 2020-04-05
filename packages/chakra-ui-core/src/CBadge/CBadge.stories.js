@@ -21,3 +21,13 @@ storiesOf('UI | Badge', module)
       </div>
     `
   }))
+  .add('With variant', () => ({
+    components: { CBadge },
+    template: `
+      <div>
+        <c-badge mx="2" variant="subtle" variant-color="green">Subtle</c-badge>
+        <c-badge mx="2" variant="solid" variant-color="green">Solid</c-badge>
+        <c-badge mx="2" variant="outline" variant-color="green">Outline</c-badge>
+      </div>
+    `
+  }))

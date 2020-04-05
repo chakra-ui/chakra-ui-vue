@@ -244,7 +244,7 @@ const CAvatar = {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover',
+            objectFit: 'cover'
           },
           attrs: {
             alt: this.name,
@@ -269,7 +269,7 @@ const CAvatar = {
               h: '100%'
             },
             attrs: {
-              'aria-label': this.name,
+              'aria-label': this.name
             }
           })
         }

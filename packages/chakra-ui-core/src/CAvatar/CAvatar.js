@@ -103,7 +103,7 @@ const CAvatarName = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': this.name,
+        'aria-label': this.name
       }
     }, [this.name && getInitials(this.name)])
   }
@@ -258,7 +258,7 @@ const CAvatar = {
           return h(CDefaultAvatar, {
             attrs: {
               'aria-label': this.name,
-              alt: this.$attrs.alt || this.name,
+              alt: this.$attrs.alt || this.name
             }
           })
         }

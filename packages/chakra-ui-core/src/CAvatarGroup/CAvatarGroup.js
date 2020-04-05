@@ -13,7 +13,6 @@ import { forwardProps } from '../utils'
 
 import CFlex from '../CFlex'
 
-
 /**
  * CMoreAvatarLabel component
  *

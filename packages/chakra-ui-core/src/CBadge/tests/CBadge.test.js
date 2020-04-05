@@ -1,9 +1,12 @@
-import CBadge from '../'
+import { CBadge, CStack } from '../..'
 import { render } from '@/tests/test-utils'
+
+// mocks
+jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
 
 const renderComponent = (props) => {
   const base = {
-    components: { CBadge },
+    components: { CBadge, CStack },
     template: `<CBadge>500</CBadge>`,
     ...props
   }
@@ -20,3 +23,17 @@ it('should display children', () => {
 
   expect(getByText('500')).toBeInTheDocument()
 })
+
+it('should apply variant styles corectly', () => {
+  const { asFragment } = renderComponent({
+    template: `
+      <c-stack is-inline>
+        <c-badge mx="2" variant="subtle" variant-color="green">Subtle</c-badge>
+        <c-badge mx="2" variant="solid" variant-color="green">Solid</c-badge>
+        <c-badge mx="2" variant="outline" variant-color="green">Outline</c-badge>
+      </c-stack>
+    `
+  })
+
+  expect(asFragment()).toMatchSnapshot()
+});

@@ -40,7 +40,6 @@ export function createRouter () {
     routes
   })
 
-  // updating page title
   router.beforeEach((to, from, next) => {
     const newMetaTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
 

@@ -25,7 +25,7 @@ import CPseudoBox from '../CPseudoBox'
  * to achieve the set aspect ratio.
  *
  * @extends CBox
- * @see Docs https://vue.chakra-ui.com/accordion
+ * @see Docs https://vue.chakra-ui.com/aspectratiobox
  */
 const CAspectRatioBox = {
   name: 'CAspectRatioBox',

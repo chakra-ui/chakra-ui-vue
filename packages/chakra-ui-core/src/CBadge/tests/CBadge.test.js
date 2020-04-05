@@ -36,4 +36,4 @@ it('should apply variant styles corectly', () => {
   })
 
   expect(asFragment()).toMatchSnapshot()
-});
+})

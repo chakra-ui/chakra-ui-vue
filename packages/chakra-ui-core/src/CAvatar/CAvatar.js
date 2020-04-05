@@ -5,9 +5,9 @@
  * initials or fallback icon.
  *
  * @see Docs     https://vue.chakra-ui.com/avatar
+ * @ally Avatar  The CAvatar component by default applies the `alt` attribute from the `src` prop. It also can be overwritten by passing the `alt` attribute
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAvatar/CAvatar.js
  */
-
 
 import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils'
@@ -238,9 +238,9 @@ const CAvatar = {
             h: '100%',
             rounded: 'full',
             objectFit: 'cover',
-            alt: this.name
           },
           attrs: {
+            alt: this.$attrs.alt || this.name,
             src: this.src
           }
         })

@@ -96,7 +96,10 @@ export default {
           bg: this.thBg[colorMode]
         },
         '.preview-panel': {
-          borderColor: this.thBg[colorMode]
+          borderColor: this.thBg[colorMode],
+          'a': {
+            color: 'inherit'
+          }
         },
         'blockquote': {
           ...this.callout[colorMode],

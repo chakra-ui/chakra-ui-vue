@@ -12,6 +12,8 @@
  *
  * @see Docs     https://vue.chakra-ui.com/breadcrumb
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/CBreadcrumb.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/accessibility.md
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#breadcrumb
  */
 
 import { baseProps } from '../config/props'
@@ -42,7 +44,8 @@ const CBreadcrumbSeparator = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        role: 'presentation'
+        role: 'presentation',
+        'data-chakra-component': 'CBreadcrumbSeparator'
       }
     }, [this.separator])
   }
@@ -89,7 +92,8 @@ const CBreadcrumbLink = {
     return h(Comp, {
       props: forwardProps(this.$props),
       attrs: {
-        'aria-current': this.isCurrentPage ? 'page' : null
+        'aria-current': this.isCurrentPage ? 'page' : null,
+        'data-chakra-component': 'CBreadcrumbLink'
       }
     }, this.$slots.default)
   }
@@ -140,6 +144,9 @@ const CBreadcrumbItem = {
         display: 'inline-flex',
         alignItems: 'center',
         as: 'li'
+      },
+      attrs: {
+        'data-chakra-component': 'CBreadcrumbItem'
       }
     }, [
       ...clones,
@@ -203,7 +210,8 @@ const CBreadcrumb = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-label': 'breadcrumb'
+        'aria-label': 'breadcrumb',
+        'data-chakra-component': 'CBreadcrumb'
       }
     }, [h(CBox, {
       props: {

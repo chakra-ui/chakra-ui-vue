@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Checkbox
+ *
+ * CCheckbox component is used in forms when a user needs to select multiple values from several options.
+ *
+ * @see Docs     https://vue.chakra-ui.com/checkbox
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/CCheckbox.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/accessibility.md
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
+ */
+
 import { StringNumber, StringArray } from '../config/props/props.types'
 import { baseProps } from '../config'
 import { useVariantColorWarning, useId } from '../utils'
@@ -8,6 +19,14 @@ import CVisuallyHidden from '../CVisuallyHidden'
 import CControlBox from '../CControlBox'
 import CIcon from '../CIcon'
 
+/**
+ * CCheckbox component
+ *
+ * Checkbox component is used in forms when a user needs to select multiple values from several options.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/checkbox
+ */
 const CCheckbox = {
   name: 'CCheckbox',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -87,7 +106,8 @@ const CCheckbox = {
         cursor: this.isDisabled ? 'not-allowed' : 'pointer'
       },
       attrs: {
-        for: this._id
+        for: this._id,
+        'data-chakra-component': 'CCheckbox'
       }
     }, [
       h(CVisuallyHidden, {

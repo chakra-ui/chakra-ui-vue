@@ -12,7 +12,7 @@
  * of giving alert dialogs special treatment, such as playing a system alert sound.
  *
  * @see Docs     https://vue.chakra-ui.com/alertdialog
- * @see Source   link to source
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlertDialog/CAlertDialog.js
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlertDialog/accessibility.md
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog
  */

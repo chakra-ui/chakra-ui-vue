@@ -8,7 +8,7 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="css-0"
-      data-chakra-component="CBox"
+      data-chakra-component="CCheckboxGroup"
       role="group"
     >
       <div
@@ -17,7 +17,7 @@ exports[`should render correctly 1`] = `
       >
         <label
           class="css-1qf83f9"
-          data-chakra-component="CBox"
+          data-chakra-component="CCheckbox"
           data-testid="one"
           for="checkbox-1"
         >
@@ -90,7 +90,7 @@ exports[`should render correctly 1`] = `
       >
         <label
           class="css-1qf83f9"
-          data-chakra-component="CBox"
+          data-chakra-component="CCheckbox"
           data-testid="two"
           for="checkbox-2"
         >
@@ -164,7 +164,7 @@ exports[`should render correctly 1`] = `
       >
         <label
           class="css-1qf83f9"
-          data-chakra-component="CBox"
+          data-chakra-component="CCheckbox"
           data-testid="three"
           for="checkbox-3"
         >

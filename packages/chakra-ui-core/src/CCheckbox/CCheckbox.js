@@ -19,6 +19,14 @@ import CVisuallyHidden from '../CVisuallyHidden'
 import CControlBox from '../CControlBox'
 import CIcon from '../CIcon'
 
+/**
+ * CCheckbox component
+ *
+ * Checkbox component is used in forms when a user needs to select multiple values from several options.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/checkbox
+ */
 const CCheckbox = {
   name: 'CCheckbox',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -98,7 +106,8 @@ const CCheckbox = {
         cursor: this.isDisabled ? 'not-allowed' : 'pointer'
       },
       attrs: {
-        for: this._id
+        for: this._id,
+        'data-chakra-component': 'CCheckbox'
       }
     }, [
       h(CVisuallyHidden, {

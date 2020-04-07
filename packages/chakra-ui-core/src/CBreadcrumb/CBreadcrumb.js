@@ -4,7 +4,7 @@
  * Breadcrumbs, or a breadcrumb navigation, can help to enhance
  * how users navigate to previous page levels of a website,
  * especially if that website has many pages or products.
- * 
+ *
  * A breadcrumb trail consists of a list of links to the parent pages
  * of the current page in hierarchical order. It helps users find their
  * place within a website or web application. Breadcrumbs are often
@@ -13,7 +13,6 @@
  * @see Docs     https://vue.chakra-ui.com/breadcrumb
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/CBreadcrumb.js
  */
-
 
 import { baseProps } from '../config/props'
 import { forwardProps, cloneVNodeElement, cleanChildren } from '../utils'

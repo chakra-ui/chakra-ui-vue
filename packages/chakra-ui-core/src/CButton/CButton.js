@@ -1,3 +1,16 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Button
+ *
+ * Button component is used to trigger an action or event, such as
+ * submitting a form, opening a Dialog, canceling an action, or
+ * performing a delete operation
+ *
+ * @see Docs     https://vue.chakra-ui.com/button
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/CButton.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/accessibility.md
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog
+ */
+
 import styleProps from '../config/props'
 import { buttonProps } from './utils/button.props'
 import createButtonStyles, { setIconSizes } from './utils/button.styles'

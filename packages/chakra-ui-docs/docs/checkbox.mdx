@@ -1,1 +1,251 @@
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import { CCheckbox, CCheckboxGroup, CStack, CBox } from '@chakra-ui/vue'
+import Code from '../components/CodeBlock'
+Vue.component('CCheckbox', CCheckbox)
+Vue.component('CCheckboxGroup', CCheckboxGroup)
+Vue.component('CStack', CStack)
+Vue.component('CBox', CBox)
+
+
+<SEO
+  title="Checkbox"
+  description="Checkbox component is used in forms when a user needs to select multiple values from several options."
+/>
+
 # Checkbox
+<br />
+
+`CCheckbox` component is used in forms when a user needs to select multiple values
+from several options.
+
+<br />
+
+Native HTML checkboxes are 100% accessible by default, so we used a
+[very common CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
+to style the checkboxes.
+
+<br />
+
+See `CCheckbox`'s <a target="_blank" href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/accesibility.md">accessibility report</a>
+
+<br />
+
+The `CCheckbox` component composes <nuxt-link to="/controlbox"><code>CCheckbox</code></nuxt-link>, a component we
+created to make it easy to style an element based on sibling inputs.
+
+
+### Import
+
+<Code lang="javascript" code={`import { CCheckbox, CCheckboxGroup } from "chakra-ui/vue"`}/>
+
+## Usage
+
+Basic usage
+
+<LiveEditor>
+{`
+  <c-checkbox default-is-checked>Checkbox</c-checkbox>
+`}
+</LiveEditor>
+
+### Disabled Checkbox
+
+<LiveEditor>
+{`
+<c-stack spacing="10" is-inline>
+  <c-checkbox is-disabled>Checkbox</c-checkbox>
+  <c-checkbox is-disabled default-is-checked>
+    Checkbox
+  </c-checkbox>
+</c-stack>
+`}
+</LiveEditor>
+
+### Checkbox with custom color
+
+You can override the color scheme of the checkbox to any color key specified in
+`$chakra.theme.colors`.
+
+<LiveEditor>
+{`
+<c-stack spacing="10" isInline>
+  <c-checkbox variant-color="red" default-is-checked>
+    Checkbox
+  </c-checkbox>
+  <c-checkbox variant-color="green" default-is-checked>
+    Checkbox
+  </c-checkbox>
+</c-stack>
+`}
+</LiveEditor>
+
+### Checkbox sizes
+
+Pass the `size` prop to change the size of the Checkbox. Values can be either
+`sm`, `md` or `lg`.
+
+<LiveEditor>
+{`
+<c-stack spacing="10" isInline>
+  <c-checkbox size="sm" variant-color="red" default-is-checked>
+    Checkbox
+  </c-checkbox>
+  <c-checkbox size="md" variant-color="green" default-is-checked>
+    Checkbox
+  </c-checkbox>
+  <c-checkbox size="lg" variant-color="pink" default-is-checked>
+    Checkbox
+  </c-checkbox>
+</c-stack>
+`}
+</LiveEditor>
+
+### Invalid Checkbox
+<LiveEditor>
+{`
+<c-box mb="3">
+  <c-checkbox is-invalid>Checkbox</c-checkbox>
+</c-box>
+`}
+</LiveEditor>
+
+### Indeterminate
+<LiveEditor>
+{`
+<template>
+  <c-box>
+    <c-checkbox
+      :is-checked="allChecked"
+      :is-indeterminate="isIndeterminate"
+      @change="(val, $e) => { checkedItems = [$e.target.checked, $e.target.checked] }"
+    >
+      Parent Checkbox
+    </c-checkbox>
+    <c-stack pl="6" mt="1" spacing="1">
+      <c-checkbox
+        :is-checked="checkedItems[0]"
+        @change="(val, $e) => { checkedItems = [$e.target.checked, checkedItems[1]] }"
+      >
+        Child Checkbox 1
+      </c-checkbox>
+      <c-checkbox
+        :is-checked="checkedItems[1]"
+        @change="(val, $e) => { checkedItems = [checkedItems[0], $e.target.checked] }"
+      >
+        Child Checkbox 2
+      </c-checkbox>
+    </c-stack>
+  </c-box>
+</template>\n
+<script>
+export default {
+  data () {
+    return {
+      checkedItems: [false, false]
+    }
+  },
+  computed: {
+    allChecked () {
+      return this.checkedItems.every(Boolean)
+    },
+    isIndeterminate () {
+      return this.checkedItems.some(Boolean) && !this.allChecked
+    }
+  }
+}
+<\/script>
+`}
+</LiveEditor>
+
+### CheckboxGroup
+
+Chakra exports a `CCheckboxGroup` component to help manage the checked state of
+it's children.
+
+<LiveEditor>
+{`
+<c-checkbox-group variant-color="green" :default-value="['naruto', 'kakashi']">
+  <c-checkbox value="naruto">Naruto</c-checkbox>
+  <c-checkbox value="sasuke">Sasuke</c-checkbox>
+  <c-checkbox value="kakashi">kakashi</c-checkbox>
+</c-checkbox-group>
+`}
+</LiveEditor>
+
+You can also make checkbox group appear horizontally by passing the `isInline`
+prop.
+
+<LiveEditor>
+{`
+<c-checkbox-group is-inline spacing="8" variant-color="blue" :default-value="['itachi', 'kisame']">
+  <c-checkbox value="itachi">Itachi</c-checkbox>
+  <c-checkbox value="madara">Madara</c-checkbox>
+  <c-checkbox value="kisame">Kisame</c-checkbox>
+</c-checkbox-group>
+`}
+</LiveEditor>
+
+
+## Props
+
+### `CCheckbox` Props
+
+> `CCheckboxGroup` composes `CBox` so you can pass all `CBox` props.
+
+| Name             | Type                 | Default | Description                                                                                                              |
+| ---------------- | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
+| id               | `string`             |         | The id assigned to input field                                                                                           |
+| name             | `string`             |         | The name of the input field in a checkbox (Useful for form submission)                                                   |
+| value            | `string` or `number` |         | The value to be used in the checkbox input. This is the value that will be returned on form submission.                  |
+| variantColor     | `string`             |         | The color of the checkbox when it's checked. This should be one of the color keys in the theme (e.g."green", "red")      |
+| defaultIsChecked | `boolean`            |         | If `true`, the checkbox will be initially checked.                                                                       |
+| isChecked        | `boolean`            |         | If `true`, the checkbox will be checked. You'll need to pass `onChange` to update it's value (since it's now controlled) |
+| isIndeterminate  | `boolean`            |         | If `true`, the checkbox will be indeterminate. This only affects the icon shown inside checkbox                          |
+| isFullWidth      | `boolean`            |         | If `true`, the checkbox should take up the full width of the parent.                                                     |
+| size             | `sm`, `md`, `lg`     | `md`    | The size (width and height) of the checkbox                                                                              |
+| isDisabled       | `boolean`            |         | If `true`, the checkbox will be disabled                                                                                 |
+| isInvalid        | `boolean`            |         | If `true`, the checkbox is marked as invalid. Changes style of unchecked state.                                          |
+| aria-label       | `string`             |         | An accessible label for the checkbox in event there's no visible label or `children` passed                              |
+| aria-labelledby  | `string`             |         | Id that points to the label for the checkbox in event no `children` was passed                                           |
+
+
+### `CCheckbox` Events
+| Name             | Payload             | Description                                                                                                              |
+| ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `@change`        | `string|number`     | Event emitted when the state of the checkbox changes.                                                                    |
+| `@blur`          | `string|number`     | Event emitted when you blur out of the checkbox.                                                                         |
+| `@focus`         | `string|number`     | Event emitted when the checkbox receive focus.                                                                           |
+
+### `CCheckbox` Slots
+| Name             | Description                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| default          | The children of the checkbox.                                                                                            |
+
+
+### `CCheckboxGroup` Props
+
+> `CCheckboxGroup` composes `CBox` so you can pass all `CBox` props.
+
+| Name         | Type                                       | Default | Description                                                                                                         |
+| ------------ | ------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| id           | `string`                                   |         | The id of the checkbox group.                                                                                       |
+| name         | `string`                                   |         | The name of the checkbox group. This attribute is                                                                   |
+| value        | `Array<Checkbox["value"]>`                 |         | The value of the checkbox group                                                                                     |
+| defaultValue | `Array<Checkbox["value"]>`                 |         | The initial value of the checkbox group                                                                             |
+| variantColor | `string`                                   |         | The color of the checkbox when it's checked. This should be one of the color keys in the theme (e.g."green", "red") |
+| spacing      | `StyledSystem.MarginProps`                 | `8px`   | The space between each checkbox                                                                                     |
+| size         | `sm`, `md`, `lg`                           | `md`    | The size of the checkbox, it's forwarded to all children checkbox.                                                  |
+| isInline     | `boolean`                                  |         | If `true`, the checkboxes will aligned horizontally.                                                                |
+
+### `CCheckboxGroup` Events
+| Name             | Payload                     | Description                                                                                                              |
+| ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `@change`        | `Array<CCheckbox["value"]>` | The callback fired when any children Checkbox is checked or unchecked                                                    |
+
+### `CCheckboxGroup` Slots
+| Name             | Description                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| default          | The content of the checkbox group. Must be the `CCheckbox` component                                                     |
+
+

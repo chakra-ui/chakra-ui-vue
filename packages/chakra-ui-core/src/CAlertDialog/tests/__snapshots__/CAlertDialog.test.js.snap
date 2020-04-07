@@ -64,7 +64,7 @@ exports[`should render correctly 1`] = `
             >
               <button
                 class="css-0 css-rup5mm"
-                data-chakra-component="CPseudoBox"
+                data-chakra-component="CButton"
                 data-testid="close-btn"
                 tabindex="0"
                 type="button"
@@ -74,7 +74,7 @@ exports[`should render correctly 1`] = `
                
               <button
                 class="css-0 css-mbmse4"
-                data-chakra-component="CPseudoBox"
+                data-chakra-component="CButton"
                 tabindex="0"
                 type="button"
               >

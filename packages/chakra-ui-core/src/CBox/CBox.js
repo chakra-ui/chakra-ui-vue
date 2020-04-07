@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Box
+ *
+ * Box is the most abstract component on top of which all
+ * other @chakra-ui/vue components are built. By default, it renders a `div` element
+ *
+ * @see Docs     https://vue.chakra-ui.com/box
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBox/CBox.js
+ */
 
 import { css } from 'emotion'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
@@ -62,6 +71,13 @@ export const systemProps = compose(
   clamp
 )
 
+/**
+ * CBox component
+ *
+ * Abstract component on top of which all other Chakra components are built.
+ *
+ * @see Docs https://vue.chakra-ui.com/box
+ */
 const CBox = {
   name: 'CBox',
   inject: ['$chakraTheme'],

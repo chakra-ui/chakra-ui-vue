@@ -52,7 +52,7 @@ storiesOf('UI | Checkbox', module)
         <CCheckbox size="sm" variantColor="red" defaultIsChecked>
           Checkbox
         </CCheckbox>
-        <CCheckbox siz="md" variantColor="green" defaultIsChecked>
+        <CCheckbox size="md" variantColor="green" defaultIsChecked>
           Checkbox
         </CCheckbox>
         <CCheckbox size="lg" variantColor="pink" defaultIsChecked>

@@ -4,13 +4,13 @@ exports[`should display button with left icon 1`] = `
 <DocumentFragment>
   <button
     class="css-0 css-rup5mm"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     <svg
       class="css-6lyqdc css-y3asau"
-      data-chakra-component="CBox"
+      data-chakra-component="CButtonIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -32,14 +32,14 @@ exports[`should display button with right icon 1`] = `
 <DocumentFragment>
   <button
     class="css-0 css-rup5mm"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     Email
     <svg
       class="css-88m0n5 css-y3asau"
-      data-chakra-component="CBox"
+      data-chakra-component="CButtonIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -60,7 +60,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
     class="css-0 css-rup5mm"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >

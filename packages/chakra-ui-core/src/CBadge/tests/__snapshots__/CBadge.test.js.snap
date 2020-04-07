@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should apply variant styles corectly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1xhj18k"
+    data-chakra-component="CBox"
+  >
+    <div
+      class="css-288q6q"
+      data-chakra-component="CBadge"
+    >
+      Subtle
+    </div>
+    <div
+      class="css-4lwleq"
+      data-chakra-component="CBadge"
+    >
+      Solid
+    </div>
+    <div
+      class="css-n4e54f"
+      data-chakra-component="CBadge"
+    >
+      Outline
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div

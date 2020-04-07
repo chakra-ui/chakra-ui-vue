@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
     class="css-1qf83f9"
-    data-chakra-component="CBox"
+    data-chakra-component="CCheckbox"
     for="checkbox-1"
   >
     <input

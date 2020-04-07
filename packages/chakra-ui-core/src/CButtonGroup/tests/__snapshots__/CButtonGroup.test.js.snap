@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-1baulvz"
-    data-chakra-component="CBox"
+    data-chakra-component="CButtonGroup"
   >
     <button
       class="css-0 css-1egt1u4"

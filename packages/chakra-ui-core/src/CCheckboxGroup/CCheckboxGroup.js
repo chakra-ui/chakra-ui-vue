@@ -3,7 +3,7 @@
  *
  * CCheckboxGroup component allows the user to group a
  * related collection of checkboxes in one visual region.
- * 
+ *
  * @see Docs     https://vue.chakra-ui.com/checkbox
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckboxGroup/CCheckboxGroup.js
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/accessibility.md
@@ -15,7 +15,6 @@ import { baseProps } from '../config'
 import { isDef, useId, cleanChildren, cloneVNodeElement, forwardProps } from '../utils'
 
 import CBox from '../CBox'
-
 
 /**
  * CButtonGroup component

@@ -1,1 +1,65 @@
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import Code from '../components/CodeBlock'
+import SEO from '../components/SEO'
+import { CBreadcrumbSeparator, CBreadcrumbLink, CBreadcrumbItem, CBreadcrumb } from '@chakra-ui/vue'
+Vue.component('CBreadcrumbSeparator', CBreadcrumbSeparator)
+Vue.component('CBreadcrumbLink', CBreadcrumbLink)
+Vue.component('CBreadcrumbItem', CBreadcrumbItem)
+Vue.component('CBreadcrumb', CBreadcrumb)
+
+<SEO
+  title="Breadcrumb"
+  description="Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate to previous page levels of a website, especially if that website has many pages or products."
+/>
+
+
 # Breadcrumb
+
+Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate
+to previous page levels of a website, especially if that website has many pages
+or products.
+
+<br />
+
+See `CBreadcrumb`'s <a target="_blank" href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/accessibility.md">accessibility report</a>
+
+## Import 
+Chakra UI exports 4 Breadcrumb related components:
+
+- `CBreadcrumb`: The parent container for breadcrumbs.
+- `CBreadcrumbItem`: Individual breadcrumb element containing a link and a divider.
+- `CBreadcrumbLink`: The breadcrumb link, obviously.
+- `CBreadcrumbSeparator`: The visual separator between each breadcrumb
+
+<br />
+
+<Code lang="javascript" code={`import {
+  CBreadcrumb,
+  CBreadcrumbItem,
+  CBreadcrumbLink,
+  CBreadcrumbSeparator,
+} from "@chakra-ui/vue";
+`} />
+
+## Usage
+
+Add `isCurrentPage` prop to the `CBreadcrumbItem` that matches the current path.
+When this prop is present, the `CBreadcrumbItem` doesn't have a separator, and
+the `CBreadcrumbLink` has `aria-current` set to `page`.
+
+<LiveEditor>
+{`
+<CBreadcrumb :add-separator="false">
+  <CBreadcrumbItem>
+    <CBreadcrumbLink href="#">Breadcrumb 1</CBreadcrumbLink>
+  </CBreadcrumbItem>
+  <CBreadcrumbItem>
+    <CBreadcrumbLink href="#">Breadcrumb 2</CBreadcrumbLink>
+  </CBreadcrumbItem>
+  <CBreadcrumbItem isCurrentPage>
+    <CBreadcrumbLink href="#">Breadcrumb 2</CBreadcrumbLink>
+  </CBreadcrumbItem>
+</CBreadcrumb>
+`}
+</LiveEditor>

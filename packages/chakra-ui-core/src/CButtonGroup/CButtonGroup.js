@@ -1,8 +1,28 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue ButtonGroup
+ *
+ * ButtonGroup component allows the user to group a
+ * related collection of buttons in one visual region.
+ *
+ * @see Docs     https://vue.chakra-ui.com/button
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButtonGroup/CButtonGroup.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/accessibility.md
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
+/**
+ * CButtonGroup component
+ *
+ * Wrapper for children `CButton` components
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/button
+ */
 const CButtonGroup = {
   name: 'CButtonGroup',
   props: {
@@ -47,6 +67,9 @@ const CButtonGroup = {
       props: {
         d: 'inline-block',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CButtonGroup'
       }
     }, clones)
   }

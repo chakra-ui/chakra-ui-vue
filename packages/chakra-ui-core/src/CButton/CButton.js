@@ -8,7 +8,7 @@
  * @see Docs     https://vue.chakra-ui.com/button
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/CButton.js
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/accessibility.md
- * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog
+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
  */
 
 import styleProps from '../config/props'
@@ -22,7 +22,12 @@ import CSpinner from '../CSpinner'
 import CIcon from '../CIcon'
 
 /**
- * Icon component in button.
+ * CButtonIcon component
+ *
+ * The icon component inside a button
+ *
+ * @extends CIcon
+ * @see Docs https://vue.chakra-ui.com/button
  */
 const CButtonIcon = {
   name: 'CButtonIcon',
@@ -44,6 +49,9 @@ const CButtonIcon = {
           color: 'currentColor',
           ...setIconSizes(this.$props),
           ...forwardProps(this.$props)
+        },
+        attrs: {
+          'data-chakra-component': 'CButtonIcon'
         }
       })
     } else {
@@ -56,7 +64,8 @@ const CButtonIcon = {
           ...forwardProps(this.$props)
         },
         attrs: {
-          'data-custom-icon': true
+          'data-custom-icon': true,
+          'data-chakra-component': 'CButtonIcon'
         }
       })
     }
@@ -64,7 +73,12 @@ const CButtonIcon = {
 }
 
 /**
- * @description The Button component is an accessible rich component that does what a button does :)
+ * CButton component
+ *
+ * The Button component is an accessible rich component that does what a button does :)
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/button
  */
 const CButton = {
   name: 'CButton',
@@ -111,7 +125,8 @@ const CButton = {
         tabIndex: 0,
         disabled: this.isDisabled || this.isLoading,
         'aria-disabled': this.isDisabled || this.isLoading,
-        dataActive: this.isActive ? 'true' : undefined
+        dataActive: this.isActive ? 'true' : undefined,
+        'data-chakra-component': 'CButton'
       },
       nativeOn: {
         click: ($event) => this.$emit('click', $event)

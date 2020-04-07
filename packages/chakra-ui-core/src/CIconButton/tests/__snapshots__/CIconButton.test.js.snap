@@ -5,7 +5,7 @@ exports[`should change icon 1`] = `
   <button
     aria-label="Phone"
     class="css-0 css-1tcmof5"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CButton"
     data-testid="btn"
     tabindex="0"
     type="button"
@@ -35,7 +35,7 @@ exports[`should render correctly 1`] = `
   <button
     aria-label="Phone"
     class="css-0 css-1tcmof5"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CButton"
     data-testid="btn"
     tabindex="0"
     type="button"

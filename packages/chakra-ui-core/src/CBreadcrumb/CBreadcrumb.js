@@ -1,9 +1,33 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Breadcrumb
+ *
+ * Breadcrumbs, or a breadcrumb navigation, can help to enhance
+ * how users navigate to previous page levels of a website,
+ * especially if that website has many pages or products.
+ * 
+ * A breadcrumb trail consists of a list of links to the parent pages
+ * of the current page in hierarchical order. It helps users find their
+ * place within a website or web application. Breadcrumbs are often
+ * placed horizontally before a page's main content.
+ *
+ * @see Docs     https://vue.chakra-ui.com/breadcrumb
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/CBreadcrumb.js
+ */
+
+
 import { baseProps } from '../config/props'
 import { forwardProps, cloneVNodeElement, cleanChildren } from '../utils'
 
 import CBox from '../CBox'
 import CLink from '../CLink'
 
+/**
+* CBreadcrumbSeparator component
+*
+* The visual separator between each breadcrumb link
+*
+* @see Docs https://vue.chakra-ui.com/breadcrumb
+*/
 const CBreadcrumbSeparator = {
   name: 'CBreadcrumbSeparator',
   props: {
@@ -25,6 +49,13 @@ const CBreadcrumbSeparator = {
   }
 }
 
+/**
+* Span component
+*
+* Wrapper for text breadcrumbs
+*
+* @see Docs https://vue.chakra-ui.com/breadcrumb
+*/
 const Span = {
   name: 'Span',
   props: {
@@ -40,6 +71,13 @@ const Span = {
   }
 }
 
+/**
+* CBreadcrumbLink component
+*
+* The breadcrumb link
+*
+* @see Docs https://vue.chakra-ui.com/breadcrumb
+*/
 const CBreadcrumbLink = {
   name: 'CBreadcrumbLink',
   props: {
@@ -58,6 +96,13 @@ const CBreadcrumbLink = {
   }
 }
 
+/**
+* CBreadcrumbItem component
+*
+* Individual breadcrumb element containing a link and a divider.
+*
+* @see Docs https://vue.chakra-ui.com/breadcrumb
+*/
 const CBreadcrumbItem = {
   name: 'BreadcrumbItem',
   props: {
@@ -109,6 +154,13 @@ const CBreadcrumbItem = {
   }
 }
 
+/**
+* CBreadcrumb component
+*
+* The wrapper container for all breadcrumbs
+*
+* @see Docs https://vue.chakra-ui.com/breadcrumb
+*/
 const CBreadcrumb = {
   name: 'Breadcrumb',
   props: {

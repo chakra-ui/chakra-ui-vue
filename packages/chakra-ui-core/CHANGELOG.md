@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.6...@chakra-ui/vue@0.3.7) (2020-04-08)
+
+
+### Bug Fixes
+
+* **alert:** esling ([7dd004b](https://github.com/chakra-ui/chakra-ui-vue/commit/7dd004b7cdfd2156204ae6dcefaa05800e80b555))
+* **alert:** normalized all alert variants to kebab-case ([f736bf5](https://github.com/chakra-ui/chakra-ui-vue/commit/f736bf50952b451e11593b19f235f726c71073b2))
+* **avatar:** add avatar alt overwrite ([67b87e5](https://github.com/chakra-ui/chakra-ui-vue/commit/67b87e5cc145cf287e72ed43b5eb9746343ef50f))
+* **avatar:** added flex-shrink prop to props ([8f22f81](https://github.com/chakra-ui/chakra-ui-vue/commit/8f22f814507241346d4ec4948751fae3837689cf))
+* **button:** fixed outline button bug ([3260c2e](https://github.com/chakra-ui/chakra-ui-vue/commit/3260c2e97244a1be66ed3606e96c3d3db1e99dc4))
+* **props:** add box-shadow to base props ([0667da6](https://github.com/chakra-ui/chakra-ui-vue/commit/0667da6a8cb4a9fb7dfd4b15cd8b4d681fff7235))
+
+
+### Features
+
+* added checkbox ally ([90d296d](https://github.com/chakra-ui/chakra-ui-vue/commit/90d296d5a6770fdb184e752871b984e61cee573a))
+* **accordion:** add accesiblity.md ([bf85fa9](https://github.com/chakra-ui/chakra-ui-vue/commit/bf85fa96e1d8ca0dba0d7b8ebcab5fb8e0c2e51a))
+* **alert:** add alert accessibility.md ([7677e81](https://github.com/chakra-ui/chakra-ui-vue/commit/7677e818a91dcbfb98a3e99de4a4ab337f81d575))
+* **alert:** add alert accessibility.md ([2b6e1d5](https://github.com/chakra-ui/chakra-ui-vue/commit/2b6e1d574fb8f139a054f73063c34a411c8aa99d))
+* **alertdialog:** added accessibility.md ([44d9677](https://github.com/chakra-ui/chakra-ui-vue/commit/44d96772d8e3bee0036bf8b7f4d8f7c856620a0a))
+* **aspectratiobox:** added aspect ratio box jsdoc ([2f12a76](https://github.com/chakra-ui/chakra-ui-vue/commit/2f12a76f204580f8150e8c247c3737e6a2145767))
+* **avatar:** added avatar docs ([5e01644](https://github.com/chakra-ui/chakra-ui-vue/commit/5e01644c850f4e6ecb5d189926a10f722b24d37b))
+* **avatar:** added avatar docs ([c610cdb](https://github.com/chakra-ui/chakra-ui-vue/commit/c610cdbb91e7aac5142466c5521b5e8116647374))
+* **badge:** review badge component ([09391a9](https://github.com/chakra-ui/chakra-ui-vue/commit/09391a9d45b202b5644dc16f79daccd50f3c0cbb))
+* **box:** add jsdocs for box ([a2585e0](https://github.com/chakra-ui/chakra-ui-vue/commit/a2585e09c02509a1a33aea1d5848206546bd9e8f))
+* **breadcrumb:** add accessibility.md ([257d262](https://github.com/chakra-ui/chakra-ui-vue/commit/257d26295a92b2ee77d2ea66f023975cea3c0b9f))
+* **breadcrumb:** add component sig ([ae2b76e](https://github.com/chakra-ui/chakra-ui-vue/commit/ae2b76e099023668275a12f479347c428be6f22e))
+* **breadcrumb:** add jsdocs ([8713fea](https://github.com/chakra-ui/chakra-ui-vue/commit/8713fea6e6708c06887771c065c7710545739026))
+* **button:** add ally report ([91d26ae](https://github.com/chakra-ui/chakra-ui-vue/commit/91d26ae5144aa056b515602917bd471adb1334d9))
+* **buttongroup:** update component docs ([a301961](https://github.com/chakra-ui/chakra-ui-vue/commit/a3019612e2678fb0630bad95075e14703f651091))
+* update aspectratiobox import ([98daea6](https://github.com/chakra-ui/chakra-ui-vue/commit/98daea6ee3016a5b3f39f4ba5c2d8a066436446c))
+
+
+
+
+
 ## [0.3.6](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.5...@chakra-ui/vue@0.3.6) (2020-03-29)
 
 **Note:** Version bump only for package @chakra-ui/vue

@@ -31,7 +31,7 @@ code={`import { CTooltip } from "@chakra-ui/vue";
 
 ## Usage
 
-If the children of `CTooltip` is a string, we wrap with in a `span` with `tab-index` set to 0, to ensure it meets the accessibility requirements.
+If the child of `CTooltip` is a string, we wrap it inside a span and set the `tab-index` attribute to `0` to ensure it meets the accessibility requirements.
 
 <LiveEditor>
   {`
@@ -103,16 +103,21 @@ Using the `placement` prop you can adjust where your tooltip will be displayed.
 | `label`              | `string`             |          | The label of the tooltip.                                                             |
 | `aria-label`         | `string`             |          | An alternate label for screen readers.                                                |
 | `placement`          | `PopperJS.Placement` | `bottom` | Position the tooltip relative to the trigger element as well as surrounding elements. |
-| `children`           | `Vue.VNode`          |          | The `VNode` to be used as the trigger of the tooltip.                                 |
 | `hasArrow`           | `boolean`            |          | If `true` display an arrow tip on the tooltip.                                        |
 | `showDelay`          | `number`             |          | The delay in `ms` for the tooltip to show                                             |
 | `hideDelay`          | `number`             |          | The delay in `ms` for the tooltip to hide                                             |
 | `closeOnClick`       | `boolean`            |          | If `true` hide the tooltip, when the trigger is clicked.                              |
 | `shouldWrapChildren` | `boolean`            |          | If `true`, the tooltip will wrap the children in a `span` with `tabIndex=0`           |
 
+### Slots
+
+| Name    | Description                             |
+| ------- | --------------------------------------- |
+| default | Vue.VNode to be rendered inside tooltip |
+
 ### Events
 
-| Name     | Type       | Default | Description                             |
-| -------- | ---------- | ------- | --------------------------------------- |
-| `@open`  | `function` |         | Function called when the tooltip shows. |
-| `@close` | `function` |         | Function called when the tooltip hides. |
+| Name     | Payload | Description                             |
+| -------- | ------- | --------------------------------------- |
+| `@open`  | -       | Function called when the tooltip shows. |
+| `@close` | -       | Function called when the tooltip hides. |

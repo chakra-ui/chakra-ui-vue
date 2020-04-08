@@ -91,6 +91,9 @@ const CSpinner = {
         animation: `${spin} ${this.speed} linear infinite`,
         ...setSizes(this.$props),
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CSpinner'
       }
     }, this.label && h(CVisuallyHidden, {}, this.label))
   }

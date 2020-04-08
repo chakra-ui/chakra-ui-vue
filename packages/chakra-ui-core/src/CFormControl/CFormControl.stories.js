@@ -15,14 +15,14 @@ storiesOf('UI | FormControl', module)
     components: { CInput, CFormControl, CStack, CIcon, CInputGroup, CInputLeftElement, CInputRightElement, CFormHelperText },
     template: `
       <div>
-        <CFormControl id="test-error">
-          <CInputGroup>
-            <CInputLeftElement color="gray.300" fontSize="1.2em"><CIcon name="lock" /></CInputLeftElement>
-            <CInput :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
-            <CInputRightElement @click.native="shouldShowPassword = !shouldShowPassword" ><CIcon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></CInputRightElement>
-          </CInputGroup>
-          <CFormHelperText>Enter your password</CFormHelperText>
-        </CFormControl>
+        <c-form-control id="test-error">
+          <c-input-group>
+            <c-input-left-element color="gray.300" fontSize="1.2em"><c-icon name="lock" /></c-input-left-element>
+            <c-input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
+            <c-input-right-element @click.native="shouldShowPassword = !shouldShowPassword" ><c-icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></c-input-right-element>
+          </c-input-group>
+          <c-form-helper-text>Enter your password</c-form-helper-text>
+        </c-form-control>
       </div>
     `,
     data () {

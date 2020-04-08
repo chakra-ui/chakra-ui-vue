@@ -98,7 +98,7 @@ const CButton = {
   },
   render (h) {
     const buttonStyles = createButtonStyles({
-      color: this.variantColor || this.cast,
+      color: this.variantColor,
       variant: this.variant,
       theme: this.theme,
       ripple: this.ripple,
@@ -148,9 +148,6 @@ const CButton = {
           mb: '-4px',
           mr: this.loadingText ? this.iconSpacing : 0,
           size: '1em'
-        },
-        attrs: {
-          'chakra-button-spinner': ''
         }
       }),
       this.isLoading ? this.loadingText || h(CBox, {

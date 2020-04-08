@@ -75,20 +75,19 @@ const CSpinner = {
       type: [String, Array],
       default: 'transparent'
     },
-    forwardRef: Object,
     ...baseProps
   },
   render (h) {
     return h(CBox, {
-      ref: this.forwardRef,
       props: {
         d: 'inline-block',
         borderWidth: this.thickness,
-        borderBottomColor: this.emptyColor,
-        borderLeftColor: this.emptyColor,
+        borderColor: 'currentColor',
         borderStyle: 'solid',
         rounded: 'full',
         color: this.color,
+        borderBottomColor: this.emptyColor,
+        borderLeftColor: this.emptyColor,
         animation: `${spin} ${this.speed} linear infinite`,
         ...setSizes(this.$props),
         ...forwardProps(this.$props)

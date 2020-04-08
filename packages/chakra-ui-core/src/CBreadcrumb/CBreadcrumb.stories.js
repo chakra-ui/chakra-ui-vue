@@ -2,6 +2,22 @@ import { storiesOf } from '@storybook/vue'
 import { CReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator } from '..'
 
 storiesOf('UI | Breadcrumb', module)
+  .add('Basic usage', () => ({
+    components: { CReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator },
+    template: `
+      <div>
+        <CReset />
+        <c-breadcrumb>
+          <c-breadcrumb-item>
+            <c-breadcrumb-link href="#">Breadcrumb 1</c-breadcrumb-link>
+          </c-breadcrumb-item>
+          <c-breadcrumb-item>
+            <c-breadcrumb-link href="#">Breadcrumb 2</c-breadcrumb-link>
+          </c-breadcrumb-item>
+        </c-breadcrumb>
+      </div>
+    `
+  }))
   .add('With custom separator', () => ({
     components: { CReset, CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator },
     template: `

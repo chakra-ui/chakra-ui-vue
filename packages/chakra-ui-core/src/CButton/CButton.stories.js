@@ -107,7 +107,7 @@ storiesOf('UI | Button', module)
     components: { CButton },
     template: `
       <div>
-        <CButton :variant-color="variantColor" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </CButton>
+        <CButton variant="outline" variant-color="blue" right-icon="email" @click="setLoading" :is-loading="loading"> {{ buttonText }} </CButton>
       </div>
     `,
     data () {
@@ -122,9 +122,9 @@ storiesOf('UI | Button', module)
         this.loading = true
         setTimeout(() => {
           this.loading = false
-          this.buttonText = 'Sent'
-          this.variantColor = 'green'
-        }, 1500)
+          // this.buttonText = 'Sent'
+          // this.variantColor = 'green'
+        }, 60000)
       }
     }
   }))

@@ -122,9 +122,7 @@ storiesOf('UI | Button', module)
         this.loading = true
         setTimeout(() => {
           this.loading = false
-          // this.buttonText = 'Sent'
-          // this.variantColor = 'green'
-        }, 60000)
+        }, 3000)
       }
     }
   }))

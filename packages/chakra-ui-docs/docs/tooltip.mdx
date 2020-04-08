@@ -1,1 +1,118 @@
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import Code from '../components/CodeBlock'
+import SEO from '../components/SEO'
+
+import { CTooltip, CIcon, CButton, CStack } from '@chakra-ui/vue'
+Vue.component('CTooltip', CTooltip)
+Vue.component('CIcon', CIcon)
+Vue.component('CButton', CButton)
+Vue.component('CStack', CStack)
+
+<SEO
+  title="Tooltip"
+  description="A tooltip is a brief, informative message that appears when a user interacts with an element. Tooltips are usually initiated in one of two ways: through a mouse-hover gesture or through a keyboard-hover gesture."
+/>
+
 # Tooltip
+
+A tooltip is a brief, informative message that appears when a user interacts with an element. Tooltips are usually initiated in one of two ways: through a mouse-hover gesture or through a keyboard-hover gesture.
+
+The Tooltip component follows the [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#tooltip) Tooltip Pattern.
+
+## Import
+
+<br />
+<Code
+lang="js"
+code={`import { CTooltip } from "@chakra-ui/vue";
+`}
+/>
+
+## Usage
+
+If the children of `CTooltip` is a string, we wrap with in a `span` with `tab-index` set to 0, to ensure it meets the accessibility requirements.
+
+<LiveEditor>
+  {`
+  <c-tooltip label="Chakra UI rocks">Psst! Hover Me</c-tooltip>
+`}
+</LiveEditor>
+
+### With an icon
+
+<LiveEditor>
+  {`
+<c-tooltip label="Welcome home" placement="bottom">
+    <c-icon name="phone" />
+</c-tooltip>
+`}
+</LiveEditor>
+
+### With arrow
+
+<LiveEditor>
+  {`
+<c-tooltip has-arrow label="Add new component" placement="right">
+    <c-icon name="add" />
+</c-tooltip>
+`}
+</LiveEditor>
+
+### Tooltip with focusable content
+
+If the children of CTooltip is a focusable element, the tooltip will show when you focus or hover on the element, and will hide when you blur or moves cursor out of the element.
+
+<LiveEditor>
+  {`
+<c-tooltip has-arrow label="Sends your order to Delivery hero" placement="top" bg="blue.600">
+   <c-button>Place Order</c-button>
+</c-tooltip>
+`}
+</LiveEditor>
+
+### Placement
+
+Using the `placement` prop you can adjust where your tooltip will be displayed.
+
+<LiveEditor>
+  {`
+<c-stack should-wrap-children>
+    <c-tooltip has-arrow label="left" placement="left">
+        <c-button variant="outline">Left</c-button>
+    </c-tooltip>
+     <c-tooltip has-arrow label="top" placement="top">
+        <c-button variant="outline">Top</c-button>
+    </c-tooltip>
+     <c-tooltip has-arrow label="right" placement="right">
+        <c-button variant="outline">Right</c-button>
+    </c-tooltip>
+     <c-tooltip has-arrow label="bottom" placement="bottom">
+        <c-button variant="outline">Bottom</c-button>
+    </c-tooltip>
+</c-stack>
+`}
+</LiveEditor>
+
+### Props
+
+| Name                 | Type                 | Default  | Description                                                                           |
+| -------------------- | -------------------- | -------- | ------------------------------------------------------------------------------------- |
+| `isOpen`             | `boolean`            |          | If `true`, the tooltip is shown.                                                      |
+| `defaultIsOpen`      | `boolean`            |          | If `true`, the tooltip is initially shown.                                            |
+| `label`              | `string`             |          | The label of the tooltip.                                                             |
+| `aria-label`         | `string`             |          | An alternate label for screen readers.                                                |
+| `placement`          | `PopperJS.Placement` | `bottom` | Position the tooltip relative to the trigger element as well as surrounding elements. |
+| `children`           | `Vue.VNode`          |          | The `VNode` to be used as the trigger of the tooltip.                                 |
+| `hasArrow`           | `boolean`            |          | If `true` display an arrow tip on the tooltip.                                        |
+| `showDelay`          | `number`             |          | The delay in `ms` for the tooltip to show                                             |
+| `hideDelay`          | `number`             |          | The delay in `ms` for the tooltip to hide                                             |
+| `closeOnClick`       | `boolean`            |          | If `true` hide the tooltip, when the trigger is clicked.                              |
+| `shouldWrapChildren` | `boolean`            |          | If `true`, the tooltip will wrap the children in a `span` with `tabIndex=0`           |
+
+### Events
+
+| Name     | Type       | Default | Description                             |
+| -------- | ---------- | ------- | --------------------------------------- |
+| `@open`  | `function` |         | Function called when the tooltip shows. |
+| `@close` | `function` |         | Function called when the tooltip hides. |

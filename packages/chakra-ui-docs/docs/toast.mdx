@@ -1,1 +1,232 @@
+import Vue from 'vue'
+import LiveEditor from '../components/LiveEditor'
+import Code from '../components/CodeBlock'
+import SEO from '../components/SEO'
+
+import { CButton, CStack } from '@chakra-ui/vue'
+Vue.component('CButton', CButton)
+Vue.component('CStack', CStack)
+
+<SEO
+  title="Toast"
+  description="The toast is used to show alerts on top of an overlay. The toast will close itself when the close button is clicked, or after a timeout — the default is 5 seconds. The toast component is used to give feedback to users after an action has taken place."
+/>
+
 # Toast
+
+The toast is used to show alerts on top of an overlay. The toast will close itself when the close button is clicked, or after a timeout — the default is 5 seconds. The toast component is used to give feedback to users after an action has taken place.
+
+Toasts can be configured to appear at either the top or the bottom of an application window, and it is possible to have more than one toast onscreen at a time.
+
+### Import
+
+> Chakra UI Vue injects `$toast` in the Vue global instance so you can use toast like so: `this.$toast()`.
+
+<br />
+
+Optionally you can import useToast like so:
+
+<br />
+<Code
+lang="js"
+code={`import { useToast } from "@chakra-ui/vue";
+`}
+/>
+<br />
+And then use it like so:
+<br />
+<Code
+lang="js"
+code={`const toast = useToast()
+// Usage
+toast.notify()";
+`}
+/>
+
+### Usage
+
+<LiveEditor>
+  {`
+<template>
+    <div>
+        <c-button variant-color="blue" @click="showToast">Show Toast</c-button>
+    </div>
+</template>
+<script>
+    export default {
+        methods: {
+        showToast () {       
+            this.$toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'info',
+            duration: 10000,
+            isClosable: true
+            })
+        }
+        }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Status
+
+You could pass in status to your toast which conveys a sense of what the toast is about.
+
+### Info
+
+<LiveEditor>
+  {`
+<template>
+    <div>
+        <c-button variant-color="blue" @click="infoToast">Info Toast</c-button>
+    </div>
+</template>
+<script>
+export default {
+    methods: {
+      infoToast () {
+        this.$toast({
+          title: 'Compression complete',
+          description: "We've created your account for you.",
+          status: 'info',
+          duration: 10000,
+          isClosable: true,
+          position: 'top'
+        })
+      },
+    }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Success
+
+<LiveEditor>
+  {`
+<template>
+    <div>
+        <c-button variant-color="green" @click="successToast">Success Toast</c-button>
+    </div>
+</template>
+<script>
+    export default {
+        methods: {
+            successToast () {
+                this.$toast({
+                title: 'Account created.',
+                description: "Your account has been created successfully.",
+                status: 'success',
+                duration: 10000,
+                isClosable: true,
+                position: 'bottom'
+            })
+         },
+        }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Warning
+
+<LiveEditor>
+  {`
+<template>
+    <div>
+        <c-button variant-color="orange" @click="warningToast">Warning Toast</c-button>
+    </div>
+</template>
+<script>
+    export default {
+        methods: {
+        warningToast () {
+            this.$toast({
+                title: 'Warning',
+                description: "Account creation requires an avatar",
+                status: 'warning',
+                duration: 10000,
+                isClosable: true,
+                position: 'top-right'
+                })
+            },
+        }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Error
+
+<LiveEditor>
+  {`
+<template>
+    <div>
+        <c-button variant-color="red" @click="errorToast">Error Toast</c-button>
+    </div>
+</template>
+<script>
+    export default {
+        methods: {
+         errorToast () {
+            this.$toast({
+                title: 'Error',
+                description: "Your account could not be created.",
+                status: 'error',
+                duration: 10000,
+                isClosable: true,
+                position: 'bottom-right'
+            })
+        }
+        }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Variant
+
+<LiveEditor>
+  {`
+<template>
+    <c-stack should-wrap-children>
+        <c-button variant-color="green" @click="successToast('solid')">Success Toast</c-button>
+        <c-button variant-color="green" variant="outline" @click="successToast('subtle')">Success Toast</c-button>
+        <c-button variant-color="green" variant="ghost" @click="successToast('left-accent')">Success Toast</c-button>
+        <c-button variant-color="green" variant="ghost" @click="successToast('top-accent')">Success Toast</c-button>     
+      </c-stack>
+</template>
+<script>
+    export default {
+        methods: {
+          successToast (variant = 'solid') {
+                this.$toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 10000,
+                isClosable: true,
+                position: 'bottom',
+                variant
+                })
+            }
+        }
+    }
+</script>
+`}
+</LiveEditor>
+
+### Options
+
+| Name          | Type                                                                                          | Default  | Description                                                          |
+| ------------- | --------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------- |
+| `title`       | `string`                                                                                      |          | The title of the toast.                                              |
+| `isClosable`  | `boolean`                                                                                     | `false`  | If `true` adds a close button to the toast.                          |
+| `variant`     | `solid`, `subtle`, `left-accent`, `top-accent` `solid` The variant of the toast style to use. | `solid`  | Callback function to close the toast.                                |
+| `description` | `string`                                                                                      | -        | The description of the toast.                                        |
+| `status`      | `success`, `error`, `warning`, `info`                                                         | -        | The status of the toast.                                             |
+| `duration`    | `number`                                                                                      | `5000ms` | Duration before dismiss in milliseconds, or `null` to never dismiss. |
+| `position`    | `top`, `top-left`, `top-right`, `bottom`, `bottom-left`, `bottom-right`                       | `bottom` | Position the toast will popup out from.                              |
+| `render`      | `function`                                                                                    | -        | The description of the toast.                                        |

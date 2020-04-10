@@ -47,47 +47,56 @@ const CToast = {
     },
     ...baseProps
   },
-  render (h) {
-    return h(CAlert, {
-      props: {
-        status: this.status,
-        variant: this.variant,
-        textAlign: 'left',
-        boxShadow: 'lg',
-        rounded: 'md',
-        alignItems: 'start',
-        fontFamily: 'body',
-        m: 2,
-        pr: 2,
-        p: 4,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        id: this.id
-      }
-    }, [
-      h(CAlertIcon),
-      h(CBox, {
+  render(h) {
+    return h(
+      CAlert,
+      {
         props: {
-          flex: '1'
-        }
-      }, [
-        this.title && h(CAlertTitle, {}, this.title),
-        this.description && h(CAlertDescription, {}, this.description)
-      ]),
-      this.isClosable && h(CCloseButton, {
-        props: {
-          size: 'sm',
-          position: 'absolute',
-          right: '4px',
-          top: '4px',
-          color: 'currentColor'
+          status: this.status,
+          variant: this.variant,
+          textAlign: 'left',
+          boxShadow: 'lg',
+          rounded: 'md',
+          alignItems: 'start',
+          fontFamily: 'body',
+          m: 2,
+          pr: 2,
+          p: 4,
+          ...forwardProps(this.$props)
         },
-        on: {
-          click: this.onClose
+        attrs: {
+          id: this.id
         }
-      })
-    ])
+      },
+      [
+        h(CAlertIcon),
+        h(
+          CBox,
+          {
+            props: {
+              flex: '1'
+            }
+          },
+          [
+            this.title && h(CAlertTitle, {}, this.title),
+            this.description && h(CAlertDescription, {}, this.description)
+          ]
+        ),
+        this.isClosable &&
+          h(CCloseButton, {
+            props: {
+              size: 'sm',
+              position: 'absolute',
+              right: '4px',
+              top: '4px',
+              color: 'currentColor'
+            },
+            on: {
+              click: this.onClose
+            }
+          })
+      ]
+    )
   }
 }
 
@@ -96,7 +105,7 @@ const CToast = {
  * TODO: In Vue 3 this should be exposed as a hook of it's own so as to
  * to inject theme and icons variables provided by theme provider component.
  */
-function useToast () {
+function useToast() {
   const { theme } = colorModeObserver
   /**
    * @description Notify Method for Kiwi
@@ -110,7 +119,7 @@ function useToast () {
    * @property {String} variant
    * @property {Boolean} isClosable
    */
-  function notify ({
+  function notify({
     position = 'bottom',
     duration = 5000,
     render,
@@ -126,16 +135,17 @@ function useToast () {
     }
 
     if (render) {
-      return breadstick.notify(
-        ({ h, onClose, id }) => {
-          return h(CThemeProvider, {
+      return breadstick.notify(({ h, onClose, id }) => {
+        return h(
+          CThemeProvider,
+          {
             props: {
               theme
             }
-          }, [render({ onClose, id })])
-        },
-        options
-      )
+          },
+          [render({ onClose, id })]
+        )
+      }, options)
     }
 
     /**
@@ -143,29 +153,39 @@ function useToast () {
      */
     breadstick.notify(({ h, onClose, id }) => {
       const { theme, colorMode, icons } = colorModeObserver
-      return h(CThemeProvider, {
-        props: {
-          icons,
-          theme
-        }
-      }, [h(CColorModeProvider, {
-        props: {
-          value: colorMode || 'light'
-        }
-      }, [h(CToast, {
-        props: {
-          status,
-          variant,
-          id: `${id}`,
-          title,
-          isClosable,
-          onClose,
-          description
-        }
-      })])])
-    },
-    options
-    )
+      return h(
+        CThemeProvider,
+        {
+          props: {
+            icons,
+            theme
+          }
+        },
+        [
+          h(
+            CColorModeProvider,
+            {
+              props: {
+                value: colorMode || 'light'
+              }
+            },
+            [
+              h(CToast, {
+                props: {
+                  status,
+                  variant,
+                  id: `${id}`,
+                  title,
+                  isClosable,
+                  onClose,
+                  description
+                }
+              })
+            ]
+          )
+        ]
+      )
+    }, options)
   }
 
   return notify

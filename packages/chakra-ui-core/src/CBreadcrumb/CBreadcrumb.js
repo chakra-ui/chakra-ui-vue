@@ -17,7 +17,7 @@
  */
 
 import { baseProps } from '../config/props'
-import { forwardProps, cloneVNodeElement, cleanChildren } from '../utils'
+import { forwardProps, cloneVNodeElement, cleanChildren, kebabify } from '../utils'
 
 import CBox from '../CBox'
 import CLink from '../CLink'
@@ -119,7 +119,9 @@ const CBreadcrumbItem = {
   render (h) {
     const children = this.$slots.default.filter(e => e.tag)
     const clones = children.map((vnode) => {
-      if (vnode.componentOptions.tag === 'CBreadcrumbLink') {
+      // Kebabify to normalize tage names
+      const tag = kebabify(vnode.componentOptions.tag)
+      if (tag === 'c-breadcrumb-link') {
         const clone = cloneVNodeElement(vnode, {
           props: {
             isCurrentPage: this.isCurrentPage
@@ -127,7 +129,7 @@ const CBreadcrumbItem = {
         }, h)
         return clone
       }
-      if (vnode.componentOptions.tag === 'CBreadcrumbSeparator') {
+      if (tag === 'c-breadcrumb-separator') {
         const clone = cloneVNodeElement(vnode, {
           props: {
             spacing: this.spacing,

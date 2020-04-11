@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.7...@chakra-ui/vue@0.3.8) (2020-04-11)
+
+
+### Features
+
+* **creset:** reset styles on server using created hook ([c6e8753](https://github.com/chakra-ui/chakra-ui-vue/commit/c6e8753ec892e367fa8c3fbc1a1379935afdaf2e))
+
+
+
+
+
 ## [0.3.7](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.6...@chakra-ui/vue@0.3.7) (2020-04-08)
 
 

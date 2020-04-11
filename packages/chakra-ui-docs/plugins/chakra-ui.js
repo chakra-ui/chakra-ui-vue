@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Kiwi from '@chakra-ui/vue'
+import * as Chakra from '@chakra-ui/vue'
 import theme from '@chakra-ui/theme-vue'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
@@ -20,7 +20,7 @@ breakpoints.md = breakpoints[1]
 breakpoints.lg = breakpoints[2]
 breakpoints.xl = breakpoints[3]
 
-Vue.use(Kiwi, {
+Vue.use(Chakra.default, {
   theme: {
     ...theme,
     breakpoints
@@ -48,5 +48,12 @@ Vue.use(Kiwi, {
           />`
       }
     }
+  }
+})
+
+Object.keys(Chakra).forEach((key) => {
+  if (typeof Chakra[key] === 'object' && Chakra[key].name) {
+    console.log(Chakra[key].name)
+    Vue.component(Chakra[key].name, Chakra[key])
   }
 })

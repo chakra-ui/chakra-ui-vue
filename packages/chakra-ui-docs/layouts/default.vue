@@ -23,7 +23,9 @@
               >
                 <Nuxt id="page-content" />
                 <Footer v-if="$route.path === '/index'" />
-                <FileContributors v-else />
+                <ClientOnly v-else>
+                  <FileContributors />
+                </ClientOnly>
               </CBox>
             </CFlex>
           </CBox>

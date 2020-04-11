@@ -32,7 +32,7 @@ export default {
   ],
   modules: [
     ['@nuxtjs/emotion', {
-      ssr: 'render'
+      ssr: 'critical'
     }],
     '@nuxtjs/pwa',
     '@nuxtjs/router'

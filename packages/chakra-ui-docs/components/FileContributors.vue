@@ -30,12 +30,10 @@
 </template>
 
 <script>
-// if (typeof global !== 'undefined') {
-//   global.fetch =
-// }
-// eslint-disable-next-line
-import getFileContributors from 'file-contributors'
+
 import { CBox, CLink, CTag, CAvatar, CTagLabel, CHeading, CText } from '@chakra-ui/vue'
+// TODO: add custom fetch support to 'file-contributors'
+import getFileContributors from 'file-contributors'
 
 export default {
   name: 'FileContributors',
@@ -63,7 +61,7 @@ export default {
   },
   watch: {
     '$route.path': {
-      immediate: false,
+      immediate: true,
       handler (newVal, oldVal) {
         this.contributors = undefined
         if (newVal === '/index') return

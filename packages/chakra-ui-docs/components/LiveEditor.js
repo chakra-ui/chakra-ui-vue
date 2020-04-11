@@ -1,7 +1,10 @@
 import Layout from './live-editor-layout.vue'
 
-export default {
+const LiveEditor = {
   name: 'LiveEditor',
+  props: {
+    code: String
+  },
   data () {
     return {
       text: undefined,
@@ -32,14 +35,14 @@ export default {
     }
   },
   render (h) {
-    const children = this.$slots.default[0]
-    const innerText = children.text.trim()
-    this.text = innerText
+    const code = this.code
     return h('VueLive', {
       props: {
-        code: innerText,
+        code,
         layout: Layout
       }
     })
   }
 }
+
+export default LiveEditor

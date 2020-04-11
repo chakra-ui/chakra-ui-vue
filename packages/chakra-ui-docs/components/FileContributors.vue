@@ -30,6 +30,9 @@
 </template>
 
 <script>
+// if (typeof global !== 'undefined') {
+//   global.fetch =
+// }
 // eslint-disable-next-line
 import getFileContributors from 'file-contributors'
 import { CBox, CLink, CTag, CAvatar, CTagLabel, CHeading, CText } from '@chakra-ui/vue'
@@ -60,7 +63,7 @@ export default {
   },
   watch: {
     '$route.path': {
-      immediate: true,
+      immediate: false,
       handler (newVal, oldVal) {
         this.contributors = undefined
         if (newVal === '/index') return

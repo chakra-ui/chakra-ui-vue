@@ -5,7 +5,7 @@ dotenv.config({
 })
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [
@@ -31,7 +31,9 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/emotion',
+    ['@nuxtjs/emotion', {
+      ssr: 'render'
+    }],
     '@nuxtjs/pwa',
     '@nuxtjs/router'
   ],
@@ -42,9 +44,7 @@ export default {
         test: /\.mdx$/,
         use: [
           'babel-loader',
-          {
-            loader: '@mdx-js/vue-loader'
-          }
+          'mdx-vue-loader'
         ]
       })
     }

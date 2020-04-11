@@ -36,7 +36,7 @@ const CReset = {
   props: {
     config: Object
   },
-  mounted () {
+  created () {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
     useTailwindPreflight(this.theme)
     injectGlobal({

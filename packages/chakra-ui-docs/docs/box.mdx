@@ -1,12 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
 import SEO from '../components/SEO'
-import { CBox, CImage, CBadge, CIcon } from '@chakra-ui/vue'
-Vue.component('CBox', CBox)
-Vue.component('CImage', CImage)
-Vue.component('CBadge', CBadge)
-Vue.component('CIcon', CIcon)
 
 <SEO
   title="Box"
@@ -27,22 +19,21 @@ Vue.component('CIcon', CIcon)
 
 ## Import
 
-<Code lang="javascript" code={`import { CBox } from "@chakra-ui/vue";`} />
+```js
+import { CBox } from '@chakra-ui/vue';
+```
 
 ## Usage
 
-<LiveEditor>
-{`
+```vue live=true
 <c-box bg="tomato" w="100%" p="4" color="white">
   This is the Box
 </c-box>
-`}
-</LiveEditor>
+```
 
 ## Composition with `CBox`
 
-<LiveEditor>
-{`
+```vue live=true
 <template>
   <c-box maxW="sm" border-width="1px" rounded="lg" overflow="hidden">
     <c-image :src="property.imageUrl" :alt="property.imageAlt" />
@@ -90,7 +81,8 @@ Vue.component('CIcon', CIcon)
       </c-box>
     </c-box>
   </c-box>
-</template>\n
+</template>
+
 <script>
   export default {
     name: 'Example',
@@ -110,20 +102,17 @@ Vue.component('CIcon', CIcon)
     }
   }
 </script>
-`}
-</LiveEditor>
+```
 
 ### `as` prop
 
 You can use the `as` prop to change the element render, just like the `tag` prop on Vue's global dynamic component.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-box as="button" rounded="md" bg="tomato" color="white" px="4" h="8">
   Button
 </c-box>
-`}
-</LiveEditor>
+```
 
 ## Props
 See all `CBox` props in the <nuxt-link to="style-props">Style Props page</nuxt-link>

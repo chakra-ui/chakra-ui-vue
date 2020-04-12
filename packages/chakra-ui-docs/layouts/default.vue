@@ -120,11 +120,6 @@ export default {
             color: 'inherit'
           }
         },
-        'blockquote': {
-          ...this.callout[colorMode],
-          rounded: 'md',
-          overflow: 'hidden'
-        },
         'table, p': {
           'code': {
             ...this.code[colorMode],

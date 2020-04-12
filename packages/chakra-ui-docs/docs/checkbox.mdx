@@ -1,12 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import { CCheckbox, CCheckboxGroup, CStack, CBox } from '@chakra-ui/vue'
-import Code from '../components/CodeBlock'
-Vue.component('CCheckbox', CCheckbox)
-Vue.component('CCheckboxGroup', CCheckboxGroup)
-Vue.component('CStack', CStack)
-Vue.component('CBox', CBox)
-
+import SEO from '../components/SEO'
 
 <SEO
   title="Checkbox"
@@ -14,6 +6,7 @@ Vue.component('CBox', CBox)
 />
 
 # Checkbox
+
 <br />
 
 `CCheckbox` component is used in forms when a user needs to select multiple values
@@ -27,48 +20,45 @@ to style the checkboxes.
 
 <br />
 
-See `CCheckbox`'s <a target="_blank" href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/accesibility.md">accessibility report</a>
+See `CCheckbox`'s [accessibility report](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCheckbox/accesibility.md)
 
 <br />
 
-The `CCheckbox` component composes <nuxt-link to="/controlbox"><code>CCheckbox</code></nuxt-link>, a component we
+The `CCheckbox` component composes <nuxt-link to="/controlbox">ControlBox</nuxt-link>, a component we
 created to make it easy to style an element based on sibling inputs.
 
 
 ### Import
 
-<Code lang="javascript" code={`import { CCheckbox, CCheckboxGroup } from "chakra-ui/vue"`}/>
+```js
+import { CCheckbox, CCheckboxGroup } from "chakra-ui/vue"
+```
 
 ## Usage
 
 Basic usage
 
-<LiveEditor>
-{`
-  <c-checkbox default-is-checked>Checkbox</c-checkbox>
-`}
-</LiveEditor>
+```vue live=true
+<c-checkbox default-is-checked>Checkbox</c-checkbox>
+```
 
 ### Disabled Checkbox
 
-<LiveEditor>
-{`
+```vue live=true
 <c-stack spacing="10" is-inline>
   <c-checkbox is-disabled>Checkbox</c-checkbox>
   <c-checkbox is-disabled default-is-checked>
     Checkbox
   </c-checkbox>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Checkbox with custom color
 
 You can override the color scheme of the checkbox to any color key specified in
 `$chakra.theme.colors`.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-stack spacing="10" isInline>
   <c-checkbox variant-color="red" default-is-checked>
     Checkbox
@@ -77,17 +67,15 @@ You can override the color scheme of the checkbox to any color key specified in
     Checkbox
   </c-checkbox>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Checkbox sizes
 
 Pass the `size` prop to change the size of the Checkbox. Values can be either
 `sm`, `md` or `lg`.
 
-<LiveEditor>
-{`
-<c-stack spacing="10" isInline>
+```vue live=true
+<c-stack spacing="10" is-inline>
   <c-checkbox size="sm" variant-color="red" default-is-checked>
     Checkbox
   </c-checkbox>
@@ -98,21 +86,17 @@ Pass the `size` prop to change the size of the Checkbox. Values can be either
     Checkbox
   </c-checkbox>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Invalid Checkbox
-<LiveEditor>
-{`
+```vue live=true
 <c-box mb="3">
   <c-checkbox is-invalid>Checkbox</c-checkbox>
 </c-box>
-`}
-</LiveEditor>
+```
 
 ### Indeterminate
-<LiveEditor>
-{`
+```vue live=true
 <template>
   <c-box>
     <c-checkbox
@@ -137,7 +121,8 @@ Pass the `size` prop to change the size of the Checkbox. Values can be either
       </c-checkbox>
     </c-stack>
   </c-box>
-</template>\n
+</template>
+
 <script>
 export default {
   data () {
@@ -154,37 +139,32 @@ export default {
     }
   }
 }
-<\/script>
-`}
-</LiveEditor>
+</script>
+```
 
 ### CheckboxGroup
 
 Chakra exports a `CCheckboxGroup` component to help manage the checked state of
 it's children.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-checkbox-group variant-color="green" :default-value="['naruto', 'kakashi']">
   <c-checkbox value="naruto">Naruto</c-checkbox>
   <c-checkbox value="sasuke">Sasuke</c-checkbox>
   <c-checkbox value="kakashi">kakashi</c-checkbox>
 </c-checkbox-group>
-`}
-</LiveEditor>
+```
 
 You can also make checkbox group appear horizontally by passing the `isInline`
 prop.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-checkbox-group is-inline spacing="8" variant-color="blue" :default-value="['itachi', 'kisame']">
   <c-checkbox value="itachi">Itachi</c-checkbox>
   <c-checkbox value="madara">Madara</c-checkbox>
   <c-checkbox value="kisame">Kisame</c-checkbox>
 </c-checkbox-group>
-`}
-</LiveEditor>
+```
 
 
 ## Props

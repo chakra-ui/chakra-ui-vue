@@ -41,6 +41,7 @@ export default {
   border-radius: 5px;
   overflow: hidden;
   margin-top: 10px;
+
   background: inherit;
 }
 
@@ -74,5 +75,9 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   display: inline-block;
+}
+
+.prism-editor__code {
+  padding-top: 20px;
 }
 </style>

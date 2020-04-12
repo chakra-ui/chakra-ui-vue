@@ -53,7 +53,7 @@ Vue.use(Chakra.default, {
 
 Object.keys(Chakra).forEach((key) => {
   if (typeof Chakra[key] === 'object' && Chakra[key].name) {
-    console.log(Chakra[key].name)
+    // console.log(Chakra[key].name)
     Vue.component(Chakra[key].name, Chakra[key])
   }
 })

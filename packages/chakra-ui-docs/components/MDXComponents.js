@@ -76,7 +76,7 @@ const MDXComponents = {
         <Heading
           as="h2"
           fontWeight="semibold"
-          fontSize="xl"
+          fontSize="1.5rem"
           {...props}
         >
           {this.$slots.default}

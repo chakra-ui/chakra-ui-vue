@@ -22,7 +22,7 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/badge
  */
 const CBadge = {
-  name: 'Badge',
+  name: 'CBadge',
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     variant: {

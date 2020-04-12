@@ -69,6 +69,11 @@ export default {
       }
     }
   },
+  async mounted () {
+    if (!this.contributors) {
+      await this.getContributors()
+    }
+  },
   methods: {
     async getContributors () {
       try {

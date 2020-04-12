@@ -1,4 +1,12 @@
 import dotenv from 'dotenv-defaults'
+import pages from './_components'
+import { stringToUrl } from './utils'
+
+const routes = pages
+  .map(page => {
+    return page === 'Index' ? stringToUrl('') : stringToUrl(page)
+  })
+
 // Configuring dotenv variables.
 dotenv.config({
   defaults: '../../config/.env.defaults'
@@ -6,6 +14,9 @@ dotenv.config({
 
 export default {
   mode: 'universal',
+  generate: {
+    routes
+  },
   head: {
     title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [

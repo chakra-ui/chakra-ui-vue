@@ -6,9 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt generate",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "docs:build": "nuxt build",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "lint-staged": {
@@ -23,7 +23,7 @@
     "@chakra-ui/vue": "^0.3.10",
     "@chakra-ui/theme-vue": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.gi2",
     "@mdx-js/vue-loader": "^1.5.7",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",

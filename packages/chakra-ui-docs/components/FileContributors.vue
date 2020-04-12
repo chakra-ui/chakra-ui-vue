@@ -30,9 +30,10 @@
 </template>
 
 <script>
-// eslint-disable-next-line
-import getFileContributors from 'file-contributors'
+
 import { CBox, CLink, CTag, CAvatar, CTagLabel, CHeading, CText } from '@chakra-ui/vue'
+// TODO: add custom fetch support to 'file-contributors'
+import getFileContributors from 'file-contributors'
 
 export default {
   name: 'FileContributors',
@@ -66,6 +67,11 @@ export default {
         if (newVal === '/index') return
         if (newVal !== oldVal) this.getContributors()
       }
+    }
+  },
+  async mounted () {
+    if (!this.contributors) {
+      await this.getContributors()
     }
   },
   methods: {

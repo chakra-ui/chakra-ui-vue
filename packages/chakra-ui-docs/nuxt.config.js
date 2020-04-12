@@ -1,11 +1,22 @@
 import dotenv from 'dotenv-defaults'
+import pages from './_components'
+import { stringToUrl } from './utils'
+
+const routes = pages
+  .map(page => {
+    return page === 'Index' ? stringToUrl('') : stringToUrl(page)
+  })
+
 // Configuring dotenv variables.
 dotenv.config({
   defaults: '../../config/.env.defaults'
 })
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
+  generate: {
+    routes
+  },
   head: {
     title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [
@@ -31,10 +42,24 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/emotion',
+    ['@nuxtjs/emotion', {
+      ssr: 'critical'
+    }],
     '@nuxtjs/pwa',
     '@nuxtjs/router'
   ],
+  pwa: {
+    meta: {
+      name: 'Chakra UI Vue',
+      description: 'Build accessible Vue applications with speed ⚡️',
+      theme_color: '#3ea76a',
+      author: 'Jonathan Bakebwa <jonas@akkadu-team.com> https://jbakebwa.dev'
+    },
+    icon: {
+      iconSrc: 'static/chakra.png',
+      iconFileName: 'chakra.png'
+    }
+  },
   build: {
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
@@ -42,9 +67,7 @@ export default {
         test: /\.mdx$/,
         use: [
           'babel-loader',
-          {
-            loader: '@mdx-js/vue-loader'
-          }
+          'mdx-vue-loader'
         ]
       })
     }

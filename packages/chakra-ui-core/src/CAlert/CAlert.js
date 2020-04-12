@@ -140,7 +140,7 @@ const CAlertIcon = {
  * @see Docs https://vue.chakra-ui.com/alert
  */
 const CAlertTitle = {
-  name: 'AlertTitle',
+  name: 'CAlertTitle',
   props: {
     ...baseProps
   },

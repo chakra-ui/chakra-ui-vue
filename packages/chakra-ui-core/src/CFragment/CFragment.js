@@ -4,8 +4,8 @@
  * Note: This is a temporary solution to create fragments in Vue 2
  * until Vue 3 releases internal Fragment support
  */
-const Fragment = {
-  name: 'Fragment',
+const CFragment = {
+  name: 'CFragment',
   directives: {
     fragment: {
       inserted (el) {
@@ -27,4 +27,4 @@ const Fragment = {
   }
 }
 
-export default Fragment
+export default CFragment

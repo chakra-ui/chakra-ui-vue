@@ -1,33 +1,37 @@
 <template>
   <div class="container">
-    <CThemeProvider>
-      <CColorModeProvider v-slot="{ colorMode }">
-        <CBox
-          font-family="body"
-          :bg="colorMode === 'light' ? 'white' : 'gray.800'"
-          :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
-        >
-          <CReset />
-          <Navbar />
-          <CFlex maxH="calc(100vh - 60px)">
-            <Sidebar />
-            <CBox
-              :class="styles(colorMode)"
-              as="section"
-              w="100%"
-              height="calc(100vh - 60px)"
-              overflowY="scroll"
-              pt="20"
-              :px="[10, 10, 20, '14rem']"
-            >
-              <Nuxt id="page-content" />
-              <Footer v-if="$route.path === '/index'" />
-              <FileContributors v-else />
-            </CBox>
-          </CFlex>
-        </CBox>
-      </CColorModeProvider>
-    </CThemeProvider>
+    <MDXProvider :components="MDXComponents">
+      <CThemeProvider>
+        <CColorModeProvider v-slot="{ colorMode }">
+          <CBox
+            font-family="body"
+            :bg="colorMode === 'light' ? 'white' : 'gray.800'"
+            :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
+          >
+            <CReset />
+            <Navbar />
+            <CFlex maxH="calc(100vh - 60px)">
+              <Sidebar />
+              <CBox
+                :class="styles(colorMode)"
+                as="section"
+                w="100%"
+                height="calc(100vh - 60px)"
+                overflowY="scroll"
+                pt="20"
+                :px="[10, 10, 20, '14rem']"
+              >
+                <Nuxt id="page-content" />
+                <Footer v-if="$route.path === '/index'" />
+                <ClientOnly v-else>
+                  <FileContributors />
+                </ClientOnly>
+              </CBox>
+            </CFlex>
+          </CBox>
+        </CColorModeProvider>
+      </CThemeProvider>
+    </MDXProvider>
   </div>
 </template>
 <script>
@@ -39,17 +43,22 @@ import {
   CFlex,
   Css
 } from '@chakra-ui/vue'
+import { css } from 'emotion'
+import { MDXProvider } from 'mdx-vue'
+
+import MDXComponents from '../components/MDXComponents'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import FileContributors from '../components/FileContributors'
-import { css } from 'emotion'
+
 // import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
   components: {
     FileContributors,
+    MDXProvider,
     CThemeProvider,
     CColorModeProvider,
     CBox,
@@ -86,8 +95,18 @@ export default {
           bg: 'rgba(250, 240, 137, 0.16)',
           color: 'rgb(250, 240, 137)'
         }
-      }
+      },
+      MDXComponents
     }
+  },
+  metaInfo: {
+    title: `Chakra UI Vue`,
+    metaTags: [
+      {
+        name: 'description',
+        content: 'Simple, Modular and Accessible UI Components for your Vue Applications. Built with Styled System.'
+      }
+    ]
   },
   computed: {
     styles () {
@@ -100,11 +119,6 @@ export default {
           'a': {
             color: 'inherit'
           }
-        },
-        'blockquote': {
-          ...this.callout[colorMode],
-          rounded: 'md',
-          overflow: 'hidden'
         },
         'table, p': {
           'code': {

@@ -1,15 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
 import SEO from '../components/SEO'
-
-import { CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon, CBox } from '@chakra-ui/vue'
-Vue.component('CAccordion', CAccordion)
-Vue.component('CAccordionItem', CAccordionItem)
-Vue.component('CAccordionHeader', CAccordionHeader)
-Vue.component('CAccordionPanel', CAccordionPanel)
-Vue.component('CAccordionIcon', CAccordionIcon)
-Vue.component('CBox', CBox)
 
 <SEO
   title="Accordion"
@@ -34,21 +23,21 @@ Chakra UI Vue provides 5 Accordion related components:
 
 <br />
 
-<Code lang="js" code={`import {
+```js
+import {
   CAccordion,
   CAccordionItem,
   CAccordionHeader,
   CAccordionPanel,
   CAccordionIcon,
 } from "@chakra-ui/vue";
-`} />
+```
 
 ## Usage
 
 By default, only one accordion item may be expanded. It can only be collapsed again by expanding another accordion item.
 
-<LiveEditor>
-{`
+```vue live=true
   <c-accordion>
     <c-accordion-item>
       <c-accordion-header>
@@ -63,7 +52,7 @@ By default, only one accordion item may be expanded. It can only be collapsed ag
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
       </c-accordion-panel>
-    </c-accordion-item>\n
+    </c-accordion-item>
     <c-accordion-item>
       <c-accordion-header>
         <c-box flex="1" text-align="left">
@@ -79,16 +68,14 @@ By default, only one accordion item may be expanded. It can only be collapsed ag
       </c-accordion-panel>
     </c-accordion-item>
   </c-accordion>
-`}
-</LiveEditor>
+```
 
 ### Expand multiple items
 Setting the `allowMultiple` prop to `true` allows the accordion to permit multiple items to be expanded at once.
 
 > If you pass this prop, ensure that the `index` or `defaultIndex` prop is an array.
 
-<LiveEditor>
-{`
+```vue live=true
   <c-accordion :allow-multiple="true" :default-index="[0]">
     <c-accordion-item>
       <c-accordion-header>
@@ -103,7 +90,7 @@ Setting the `allowMultiple` prop to `true` allows the accordion to permit multip
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
       </c-accordion-panel>
-    </c-accordion-item>\n
+    </c-accordion-item>
     <c-accordion-item>
       <c-accordion-header>
         <c-box flex="1" text-align="left">
@@ -119,15 +106,13 @@ Setting the `allowMultiple` prop to `true` allows the accordion to permit multip
       </c-accordion-panel>
     </c-accordion-item>
   </c-accordion>
-`}
-</LiveEditor>
+```
 
 ### Toggle each accordion item
 
 Setting the `allowToggle` prop to true allows any expanded item to be collapsed again.
 
-<LiveEditor>
-{`
+```vue live=true
   <c-accordion :allow-toggle="true">
     <c-accordion-item>
       <c-accordion-header>
@@ -142,7 +127,7 @@ Setting the `allowToggle` prop to true allows any expanded item to be collapsed 
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
       </c-accordion-panel>
-    </c-accordion-item>\n
+    </c-accordion-item>
     <c-accordion-item>
       <c-accordion-header>
         <c-box flex="1" text-align="left">
@@ -158,15 +143,13 @@ Setting the `allowToggle` prop to true allows any expanded item to be collapsed 
       </c-accordion-panel>
     </c-accordion-item>
   </c-accordion>
-`}
-</LiveEditor>
+```
 
 ### Styling the expanded state
 The `CAccordionHeader` component has `aria-expanded` set to `true` or `false` depending on the state of the `CAccordionItem`.
 Use the style prop `_expanded` to style this state.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-accordion-item>
   <c-accordion-header :_expanded="{ bg: 'tomato', color: 'white' }">
     <c-box flex="1" text-align="left">
@@ -180,16 +163,14 @@ Use the style prop `_expanded` to style this state.
     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
     commodo consequat.
   </c-accordion-panel>
-</c-accordion-item>\n
-`}
-</LiveEditor>
+</c-accordion-item>
+```
 
 ### Accessing the internal expanded & disabled state
 The `CAccordionItem` component exposes a scoped slot with two variables: `isExpanded` and `isDisabled`.
 In the example below, we change the icon rendered by the `CAccordionIcon` based on the `CAccordionItems` expanded state.
 
-<LiveEditor>
-{`<c-accordion :allow-toggle="true">
+```vue live=true<c-accordion :allow-toggle="true">
   <c-accordion-item>
     <c-accordion-header>
       <c-box flex="1" text-align="left">
@@ -203,7 +184,7 @@ In the example below, we change the icon rendered by the `CAccordionIcon` based 
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.
     </c-accordion-panel>
-  </c-accordion-item>\n
+  </c-accordion-item>
   <c-accordion-item v-slot="{ isExpanded }">
     <c-accordion-header>
       <c-box flex="1" text-align="left">
@@ -219,8 +200,7 @@ In the example below, we change the icon rendered by the `CAccordionIcon` based 
     </c-accordion-panel>
   </c-accordion-item>
 </c-accordion>
-`}
-</LiveEditor>
+```
 
 ### Accessibility
 Pressing **`space`** or **`enter`** when focus is on the `CAccordionHeader` will toggle (expand or collapse) the accordion item.

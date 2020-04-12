@@ -48,6 +48,18 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/router'
   ],
+  pwa: {
+    meta: {
+      name: 'Chakra UI Vue',
+      description: 'Build accessible Vue applications with speed ⚡️',
+      theme_color: '#3ea76a',
+      author: 'Jonathan Bakebwa <jonas@akkadu-team.com> https://jbakebwa.dev'
+    },
+    icon: {
+      iconSrc: 'static/chakra.png',
+      iconFileName: 'chakra.png'
+    }
+  },
   build: {
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'

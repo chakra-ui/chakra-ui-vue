@@ -107,7 +107,7 @@ const CBreadcrumbLink = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumbItem = {
-  name: 'BreadcrumbItem',
+  name: 'CBreadcrumbItem',
   props: {
     ...baseProps,
     isCurrentPage: Boolean,
@@ -170,7 +170,7 @@ const CBreadcrumbItem = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumb = {
-  name: 'Breadcrumb',
+  name: 'CBreadcrumb',
   props: {
     spacing: {
       type: [String, Number, Array],

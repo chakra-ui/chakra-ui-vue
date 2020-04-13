@@ -4,8 +4,8 @@ import { useId, cloneVNodeElement, forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
-const RadioGroup = {
-  name: 'RadioGroup',
+const CRadioGroup = {
+  name: 'CRadioGroup',
   props: {
     ...baseProps,
     name: {
@@ -118,4 +118,4 @@ const RadioGroup = {
   }
 }
 
-export default RadioGroup
+export default CRadioGroup

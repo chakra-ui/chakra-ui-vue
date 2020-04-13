@@ -1,13 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
 import SEO from '../components/SEO'
-import { CBadge, CStack, CFlex, CAvatar, CBox, CText } from '@chakra-ui/vue'
-Vue.component('CBadge', CBadge)
-Vue.component('CText',CText)
-Vue.component('CFlex', CFlex)
-Vue.component('CAvatar', CAvatar)
-Vue.component('CBox', CBox)
 
 
 <SEO
@@ -22,15 +13,15 @@ The `CBadge` component is used to highlight an item's status for quick recogniti
 
 ## Import
 
-<Code lang="javascript" code={`import { CBadge } from "@chakra-ui/vue";`} />
+```js
+import { CBadge } from "@chakra-ui/vue";
+```
 
 ## Usage
 
-<LiveEditor>
-{`
+```vue live=true
 <c-badge>Default</c-badge>
-`}
-</LiveEditor>
+```
 
 ### Badge Color
 
@@ -39,14 +30,12 @@ can be any **color key** that exists in the `$chakra.theme.colors`. Here `$chakr
 object. 
 <nuxt-link to="/theme">Learn more about theming</nuxt-link>
 
-<LiveEditor>
-{`
+```vue live=true
 <c-badge mx="2">Default</c-badge>
 <c-badge mx="2" variant-color="green">Success</c-badge>
 <c-badge mx="2" variant-color="red">Removed</c-badge>
 <c-badge mx="2" variant-color="indigo">New</c-badge>
-`}
-</LiveEditor>
+```
 
 
 ### Badge Variants
@@ -54,19 +43,15 @@ object.
 Pass the `variant` prop and set to either `subtle`, `solid`, or `outline` to get a
 different style.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-badge mx="2" variant="subtle" variant-color="green">Subtle</c-badge>
 <c-badge mx="2" variant="solid" variant-color="green">Solid</c-badge>
 <c-badge mx="2" variant="outline" variant-color="green">Outline</c-badge>
-`}
-</LiveEditor>
-
+```
 
 ## Composition
 
-<LiveEditor>
-{`
+```vue live=true
 <c-flex>
   <c-avatar src="https://bit.ly/chakra-jonathan-bakebwa" />
   <c-box ml="3">
@@ -79,23 +64,20 @@ different style.
     <c-text font-size="sm">UI Engineer</c-text>
   </c-box>
 </c-flex>
-`}
-</LiveEditor>
+```
 
 <br />
 
 You can also change the size of the badge by passing `fontSize` prop.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-text font-weight="bold">
   Jonathan Bakebwa
-  <c-badge ml="1" font-size="0.8em" variant-color="green">
+  <c-badge ml="1" font-size="1em" variant-color="green">
     New
   </c-badge>
 </c-text>
-`}
-</LiveEditor>
+```
 
 
 ## Props

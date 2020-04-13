@@ -1,15 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
 import SEO from '../components/SEO'
-
-import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CCloseButton, CStack } from '@chakra-ui/vue'
-Vue.component('CAlert', CAlert)
-Vue.component('CAlertIcon', CAlertIcon)
-Vue.component('CAlertTitle', CAlertTitle)
-Vue.component('CAlertDescription', CAlertDescription)
-Vue.component('CCloseButton', CCloseButton)
-Vue.component('CStack', CStack)
 
 <SEO
   title="Alert"
@@ -33,26 +22,26 @@ Chakra UI Vue exports 4 Alert related components.
 
 <br />
 
-<Code lang="javascript" code={`import {
+```js
+import {
   CAlert,
   CAlertIcon,
   CAlertTitle,
   CAlertDescription,
 } from "@chakra-ui/vue";
-`} />
+```
 
 ## Usage
 
-<LiveEditor>
-{`
+```vue live=true
 <c-alert status="error">
   <c-alert-icon />
   <c-alert-title :mr="2">Your browser is outdated!</c-alert-title>
   <c-alert-description>Your Chakra experience may be degraded.</c-alert-description>
   <c-close-button position="absolute" right="8px" top="8px" />
 </c-alert>    
-`}
-</LiveEditor>
+```
+
 
 ### Setting the Alert status
 The status of the alerts can be changed by passing the `status` prop. This affects the
@@ -62,8 +51,7 @@ The status of the alerts can be changed by passing the `status` prop. This affec
 
 <br />
 
-<LiveEditor>
-{`
+```vue live=true
 <c-stack>
   <c-alert status="info">
     <c-alert-icon />
@@ -82,22 +70,19 @@ The status of the alerts can be changed by passing the `status` prop. This affec
     Unable to load Rasen-Shuriken. Please try again.
   </c-alert>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Custom Alert icons
 You can also use custom Alert icons by passing the name of the icon in the `name` prop of the `CAlertIcon`. <nuxt-link to="/icons">Click here</nuxt-link> to see how to add icons to your Chakra app.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-alert>
   <c-alert-icon name="github" />
   <c-alert-title :mr="2">Kakashi Sensei followed you.</c-alert-title>
   <c-alert-description>Follow Kakashi to see his Kamui in action.</c-alert-description>
   <c-close-button position="absolute" right="8px" top="8px" />
 </c-alert>    
-`}
-</LiveEditor>
+```
 
 
 ### Variant
@@ -105,8 +90,7 @@ You can also use custom Alert icons by passing the name of the icon in the `name
 The `CAlert` component has 4 variant styles you can use. Pass the `variant` prop and use either
 `subtle`, `solid`, `left-accent` or `top-accent`.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-stack>
   <c-alert status="success" variant="subtle">
     <c-alert-icon />
@@ -125,16 +109,14 @@ The `CAlert` component has 4 variant styles you can use. Pass the `variant` prop
     Data uploaded to the server. Fire on!
   </c-alert>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Composition
 
 `CAlert` ships with other smaller components to allow for flexibility and make it easy to
 create all kinds of layout. Here's an example of a custom alert style and layout.
 
-<LiveEditor>
-{`
+```vue live=true
 <c-alert
   status="success"
   variant="subtle"
@@ -151,8 +133,7 @@ create all kinds of layout. Here's an example of a custom alert style and layout
     Thanks for submitting your application. Our team will get back to you soon.
   </c-alert-description>
 </c-alert>
-`}
-</LiveEditor>
+```
 
 ## Props
 

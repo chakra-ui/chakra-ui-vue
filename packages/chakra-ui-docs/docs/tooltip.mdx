@@ -1,13 +1,4 @@
-import Vue from 'vue'
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
 import SEO from '../components/SEO'
-
-import { CTooltip, CIcon, CButton, CStack } from '@chakra-ui/vue'
-Vue.component('CTooltip', CTooltip)
-Vue.component('CIcon', CIcon)
-Vue.component('CButton', CButton)
-Vue.component('CStack', CStack)
 
 <SEO
   title="Tooltip"
@@ -23,76 +14,68 @@ The Tooltip component follows the [WAI-ARIA](https://www.w3.org/TR/wai-aria-prac
 ## Import
 
 <br />
-<Code
-lang="js"
-code={`import { CTooltip } from "@chakra-ui/vue";
-`}
-/>
+
+```js
+import { CTooltip } from "@chakra-ui/vue";
+```
 
 ## Usage
 
 If the child of `CTooltip` is a string, we wrap it inside a span and set the `tab-index` attribute to `0` to ensure it meets the accessibility requirements.
 
-<LiveEditor>
-  {`
-  <c-tooltip label="Chakra UI rocks">Psst! Hover Me</c-tooltip>
-`}
-</LiveEditor>
+```vue live=true
+<c-tooltip label="Chakra UI rocks">Psst! Hover Me</c-tooltip>
+```
 
 ### With an icon
 
-<LiveEditor>
-  {`
+```vue live=true
 <c-tooltip label="Welcome home" placement="bottom">
-    <c-icon name="phone" />
+  <c-icon name="phone" />
 </c-tooltip>
-`}
-</LiveEditor>
+```
 
 ### With arrow
 
-<LiveEditor>
-  {`
+```vue live=true
 <c-tooltip has-arrow label="Add new component" placement="right">
-    <c-icon name="add" />
+  <c-icon name="add" />
 </c-tooltip>
-`}
-</LiveEditor>
+```
 
 ### Tooltip with focusable content
 
-If the children of CTooltip is a focusable element, the tooltip will show when you focus or hover on the element, and will hide when you blur or moves cursor out of the element.
+If the children of `CTooltip` is a focusable element, the tooltip will show when you focus or hover on the element, and will hide when you blur or moves cursor out of the element.
 
-<LiveEditor>
-  {`
-<c-tooltip has-arrow label="Sends your order to Delivery hero" placement="top" bg="blue.600">
-   <c-button>Place Order</c-button>
+```vue live=true
+<c-tooltip has-arrow label="Add order to cart" placement="top" bg="blue.600">
+  <c-button>Place order</c-button>
 </c-tooltip>
-`}
-</LiveEditor>
+```
 
 ### Placement
 
 Using the `placement` prop you can adjust where your tooltip will be displayed.
 
-<LiveEditor>
-  {`
+```vue live=true
 <c-stack should-wrap-children>
-    <c-tooltip has-arrow label="left" placement="left">
-        <c-button variant="outline">Left</c-button>
-    </c-tooltip>
-     <c-tooltip has-arrow label="top" placement="top">
-        <c-button variant="outline">Top</c-button>
-    </c-tooltip>
-     <c-tooltip has-arrow label="right" placement="right">
-        <c-button variant="outline">Right</c-button>
-    </c-tooltip>
-     <c-tooltip has-arrow label="bottom" placement="bottom">
-        <c-button variant="outline">Bottom</c-button>
-    </c-tooltip>
+  <c-tooltip has-arrow label="left" placement="left">
+    <c-button>Left</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="top" placement="top">
+    <c-button>Top</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="right" placement="right">
+    <c-button>Right</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="bottom" placement="bottom">
+    <c-button>Bottom</c-button>
+  </c-tooltip>
 </c-stack>
-`}
-</LiveEditor>
+```
 
 ### Props
 
@@ -111,9 +94,9 @@ Using the `placement` prop you can adjust where your tooltip will be displayed.
 
 ### Slots
 
-| Name    | Description                             |
-| ------- | --------------------------------------- |
-| default | Vue.VNode to be rendered inside tooltip |
+| Name    | Description                                     |
+| ------- | ----------------------------------------------- |
+| default | Element to around which the tooltip is anchored |
 
 ### Events
 

@@ -1,7 +1,15 @@
 import { CBox, CButton } from '@chakra-ui/vue'
+import 'prismjs'
 import PrismEditor from 'vue-prism-editor'
+import '../css/night-owl.css'
+import 'vue-prism-editor/dist/VuePrismEditor.css'
+import LiveEditor from './LiveEditor'
 
-export default {
+function getLanguage (string) {
+  return string.slice(string.indexOf('-') + 1)
+}
+
+const CodeBlock = props => ({
   name: 'CodeBlock',
   props: {
     lang: {
@@ -24,7 +32,7 @@ export default {
       type: Boolean,
       default: true
     },
-    code: String
+    live: Boolean
   },
   data () {
     return {
@@ -48,39 +56,48 @@ export default {
     }
   },
   render (h) {
-    // const children = this.$slots.default[0]
-    const innerText = this.code.trim()
-    this.text = innerText
+    const language = getLanguage(props.className)
+    const code = this.$slots.default[0].text
 
-    return h(CBox, {
-      props: {
-        rounded: 'md',
-        position: 'relative',
-        fontSize: '0.9rem'
-      }
-    }, [
-      h(PrismEditor, {
+    if (!props.live) {
+      return h(CBox, {
         props: {
-          code: innerText,
-          language: this.lang,
-          readonly: this.isReadOnly,
-          ...this.$props
+          rounded: 'md',
+          position: 'relative',
+          fontSize: '0.9rem'
         }
-      }),
-      h(CButton, {
+      }, [
+        h(PrismEditor, {
+          props: {
+            code,
+            language,
+            readonly: true,
+            ...this.$props
+          }
+        }),
+        h(CButton, {
+          props: {
+            variantColor: 'vue',
+            position: 'absolute',
+            size: 'sm',
+            top: '0.2rem',
+            right: '0.125rem',
+            textTransform: 'uppercase',
+            transform: 'scale(0.8)'
+          },
+          on: {
+            click: this.copy
+          }
+        }, this.copyButtonText)
+      ])
+    } else {
+      return h(LiveEditor, {
         props: {
-          variantColor: 'vue',
-          position: 'absolute',
-          size: 'sm',
-          top: '0.2rem',
-          right: '0.125rem',
-          textTransform: 'uppercase',
-          transform: 'scale(0.8)'
-        },
-        on: {
-          click: this.copy
+          code
         }
-      }, this.copyButtonText)
-    ])
+      })
+    }
   }
-}
+})
+
+export default CodeBlock

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="css-1jfyukr"
+    data-chakra-component="CBox"
+    for="control-radio"
+  >
+    <input
+      class="css-0 css-f8n5zr"
+      data-chakra-component="CBox"
+      data-testid="hiddenControl"
+      id="control-radio"
+      type="radio"
+    />
+     
+    <div
+      aria-hidden="true"
+      class="css-1nwx1xd css-1yl13q2"
+      data-chakra-component="CBox"
+      data-testid="control"
+    >
+      <div
+        class="css-1ojhcd8"
+        data-chakra-component="CBox"
+      />
+    </div>
+  </label>
+</DocumentFragment>
+`;

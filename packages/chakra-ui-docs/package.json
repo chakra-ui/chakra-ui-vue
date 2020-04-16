@@ -2,7 +2,6 @@
   "name": "chakra-ui-docs",
   "version": "0.2.10",
   "description": "Chakra UI Vue documentation site",
-  "author": "codebender828",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,6 +9,11 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
   },
   "lint-staged": {
     "*.{js,vue}": "yarn lint"

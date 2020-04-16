@@ -21,4 +21,4 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 - [x] The `CBreadcrumb` The landmark region is labelled via `aria-label`.
 - [x] The link to the current page has `aria-current` set to page. If the element representing the current page is not a link, `aria-current` is optional. This is determined by setting the `isCurrentPage` boolean prop to the `CBreadcrumbLink` component
 
-Noticed a bug or inconsitency with the component you just consumed? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

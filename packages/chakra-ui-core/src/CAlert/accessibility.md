@@ -19,4 +19,4 @@ to continue working. Therefore, displaying the alert does not affect keyboard fo
 ### `CAlert` WAI-ARIA Roles, States, and Properties:
 - [x] The `CAlert` component has a `role` of `alert`.
 
-Noticed a bug or inconsitency with the component you just consumed? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

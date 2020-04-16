@@ -1,9 +1,27 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CFormLabel
+ *
+ * Label for the Form input
+ *
+ * @see Docs     https://vue.chakra-ui.com/formcontrol
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFormLabel/CFormLabel.js
+ * @see WAI      https://www.w3.org/WAI/tutorials/forms/
+ */
+
 import { baseProps } from '../config'
 import { forwardProps } from '../utils'
 import { formControlProps } from '../CFormControl/utils/formcontrol.props'
 
 import CBox from '../CBox'
 
+/**
+ * CRequiredIndicator component
+ *
+ * Indicator shown if `isRequired` is received from context.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/formcontrol
+ */
 const CRequiredIndicator = {
   name: 'CRequiredIndicator',
   inject: ['$chakraColorMode'],
@@ -24,12 +42,21 @@ const CRequiredIndicator = {
         color: this.color
       },
       attrs: {
-        'aria-hidden': true
+        'aria-hidden': true,
+        'data-chakra-component': 'CRequiredIndicator'
       }
     }, '*')
   }
 }
 
+/**
+ * CFormLabel component
+ *
+ * Label for the form input.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/formcontrol
+ */
 const CFormLabel = {
   name: 'CFormLabel',
   inject: ['$useFormControl'],
@@ -63,6 +90,9 @@ const CFormLabel = {
         verticalAlign: 'middle',
         display: 'inline-block',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CFormLabel'
       }
     }, [
       ...this.$slots.default,

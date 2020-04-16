@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.12](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.11...@chakra-ui/vue@0.3.12) (2020-04-16)
+
+
+### Features
+
+* **drawer:** add a11y report ([f86e655](https://github.com/chakra-ui/chakra-ui-vue/commit/f86e655b94fb5ecf46d5089bc9ab7f2e8facfe34))
+* **editbale:** add editable props ([d8d0329](https://github.com/chakra-ui/chakra-ui-vue/commit/d8d0329a30206dbb3e5bc448450baf628b6ba714))
+* **formcontrol:** added form control a11y report ([11ef761](https://github.com/chakra-ui/chakra-ui-vue/commit/11ef7614ccfc93f40d3d85b77723ebe21cb71218))
+
+
+
+
+
 ## [0.3.11](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.10...@chakra-ui/vue@0.3.11) (2020-04-16)
 
 

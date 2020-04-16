@@ -16,4 +16,4 @@ The Circular Progress component is used to indicates the progress for both deter
 - `CCircularProgress` has a role set to progressbar to denote that it's a progress bar.
 - `CCircularProgress` has aria-valuenow set to the percentage completion value passed to the component, to ensure the progress percent is visible to screen readers.
 
-Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

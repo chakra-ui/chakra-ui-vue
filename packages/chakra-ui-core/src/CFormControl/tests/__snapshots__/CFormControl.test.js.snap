@@ -4,12 +4,12 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-0"
-    data-chakra-component="CBox"
+    data-chakra-component="CFormControl"
     role="group"
   >
     <label
       class="css-3wkg7s"
-      data-chakra-component="CBox"
+      data-chakra-component="CFormLabel"
       for="fname"
     >
       First name

@@ -9,4 +9,4 @@ by using theme styles.
 ### `CCloseButton` WAI-ARIA compliance
 - `CCloseButton` by default has an `aria-label` of "Close". This can be customized by passing the `aria-label` attribute.
 
-Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

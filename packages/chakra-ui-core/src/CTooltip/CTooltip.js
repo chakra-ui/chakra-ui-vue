@@ -1,3 +1,20 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Tooltip
+ *
+ * A Tooltip is a popup that displays information related
+ * to an element when the element receives keyboard focus
+ * or the mouse hovers over it
+ *
+ * 🚨NOTE: The WAI-ARIA design pattern for Tooltips is work in
+ * progress; it does not yet have task force consensus.
+ * Progress and discussions are captured in
+ * [issue 128](https://github.com/w3c/aria-practices/issues/128).
+ *
+ * @see Docs     https://vue.chakra-ui.com/tooltip
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTooltip/CTooltip.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTooltip/accessibility.md
+ */
+
 import { baseProps } from '../config/props'
 import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
 
@@ -32,7 +49,19 @@ const tooltipProps = {
   ...baseProps
 }
 
-// TODO: Add isControlled support.
+/**
+ * CTooltip component
+ *
+ * A tooltip is a brief, informative message that appears when a
+ * user interacts with an element.
+ *
+ * The `CTooltip` achieves this by cloning it's children VNodes
+ * and then attaches hover and focus events to it in order to display
+ * and hide the tooltip conveniently as per WAI-ARIA specs
+ *
+ * @extends CPopper
+ * @see Docs https://vue.chakra-ui.com/tooltip
+ */
 const CTooltip = {
   inject: ['$chakraColorMode'],
   name: 'CTooltip',
@@ -206,7 +235,8 @@ const CTooltip = {
         attrs: {
           id: hasAriaLabel ? undefined : this.tooltipId,
           role: hasAriaLabel ? undefined : 'tooltip',
-          'data-noop': this.noop
+          'data-noop': this.noop,
+          'data-chakra-component': 'CTooltip'
         }
       }, [
         this.label,

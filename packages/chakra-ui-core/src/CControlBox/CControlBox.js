@@ -8,9 +8,8 @@
  *
  * > For this component to work, it should have a sibling input and be contained in a label
  *
- * @see Docs     https://vue.chakra-ui.com/closebutton
- * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/CCloseButton.js
- * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/accessibility.md
+ * @see Docs     https://vue.chakra-ui.com/controlbox
+ * @see Strategy https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036
  */
 
 import { css } from 'emotion'

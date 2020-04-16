@@ -1,5 +1,23 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CClickOutside
+ *
+ * The Click Outside component is used to call an event if a user clicks anywhere outside this element.
+ * It also accepts a whitelist of elements to ignore when the `do()` function is called.
+ * 
+ * Note:
+ * This component is mostly used for internal use, and is not listed in Chakra UI Vue docs.
+ *
+ **/
+
 import { canUseDOM } from '../utils'
 
+/**
+ * CClickOutside component
+ *
+ * The component that listens to DOM click events and
+ * executes a function based on component props and whitelisted nodes.
+ *
+ */
 const CClickOutside = {
   name: 'CClickOutside',
   props: {

@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="40"
-    class="css-xqz7ss"
+    class="css-12d21aj"
     data-chakra-component="CBox"
     data-testid="CircularProgress"
     role="progressbar"
@@ -27,7 +27,7 @@ exports[`should render correctly 1`] = `
         stroke-width="11.111111111111112"
       />
       <circle
-        class="css-1h10kks"
+        class="css-19r75gt"
         cx="111.11111111111111"
         cy="111.11111111111111"
         data-chakra-component="CBox"

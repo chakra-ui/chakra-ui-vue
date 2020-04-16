@@ -1,9 +1,28 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CircularProgress
+ *
+ * The Circular Progress component is used to indicates the progress for both determinate and indeterminate processes.
+ *
+ * @see Docs     https://vue.chakra-ui.com/circularprogress
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/CCircularProgress.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/accessibility.md
+ */
+
+
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { getComputedProps } from './utils/circularprogress.styles'
 
 import CBox from '../CBox'
 
+/**
+ * CCircularProgress component
+ *
+ * The test label that displays the progress percentage in the `CCircularProgress`
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/circularprogress
+ */
 const CCircularProgressLabel = {
   name: 'CCircularProgressLabel',
   props: baseProps,
@@ -25,6 +44,14 @@ const CCircularProgressLabel = {
   }
 }
 
+/**
+ * CCircularProgressLabel component
+ *
+ * Indicates the progress for both determinate and indeterminate processes.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/circularprogress
+ */
 const CCircularProgress = {
   name: 'CCircularProgress',
   inject: ['$chakraColorMode'],

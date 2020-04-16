@@ -24,7 +24,7 @@ const CDivider = {
         border: 0,
         opacity: 0.6,
         borderColor: 'inherit',
-        ...forwardProps(this.$props),
+        ...forwardProps(this.$props)
       },
       attrs: {
         'aria-orientation': this.orientation

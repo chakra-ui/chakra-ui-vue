@@ -8,7 +8,6 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/accessibility.md
  */
 
-
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { getComputedProps } from './utils/circularprogress.styles'
@@ -39,6 +38,9 @@ const CCircularProgressLabel = {
         transform: 'translate(-50%, -50%)',
         fontSize: '0.25em',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CCircularProgressLabel'
       }
     }, this.$slots.default)
   }
@@ -126,7 +128,10 @@ const CCircularProgress = {
         ...rootData.props,
         ...forwardProps(this.$props)
       },
-      attrs: rootData.attrs
+      attrs: {
+        ...rootData.attrs,
+        'data-chakra-component': 'CCircularProgress'
+      }
     }, [
       h(CBox, {
         props: svgData.props,

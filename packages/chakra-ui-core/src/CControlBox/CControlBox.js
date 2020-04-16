@@ -3,7 +3,9 @@
  *
  * ControlBox provides style props to change it's styles based
  * on a sibling checkbox or radio input.
- * It relies on a common [CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
+ *
+ * In order to keep prerve accessiblity, it relies on a common
+ * [CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
  * for styling custom controls.
  *
  * > For this component to work, it should have a sibling input and be contained in a label

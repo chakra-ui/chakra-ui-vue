@@ -5,6 +5,7 @@
  *
  * @see Docs     https://vue.chakra-ui.com/divider
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDivider/CDivider.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDivider/accessibility.md
  */
 
 import CBox from '../CBox'
@@ -45,7 +46,8 @@ const CDivider = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-orientation': this.orientation
+        'aria-orientation': this.orientation,
+        'data-chakra-component': 'CDivider'
       }
     })
   }

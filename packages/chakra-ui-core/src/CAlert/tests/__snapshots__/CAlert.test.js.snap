@@ -30,7 +30,7 @@ exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
   <div
     class="css-j7qwjs"
-    data-chakra-component="CBox"
+    data-chakra-component="CFlex"
   >
     <div
       class="css-1e0vsp5"

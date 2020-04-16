@@ -36,7 +36,7 @@ exports[`should render correctly 1`] = `
       >
         <div
           class="css-l5w8ps"
-          data-chakra-component="CBox"
+          data-chakra-component="CDrawerOverlay"
         />
         <div
           class="css-13c8a1c"
@@ -48,7 +48,7 @@ exports[`should render correctly 1`] = `
             aria-labelledby="drawer-1-header"
             aria-modal="true"
             class="css-iv9bja"
-            data-chakra-component="CBox"
+            data-chakra-component="CDrawerContent"
             id="drawer-1"
             role="dialog"
             tabindex="-1"
@@ -56,7 +56,7 @@ exports[`should render correctly 1`] = `
             <button
               aria-label="Close"
               class="css-0 css-1xo4iay"
-              data-chakra-component="CCloseButton"
+              data-chakra-component="CDrawerCloseButton"
               data-testid="close-btn"
               x-close-button=""
             >

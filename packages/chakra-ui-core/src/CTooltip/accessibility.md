@@ -24,4 +24,4 @@ Tooltip widgets do not receive focus. A hover that contains focusable elements c
 - [x] The `CTooltip` element has `role` of `tooltip`.
 - [x] The `CTooltip` triggering element (default slot element) has the `aria-labelledby` attribute whose value is the id of the `CTooltip`. This id is auto generated and assigned out of the box.
 
-Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

@@ -21,4 +21,4 @@ Native HTML checkboxes are 100% accessible by default, so we use a `CControlBox`
 The `CCheckbox` component composes `CControlBox`, a component we created to make it easy to style an element based on sibling inputs.
 
 
-Noticed a bug or inconsitency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

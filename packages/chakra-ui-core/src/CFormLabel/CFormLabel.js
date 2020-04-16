@@ -5,6 +5,7 @@
  *
  * @see Docs     https://vue.chakra-ui.com/formcontrol
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFormLabel/CFormLabel.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFormLabel/accessibility.md
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.11](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.10...@chakra-ui/vue@0.3.11) (2020-04-16)
+
+
+### Bug Fixes
+
+* **divider:** fix border color ([d60d6fd](https://github.com/chakra-ui/chakra-ui-vue/commit/d60d6fd284e8561e14db193ec9e3bf473cccded8))
+* **divider:** fix border color_ ([98d6fb6](https://github.com/chakra-ui/chakra-ui-vue/commit/98d6fb62be331e8dc55bc0d2402b8f91b3f6d98f))
+* **tooltip:** assign aria-describedby on mouseover ([3ff348e](https://github.com/chakra-ui/chakra-ui-vue/commit/3ff348eac7421b9aa304bb1b98615d84bcafb1d3))
+* **tooltip:** dismiss tooltip when tooltip element is focused on escape ([e48ca12](https://github.com/chakra-ui/chakra-ui-vue/commit/e48ca12e1789e93b697bc0831d797de20cbfa3fd))
+
+
+### Features
+
+* update tooltip component sig ([882f90e](https://github.com/chakra-ui/chakra-ui-vue/commit/882f90e30cc92c31238c245a3d10ab4a4b1e01bb))
+* **controlbox:** add controlbox jsdoc ([f1a9820](https://github.com/chakra-ui/chakra-ui-vue/commit/f1a9820de3eb9aba3379764c9739e442ef47fee2))
+* **controlbox:** update controlbox jsdoc strategy ([da6d027](https://github.com/chakra-ui/chakra-ui-vue/commit/da6d0279c894f30b5f6ae34f6da867c05c1d6432))
+* add circular progress ally report ([dce3dea](https://github.com/chakra-ui/chakra-ui-vue/commit/dce3dea52b76b21309db9f67af2476d8f8b3f729))
+
+
+
+
+
 ## [0.3.10](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.9...@chakra-ui/vue@0.3.10) (2020-04-12)
 
 **Note:** Version bump only for package @chakra-ui/vue

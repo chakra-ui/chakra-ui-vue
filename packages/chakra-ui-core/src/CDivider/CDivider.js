@@ -19,12 +19,12 @@ const CDivider = {
 
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         ...borderProps,
         as: 'hr',
         border: 0,
         opacity: 0.6,
-        borderColor: 'inherit'
+        borderColor: 'inherit',
+        ...forwardProps(this.$props),
       },
       attrs: {
         'aria-orientation': this.orientation

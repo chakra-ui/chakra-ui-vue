@@ -34,6 +34,7 @@ const CCircularProgress = {
     }
   },
   props: {
+    ...baseProps,
     size: {
       type: String,
       default: '48px'
@@ -68,8 +69,7 @@ const CCircularProgress = {
     color: {
       type: String,
       default: 'blue'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const _trackColor = { light: `${this.trackColor}.100`, dark: 'whiteAlpha.300' }

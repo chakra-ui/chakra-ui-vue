@@ -1,3 +1,18 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue ControlBox
+ *
+ * ControlBox provides style props to change it's styles based
+ * on a sibling checkbox or radio input.
+ * It relies on a common [CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
+ * for styling custom controls.
+ *
+ * > For this component to work, it should have a sibling input and be contained in a label
+ *
+ * @see Docs     https://vue.chakra-ui.com/closebutton
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/CCloseButton.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/accessibility.md
+ */
+
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { tx, forwardProps } from '../utils'
@@ -8,6 +23,14 @@ import CBox from '../CBox'
 // Default ControlBox props types
 const PseudoPropTypes = [Object, Array]
 
+/**
+ * CControlBox component
+ *
+ * Provides a wrapper to create custom style `radio` and `checkbox` inputs
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/controlbox
+ */
 const CControlBox = {
   name: 'CControlBox',
   inject: ['$chakraTheme'],
@@ -83,7 +106,8 @@ const CControlBox = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'aria-hidden': 'true'
+        'aria-hidden': 'true',
+        'data-chakra-component': 'CControlBox'
       }
     }, this.$slots.default)
   }

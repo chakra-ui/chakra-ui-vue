@@ -2,9 +2,13 @@
   "name": "root",
   "private": true,
   "maintainers": [
-    "Jonathan Bakebwa <jonas@akkadu-team.com>"
+    "Jonathan Bakebwa <codebender828@gmail.com"
   ],
-  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
+  },
   "workspaces": {
     "packages": [
       "packages/*"

@@ -188,6 +188,7 @@ const CTooltip = {
           },
           attrs: {
             ...cloned.data.attrs,
+            ...(this.isOpen && { 'aria-describedby': this.tooltipId }),
             'x-tooltip-anchor': `${this.tooltipId}`
           },
           on: cloned.componentOptions.listeners,

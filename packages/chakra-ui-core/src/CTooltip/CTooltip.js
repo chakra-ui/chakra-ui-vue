@@ -83,6 +83,12 @@ const CTooltip = {
     handleClick () {
       this.closeOnClick && this.closeOnClick()
       this.$emit('click')
+    },
+    handleKeydown (event) {
+      const { key } = event
+      if (key === 'Escape') {
+        this.handleClose()
+      }
     }
   },
   props: tooltipProps,
@@ -126,7 +132,8 @@ const CTooltip = {
             mouseleave: this.handleClose,
             click: this.handleClick,
             focus: this.handleOpen,
-            blur: this.handleClose
+            blur: this.handleClose,
+            keydown: this.handleKeydown
           },
           ref: 'tooltipRef'
         }, children[0].text)
@@ -156,11 +163,12 @@ const CTooltip = {
           },
           on: cloned.componentOptions.listeners,
           nativeOn: {
-            'mouseenter': this.handleOpen,
-            'mouseleave': this.handleClose,
-            'click': wrapEvent(this.handleClick, (e) => this.$emit('click', e)),
-            'focus': this.handleOpen,
-            'blur': this.handleClose
+            mouseenter: this.handleOpen,
+            mouseleave: this.handleClose,
+            click: wrapEvent(this.handleClick, (e) => this.$emit('click', e)),
+            focus: this.handleOpen,
+            blur: this.handleClose,
+            keydown: this.handleKeydown
           }
         }, cloned.componentOptions.children)
       }

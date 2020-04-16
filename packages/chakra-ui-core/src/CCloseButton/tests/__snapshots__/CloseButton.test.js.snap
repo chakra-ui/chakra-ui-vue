@@ -5,7 +5,7 @@ exports[`should render correctly 1`] = `
   <button
     aria-label="Close"
     class="css-0 css-12btrym"
-    data-chakra-component="CPseudoBox"
+    data-chakra-component="CCloseButton"
   >
     <svg
       aria-hidden="true"

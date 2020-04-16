@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-i6bazn"
-    data-chakra-component="CBox"
+    data-chakra-component="CCollapse"
   >
     <div
       class="css-i6bazn"

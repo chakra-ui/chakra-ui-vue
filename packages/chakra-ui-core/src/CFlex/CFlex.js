@@ -1,10 +1,25 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Flex
+ *
+ * `CFlex` is `CBox` with `display: flex` and comes with
+ * helpful style shorthands. It renders a `div` element.
+ *
+ * @see Docs     https://vue.chakra-ui.com/flex
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFlex/CFlex.js
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
 /**
- * Flex is Box with display: flex and comes with helpful style shorthand. It renders a div element.
+ * CFlex component
+ *
+ * `CFlex` is `CBox` with display: flex and comes with helpful style shorthands.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/flex
  */
 const CFlex = {
   name: 'CFlex',
@@ -29,6 +44,9 @@ const CFlex = {
         h: this.size,
         w: this.size,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CFlex'
       }
     }, this.$slots.default)
   }

@@ -34,4 +34,4 @@ Escape: Closes the dialog.
 - [x] Chakra's alert dialog container element has the `role` of `alertdialog`. The component that provides this is teh `CAlertDialogContent`.
 - [x] The `CAlertDialogContent` element has the `aria-labelledby` attribute whose value is the id of the `CAlertDialogHeader`. This id is auto generated and assigned out of the box. However, it can also be customized by the consumer. In order to keep the `CAlertDialog` accessible, always provide the `CAlertDialogHeader` component inside the `CAlertDialogContent` component.
 
-Noticed a bug or inconsitency with the component you just consumed? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

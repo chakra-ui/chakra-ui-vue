@@ -1,3 +1,18 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Editable
+ *
+ * EditableText is used for inline renaming of some text.
+ *
+ * It appears as normal UI text but transforms into a text
+ * input field when the user clicks or focuses on it.
+ *
+ * The text input inherits all font styling from its parent,
+ * to make the edit and read view transition seamless.
+ *
+ * @see Docs     https://vue.chakra-ui.com/editable
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CEditable/CEditable.js
+ */
+
 import styleProps, { baseProps } from '../config/props'
 import { isDef, getElement, useId, forwardProps } from '../utils'
 
@@ -15,6 +30,14 @@ const sharedEditableProps = {
   mx: '-3px'
 }
 
+/**
+ * CEditable component
+ *
+ * The wrapper for `CEditable` components. It provides context and state for the Editable components.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/editable
+ */
 const CEditable = {
   name: 'CEditable',
   props: {
@@ -165,7 +188,10 @@ const CEditable = {
   },
   render (h) {
     return h(CBox, {
-      props: forwardProps(this.$props)
+      props: forwardProps(this.$props),
+      attrs: {
+        'data-chakra-component': 'CEditable'
+      }
     }, [
       this.$scopedSlots.default({
         isEditing: this.isEditing,
@@ -177,6 +203,14 @@ const CEditable = {
   }
 }
 
+/**
+ * CEditablePreview component
+ *
+ * The read-only view of the component.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/editable
+ */
 const CEditablePreview = {
   name: 'CEditablePreview',
   inject: ['$EditableContext'],
@@ -218,7 +252,8 @@ const CEditablePreview = {
       },
       attrs: {
         'aria-disabled': isDisabled,
-        tabIndex: this.tabIndex
+        tabIndex: this.tabIndex,
+        'data-chakra-component': 'CEditablePreview'
       },
       nativeOn: {
         focus: onRequestEdit
@@ -227,6 +262,14 @@ const CEditablePreview = {
   }
 }
 
+/**
+ * CEditableInput component
+ *
+ * The edit view of the component. It shows when you click or focus on the text.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/editable
+ */
 const CEditableInput = {
   name: 'CEditableInput',
   inject: ['$EditableContext'],
@@ -285,7 +328,8 @@ const CEditableInput = {
         disabled: isDisabled,
         'aria-disabled': isDisabled,
         value,
-        placeholder
+        placeholder,
+        'data-chakra-component': 'CEditableInput'
       }
     }, this.$slots.default)
   }

@@ -1,8 +1,28 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Collapse
+ *
+ * The Collapse component is used to create regions of content
+ * that can expand/collapse with a simple animation. It helps to hide
+ * content that's not immediately relevant to the user.
+ *
+ * @see Docs     https://vue.chakra-ui.com/collapse
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCollapse/CCollapse.js
+ */
+
 import { CAnimateHeight } from '../CTransition'
 import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
+/**
+ * CCollapse component
+ *
+ * Create regions of content that can expand/collapse
+ * with a simple animation.
+ *
+ * @extends CAnimateHeight
+ * @see Docs https://vue.chakra-ui.com/collpse
+ */
 const CCollapse = {
   name: 'CCollapse',
   props: {
@@ -38,6 +58,9 @@ const CCollapse = {
       on: {
         enter: (e) => this.$emit('start', e),
         leave: (e) => this.$emit('finish', e)
+      },
+      attrs: {
+        'data-chakra-component': 'CCollapse'
       }
     }, [h(CBox, {
       props: {

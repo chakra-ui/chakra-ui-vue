@@ -1,14 +1,18 @@
 {
   "name": "@chakra-ui/theme-vue",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Default theme for @chakra-ui/vue default theme object",
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
+  },
   "keywords": [
     "chakra",
     "ui",
     "vue",
     "theme"
   ],
-  "author": "Jonathan Bakebwa <excellence@jbakebwa.dev>",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue#readme",
   "license": "MIT",
   "main": "src/index.js",

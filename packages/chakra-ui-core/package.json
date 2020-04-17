@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.3.10",
+  "version": "0.3.12",
   "description": "Build Accessible and Responsive Vue.js applications with ease",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,11 @@
   "maintainers": [
     "Jonathan Bakebwa <jonas@akkadu-team.com>"
   ],
-  "author": "Jonathan Bakebwa <jonas@akkadu-team.com>",
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
+  },
   "license": "MIT",
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue",

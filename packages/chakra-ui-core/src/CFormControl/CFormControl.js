@@ -1,9 +1,35 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue FormControl
+ *
+ * `CFormControl` provides context such as isInvalid,
+ * isDisabled, and isRequired to form elements.
+ * This context is used by the following components:
+ *
+ * - `CFormControl` - Provides context such as `isInvalid`, `isDisabled`, and `isRequired` to form elements.
+ * - `CFormLabel` - Label for the Form input
+ * - `CFormErrorMessage` - Displays validation message content if it received `isInvalid` from context
+ * - `CFormHelperText` - Used to display helpful hints to the use on how to use an input.
+ *
+ * @see Docs     https://vue.chakra-ui.com/formcontrol
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFormControl/CFormControl.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFormControl/accessibility.md
+ * @see WAI      https://www.w3.org/WAI/tutorials/forms/
+ */
+
 import { baseProps } from '../config'
 import { forwardProps } from '../utils'
 import { formControlProps } from './utils/formcontrol.props'
 
 import CBox from '../CBox'
 
+/**
+ * CFormControl component
+ *
+ * Provides context such as `isInvalid`, `isDisabled`, and `isRequired` to form elements.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/formcontrol
+ */
 const CFormControl = {
   name: 'CFormControl',
   props: {
@@ -69,7 +95,8 @@ const CFormControl = {
     return h(CBox, {
       props: forwardProps(this.$props),
       attrs: {
-        role: 'group'
+        role: 'group',
+        'data-chakra-component': 'CFormControl'
       }
     }, this.$slots.default)
   }

@@ -56,7 +56,7 @@ exports[`should render correctly 1`] = `
             <button
               aria-label="Close"
               class="css-0 css-1hoaduj"
-              data-chakra-component="CPseudoBox"
+              data-chakra-component="CCloseButton"
               data-testid="close-btn"
               x-close-button=""
             >

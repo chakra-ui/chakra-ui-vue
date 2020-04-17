@@ -1,9 +1,26 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Code
+ *
+ * Code is a component used to display inline code.
+ *
+ * @see Docs     https://vue.chakra-ui.com/code
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCode/CCode.js
+ */
+
 import useBadgeStyle from '../CBadge/utils/badge.styles'
 import { useVariantColorWarning, forwardProps } from '../utils'
 import { baseProps } from '../config/props'
 
 import CBox from '../CBox'
 
+/**
+ * CCode component
+ *
+ * Inline code component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/code
+ */
 const CCode = {
   name: 'CCode',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -42,6 +59,9 @@ const CCode = {
         rounded: 'sm',
         ...this.badgeStyle,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CCode'
       }
     }, this.$slots.default)
   }

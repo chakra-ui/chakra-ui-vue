@@ -55,7 +55,7 @@ const CCheckboxGroup = {
     _values () {
       return this.isControlled ? this.value : this.values
     },
-    _name () {
+    checkboxName () {
       return this.name || `checkbox-group-${useId()}`
     }
   },
@@ -89,7 +89,7 @@ const CCheckboxGroup = {
         props: {
           size: this.size,
           variantColor: this.variantColor,
-          name: `${this.name}-${index}`,
+          name: `${this.checkboxName}-${index}`,
           isChecked: this._values.includes(vnode.componentOptions.propsData.value)
         },
         on: {

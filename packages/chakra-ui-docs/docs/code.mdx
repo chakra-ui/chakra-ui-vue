@@ -1,1 +1,48 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Code"
+  description="Code is a component used to display inline code. It is composed from the Box component with a font family of `mono` for displaying code."
+/>
+
 # Code
+
+Code is a component used to display inline code. It is composed from the
+[Box](/box) component with a font family of `mono` for displaying code.
+
+## Import
+
+```js
+import { CCode } from '@chakra-ui/vue';
+```
+
+
+## Usage
+
+```vue live=true
+<c-code>Hello world</c-code>
+```
+
+### Colors
+
+You can change the color scheme of the component by passing the `variantColor`
+prop.
+
+```vue live=true
+<c-stack is-inline>
+  <c-code>console.log(welcome)</c-code>
+  <c-code variant-color="red">var chakra = 'awesome!'></c-code>
+  <c-code variant-color="yellow">npm install chakra</c-code>
+</c-stack>
+```
+
+## Props
+
+| Name           | Type              | Default | Description                           |
+| -------------- | ----------------- | ------- | ------------------------------------- |
+| `variantColor` | `string`          |         | The color scheme to use for the code. |
+
+## Slots
+| Name       | Description                                                                       |
+| ---------- | --------------------------------------------------------------------------------- |
+| default    | Used for the `CCode` content                                                      |

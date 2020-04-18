@@ -1,1 +1,54 @@
 # Divider
+
+Dividers are used to display a thin horizontal or vertical line.
+
+Divider composes `CBox` so you can use all the style props and add responsive
+styles as well. It renders an `<hr>` tag by default.
+
+## Import
+
+```js
+import { CDivider } from "@chakra-ui/vue";
+```
+
+## Usage
+
+It renders an horizontal divider by default.
+
+```vue live=true
+<c-divider />
+```
+
+### Changing the orientation
+
+To change the orientation of the divider, pass the `orientation` prop and set it
+to either `vertical` or `horizontal`
+
+```vue live=true
+<c-flex>
+  <span>Part 1</span>
+  <c-divider orientation="vertical" />
+  <span>Part 2</span>
+</c-flex>
+```
+
+### Changing the border color
+
+To change the border color of the divider, as you can guess, pass the
+`borderColor` prop.
+
+```vue live=true
+<c-box>
+  <span>Part 1</span>
+  <c-divider border-color="red.200" />
+  <span>Part 2</span>
+</c-box>
+```
+
+## Props
+
+The `CDivider` composes the [Box](/box) component, so you can pass all `CBox` props.
+
+| Name          | Type                     | Default      | Description     |
+| ------------- | ------------------------ | ------------ | --------------- |
+| `orientation` | `horizontal`, `vertical` | `horizontal` | The orientation |

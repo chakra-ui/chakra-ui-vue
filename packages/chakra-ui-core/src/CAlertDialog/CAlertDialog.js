@@ -108,6 +108,7 @@ const CAlertDialogContent = {
  */
 const CAlertDialogOverlay = CModalOverlay
 CAlertDialogOverlay.name = 'CAlertDialogOverlay'
+
 /**
  * CAlertDialogBody component
  *

@@ -29,10 +29,10 @@ storiesOf('UI | Editable', module)
     components: { CBox, CEditable, CEditablePreview, CEditableInput },
     template: `
     <CBox w="sm">
-        <CEditable defaultValue="Take some chakra ⚡️ (click me)" fontSize="2xl">
+      <CEditable defaultValue="Take some chakra ⚡️ (click me)" fontSize="2xl">
         <CEditablePreview />
         <CEditableInput />
-        </CEditable>
+      </CEditable>
     </CBox>
     `
   }))

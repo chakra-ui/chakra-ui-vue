@@ -1,3 +1,16 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CloseButton
+ *
+ * The CloseButton is essentially a button with a close icon.
+ *
+ * It is used to handle the close functionality in feedback
+ * and overlay components like Alerts, Toasts, Drawers and Modals.
+ *
+ * @see Docs     https://vue.chakra-ui.com/closebutton
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/CCloseButton.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/accessibility.md
+ */
+
 import styleProps from '../config/props'
 import { forwardProps } from '../utils'
 
@@ -38,6 +51,14 @@ const sizes = {
   }
 }
 
+/**
+ * CCloseButton component
+ *
+ * Component as button with close icon
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/closebutton
+ */
 const CCloseButton = {
   name: 'CCloseButton',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -90,7 +111,8 @@ const CCloseButton = {
       },
       attrs: {
         'aria-label': this._ariaLabel,
-        'aria-disabled': this.isDisabled
+        'aria-disabled': this.isDisabled,
+        'data-chakra-component': 'CCloseButton'
       }
     }, [h(CIcon, {
       props: {

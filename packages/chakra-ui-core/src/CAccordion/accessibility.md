@@ -27,4 +27,4 @@ An accordion is a vertically stacked set of interactive headings that each conta
 - [x] The `CAccordionHeader` button element has `aria-controls` set to the id corresponding `CAccordionPanel`
 - [x] If the `CAccordionPanel` associated with a given `CAccordionHeader` is visible, and if the accordion does not permit the panel to be collapsed, the `CAccordionHeader` button element has `aria-disabled` set to true.
 
-Noticed a bug or inconsitency with the component you just consumed? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

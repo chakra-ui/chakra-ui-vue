@@ -1,1 +1,104 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Heading"
+  description="Headings are used for rendering headlines."
+/>
+
 # Heading
+
+Headings are used for rendering headlines.
+
+Heading composes `CBox` so you can use all the style props and add responsive
+styles as well. It renders an `<h2>` tag by default.
+
+## Import
+
+```js
+import { CHeading } from '@chakra-ui/vue';
+```
+
+## Usage
+
+```vue live
+<c-heading>I'm a Heading</c-heading>
+```
+
+### Changing font size
+
+To increase the size of the heading, you can use the `fontSize` or `size` prop.
+If you use the `size` prop, the font size of the heading will automatically
+decrease in size for smaller screens.
+
+
+```vue live=true
+<c-stack spacing="3">
+  <c-heading as="h1" size="2xl">
+    In love with Vue & Nuxt
+  </c-heading>
+  <c-heading as="h2" size="xl">
+    In love with Vue & Nuxt
+  </c-heading>
+  <c-heading as="h3" size="lg">
+    In love with Vue & Nuxt
+  </c-heading>
+  <c-heading as="h4" size="md">
+    In love with Vue & Nuxt
+  </c-heading>
+  <c-heading as="h5" size="sm">
+    In love with Vue & Nuxt
+  </c-heading>
+  <c-heading as="h6" size="xs">
+    In love with Vue & Nuxt
+  </c-heading>
+</c-stack>
+```
+
+### Truncate heading
+
+Pass the `isTruncated` prop to render an ellipsis when the headings exceeds
+```vue live
+<c-heading>
+  Basic text writing, including headings, body text, lists, and more.
+</c-heading>
+```
+
+### Override style
+
+You can override the size of the Heading component by passing the `fontSize`
+prop.
+
+<br />
+
+```vue live
+<c-heading  size="lg" fontSize="50px">
+  I'm overriding this heading
+</c-heading>
+```
+
+## Composition
+
+```vue live=true
+// Example from paystack.com
+
+<c-box max-w="32rem">
+  <c-heading mb="4">Modern online and offline payments for Africa</c-heading>
+  <c-text font-size="xl">
+    Paystack helps businesses in Africa get paid by anyone, anywhere in the
+    world
+  </c-text>
+  <c-button size="lg" variant-color="green" mt="24px">
+    Create a free account
+  </c-button>
+</c-box>
+```
+
+
+## Props
+
+> The `CHeading` composes the `CBox` component. So it accepts all Box props along with the related CSS grid props. See <nuxt-link to="/box#props">Box</nuxt-link> component for list of props
+
+| Name   | Values                               | Default | Description              |
+| ------ | ------------------------------------ | ------- | ------------------------ |
+| `size` | `2xl`, `xl` , `lg`, `md`, `sm`, `xs`  | `xl`    | The size of the heading. |
+| `as`   | `h1`, `h2` , `h3`, `h4`, `h5`, `h6`   | `h2`    | The final tag rendered.  |

@@ -1,1 +1,171 @@
+import { CGrid, CFlex, CIcon, CText } from "@chakra-ui/vue";
+import icons from '../../chakra-ui-core/src/lib/internal-icons.js'
+import SEO from "../components/SEO";
+
+<SEO
+  title="Icon"
+  description="Use the `<Icon>` component to easily render `<svg>` icons."
+/>
+
 # Icon
+
+Use the `<CIcon>` component to easily render `<svg>` icons. Chakra UI provides
+basic interface icons, to add your icons,
+[read the guide](#adding-custom-icons).
+
+> Avoid passing `v-on:click` handlers to the `CIcon` component. If you need a
+> clickable icon, use the [IconButton](/iconbutton) component instead.
+
+## Import
+
+```js
+import { CIcon } from "@chakra-ui/vue";
+```
+
+Use an icon by passing the `name` props. This name must match an icon key in
+`theme.icons`. By default, the icon inherits the fontSize and color of it's
+parent.
+
+```vue live=true
+<c-stack is-inline>
+  <!-- Default size is 1em => 16px -->
+  <c-icon name="phone" />
+
+  <!-- Use the `size` prop to change the icon size -->
+  <c-icon name="_check-circle" size="24px" />
+
+  <!-- Use the `color` prop to change the icon color -->
+  <c-icon name="warning" size="32px" color="red.500" />
+</c-stack>
+```
+
+### All Icons
+
+Here's a list of the default icons Chakra UI comes with and their respective
+`name`. You add your own icons as well, [see the guide](#adding-custom-icons)
+
+<br />
+
+<CGrid mt={7} gap={5} templateColumns="repeat( auto-fit, minmax(120px, 1fr) )">
+  {Object.keys(icons).map(icon => (
+    <CFlex
+      rounded="md"
+      borderWidth="1px"
+      p={3}
+      flexDir="column"
+      align="center"
+      justify="center"
+    >
+      <CIcon color="gray.700" name={icon} size="1.25em" />
+      <CText mt={2} fontSize="sm" textAlign="center">
+        {icon}
+      </CText>
+    </CFlex>
+  ))}
+</CGrid>
+
+
+## Using an icon library
+
+Most times, you might need to use icons from a popular icon library like
+[fontawesome](https://fontawesome.com/). Here's how to go about it.
+
+Make sure to install the fontawesome font package [according to this guide](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers)
+
+In your `main.js` file import the icons you wish to use and add them to the Chakra plugin before mounting your app.
+
+```js
+import Vue from 'vue'
+import Chakra from '@chakra-ui/vue'
+
+// Import FontAwesome icons
+import { faGlobeAfrica, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+Vue.use(Chakra, {
+  icons: {
+    // Here we state that we use `fa`
+    // icons library for Chakra's
+    // internal icon parser
+    iconPack: 'fa',
+    iconSet: {
+      faGlobeAfrica,
+      faEnvelope
+    }
+  }
+})
+```
+
+## Adding custom icons
+
+All Chakra icons are registered in the Chakra plugin under the `icons.extend` key. So you
+can extend this object to add your own icons. Here are the steps:
+
+- Export the icon's `svg` from Figma, Sketch, etc.
+- Use a tool like [SvgOmg](https://svgomg.firebaseapp.com) to reduce the size
+  and minify the markup.
+- Add the icon to the theme object.
+
+> Add the `fill=currentColor` attribute to the `path` or `g` so that when you
+> this `<Icon color="gray.200"/>`, it works correctly.
+
+<br />
+
+```js
+// Step 1: Each icon should be stored as an object of `path` and `viewBox`
+const customIcons = {
+  icon1: {
+    path: `<path fill="currentColor" d="..." />`,
+    // If the icon's viewBox is `0 0 24 24`, you can ignore `viewBox`
+    viewBox: "0 0 40 40",
+  },
+  icon2: {
+    path: `
+      <g fill="currentColor">
+        <path d="..."/>
+      </g>
+    `
+  }
+};
+
+// Step 2: Add the custom icon to the Chakra plugin
+Vue.use(Chakra, {
+  icons: {
+    // ...
+    extend: {
+      ...customIcons
+    }
+  }
+})
+```
+
+You can now consume your custom icons in your template like this:
+
+```vue
+<template>
+  <c-icon icon="icon1" color="yellow.600" />
+  <c-icon icon="icon2" color="green.300" />
+</template>
+```
+
+> You can access the full merged icons object under `this.$chakra.icons` in your Vue components.
+
+### Icon Fallbacks
+
+If you pass an icon name that doesn't exist in `this.$chakra.icons` , you'll see the
+`question-outline` icon.
+
+```vue live=true
+<c-icon name="naruto" />
+```
+
+## Props
+
+The `CIcon` composes the `CBox` component. So it accepts all Box props. See <nuxt-link to="/box#props">Box</nuxt-link> component for list of props
+
+| Name        | Type                  | Default        | Description                                                                         |
+| ----------- | --------------------- | -------------- | ----------------------------------------------------------------------------------- |
+| `size`      | `string`              | `1em`          | The size of the icon.                                                               |
+| `name`      | `string`              |                | The name of the icon.                                                               |
+| `color`     | `string`              | `currentColor` | The color of the icon.                                                              |
+| `focusable` | `boolean`             | `false`        | Denotes that the icon is not an interative element, and only used for presentation. |
+| `role`      | `presentation`, `img` | `presentation` | The html role of the icon.                                                          |

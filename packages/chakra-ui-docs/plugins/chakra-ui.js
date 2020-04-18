@@ -11,7 +11,10 @@ import {
   faPalette,
   faGlobeAfrica,
   faEnvelope,
-  faBars } from '@fortawesome/free-solid-svg-icons'
+  faBars,
+  faEdit,
+  faSearch,
+  faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 
@@ -38,7 +41,10 @@ Vue.use(Chakra.default, {
       faLinkedin,
       faGlobeAfrica,
       faEnvelope,
-      faBars
+      faBars,
+      faEdit,
+      faSearch,
+      faCoffee
     },
     extend: {
       'storybook': {

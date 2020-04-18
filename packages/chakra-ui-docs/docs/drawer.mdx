@@ -1,1 +1,252 @@
+import SEO from "../components/SEO";
+import Vue from 'vue'
+import { CInput } from '@chakra-ui/vue'
+Vue.component('CInput', CInput)
+
+<SEO
+  title="Drawer"
+  description="The Drawer component is a panel that slides out from the edge of the screen. It can be useful when you need users to complete a task or view some details without leaving the current page."
+/>
+
 # Drawer
+
+The Drawer component is a panel that slides out from the edge of the screen. It
+can be useful when you need users to complete a task or view some details
+without leaving the current page.
+
+<br />
+
+```js
+import {
+  CDrawer,
+  CDrawerBody,
+  CDrawerFooter,
+  CDrawerHeader,
+  CDrawerOverlay,
+  CDrawerContent,
+  CDrawerCloseButton,
+} from '@chakra-ui/vue';
+```
+
+## Usage
+
+### Basic Drawer
+
+```vue live=true browser=true
+<template>
+  <div>
+    <c-button ref="btnRef" @click="isOpen =true">Open Drawer</c-button>
+
+    <c-drawer :isOpen="isOpen" placement="right" :on-close="close" :initialFocusRef="()=>$refs.inputInsideModal">
+      <c-drawer-overlay />
+      <c-drawer-content>
+      <c-drawer-close-button />
+      <c-drawer-header>Create your account</c-drawer-header>
+
+      <c-drawer-body>
+        <c-input ref="inputInsideModal" placeholder="Type here..." />
+      </c-drawer-body>
+
+      <c-drawer-footer>
+        <c-button variant="outline" mr="3" @click="isOpen = false">Cancel</c-button>
+        <c-button variant-color="blue">Save</c-button>
+      </c-drawer-footer>
+      </c-drawer-content>
+    </c-drawer>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    close () {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Drawer placement
+
+The Drawer can appear from any edge of the screen. Pass the `placement` prop and
+set it to `top`, `right`, `bottom`, or `left`.
+
+```vue live=true brower=true
+<template>
+  <div>
+    <c-radio-group
+      is-inline
+      :spacing="5"
+      mb="6"
+      :default-value="placement"
+      @change="setPlacement"
+    >
+      <c-radio value="top">Top</c-radio>
+      <c-radio value="right">Right</c-radio>
+      <c-radio value="bottom">Bottom</c-radio>
+      <c-radio value="left">Left</c-radio>
+    </c-radio-group>
+
+    <c-button @click="isOpen =true">Open</c-button>
+
+    <c-drawer :placement="placement" :on-close="close" :isOpen="isOpen">
+      <c-drawer-overlay />
+      <c-drawer-content>
+        <c-drawer-header borderBottomWidth="1px">Basic Drawer</c-drawer-header>
+        <c-drawer-body>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </c-drawer-body>
+      </c-drawer-content>
+    </c-drawer>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        isOpen: false,
+        placement: 'right'
+      }
+    },
+    methods: {
+      setPlacement(value) {
+        this.placement = value
+      },
+      close () {
+        this.isOpen = false
+      }
+    }
+  }
+</script>
+```
+
+### Focus on specific element
+
+When a form is in the drawer, you might need to set focus on a specific element
+when the drawer opens. Pass the `initialFocusRef` prop.
+
+> Without the `initialFocusRef` prop, the drawer will set focus on the **first
+> focusable element** when it opens.
+
+```vue live=true browser=true
+<template>
+  <div>
+    <c-button ref="btnRef" left-icon="add" variant-color="vue" @click="isOpen =true">Create user</c-button>
+
+    <c-drawer
+      :isOpen="isOpen"
+      placement="right"
+      :on-close="close"
+      :initialFocusRef="() => $refs.firstField"
+      :finalFocusRef="$refs.btnRef"
+    >
+      <c-drawer-overlay />
+      <c-drawer-content>
+      <c-drawer-close-button />
+      
+      <c-drawer-header>
+        Create a new account
+      </c-drawer-header>
+
+      <c-drawer-body>
+        <c-form-control>
+          <c-stack spacing="24px">
+              <c-box>
+                <c-form-label for="username">Name</c-form-label>
+                <c-input
+                  ref="firstField"
+                  id="username"
+                  placeholder="Please enter user name"
+                />
+              </c-box>
+
+              <c-box>
+                <c-form-label for="url">Url</c-form-label>
+                <c-input-group>
+                  <c-input-left-addon>https://</c-input-left-addon>
+                  <c-input
+                    type="url"
+                    id="url"
+                    placeholder="Please enter website"
+                    rounded="0"
+                  />
+                  <c-input-right-addon>.com</c-input-right-addon>
+                </c-input-group>
+              </c-box>
+
+              <c-box>
+                <c-form-label for="owner">Select Owner</c-form-label>
+                <c-select id="owner" v-model="owner">
+                  <option value="jonathan">Jonathan Bakebwa</option>
+                  <option value="mesut">Mesut Koca</option>
+                  <option value="kelvin">Kelvin Omereshone</option>
+                </c-select>
+              </c-box>
+
+              <c-box>
+                <c-form-label for="desc">Description</c-form-label>
+                <c-textarea id="desc" />
+              </c-box>
+          </c-stack>
+        </c-form-control>
+      </c-drawer-body>
+
+      <c-drawer-footer>
+        <c-button mr="3" @click="isOpen = false">Cancel</c-button>
+        <c-button variant-color="blue">Save</c-button>
+      </c-drawer-footer>
+      </c-drawer-content>
+    </c-drawer>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false,
+      owner: 'jonathan'
+    }
+  },
+  methods: {
+    close () {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+## Accessibility
+
+- When opening the Drawer, focus is trapped inside the `CDrawer`.
+- By default, the drawer sets focus on the first focusable element. If the
+  `initialFocusRef` prop is passed, the drawer sets focus on the element with
+  the assigned `ref`.
+- After the `CDrawer` closes, it'll return focus to the element that triggered it.
+
+
+## Props
+
+### `CDrawer` Props
+
+> `CDrawer` composes the `CModal` component with these extra props. So all Modal props apply here. See <nuxt-link to="/modal#props">Modal</nuxt-link> component for list of props
+
+| Name           | Type                             | Default | Description                                                                                         |
+| -------------- | -------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `isFullHeight` | `boolean`                        | `false` | If `true` and `placement` is set to `top` or `bottom`, the drawer fills the height of the viewport. |
+| `placement`    | `left`, `right`, `top`, `bottom`  | `right` | The ref to the initial element to receive focus when the drawer opens.                              |
+
+### Other components
+
+- `CDrawerOverlay`, `CDrawerFooter`, `CDrawerHeader` and `CDrawerBody` composes `CBox` component
+- `CDrawerCloseButton` composes `CCloseButton`

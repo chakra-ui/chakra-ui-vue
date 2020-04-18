@@ -1,1 +1,91 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Image"
+  description="The Image component is used to display images."
+/>
+
 # Image
+
+The Image component is used to display images.
+
+Image composes `CBox` so you can use all the style props and add responsive
+styles as well.
+
+## Import
+
+```js
+import { CImage } from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-box w="sm">
+  <c-image src="https://bit.ly/chakra-jonathan-bakebwa" alt="Jonathan Bakebwa" />
+</c-box>
+```
+
+## Size
+
+The size of the image can be adjusted using the `size` prop.
+
+```vue live=true
+<c-stack is-inline>
+  <c-image
+    w="100px"
+    h="100px"
+    objectFit="cover"
+    src="https://bit.ly/sage-adebayo"
+    alt="Segun Adebayo"
+  />
+  <c-image
+    w="150px"
+    h="150px"
+    objectFit="cover"
+    src="https://bit.ly/chakra-naruto-uzumaki"
+    alt="Naruto Uzumaki"
+  />
+  <c-image w="200px" h="200px" src="https://bit.ly/chakra-sarah-drasner" alt="Sarah Drasner" />
+</c-stack>
+```
+
+## Rounded Image
+
+```vue live=true
+<c-image
+  rounded="full"
+  h="150px"
+  w="150px"
+  src="https://bit.ly/chakra-jonathan-bakebwa"
+  alt="Jonathan Bakebwa"
+/>
+```
+
+## Fallback support
+
+You can provide a fallback image for when there is an error loading the `src` of
+the image. You can also opt out of this behavior by passing the `ignoreFallback`
+prop.
+
+```vue live=true
+<c-image src="gibberish.png" fallback-src="https://via.placeholder.com/150" />
+```
+
+| Name             | Type               | Default | Description                                                                                                                  |
+| ---------------- | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `src`            | `string`           |         | The path to the image source                                                                                                 |
+| `fallbackSrc`    | `string`           |         | In event there was an error loading the `src`, specify a fallback. In most cases, this can be an avatar or image placeholder |
+| `alt`            | `string`           |         | The alt text that describes the image                                                                                        |
+| `onLoad`         | `function`         |         | A callback for when the image `src` has been loaded                                                                          |
+| `onError`        | `function`         |         | A callback for when there was an error loading the image `src`                                                               |
+| `htmlWidth`      | `string`, `number` |         | The native HTML width attribute of the `img` element                                                                         |
+| `htmlHeight`     | `string`, `number` |         | The native HTML height attribute of the `img` element                                                                        |
+| `ignoreFallback` | `boolean`          |         | Opt out of the `fallbackSrc` logic and use the `Image` directly                                                              |
+
+## Events
+
+| Name       | Payload   | Description                                                                                                  |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `@load`    | `-`       | The event emitted when the the image `src` has been loaded                                                    |
+| `@error`   | `-`       | The event emitted when an error occurs when loading the image `src`                                           |

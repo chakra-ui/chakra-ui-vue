@@ -91,11 +91,17 @@ const CodeBlock = props => ({
         }, this.copyButtonText)
       ])
     } else {
-      return h(LiveEditor, {
+      const liveEditor = h(LiveEditor, {
         props: {
           code
         }
       })
+
+      if (props.browser) {
+        return h('client-only', [liveEditor])
+      } else {
+        return liveEditor
+      }
     }
   }
 })

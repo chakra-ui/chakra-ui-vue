@@ -1,1 +1,91 @@
-# FormControl
+import SEO from "../components/SEO";
+import Vue from 'vue'
+import { CInput } from '@chakra-ui/vue'
+Vue.component('CInput', CInput)
+
+<SEO
+  title="FormControl"
+  description="FormControl provides context such as `isInvalid`, `isDisabled`, and `isRequired` to form elements"
+/>
+
+# Form Control
+
+FormControl provides context such as `isInvalid`, `isDisabled`, and `isRequired`
+to form elements. This context is used by the following components:
+
+It follows the [WAI specifications](https://www.w3.org/WAI/tutorials/forms/) for
+forms.
+
+## Import
+
+```js
+import {
+  CFormControl,
+  CFormLabel,
+  CFormErrorMessage,
+  CFormHelperText,
+} from '@chakra-ui/vue';
+```
+
+## Usage
+
+```vue live=true
+<c-form-control>
+  <c-form-label htmlFor="email">Email address</c-form-label>
+  <c-input type="email" id="email" aria-describedby="email-helper-text" />
+  <c-form-helper-text id="email-helper-text">
+    We'll never share your email.
+  </c-form-helper-text>
+</c-form-control>
+```
+
+### Sample usage for a radio or checkbox group
+
+```vue live=true
+<c-form-control as="fieldset">
+  <c-form-label as="legend">Favorite Naruto Character</c-form-label>
+  <c-radio-group default-value="Itachi">
+    <c-radio value="Sasuke">Sasuke</c-radio>
+    <c-radio value="Nagato">Nagato</c-radio>
+    <c-radio value="Itachi">Itachi</c-radio>
+    <c-radio value="Sage of the six Paths">Sage of the six Paths</c-radio>
+  </c-radio-group>
+  <c-form-helper-text id="email-helper-text">
+    Select only if you're a fan.
+  </c-form-helper-text>
+</c-form-control>
+```
+
+### Making a field required
+
+By passing the `isRequired` props, the `CInput` field has `aria-required` set to
+true, and the `CFormLabel` will show a red asterisks.
+
+```vue live=true
+<c-form-control is-required>
+  <c-form-label for="fname">First name</c-form-label>
+  <c-input id="fname" placeholder="First name" />
+</c-form-control>
+```
+
+### Select Example
+
+```vue live=true
+<c-form-control>
+  <c-form-label for="country">Country</c-form-label>
+  <c-select id="country" placeholder="Select country" />
+</c-form-control>
+```
+
+
+## Props
+
+> `CFormControl` composes the `CBox` component with these extra props. So all Box props apply here. See <nuxt-link to="/box#props">Box</nuxt-link> component for list of props
+
+
+| Name         | Type      | Default | Description                                     |
+| ------------ | --------- | ------- | ----------------------------------------------- |
+| `isInvalid`  | `boolean` | `false`  | If `true`, this prop is passed to its children. |
+| `isRequired` | `boolean` | `false`  | If `true`, this prop is passed to its children. |
+| `isDisabled` | `boolean` | `false`  | If `true`, this prop is passed to its children. |
+| `isReadOnly` | `boolean` | `false`  | If `true`, this prop is passed to its children. |

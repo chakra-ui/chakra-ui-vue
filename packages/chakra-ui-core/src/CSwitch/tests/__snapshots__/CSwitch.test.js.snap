@@ -14,7 +14,7 @@ exports[`should render correctly 1`] = `
     <div
       aria-hidden="true"
       class="css-1yyoepi css-14rwhig"
-      data-chakra-component="CBox"
+      data-chakra-component="CControlBox"
     >
       <div
         class="css-4b8l73"

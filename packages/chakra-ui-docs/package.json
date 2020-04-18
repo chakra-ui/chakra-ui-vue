@@ -1,8 +1,7 @@
 {
   "name": "chakra-ui-docs",
-  "version": "0.2.10",
+  "version": "0.2.12",
   "description": "Chakra UI Vue documentation site",
-  "author": "codebender828",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,6 +9,11 @@
     "start": "nuxt start",
     "docs:build": "nuxt ",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
   },
   "lint-staged": {
     "*.{js,vue}": "yarn lint"
@@ -20,7 +24,7 @@
     }
   },
   "dependencies": {
-    "@chakra-ui/vue": "^0.3.10",
+    "@chakra-ui/vue": "^0.3.12",
     "@chakra-ui/theme-vue": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

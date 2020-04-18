@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-80aj1h"
-    data-chakra-component="CBox"
+    data-chakra-component="CFlex"
   >
     <div
       class="css-lv2eyz"
@@ -32,7 +32,7 @@ exports[`should render correctly 1`] = `
     </div>
     <div
       class="css-3dare1"
-      data-chakra-component="CBox"
+      data-chakra-component="CFlex"
     >
       +1
     </div>

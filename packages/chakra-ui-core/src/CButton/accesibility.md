@@ -24,4 +24,4 @@ A button is a widget that enables users to trigger an action or event, such as s
 - If the action associated with `CButton` is unavailable, the button should have `aria-disabled` set to true. (This can also be set by passing the `is-disabled` Boolean prop to `true` on the `CButton` component.)
 - If `CButton` is a toggle button, it should have an `aria-pressed` state attribute. When the `CButton` is toggled on, the value of `aria-pressed` should be `true`, and when toggled off, `aria-pressed` should be `false`.
 
-Noticed a bug or inconsitency with the component you just consumed? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)
+Noticed a bug or inconsistency with this component? [Open an issue](https://github.com/chakra-ui/chakra-ui-vue/issues/new/choose)

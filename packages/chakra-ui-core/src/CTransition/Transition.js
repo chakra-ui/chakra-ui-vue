@@ -519,6 +519,9 @@ const CAnimateHeight = {
     return h(CBox, {
       props: {
         overflow: 'hidden'
+      },
+      attrs: {
+        'data-chakra-component': 'CAnimateHeight'
       }
     }, children)
   }

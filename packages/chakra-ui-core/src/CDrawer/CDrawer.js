@@ -1,8 +1,28 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Drawer
+ *
+ * The Drawer component is a panel that slides out from the edge
+ * of the screen. It can be useful when you need users to complete
+ * a task or view some details without leaving the current page.
+ *
+ * @see Docs     https://vue.chakra-ui.com/drawer
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDrawer/CDrawer.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDrawer/accessibility.md
+ */
+
 import styleProps, { baseProps } from '../config/props'
 import { forwardProps, HTMLElement } from '../utils'
 
 import { CModal, CModalContent, CModalBody, CModalHeader, CModalFooter, CModalOverlay, CModalCloseButton } from '../CModal'
 
+/**
+ * CDrawer component
+ *
+ * The wrapper for `CDrawer` components. It provides context and state for the drawer.
+ *
+ * @extends CModal
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
 const CDrawer = {
   name: 'CDrawer',
   props: {
@@ -69,6 +89,9 @@ const CDrawer = {
           body: `drawer-${id}-body`
         }),
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CDrawer'
       }
     }, this.$slots.default)
   }
@@ -107,6 +130,14 @@ const getPlacementStyles = (position, { finalWidth, finalHeight }) => {
   return placements[position] || placements['right']
 }
 
+/**
+ * CDrawerContent component
+ *
+ * The wrapper for the drawers's content.
+ *
+ * @extends CModalContent
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
 const CDrawerContent = {
   name: 'CDrawerContent',
   props: {
@@ -130,21 +161,43 @@ const CDrawerContent = {
         position: 'fixed',
         ...placementStyles,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CDrawerContent'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CDrawerOverlay component
+ *
+ * The dimmed overlay behind the drawer.
+ *
+ * @extends CModalOverlay
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
 const CDrawerOverlay = {
   name: 'CDrawerOverlay',
   props: baseProps,
   render (h) {
     return h(CModalOverlay, {
-      props: forwardProps(this.$props)
+      props: forwardProps(this.$props),
+      attrs: {
+        'data-chakra-component': 'CDrawerOverlay'
+      }
     })
   }
 }
 
+/**
+ * CDrawerCloseButton component
+ *
+ * The button that closes the drawer.
+ *
+ * @extends CModalCloseButton
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
 const CDrawerCloseButton = {
   name: 'CDrawerCloseButton',
   props: styleProps,
@@ -157,17 +210,53 @@ const CDrawerCloseButton = {
       },
       on: {
         click: (e) => this.$emit('click', e)
+      },
+      attrs: {
+        'data-chakra-component': 'CDrawerCloseButton'
       }
     })
   }
 }
+
+/**
+ * CDrawerBody component
+ *
+ * Should contain the description announced by screen readers
+ *
+ * @extends CModalBody
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
+const CDrawerBody = CModalBody
+CDrawerBody.name = 'CDrawerBody'
+
+/**
+ * CDrawerHeader component
+ *
+ * Should contain the title announced by screen readers
+ *
+ * @extends CModalHeader
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
+const CDrawerHeader = CModalHeader
+CDrawerHeader.name = 'CDrawerHeader'
+
+/**
+ * CDrawerFooter component
+ *
+ * Should contain the actions of the drawer
+ *
+ * @extends CModalFooter
+ * @see Docs https://vue.chakra-ui.com/drawer
+ */
+const CDrawerFooter = CModalFooter
+CDrawerFooter.name = 'CDrawerFooter'
 
 export {
   CDrawer,
   CDrawerContent,
   CDrawerOverlay,
   CDrawerCloseButton,
-  CModalBody as CDrawerBody,
-  CModalHeader as CDrawerHeader,
-  CModalFooter as CDrawerFooter
+  CDrawerBody,
+  CDrawerHeader,
+  CDrawerFooter
 }

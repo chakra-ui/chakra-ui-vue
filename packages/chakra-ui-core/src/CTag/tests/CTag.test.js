@@ -1,8 +1,6 @@
 import { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar } from '../..'
 import { render, defaultProviders } from '@/tests/test-utils'
 
-// mocks
-
 const renderComponent = (props) => {
   const base = {
     components: { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar },

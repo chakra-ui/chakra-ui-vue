@@ -1,8 +1,6 @@
 import { CButton, CRadioButtonGroup } from '../..'
 import { render, defaultProviders } from '@/tests/test-utils'
 
-// mocks
-
 const CustomRadio = {
   name: 'CustomRadio',
   props: {

@@ -2,7 +2,6 @@ import { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar } from '../..
 import { render, defaultProviders } from '@/tests/test-utils'
 
 // mocks
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
 
 const renderComponent = (props) => {
   const base = {

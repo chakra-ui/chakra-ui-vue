@@ -27,38 +27,10 @@ exports[`should render correctly 1`] = `
         >
           
     
-          <g
-            stroke="currentColor"
-            strokewidth="1.5"
-          >
-            
-      
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokelinecap="full"
-            />
-            
-      
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="none"
-              strokelinecap="full"
-            />
-            
-      
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokemiterlimit="10"
-            />
-            
-    
-          </g>
-          
-    
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
         </svg>
       </button>
        

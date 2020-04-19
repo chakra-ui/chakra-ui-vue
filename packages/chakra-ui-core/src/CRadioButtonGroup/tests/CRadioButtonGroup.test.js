@@ -1,5 +1,5 @@
 import { CButton, CRadioButtonGroup } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const CustomRadio = {
   name: 'CustomRadio',
@@ -30,7 +30,6 @@ const CustomRadio = {
 const renderComponent = (props) => {
   const base = {
     components: { CRadioButtonGroup, CustomRadio },
-    provide: () => defaultProviders(),
     template: `
     <CRadioButtonGroup defaultValue="item-2" isInline>
       <CustomRadio value="item-1" data-testid="item-1">Custom Radio 1</CustomRadio>

@@ -1,5 +1,5 @@
 import { CInput, CButton, CModal, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton } from '../..'
-import { render, defaultProviders, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
+import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
 import Vue from 'vue'
 import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
 
@@ -11,7 +11,6 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CInput, CButton, CModal, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton },
-    provide: () => defaultProviders(),
     data: () => ({
       isOpen: false
     }),

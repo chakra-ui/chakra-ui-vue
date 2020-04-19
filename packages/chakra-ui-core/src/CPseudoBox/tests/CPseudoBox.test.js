@@ -1,11 +1,10 @@
 import CPseudoBox from '../'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CPseudoBox },
-    provide: () => defaultProviders(),
     template: `<CPseudoBox data-testid="box" ${inlineAttrs}>Box Works</CPseudoBox>`,
     ...props
   }

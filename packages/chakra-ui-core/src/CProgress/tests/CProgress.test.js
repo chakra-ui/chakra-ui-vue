@@ -1,5 +1,5 @@
 import { CProgress, CProgressLabel } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -7,7 +7,6 @@ const renderComponent = (props) => {
       CProgress,
       CProgressLabel
     },
-    provide: () => defaultProviders(),
     template: `<CProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />`,
     ...props
   }

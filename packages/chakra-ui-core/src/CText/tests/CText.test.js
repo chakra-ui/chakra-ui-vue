@@ -1,11 +1,10 @@
 import CText from '..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CText },
-    provide: () => defaultProviders(),
     template: `<CText data-testid="text" ${inlineAttrs}>Text Works</CText>`,
     ...props
   }

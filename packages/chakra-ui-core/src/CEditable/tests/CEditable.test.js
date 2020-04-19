@@ -1,5 +1,5 @@
 import { CEditable, CEditableInput, CEditablePreview } from '../..'
-import { render, defaultProviders, userEvent, fireEvent } from '@/tests/test-utils'
+import { render, userEvent, fireEvent } from '@/tests/test-utils'
 import { useId } from '../../utils'
 
 // mocks
@@ -9,7 +9,6 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CEditable, CEditableInput, CEditablePreview },
-    provide: () => defaultProviders(),
     template: `<CEditable ${inlineAttrs}>
       <CEditablePreview data-testid="preview" />
       <CEditableInput data-testid="input" />

@@ -1,5 +1,5 @@
 import { CButton, CButtonGroup } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -7,7 +7,6 @@ const renderComponent = (props) => {
       CButton,
       CButtonGroup
     },
-    provide: () => defaultProviders(),
     template: `
     <CButtonGroup>
       <CButton>Button1</CButton>

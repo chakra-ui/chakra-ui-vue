@@ -2,9 +2,6 @@ import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CStack } from '../.
 import { render, defaultProviders } from '@/tests/test-utils'
 import icons from '../../lib/internal-icons'
 
-// mocks
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
-
 const renderComponent = (props) => {
   const base = {
     components: { CAlert, CAlertTitle, CAlertDescription, CAlertIcon, CStack },

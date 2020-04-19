@@ -1,5 +1,5 @@
 import { CCircularProgress, CCircularProgressLabel } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -7,7 +7,6 @@ const renderComponent = (props) => {
       CCircularProgress,
       CCircularProgressLabel
     },
-    provide: () => defaultProviders(),
     template: `
     <CCircularProgress :value="40" data-testid="CircularProgress" />`,
     ...props

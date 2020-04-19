@@ -1,5 +1,5 @@
 import { CInput, CButton, CDrawer, CDrawerBody, CDrawerFooter, CDrawerHeader, CDrawerOverlay, CDrawerContent, CDrawerCloseButton } from '../../'
-import { render, defaultProviders, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
+import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
 import Vue from 'vue'
 import { useId } from '@/packages/chakra-ui-core/src/utils'
 
@@ -10,7 +10,6 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CInput, CButton, CDrawer, CDrawerBody, CDrawerFooter, CDrawerHeader, CDrawerOverlay, CDrawerContent, CDrawerCloseButton },
-    provide: () => defaultProviders(),
     data: () => ({
       isOpen: false
     }),

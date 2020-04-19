@@ -15,7 +15,8 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
-    '\\.css$': require.resolve('./tests/test-utils/style-mock.js')
+    '\\.css$': require.resolve('./tests/test-utils/style-mock.js'),
+    'breadstick': require.resolve('./tests/test-utils/module-mock.js')
   },
   snapshotSerializers: [
     'jest-serializer-vue'

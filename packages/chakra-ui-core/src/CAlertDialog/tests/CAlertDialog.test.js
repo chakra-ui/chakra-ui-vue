@@ -1,13 +1,10 @@
 import { CButton, CAlertDialog, CAlertDialogContent, CAlertDialogBody, CAlertDialogFooter, CAlertDialogOverlay, CAlertDialogHeader } from '../..'
 import { render, defaultProviders, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
 import Vue from 'vue'
-import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
+import { useId } from '@/packages/chakra-ui-core/src/utils'
 
 // mocks
-jest.mock('@/packages/chakra-ui-core/src/utils/dom.js')
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
-jest.mock('v-scroll-lock', () => ({}))
-jest.mock('@/packages/chakra-ui-core/src/CToast/index.js', () => {})
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -50,7 +47,6 @@ const renderComponent = (props) => {
 
 it('should render correctly', async () => {
   useId.mockReturnValueOnce('1')
-  wrapEvent.mockImplementation(() => jest.fn())
   const inlineAttrs = 'isOpen'
   const { asFragment } = renderComponent({ inlineAttrs })
 

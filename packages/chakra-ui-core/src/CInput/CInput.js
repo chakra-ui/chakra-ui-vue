@@ -6,7 +6,7 @@ import { inputProps } from './utils/input.props'
 import CPseudoBox from '../CPseudoBox'
 
 const CInput = {
-  name: 'ChakraInput',
+  name: 'CInput',
   inject: {
     '$chakraColorMode': {
       default: 'light'
@@ -43,6 +43,13 @@ const CInput = {
         }
       }
       return this.$useFormControl(this.$props)
+    },
+    inputStyles () {
+      return useInputStyle({
+        ...this.$props,
+        theme: this.theme,
+        colorMode: this.colorMode
+      })
     }
   },
   methods: {
@@ -52,15 +59,9 @@ const CInput = {
     }
   },
   render (h) {
-    const inputStyles = useInputStyle({
-      ...this.$props,
-      theme: this.theme,
-      colorMode: this.colorMode
-    })
-
     return h(CPseudoBox, {
       props: {
-        ...inputStyles,
+        ...this.inputStyles,
         as: this.as,
         fontFamily: 'body',
         ...forwardProps(this.$props)

@@ -68,7 +68,9 @@ const CRadio = {
           as: 'input'
         },
         domProps: {
-          defaultChecked: this.defaultIsChecked
+          defaultChecked: this.defaultIsChecked,
+          value: this.value,
+          checked: this.isChecked
         },
         attrs: {
           type: 'radio',
@@ -76,7 +78,6 @@ const CRadio = {
           'aria-labelledby': this._ariaLabelledBy,
           id: this.id,
           name: this.name,
-          value: this.value,
           'aria-invalid': this.isInvalid,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled

@@ -6,12 +6,17 @@ storiesOf('UI | Radio', module)
     components: { CFragment, CRadio },
     template: `
         <div>
-          <CRadio value="male" defaultChecked name="bee">
+          <CRadio value="male" v-model="maleChecked" defaultIsChecked name="bee">
             Male
           </CRadio>
-          <CRadio ml="3" value="female" name="bee" defaultChecked>
+          <CRadio ml="3" value="female" name="bee">
             Female
           </CRadio>
         </div>
-    `
+    `,
+    data () {
+      return {
+        maleChecked: true
+      }
+    },
   }))

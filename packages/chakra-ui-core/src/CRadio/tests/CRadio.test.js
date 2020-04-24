@@ -26,7 +26,7 @@ it('should display a disabled radio', () => {
 })
 
 it('should display a radio with a checked state', () => {
-  const inlineAttrs = 'defaultIsChecked'
+  const inlineAttrs = 'isChecked'
   const { container } = renderComponent({ inlineAttrs })
   const input = container.querySelector('input')
 
@@ -39,14 +39,6 @@ it('should display a radio with an unchecked state', () => {
   const input = container.querySelector('input')
 
   expect(input).not.toBeChecked()
-})
-
-it('should have a checked state when setting defaultIsChecked', () => {
-  const inlineAttrs = 'defaultIsChecked'
-  const { container } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
-
-  expect(input).toBeChecked()
 })
 
 test('Uncontrolled - should not check if disabled', async () => {

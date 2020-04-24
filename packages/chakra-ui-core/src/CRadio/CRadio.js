@@ -81,6 +81,7 @@ const CRadio = {
           value: this.value
         },
         attrs: {
+          ...this.$attrs,
           type: 'radio',
           'aria-label': this._ariaLabel,
           'aria-labelledby': this._ariaLabelledBy,
@@ -89,7 +90,6 @@ const CRadio = {
           'aria-invalid': this.isInvalid,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled,
-          ...this.$attrs
         },
         nativeOn: {
           change: (e) => {

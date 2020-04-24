@@ -1,6 +1,6 @@
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
-import { useTruncated } from '../CText/utils/test.utils'
+import { useTruncated } from '../CText/utils/text.utils'
 
 import CBox from '../CBox'
 

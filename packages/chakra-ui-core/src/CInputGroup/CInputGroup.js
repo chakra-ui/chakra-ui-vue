@@ -2,7 +2,7 @@ import { StringArray } from '../config/props/props.types'
 import { baseProps } from '../config'
 import { inputSizes } from '../CInput/utils/input.styles'
 import CBox from '../CBox'
-import { cloneVNode, forwardProps } from '../utils'
+import { cloneVNode, forwardProps, kebabify } from '../utils'
 
 const CInputGroup = {
   name: 'CInputGroup',
@@ -33,7 +33,7 @@ const CInputGroup = {
         if (vnode.tag.includes('CInputRightElement')) {
           pr = sizes[height]
         }
-        if (vnode.tag.includes('ChakraInput')) {
+        if (kebabify(vnode.componentOptions.tag) === 'c-input') {
           const clone = cloneVNode(vnode, h)
           return h(clone.componentOptions.Ctor, {
             ...clone.data,

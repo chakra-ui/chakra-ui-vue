@@ -43,7 +43,7 @@ exports[`should render correctly 1`] = `
         style="visibility: hidden; height: 0px;"
       >
         <div
-          class="css-i6bazn"
+          class="css-11lffaa"
           data-chakra-component="CBox"
         >
           Section 1 text

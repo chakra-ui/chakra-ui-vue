@@ -11,7 +11,8 @@ const CImage = {
     fallbackSrc: String,
     ignoreFalback: Boolean,
     htmlWidth: String,
-    htmlHeight: String
+    htmlHeight: String,
+    size: [String, Number]
   },
   data () {
     return {
@@ -52,7 +53,9 @@ const CImage = {
       h(CBox, {
         props: {
           ...forwardProps(this.$props),
-          as: 'img'
+          as: 'img',
+          w: this.size,
+          h: this.size
         },
         attrs: {
           ...imageProps,

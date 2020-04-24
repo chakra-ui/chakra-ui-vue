@@ -2,11 +2,11 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <h1
+  <h2
     class="css-1s17rxi"
     data-chakra-component="CBox"
   >
     Header
-  </h1>
+  </h2>
 </DocumentFragment>
 `;

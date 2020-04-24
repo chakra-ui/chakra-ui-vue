@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/vue'
+import { action } from '@storybook/addon-actions'
 import { CFragment, CButton, CRadio, CRadioGroup, CRadioButtonGroup } from '..'
 
 const CustomRadio = {
@@ -41,6 +42,39 @@ storiesOf('UI | RadioGroup', module)
         </CFragment>
       </div>
     `
+  }))
+  .add('v-model', () => ({
+    components: { CFragment, CRadio, CRadioGroup },
+    template: `
+      <div>
+        <CFragment>
+          <CRadioGroup
+            size="lg"
+            ref="rg"
+            v-model="selected"
+          >
+          <CRadio variantColor="red" value="male">Male</CRadio>
+          <CRadio variantColor="red" value="female">Female</CRadio>
+        </CRadioGroup>
+        </CFragment>
+      </div>
+    `,
+    data () {
+      return {
+        selected: 'male'
+      }
+    },
+    mounted () {
+      setTimeout(() => {
+        this.selected = 'female'
+      }, 3000)
+    },
+    methods: {
+      action () {
+        action('@change(event)')
+        console.log('changed', this.value)
+      }
+    }
   }))
   .add('Custom Radio Buttons', () => ({
     components: { CFragment, CustomRadio, CRadioButtonGroup },

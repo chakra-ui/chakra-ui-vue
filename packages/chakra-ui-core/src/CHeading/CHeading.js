@@ -1,5 +1,6 @@
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
+import { useTruncated } from '../CText/utils/text.utils'
 
 import CBox from '../CBox'
 
@@ -24,9 +25,10 @@ const CHeading = {
     },
     as: {
       type: String,
-      default: 'h1'
+      default: 'h2'
     },
-    ...baseProps
+    ...baseProps,
+    isTruncated: Boolean
   },
   render (h) {
     return h(CBox, {
@@ -36,7 +38,8 @@ const CHeading = {
         lineHeight: 'shorter',
         fontWeight: 'bold',
         fontFamily: 'heading',
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        ...this.isTruncated && useTruncated()
       }
     }, this.$slots.default)
   }

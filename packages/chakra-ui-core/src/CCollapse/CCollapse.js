@@ -25,6 +25,7 @@ import CBox from '../CBox'
  */
 const CCollapse = {
   name: 'CCollapse',
+  extends: CBox,
   props: {
     isOpen: Boolean,
     duration: {

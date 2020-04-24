@@ -6,6 +6,10 @@ import CBox from '../CBox'
 
 const CRadioGroup = {
   name: 'CRadioGroup',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
     name: {
@@ -14,10 +18,6 @@ const CRadioGroup = {
     },
     variantColor: String,
     size: String,
-    defaultValue: {
-      type: StringNumber,
-      default: null
-    },
     isInline: Boolean,
     value: {
       type: StringNumber,
@@ -28,33 +28,12 @@ const CRadioGroup = {
       default: 2
     }
   },
-  data () {
-    return {
-      innerValue: this.defaultValue || null
-    }
-  },
-  computed: {
-    isControlled () {
-      return this.defaultValue != null
-    },
-    _value: {
-      get () {
-        return this.isControlled ? this.value : this.innerValue
-      },
-      set (val) {
-        this.innerValue = val
-      }
-    }
-  },
   methods: {
     /**
      * Handles event changes in radio group
      * @param {Event} event Event object
      */
     handleChange (event) {
-      if (!this.isControlled) {
-        this.innerValue = event.target.value
-      }
       this.$emit('change', event.target.value)
     },
     /**

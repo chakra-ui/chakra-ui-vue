@@ -10,6 +10,7 @@ exports[`should render correctly 1`] = `
       class="css-0 css-f8n5zr"
       data-chakra-component="CBox"
       type="radio"
+      value=""
     />
     <div
       aria-hidden="true"

@@ -30,8 +30,9 @@ const CIconButton = {
     isRound: {
       type: [Boolean]
     },
-    _ariaLabel: {
-      type: [String]
+    ariaLabel: {
+      type: [String],
+      required: true
     },
     ...buttonProps,
     ...styleProps
@@ -47,7 +48,7 @@ const CIconButton = {
         ...forwardProps(props)
       },
       attrs: {
-        'aria-label': this._ariaLabel
+        'aria-label': this.ariaLabel
       },
       on: {
         click: (e) => this.$emit('click', e)

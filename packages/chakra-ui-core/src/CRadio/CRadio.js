@@ -78,7 +78,7 @@ const CRadio = {
         },
         domProps: {
           checked: this.isChecked,
-          value: this.value,
+          value: this.value
         },
         attrs: {
           type: 'radio',

@@ -18,5 +18,5 @@ storiesOf('UI | Radio', module)
       return {
         maleChecked: true
       }
-    },
+    }
   }))

@@ -1,5 +1,6 @@
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
+import { useTruncated } from '../CText/utils/test.utils'
 
 import CBox from '../CBox'
 
@@ -38,11 +39,7 @@ const CHeading = {
         fontWeight: 'bold',
         fontFamily: 'heading',
         ...forwardProps(this.$props),
-        ...this.isTruncated && {
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-        }
+        ...this.isTruncated && useTruncated()
       }
     }, this.$slots.default)
   }

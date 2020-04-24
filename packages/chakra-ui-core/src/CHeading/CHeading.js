@@ -24,9 +24,10 @@ const CHeading = {
     },
     as: {
       type: String,
-      default: 'h1'
+      default: 'h2'
     },
-    ...baseProps
+    ...baseProps,
+    isTruncated: Boolean
   },
   render (h) {
     return h(CBox, {
@@ -36,7 +37,12 @@ const CHeading = {
         lineHeight: 'shorter',
         fontWeight: 'bold',
         fontFamily: 'heading',
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        ...this.isTruncated && {
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }
       }
     }, this.$slots.default)
   }

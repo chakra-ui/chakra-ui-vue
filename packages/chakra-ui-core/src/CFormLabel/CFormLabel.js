@@ -60,7 +60,11 @@ const CRequiredIndicator = {
  */
 const CFormLabel = {
   name: 'CFormLabel',
-  inject: ['$useFormControl'],
+  inject: {
+    '$useFormControl': {
+      default: null
+    }
+  },
   props: {
     ...baseProps,
     ...formControlProps

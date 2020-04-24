@@ -1,12 +1,10 @@
 import CIconButton from '..'
-import { render, defaultProviders } from '@/tests/test-utils'
-import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CIconButton },
-    provide: () => defaultProviders({ $chakraIcons: { add: icons.add } }),
     template: `<CIconButton _aria-label="Phone" variant-color="blue" icon="phone" data-testid="btn" ${inlineAttrs} />`,
     ...props
   }

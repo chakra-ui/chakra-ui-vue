@@ -1,9 +1,6 @@
 import { CVisuallyHidden, CControlBox, CBox } from '../..'
 import { render, userEvent } from '@/tests/test-utils'
 
-// its because when we load components from `../..`
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
-
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const type = props.type && `type="${props.type}"`

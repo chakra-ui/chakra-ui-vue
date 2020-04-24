@@ -1,8 +1,5 @@
 import { CProgress, CProgressLabel } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
-
-// mocks
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -10,7 +7,6 @@ const renderComponent = (props) => {
       CProgress,
       CProgressLabel
     },
-    provide: () => defaultProviders(),
     template: `<CProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />`,
     ...props
   }

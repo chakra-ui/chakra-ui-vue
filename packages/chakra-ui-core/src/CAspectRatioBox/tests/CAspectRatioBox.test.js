@@ -1,8 +1,6 @@
 import { CAspectRatioBox, CBox } from '../..'
 import { render } from '@/tests/test-utils'
 
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
-
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {

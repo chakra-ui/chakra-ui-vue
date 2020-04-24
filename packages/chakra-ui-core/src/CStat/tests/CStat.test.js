@@ -1,19 +1,9 @@
 import { CStat, CStatLabel, CStatNumber, CStatHelperText, CStatArrow } from '..'
-import { render, defaultProviders } from '@/tests/test-utils'
-import internalIcons from '../../lib/internal-icons.js'
-
-const { 'triangle-up': increase, 'triangle-down': decrease } = internalIcons
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
     components: { CStat, CStatLabel, CStatNumber, CStatHelperText, CStatArrow },
-    provide: () => ({
-      ...defaultProviders(),
-      $chakraIcons: {
-        'triangle-up': increase,
-        'triangle-down': decrease
-      }
-    }),
     template: `
       <CStat>
         <CStatLabel>Collected Fees</CStatLabel>

@@ -1,15 +1,13 @@
 import { CBox, CCheckbox, CCheckboxGroup } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 // mocks
 import { useId } from '@/packages/chakra-ui-core/src/utils'
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
-jest.mock('breadstick/dist/components/Alert/styles.css', () => ({})) // jest tries to import styles and fails...
 
 const renderComponent = (props) => {
   const base = {
     components: { CBox, CCheckbox, CCheckboxGroup },
-    provide: () => defaultProviders(),
     data: () => ({ selectedValues: ['two'] }),
     template: `
     <CBox w="300px">

@@ -5,7 +5,7 @@ import { HTMLElement } from '../../utils'
 export default {
   isOpen: Boolean,
   initialFocusRef: [HTMLElement, Object, String, Function],
-  finalFocusRef: [HTMLElement, Object, String],
+  finalFocusRef: [HTMLElement, Object, String, Function],
   contentRef: [HTMLElement, Object, String],
   blockScrollOnMount: {
     type: Boolean,

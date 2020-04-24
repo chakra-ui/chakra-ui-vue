@@ -89,7 +89,7 @@ const CRadio = {
           name: this.name,
           'aria-invalid': this.isInvalid,
           disabled: this.isDisabled,
-          'aria-disabled': this.isDisabled,
+          'aria-disabled': this.isDisabled
         },
         nativeOn: {
           change: (e) => {

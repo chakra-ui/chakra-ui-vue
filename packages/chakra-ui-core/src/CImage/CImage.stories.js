@@ -23,3 +23,12 @@ storiesOf('UI | Image', module)
       />
     `
   }))
+  .add('With fallback src', () => ({
+    components: { CImage },
+    template: `
+      <CImage
+        src="gibberish.png"
+        fallback-src="https://via.placeholder.com/150"
+      />
+    `
+  }))

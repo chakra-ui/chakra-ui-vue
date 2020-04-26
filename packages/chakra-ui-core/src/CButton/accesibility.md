@@ -1,6 +1,6 @@
 # Button | Accessibility ♿️
 
-This report is adapted to list the [WAI-ARIA Authoring practices for alert dialogs](https://www.w3.org/TR/wai-aria-practices-1.2/#button) supported by Chakra UI for the `CButton` component.
+This report is adapted to list the [WAI-ARIA Authoring practices for buttons](https://www.w3.org/TR/wai-aria-practices-1.2/#button) supported by Chakra UI for the `CButton` component.
 
 ### Description
 A button is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation. 

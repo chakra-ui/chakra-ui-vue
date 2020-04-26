@@ -59,6 +59,9 @@ const CGrid = {
         gridTemplateRows: this.templateRows,
         gridTemplateColumns: this.templateColumns,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CGrid'
       }
     }, this.$slots.default)
   }

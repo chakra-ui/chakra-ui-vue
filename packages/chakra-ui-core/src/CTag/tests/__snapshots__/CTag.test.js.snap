@@ -53,7 +53,7 @@ exports[`should display tag with right icon 1`] = `
        
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
-        data-chakra-component="CBox"
+        data-chakra-component="CIcon"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ exports[`should render correctly 1`] = `
     >
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
-        data-chakra-component="CBox"
+        data-chakra-component="CIcon"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"

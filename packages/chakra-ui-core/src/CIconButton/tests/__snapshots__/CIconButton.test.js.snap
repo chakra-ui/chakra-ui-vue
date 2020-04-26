@@ -5,7 +5,7 @@ exports[`should change icon 1`] = `
   <button
     aria-label="Phone"
     class="css-0 css-1tcmof5"
-    data-chakra-component="CButton"
+    data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
     type="button"
@@ -13,7 +13,7 @@ exports[`should change icon 1`] = `
     <svg
       aria-hidden="true"
       class="css-iav4tc css-y3asau"
-      data-chakra-component="CBox"
+      data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -35,7 +35,7 @@ exports[`should render correctly 1`] = `
   <button
     aria-label="Phone"
     class="css-0 css-1tcmof5"
-    data-chakra-component="CButton"
+    data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
     type="button"
@@ -43,7 +43,7 @@ exports[`should render correctly 1`] = `
     <svg
       aria-hidden="true"
       class="css-iav4tc css-y3asau"
-      data-chakra-component="CBox"
+      data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 14 14"
     >

@@ -1,1 +1,75 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Link"
+  description="Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink and semantically renders an <a>."
+/>
+
 # Link
+
+Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink and semantically renders an `<a>`.
+
+## Import
+
+<br />
+
+```js
+import { CLink } from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-link>Chakra UI Vue</c-link>
+```
+
+### External Link
+
+```vue live=true
+<c-link href="https://vuejs.org" is-external>
+  The progressive framework
+</c-link>
+```
+
+### Link inline with text
+
+```vue live=true
+<c-text>
+  Did you know that 
+  <c-link color="vue" href="#">
+    links can live inline with text
+  </c-link>
+</c-text>
+```
+
+## Usage with Routing Library
+
+To use the `CLink` with a routing Library like [Vue Router](https://router.vuejs.org),
+all you need to do is to pass the `as` prop to the `CLink` component.
+
+```js
+<c-link as="router-link" to="/home">
+  Home
+</c-link>
+```
+
+## Props
+
+The link component composes the [PseudoBox](/pseudobox) component.
+
+| Name         | Type      | Default | Description                               |
+| ------------ | --------- | ------- | ----------------------------------------- |
+| `isExternal` | `boolean` |         | If `true`, the link will open in new tab. |
+| `isDisabled` | `boolean` |         | If `true`, the link will be disabled.     |
+
+## Events
+
+| Name    | Type       | Description                               |
+| ------- | ---------- | ----------------------------------------- |
+| `click` | `function` | Function called when the link is clicked. |
+
+## Slots
+
+| Name    | Description                   |
+| ------- | ----------------------------- |
+| default | Used for the text of the link |

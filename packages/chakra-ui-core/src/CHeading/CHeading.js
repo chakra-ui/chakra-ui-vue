@@ -2,7 +2,7 @@
  * Hey! Welcome to @chakra-ui/vue Heading
  *
  * Headings are used for rendering headlines.
- * 
+ *
  * Heading composes CBox so you can use all the style props
  * and add responsive styles as well. It renders an <h2> tag by default.
  *

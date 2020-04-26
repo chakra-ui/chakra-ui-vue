@@ -3,7 +3,7 @@
  *
  * CIconButton is used to render icons that support
  * click interactions.
- * 
+ *
  * CIconButton composes the CButton component, except that it renders only an icon.
  *
  * @see Docs     https://vue.chakra-ui.com/iconbutton

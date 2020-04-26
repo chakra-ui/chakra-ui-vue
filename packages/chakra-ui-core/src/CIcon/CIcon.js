@@ -2,7 +2,7 @@
  * Hey! Welcome to @chakra-ui/vue Icon
  *
  * CIcon is used for rendering icons.
- * 
+ *
  * Use the <CIcon> component to easily render <svg> icons.
  *
  * @see Docs     https://vue.chakra-ui.com/icon

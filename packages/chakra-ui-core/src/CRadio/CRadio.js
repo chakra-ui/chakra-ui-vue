@@ -7,6 +7,10 @@ import CControlBox from '../CControlBox'
 
 const CRadio = {
   name: 'CRadio',
+  model: {
+    prop: 'isChecked',
+    event: 'checked'
+  },
   inject: ['$chakraColorMode', '$chakraTheme'],
   props: {
     ...styleProps,
@@ -46,6 +50,11 @@ const CRadio = {
       })
     }
   },
+  mounted () {
+    this.$nextTick(() => {
+      this.$emit('checked', this.defaultIsChecked)
+    })
+  },
   render (h) {
     const children = this.$slots.default
 
@@ -68,21 +77,25 @@ const CRadio = {
           as: 'input'
         },
         domProps: {
-          defaultChecked: this.defaultIsChecked
+          checked: this.isChecked,
+          value: this.value
         },
         attrs: {
+          ...this.$attrs,
           type: 'radio',
           'aria-label': this._ariaLabel,
           'aria-labelledby': this._ariaLabelledBy,
           id: this.id,
           name: this.name,
-          value: this.value,
           'aria-invalid': this.isInvalid,
           disabled: this.isDisabled,
           'aria-disabled': this.isDisabled
         },
         nativeOn: {
-          change: (e) => this.$emit('change', e)
+          change: (e) => {
+            this.$emit('change', e)
+            this.$emit('checked', e.target.checked)
+          }
         }
       }),
       h(CControlBox, {

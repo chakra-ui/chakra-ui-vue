@@ -24,7 +24,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
     >
       <svg
         class="css-1nhh26u css-y3asau"
-        data-chakra-component="CBox"
+        data-chakra-component="CIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -69,7 +69,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
     >
       <svg
         class="css-es9pvn css-y3asau"
-        data-chakra-component="CBox"
+        data-chakra-component="CIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >

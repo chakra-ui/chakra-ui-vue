@@ -12,3 +12,23 @@ storiesOf('UI | Image', module)
       />
     `
   }))
+  .add('With size', () => ({
+    components: { CImage },
+    template: `
+      <CImage
+        rounded="full"
+        size="150px"
+        src="https://bit.ly/chakra-jonathan-bakebwa"
+        alt="Jonathan Bakebwa"
+      />
+    `
+  }))
+  .add('With fallback src', () => ({
+    components: { CImage },
+    template: `
+      <CImage
+        src="gibberish.png"
+        fallback-src="https://via.placeholder.com/150"
+      />
+    `
+  }))

@@ -1,5 +1,18 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Heading
+ *
+ * Headings are used for rendering headlines.
+ *
+ * Heading composes CBox so you can use all the style props
+ * and add responsive styles as well. It renders an <h2> tag by default.
+ *
+ * @see Docs     https://vue.chakra-ui.com/heading
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CHeading/CHeading.js
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
+import { useTruncated } from '../CText/utils/text.utils'
 
 import CBox from '../CBox'
 
@@ -13,7 +26,12 @@ const sizes = {
 }
 
 /**
- * Heading component gives text elements for titles and subtitles
+ * CHeading component
+ *
+ * The CHeading is used for rendering headlines.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/heading
  */
 const CHeading = {
   name: 'CHeading',
@@ -24,9 +42,10 @@ const CHeading = {
     },
     as: {
       type: String,
-      default: 'h1'
+      default: 'h2'
     },
-    ...baseProps
+    ...baseProps,
+    isTruncated: Boolean
   },
   render (h) {
     return h(CBox, {
@@ -36,7 +55,11 @@ const CHeading = {
         lineHeight: 'shorter',
         fontWeight: 'bold',
         fontFamily: 'heading',
-        ...forwardProps(this.$props)
+        ...forwardProps(this.$props),
+        ...this.isTruncated && useTruncated()
+      },
+      attrs: {
+        'data-chakra-component': 'CHeading'
       }
     }, this.$slots.default)
   }

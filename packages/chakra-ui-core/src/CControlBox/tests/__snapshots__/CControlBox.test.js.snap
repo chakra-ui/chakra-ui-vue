@@ -3,30 +3,28 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-1qf83f9"
+    class="css-1jfyukr"
     data-chakra-component="CBox"
+    for="control-radio"
   >
     <input
       class="css-0 css-f8n5zr"
       data-chakra-component="CBox"
+      data-testid="hiddenControl"
+      id="control-radio"
       type="radio"
-      value=""
     />
+     
     <div
       aria-hidden="true"
-      class="css-1v9glee css-aufuif"
+      class="css-1nwx1xd css-1y5evcc"
       data-chakra-component="CControlBox"
+      data-testid="control"
     >
-      <span
-        class="css-1qfw50u"
+      <div
+        class="css-1ojhcd8"
         data-chakra-component="CBox"
       />
-    </div>
-    <div
-      class="css-np4rym"
-      data-chakra-component="CBox"
-    >
-      radio
     </div>
   </label>
 </DocumentFragment>

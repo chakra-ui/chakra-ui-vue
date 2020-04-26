@@ -1,16 +1,14 @@
 import { CEditable, CEditableInput, CEditablePreview } from '../..'
-import { render, defaultProviders, userEvent, fireEvent } from '@/tests/test-utils'
+import { render, userEvent, fireEvent } from '@/tests/test-utils'
 import { useId } from '../../utils'
 
 // mocks
-jest.mock('@/packages/chakra-ui-core/src/CToast/index.js', () => {})
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CEditable, CEditableInput, CEditablePreview },
-    provide: () => defaultProviders(),
     template: `<CEditable ${inlineAttrs}>
       <CEditablePreview data-testid="preview" />
       <CEditableInput data-testid="input" />

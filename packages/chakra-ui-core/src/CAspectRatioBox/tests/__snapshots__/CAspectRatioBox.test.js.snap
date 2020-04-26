@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-0 css-yotxfm"
+    data-chakra-component="CPseudoBox"
+    data-testid="aspectRatioBox"
+  >
+    <img
+      alt="naruto"
+      class="css-1yxkji9"
+      data-chakra-component="CBox"
+      data-testid="image"
+      src="https://bit.ly/naruto-sage"
+    />
+  </div>
+</DocumentFragment>
+`;

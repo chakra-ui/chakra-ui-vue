@@ -100,3 +100,11 @@ storiesOf('UI | Text', module)
       </div>
     `
   }))
+  .add('isTruncated', () => ({
+    components: { CText },
+    template: `
+      <div style="width: 80vw">
+        <CText isTruncated>Extra super duper long naruto heading in the village hidden in the leaves by the first Hokage who used to be friedns with Madara Uchiha but they went their separate ways because they could find a common understing around the definition of peace in the ninja world.t</CText>
+      </div>
+    `
+  }))

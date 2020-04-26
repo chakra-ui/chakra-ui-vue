@@ -107,7 +107,7 @@ storiesOf('UI | Accordion', module)
       </CAccordion>
     `
   }))
-  .add('Allow Toggle', () => ({
+  .add('Styled Expanded', () => ({
     components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `
       <CAccordion allowToggle>

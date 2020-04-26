@@ -5,7 +5,7 @@ storiesOf('UI | FormControl', module)
   .add('Basic Usage', () => ({
     components: { CInput, CFormControl, CFormLabel },
     template: `
-      <CFormControl isRequired>
+      <CFormControl as="form" isRequired>
         <CFormLabel for="fname">First name</CFormLabel>
         <CInput id="fname" placeholder="First name" />
       </CFormControl>

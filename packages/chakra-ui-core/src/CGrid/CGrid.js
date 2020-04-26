@@ -1,12 +1,32 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Grid
+ *
+ * A primitive useful for grid layouts. CGrid is CBox with
+ * display: grid and comes with helpful style shorthand.
+ * It renders a div element by default
+ *
+ * @see Docs     https://vue.chakra-ui.com/grid
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CGrid/CGrid.js
+ */
+
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { SNA } from '../config/props/props.types'
 
 import CBox from '../CBox'
 
+/**
+ * CGrid component
+ *
+ * A primitive component useful for grid layouts.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/grid
+ */
 const CGrid = {
   name: 'CGrid',
   props: {
+    ...baseProps,
     gap: SNA,
     rowGap: SNA,
     columnGap: SNA,
@@ -19,11 +39,12 @@ const CGrid = {
     area: SNA,
     column: SNA,
     row: SNA,
-    ...baseProps
+    as: String
   },
   render (h) {
     return h(CBox, {
       props: {
+        as: this.as,
         d: 'grid',
         gridArea: this.area,
         gridTemplateAreas: this.templateAreas,

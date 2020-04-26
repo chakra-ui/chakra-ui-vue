@@ -1,1 +1,86 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="List"
+  description="List is used to display list items, it renders a <ul> by default."
+/>
+
 # List
+
+List is used to display list items, it renders a `<ul>` by default.
+
+## Import
+
+<br />
+
+```js
+import { CList, CListItem, CListIcon } from '@chakra-ui/vue'
+```
+
+## Unordered List
+
+```vue live=true
+<c-list style-type="disc">
+  <c-listItem>Lorem ipsum dolor sit amet</c-listItem>
+  <c-listItem>Consectetur adipiscing elit</c-listItem>
+  <c-listItem>Integer molestie lorem at massa</c-listItem>
+  <c-listItem>Facilisis in pretium nisl aliquet</c-listItem>
+</c-list>
+```
+
+## Ordered List
+
+```vue live=true
+<c-list as="ol" styleType="decimal">
+  <c-list-item>Lorem ipsum dolor sit amet</c-list-item>
+  <c-list-item>Consectetur adipiscing elit</c-list-item>
+  <c-list-item>Integer molestie lorem at massa</c-list-item>
+  <c-list-item>Facilisis in pretium nisl aliquet</c-list-item>
+</c-list>
+```
+
+## Unstyled List with icon
+
+Add nice icons to the list item by using the `CListIcon` component. You can pass the name of the icon or custom icons. The icon is sized relative to the font size of the list item.
+
+```vue live=true
+<c-list spacing="3">
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Assumenda, quia temporibus eveniet a libero incidunt suscipit
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+  </c-list-item>
+</c-list>
+```
+
+## Props
+
+### List Props
+
+| Name      | Type                             | Default  | Description                             |
+| --------- | -------------------------------- | -------- | --------------------------------------- |
+| styleType | `string`                         | `none`   | The CSS value for `list-style-type`     |
+| stylePos  | `string`                         | `inside` | The CSS value for `list-style-position` |
+| spacing   | `StyledSystem.MarginBottomProps` |          | The space between each list item        |
+
+### List Slots
+
+| Name    | Type                 | Description                |
+| ------- | -------------------- | -------------------------- |
+| default | VNode of `CListItem` | VNode of the list children |
+
+### List Item Props
+
+ListItem composes [PseudoBox](/pseudobox) so you pass all style props, and
+pseudo style props.

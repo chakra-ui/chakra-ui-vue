@@ -1,1 +1,63 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Spinner"
+  description="Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+/>
+
 # Spinner
+
+Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+
+## Import
+
+```js
+import { CSpinner } from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-spinner />
+```
+
+### Spinner with Color
+
+```vue live=true
+<c-spinner color="blue.500" />
+```
+
+### Spinner with different size
+
+```vue live=true
+<c-stack is-inline :spacing="4">
+  <c-spinner size="xs" />
+  <c-spinner size="sm" />
+  <c-spinner size="md" />
+  <c-spinner size="lg" />
+  <c-spinner size="xl" />
+</c-stack>
+```
+
+### Spinner with empty area color
+
+```vue live=true
+<c-spinner
+  thickness="4px"
+  speed="0.65s"
+  empty-color="green.200"
+  color="vue.500"
+  size="xl"
+/>
+```
+
+## Props
+
+| Name       | Type                     | Default       | Description                                                     |
+| ---------- | ------------------------ | ------------- | --------------------------------------------------------------- |
+| size       | `xl`,`lg`,`md`,`sm`,`xs` | `md`          | The size of the spinner.                                        |
+| thickness  | `string`                 | `2px`         | The thickness of the spinner.                                   |
+| speed      | `string`                 | `0.45s`       | The speed of the spinner.                                       |
+| label      | `string`                 | `Loading...`  | An accessible label for the spinner (Useful for screen readers) |
+| color      | `string`                 |               | The color of the spinner.                                       |
+| emptyColor | `string`                 | `transparent` | The color of the empty areas in the spinner.                    |

@@ -78,7 +78,7 @@ const CImage = {
         },
         domProps: {
           width: this.htmlWidth,
-          height: this.htmlHeight,
+          height: this.htmlHeight
         },
         attrs: {
           ...imageProps,

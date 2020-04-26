@@ -36,7 +36,7 @@ exports[`should render correctly 1`] = `
           >
             <svg
               class="css-1dx9t0m css-y3asau"
-              data-chakra-component="CBox"
+              data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
             >
@@ -91,7 +91,7 @@ exports[`should render correctly 1`] = `
           >
             <svg
               class="css-1dx9t0m css-y3asau"
-              data-chakra-component="CBox"
+              data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
             >
@@ -145,7 +145,7 @@ exports[`should render correctly 1`] = `
           >
             <svg
               class="css-1dx9t0m css-y3asau"
-              data-chakra-component="CBox"
+              data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
             >

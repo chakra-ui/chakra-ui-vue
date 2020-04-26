@@ -1,8 +1,27 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Image
+ *
+ * The CImage component is used to display images.
+ *
+ * CImage composes CBox so you can use all the style props and add responsive styles as well.
+ *
+ * @see Docs     https://vue.chakra-ui.com/image
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CImage/CImage.js
+ */
+
 import { baseProps } from '../config/props'
 import CBox from '../CBox'
 import CNoSsr from '../CNoSsr'
 import { forwardProps } from '../utils'
 
+/**
+ * CImage component
+ *
+ * The CImage component is used to display images.
+ *
+ * @extends CButton
+ * @see Docs https://vue.chakra-ui.com/image
+ */
 const CImage = {
   name: 'CImage',
   props: {
@@ -57,11 +76,14 @@ const CImage = {
           w: this.size,
           h: this.size
         },
+        domProps: {
+          width: this.htmlWidth,
+          height: this.htmlHeight
+        },
         attrs: {
           ...imageProps,
           ...this.$attrs,
-          width: this.htmlWidth,
-          height: this.htmlHeight
+          'data-chakra-component': 'CImage'
         }
       })
     ])

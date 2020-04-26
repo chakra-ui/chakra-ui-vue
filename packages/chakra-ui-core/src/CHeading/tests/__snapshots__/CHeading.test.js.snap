@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <h2
     class="css-1s17rxi"
-    data-chakra-component="CBox"
+    data-chakra-component="CHeading"
   >
     Header
   </h2>

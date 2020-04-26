@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Icon
+ *
+ * CIcon is used for rendering icons.
+ *
+ * Use the <CIcon> component to easily render <svg> icons.
+ *
+ * @see Docs     https://vue.chakra-ui.com/icon
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIcon/CIcon.js
+ */
+
 import { css } from 'emotion'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
@@ -32,7 +43,12 @@ const Svg = {
 }
 
 /**
- * The Icon component renders SVGs for visual aid
+ * CIcon component
+ *
+ * CIcon is used for rendering icons.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/icon
  */
 const CIcon = {
   name: 'CIcon',
@@ -68,7 +84,8 @@ const CIcon = {
       attrs: {
         viewBox,
         role: 'presentation',
-        focusable: false
+        focusable: false,
+        'data-chakra-component': 'CIcon'
       },
       domProps: {
         innerHTML: icon.path

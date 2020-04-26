@@ -7,7 +7,7 @@ storiesOf('UI | Grid', module)
     template: `
       <div>
         <CReset />
-        <CGrid w="600px" template-columns="repeat(5, 1fr)" gap="6">
+        <CGrid as="section" w="600px" template-columns="repeat(5, 1fr)" gap="6">
           <CBox w="100%" h="10" bg="blue.500" />
           <CBox w="100%" h="10" bg="blue.500" />
           <CBox w="100%" h="10" bg="blue.500" />

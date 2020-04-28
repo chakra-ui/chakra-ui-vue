@@ -1,1 +1,132 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Tag"
+  description="Tag component is used for items that need to be labeled, categorized, or organized using keywords that describe them."
+/>
+
 # Tag
+
+Tag component is used for items that need to be labeled, categorized, or organized using keywords that describe them.
+
+## Import
+
+Chakra UI Vue exports 4 Tag related components:
+
+- **CTag**: The wrapper for all the tag elements
+- **CTagLabel**: The label for tag's text content.
+- **CTagIcon**: The icon for the tag
+- **CTagCloseButton**: The close button for the tag.
+
+```js
+import { CTag, CTagIcon, CTagLabel, CTagCloseButton } from '@chakra-ui/vue'
+```
+
+## usage
+
+```vue live=true
+<c-tag>Awesome Tag</c-tag>
+```
+
+```vue live=true
+<template>
+  <c-stack :spacing="4" is-inline>
+    <c-tag v-for="size in sizes" :size="size" :key="size" variantColor="vue">
+      Vue {{ size }}
+    </c-tag>
+  </c-stack>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      sizes: ['sm', 'md', 'lg']
+    }
+  }
+}
+</script>
+```
+
+## With left icon
+
+```vue live=true
+<template>
+  <c-stack :spacing="4" is-inline>
+    <c-tag v-for="size in sizes" :size="size" :key="size" variant-color="cyan">
+      <c-tag-icon icon="add" size="12px" />
+      <c-tag-label>New {{ size }}</c-tag-label>
+    </c-tag>
+  </c-stack>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      sizes: ['sm', 'md', 'lg']
+    }
+  }
+}
+</script>
+```
+
+## With right icon
+
+```vue live=true
+<c-stack :spacing="4" is-inline>
+  <c-tag variant-color="cyan">
+    <c-tag-label>Cyan</c-tag-label>
+    <c-tag-icon icon="check" size="12px" />
+  </c-tag>
+</c-stack>
+```
+
+## With close button
+
+```vue live=true
+<template>
+  <c-stack :spacing="4" is-inline>
+    <c-tag
+      v-for="size in sizes"
+      :size="size"
+      :key="size"
+      variant="solid"
+      variant-color="cyan"
+    >
+      <c-tag-label>Close {{ size }}</c-tag-label>
+      <c-tag-close-button />
+    </c-tag>
+  </c-stack>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      sizes: ['sm', 'md', 'lg']
+    }
+  }
+}
+</script>
+```
+
+## With custom element
+
+```vue live=true
+<c-tag variant-color="red" rounded="full">
+  <c-avatar
+    src="https://bit.ly/sage-adebayo"
+    size="xs"
+    name="Segun Adebayo"
+    :ml="-1"
+    :mr="2"
+  />
+  <c-tag-label>Segun</c-tag-label>
+</c-tag>
+```
+
+## Props
+
+| Name           | Type                         | Default  | Description                             |
+| -------------- | ---------------------------- | -------- | --------------------------------------- |
+| `variant`      | `solid`, `subtle`, `outline` | `subtle` | The variant style of the tag component. |
+| `size`         | `sm`, `md`, `lg`             | `lg`     | The size of the tag component.          |
+| `variantColor` | `string`                     | `gray`   | The color scheme of the tag variant.    |

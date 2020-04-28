@@ -1,5 +1,5 @@
 import dotenv from 'dotenv-defaults'
-import pages from './_components'
+import pages from './utils/all-routes'
 import { stringToUrl } from './utils'
 
 const routes = pages

@@ -1,1 +1,236 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="List"
+  description="List is used to display list items"
+/>
+
 # Menu
+
+The `CMenu` component is an accessible dropdown menu for the common dropdown menu button design pattern.
+Menu uses roving tabIndex for focus management.
+
+See `CMenu`'s [accessibility report](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CMenu/accessibility.md)
+
+## Import
+
+Chakra UI exports 8 components for rendering menus:
+
+- `CMenu`: The wrapper component that provides context, state, and focus
+  management.
+- `CMenuList`: The wrapper for the menu items. Must be a direct child of `CMenu`.
+- `CMenuButton`: The trigger for the menu list. Must be a direct child of `CMenu`.
+- `CMenuItem`: The trigger that handles menu selection. Must be a direct child of
+  a `CMenuList`.
+- `CMenuGroup`: A wrapper to group related menu items.
+- `CMenuDivider`: A visual separator for menu items and groups.
+- `CMenuOptionGroup`: A wrapper for checkable menu items (radio and checkbox)
+- `CMenuItemOption`: The checkable menu item, to be used with `CMenuOptionGroup`
+
+```js
+import {
+  CMenu,
+  CMenuButton,
+  CMenuList,
+  CMenuItem,
+  CMenuGroup,
+  CMenuDivider,
+  CMenuOptionGroup,
+  CMenuItemOption,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-menu>
+  <c-menu-button right-icon="chevron-down">
+    Actions
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item>Download</c-menu-item>
+    <c-menu-item>Create a Copy</c-menu-item>
+    <c-menu-item>Mark as Draft</c-menu-item>
+    <c-menu-item>Delete</c-menu-item>
+    <c-menu-item as="a" href="#">
+      Attend a Workshop
+    </c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+
+### Accessing the internal state
+
+To access the internal state of the `CMenu`, you can use the default [scoped slot](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots-with-the-slot-scope-Attribute) to access the `isOpen` value of
+the Menu component. `isOpen` reflects the current open or closed state of the `CMenu` component.
+
+```vue live=true
+<template>
+  <c-menu v-slot="{ isOpen }">
+    <c-menu-button :is-active="isOpen" right-icon="chevron-down">
+      {{ isOpen ? 'Close' : 'Open' }}
+    </c-menu-button>
+    <c-menu-list>
+      <c-menu-item @click="alert('Kage bushin no jutsu!!! 💨👯👯👯👯💨')" >
+        Copy to clipboard
+      </c-menu-item>
+      <c-menu-item @click="alert('Katon! Gou ka kyuu no jutsu!!! 🔥')">
+        Burn to disc
+      </c-menu-item>
+    </c-menu-list>
+  </c-menu>
+</template>
+
+<script>
+export default {
+  methods: {
+    alert(value) {
+      return alert(value)
+    }
+  }
+}
+</script>
+```
+
+
+### Letter Navigation
+
+When focus is on the `CMenuButton` or within the `CMenuList` and you type a letter
+key, a search begins. Focus will move to the first `CMenuItem` that starts with
+the letter you typed.
+
+> Open the menu, try and type any letter, say "S" to see the focus movement.
+
+```vue live=true
+<c-menu>
+  <c-menu-button
+    px="4"
+    py="2"
+    transition="all 0.2s"
+    rounded="md"
+    borderWidth="1px"
+    :_hover="{ bg: 'gray.100' }"
+    :_expanded="{ bg: 'red.100' }"
+    :_focus="{ outline: 0, boxShadow: 'outline' }"
+  >
+    File <c-icon name="chevron-down" />
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item>New File</c-menu-item>
+    <c-menu-item>New Window</c-menu-item>
+    <c-menu-divider />
+    <c-menu-item>Open...</c-menu-item>
+    <c-menu-item>Save File</c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+### Just another example.
+
+```vue live=true
+<c-menu>
+  <c-menu-button as="button" right-icon="chevron-down">
+    Your Cats
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-item h="48px">
+      <c-image
+        size="2rem"
+        rounded="full"
+        src="https://placekitten.com/100/100"
+        alt="Fluffybuns the destroyer"
+        mr="12px"
+      />
+      <span>Fluffybuns the Destroyer</span>
+    </c-menu-item>
+    <c-menu-item h="40px">
+      <c-image
+        size="2rem"
+        rounded="full"
+        src="https://placekitten.com/120/120"
+        alt="Simon the pensive"
+        mr="12px"
+      />
+      <span>Simon the pensive</span>
+    </c-menu-item>
+  </c-menu-list>
+</c-menu>
+```
+
+### MenuGroup
+
+To group related `CMenuItems`, use the `CMenuGroup` component and pass it a label
+for the group name.
+
+```vue live=true
+<c-menu>
+  <c-menu-button right-icon="chevron-down" variant-color="pink">
+    Profile
+  </c-menu-button>
+  <c-menu-list>
+    <c-menu-group title="Profile">
+      <c-menu-item>My Account</c-menu-item>
+      <c-menu-item>Payments </c-menu-item>
+    </c-menu-group>
+    <c-menu-divider />
+    <c-menu-group title="Help">
+      <c-menu-item>Docs</c-menu-item>
+      <c-menu-item>FAQ</c-menu-item>
+    </c-menu-group>
+  </c-menu-list>
+</c-menu>
+```
+
+## Menu option groups
+
+You can compose a menu for table headers to help with sorting and filtering
+options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
+
+```vue live=true
+<CMenu :closeOnSelect="false">
+  <CMenuButton variantColor="blue">
+    MenuItem
+  </CMenuButton>
+  <CMenuList minWidth="240px">
+    <CMenuOptionGroup defaultValue="asc" title="Order" type="radio">
+      <CMenuItemOption value="asc">Ascending</CMenuItemOption>
+      <CMenuItemOption value="desc">Descending</CMenuItemOption>
+    </CMenuOptionGroup>
+    <CMenuDivider />
+    <CMenuOptionGroup title="Country" type="checkbox">
+      <CMenuItemOption value="email">Email</CMenuItemOption>
+      <CMenuItemOption value="phone">Phone</CMenuItemOption>
+      <CMenuItemOption value="country">Country</CMenuItemOption>
+    </CMenuOptionGroup>
+  </CMenuList>
+</CMenu>
+```
+
+## Accessibility
+
+### Keyboard Interaction
+
+| Key                | Action                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enter` or `Space` | When `MenuButton` receives focus, opens the menu and places focus on the first menu item                                                |
+| `ArrowDown`        | When `MenuButton` receives focus, opens the menu and moves focus to the first menu item                                                 |
+| `ArrowUp`          | When `MenuButton` receives focus, opens the menu and moves focus to the last menu item                                                  |
+| `Escape`           | When the menu is open, closes the menu and sets focus to the `MenuButton`                                                               |
+| `Tab`              | no effect                                                                                                                               |
+| `Home`             | When the menu is open, moves focus to the first item.                                                                                   |
+| `End`              | When the menu is open, moves focus to the last item.                                                                                    |
+| `A-Z` or `a-z`     | When the menu is open, moves focus to the next menu item with a label that starts with the typed character if such an menu item exists. |
+
+### ARIA roles
+
+**For `MenuButton`:**
+
+- It has `role` set to `button`.
+- It has aria-haspopup set to either `menu`.
+- When the menu is displayed, `MenuButton` has `aria-expanded` set to `true`.
+- `MenuButton` has `aria-controls` set to the `id` of the `MenuList`.
+
+**For `MenuList`:**
+
+- It contains the `MenuItem` has role `menu`.

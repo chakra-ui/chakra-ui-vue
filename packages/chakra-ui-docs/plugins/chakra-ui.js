@@ -14,7 +14,9 @@ import {
   faBars,
   faEdit,
   faSearch,
-  faCoffee } from '@fortawesome/free-solid-svg-icons'
+  faCoffee,
+  faExternalLinkAlt,
+  faCog } from '@fortawesome/free-solid-svg-icons'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 
@@ -44,7 +46,9 @@ Vue.use(Chakra.default, {
       faBars,
       faEdit,
       faSearch,
-      faCoffee
+      faCoffee,
+      faExternalLinkAlt,
+      faCog
     },
     extend: {
       'storybook': {

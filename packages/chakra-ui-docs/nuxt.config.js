@@ -5,7 +5,7 @@ dotenv.config({
 })
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: 'Chakra UI Vue | Chakra UI Design system built with Vue',
     meta: [

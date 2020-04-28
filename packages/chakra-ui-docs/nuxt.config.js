@@ -1,6 +1,6 @@
 import dotenv from 'dotenv-defaults'
-import pages from './utils/all-routes'
 import { stringToUrl } from './utils'
+import pages from './utils/all-routes'
 
 const routes = pages
   .map(page => {
@@ -14,6 +14,7 @@ dotenv.config({
 
 export default {
   mode: 'universal',
+  srcDir: __dirname,
   generate: {
     routes
   },

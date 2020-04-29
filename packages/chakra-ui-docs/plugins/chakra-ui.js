@@ -2,7 +2,6 @@ import Vue from 'vue'
 import * as Chakra from '@chakra-ui/vue'
 import theme from '@chakra-ui/theme-vue'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
 import {
   faBolt,
   faAnchor,
@@ -67,3 +66,8 @@ Object.keys(Chakra).forEach((key) => {
     Vue.component(Chakra[key].name, Chakra[key])
   }
 })
+
+if (process.client) {
+  const Lorem = require('vue-lorem-ipsum')
+  Vue.component(Lorem, 'Lorem')
+}

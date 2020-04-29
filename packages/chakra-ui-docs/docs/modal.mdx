@@ -1,1 +1,90 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Modal"
+  description="A dialog is a window overlaid on either the primary window or another dialog window"
+/>
+
+See `CModal`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CModal/accessibility.md">accessibility report</a>
+
+
 # Modal
+
+A dialog is a window overlaid on either the primary window or another dialog
+window. Contents behind a modal dialog are **inert** meaning that users cannot
+interact with content behind the dialog.
+
+## Import
+
+Chakra exports 8 components to help you create any modal dialog.
+
+- `CModal`: The wrapper that provides context for its children
+- `CModalOverlay`: The dimmed overlay behind the modal dialog
+- `CModalContent`: The container for the modal dialog's content
+- `CModalHeader`: The header that labels the modal dialog
+- `CModalFooter`: The footer that houses the modal actions
+- `CModalBody`: The wrapper that houses the modal's main content
+- `CModalCloseButton`: The button that closes the modal.
+
+
+```js
+import {
+  CModal,
+  CModalOverlay,
+  CModalContent,
+  CModalHeader,
+  CModalFooter,
+  CModalBody,
+  CModalCloseButton,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+When the modal opens, focus is sent into the modal and set to the first tabbable
+element. If there are no tabbled element, focus is set on the `CModalContent`.
+
+```vue live=true browser=true
+<template>
+  <div>
+    <c-button left-icon="check" mb="3" variant-color="blue" @click="open" variant="outline">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+    >
+      <c-modal-content ref="content">
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <lorem add="2s" />
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button variant-color="blue" mr="3">
+            Close
+          </c-button>
+          <c-button @click="close">Secondary Action</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```

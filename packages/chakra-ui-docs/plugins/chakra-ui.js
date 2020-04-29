@@ -16,6 +16,7 @@ import {
   faCoffee,
   faExternalLinkAlt,
   faCog } from '@fortawesome/free-solid-svg-icons'
+import Lorem from '@/components/Lorem.vue'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 
@@ -60,14 +61,10 @@ Vue.use(Chakra.default, {
   }
 })
 
+Vue.component('Lorem', Lorem)
+
 Object.keys(Chakra).forEach((key) => {
   if (typeof Chakra[key] === 'object' && Chakra[key].name) {
-    // console.log(Chakra[key].name)
     Vue.component(Chakra[key].name, Chakra[key])
   }
 })
-
-if (process.client) {
-  const Lorem = require('vue-lorem-ipsum')
-  Vue.component(Lorem, 'Lorem')
-}

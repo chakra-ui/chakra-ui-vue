@@ -54,7 +54,7 @@ export default {
       name: 'Chakra UI Vue',
       description: 'Build accessible Vue applications with speed ⚡️',
       theme_color: '#3ea76a',
-      author: 'Jonathan Bakebwa <jonas@akkadu-team.com> https://jbakebwa.dev'
+      author: 'Jonathan Bakebwa <codebender828@gmail.com> https://jbakebwa.dev'
     },
     icon: {
       iconSrc: 'static/chakra.png',

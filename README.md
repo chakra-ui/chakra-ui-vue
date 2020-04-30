@@ -1,5 +1,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
@@ -27,10 +29,9 @@
   specifications and have the right `aria-*` attributes.
 - **Dark Mode 😍**: Most components in Chakra UI are dark mode compatible.
 
-
 ### Roadmap to release 🚀
-Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/issues/89) 🚀
 
+Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/issues/89) 🚀
 
 ### Table of Contents
 
@@ -158,8 +159,7 @@ You can also view all developed components in **[Storybook](https://chakra-ui-vu
 
 ### Development for Contributing:
 
-Interested in contributing? See our [open issues](https://github.com/chakra-ui/chakra-ui-vue/issues)! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.
-
+Interested in contributing? See our [open issues](https://github.com/chakra-ui/chakra-ui-vue/issues)! Remember to take a look at our [CONTRIBUTORS](./.github/CONTRIBUTING.md) guide.
 
 ```bash
 yarn install
@@ -172,7 +172,7 @@ yarn dev
 - [ ] Documentation site (Ongoing)
 - [ ] Set up type system for plugin & components export with Typescript
 - [ ] Create Vue CLI Plugin (Ongoing)
- 
+
 <a id="contributors"></a>
 
 ## Contributors ✨
@@ -193,6 +193,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

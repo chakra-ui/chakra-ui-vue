@@ -1,1 +1,335 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="NumberInput"
+  description="The NumberInput component is similar to the Input component, but it has controls for incrementing or decrementing numeric values."
+/>
+
 # NumberInput
+
+The NumberInput component is similar to the [Input](/input), but it has controls
+for incrementing or decrementing numeric values.
+
+It follows the
+[WAI-ARIA authoring practices](https://www.w3.org/TR/wai-aria-practices-1.1/#spinbutton)
+for the Spinbutton widget.
+
+## Import
+
+Chakra UI exports 5 components for the NumberInput.
+
+- `CNumberInput`: The wrapper that provides context and logic to the
+  components.
+- `CNumberInputField`: The `input` field itself.
+- `CNumberInputStepper`: The wrapper for the input's stepper buttons.
+- `CNumberIncrementStepper`: The button to increment the value of the input.
+- `CNumberDecrementStepper`: The button to decrement the value of the input.
+
+<br />
+
+```js
+import {
+  CNumberInput,
+  CNumberInputField,
+  CNumberInputStepper,
+  CNumberIncrementStepper,
+  CNumberDecrementStepper,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+The `CNumberInput` is composed of smaller components to give you control of the
+styling of each part.
+
+```vue live=true
+<c-number-input>
+  <c-number-input-field />
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Setting a minimum and maximum value
+
+Simply pass the `min` prop or `max` prop to set an upper and lower limit for the
+input. By default, the input will restrict the value to stay within the
+specified range.
+
+```vue live=true
+<template>
+  <c-number-input v-model="value" :max="20" :min="10">
+    <c-number-input-field />
+    <c-number-input-stepper>
+      <c-numberIncrement-stepper />
+      <c-number-decrement-stepper />
+    </c-number-input-stepper>
+  </c-number-input>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      value: 15
+    }
+  }
+}
+</script>
+```
+
+
+### Setting the step size
+
+Simply pass the `step` prop to change the step size when you increment or
+decrement the value. By default, the value is rounded to match the number of
+decimals in the `step`.
+
+```vue live=true
+<c-number-input :step="5" :default-value="15" :max="20" :min="10">
+  <c-number-input-field />
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+
+### Adjusting the precision of the value
+
+In some cases, you might need the value to be rounded to specific decimal
+points. Simply pass the `precision` prop and set it to the number of decimal
+points.
+
+```vue live=true
+<c-number-input :precision="2" :default-value="15" :max="20" :min="10">
+  <c-number-input-field />
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Using the numeric keyboard on mobile
+
+By default the `CNumericInputField` is of type text, hence displaying a full
+keyboard on mobile devices. If you want to display a numeric keyboard, add
+`type="number"` to the `CNumberInputField` input, like so:
+
+> 🚨 We don't recommend you use this component for mobile considering that it
+> might be difficult for mobile users to tap on the steppers. We may release a
+> mobile specific implementation soon depending on the increase use cases.
+
+```vue live=true
+<c-number-input :default-value="15" :max="20" :min="10">
+  <c-number-input-field type="number" /> <!-- type="number" here -->
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Clamp value when user blurs the input
+
+In most cases, users can type custom values in the input field. If the typed
+value is greater than the `max`, the value is reset to `max` when the user blur
+out of the input.
+
+To disable this behavior, pass `clampValueOnBlur` and set to `false`.
+
+> In this example, try to type a value greater than the max, it won't reset the
+> value on blur.
+
+```vue live=true
+<c-number-input :default-value="15" :max="30" :clamp-value-on-blur="true">
+  <c-number-input-field />
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Allowing out of range values
+
+In some scenarios, you might not want to block out of range values. Simple pass
+`keepWithinRange` and `clampValueOnBlur` and set them to `false` to support this
+use case.
+
+> The NumberInput will be set `isInvalid` to `true` internally when the value is
+> out of range. Out of range means that the `value` is great than `max` or less
+> than `min`.
+
+```vue live=true
+<c-number-input :default-value="15" :max="10" clamp-value-on-blur :keep-within-range="false">
+  <c-number-input-field /> 
+  <c-number-input-stepper>
+    <c-numberIncrement-stepper />
+    <c-number-decrement-stepper />
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Changing the size of the input
+
+Just like the `CInput` component, you can pass the `size` prop to change the size
+of the input.
+
+```vue live=true
+<c-stack should-wrap-children is-inline>
+  <c-number-input size="sm" :default-value="15" clamp-value-on-blur :max="30">
+    <c-number-input-field />
+    <c-number-input-stepper>
+      <c-number-increment-stepper />
+      <c-number-decrement-stepper />
+    </c-number-input-stepper>
+  </c-number-input>
+  <c-number-input :default-value="15" clamp-value-on-blur :max="30">
+    <c-number-input-field />
+    <c-number-input-stepper>
+      <c-number-increment-stepper />
+      <c-number-decrement-stepper />
+    </c-number-input-stepper>
+  </c-number-input>
+  <c-number-input size="lg" :default-value="15" clamp-value-on-blur :max="30">
+    <c-number-input-field />
+    <c-number-input-stepper>
+      <c-number-increment-stepper />
+      <c-number-decrement-stepper />
+    </c-number-input-stepper>
+  </c-number-input>
+</c-stack>
+```
+
+### Changing the styles
+
+You can change the style of any part of the components using style props. You
+can also change the icons used in the steppers
+
+```vue live=true
+<c-number-input size="sm" :default-value="15" clamp-value-on-blur :max="30">
+  <c-number-input-field focus-border-color="red.200" />
+  <c-number-input-stepper>
+    <c-number-increment-stepper bg="green.200" :_active="{ bg: 'green.300' }">
+      +
+    </c-number-increment-stepper>
+    <c-number-decrement-stepper bg="pink.200" :_active="{ bg: 'pink.300' }">
+      -
+    </c-number-decrement-stepper>
+  </c-number-input-stepper>
+</c-number-input>
+```
+
+### Combining it with other components e.g. Slider
+
+A common use case is to combine the `CNumberInput` with a `CSlider`. Here's an
+example of how to do that.
+
+```vue live=true
+<template>
+  <c-stack>
+    <c-number-input :value="val" :max="10" clamp-value-on-blur :keep-within-range="false">
+      <c-number-input-field /> 
+      <c-number-input-stepper>
+        <c-numberIncrement-stepper />
+        <c-number-decrement-stepper />
+      </c-number-input-stepper>
+    </c-number-input>
+
+    <c-slider @change="handleChange" :default-value="val">
+      <c-slider-track />
+      <c-slider-filled-track />
+      <c-slider-thumb />
+    </c-slider>
+  </c-stack>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      val: 15
+    }
+  },
+  methods: {
+    handleChange(val) {
+      this.val = val
+    }
+  }
+}
+</script>
+```
+
+
+## Accessibility
+
+### Aria Roles
+
+- The input has `role` set to `spinbutton` to denote that users are to select
+  from a range of discrete values using an up and down arrows on the keyboard.
+- The input as `aria-valuemin` set to the minimum value allowed for the
+  spinbutton.
+- The input as `aria-valuemax` set to the maximum value allowed for the
+  spinbutton. attribute should be applied to the spinbutton.
+- The input as `aria-valuenow` set to the current value of the `input`.
+- The custom spinner (up and down buttons) have`aria-hidden` set to `true` to
+  make them invisible to screen readers.
+
+### Keyboard Navigation
+
+- When you hit the <kbd>⬆</kbd> or <kbd>⬇</kbd> key, the input value will be
+  increased or decreased by `step`
+- Holding down <kbd>Shift</kbd> and pressing <kbd>⬆</kbd> or <kbd>⬇</kbd> will
+  update the value by `10 * step`
+- Holding down <kbd>Ctrl</kbd> or <kbd>⌘</kbd>, and pressing <kbd>⬆</kbd> or
+   <kbd>⬆</kbd> will update the value by `0.1 * step`
+- Long press the Up and down stepper buttons will update the value at intervals.
+
+
+
+## `CNumberInput` Props & Events
+
+### Props
+
+`CNumberInput` composes `CFlex` with some additional props listed below.
+
+| Name                 | Type                        | Default     | Description                                                                                                         |
+| -------------------- | --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| `value`              | `number`                    |             | The value of the input for controlled usage. Should be less than `max` and greater than `min`                       |
+| `defaultValue`       | `number`                    |             | The initial value of the input. Should be less than `max` and greater than `min`                                    |
+| `min`                | `number`                    | `-Infinity` | The maximum value of the input                                                                                      |
+| `max`                | `number`                    | `Infinity`  | The minimum value of the input                                                                                      |
+| `step`               | `number`                    | `1`         | The step used to increment or decrement the value                                                                   |
+| `precision`          | `number`                    |             | The number of decimal points used to round the value                                                                |
+| `isReadOnly`         | `boolean`                   |             | If `true`, the input will be in readonly mode                                                                       |
+| `isInvalid`          | `boolean`                   |             | If `true`, the input will have `aria-invalid` set to `true`                                                         |
+| `isDisabled`         | `boolean`                   |             | If `true`, the input will be disabled                                                                               |
+| `keepWithinRange`    | `boolean`                   | `true`      | If `true` and you use the stepper or up/down arrow keys, the value will not exceed the `max` or go lower than `min` |
+| `clampValueOnBlur`   | `boolean`                   | `true`      | If `true` and the value is greater than `max`, the value will be reset to `max`                                     |
+| `focusInputOnChange` | `boolean`                   | `true`      | If `true`, the input will be focused as you increment or decrement the value with the stepper                       |
+| `getAriaValueText`   | `(value: number) => string` | `true`      | It is used to set the `aria-valuetext` property of the input                                                        |
+
+### Events
+
+| Name       | Payload   | Description                                                                                                  |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `@change`  | `number`   | The event emitted when the `CNumberInput` value changes. It emits the current value as teh payload          |
+
+
+## `CNumberInputField` Props
+
+`CNumberInput` composes `CInput` so you can pass all `CInput` props.
+
+## `CNumberInputStepper` Props
+
+`CNumberInputStepper` composes `CFlex` so you can pass all `CFlex` props.
+
+## `CNumberDecrementStepper` and `CNumberIncrementStepper~ Props
+
+`CNumberDecrementStepper` and `CNumberIncrementStepper` compose the `CPseudoBox` component.
+So it accepts all `CPseudoBox` props.

@@ -16,7 +16,7 @@ import {
   faCoffee,
   faExternalLinkAlt,
   faCog } from '@fortawesome/free-solid-svg-icons'
-import Lorem from '@/components/Lorem.vue'
+import Lorem from 'vue-lorem-ipsum'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 

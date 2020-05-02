@@ -62,6 +62,9 @@ export default {
     }
   },
   build: {
+    transpile: [
+      'vue-lorem-ipsum'
+    ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
       config.module.rules.push({

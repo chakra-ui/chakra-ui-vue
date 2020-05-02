@@ -1,1 +1,83 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Progress"
+  description="Progress is used to display the progress status for a task that takes a long time or consists of several steps."
+/>
+
 # Progress
+
+Progress is used to display the progress status for a task that takes a long time or consists of several steps.
+
+## Import
+
+<br />
+
+```js
+import { CProgress } from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-progress :value="80" />
+```
+
+### Progress with Stripe
+
+You can add `hasStripe` prop to any progressbar to apply a stripe via a CSS
+gradient over the progress bar’s background color.
+
+```vue live=true
+<c-progress has-stripe :value="59" />
+```
+
+### Progress sizes
+
+There are two ways you can increase the height of the progressbar:
+
+- You can add `size` prop to increase the height of the progressbar.
+- You can also use the `height` prop to manually set a height.
+
+```vue live=true
+<c-stack :spacing="5">
+  <c-progress color="vue" size="sm" :value="20" />
+  <c-progress color="vue" size="md" :value="40" />
+  <c-progress color="vue" size="lg" :value="50" />
+  <c-progress color="vue" height="32px" :value="30" />
+</c-stack>
+```
+
+### Progress color
+
+You can add `color` prop to any progressbar to apply any color that exists in
+the theme.
+
+```vue live=true
+<c-progress color="gray" has-stripe />
+```
+
+### Animated Progress
+
+The striped gradient can also be animated. Just add `isAnimated` and `hasStripe`
+prop to the progressbar to animate the stripes right to left via CSS3
+animations.
+
+```vue live=true
+<c-progress has-stripe is-animated />
+```
+
+## Accessibility
+
+- Progress has a `role` set to `progressbar` to denote that it's a progress.
+- Progress has `aria-valuenow` set to the percentage completion value passed to
+  the component, to ensure the progress percent is visible to screen readers.
+
+## Props
+
+| Name       | Type      | Default | Description                               |
+| ---------- | --------- | ------- | ----------------------------------------- |
+| value      | `number`  |         | Current progress of the progressbar       |
+| color      | `string`  | `blue`  | Color of the progressbar                  |
+| hasStripe  | `boolean` | `false` | Determines if the progressbar has stripe  |
+| isAnimated | `boolean` | `false` | Determines if the progressbar is animated |

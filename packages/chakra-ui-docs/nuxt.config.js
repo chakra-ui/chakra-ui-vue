@@ -63,7 +63,8 @@ export default {
   },
   build: {
     transpile: [
-      'vue-lorem-ipsum'
+      'vue-lorem-ipsum',
+      '@chakra-ui/theme-vue'
     ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'

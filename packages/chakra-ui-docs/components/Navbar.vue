@@ -19,6 +19,7 @@
           @click="$toggleColorMode"
           variant="ghost"
           variantColor="gray"
+          :aria-label="colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
           :icon="colorMode === 'light' ? 'moon' : 'sun'"
         />
       </CBox>

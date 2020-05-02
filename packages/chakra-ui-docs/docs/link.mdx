@@ -1,1 +1,62 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Link"
+  description="Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink and semantically renders an anchor tag."
+/>
+
 # Link
+
+Links are accessible elements used primarily for navigation. This component is
+styled to resemble a hyperlink and semantically renders an `<a>`.
+
+## Import
+
+```js
+import { CLink } from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-link>Chakra UI</c-link>
+```
+
+### External Link
+
+```vue live=true
+<c-link href="https://vue.chakra-ui.com" is-external>
+  Chakra Design system <c-icon name="external-link-alt" mx="2px" />
+</c-link>
+```
+
+```vue live=true
+<c-text>
+  Did you know that 
+  <c-link color="teal.500" href="#">
+    links can live inline with text
+  </c-link>
+</c-text>
+```
+
+## Usage with `router-link` or `nuxt-link` Library
+
+To use the `CLink` with a routing component like `router-link` or `nuxt-link`, all
+you need to do is to pass the `as` prop. It'll replace the rendered `a` tag with
+with `router-link` or `nuxt-link`'s link.
+
+```vue live=true
+<c-link as="router-link" to="/">
+  Home
+</c-link>
+```
+
+## Props
+
+The `CLink` component composes the <nuxt-link to="/pseudobox">PseudoBox</nuxt-link> so you can pass all
+`CPseudoBox` props.
+
+| Name         | Type       | Default | Description                               |
+| ------------ | ---------- | ------- | ----------------------------------------- |
+| `isExternal` | `boolean`  |         | If `true`, the link will open in new tab. |
+| `isDisabled` | `boolean`  |         | If `true`, the link will be disabled.     |

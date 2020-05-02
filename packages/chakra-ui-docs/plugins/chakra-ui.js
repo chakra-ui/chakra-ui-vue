@@ -2,7 +2,6 @@ import Vue from 'vue'
 import * as Chakra from '@chakra-ui/vue'
 import theme from '@chakra-ui/theme-vue'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
 import {
   faBolt,
   faAnchor,
@@ -14,7 +13,10 @@ import {
   faBars,
   faEdit,
   faSearch,
-  faCoffee } from '@fortawesome/free-solid-svg-icons'
+  faCoffee,
+  faExternalLinkAlt,
+  faCog } from '@fortawesome/free-solid-svg-icons'
+import Lorem from 'vue-lorem-ipsum'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 
@@ -44,7 +46,9 @@ Vue.use(Chakra.default, {
       faBars,
       faEdit,
       faSearch,
-      faCoffee
+      faCoffee,
+      faExternalLinkAlt,
+      faCog
     },
     extend: {
       'storybook': {
@@ -57,9 +61,10 @@ Vue.use(Chakra.default, {
   }
 })
 
+Vue.component('Lorem', Lorem)
+
 Object.keys(Chakra).forEach((key) => {
   if (typeof Chakra[key] === 'object' && Chakra[key].name) {
-    // console.log(Chakra[key].name)
     Vue.component(Chakra[key].name, Chakra[key])
   }
 })

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.13](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.12...@chakra-ui/vue@0.3.13) (2020-04-26)
+
+
+### Bug Fixes
+
+* **c-modal:** extract final focus ref from function type ([b9c1be7](https://github.com/chakra-ui/chakra-ui-vue/commit/b9c1be787aff6a445a14fc71bc98a616f5ea927d))
+* **c-radio-group:** implement v-model ([fbc4342](https://github.com/chakra-ui/chakra-ui-vue/commit/fbc4342172abb145f8fcabb2a6b7fe53b9cacbb1))
+* **collapse:** compose box props for collapse component ([5f4a7ef](https://github.com/chakra-ui/chakra-ui-vue/commit/5f4a7efbc648f07fbb4bffc612069620f4688318))
+* **iconbutton:** add required prop for aria-label ([3d71724](https://github.com/chakra-ui/chakra-ui-vue/commit/3d71724e208ff5eed741637c0cf2ef1bf750bfb7))
+* **image:** fix fallback source ([916a851](https://github.com/chakra-ui/chakra-ui-vue/commit/916a851d212fa65d1db96cdf66a86419a1ec37af))
+* **image:** fix size prop form image component ([18fe564](https://github.com/chakra-ui/chakra-ui-vue/commit/18fe564b918e7d9bd3dee3d850c6860a2a966244))
+
+
+### Features
+
+* **aspect-ratio:** add aspect ratio tests ([9f36701](https://github.com/chakra-ui/chakra-ui-vue/commit/9f3670176df845ffcd5c2e489d6c3c51fe61c5b7))
+* **control-box:** add tests for ControlBox ([64359b5](https://github.com/chakra-ui/chakra-ui-vue/commit/64359b5183e6ecc85ae29d93852647724062c2bd))
+* **heading:** add truncation ([6e05ebd](https://github.com/chakra-ui/chakra-ui-vue/commit/6e05ebdcc57ac240d8c91062fba85d2f9fd20301))
+* **text:** add truncation ([ed09546](https://github.com/chakra-ui/chakra-ui-vue/commit/ed09546e26e23a2ed13c054edf616dee77ebe5d6))
+
+
+
+
+
 ## [0.3.12](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.11...@chakra-ui/vue@0.3.12) (2020-04-16)
 
 

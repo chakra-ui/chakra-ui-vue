@@ -1,3 +1,15 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue IconButton
+ *
+ * CIconButton is used to render icons that support
+ * click interactions.
+ *
+ * CIconButton composes the CButton component, except that it renders only an icon.
+ *
+ * @see Docs     https://vue.chakra-ui.com/iconbutton
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIconButton/CIconButton.js
+ */
+
 import styleProps from '../config/props'
 import { forwardProps } from '../utils'
 import { buttonProps } from '../CButton/utils/button.props'
@@ -20,6 +32,15 @@ const baseStyles = {
   outline: 'none'
 }
 
+/**
+ * CIconButton component
+ *
+ * CIconButton is used to render icons that support
+ * click interactions
+ *
+ * @extends CButton
+ * @see Docs https://vue.chakra-ui.com/iconbutton
+ */
 const CIconButton = {
   name: 'CIconButton',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -30,8 +51,9 @@ const CIconButton = {
     isRound: {
       type: [Boolean]
     },
-    _ariaLabel: {
-      type: [String]
+    ariaLabel: {
+      type: [String],
+      required: true
     },
     ...buttonProps,
     ...styleProps
@@ -47,7 +69,8 @@ const CIconButton = {
         ...forwardProps(props)
       },
       attrs: {
-        'aria-label': this._ariaLabel
+        'aria-label': this.ariaLabel,
+        'data-chakra-component': 'CIconButton'
       },
       on: {
         click: (e) => this.$emit('click', e)

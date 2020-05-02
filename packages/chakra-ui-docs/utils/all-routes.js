@@ -57,4 +57,4 @@ const components = [
   'Tooltip'
 ]
 
-module.exports = components
+export default components

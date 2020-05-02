@@ -129,7 +129,10 @@ const CModal = {
     activateFocusLock () {
       setTimeout(() => {
         if (this.initialFocusRef) {
-          const initialFocusRef = isFunction(this.initialFocusRef) ? this.getNode(this.initialFocusRef()) : this.getNode(this.initialFocusRef)
+          const initialFocusRef = isFunction(this.initialFocusRef)
+            ? this.getNode(this.initialFocusRef())
+            : this.getNode(this.initialFocusRef)
+
           if (initialFocusRef) {
             initialFocusRef.focus()
           }
@@ -154,7 +157,10 @@ const CModal = {
     deactivateFocusLock () {
       setTimeout(() => {
         if (this.finalFocusRef) {
-          const finalFocusRef = this.getNode(this.finalFocusRef)
+          const finalFocusRef = isFunction(this.finalFocusRef)
+            ? this.getNode(this.finalFocusRef())
+            : this.getNode(this.finalFocusRef)
+
           if (finalFocusRef) {
             canUseDOM && finalFocusRef.focus()
           } else {

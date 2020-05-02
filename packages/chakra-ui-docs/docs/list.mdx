@@ -1,1 +1,88 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="List"
+  description="List is used to display list items"
+/>
+
 # List
+
+List is used to display list items, it renders a `<ul>` by default.
+
+## Import
+
+Chakra UI exports 3 list related components.
+
+- `CList`: The wrapper for the list content
+- `CListItem`: The individual element for items inside the `CList`
+- `CListIcon`: The icon displayed in accompaniment with a list item.
+
+```js
+import { CList, CListItem, CListIcon } from "@chakra-ui/vue";
+```
+
+## Unordered List
+
+```vue live=true
+<c-list styleType="disc">
+  <c-list-item>Lorem ipsum dolor sit amet</c-list-item>
+  <c-list-item>Consectetur adipiscing elit</c-list-item>
+  <c-list-item>Integer molestie lorem at massa</c-list-item>
+  <c-list-item>Facilisis in pretium nisl aliquet</c-list-item>
+</c-list>
+```
+
+## Ordered List
+
+```vue live=true
+<c-list as="ol" styleType="decimal">
+  <c-list-item>Lorem ipsum dolor sit amet</c-list-item>
+  <c-list-item>Consectetur adipiscing elit</c-list-item>
+  <c-list-item>Integer molestie lorem at massa</c-list-item>
+  <c-list-item>Facilisis in pretium nisl aliquet</c-list-item>
+</c-list>
+```
+
+## Unstyled List with icon
+
+Add nice icons to the list item by using the `CListIcon` component. You can pass
+the name of the icon or custom icons. The icon is sized relative to the font
+size of the list item.
+
+> In the example below, the `_check-circle` is an internal icon provided by Chakra and the `cog` icon is from [Font Awesome](https://fontawesome). Learn more about using custom icons in chakra <nuxt-link to="/icon">here</nuxt-link>
+
+```vue live=true
+<c-list spacing="3">
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Assumenda, quia temporibus eveniet a libero incidunt suscipit
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="_check-circle" color="green.500" />
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+  </c-list-item>
+  <c-list-item>
+    <c-list-icon icon="cog" color="green.500" />
+    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+  </c-list-item>
+</c-list>
+```
+
+## Props
+
+### List Props
+
+| Name      | Type                             | Default  | Description                             |
+| --------- | -------------------------------- | -------- | --------------------------------------- |
+| styleType | `string`                         | `none`   | The CSS value for `list-style-type`     |
+| stylePos  | `string`                         | `inside` | The CSS value for `list-style-position` |
+| spacing   | `StyledSystem.MarginBottomProps` |          | The space between each list item        |
+
+### List Item Props
+
+ListItem composes [PseudoBox](/pseudobox) so you pass all style props, and
+pseudo style props.

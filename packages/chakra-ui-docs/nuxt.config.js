@@ -1,6 +1,6 @@
 import dotenv from 'dotenv-defaults'
-import pages from './_components'
 import { stringToUrl } from './utils'
+import pages from './utils/all-routes'
 
 const routes = pages
   .map(page => {
@@ -14,6 +14,7 @@ dotenv.config({
 
 export default {
   mode: 'universal',
+  srcDir: __dirname,
   generate: {
     routes
   },
@@ -53,7 +54,7 @@ export default {
       name: 'Chakra UI Vue',
       description: 'Build accessible Vue applications with speed ⚡️',
       theme_color: '#3ea76a',
-      author: 'Jonathan Bakebwa <jonas@akkadu-team.com> https://jbakebwa.dev'
+      author: 'Jonathan Bakebwa <codebender828@gmail.com> https://jbakebwa.dev'
     },
     icon: {
       iconSrc: 'static/chakra.png',
@@ -62,6 +63,7 @@ export default {
   },
   build: {
     transpile: [
+      'vue-lorem-ipsum',
       '@chakra-ui/theme-vue'
     ],
     extend (config, ctx) {

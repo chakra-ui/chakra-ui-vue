@@ -1,19 +1,16 @@
 import { CInput, CButton, CModal, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton } from '../..'
-import { render, defaultProviders, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
+import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
 import Vue from 'vue'
 import { useId, wrapEvent } from '@/packages/chakra-ui-core/src/utils'
 
 // mocks
-jest.mock('@/packages/chakra-ui-core/src/utils/dom.js')
+jest.mock('@/packages/chakra-ui-core/src/utils/dom.js') // click
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')
-jest.mock('v-scroll-lock', () => ({}))
-jest.mock('@/packages/chakra-ui-core/src/CToast/index.js', () => {})
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CInput, CButton, CModal, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton },
-    provide: () => defaultProviders(),
     data: () => ({
       isOpen: false
     }),

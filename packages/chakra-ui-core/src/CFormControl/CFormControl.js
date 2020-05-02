@@ -34,7 +34,11 @@ const CFormControl = {
   name: 'CFormControl',
   props: {
     ...baseProps,
-    ...formControlProps
+    ...formControlProps,
+    as: {
+      type: String,
+      default: 'div'
+    }
   },
   inject: {
     $FormControlContext: {

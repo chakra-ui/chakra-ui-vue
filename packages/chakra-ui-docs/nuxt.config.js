@@ -61,6 +61,9 @@ export default {
     }
   },
   build: {
+    transpile: [
+      '@chakra-ui/theme-vue'
+    ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
       config.module.rules.push({

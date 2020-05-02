@@ -106,10 +106,8 @@ const CAlertDialogContent = {
  * @extends CModalOverlay
  * @see Docs https://vue.chakra-ui.com/alertdialog
  */
-const CAlertDialogOverlay = {
-  ...CModalOverlay,
-  name: 'CAlertDialogOverlay'
-}
+const CAlertDialogOverlay = CModalOverlay
+CAlertDialogOverlay.name = 'CAlertDialogOverlay'
 
 /**
  * CAlertDialogBody component
@@ -119,10 +117,8 @@ const CAlertDialogOverlay = {
  * @extends CModalBody
  * @see Docs https://vue.chakra-ui.com/alertdialog
  */
-const CAlertDialogBody = {
-  ...CModalBody,
-  name: 'CAlertDialogBody'
-}
+const CAlertDialogBody = CModalBody
+CAlertDialogBody.name = 'CAlertDialogBody'
 
 /**
  * CAlertDialogHeader component
@@ -132,10 +128,8 @@ const CAlertDialogBody = {
  * @extends CModalHeader
  * @see Docs https://vue.chakra-ui.com/alertdialog
  */
-const CAlertDialogHeader = {
-  ...CModalHeader,
-  name: 'CAlertDialogHeader'
-}
+const CAlertDialogHeader = CModalHeader
+CAlertDialogHeader.name = 'CAlertDialogHeader'
 
 /**
  * CAlertDialogFooter component
@@ -145,10 +139,8 @@ const CAlertDialogHeader = {
  * @extends CModalFooter
  * @see Docs https://vue.chakra-ui.com/alertdialog
  */
-const CAlertDialogFooter = {
-  ...CModalFooter,
-  name: 'CAlertDialogFooter'
-}
+const CAlertDialogFooter = CModalFooter
+CAlertDialogFooter.name = 'CAlertDialogFooter'
 
 /**
  * CAlertDialogCloseButton component
@@ -158,10 +150,8 @@ const CAlertDialogFooter = {
  * @extends CModalCloseButton
  * @see Docs https://vue.chakra-ui.com/alertdialog
  */
-const CAlertDialogCloseButton = {
-  ...CModalCloseButton,
-  name: 'CAlertDialogCloseButton'
-}
+const CAlertDialogCloseButton = CModalCloseButton
+CAlertDialogCloseButton.name = 'CAlertDialogCloseButton'
 
 export {
   CAlertDialog,

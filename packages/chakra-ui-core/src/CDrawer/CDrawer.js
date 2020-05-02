@@ -226,10 +226,8 @@ const CDrawerCloseButton = {
  * @extends CModalBody
  * @see Docs https://vue.chakra-ui.com/drawer
  */
-const CDrawerBody = {
-  CModalBody,
-  name: 'CDrawerBody'
-}
+const CDrawerBody = CModalBody
+CDrawerBody.name = 'CDrawerBody'
 
 /**
  * CDrawerHeader component
@@ -239,10 +237,8 @@ const CDrawerBody = {
  * @extends CModalHeader
  * @see Docs https://vue.chakra-ui.com/drawer
  */
-const CDrawerHeader = {
-  ...CModalHeader,
-  name: 'CDrawerHeader'
-}
+const CDrawerHeader = CModalHeader
+CDrawerHeader.name = 'CDrawerHeader'
 
 /**
  * CDrawerFooter component
@@ -252,10 +248,8 @@ const CDrawerHeader = {
  * @extends CModalFooter
  * @see Docs https://vue.chakra-ui.com/drawer
  */
-const CDrawerFooter = {
-  ...CModalFooter,
-  name: 'CDrawerFooter'
-}
+const CDrawerFooter = CModalFooter
+CDrawerFooter.name = 'CDrawerFooter'
 
 export {
   CDrawer,

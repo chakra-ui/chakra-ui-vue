@@ -1,7 +1,13 @@
 import { css } from 'emotion'
 import { CHeading, CBox, Css, CPseudoBox, CCode, CText } from '@chakra-ui/vue'
 import { stringToUrl } from '~/utils'
+import pages from '~/utils/all-routes'
 import CodeBlock from './CodeBlock'
+
+const routes = pages
+  .map(page => {
+    return page === 'Index' ? stringToUrl('') : stringToUrl(page)
+  })
 
 const Heading = {
   name: 'Heading',
@@ -282,21 +288,31 @@ const MDXComponents = {
         </CBox>
       )
     }
+  }),
+  a: props => ({
+    name: 'Anchor',
+    render (h) {
+      const linkProps = routes.includes(props.href)
+        ? {
+          props: {
+            as: 'nuxt-link',
+            to: props.href
+          }
+        }
+        : {
+          props: {
+            isExternal: true
+          },
+          domProps: {
+            href: props.href
+          }
+        }
+
+      return h('c-link', {
+        ...linkProps
+      }, this.$slots.default)
+    }
   })
-  // blockquote: props => ({
-  //   name: 'BlockQuote',
-  //   render (h) {
-  //     const styles = Css({ '> *:first-of-type': { marginTop: '0' } })
-  //     return h(CAlert, {
-  //       class: [css(styles)],
-  //       props: {
-  //         variant: 'left-accent',
-  //         status: 'warning',
-  //         ...props
-  //       }
-  //     }, this.$slots.default)
-  //   }
-  // })
 }
 
 export default MDXComponents

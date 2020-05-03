@@ -115,10 +115,10 @@ export default {
           bg: this.thBg[colorMode]
         },
         '.preview-panel': {
-          borderColor: this.thBg[colorMode],
-          'a': {
-            color: 'inherit'
-          }
+          borderColor: this.thBg[colorMode]
+          // 'a': {
+          //   color: 'inherit'
+          // }
         },
         'table, p': {
           'code': {

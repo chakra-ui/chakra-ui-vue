@@ -24,7 +24,7 @@ const LiveEditor = {
   methods: {
     async copy () {
       // Copy text to clipboard
-      await navigator.clipboard.writeText(this.text)
+      await navigator.clipboard.writeText(this.code)
       // Handle timeouts for copy button text
       if (this.copyTimeout) clearTimeout(this.copyTimeout)
       this.copyButton.textContent = 'Copied!'

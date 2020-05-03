@@ -58,6 +58,7 @@ const CodeBlock = props => ({
   render (h) {
     const language = getLanguage(props.className)
     const code = this.$slots.default[0].text
+    this.text = code
 
     if (!props.live) {
       return h(CBox, {

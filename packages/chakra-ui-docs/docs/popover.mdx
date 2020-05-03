@@ -1,1 +1,41 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Popover"
+  description="Popover is a non-modal dialog that floats around a trigger. It's used to display contextual information to the user."
+/>
+
 # Popover
+
+Popover is a non-modal dialog that floats around a trigger. It's used to display
+contextual information to the user, and should be paired with a clickable
+trigger element.
+
+Popover is built on top of the [Popper.js](https://popper.js.org/) library, and
+composes the `Popper` component.
+
+## Import
+
+- `CPopover`: The wrapper that provides props, state, and context to it's
+  children.
+- `CPopoverTrigger`: Used to wrap the reference (or trigger) element.
+- `CPopoverContent`: The popover itself.
+- `CPopoverHeader`: The header of the popover.
+- `CPopoverBody`: The body of the popover.
+- `CPopoverArrow`: A visual arrow that points to the reference (or trigger).
+- `CPopoverCloseButton`: Obviously, a button to close the popover.
+
+<br />
+
+```js
+import {
+  CPopover,
+  CPopoverTrigger,
+  CPopoverContent,
+  CPopoverHeader,
+  CPopoverBody,
+  CPopoverFooter,
+  CPopoverArrow,
+  CPopoverCloseButton,
+} from '@chakra-ui/vue';
+```

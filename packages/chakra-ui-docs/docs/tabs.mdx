@@ -1,1 +1,334 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Tabs"
+  description="The Tab component consists of clickable tabs, that are aligned side by side."
+/>
+
 # Tabs
+
+An accessible tabs component.
+
+The `Tab` and `TabPanel` elements are associated by their order in the tree.
+None of the components are empty wrappers, each is associated with a real DOM
+element in the document, giving you maximum control over styling and
+composition.
+
+## Import
+
+```js
+import { CTabs, CTabList, CTabPanels, CTab, CTabPanel } from '@chakra-ui/vue'
+```
+
+## Usage
+
+You can render any element within `Tabs`, but `TabList` should only have `Tab`
+as children, and `TabPanels` should have `TabPanel` as children.
+
+Tabs expects `TabList` and `TabPanels` as children. The order doesn't matter,
+you can have tabs at the top, at the bottom, or both.
+
+```vue live=true
+<c-box w="600px">
+    <c-tabs>
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Tab variants and color
+
+Tabs come in 6 different variants to style the tabs: `line`,`enclosed`,
+`enclosed-colored`, `soft-rounded`, `solid-rounded`, `unstyled`
+
+```vue live=true
+<c-box>
+    <c-tabs variant="enclosed">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+You can also change the color for any specific variant by passing the
+`variantColor`.
+
+> The value of `variantColor` must exist in the theme object, and must be a key
+> in `theme.colors` that has the `100` - `900` color values.
+
+```vue live=true
+<c-box>
+    <c-tabs variant="soft-rounded" variant-color="green">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+### Tab sizes
+
+You can change the size of the tab by passing `size` prop. We support 3 sizes
+`sm`, `md`, `lg`
+
+```vue live=true
+<c-box>
+    <c-tabs variant="solid-rounded" size="sm" variant-color="green">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Change the tabs alignment
+
+You can change the alignment of the `TabList` by passing `align` prop. We
+support 3 sizes `start`, `center`, `end`.
+
+```vue live=true
+<c-box>
+    <c-tabs variant="enclosed-colored" variant-color="vue" align="end">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Fitted Tabs
+
+Stretch the tab list to fit the container by passing `isFitted` prop.
+
+```vue live=true
+<c-box>
+    <c-tabs variant="enclosed-colored" is-fitted>
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Make a tab initally active
+
+```vue live=true
+<c-box>
+    <c-tabs variant="enclosed-colored" :default-index="2">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Make a Tab disabled
+
+```vue live=true
+<c-box>
+    <c-tabs variant="enclosed-colored">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab is-disabled>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Manually Activated Tabs
+
+By default, `Tabs` are activated automatically. This means when you use the
+arrow keys to change tabs, the tab is activated and focused.
+
+> The content of a `TabPanel` should ideally be preloaded. However, if switching
+> to a tab panel causes a network request and possibly a page refresh, there
+> might be some notable latency and this might affect the experience for
+> keyboard and screen reader users.
+
+In this scenario, you should use a manually activated tab, it moves focus
+without activating the tabs. With focus on a specifc tab, users can activate a
+tab by pressing <kbd>Space</kbd> or <kbd>Enter</kbd>.
+
+```vue live=true
+<c-box>
+    <c-tabs is-manual variant="enclosed">
+        <c-tab-list>
+        <c-tab>One</c-tab>
+        <c-tab>Two</c-tab>
+        <c-tab>Three</c-tab>
+        </c-tab-list>
+        <c-tab-panels>
+        <c-tab-panel>
+            <p>one!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>two!</p>
+        </c-tab-panel>
+        <c-tab-panel>
+            <p>three!</p>
+        </c-tab-panel>
+        </c-tab-panels>
+    </c-tabs>
+</c-box>
+```
+
+## Accessibility
+
+### Keyboard
+
+| Key                | Action                                                                     |
+| ------------------ | -------------------------------------------------------------------------- |
+| `ArrowLeft`        | Moves focus to the next tab                                                |
+| `ArrowUp`          | Moves focus to the previous tab                                            |
+| `Tab`              | When focus moves into the tab list, places focus on the active tab element |
+| `Space` or `Enter` | Activates the tab if it was not activated automatically on focus           |
+| `Home`             | Moves focus to the first tab                                               |
+| `End`              | Moves focus to the last tab                                                |
+
+### ARIA roles
+
+| Component | Aria               | Usage                                                                       |
+| --------- | ------------------ | --------------------------------------------------------------------------- |
+| Tab       | `role="tab"`       | Indicates that it's a tab                                                   |
+|           | `aria-selected`    | Set to `true` a tab is selected and all other Tabs have it set to `false`.  |
+|           | `aria-controls`    | Set to the `id` of its associated `TabPanel`                                |
+| TabList   | `id`               | The `id` of the `TabPanel` that's referencd by its associated `Tab`         |
+|           | `aria-orientation` | Set to vertical or horizontal based on the value of the `orientation` prop. |
+|           | `role="tablist"`   | Indicates that it's a tablist                                               |
+|           | `aria-labelledby`  | Set to the `id` of the `Tab` that labels the `TabPanel`.                    |
+
+## Props
+
+### Tabs Props
+
+Tabs composes `Box` so you call pass all `Box` related props.
+
+| Name           | Type                                                                              | Default      | Description                                                                                                                     |
+| -------------- | --------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `onChange`     | `(index: number) => void`                                                         |              | The callback to update the active tab index.                                                                                    |
+| `index`        | `number`                                                                          |              | The controlled index of the tabs.                                                                                               |
+| `defaultIndex` | `number`                                                                          |              | The index of the initial active tab.                                                                                            |
+| `isManual`     | `boolean`                                                                         |              | If `true`, keyboard navigation changes focus between tabs but doens't activate it. User will have to press `Enter` to active it |
+| `variant`      | `line`,`enclosed`,`enclosed-colored`, `soft-rounded`, `solid-rounded`, `unstyled` | `line`       | The visual style of the tab.                                                                                                    |
+| `variantColor` | `string`                                                                          |              | The primary color to use for the selected variant. Use a color key in `theme.colors`                                            |
+| `size`         | `sm`, `md`, `lg`                                                                  | `md`         | The visual size of the tabs                                                                                                     |
+| `orientation`  | `horizontal`, `vertical`                                                          | `horizontal` | The orientation of the tabs                                                                                                     |
+| `isFitted`     | `boolean`                                                                         |              | If `true`, the tabs will stretch to fill the available space                                                                    |
+
+### Tabs Slot
+
+| Name    | Description                            |
+| ------- | -------------------------------------- |
+| default | The children of the `CTabs` component. |
+
+### Tab Props
+
+| Name         | Type      | Default | Description                         |
+| ------------ | --------- | ------- | ----------------------------------- |
+| `isDisabled` | `boolean` |         | If `true`, the tab will be disabled |

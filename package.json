@@ -118,7 +118,7 @@
     "v-scroll-lock": "^1.1.0",
     "vue": "^2.6.11",
     "vue-error-boundary": "^1.0.3",
-    "vue-live": "^1.9.0",
+    "vue-live": "1.5.1",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-meta": "^2.3.3",

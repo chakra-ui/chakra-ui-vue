@@ -1,1 +1,46 @@
+import SEO from "../components/SEO";
+
+<SEO title="CloseButton" description="CloseButton is essentially a button with a close icon. It is used to handle the close functionality in feedback and overlay components like Alerts, Toasts, Drawers and Modals" />
+
 # CloseButton
+
+The CloseButton is essentially a button with a close icon. It is used to handle the
+close functionality in feedback and overlay components like [Alerts](/alert),
+[Toasts](/toast), [Drawers](/drawer) and [Modals](/modal).
+
+## Import
+
+```js
+import { CCloseButton } from '@chakra-ui/vue';
+```
+
+
+## Usage
+
+```vue live=true
+<c-close-button />
+```
+
+### Button Size
+
+Pass the size prop to adjust the size of the close button. Values can be `sm`,
+`md` or `lg`.
+
+```vue live=true
+<c-stack isInline :spacing="6">
+  <c-close-button size="sm" />
+  <c-close-button size="md" />
+  <c-close-button size="lg" />
+</c-stack>
+```
+
+## Props
+
+The CloseButton composes `CPseudoBox` component.
+
+| Name         | Type             | Default | Description                              |
+| ------------ | ---------------- | ------- | ---------------------------------------- |
+| `aria-label` | `string`         |         | An accessible label for the close button |
+| `isDisabled` | `boolean`        |         | If `true`, the button will be disabled   |
+| `color`      | `string`         |         | The color of the close icon              |
+| `size`       | `sm`, `md`, `lg`  | `md`    | The size of the close button             |

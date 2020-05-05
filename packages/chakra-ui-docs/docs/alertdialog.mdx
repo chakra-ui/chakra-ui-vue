@@ -1,1 +1,121 @@
-# AlertDialog
+import SEO from '../components/SEO'
+
+<SEO
+  title="Alert Dialog"
+  description="The AlertDialog component is used to interrupt the user with a mandatory confirmation or action."
+/>
+
+# Alert Dialog
+
+The AlertDialog component is used to interrupt the user with a mandatory confirmation
+or action.
+
+See `CAlertDialog`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlertDialog/accessibility.md">accessibility report</a>
+
+## Import
+
+Chakra UI exports 7 alert dialog related components.
+
+- `CAlertDialog`: provides context and state for the dialog.
+- `CAlertDialogHeader`: should contain the title announced by screen readers.
+- `CAlertDialogBody`: should contain the description announced by screen readers.
+- `CAlertDialogFooter`: should contain the actions of the dialog.
+- `CAlertDialogOverlay`: The dimmed overlay behind the dialog.
+- `CAlertDialogContent`: The wrapper for the alert dialog's content.
+- `CAlertDialogCloseButton`: The button that closes the dialog.
+
+<br />
+
+```js
+import {
+  CAlertDialog,
+  CAlertDialogHeader,
+  CAlertDialogBody,
+  CAlertDialogFooter,
+  CAlertDialogOverlay,
+  CAlertDialogContent,
+  CAlertDialogCloseButton
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+`CAlertDialog` requires that you provide the `leastDestructiveRef` prop. This ref can be an actual
+Vue ref to a focusable element or component in your alert dialog. The `leastDestructiveRef` prop also accepts
+a function that returns a ref.
+
+Based on [WAI-ARIA specifications for alert dialogs](https://www.w3.org/TR/wai-aria-practices/#alertdialog)
+when the dialog opens, focus should be placed on the least destructive element
+to prevent users from accidentally confirming the destructive action.
+
+```vue live=true
+<template>
+  <div>
+    <c-alert-dialog
+      :is-open="isOpen"
+      :least-destructive-ref="$refs.cancelRef"
+      :on-close="closeDialog"
+    >
+      <c-alert-dialog-overlay />
+      <c-alert-dialog-content>
+        <c-alert-dialog-header font-size="lg" font-weight="bold">
+          Delete Customer
+        </c-alert-dialog-header>
+        <c-alert-dialog-body>
+          Are you sure? You can't undo this action afterwards.
+        </c-alert-dialog-body>
+        <c-alert-dialog-footer>
+          <c-button ref="cancelRef" @click="closeDialog">
+            Cancel
+          </c-button>
+          <c-button variantColor="red" @click="closeDialog" ml="3">
+            Delete
+          </c-button>
+        </c-alert-dialog-footer>
+      </c-alert-dialog-content>
+    </c-alert-dialog>
+    <c-button variant-color="red" @click="openDialog">
+      Delete Customer
+    </c-button>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    closeDialog() {
+      this.isOpen = false
+    },
+    openDialog() {
+      this.isOpen = true
+    }
+  }
+}
+</script>
+```
+
+## Accessibility
+
+- `CAlertDialog` has role `alertdialog`, and `aria-modal` set to true.
+- When the dialog opens, focus is automatically set to the least destructive
+  element.
+- When the dialog opens, the content in the `CAlertDialogHeader` and
+  `CAlertDialogBody` are announced by screen readers via `aria-labelledby` and
+  `aria-describedby` attributes.
+- Clicking on the overlay closes the `CAlertDialog`.
+- Pressing <kbd>esc</kbd> closes the dialog.
+
+
+## Props
+
+AlertDialog and it's components composes the `CModal` component, the only
+exception is that it requires a `leastDestructiveRef` which is similar to the
+`initialFocusRef` in `CModal`
+
+| Name                           | Type                              | Default | Description                                                   |
+| ------------------------------ | --------------------------------- | ------- | ------------------------------------------------------------- |
+| leastDestructiveRef (required) | `ref`, `selector` `Function: ref` |         | The least destructive action to get focus when dialog is open |

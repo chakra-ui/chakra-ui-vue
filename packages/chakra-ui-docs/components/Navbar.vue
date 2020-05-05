@@ -1,9 +1,9 @@
 <template>
-  <Box as="nav" h="60px" px="4" d="flex" alignItems="center" shadow="sm">
-    <Anchor as="nuxt-link" w="130px" to="/" fontWeight="bold" fontSize="1.2rem">
+  <CBox as="nav" h="60px" px="4" d="flex" alignItems="center" shadow="sm">
+    <CLink as="nuxt-link" w="130px" to="/" fontWeight="bold" fontSize="1.2rem">
       <Logo />
-    </Anchor>
-    <Box
+    </CLink>
+    <CBox
       as="ul"
       :color="colorMode === 'light' ? 'gray.500' : 'whiteAlpha.900'"
       d="flex"
@@ -11,24 +11,25 @@
       listStyleType="none"
       ml="auto"
     >
-      <Box as="li" mr="4">
-        <Anchor color="gray.500" :_hover="{ color : 'vue.400' }" isExternal href="https://github.com/chakra-ui/chakra-ui-vue"><Icon name="github" size="20px" /></Anchor>
-      </Box>
-      <Box as="li">
-        <IconButton
+      <CBox as="li" mr="4">
+        <CLink color="gray.500" :_hover="{ color : 'vue.400' }" isExternal href="https://github.com/chakra-ui/chakra-ui-vue"><CIcon name="github" size="20px" /></CLink>
+      </CBox>
+      <CBox as="li">
+        <CIconButton
           @click="$toggleColorMode"
           variant="ghost"
           variantColor="gray"
+          :aria-label="colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
           :icon="colorMode === 'light' ? 'moon' : 'sun'"
         />
-      </Box>
+      </CBox>
       <MobileNav />
-    </Box>
-  </Box>
+    </CBox>
+  </CBox>
 </template>
 
 <script>
-import { Box, Link as Anchor, Icon, IconButton } from '@chakra-ui/vue'
+import { CBox, CLink, CIcon, CIconButton } from '@chakra-ui/vue'
 import Logo from './Logo.vue'
 import MobileNav from './MobileNav.vue'
 
@@ -41,11 +42,11 @@ export default {
     }
   },
   components: {
-    Box,
-    Anchor,
-    Icon,
+    CBox,
+    CLink,
+    CIcon,
     Logo,
-    IconButton,
+    CIconButton,
     MobileNav
   }
 }

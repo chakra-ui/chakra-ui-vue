@@ -71,6 +71,7 @@ const baseProps = {
   flexDir: SNA,
   bgImg: SNA,
   bgImage: SNA,
+  backgroundImage: SNA,
   bgSize: SNA,
   bgPos: SNA,
   bgRepeat: SNA,

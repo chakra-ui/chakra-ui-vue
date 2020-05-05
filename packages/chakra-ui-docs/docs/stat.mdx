@@ -1,0 +1,62 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Stat"
+  description="The Stat component is used to display a single statistic."
+/>
+
+# Stat
+
+The Stat component is used to display a single statistic.
+
+## Import
+
+```js
+import {
+  CStat,
+  CStatLabel,
+  CStatNumber,
+  CStatHelpText,
+  CStatArrow,
+  CStatGroup
+} from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-stat>
+  <c-stat-label>Collected Fees</c-stat-label>
+  <c-stat-number>$500.00</c-stat-number>
+  <c-stat-helper-text>Feb 12 - Feb 28</c-stat-helper-text>
+</c-stat>
+```
+
+### Stat with Indicator
+
+```vue live=true
+<c-stat-group>
+  <c-stat>
+    <c-stat-label>Sent</c-stat-label>
+    <c-stat-number>380,610</c-stat-number>
+    <c-stat-helper-text>
+      <c-stat-arrow type="increase" />
+      30.60%
+    </c-stat-helper-text>
+  </c-stat>
+  <c-stat>
+    <c-stat-label>Clicked</c-stat-label>
+    <c-stat-number>45</c-stat-number>
+    <c-stat-helper-text>
+      <c-stat-arrow type="decrease" />
+      -5.20%
+    </c-stat-helper-text>
+  </c-stat>
+</c-stat-group>
+```
+
+## Props
+
+- CStatLabel, CStatHelperText, CStatNumber composes [CText](/text) component
+- CStatArrow composes [CIcon](/icon) component
+- CStat, CStatGroup composes [CBox](/box) component

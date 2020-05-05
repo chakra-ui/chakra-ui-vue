@@ -1,1 +1,512 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Modal"
+  description="A dialog is a window overlaid on either the primary window or another dialog window"
+/>
+
+See `CModal`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CModal/accessibility.md">accessibility report</a>
+
+
 # Modal
+
+A dialog is a window overlaid on either the primary window or another dialog
+window. Contents behind a modal dialog are **inert** meaning that users cannot
+interact with content behind the dialog.
+
+## Import
+
+Chakra exports 8 components to help you create any modal dialog.
+
+- `CModal`: The wrapper that provides context for its children
+- `CModalOverlay`: The dimmed overlay behind the modal dialog
+- `CModalContent`: The container for the modal dialog's content
+- `CModalHeader`: The header that labels the modal dialog
+- `CModalFooter`: The footer that houses the modal actions
+- `CModalBody`: The wrapper that houses the modal's main content
+- `CModalCloseButton`: The button that closes the modal.
+
+
+```js
+import {
+  CModal,
+  CModalOverlay,
+  CModalContent,
+  CModalHeader,
+  CModalFooter,
+  CModalBody,
+  CModalCloseButton,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+When the modal opens, focus is sent into the modal and set to the first tabbable
+element. If there are no tabbled element, focus is set on the `CModalContent`.
+
+```vue live=true
+<template>
+  <div>
+    <c-button left-icon="check" mb="3" variant-color="blue" @click="open" variant="outline">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+    >
+      <c-modal-content ref="content">
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <Lorem add="2s" />
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button variant-color="blue" mr="3">
+            Save
+          </c-button>
+          <c-button @click="close">Cancel</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Block Scrolling when Modal opens
+
+For accessibility, it's recommended to block scrolling on the main document
+behind the modal. Chakra does this by default but you can set
+`blockScrollOnMount` to `false` to allow scrolling behind modal.
+
+```vue live=true
+<template>
+  <div>
+    <c-button left-icon="check" mb="3" variant-color="blue" @click="open" variant="outline">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+      :block-scroll-on-mount="blockScrollOnMount"
+    >
+      <c-modal-content ref="content">
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          You can scroll the content behind the modal
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button variant-color="blue" mr="3">
+            Close
+          </c-button>
+          <c-button @click="close">Secondary Action</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false,
+      blockScrollOnMount: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Focus on specific element
+
+Chakra automatically sets focus on the first tabbable element in the modal.
+However, there might be scenarios where you need to manually control where focus
+goes.
+
+Chakra provides 2 props for this use-case:
+
+- `initialFocusRef`: Accepts a `$ref` or a function that returns the `$ref` of the component that receives focus when the
+  modal opens.
+- `finalFocusRef`: Accepts a `$ref` or a function that returns the `$ref` of the component that receives focus when the modal
+  closes.
+
+> If you set `finalFocusRef`, internally we set `returnFocusOnClose` to `false`
+> so it doesn't return focus to the element that triggered it.
+
+```vue live=true
+<template>
+  <div>
+    <c-button mr="3" @click="open">Open Modal</c-button>
+    <c-button ref="finalRef">
+      I'll receive focus on close
+    </c-button>
+    <c-modal
+      :initial-focus-ref="() => $refs.initialRef"
+      :final-focus-ref="() => $refs.finalRef"
+      :is-open="isOpen"
+      :on-close="close"
+    >
+      <c-modal-content ref="content">
+        <c-modal-header>Create your account</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <c-form-control>
+            <c-form-label>First name</c-form-label>
+            <c-input ref="initialRef" placeholder="First name" />
+          </c-form-control>
+
+          <c-form-control mt="4">
+            <c-form-label>Last name</c-form-label>
+            <c-input placeholder="Last name" />
+          </c-form-control>
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button variant-color="blue" mr="3">
+            Cancel
+          </c-button>
+          <c-button @click="close">Save</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Close Modal on Overlay Click
+
+By default, the modal closes when you click it's overlay. You can set
+`closeOnOverlayClick` to `false` if you want the modal to stay visible.
+
+```vue live=true
+<template>
+  <div>
+    <c-button variant-color="blue" @click="open">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+      :closeOnOverlayClick="false"
+    >
+      <c-modal-content ref="content">
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <Lorem add="2s" />
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button variant-color="blue" mr="3">
+            Save
+          </c-button>
+          <c-button @click="close">Cancel</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Make modal vertically centered
+
+By default the modal has a vertical offset of `3.75rem` which you can change by
+passing `top` to the `CModalContent`. If you need to vertically center the modal,
+pass the `isCentered`
+
+> If the content within the modal overflows beyond the viewport, don't use this
+> prop. Try setting the [overflow behavior](#modal-overflow-behavior) instead
+
+```vue live=true
+<template>
+  <div>
+    <c-button variant-color="blue" @click="open">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+      :closeOnOverlayClick="false"
+    >
+      <c-modal-content ref="content" is-centered>
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <Lorem add="2s" />
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button @click="close">Cancel</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Modal overflow behavior
+
+If the content within the modal overflows beyond the viewport, you can use the
+`scrollBehavior` to control how scrolling should happen.
+
+- If set to `inside`, scroll only occurs within the `ModalBody`.
+- If set to `outside`, the entire `ModalContent` will scroll within the
+  viewport.
+
+```vue live=true
+<template>
+  <div>
+    <c-radio-group
+      isInline
+      v-model="scrollBehavior"
+    >
+      <c-radio value="inside">inside</c-radio>
+      <c-radio value="outside">outside</c-radio>
+    </c-radio-group>
+    <c-button variant-color="blue" @click="open">Open Modal</c-button>
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+      :closeOnOverlayClick="false"
+      :scroll-behavior="scrollBehavior"
+    >
+      <c-modal-content ref="content" is-centered>
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <div>
+            <lorem add="5p" />
+          </div>
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button @click="close">Cancel</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false,
+      scrollBehavior: 'inside'
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  }
+}
+</script>
+```
+
+### Modal Sizes
+
+Pass the `size` prop if you need to adjust the size of the modal. Values can be
+`xs`, `sm`, `md`, `lg`, `xl`, or `full`.
+
+
+```vue live=true
+<template>
+  <div>
+    <c-button v-for="(size, i) in sizes" m="4" :key="i" @click="openSizedModal(size)">
+      Open {{ size }} Modal
+    </c-button>
+
+    <c-modal
+      :is-open="isOpen"
+      :on-close="close"
+      :closeOnOverlayClick="false"
+      :size="size"
+    >
+      <c-modal-content ref="content" is-centered>
+        <c-modal-header>Modal Title</c-modal-header>
+        <c-modal-close-button />
+        <c-modal-body>
+          <div>
+            <lorem add="5s" />
+          </div>
+        </c-modal-body>
+        <c-modal-footer>
+          <c-button @click="close">Cancel</c-button>
+        </c-modal-footer>
+      </c-modal-content>
+      <c-modal-overlay />
+    </c-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      isOpen: false,
+      sizes: ['xs', 'sm', 'md', 'lg', 'xl', 'full'],
+      size: 'xs'
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    },
+    openSizedModal(size) {
+      this.size = size
+      this.open()
+    }
+  }
+}
+</script>
+```
+
+### Making other elements Inert
+
+When the `CModal` is open, it's rendered within a portal and all it's siblings have
+`aria-hidden` set to `true` so the only thing screen readers see is the modal.
+
+## Accessibility
+
+### Keyboard and Focus Management
+
+- When the modal opens, focus is trapped within it.
+- When the dialog opens, focus is automatically set to the first enabled
+  element, or the element with the `initialFocusRef`.
+- When the modal closes, focus returns to the element that was focused just
+  before the modal activated, or the element with the `finalFocusRef`
+- Clicking on the overlay closes the Modal.
+- Pressing <kbd>Esc</kbd> closes the Modal.
+- Scrolling is blocked on the elements behind the modal.
+- The modal is portalled to the end of `document.body` to break it out of the
+  source order and make it easy to add `aria-hidden` to its siblings.
+
+### ARIA attributes
+
+- The `CModalContent` has `aria-modal` set to `true`.
+- The `CModalContent` has `aria-labelledby` set to the `id` of the `CModalHeader`
+- The `CModalContent` has `aria-describedby` set to the `id` of the `CModalBody`
+
+
+# Props
+
+## `CModal`
+
+### Props
+
+| Name                 | Type                                          | Default   | Description                                                                                                                             |
+| -------------------- | --------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| isOpen               | `boolean`                                     |           | If `true`, the modal will open                                                                                                          |
+| isCentered           | `boolean`                                     |           | If `true`, the `Modal` will be centered on screen                                                                                       |
+| initialFocusRef      | `vm.$ref`, `() => vm.ref` or `CSS selector`   |           | The `ref` of the element to receive focus when the dialog opens                                                                         |
+| finalFocusRef        | `vm.$ref`, `() => vm.ref` or `CSS selector`   |           | The `ref` of element to receive focus when the dialog closes                                                                            |
+| blockScrollOnMount   | `boolean`                                     | `true`    | If `true`, scrolling will be disabled on the `body` when the modal opens.                                                               |
+| preserveScrollBarGap | `boolean`                                     |           | If `true`, a `padding-right` will be applied to the body element to preserve the scrollbar gap.                                         |
+| useInert             | `boolean`                                     | `true`    | A11y: If `true`, all elements behing the `Modal` will have `aria-hidden` set to `true` so that screen readers can only see the `Modal`. |
+| size                 | `$chakraTheme.sizes`                          | `md`      | The size (maxWidth) of the modal.                                                                                                       |
+| scrollBehavior       | `inside`, `outside`                           | `outside` | Where scroll behaviour should originate.                                                                                                |
+| closeOnOverlayClick  | `boolean`                                     | `true`    | If `true`, the modal will close when the overlay is clicked                                                                             |
+| returnFocusOnClose   | `boolean`                                     | `true`    | If `true`, the modal will return focus to the element that triggered it when it closes.                                                 |
+| closeOnEsc           | `boolean`                                     | `true`    | If `true`, the modal will close when the `Esc` key is pressed                                                                           |
+| addAriaLabels        | `boolean`, `{header: boolean, body: boolean}` | `true`    | If `false`, no `aria-*` properties will be added by default.                                                                            |
+| id                   | `string`                                      |           | The `id` of the modal                                                                                                                   |
+
+
+### Events
+
+| Name       | Payload   | Description                                                                                                  |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| `@close`   | `-`       | The event emitted when the `CModalCloseButton` is clicked.                                                    |
+
+### Slots
+| Name          | Description                               |
+| ------------- | ------------------------------------------|
+| default       | Slot for `CModal` components              |
+
+## Other components
+
+- `CModalOverlay`, `CModalHeader`, `CModalFooter` and `CModalBody` compose the `CBox`
+  component.
+- `CModalCloseButton` composes `CCloseButton`

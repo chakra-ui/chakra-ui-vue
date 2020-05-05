@@ -1,1 +1,159 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Alert"
+  description="Alerts are used to communicate a state that affects a system, feature or page."
+/>
+
 # Alert
+
+Alerts are used to communicate a state that affects a system, feature or page.
+
+See `CAlert`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlert/accessibility.md">accessibility report</a>
+
+## Import
+
+Chakra UI Vue exports 4 Alert related components.
+
+- `CAlert`: The wrapper for alert components.
+- `CAlertIcon`: The visual icon for the alert that changes based on the `status` prop.
+- `CAlertTitle`: The title of the alert to be announced by screen readers.
+- `CAlertDescription`: The description of the alert to be announced by screen readers.
+
+<br />
+
+```js
+import {
+  CAlert,
+  CAlertIcon,
+  CAlertTitle,
+  CAlertDescription,
+} from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-alert status="error">
+  <c-alert-icon />
+  <c-alert-title :mr="2">Your browser is outdated!</c-alert-title>
+  <c-alert-description>Your Chakra experience may be degraded.</c-alert-description>
+  <c-close-button position="absolute" right="8px" top="8px" />
+</c-alert>    
+```
+
+
+### Setting the Alert status
+The status of the alerts can be changed by passing the `status` prop. This affects the
+`CAlert`'s color scheme and icon used. `CAlert` supports `error`, `success`, `warning`, and
+`info` statuses.
+
+
+<br />
+
+```vue live=true
+<c-stack>
+  <c-alert status="info">
+    <c-alert-icon />
+    Chakra is going live on April 15th. Get ready!
+  </c-alert>
+  <c-alert status="success">
+    <c-alert-icon />
+    Sage mode chakra successfully infused.
+  </c-alert>
+  <c-alert status="warning">
+    <c-alert-icon />
+    Using Amaterasu is irreversible. Proceed with caution.
+  </c-alert>
+  <c-alert status="error">
+    <c-alert-icon />
+    Unable to load Rasen-Shuriken. Please try again.
+  </c-alert>
+</c-stack>
+```
+
+### Custom Alert icons
+You can also use custom Alert icons by passing the name of the icon in the `name` prop of the `CAlertIcon`. <nuxt-link to="/icons">Click here</nuxt-link> to see how to add icons to your Chakra app.
+
+```vue live=true
+<c-alert>
+  <c-alert-icon name="github" />
+  <c-alert-title :mr="2">Kakashi Sensei followed you.</c-alert-title>
+  <c-alert-description>Follow Kakashi to see his Kamui in action.</c-alert-description>
+  <c-close-button position="absolute" right="8px" top="8px" />
+</c-alert>    
+```
+
+
+### Variant
+
+The `CAlert` component has 4 variant styles you can use. Pass the `variant` prop and use either
+`subtle`, `solid`, `left-accent` or `top-accent`.
+
+```vue live=true
+<c-stack>
+  <c-alert status="success" variant="subtle">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="solid">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="left-accent">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="top-accent">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+</c-stack>
+```
+
+### Composition
+
+`CAlert` ships with other smaller components to allow for flexibility and make it easy to
+create all kinds of layout. Here's an example of a custom alert style and layout.
+
+```vue live=true
+<c-alert
+  status="success"
+  variant="subtle"
+  flexDirection="column"
+  justifyContent="center"
+  textAlign="center"
+  height="200px"
+>
+  <c-alert-icon size="40px" :mr="0" />
+  <c-alert-title :mt="4" :mb="1" fontSize="lg">
+    Application submitted!
+  </c-alert-title>
+  <c-alert-description maxWidth="sm">
+    Thanks for submitting your application. Our team will get back to you soon.
+  </c-alert-description>
+</c-alert>
+```
+
+## Props
+
+### `CAlert` Props
+
+`CAlert` is the wrapper for the alert component. It composes the `CFlex` component.
+
+| Name    | Type                                           | Default  | Description                            |
+|---------|------------------------------------------------|----------|----------------------------------------|
+| status  | `error`, `success`, `warning`, `info`          | `info`   | The status of the alert                |
+| variant | `subtle`, `solid`, `left-accent`, `top-accent` | `subtle` | The variant of the alert style to use. |
+
+### `CAlertIcon` Props
+
+`CAlertIcon` composes `CIcon` and changes the icon based on the `status` and prop. It will also change the icon based on the value of the `name` prop only if it is passed.
+
+### `CAlertTitle` Props
+
+`CAlertTitle` composes the `CBox` component. All `CBox` props are applicable.
+
+### `CAlertDescription` Props
+
+`CAlertDescription` composes the `CBox` component. All `CBox` props are applicable.

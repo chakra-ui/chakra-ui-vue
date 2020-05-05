@@ -1,10 +1,15 @@
+import LiveEditor from '../components/LiveEditor'
+import Code from '../components/CodeBlock'
+
 # Style Props
+
+Chakra UI adopts a convenient approach to styling it's components by using style props.
 
 Style props are a way to alter the style of a component by simply passing props
 to it. It helps to save time by providing helpful shorthand ways to style
 components.
 
-Chakra UI uses [Styled System](https://styled-system.com/) to achieve this. We
+Chakra UI uses [Styled System](https://styled-system.com/) to achieve this under the hood. We
 extend styled-system's utilities to provide other helpful shorthands.
 
 ## Style Props Reference
@@ -15,18 +20,16 @@ each group. To learn more about it, you can also check the
 
 ### Margin & padding
 
-```jsx live=false
-import { Box } from "@chakra-ui/core";
+<Code code={`<template>\n
+  <!-- m="2" refers to the value of theme.space.[2] -->
+  <Box m="2">Tomato</Box>\n
+  <!-- You can also make use of custom values -->
+  <Box maxW="960px" mx="auto">Custom</Box>\n
+  <!-- sets margin \`8px\` on all viewports and \`12px\` from the first breakpoint and up -->
+  <Box :m="['2', '3']" />
+</template>
+`} />
 
-// m={2} refers to the value of `theme.space[2]`
-<Box m={2}>Tomato</Box>;
-
-// You can also use custom values
-<Box maxW="960px" mx="auto" />;
-
-// sets margin `8px` on all viewports and `16px` from the first breakpoint and up
-<Box m={[2, 3]} />;
-```
 
 | Prop                  | CSS Property                       | Theme Key |
 | --------------------- | ---------------------------------- | --------- |
@@ -47,22 +50,16 @@ import { Box } from "@chakra-ui/core";
 
 ### Color & background color
 
-```jsx live=false
-import { Box } from "@chakra-ui/core";
+<Code code={`<template>\n
+  <!-- picks up a nested color value using dot notation -->
+  <Box color="gray.50" />\n
+  <!-- You can also use raw CSS color values -->
+  <Box color="#f00" />\n
+  <!-- Sets background color to pink -->
+  <Box bg="pink" />\n
+</template>
+`} />
 
-// picks up a nested color value using dot notation
-// => `theme.colors.gray[50]`
-<Box color='gray.50' />
-
-// raw CSS color value
-<Box color='#f00' />
-
-// background colors
-<Box bg='tomato' />
-
-// verbose prop
-<Box backgroundColor='tomato' />
-```
 
 | Prop                    | CSS Property       | Theme Key |
 | ----------------------- | ------------------ | --------- |
@@ -71,22 +68,17 @@ import { Box } from "@chakra-ui/core";
 | `opacity`               | `opacity`          | none      |
 
 ### Typography
-
-```jsx live=false
-import { Text } from "@chakra-ui/core";
-
-// font-size of `theme.fontSizes.md`
-<Text fontSize="md" />
-
-// font-size `32px`
-<Text fontSize={32} />
-
-// font-size `'2em'`
-<Text fontSize='2em' />
-
-// text-align `left` on all viewports and `center` from the first breakpoint and up
-<Text textAlign={[ 'left', 'center' ]} />
-```
+<Code code={`<template>\n
+  <!-- font-size of \`theme.fontSizes.md\` -->
+  <Text fontSize="md" />\n
+  <!-- font-size \`32px\` -->
+  <Text fontSize="32" />\n
+  <!-- font-size \`'2em'\` -->
+  <Text fontSize="2em" />\n
+  <!-- text-align \`left\` on all viewports and \`center\` from the first breakpoint and up -->
+  <Text :textAlign="[ 'left', 'center' ]" />\n
+</template>
+`} />
 
 | Prop             | CSS Property      | Theme Key        |
 | ---------------- | ----------------- | ---------------- |
@@ -102,25 +94,18 @@ import { Text } from "@chakra-ui/core";
 
 ### Layout, width and height
 
-```jsx live=false
-import { Box } from "@chakra-ui/core";
+<Code code={`<template>
+  <!-- verbose -->
+  <Box width="100%" height="32px" />\n
+  <!-- shorthand -->
+  <Box w="100%" h="32px" />\n
+  <!-- width \`256px\` -->
+  <Box w="256" />\n
+  <!-- width \`40px\` -->
+  <Box w="40px" />\n
+</template>
+`} />
 
-// verbose
-<Box width="100%" height={32} />;
-
-// shorthand
-<Box w="100%" h="32px" />;
-
-// width `50%`
-<Box w={1/2} />
-
-// width `256px`
-<Box w={256} />
-
-// width `'40px'`
-<Box w='40px' />
-
-```
 
 | Prop                | CSS Property     | Theme Key |
 | ------------------- | ---------------- | --------- |
@@ -138,20 +123,25 @@ import { Box } from "@chakra-ui/core";
 | `overflowY`         | `overflowY`      | none      |
 
 ### Flexbox
-
-```jsx live=false
-import { Box, Flex } from "@chakra-ui/core";
-
-// verbose
-<Box display="flex" alignItems="center" justifyContent="space-between">
-  Box with Flex props
-</Box>;
-
-// shorthand using the `Flex` component
-<Flex align="center" justify="center">
-  Flex Container
-</Flex>;
-```
+<Code code={`<template>
+  <!-- verbose -->
+  <Box display="flex" alignItems="center" justifyContent="space-between">
+    Box with Flex props
+  </Box>\n
+  <!-- shorthand using the \`Flex\` component -->
+  <Flex align="center" justify="center">
+    Flex Container
+  </Flex>
+</template>\n
+<script>
+  import { Box, Flex } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box,
+      Flex
+    }
+  }
+<\/script>`} />
 
 > Note: Props in `*` will only work if you use the `Flex` component.
 
@@ -172,20 +162,25 @@ import { Box, Flex } from "@chakra-ui/core";
 | `order`                                   | `order`            | none      |
 
 ### Grid Layout
-
-```jsx live=false
-import { Box, Grid } from "@chakra-ui/core";
-
-// verbose
-<Box display="grid" gridGap={2} gridAutoFlow="row dense">
-  Grid
-</Box>;
-
-// shorthand using the `Grid` component
-<Grid gap={2} autoFlow="row dense">
-  Grid
-</Grid>;
-```
+<Code code={`<template>
+  <!-- verbose -->
+  <Box display="grid" gridGap="2" gridAutoFlow="row dense">
+    Grid
+  </Box>\n
+  <!-- shorthand using the \`Grid\` component -->
+  <Grid gap="2" autoFlow="row dense">
+    Grid
+  </Grid>
+</template>\n
+<script>
+  import { Box, Grid } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box,
+      Grid
+    }
+  }
+<\/script>`} />
 
 > Note: Props in `*` will only work if you use the `Grid` component.
 
@@ -205,20 +200,24 @@ import { Box, Grid } from "@chakra-ui/core";
 | `gridTemplateAreas`, \*`templateAreas`     | `grid-template-areas`   | none      |
 
 ### Background
-
-```jsx live=false
-import { Box } from "@chakra-ui/core";
-
-// verbose
-<Box
-  backgroundImage="url('/images/kyuubi.png')"
-  backgroundPosition="center"
-  backgroundRepeat="no-repeat"
-/>;
-
-// shorthand
-<Box bgImage="url('/images/gaara.png')" bgPos="center" bgRepeat="no-repeat" />;
-```
+<Code code={`<template>
+  <!-- verbose -->
+  <Box
+    backgroundImage="url('/images/kyuubi.png')"
+    backgroundPosition="center"
+    backgroundRepeat="no-repeat"
+  >\n
+  <!-- shorthand -->
+  <Box bgImage="url('/images/gaara.png')" bgPos="center" bgRepeat="no-repeat" >
+</template>\n
+<script>
+  import { Box } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box
+    }
+  }
+<\/script>`} />
 
 | Prop                                  | CSS Property            | Theme Key |
 | ------------------------------------- | ----------------------- | --------- |
@@ -231,13 +230,20 @@ import { Box } from "@chakra-ui/core";
 
 ### Borders
 
-```jsx live=false
-import { Box } from "@chakra-ui/core";
+<Code code={`<template>
+  <Box border="1px" borderRadius="md" borderColor="gray.200">
+    Card
+  </Box>
+</template>\n
+<script>
+  import { Box } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box
+    }
+  }
+<\/script>`} />
 
-<Box border="1px" borderRadius="md" borderColor="gray.200">
-  Card
-</Box>;
-```
 
 | Prop                | CSS Property                   | Theme Field    |
 | ------------------- | ------------------------------ | -------------- |
@@ -266,18 +272,25 @@ import { Box } from "@chakra-ui/core";
 
 ### Border Radius
 
-```jsx live=false
-import { Button } from "@chakra-ui/core";
+<Code code={`<template>
+  <!-- This button will have no right borderRadius -->
+  <Button roundedRight="0">Button 1</Button>\n
 
-// This button will have no right borderRadius
-<Button roundedRight="0">Button 1</Button>;
+  <!-- This button will have no left borderRadius*/ -->
+  <Button roundedLeft="0">Button 2</Button>\n
 
-// This button will have no left borderRadius*/
-<Button roundedLeft="0">Button 2</Button>;
+  <!-- top left and top right radius will be \`theme.radii.md\` => 4px -->
+  <Button roundedTop="md">Button 2</Button>
+</template>\n
+<script>
+  import { Button } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Button
+    }
+  }
+<\/script>`} />
 
-// top left and top right radius will be `theme.radii.md` => 4px
-<Button roundedTop="md">Button 2</Button>;
-```
 
 | Prop                                            | CSS Property                                               | Theme Field |
 | ----------------------------------------------- | ---------------------------------------------------------- | ----------- |
@@ -292,24 +305,27 @@ import { Button } from "@chakra-ui/core";
 | `roundedLeft`                                   | `border-top-left-radius` & `border-bottom-left-radius`     | `radii`     |
 
 ### Position
+<Code code={`<template>
+  <!-- verbose -->
+  <Box position="absolute">Cover</Box>\n
+  <!-- shorthand -->
+  <Box pos="absolute">Cover</Box>\n
+  <Box pos="absolute" top="0" left="0">
+    Absolute with top and left
+  </Box>\n
+  <Box pos="fixed" w="100%" zIndex="2">
+    Fixed with zIndex
+  </Box>
+</template>\n
+<script>
+  import { Box } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box
+    }
+  }
+<\/script>`} />
 
-```jsx live=false
-import { Box } from "@chakra-ui/core";
-
-// verbose
-<Box position="absolute">Cover</Box>;
-
-// shorthand
-<Box pos="absolute">Cover</Box>;
-
-<Box pos="absolute" top="0" left="0">
-  Absolute with top and left
-</Box>;
-
-<Box pos="fixed" w="100%" zIndex={2}>
-  Fixed with zIndex
-</Box>;
-```
 
 | Prop             | CSS Property | Theme Field |
 | ---------------- | ------------ | ----------- |
@@ -321,19 +337,26 @@ import { Box } from "@chakra-ui/core";
 | `left`           | `left`       | `space`     |
 
 ### Shadow
+<Code code={`<template>
+  <!-- verbose -->
+  <!-- text-shadow will be \`theme.shadows.sm\` -->
+  <!-- box-shadow will be \`theme.shadows.md\` -->
+  <Box textShadow="sm" boxShadow="md" />\n
+  <!-- raw CSS values -->
+  <Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
+    Text with shadows
+  </Text>
+</template>\n
+<script>
+  import { Box, Text } from '@chakra-ui/vue'\n
+  export default {
+    components: {
+      Box,
+      Text
+    }
+  }
+<\/script>`} />
 
-```jsx live=false
-import { Box, Text } from "@chakra-ui/core";
-
-// text-shadow will be `theme.shadows.sm`
-// box-shadow will be `theme.shadows.md`
-<Box textShadow="sm" boxShadow="md" />;
-
-// raw CSS values
-<Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
-  Text with shadows
-</Text>;
-```
 
 | Prop                 | CSS Property  | Theme Field |
 | -------------------- | ------------- | ----------- |
@@ -371,19 +394,20 @@ following props:
 
 ## The `as` prop
 
-The `as` prop is a feature that all of our components get from
-`@emotion/styled`. It allows you to pass a HTML tag or another component to a
+The `as` prop is a feature that a lot of the components in `@chakra-ui/vue` will get because
+they compose the Box component.
+
+It allows you to pass a HTML tag or another component to a
 Chakra component to be rendered as the base tag of that component along with all
 it's styles and props.
 
 For example, say you are using a Button component, and you need to make it a
-link instead. You can compose `a` and Button like this:
+link instead. You can compose `router-link` and Button like this:
+<br/>
 
-```jsx
-<Button as="a" target="_blank" variant="outline" href="https://chakra-ui.com">
-  Hello
-</Button>
-```
+<Code code={`<template>
+  <Button as="router-link" to="/about">About Page Button</Button>
+</template>`}/>
 
-This allows you to use all of the `Button` props and all of the `<a>` props
-without having to wrap the Button in an `a` component.
+This allows you to use all of the `Button` props and all of the `<router-link>` props
+without having to wrap the Button in an `<router-link>` component.

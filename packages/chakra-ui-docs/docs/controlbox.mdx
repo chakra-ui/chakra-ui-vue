@@ -1,1 +1,104 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="ControlBox"
+  description="ControlBox provides style props to change it's styles based on a sibling checkbox or radio inputs. It relies on a common CSS technique for styling custom controls."
+/>
+
 # ControlBox
+
+ControlBox provides style props to change it's styles based on a sibling
+`checkbox` or `radio` input. It relies on a
+[common CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
+for styling custom controls.
+
+> For this component to work, it should have a sibling `input` and be contained
+> in a `label`
+
+## Import
+
+```js
+import { CControlBox } from '@chakra-ui/vue';
+```
+
+
+## Usage
+
+Creating a custom checkbox component
+
+```vue live=true
+<template>
+  <label>
+    <!-- This is the sibling input, it's visually hidden -->
+    <c-visually-hidden as="input" type="checkbox" default-checked />
+
+    <!-- This is the control box with a check icon as children -->
+    <c-control-box
+      border-width="1px"
+      size="24px"
+      rounded="sm"
+      :_checked="{ bg: 'green.500', color: 'white', borderColor: 'green.500' }""
+      :_focus="{ borderColor: 'green.600', boxShadow: 'outline' }""
+    >
+      <c-icon name="check" size="16px" />
+    </c-control-box>
+
+    <!-- You can pass additional text -->
+    <c-box as="span" vertical-align="top" ml="3">
+      Checkbox Label
+    </c-box>
+  </label>
+</template>
+```
+
+Creating a custom radio component
+
+```vue live=true
+<template>
+  <label>
+    <!-- This is the sibling input, it's visually hidden -->
+    <c-visually-hidden type="radio" as="input" />
+
+    <!-- This is the control box with a circle as children -->
+    <c-control-box
+      size="24px"
+      bg="white"
+      border="2px"
+      rounded="full"
+      type="radio"
+      borderColor="inherit"
+      :_focus="{ boxShadow: 'outline' }"
+      :_hover="{ borderColor: 'gray.300' }"
+      :_disabled="{ opacity: '40%' }"
+      :_checked="{ bg: 'green.500', borderColor: 'green.500' }"
+    >
+      <c-box w="50%" h="50%" bg="white" rounded="full" />
+    </c-control-box>
+
+    <!-- You can pass additional text -->
+    <c-box as="span" ml="2" vertical-align="center" user-select="none">
+      This is a Radio
+    </c-box>
+  </label>
+</template>
+```
+
+
+## Props
+
+ControlBox composes the [Box](/box) component so you can pass all Box props. By
+default, we toggle the opacity of the `ControlBox` children by setting `_child`
+to `{ opacity: 0 }` and `_checkedAndChild` to `{ opacity: 1 }`
+
+| Prop                 | CSS selector                      | Description                                                                  |
+| -------------------- | --------------------------------- | ---------------------------------------------------------------------------- |
+| \_hover              | `[input]:hover + &`               | Styles for when the sibling `input` is hovered                               |
+| \_focus              | `[input]:focus + &`               | Styles for when the sibling `input` is focused                               |
+| \_disabled           | `[input]:disabled + &`            | Styles for when the sibling `input` is disabled                              |
+| \_checked            | `[input]:checked + &`             | Styles for when the sibling `input` is checked                               |
+| \_checkedAndDisabled | `[input]:checked:disabled + &`    | Styles for when the sibling `input` is checked and disabled                  |
+| \_checkedAndFocus    | `[input]:checked:focus + &`       | Styles for when the sibling `input` is checked and focused                   |
+| \_checkedAndHover    | `[input]:checked:hover + &`       | Styles for when the sibling `input` is checked and hovered                   |
+| \_invalid            | `[input]:[aria-invalid=true] + &` | Styles for when the sibling `input` has `aria-invalid` set to `true`         |
+| \_child              | `[input] + & > *`                 | Styles for the child of the `ControlBox`                                     |
+| \_checkedAndChild    | `[input]:checked + & > *`         | Styles for the child of the `ControlBox` when the sibling `input` is checked |

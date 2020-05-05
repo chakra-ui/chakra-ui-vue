@@ -18,13 +18,12 @@ export function createRouter () {
     routes.push({
       path: componentName === 'index' ? '/' : `/${componentName}`,
       name: componentName === 'index' ? 'Home' : componentName,
-      meta: {
+      metaInfo: {
         title: `Chakra UI Vue | ${componentName === 'index' ? 'Chakra UI Design system built with Vue' : titleCase(removeHyphenFromString(componentName))}`,
         metaTags: [
           {
             name: 'description',
             content: 'Simple, Modular and Accessible UI Components for your Vue Applications. Built with Styled System.'
-
           }
         ]
       },
@@ -34,16 +33,18 @@ export function createRouter () {
 
   const router = new Router({
     mode: 'history',
+    scrollBehavior (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    },
     routes
   })
 
-  // updating page title
-  router.beforeEach((to, from, next) => {
-    const newMetaTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
+  // router.beforeEach((to, from, next) => {
+  //   const newMetaTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
 
-    if (newMetaTitle) document.title = newMetaTitle.meta.title
+  //   if (newMetaTitle && !!document) document.title = newMetaTitle.meta.title
 
-    next()
-  })
+  //   next()
+  // })
   return router
 }

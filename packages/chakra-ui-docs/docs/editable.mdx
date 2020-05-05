@@ -1,0 +1,106 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Editable Text"
+  description="EditableText is used for inline renaming of some text. It appears as normal UI text but transforms into a text input field when the user clicks or focuses on it."
+/>
+
+# Editable Text
+
+The Editable text component is used for inline renaming of some text. It appears as normal UI
+text but transforms into a text input field when the user clicks or focuses on
+it.
+
+The text input inherits all font styling from its parent, to make the edit and
+read view transition seamless.
+
+
+## Import
+
+Chakra UI exports 3 components to handle this functionality.
+
+- `CEditable`: The wrapper component that providers context value.
+- `CEditableInput`: The edit view of the component. It shows when you click or
+  focus on the text.
+- `CEditablePreview`: The read-only view of the component.
+
+<br />
+
+```js
+import { Editable, EditableInput, EditablePreview } from '@chakra-ui/vue';
+```
+
+## Usage
+```vue live=true
+<c-editable default-value="Take some chakra ⚡️ (click me)" font-size="2xl">
+  <c-editable-preview />
+  <c-editable-input />
+</c-editable>
+```
+
+### With custom controls
+
+In some cases, you might need to use custom controls to toggle the edit and read
+mode. We use the render prop pattern to provide access to the internal states of
+the component.
+
+```vue live=true
+<template>
+  <c-editable default-value="Take some chakra ⚡️ (click me)" font-size="2xl">
+    <template v-slot="{ isEditing, onSubmit, onCancel, onRequestEdit }">
+      <c-editable-preview />
+      <c-editable-input />
+
+      <!-- Custom controls -->
+      <c-flex mt="3">
+        <c-button-group v-if="isEditing" size="sm">
+          <c-icon-button icon="check" color="green" @click="onSubmit" />
+          <c-icon-button icon="close" @click="onCancel" />
+        </c-button-group>
+        <c-icon-button v-else icon="edit" size="sm" @click="onRequestEdit" />
+      </c-flex>
+    </template>
+  </c-editable>
+</template>
+```
+
+
+## Props
+
+### `CEditable` Props
+
+`CEditable` component composes the [Box](/box) component so can pass all `CBox`
+props. Here are the custom props:
+
+| Name               | Type              | Default              | Description                                                                                                                               |
+| ------------------ | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | `string`          |                      | Text value of the controlled input                                                                                                        |
+| defaultValue       | `string`          |                      | The initial value of the Editable in both edit & preview mode                                                                             |
+| placeholder        | `string`          | `"Click to edit..."` | The placeholder text when the value is empty.                                                                                             |
+| isDisabled         | `boolean`         |                      | If `true`, the Editable will be disabled.                                                                                                 |
+| onChange           | `function`            |                      | Callback invoked when user changes input.                                                                                                 |
+| onCancel           | `function`          |                      | Callback invoked when user cancels input with the `Esc` key. It provides the last confirmed value as argument.                            |
+| onSubmit           | `function`          |                      | Callback invoked when user confirms value with `enter` key or by blurring the input.                                                      |
+| onEdit             | `function`          |                      | Callback invoked once the user enters edit mode.                                                                                          |
+| isPreviewFocusable | `boolean`         | `true`               | If `true`, the read only view, has a `tabIndex` set to `0` so it can recieve focus via the keyboard or click.                             |
+| startWithEditView  | `boolean`         |                      | If `true`, the Editable will start with edit mode by default.                                                                             |
+| submitOnBlur       | `boolean`         | `true`               | If `true`, it'll update the value onBlur and turn off the edit mode.                                                                      |
+| selectAllOnFocus   | `boolean`         | `true`               | If `true`, the input's text will be highlighted on focus.                                                                                 |
+
+## Slots
+| Name       | Description                                                                                                                                  |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------  |
+| default    | The content of the Editable Text. Ideally only `CEditablePreview` and `CEditableInput` should be the children but you add other elements too |
+
+
+<br />
+
+### `CEditableInput` Props
+
+`CEditableInput` composes `CPseudoBox` so you can pass all `CPseudoBox` props. See <nuxt-link to="/pseudobox#props">PseudoBox</nuxt-link> component for list of props
+
+<br />
+
+### `CEditablePreview` Props
+
+`CEditablePreview` composes `CPseudoBox` so you can pass all `CPseudoBox` props. See <nuxt-link to="/pseudobox#props">PseudoBox</nuxt-link> component for list of props

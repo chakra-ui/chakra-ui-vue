@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "path": "./packages/chakra-ui-core/dist/umd/*.js",
+      "maxSize": "85kB"
+    }
+  ]
+}

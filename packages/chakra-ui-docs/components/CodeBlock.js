@@ -1,12 +1,21 @@
-import { Box, Button } from '@chakra-ui/vue'
+import { CBox, CButton } from '@chakra-ui/vue'
+import 'prismjs'
 import PrismEditor from 'vue-prism-editor'
+import '../css/night-owl.css'
+import 'vue-prism-editor/dist/VuePrismEditor.css'
+import LiveEditor from './LiveEditor'
+import copy from 'copy-to-clipboard'
 
-export default {
+function getLanguage (string) {
+  return string.slice(string.indexOf('-') + 1)
+}
+
+const CodeBlock = props => ({
   name: 'CodeBlock',
   props: {
     lang: {
       type: String,
-      default: 'bash'
+      default: 'vue'
     },
     isReadOnly: {
       type: Boolean,
@@ -23,7 +32,8 @@ export default {
     autoStyleLineNumbers: {
       type: Boolean,
       default: true
-    }
+    },
+    live: Boolean
   },
   data () {
     return {
@@ -35,7 +45,7 @@ export default {
   methods: {
     async copy () {
       // Copy text to clipboard
-      await navigator.clipboard.writeText(this.text)
+      await copy(this.text)
 
       // Handle timeouts for copy button text
       if (this.copyTimeout) clearTimeout(this.copyTimeout)
@@ -47,39 +57,55 @@ export default {
     }
   },
   render (h) {
-    const children = this.$slots.default[0]
-    const innerText = children.text.trim()
-    this.text = innerText
+    const language = getLanguage(props.className)
+    const code = this.$slots.default[0].text
+    this.text = code
 
-    return h(Box, {
-      props: {
-        rounded: 'md',
-        position: 'relative',
-        fontSize: '0.9rem'
+    if (!props.live) {
+      return h(CBox, {
+        props: {
+          rounded: 'md',
+          position: 'relative',
+          fontSize: '0.9rem'
+        }
+      }, [
+        h(PrismEditor, {
+          props: {
+            code,
+            language,
+            readonly: true,
+            ...this.$props
+          }
+        }),
+        h(CButton, {
+          props: {
+            variantColor: 'vue',
+            position: 'absolute',
+            size: 'sm',
+            top: '0.2rem',
+            right: '0.125rem',
+            textTransform: 'uppercase',
+            transform: 'scale(0.8)'
+          },
+          on: {
+            click: this.copy
+          }
+        }, this.copyButtonText)
+      ])
+    } else {
+      const liveEditor = h(LiveEditor, {
+        props: {
+          code
+        }
+      })
+
+      if (props.browser) {
+        return h('client-only', [liveEditor])
+      } else {
+        return liveEditor
       }
-    }, [
-      h(PrismEditor, {
-        props: {
-          code: innerText,
-          language: this.lang,
-          readonly: this.isReadOnly,
-          ...this.$props
-        }
-      }),
-      h(Button, {
-        props: {
-          variantColor: 'vue',
-          position: 'absolute',
-          size: 'sm',
-          top: '0.2rem',
-          right: '0.125rem',
-          textTransform: 'uppercase',
-          transform: 'scale(0.8)'
-        },
-        on: {
-          click: this.copy
-        }
-      }, this.copyButtonText)
-    ])
+    }
   }
-}
+})
+
+export default CodeBlock

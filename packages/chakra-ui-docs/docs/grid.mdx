@@ -1,1 +1,54 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Grid"
+  description="Grid is Box with `display: grid` and comes with helpful style shorthand. It renders a `div` element."
+/>
+
 # Grid
+
+A primitive useful for grid layouts. Grid is `CBox` with `display: grid` and
+comes with helpful style shorthand. It renders a `div` element.
+
+## Import
+
+```js
+import { CGrid } from "@chakra-ui/vue";
+```
+
+
+## Usage
+
+Using the `Grid` component, here are some helpful shorthand props:
+
+| Shorthand Prop    | Verbose Prop          |
+| ----------------- | --------------------- |
+| `area`            | `gridArea`            |
+| `templateAreas`   | `gridTemplateAreas`   |
+| `gap`             | `gridGap`             |
+| `rowGap`          | `gridRowGap`          |
+| `columnGap`       | `gridColumnGap`       |
+| `autoColumns`     | `gridAutoColumns`     |
+| `column`          | `gridColumn`          |
+| `row`             | `gridRow`             |
+| `autoFlow`        | `gridAutoFlow`        |
+| `autoRows`        | `gridAutoRows`        |
+| `templateRows`    | `gridTemplateRows`    |
+| `templateColumns` | `gridTemplateColumns` |
+
+While you can pass the verbose props, using the shorthand can save you some
+time.
+
+```vue live=true
+<c-grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
+  <c-box w="100%" h="10" bg="blue.300" />
+  <c-box w="100%" h="10" bg="vue.300" />
+  <c-box w="100%" h="10" bg="orange.300" />
+  <c-box w="100%" h="10" bg="pink.300" />
+  <c-box w="100%" h="10" bg="red.300" />
+</c-grid>
+```
+
+## Props
+
+> `CGrid` composes the `CBox` component. So it accepts all Box props along with the related CSS grid props. See <nuxt-link to="/box#props">Box</nuxt-link> component for list of props

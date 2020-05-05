@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import Kiwi from '@chakra-ui/vue'
+import * as Chakra from '@chakra-ui/vue'
+import theme from '@chakra-ui/theme-vue'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
 import {
   faBolt,
   faAnchor,
@@ -10,9 +10,26 @@ import {
   faPalette,
   faGlobeAfrica,
   faEnvelope,
-  faBars } from '@fortawesome/free-solid-svg-icons'
+  faBars,
+  faEdit,
+  faSearch,
+  faCoffee,
+  faExternalLinkAlt,
+  faCog } from '@fortawesome/free-solid-svg-icons'
+import Lorem from 'vue-lorem-ipsum'
 
-Vue.use(Kiwi, {
+const breakpoints = ['30em', '48em', '72em', '80em']
+
+breakpoints.sm = breakpoints[0]
+breakpoints.md = breakpoints[1]
+breakpoints.lg = breakpoints[2]
+breakpoints.xl = breakpoints[3]
+
+Vue.use(Chakra.default, {
+  theme: {
+    ...theme,
+    breakpoints
+  },
   icons: {
     iconPack: 'fa',
     iconSet: {
@@ -26,7 +43,12 @@ Vue.use(Kiwi, {
       faLinkedin,
       faGlobeAfrica,
       faEnvelope,
-      faBars
+      faBars,
+      faEdit,
+      faSearch,
+      faCoffee,
+      faExternalLinkAlt,
+      faCog
     },
     extend: {
       'storybook': {
@@ -36,5 +58,13 @@ Vue.use(Kiwi, {
           />`
       }
     }
+  }
+})
+
+Vue.component('Lorem', Lorem)
+
+Object.keys(Chakra).forEach((key) => {
+  if (typeof Chakra[key] === 'object' && Chakra[key].name) {
+    Vue.component(Chakra[key].name, Chakra[key])
   }
 })

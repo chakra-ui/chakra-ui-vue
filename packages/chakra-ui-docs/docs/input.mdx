@@ -1,1 +1,179 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Input"
+  description="Input component is a component that is used to get user input in a text field."
+/>
+
 # Input
+
+`CInput` component is a component that is used to get user input in a text field.
+It is usually used together with the <nuxt-link to="/formcontrol">FormControl</nuxt-link> to provide an
+accessible label, validation messages, etc.
+
+## Import
+
+```js
+import { CInput } from "@chakra-ui/vue";
+```
+
+## Usage
+
+Here's the basic usage of the `CInput` component.
+
+```vue live=true
+<c-input placeholder="Basic usage" />
+```
+
+### Changing the size of the Input
+
+Chakra provides three sizes of an the Input component : large (40px), default (32px) and small
+(24px).
+
+```vue live=true
+<c-stack spacing="3">
+  <c-input placeholder="large size" size="lg" />
+  <c-input placeholder="default size" size="md" />
+  <c-input placeholder="small size" size="sm" />
+</c-stack>
+```
+
+### Changing the appearance of the input
+
+The input component comes in 3 variants, `outline`, `unstyled` , `flushed` , and
+`filled`. Pass the `variant` prop to set it to either of these values.
+
+```vue live=true
+<c-stack spacing="3">
+  <c-input variant="outline" placeholder="Outline" />
+  <c-input variant="filled" placeholder="Filled" />
+  <c-input variant="flushed" placeholder="Flushed" />
+  <c-input variant="unstyled" placeholder="Unstyled" />
+</c-stack>
+```
+
+### Left and Right Addons
+
+Chakra also allows you to add addons to the left and right of the `CInput`
+component. Chakra UI exports `CInputGroup`, `CInputLeftAddon`, `CInputRightAddon`
+to help with this use case.
+
+```vue live=true
+<c-stack spacing="4">
+  <c-input-group>
+    <c-input-left-addon>+234</c-input-left-addon>
+    <c-input type="tel" roundedLeft="0" placeholder="phone number" />
+  </c-input-group>
+
+  <!-- If you add the size prop to `CInputGroup`, it'll pass it to all it's children. -->
+  <c-input-group size="sm">
+    <c-input-left-addon>https://</c-input-left-addon>
+    <c-input rounded="0" placeholder="mysite" />
+    <c-input-right-addon>.com</c-input-right-addon>
+  </c-input-group>
+</c-stack>
+```
+
+
+### Add elements inside input
+
+In some scenarios, you might need to add an icon or button inside the input
+component. Chakra UI exports `CInputLeftElement`, and `CInputRightElement` to help
+with this use case.
+
+```vue live=true
+<c-stack spacing="4">
+  <c-input-group>
+    <c-input-left-element><c-icon name="phone" color="gray.300" /></c-input-left-element>
+    <c-input type="phone" placeholder="Phone number" />
+  </c-input-group>
+
+  <c-input-group>
+    <c-input-left-element color="gray.300" fontSize="1.2em">¥</c-input-left-element>
+    <c-input placeholder="Enter amount" />
+    <c-input-right-element><c-icon name="check" color="green.500" /></c-input-right-element>
+  </c-input-group>
+</c-stack>
+```
+
+### Password Input Example
+
+Let's use these components to create a password input with a show/hide password
+functionality.
+
+```vue live=true
+<template>
+  <c-input-group size="md">
+    <c-input
+      pr="4.5rem"
+      :type="show ? 'text' : 'password'"
+      placeholder="Enter password"
+      v-model="password"
+    />
+    <c-input-right-element width="4.5rem">
+      <c-button h="1.75rem" size="sm" @click="show = !show">
+        {{ show ? 'Hide' : 'Show' }}
+      </c-button>
+    </c-input-right-element>
+  </c-input-group>
+</template>
+
+<script>
+export default {
+  name: 'PasswordInput',
+  data () {
+    return {
+      password: 'kurama<3naruto',
+      show: false
+    }
+  }
+}
+</script>
+```
+
+### Changing the focus and error border colors
+
+You can change the border color that shows when the input receives focus
+(`focusBorderColor`) and when `isInvalid` is set to `true` (`errorBorderColor`).
+The value can be set to a color in the `$chakraTheme` object, like `green.400` or a raw
+CSS value.
+
+```vue live=true
+<c-stack spacing="3">
+  <c-input focus-border-color="lime" placeholder="Here is a sample placeholder" />
+  <c-input
+    focus-border-color="pink.400"
+    placeholder="Here is a sample placeholder"
+  />
+  <c-input
+    is-invalid
+    error-border-color="red.300"
+    placeholder="Here is a sample placeholder"
+  />
+  <c-input
+    is-invalid
+    error-border-color="crimson"
+    placeholder="Here is a sample placeholder"
+  />
+</c-stack>
+```
+
+## Props
+
+The Input component composes <nuxt-link to="/pseudobox">PseudoBox</nuxt-link> so you can pass all
+`CPseudoBox` props, and normal `HTMLInput` attributes.
+
+| Name               | Type                                       | Default   | Description                                                                                                                           |
+| ------------------ | ------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`               | `HTMLElement` or `Vue.Component`           | `input`   | The component to use in place of `input`.                                                                                             |
+| `aria-label`       | `string`                                   |           | Accessibility label to use, in scenarios where the input has no visible label. A11y: It's usefult for screen readers.                 |
+| `aria-describedby` | `string`                                   |           | Accessibility label to use, in scenarios where the input has no visible label. A11y: It's usefult for screen readers.                 |
+| `isDisabled`       | `boolean`                                  | `false`   | If `true`, the input will be disabled. This sets `aria-disabled=true` and you can style this state by passing `_disabled` prop.       |
+| `isInvalid`        | `boolean`                                  | `false`   | If `true`, the `input` will indicate an error. This sets `aria-invalid=true` and you can style this state by passing `_invalid` prop. |
+| `isRequired`       | `boolean`                                  | `false`   | If `true`, the input element will be required.                                                                                        |
+| `isFullWidth`      | `boolean`                                  | `false`   | If `true`, the input element will span the full width of it's parent.                                                                 |
+| `isReadOnly`       | `boolean`                                  | `false`   | If `true`, prevents the value of the input from being edited.                                                                         |
+| `size`             | `sm`, `md`, `lg`                           | `md`      | The visual size of the `input` element.                                                                                               |
+| `variant`          | `outline`, `unstyled`, `flushed`, `filled` | `outline` | The variant of the input style to use.                                                                                                |
+| `focusBorderColor` | `string`                                   |           | The border color when the input is focused.                                                                                           |
+| `errorBorderColor` | `string`                                   |           | The border color when `isInvalid` is set to `true`.                                                                                   |

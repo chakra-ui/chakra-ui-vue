@@ -1,35 +1,35 @@
 <template>
   <div class="container">
-    <ThemeProvider>
-      <ColorModeProvider v-slot="{ colorMode }">
-        <Box
+    <CThemeProvider>
+      <CColorModeProvider v-slot="{ colorMode }">
+        <CBox
           font-family="body"
           as="main"
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-          <CSSReset />
+          <CReset />
           <Navbar />
-          <Box px="12rem">
+          <CBox px="12rem">
             <Nuxt />
-          </Box>
-        </Box>
-      </ColorModeProvider>
-    </ThemeProvider>
+          </CBox>
+        </CBox>
+      </CColorModeProvider>
+    </CThemeProvider>
   </div>
 </template>
 <script>
-import { ThemeProvider, ColorModeProvider, Box, CSSReset } from '@chakra-ui/vue'
+import { CThemeProvider, CColorModeProvider, CBox, CReset } from '@chakra-ui/vue'
 import Navbar from '../components/Navbar'
 
 export default {
   name: 'HomeLayout',
   components: {
-    ThemeProvider,
-    ColorModeProvider,
-    Box,
+    CThemeProvider,
+    CColorModeProvider,
+    CBox,
     Navbar,
-    CSSReset
+    CReset
   }
 }
 </script>

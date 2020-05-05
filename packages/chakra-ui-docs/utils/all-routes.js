@@ -6,6 +6,7 @@
  */
 
 const components = [
+  'Index',
   'Accordion',
   'Alert',
   'AlertDialog',
@@ -23,7 +24,7 @@ const components = [
   'ControlBox',
   'Divider',
   'Drawer',
-  // 'Editable',
+  'Editable',
   'Flex',
   'FormControl',
   'Grid',
@@ -45,7 +46,7 @@ const components = [
   'Select',
   'Slider',
   'Spinner',
-  // 'Stat',
+  'Stat',
   'Stack',
   'Switch',
   'Tabs',
@@ -56,4 +57,4 @@ const components = [
   'Tooltip'
 ]
 
-module.exports = components
+export default components

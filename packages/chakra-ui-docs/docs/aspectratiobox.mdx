@@ -1,1 +1,84 @@
+import SEO from '../components/SEO'
+
+
+<SEO
+  title="AspectRatioBox"
+  description="AspectRatioBox component is used to embed responsive videos and maps, etc. It uses a very common padding hack"
+/>
+
 # AspectRatioBox
+
+`CAspectRatioBox` component is used to embed responsive videos and maps, etc. It
+uses a very common [**padding hack**](https://css-tricks.com/aspect-ratio-boxes/) to achieve this.
+
+## Import
+
+```js
+import { CAspectRatioBox } from "@chakra-ui/vue";
+```
+
+## Embed Responsive Video
+To embed a video with a specific aspect ratio, use an iframe with `src` pointing
+to the link of the video.
+
+
+> Use `<CBox as="iframe">` instead of `<iframe>` directly because we're
+> forwarding some style props behind the scene.
+
+<br />
+
+Pass the `maxWidth` prop to `CAspectRatioBox` to control the width of the
+content.
+
+<br />
+
+```vue live=true
+<c-aspect-ratio-box max-w="560px" :ratio="1">
+  <c-box
+    as="iframe"
+    title="naruto"
+    src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+    allow-full-screen
+  />
+</c-aspect-ratio-box>
+```
+
+### Embed Responsive Image
+
+Here's how to embed an image that has a 4:3 aspect ratio.
+
+
+```vue live=true
+<c-aspect-ratio-box max-w="400px" :ratio="4 / 3">
+  <c-image src="https://bit.ly/naruto-sage" alt="sage mode naruto" object-fit="cover" />
+</c-aspect-ratio-box>
+```
+
+### Embed a responsive map
+
+Here's how to embed a responsive Google map using `CAspectRatioBox`. To make the
+map take up the entire width, we can ignore the `max-width` prop.
+
+```vue live=true
+<c-aspect-ratio-box :ratio="16 / 9">
+  <c-box
+    as="iframe"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.280806814!2d32.52908495891268!3d0.31302911611656636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sng!4v1586053287932!5m2!1sen!2sng"
+    frameborder="0"
+    allowfullscreen=""
+    aria-hidden="false"
+    tabindex="0"
+    alt="Kampala, Uganda"
+  />
+</c-aspect-ratio-box>
+```
+
+## Props
+
+| Name  | Type     | Default | Description                     |
+| ----- | -------- | ------- | ------------------------------- |
+| ratio | `number` | 4/3     | The aspect ratio of the content |
+
+> **💡Note**: `CAspectRatioBox` composes the `CPseudoBox` component. So it also accepts
+> all `CPseudoBox` props.
+

@@ -1,27 +1,51 @@
 import Layout from './live-editor-layout.vue'
+import copy from 'copy-to-clipboard'
 
-export default {
+const LiveEditor = {
   name: 'LiveEditor',
+  props: {
+    code: String
+  },
   data () {
     return {
       text: undefined,
       copyTimeout: null,
-      copyButton: null
+      copyButton: null,
+      error: null,
+      codeText: undefined
     }
   },
-  mounted () {
+  async mounted () {
+    await this.$nextTick()
     this.copyButton = this.$el.querySelector('[chakra-copy-button]')
-    if (!this.copyButton) return
-    this.copyButton.addEventListener('click', this.copy)
+    if (this.copyButton) {
+      this.copyButton.addEventListener('click', this.copy)
 
-    this.$on('hook:beforeDestroy', () => {
-      this.copyButton.removeEventListener('click', this.copy)
-    })
+      this.$on('hook:beforeDestroy', () => {
+        this.copyButton.removeEventListener('click', this.copy)
+      })
+    }
+
+    const codeInput = this.$el.querySelector('pre[contenteditable=true]')
+    if (codeInput) {
+      this.codeText = codeInput.textContent
+
+      codeInput.addEventListener('input', (e) => {
+        this.codeText = e.srcElement.textContent
+      })
+    }
+  },
+  watch: {
+    codeText (newVal, oldVal) {
+      if (this.error && (newVal !== oldVal)) {
+        this.error = null
+      }
+    }
   },
   methods: {
     async copy () {
       // Copy text to clipboard
-      await navigator.clipboard.writeText(this.text)
+      await copy(this.code)
       // Handle timeouts for copy button text
       if (this.copyTimeout) clearTimeout(this.copyTimeout)
       this.copyButton.textContent = 'Copied!'
@@ -31,15 +55,33 @@ export default {
       }, 1000)
     }
   },
+  errorCaptured (error, vm, info) {
+    this.error = error
+    return false
+  },
   render (h) {
-    const children = this.$slots.default[0]
-    const innerText = children.text.trim()
-    this.text = innerText
-    return h('VueLive', {
-      props: {
-        code: innerText,
-        layout: Layout
-      }
-    })
+    const code = this.code
+    return h('div', [
+      this.error && h('c-alert', {
+        props: {
+          status: 'error',
+          variant: 'solid'
+        }
+      }, this.error.message),
+      h('VueLive', {
+        props: {
+          code,
+          layout: Layout
+        },
+        on: {
+          error: (error) => {
+            console.info('FANCY_ERROR', error)
+            this.error = error
+          }
+        }
+      })
+    ])
   }
 }
+
+export default LiveEditor

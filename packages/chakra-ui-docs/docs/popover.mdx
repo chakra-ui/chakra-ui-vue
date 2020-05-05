@@ -1,1 +1,323 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Popover"
+  description="Popover is a non-modal dialog that floats around a trigger. It's used to display contextual information to the user."
+/>
+
 # Popover
+
+Popover is a non-modal dialog that floats around a trigger. It's used to display
+contextual information to the user, and should be paired with a clickable
+trigger element.
+
+Popover is built on top of the [Popper.js](https://popper.js.org/) library, and
+composes the `Popper` component.
+
+## Import
+
+- `CPopover`: The wrapper that provides props, state, and context to it's
+  children.
+- `CPopoverTrigger`: Used to wrap the reference (or trigger) element.
+- `CPopoverContent`: The popover itself.
+- `CPopoverHeader`: The header of the popover.
+- `CPopoverBody`: The body of the popover.
+- `CPopoverArrow`: A visual arrow that points to the reference (or trigger).
+- `CPopoverCloseButton`: Obviously, a button to close the popover.
+
+<br />
+
+```js
+import {
+  CPopover,
+  CPopoverTrigger,
+  CPopoverContent,
+  CPopoverHeader,
+  CPopoverBody,
+  CPopoverFooter,
+  CPopoverArrow,
+  CPopoverCloseButton,
+} from '@chakra-ui/vue';
+```
+
+## Basic Usage
+
+When using this component, ensure the child of the `CPopoverTrigger` is
+focusable. It is essential that the user can tab to it using their keyboard to keep
+it accessible.
+
+> **A11y:** When the Popover opens, focus is sent to the `CPopoverContent`. When
+> it closes, focus is returned to the trigger.
+
+```vue live=true
+<c-popover>
+  <c-popover-trigger>
+    <c-button>Trigger</c-button>
+  </c-popover-trigger>
+  <c-popover-content z-index="4">
+    <c-popover-arrow />
+    <c-popover-close-button />
+    <c-popover-header>Confirmation!</c-popover-header>
+    <c-popover-body>Are you sure you want to have that milkshake?</c-popover-body>
+  </c-popover-content>
+</c-popover>
+```
+
+## Rendering the Popover in a Portal
+
+By default, the Popover doesn't render in a Portal. To make them display in a
+portal, pass the `usePortal` prop.
+
+> You might need to **Inspect Element** to see this in action. Notice the
+> `CPopoverContent` is rendered as a child of `<body>`
+
+```vue live=true
+<c-popover use-portal>
+  <c-popover-trigger>
+    <c-button>Trigger</c-button>
+  </c-popover-trigger>
+  <c-popover-content z-index="4">
+    <c-popover-arrow />
+    <c-popover-header>Header</c-popover-header>
+    <c-popover-close-button />
+    <c-popover-body>
+      <c-button variantColor="blue">Button</c-button>
+    </c-popover-body>
+    <c-popover-footer>This is the footer</c-popover-footer>
+  </c-popover-content>
+</c-popover>
+```
+
+## Focus an element when Popover opens
+
+By default, focus is to sent to the `CPopoverContent` when it opens, you might
+want to send focus to a specific element when it opens. Pass the
+`initialFocusRef` prop to do so.
+
+```vue live=true
+<c-popover
+  initialFocusRef="#next"
+  placement="bottom"
+>
+  <c-popover-trigger>
+    <c-button>Trigger</c-button>
+  </c-popover-trigger>
+  <c-popover-content
+    z-index="4"
+    color="white"
+    background-color="blue.700"
+    border-color="blue.700"
+  >
+    <c-popover-header pt="4" font-weight="bold" border="0">
+      Manage Your Channels
+    </c-popover-header>
+    <c-popover-arrow />
+    <c-popover-close-button />
+    <c-popover-body>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore.
+    </c-popover-body>
+    <c-popover-footer
+      border="0"
+      d="flex"
+      align-items="center"
+      justify-content="space-between"
+      pb="4"
+    >
+      <c-box font-size="sm">Step 2 of 4</c-box>
+      <c-button-group size="sm">
+        <c-button variant-color="green">Setup Email</c-button>
+        <c-button variant-color="blue" id="next">
+          Next
+        </c-button>
+      </c-button-group>
+    </c-popover-footer>
+  </c-popover-content>
+</c-popover>
+```
+
+## Accessing the intenal state
+
+The `CPopover` component exposes some variables inside it's default slot scope
+so you can have access to the component's internal state.
+ - `isOpen`: `{ Boolean }` Carries the current open/closed state of the Popover component.
+ - `onClose` : `{ Function }` Function to close the Popover component
+
+```vue live=true
+<c-popover
+  initialFocusRef="#closeButton"
+  placement="right"
+  v-slot="{ isOpen, onClose }"
+>
+  <c-popover-trigger>
+    <c-button>Click to {{ isOpen ? 'close' : 'open' }}</c-button>
+  </c-popover-trigger>
+  <c-popover-content z-index="4">
+    <c-popover-header>This is the header</c-popover-header>
+    <c-popover-close-button />
+    <c-popover-arrow />
+    <c-popover-body>
+      <c-box>
+        Hello. Nice to meet you! This is the body of the popover
+      </c-box>
+      <c-button
+        mt="4"
+        variantColor="blue"
+        @click="onClose"
+        id="closeButton"
+      >
+        Close
+      </c-button>
+    </c-popover-body>
+    <c-popover-footer>This is the footer</c-popover-footer>
+  </c-popover-content>
+</c-popover>
+```
+
+## Customizing the Popover
+
+Chakra exports all the components you need to customize the look and feel of the
+popover. You can change the background, arrow size, boxShadow and so on.
+
+```vue live=true
+<c-popover>
+  <c-popover-trigger>
+    <c-box
+      tab-index="0"
+      role="button"
+      aria-label="Some box"
+      p="5"
+      w="120px"
+      bg="gray.300"
+    >
+      Click
+    </c-box>
+  </c-popover-trigger>
+  <c-popover-content z-index="4" background-color="tomato" color="white">
+    <c-popover-header font-weight="semibold">Customization</c-popover-header>
+    <c-popover-arrow />
+    <c-popover-close-button background-color="indigo.500" />
+    <c-popover-body>
+      Tadaa!! The arrow color and background color is customized. Check the
+      props for each component.
+    </c-popover-body>
+  </c-popover-content>
+</c-popover>
+```
+
+## Hover Trigger
+
+To show the popover when you mouse over or focus on the trigger, pass the prop
+`trigger` and set it to `hover`. When you focus on or mouse over the popover
+trigger, the popover will open.
+
+> If you quickly move your cursor to the popover content when it's open, it'll
+> remain open till you leave.
+
+```vue live=true
+<c-popover trigger="hover">
+  <c-popover-trigger>
+    <c-link text-decoration="underline" font-weight="bold" color="blue.500">
+      Hover to see @swyx profile
+    </c-link>
+  </c-popover-trigger>
+  <c-dark-mode>
+    <c-popover-content border="0" zIndex="4" width="400px" color="white">
+      <c-box p="5">
+        <c-avatar
+          name="swyx"
+          src="https://pbs.twimg.com/profile_images/1201029434054041606/efWs7Lr9_400x400.jpg"
+        />
+        <c-text mt="4" fontWeight="bold">
+          swyx
+          <c-badge ml="3" variant="solid" font-size="xs">
+            Follows you
+          </c-badge>
+        </c-text>
+        <c-text mt="3">
+          Infinite Builder working on DX @Netlify. Helping people
+          #LearnInPublic
+        </c-text>
+      </c-box>
+    </c-popover-content>
+  </c-dark-mode>
+</c-popover>
+```
+
+## Accessiblity
+
+> When you see the word _"trigger"_, it's referring to the child element of the
+> `CPopoverTrigger`
+
+### Keyboard and Focus
+
+- When the popover is opened, focus is moved to the `CPopoverContent`. If the
+  `initialFocusRef` is set, then focus moves to the element with that ref, element selector, or ref returned from function.
+- When the popover is closed, focus returns to the trigger. If you set
+  `returnFocusOnClose` to `false`, focus will not return.
+- If trigger is set to `hover`:
+  - Focusing on or mousing over the trigger will open the popover
+  - Blurring or mousing out of the trigger will close the popover. If you move
+    your mouse into the `CPopoverContent`, it'll remain visible.
+- If trigger is set to `click`:
+  - Clicking the trigger or using the `Space` or `Enter` when focus is on the
+    trigger will open the popover.
+  - Clicking the trigger again will close the popover.
+- Hitting the `Esc` key while the popover is open and focus is within the
+  `CPopoverContent`, will close the popover. If you set `closeOnEsc` to `false`,
+  it will not close.
+- Clicking outside or blurring out of the `CPopoverContent` closes the popover.
+  If you set `closeOnBlur` to `false`, it will not close.
+
+### ARIA Attributes
+
+- If the trigger is set to `click`, the `CPopoverContent` element has role set to
+  `dialog`. If the trigger is set to `hover`, the `CPopoverContent` has `role`
+  set to `tooltip`.
+- The `CPopoverContent` has `aria-labelledby` set to the `id` of the
+  `PopoverHeader`.
+- The `CPopoverContent` has `aria-describedby` set to the `id` of the
+  `PopoverBody`.
+- The `CPopoverContent` has `aria-hidden` set to `true` or `false` depending on
+  the open/closed state of the popover.
+- The trigger has `aria-haspopup` set to `true` to denote that it triggers a
+  popover.
+- The trigger has `aria-controls` set to the `id` of the `CPopoverContent` to
+  associate the popover and the trigger.
+- The trigger has `aria-expanded` set to `true` or `false` depending on the
+  open/closed state of the popover.
+
+## Props
+
+### `CPopover` Props
+
+| Name                 | Type                                                           | Default  | Description                                                                                                                                                                                                                |
+| -------------------- | -------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isOpen`             | `boolean`                                                      |          | If `true`, the popover is shown                                                                                                                                                                                            |
+| `defaultIsOpen`      | `boolean`                                                      |          | If `true`, the popover is shown initially.                                                                                                                                                                                 |
+| `initialFocusRef`    | `Vue.ref`, `HTML element selector` or `Function : Vue.$ref`    |          | The `ref` of the element that should receive focus when the popover opens.                                                                                                                                                 |
+| `trigger`            | `hover`, `click`                                               | `click`  | The interaction that triggers the popover.                                                                                                                                                                                 |
+| `placement`          | `PopperJS.placement`                                           | `bottom` | The placement of the popover.                                                                                                                                                                                              |
+| `returnFocusOnClose` | `boolean`                                                      | `true`   | If `true`, the popover will return focus to the trigger when it closes                                                                                                                                                     |
+| `closeOnBlur`        | `boolean`                                                      | `true`   | If `true`, the popover will close when you blur out it by clicking outside or tabbing out                                                                                                                                  |
+| `closeOnEsc`         | `boolean`                                                      | `true`   | If `true`, close the popover when the `esc` key is pressed                                                                                                                                                                 |
+| `gutter`             | `number`                                                       | `4`      | The gap (in pixels) to apply between the popover and the target. Used by `popper.js`                                                                                                                                       |
+| `usePortal`          | `boolean`                                                      | `false`  | If `true` the popover is displayed with a `Portal`. Rendering content inside a Portal allows the popover content to escape the physical bounds of its parent while still being positioned correctly relative to its target |
+| `onOpen`             | `() => void`                                                   |          | Callback fired when the popover opens                                                                                                                                                                                      |
+| `onClose`            | `() => void`                                                   |          | Callback fired when the popover closes                                                                                                                                                                                     |
+
+### `CPopover` Slots
+| Name          | Description                               |
+| ------------- | ------------------------------------------|
+| default       | Slot for `CPopover` components             |
+
+
+### Other Props
+
+- `CPopoverContent` composes `CPseudoBox` and has the ability to smartly position
+  itself. Thanks to popper.js
+- `CPopoverArrow`, `CPopoverHeader`, `CPopoverFooter` and `CPopoverBody` composes
+  `CBox`.
+- `CPopoverCloseButton` composes `CPseudoBox` component.
+
+

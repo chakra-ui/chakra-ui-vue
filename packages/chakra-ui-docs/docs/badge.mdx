@@ -1,1 +1,95 @@
+import SEO from '../components/SEO'
+
+
+<SEO
+  title="Badge"
+  description="The Badge component is used to highlight an item's status for quick recognition."
+/>
+
+
 # Badge
+
+The `CBadge` component is used to highlight an item's status for quick recognition.
+
+## Import
+
+```js
+import { CBadge } from "@chakra-ui/vue";
+```
+
+## Usage
+
+```vue live=true
+<c-badge>Default</c-badge>
+```
+
+### Badge Color
+
+Pass the `variant-color` prop to customize the color of the `CBadge`. `variant-color`
+can be any **color key** that exists in the `$chakra.theme.colors`. Here `$chakra.theme` is your theme
+object. 
+<nuxt-link to="/theme">Learn more about theming</nuxt-link>
+
+```vue live=true
+<c-badge mx="2">Default</c-badge>
+<c-badge mx="2" variant-color="green">Success</c-badge>
+<c-badge mx="2" variant-color="red">Removed</c-badge>
+<c-badge mx="2" variant-color="indigo">New</c-badge>
+```
+
+
+### Badge Variants
+
+Pass the `variant` prop and set to either `subtle`, `solid`, or `outline` to get a
+different style.
+
+```vue live=true
+<c-badge mx="2" variant="subtle" variant-color="green">Subtle</c-badge>
+<c-badge mx="2" variant="solid" variant-color="green">Solid</c-badge>
+<c-badge mx="2" variant="outline" variant-color="green">Outline</c-badge>
+```
+
+## Composition
+
+```vue live=true
+<c-flex>
+  <c-avatar src="https://bit.ly/chakra-jonathan-bakebwa" />
+  <c-box ml="3">
+    <c-text font-weight="bold">
+      Jonathan Bakebwa
+      <c-badge ml="1" variant-color="green">
+        New
+      </c-badge>
+    </c-text>
+    <c-text font-size="sm">UI Engineer</c-text>
+  </c-box>
+</c-flex>
+```
+
+<br />
+
+You can also change the size of the badge by passing `fontSize` prop.
+
+```vue live=true
+<c-text font-weight="bold">
+  Jonathan Bakebwa
+  <c-badge ml="1" font-size="1em" variant-color="green">
+    New
+  </c-badge>
+</c-text>
+```
+
+
+## Props
+
+> The `CBadge` component composes `CBox` component so you can pass props for `Box`.
+
+| Name           | Type                         | Default  | Description                                                                    |
+| -------------- | ---------------------------- | -------- | ------------------------------------------------------------------------------ |
+| `variant`      | `solid`, `subtle`, `outline`  | `subtle` | The style variant of the badge                                                 |
+| `variant-color` | `string`                     | `gray`   | The color scheme to use for the badge. Must be a key in `$chakra.theme.colors` |
+
+## Slots
+| Name       | Description                                                                       |
+| ---------- | --------------------------------------------------------------------------------- |
+| default    | Text rendered inside badge                                                        |

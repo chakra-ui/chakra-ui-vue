@@ -1,62 +1,70 @@
 <template>
   <div class="container">
-    <ThemeProvider>
-      <ColorModeProvider v-slot="{ colorMode }">
-        <Box
-          font-family="body"
-          :bg="colorMode === 'light' ? 'white' : 'gray.800'"
-          :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
-        >
-          <CSSReset />
-          <Navbar />
-          <Flex maxH="calc(100vh - 60px)">
-            <Sidebar />
-            <Box
-              :class="styles(colorMode)"
-              as="section"
-              w="100%"
-              height="calc(100vh - 60px)"
-              overflowY="scroll"
-              pt="20"
-              :px="[10, 10, 20, '14rem']"
-            >
-              <Nuxt />
-              <Footer v-if="$route.path === '/index'" />
-              <FileContributors v-else />
-            </Box>
-          </Flex>
-        </Box>
-      </ColorModeProvider>
-    </ThemeProvider>
+    <MDXProvider :components="MDXComponents">
+      <CThemeProvider>
+        <CColorModeProvider v-slot="{ colorMode }">
+          <CBox
+            font-family="body"
+            :bg="colorMode === 'light' ? 'white' : 'gray.800'"
+            :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
+          >
+            <CReset />
+            <Navbar />
+            <CFlex maxH="calc(100vh - 60px)">
+              <Sidebar />
+              <CBox
+                :class="styles(colorMode)"
+                as="section"
+                w="100%"
+                height="calc(100vh - 60px)"
+                overflowY="scroll"
+                pt="20"
+                :px="[10, 10, 20, '14rem']"
+              >
+                <Nuxt id="page-content" />
+                <Footer v-if="$route.path === '/'" />
+                <FileContributors />
+              </CBox>
+            </CFlex>
+          </CBox>
+        </CColorModeProvider>
+      </CThemeProvider>
+    </MDXProvider>
   </div>
 </template>
 <script>
 import {
-  ThemeProvider,
-  ColorModeProvider,
-  CSSReset,
-  Box,
-  Flex,
+  CThemeProvider,
+  CColorModeProvider,
+  CReset,
+  CBox,
+  CFlex,
   Css
 } from '@chakra-ui/vue'
+import { css } from 'emotion'
+import { MDXProvider } from 'mdx-vue'
+
+import MDXComponents from '../components/MDXComponents'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import FileContributors from '../components/FileContributors'
-import { css } from 'emotion'
+
+// import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
   components: {
     FileContributors,
-    ThemeProvider,
-    ColorModeProvider,
-    Box,
+    MDXProvider,
+    CThemeProvider,
+    CColorModeProvider,
+    CBox,
     Navbar,
     Sidebar,
     Footer,
-    CSSReset,
-    Flex
+    CReset,
+    CFlex
   },
   data () {
     return {
@@ -75,8 +83,28 @@ export default {
           color: 'inherit',
           borderLeft: '4px solid rgb(251, 211, 141);'
         }
-      }
+      },
+      code: {
+        light: {
+          bg: '#fefcbf',
+          color: '#744210'
+        },
+        dark: {
+          bg: 'rgba(250, 240, 137, 0.16)',
+          color: 'rgb(250, 240, 137)'
+        }
+      },
+      MDXComponents
     }
+  },
+  metaInfo: {
+    title: `Chakra UI Vue`,
+    metaTags: [
+      {
+        name: 'description',
+        content: 'Simple, Modular and Accessible UI Components for your Vue Applications. Built with Styled System.'
+      }
+    ]
   },
   computed: {
     styles () {
@@ -87,8 +115,61 @@ export default {
         '.preview-panel': {
           borderColor: this.thBg[colorMode]
         },
-        'blockquote': this.callout[colorMode]
+        'table, p': {
+          'code': {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
+        },
+        'h1, h2, h3': {
+          'code': this.code[colorMode]
+        },
+        li: {
+          code: {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
+        }
       })(this.$chakra.theme))
+    },
+    hash () {
+      return this.$route.name
+    }
+  },
+  // TODO: Setup title hashing
+  // mounted () {
+  //   this.setPageIds()
+  // },
+  watch: {
+    hash (newVal, oldVal) {
+      console.log('Hash changed', newVal)
+      // if (newVal !== oldVal) {
+      //   this.pushWindowToId()
+      // }
+    }
+  },
+  methods: {
+    /**
+     * TODO: Finish implementing this
+     * Sets the IDs for titles to allow for scrolling.
+     */
+    // setPageIds () {
+    //   const pageWrapper = document.getElementById('page-content')
+    //   const h2s = pageWrapper.querySelectorAll('h2')
+    //   const h3s = pageWrapper.querySelectorAll('h3')
+
+    //   const allTitles = [ ...h2s, ...h3s ]
+    //   allTitles.forEach(title => {
+    //     const content = `<div>${title.textContent}` + `<a aria-label="${title.textContent}" href="${stringToUrl(title.textContent, '#')}"></a></div>`
+    //     title.innerHTML = content
+    //   })
+
+    //   setTimeout(() => {
+    //     this.pushWindowToId()
+    //   })
+    // },
+    pushWindowToId () {
+      this.$router.push(this.$route.fullPath)
     }
   }
 }

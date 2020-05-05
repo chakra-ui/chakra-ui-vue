@@ -1,1 +1,103 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Text"
+  description="Text is the used to render text and paragraphs within an interface. It renders a <p> tag by default."
+/>
+
 # Text
+
+Text is the used to render text and paragraphs within an interface. It renders a `<p>` tag by default.
+
+## Import
+
+```js
+import { CText } from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-text>Vue is amazing, don't you think?</c-text>
+```
+
+## Changing the font size
+
+To increase the font size of the text, you can pass the `fontSize` prop.
+
+```vue live=true
+<c-stack :spacing="3">
+  <c-text fontSize="6xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="5xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="4xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="3xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="2xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="xl">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="lg">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="md">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="sm">In love with Vue and Nuxt</c-text>
+  <c-text fontSize="xs">In love with Vue and Nuxt</c-text>
+</c-stack>
+```
+
+## Truncate text
+
+Pass the `isTruncated` prop to render an ellipsis when the text exceeds the width of the viewport or `maxWidth` set.
+
+```vue live=true
+<c-text color="gray.500" is-truncated>
+  “I was attracted to JavaScript because of the ability to just build something and share it instantly with the world. You put it on the web, and you get a URL, you can send it to anyone with a browser. That was the part that just attracted me to the web and to JavaScript.”
+</c-text>
+```
+
+## Override style
+
+You can change the entire style of the text via props. For example, to change the font size, pass the `fontSize` prop. No need to write `css`
+
+```vue live=true
+<c-text fontSize="50px" color="vue">
+  I'm using a custom font-size value for this text
+</c-text>
+```
+
+## Override the element
+
+```vue live=true
+<c-stack :spacing="3">
+ <c-text as="i">Italic</c-text>
+
+  <c-text as="u">Underline</c-text>
+
+  <c-text as="abbr">I18N</c-text>
+
+  <c-text as="cite">Citation</c-text>
+
+  <c-text as="del">Deleted</c-text>
+
+  <c-text as="em">Emphasis</c-text>
+
+  <c-text as="ins">Inserted</c-text>
+
+  <c-text as="kbd">Ctrl + C</c-text>
+
+  <c-text as="mark">Highlighted</c-text>
+
+  <c-text as="s">Strikethrough</c-text>
+
+  <c-text as="samp">Sample</c-text>
+
+  <c-text as="sub">sub</c-text>
+
+  <c-text as="sup">sup</c-text>
+</c-stack>
+```
+
+## Props
+
+Text composes the [CBox](/box) component, so you can pass all Box style props.
+
+## Slots
+
+| Name    | Description                                                    |
+| ------- | -------------------------------------------------------------- |
+| default | Used for displaying the textual content of the CText component |

@@ -1,1 +1,44 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Textarea"
+  description="The Textarea component allows you to easily create multi-line text inputs."
+/>
+
 # Textarea
+
+The Textarea component allows you to easily create multi-line text inputs.
+
+## Import
+
+```js
+import { CTextarea } from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-textarea placeholder="Here is a sample placeholder" />
+```
+
+## Disabled Textarea
+
+```vue live=true
+<c-textarea is-disabled placeholder="Here is a sample placeholder" />
+```
+
+## Invalid Textarea
+
+```vue live=true
+<c-textarea is-invalid placeholder="Here is a sample placeholder" />
+```
+
+## Props
+
+The Textarea composes the [Input](/input) component
+
+## Event
+
+| Name   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
+| change | Handles what happens when the content of the textarea changes |

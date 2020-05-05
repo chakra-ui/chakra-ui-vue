@@ -35,7 +35,8 @@
     "now-build-storybook": "build-storybook -o dist/storybook",
     "docs:dev": "yarn theme:dev && yarn docs-dev",
     "theme:dev": "yarn workspace @chakra-ui/theme-vue build",
-    "docs-dev": "yarn workspace chakra-ui-docs dev"
+    "docs-dev": "yarn workspace chakra-ui-docs dev",
+    "evalbundle": "bundlesize"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -117,7 +118,7 @@
     "v-scroll-lock": "^1.1.0",
     "vue": "^2.6.11",
     "vue-error-boundary": "^1.0.3",
-    "vue-live": "^1.5.1",
+    "vue-live": "^1.9.0",
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-meta": "^2.3.3",
@@ -134,6 +135,7 @@
     "@testing-library/user-event": "^10.0.0",
     "@testing-library/vue": "^4.1.0",
     "babel-eslint": "^10.0.1",
+    "bundlesize": "^0.18.0",
     "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.10.0",
     "eslint-loader": "^3.0.3",

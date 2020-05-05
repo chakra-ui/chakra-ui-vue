@@ -29,6 +29,10 @@
   "files": [
     "dist"
   ],
+  "bundle-phobia": {
+    "max-size": "85KB",
+    "max-overall-size": "85KB"
+  },
   "dependencies": {
     "@styled-system/css": "^5.0.23",
     "animejs": "^3.1.0",

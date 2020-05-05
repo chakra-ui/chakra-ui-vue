@@ -72,6 +72,12 @@ const LiveEditor = {
         props: {
           code,
           layout: Layout
+        },
+        on: {
+          error: (error) => {
+            console.info('FANCY_ERROR', error)
+            this.error = error
+          }
         }
       })
     ])

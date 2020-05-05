@@ -22,10 +22,8 @@
                 :px="[10, 10, 20, '14rem']"
               >
                 <Nuxt id="page-content" />
-                <Footer v-if="$route.path === '/index'" />
-                <ClientOnly v-else>
-                  <FileContributors />
-                </ClientOnly>
+                <Footer v-if="$route.path === '/'" />
+                <FileContributors />
               </CBox>
             </CFlex>
           </CBox>
@@ -116,9 +114,6 @@ export default {
         },
         '.preview-panel': {
           borderColor: this.thBg[colorMode]
-          // 'a': {
-          //   color: 'inherit'
-          // }
         },
         'table, p': {
           'code': {

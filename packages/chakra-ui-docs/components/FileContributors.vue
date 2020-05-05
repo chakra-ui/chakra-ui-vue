@@ -32,7 +32,6 @@
 <script>
 
 import { CBox, CLink, CTag, CAvatar, CTagLabel, CHeading, CText } from '@chakra-ui/vue'
-// TODO: add custom fetch support to 'file-contributors'
 import getFileContributors from 'file-contributors'
 
 export default {
@@ -63,8 +62,9 @@ export default {
     '$route.path': {
       immediate: true,
       handler (newVal, oldVal) {
+        if (!process.client) return
         this.contributors = undefined
-        if (newVal === '/index') return
+        if (newVal === '/') return
         if (newVal !== oldVal) this.getContributors()
       }
     }

@@ -22,10 +22,10 @@ import { CTabs, CTabList, CTabPanels, CTab, CTabPanel } from '@chakra-ui/vue'
 
 ## Usage
 
-You can render any element within `Tabs`, but `TabList` should only have `Tab`
-as children, and `TabPanels` should have `TabPanel` as children.
+You can render any element within `CTabs`, but `CTabList` should only have `CTab`
+as children, and `CTabPanels` should have `CTabPanel` as children.
 
-Tabs expects `TabList` and `TabPanels` as children. The order doesn't matter,
+Tabs expects `CTabList` and `CTabPanels` as children. The order doesn't matter,
 you can have tabs at the top, at the bottom, or both.
 
 ```vue live=true
@@ -243,10 +243,10 @@ Stretch the tab list to fit the container by passing `isFitted` prop.
 
 ## Manually Activated Tabs
 
-By default, `Tabs` are activated automatically. This means when you use the
+By default, `CTabs` are activated automatically. This means when you use the
 arrow keys to change tabs, the tab is activated and focused.
 
-> The content of a `TabPanel` should ideally be preloaded. However, if switching
+> The content of a `CTabPanel` should ideally be preloaded. However, if switching
 > to a tab panel causes a network request and possibly a page refresh, there
 > might be some notable latency and this might affect the experience for
 > keyboard and screen reader users.
@@ -311,7 +311,6 @@ Tabs composes `Box` so you call pass all `Box` related props.
 
 | Name           | Type                                                                              | Default      | Description                                                                                                                     |
 | -------------- | --------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `onChange`     | `(index: number) => void`                                                         |              | The callback to update the active tab index.                                                                                    |
 | `index`        | `number`                                                                          |              | The controlled index of the tabs.                                                                                               |
 | `defaultIndex` | `number`                                                                          |              | The index of the initial active tab.                                                                                            |
 | `isManual`     | `boolean`                                                                         |              | If `true`, keyboard navigation changes focus between tabs but doens't activate it. User will have to press `Enter` to active it |
@@ -320,6 +319,12 @@ Tabs composes `Box` so you call pass all `Box` related props.
 | `size`         | `sm`, `md`, `lg`                                                                  | `md`         | The visual size of the tabs                                                                                                     |
 | `orientation`  | `horizontal`, `vertical`                                                          | `horizontal` | The orientation of the tabs                                                                                                     |
 | `isFitted`     | `boolean`                                                                         |              | If `true`, the tabs will stretch to fill the available space                                                                    |
+
+### Tabs Events
+
+| Name       | Description              |
+| ---------- | ------------------------ |
+| `onChange` | Emits the @change event. |
 
 ### Tabs Slot
 

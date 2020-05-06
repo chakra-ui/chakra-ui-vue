@@ -2,6 +2,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+[**中文文档Github问题**](https://github.com/chakra-ui/chakra-ui-vue/issues/160)
+
 <p align="center">
   <a href="https://github.com/chakra-ui/chakra-ui-vue">
     <img src="https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue-beta.png" alt="chakra-ui symbol" width="300" />

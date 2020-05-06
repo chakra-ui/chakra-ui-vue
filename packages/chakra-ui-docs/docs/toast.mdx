@@ -1,1 +1,220 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Toast"
+  description="The toast is used to show alerts on top of an overlay."
+/>
+
 # Toast
+
+The toast is used to show alerts on top of an overlay. The toast will close
+itself when the close button is clicked, or after a timeout — the default is 5
+seconds. The toast component is used to give feedback to users after an action
+has taken place.
+
+Toasts can be configured to appear at either the top or the bottom of an
+application window, and it is possible to have more than one toast onscreen at a
+time.
+
+## Basic usage
+
+Chakra UI injects the `this.$toast` method to your application's Vue instance so you can
+conveniently invoke toast notifications anywhere in your Vue templates.
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'info',
+        duration: 10000
+      })
+    }
+  }
+}
+</script>
+```
+
+## Rendering custom toast components
+
+Display a custom component instead of the default Toast UI.
+
+> Rendering custom elements may require you to have some knowledge of how Vue's render function works.
+
+In order to keep your custom toast components simple, it's best to extract
+your toast components into their own components and then consume it in the `this.$toast`
+`render` method.
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        position: 'bottom-left',
+        render: () => {
+          return this.$createElement('c-box', {
+            props: {
+              color: 'white',
+              p: 3,
+              m: 3,
+              bg: 'blue.500'
+            }
+          }, 'Hello World!')
+        }
+      })
+    }
+  }
+}
+</script>
+```
+
+### Success
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 10000
+      })
+    }
+  }
+}
+</script>
+```
+
+### Warning
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'Warning.',
+        description: "You're almost out of storage.",
+        status: 'warning',
+        duration: 10000
+      })
+    }
+  }
+}
+</script>
+```
+
+### Error
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'An error occurred.',
+        description: "Unable to load sharingan. Please shadow clones.",
+        status: 'error',
+        duration: 10000
+      })
+    }
+  }
+}
+</script>
+```
+
+## Position
+
+Using the `position` property you can adjust where your toast will be popup from.
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 10000,
+        position: 'top-right'
+      })
+    }
+  }
+}
+</script>
+```
+
+## Variants
+
+The `this.$toast` method can also allow you to render toast notifications with different
+variants. Each toast `status` has 4 variants, namely: `solid`, `subtle`, `top-accent` and `left-accent`.
+
+> Try changing the `variant` property to a value between `solid`, `subtle`, `top-accent` and `left-accent` to see all the toast variants!
+
+```vue live=true
+<template>
+  <c-button @click="showToast">Show Toast</c-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showToast() {
+      this.$toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'info',
+        duration: 10000,
+        variant: 'subtle' // `solid` | `subtle` | `top-accent` | `left-accent`
+      })
+    }
+  }
+}
+</script>
+```
+
+
+## Props
+
+| Name          | Type                                                                    | Default  | Description                                                          |
+| ------------- | ----------------------------------------------------------------------- | -------- | -------------------------------------------------------------------- |
+| `title`       | `string`                                                                |          | The title of the toast.                                              |
+| `isClosable`  | `boolean`                                                               | `false`  | If `true` adds a close button to the toast.                          |
+| `onClose`     | `function`                                                              |          | Callback function to close the toast.                                |
+| `description` | `string`                                                                |          | The description of the toast.                                        |
+| `status`      | `success`, `danger`, `warning`, `info`                                   |          | The status of the toast.                                             |
+| `variant`     | `solid`, `subtle`, `left-accent`, `top-accent`                           |          | The variant of the toast.                                            |
+| `duration`    | `number`                                                                | `5000ms` | Duration before dismiss in milliseconds, or `null` to never dismiss. |
+| `position`    | `top`, `top-left`, `top-right`, `bottom`, `bottom-left`, `bottom-right`  | `bottom` | Position the toast will popup out from.                              |
+| `render`      | `(props: {onClose:() => void, id: string}) => Vue.VNode`                |          | The description of the toast.                                        |

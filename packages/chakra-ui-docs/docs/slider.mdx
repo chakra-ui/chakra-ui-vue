@@ -1,1 +1,100 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Slider"
+  description="The Slider is used to allow users to make selections from a range of values."
+/>
+
 # Slider
+
+The Slider is used to allow users to make selections from a range of values.
+
+Sliders reflect a range of values along a bar, from which users may select a
+single value. They are ideal for adjusting settings such as volume, brightness,
+or applying image filters.
+
+## Import
+
+```js
+import {
+  CSlider,
+  CSliderTrack,
+  CSliderFilledTrack,
+  CSliderThumb
+} from '@chakra-ui/vue'
+```
+
+## Usage
+
+```vue live=true
+<c-slider default-value="56">
+  <c-slider-track />
+  <c-slider-filled-track />
+  <c-slider-thumb />
+</c-slider>
+```
+
+### Changing the slider color
+
+```vue live=true
+<c-slider color="pink" default-value="24">
+  <c-slider-track />
+  <c-slider-filled-track />
+  <c-slider-thumb />
+</c-slider>
+```
+
+## Props
+
+### Slider Props
+
+The `Slider` component wraps all it's children in the [Box](/box) component, so
+you can pass all `Box` props to change it's style.
+
+| Name               | Type                       | Default | Description                                                               |
+| ------------------ | -------------------------- | ------- | ------------------------------------------------------------------------- |
+| `value`            | `number`                   |         | The value of the slider.                                                  |
+| `defaultValue`     | `number`                   |         | The initial value of the slider.                                          |
+| `max`              | `number`                   |         | Standard `input` max attribute.                                           |
+| `min`              | `number`                   |         | Standard `input` min attribute.                                           |
+| `step`             | `number`                   |         | Standard `input` step attribute.                                          |
+| `aria-label`       | `string`                   |         | The accessible label.                                                     |
+| `aria-labelledby`  | `string`                   |         | The `id` of the element that labels the sliders                           |
+| `aria-valuetext`   | `string`                   |         | The aria-valuetext of the switch for accessibility.                       |
+| `orientation`      | `string`                   |         | The orientation of the slider, only `horizontal` is supported for now.    |
+| `getAriaValueText` | `(value: number ): string` |         | The callback to format the `aria-valuetext`.                              |
+| `size`             | `sm`, `md`, `lg`           |         | The size of the slider.                                                   |
+| `color`            | `string`                   |         | The color scheme to use for the slider. Use a color key in `theme.colors` |
+| `name`             | `string`                   |         | The name of the slider component when used in a form.                     |
+| `id`               | `string`                   |         | The id of the slider component when used in a form.                       |
+
+## Slider Events
+
+| Name        | Description                                                     |
+| ----------- | --------------------------------------------------------------- |
+| `change`    | Callback fired when the value of the slider changes.            |
+| `onFocus`   | Callback fired when the thumb receives focus                    |
+| `blur`      | Callback fired when the thumb is blurred                        |
+| `mouseDown` | Callback fired when the you mousedown on any part of the slider |
+| `keyDown`   | Callback fired when the you keydown on any part of the slider   |
+
+## Slots
+
+| Name    | Description                          |
+| ------- | ------------------------------------ |
+| default | Slot for the children of the slider. |
+
+### SliderThumb Props
+
+SliderThumb composes [PseudoBox](/pseudobox) so you can pass all PseudoBox props
+to change it's style.
+
+### SliderFilledTrack Props
+
+SliderFilledTrack composes [PseudoBox](/pseudobox) so you can pass all PseudoBox
+props to change it's style.
+
+### SliderTrack Props
+
+SliderTrack composes [Box](/box) so you can pass all Box props to change it's
+style.

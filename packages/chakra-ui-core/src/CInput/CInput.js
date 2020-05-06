@@ -1,3 +1,16 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Input
+ *
+ * CInput component is a component that is used to get user input in a text field
+ *
+ * It is usually used together with the FormControl to provide an accessible label, validation messages, etc.
+ *
+ * @see Docs     https://vue.chakra-ui.com/input
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInput/CInput.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInput/accessibility.md
+ * @see WAI      https://www.w3.org/WAI/tutorials/forms/
+ */
+
 import styleProps from '../config/props'
 import useInputStyle from './utils/input.styles'
 import { forwardProps } from '../utils'
@@ -74,8 +87,6 @@ const CInput = {
         'read-only': this.formControl.isReadOnly,
         disabled: this.formControl.isDisabled,
         'aria-disabled': this.formControl.isDisabled,
-        'aria-label': this._ariaLabel,
-        'aria-describedby': this._ariaDescribedby,
         'aria-invalid': this.formControl.isInvalid,
         required: this.formControl.isRequired,
         'aria-required': this.formControl.isRequired

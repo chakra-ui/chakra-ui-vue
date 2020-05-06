@@ -24,7 +24,7 @@
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
-    "clean": "rm -rf ./dist"
+    "clean": "rimraf ./dist"
   },
   "files": [
     "dist"
@@ -52,7 +52,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "core-js": "^3.4.5"
+    "core-js": "^3.4.5",
+    "rimraf": "^3.0.2"
   },
   "keywords": [
     "vue",

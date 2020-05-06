@@ -7,7 +7,6 @@
  *
  * @see Docs     https://vue.chakra-ui.com/input
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInput/CInput.js
- * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInput/accessibility.md
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 
@@ -18,6 +17,14 @@ import { inputProps } from './utils/input.props'
 
 import CPseudoBox from '../CPseudoBox'
 
+/**
+ * CInput component
+ *
+ * Gets user input in a text field
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/input
+ */
 const CInput = {
   name: 'CInput',
   inject: {
@@ -89,7 +96,8 @@ const CInput = {
         'aria-disabled': this.formControl.isDisabled,
         'aria-invalid': this.formControl.isInvalid,
         required: this.formControl.isRequired,
-        'aria-required': this.formControl.isRequired
+        'aria-required': this.formControl.isRequired,
+        'data-chakra-component': 'CInput'
       },
       nativeOn: {
         input: this.emitValue

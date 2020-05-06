@@ -10,7 +10,7 @@
         >
           <CReset />
           <Navbar />
-          <CBox px="12rem">
+          <CBox :px="[4, 10, '12rem']">
             <Nuxt />
           </CBox>
         </CBox>

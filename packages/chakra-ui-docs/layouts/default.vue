@@ -18,7 +18,7 @@
                 w="100%"
                 height="calc(100vh - 60px)"
                 overflowY="scroll"
-                pt="20"
+                :pt="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
               >
                 <Nuxt id="page-content" />
@@ -98,13 +98,7 @@ export default {
     }
   },
   metaInfo: {
-    title: `Chakra UI Vue`,
-    metaTags: [
-      {
-        name: 'description',
-        content: 'Simple, Modular and Accessible UI Components for your Vue Applications. Built with Styled System.'
-      }
-    ]
+    title: `Chakra UI Vue`
   },
   computed: {
     styles () {

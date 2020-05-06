@@ -7,7 +7,8 @@
     color="gray.600"
     py="10"
   >
-    <CText mb="4">Designed and developed by <CLink href="https://twitter.com/codebender828" isExternal>Jonathan Bakebwa</CLink></CText>
+    <CText mb="1" text-align="center">Designed and developed by <CLink href="https://twitter.com/codebender828" isExternal>Jonathan Bakebwa 🇺🇬</CLink></CText>
+    <c-text mb="4" text-align="center">Special thanks goes to these <c-link as="nuxt-link" to="/contributors">contributors. 💚</c-link></c-text>
     <CStack isInline spacing="5">
       <CLink
         href="https://twitter.com/codebender828"

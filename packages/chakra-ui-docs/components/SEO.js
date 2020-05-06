@@ -19,7 +19,9 @@ const SEO = {
           'data-n-head': '1',
           name: 'description',
           content: this.description
-        }
+        },
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
   },

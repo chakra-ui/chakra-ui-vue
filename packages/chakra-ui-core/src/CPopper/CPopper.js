@@ -2,7 +2,7 @@ import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
 import styleProps from '../config/props'
-import getPopperArrowStyle from './utils/popper2.styles'
+import getPopperArrowStyle from './utils/popper.styles'
 import ClickOutside from '../directives/clickoutside.directive'
 
 import CBox from '../CBox'

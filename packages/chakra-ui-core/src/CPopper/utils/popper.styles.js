@@ -14,27 +14,36 @@ const getPopperArrowStyle = ({
   const arrowPos = `calc(${arrowSize} / 2 * -1)`
 
   return css({
-    '[x-arrow]': {
+    display: 'none',
+
+    '[data-show]': {
+      display: 'block'
+    },
+
+    '[data-popper-arrow]': {
       width: arrowSize,
       height: arrowSize,
       position: 'absolute',
-      transform: 'rotate(45deg)',
+      backgroundColor: 'inherit',
+      zIndex: -1,
 
       '&::before': {
         content: '""',
         width: arrowSize,
         height: arrowSize,
         position: 'absolute',
+        // transform: 'rotate(45deg)',
+        backgroundColor: 'inherit',
         zIndex: -1
       }
     },
 
-    '&[x-placement^="top"]': {
+    '&[data-popper-placement^="top"]': {
       marginBottom: popoverMargin,
       transformOrigin: 'bottom center'
     },
 
-    '&[x-placement^="top"] [x-arrow]': {
+    '&[data-popper-placement^="top"] [data-popper-arrow]': {
       bottom: arrowPos,
 
       '&::before': {
@@ -42,12 +51,12 @@ const getPopperArrowStyle = ({
       }
     },
 
-    '&[x-placement^="bottom"]': {
+    '&[data-popper-placement^="bottom"]': {
       marginTop: popoverMargin,
       transformOrigin: 'top center'
     },
 
-    '&[x-placement^="bottom"] [x-arrow]': {
+    '&[data-popper-placement^="bottom"] [data-popper-arrow]': {
       top: arrowPos,
 
       '&::before': {
@@ -55,12 +64,12 @@ const getPopperArrowStyle = ({
       }
     },
 
-    '&[x-placement^="right"]': {
+    '&[data-popper-placement^="right"]': {
       marginLeft: popoverMargin,
       transformOrigin: 'left center'
     },
 
-    '&[x-placement^="right"] [x-arrow]': {
+    '&[data-popper-placement^="right"] [data-popper-arrow]': {
       left: arrowPos,
 
       '&::before': {
@@ -68,12 +77,12 @@ const getPopperArrowStyle = ({
       }
     },
 
-    '&[x-placement^="left"]': {
+    '&[data-popper-placement^="left"]': {
       marginRight: popoverMargin,
       transformOrigin: 'right center'
     },
 
-    '&[x-placement^="left"] [x-arrow]': {
+    '&[data-popper-placement^="left"] [data-popper-arrow]': {
       right: arrowPos,
       '&::before': {
         boxShadow: `1px -1px 1px 0 ${arrowShadowColor}`

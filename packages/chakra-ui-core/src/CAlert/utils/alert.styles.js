@@ -2,7 +2,7 @@ import { colorEmphasis } from '../../utils'
 
 export const statuses = {
   info: { icon: 'info', color: 'blue' },
-  warning: { icon: 'warning-2', color: 'orange' },
+  warning: { icon: 'warning-alt', color: 'orange' },
   success: { icon: 'check-circle', color: 'green' },
   error: { icon: 'warning', color: 'red' }
 }

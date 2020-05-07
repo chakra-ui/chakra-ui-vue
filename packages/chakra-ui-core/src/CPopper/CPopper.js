@@ -174,7 +174,9 @@ const CPopper = {
           .then(() => {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
-              arrow.style.transform += 'rotate(45deg)'
+              if (arrow) {
+                arrow.style.transform += 'rotate(45deg)'
+              }
             }
           })
       } else {
@@ -199,7 +201,9 @@ const CPopper = {
           .then(() => {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
-              arrow.style.transform += 'rotate(45deg)'
+              if (arrow) {
+                arrow.style.transform += 'rotate(45deg)'
+              }
             }
           })
       }
@@ -300,14 +304,12 @@ const CPopperArrow = {
       attrs: {
         'x-arrow': true,
         'data-popper-arrow': true,
-        role: 'presentation'
+        role: 'presentation',
+        'data-chakra-component': 'CPopperArrow'
       },
       props: {
         bg: 'inherit',
         ...forwardProps(this.$props)
-      },
-      on: {
-        click: (e) => this.$emit('cheese', e)
       }
     })
   }

@@ -15,6 +15,10 @@ import CIcon from '../CIcon'
  */
 const CNumberInput = {
   name: 'CNumberInput',
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
   props: {
     ...baseProps,
     value: Number,
@@ -426,6 +430,10 @@ const CNumberInput = {
     handleChange (event, value) {
       this.updateValue(event.target.value)
       this.$emit('change', event, value)
+    },
+    emitValue (event) {
+      this.$emit('input', event.target.value, event)
+      this.$emit('change', event)
     }
   },
   render (h) {
@@ -436,7 +444,11 @@ const CNumberInput = {
         align: 'stretch',
         w: this.isFullWidth ? 'full' : null,
         pos: 'relative'
-      }
+      },
+      nativeOn: {
+        input: this.emitValue
+      },
+      ref: 'input'
     }, this.$slots.default)
   }
 }

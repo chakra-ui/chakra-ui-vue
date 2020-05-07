@@ -358,8 +358,8 @@ const CMenuList = {
             name: 'preventOverflow',
             options: {
               rootBoundary: 'viewport'
-            },
-          },
+            }
+          }
         ],
         closeOnClickAway: true,
         minW: '3xs',

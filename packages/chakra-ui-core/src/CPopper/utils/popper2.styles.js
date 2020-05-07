@@ -15,7 +15,7 @@ const getPopperArrowStyle = ({
 
   return css({
     display: 'none',
-    
+
     '[data-show]': {
       display: 'block'
     },

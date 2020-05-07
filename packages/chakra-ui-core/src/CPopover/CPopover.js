@@ -439,9 +439,9 @@ const CPopoverContent = {
         anchorEl: triggerNode,
         modifiers: [{
           name: 'offset',
-          options: { 
+          options: {
             offset: [0, this.gutter]
-          } 
+          }
         }],
         bg,
         width: '100%',
@@ -452,7 +452,7 @@ const CPopoverContent = {
         shadow: 'sm',
         maxWidth: 'xs',
         _focus: { outline: 0, shadow: 'outline' },
-        ...forwardProps(this.$props),
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: popoverId,
@@ -487,7 +487,7 @@ const CPopoverHeader = {
         px: '0.75rem',
         py: '0.5rem',
         borderBottomWidth: '1px',
-        ...forwardProps(this.$props),
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.headerId
@@ -514,7 +514,7 @@ const CPopoverBody = {
         flex: 1,
         px: '0.75rem',
         py: '0.5rem',
-        ...forwardProps(this.$props),
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.bodyId,

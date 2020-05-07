@@ -98,7 +98,7 @@ const CPopper = {
     placement (newValue) {
       if (this.popper) {
         this.popper.options.placement = newValue
-        this.reference.setAttribute('data-show', '');
+        this.reference.setAttribute('data-show', '')
       }
     },
     isOpen (newValue) {
@@ -134,7 +134,7 @@ const CPopper = {
         : this.getNode(this.$el)
       return ref
     },
-    computedModifiers() {
+    computedModifiers () {
       return merge([
         this.usePortal && {
           name: 'preventOverflow',
@@ -146,7 +146,7 @@ const CPopper = {
           name: 'offset',
           options: {
             offset: [0, 10]
-          },
+          }
         },
         {
           name: 'arrow',
@@ -169,7 +169,7 @@ const CPopper = {
 
       if (!this.anchor || !this.reference) return
       if (this.popper) {
-        this.reference.setAttribute('data-show', '');
+        this.reference.setAttribute('data-show', '')
         this.popper.update()
           .then(() => {
             if (this.hasArrow) {
@@ -194,7 +194,7 @@ const CPopper = {
           eventsEnabled: this.eventsEnabled,
           positionFixed: this.positionFixed
         })
-        this.reference.setAttribute('data-show', '');
+        this.reference.setAttribute('data-show', '')
         this.popper.update()
           .then(() => {
             if (this.hasArrow) {
@@ -249,7 +249,7 @@ const CPopper = {
       this.$emit('create', payload)
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.popper && this.popper.destroy()
     this.popper = null
   },

@@ -1,84 +1,74 @@
 /**
- * This clickoutside directive has been adpated form the fine work of Thomasi Walter from Buefy
- * @see https://buefy.org/
+ * This clickoutside directive has been adpated form vue-bulma's clickoutside directive
+ * @see https://github.com/vue-bulma/click-outside
  */
-
-const isTouch =
-  typeof window !== 'undefined' && ('ontouchstart' in window || navigator.msMaxTouchPoints > 0)
-const events = isTouch ? ['touchstart', 'click'] : ['click']
-
-const instances = []
-
-function processArgs (bindingValue) {
-  const isFunction = typeof bindingValue === 'function'
-  if (!isFunction && typeof bindingValue !== 'object') {
-    throw new Error(`v-click-outside: Binding value should be a function or an object, typeof ${bindingValue} given`)
+function validate(binding) {
+  if (typeof binding.value !== 'function') {
+    console.warn('[Vue-click-outside:] provided expression', binding.expression, 'is not a function.')
+    return false
   }
 
-  return {
-    handler: isFunction ? bindingValue : bindingValue.handler,
-    middleware: bindingValue.middleware || ((isClickOutside) => isClickOutside),
-    events: bindingValue.events || events
-  }
+  return true
 }
 
-function onEvent ({ el, event, handler, middleware }) {
-  const isClickOutside = event.target !== el && !el.contains(event.target)
+function isPopup(popupItem, elements) {
+  if (!popupItem || !elements)
+    return false
 
-  if (!isClickOutside) {
-    return
-  }
-
-  if (middleware(event, el)) {
-    handler(event, el)
-  }
-}
-
-function bind (el, { value }) {
-  const { handler, middleware, events } = processArgs(value)
-
-  const instance = {
-    el,
-    eventHandlers: events.map((eventName) => ({
-      event: eventName,
-      handler: (event) => onEvent({ event, el, handler, middleware })
-    }))
+  for (var i = 0, len = elements.length; i < len; i++) {
+    try {
+      if (popupItem.contains(elements[i])) {
+        return true
+      }
+      if (elements[i].contains(popupItem)) {
+        return false
+      }
+    } catch(e) {
+      return false
+    }
   }
 
-  instance.eventHandlers.forEach(({ event, handler }) =>
-    document.addEventListener(event, handler))
-  instances.push(instance)
+  return false
 }
 
-function update (el, { value }) {
-  const { handler, middleware, events } = processArgs(value)
-  const instance = instances.find((instance) => instance.el === el)
-
-  instance.eventHandlers.forEach(({ event, handler }) =>
-    document.removeEventListener(event, handler)
-  )
-
-  instance.eventHandlers = events.map((eventName) => ({
-    event: eventName,
-    handler: (event) => onEvent({ event, el, handler, middleware })
-  }))
-
-  instance.eventHandlers.forEach(({ event, handler }) =>
-    document.addEventListener(event, handler))
+function isServer(vNode) {
+  return typeof vNode.componentInstance !== 'undefined' && vNode.componentInstance.$isServer
 }
 
-function unbind (el) {
-  const instance = instances.find((instance) => instance.el === el)
-  instance.eventHandlers.forEach(({ event, handler }) =>
-    document.removeEventListener(event, handler)
-  )
-}
+exports = module.exports = {
+  bind: function (el, binding, vNode) {
+    if (!validate(binding)) return
 
-const directive = {
-  bind,
-  update,
-  unbind,
-  instances
-}
+    // Define Handler and cache it on the element
+    function handler(e) {
+      if (!vNode.context) return
 
-export default directive
+      // some components may have related popup item, on which we shall prevent the click outside event handler.
+      var elements = e.path || (e.composedPath && e.composedPath())
+      elements && elements.length > 0 && elements.unshift(e.target)
+
+      if (el.contains(e.target) || isPopup(vNode.context.popupItem, elements)) return
+
+      el.__vueClickOutside__.callback(e)
+    }
+
+    // add Event Listeners
+    el.__vueClickOutside__ = {
+      handler: handler,
+      callback: binding.value
+    }
+    const clickHandler = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
+    !isServer(vNode) && document.addEventListener(clickHandler, handler)
+  },
+
+  update: function (el, binding) {
+    if (validate(binding)) el.__vueClickOutside__.callback = binding.value
+  },
+
+  unbind: function (el, binding, vNode) {
+    // Remove Event Listeners
+    const clickHandler = 'ontouchstart' in document.documentElement ? 'touchstart' : 'click';
+    !isServer(vNode) && el.__vueClickOutside__ && document.removeEventListener(clickHandler, el.__vueClickOutside__.handler)
+    delete el.__vueClickOutside__
+  }
+}

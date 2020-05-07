@@ -3,6 +3,10 @@
     {
       "path": "./packages/chakra-ui-core/dist/umd/*.js",
       "maxSize": "85kB"
+    },
+    {
+      "path": "./packages/chakra-ui-core/dist/esm/*.js",
+      "maxSize": "85kB"
     }
   ]
 }

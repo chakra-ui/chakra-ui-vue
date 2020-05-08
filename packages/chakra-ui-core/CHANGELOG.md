@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.13...@chakra-ui/vue@0.4.0) (2020-05-08)
+
+
+### Bug Fixes
+
+* **popper:** better anchor event listener handling ([6c495d2](https://github.com/chakra-ui/chakra-ui-vue/commit/6c495d26afcd6e8fe7646ced5887d60485e3eedb))
+* **popper:** checks for arrow ([a6ab6dd](https://github.com/chakra-ui/chakra-ui-vue/commit/a6ab6ddd27206cea43d2f2d36719bb055840f455))
+* getting stated docs ([d6aa8b1](https://github.com/chakra-ui/chakra-ui-vue/commit/d6aa8b1a618fc96f596a9979767c9bb414f490bc))
+
+
+### Features
+
+* **avatar:** added avatar docs ([257f3ff](https://github.com/chakra-ui/chakra-ui-vue/commit/257f3ff36cc55de52173b04fc980506f222d1390))
+* **avatar:** added code examples ([f0968cb](https://github.com/chakra-ui/chakra-ui-vue/commit/f0968cb48dc472c7ee8a3476aa5a251576846367))
+* **avatar:** docs ([2f5b381](https://github.com/chakra-ui/chakra-ui-vue/commit/2f5b381fbb074a8785513d1c7141f5e80d37c99c))
+* **cinputaddon:** added review ([9bf1d6d](https://github.com/chakra-ui/chakra-ui-vue/commit/9bf1d6da443d6bc0a9da95f46d2ac46ae97b401e))
+* **cinputelement:** added review ([678d45b](https://github.com/chakra-ui/chakra-ui-vue/commit/678d45b60929b05da93582ca85c44bd0874a0160))
+* **cinputgroup:** added review ([42fdda1](https://github.com/chakra-ui/chakra-ui-vue/commit/42fdda1808affdcd99b3967e663f2db598835aea))
+* **grid:** add grid docs ([d05ae14](https://github.com/chakra-ui/chakra-ui-vue/commit/d05ae14b21ea0b8639c443a40f463b5cc381587a))
+* **iconbutton:** review iconbutton component ([7da4918](https://github.com/chakra-ui/chakra-ui-vue/commit/7da49182bd119446184763b911caf1b17a05661c))
+* **image:** review image component ([adcaed6](https://github.com/chakra-ui/chakra-ui-vue/commit/adcaed662d871a48f81e7aedd75ee970f4042d5a))
+* **image:** review image component ([4c95f01](https://github.com/chakra-ui/chakra-ui-vue/commit/4c95f013b03c49f19f807067634e789a1902a8b8))
+* **menu:** improve clickaway ([ed5e320](https://github.com/chakra-ui/chakra-ui-vue/commit/ed5e32078dd2c404724cc68588d3426dca75535c))
+* **menu:** improve clickaway ([0b44af5](https://github.com/chakra-ui/chakra-ui-vue/commit/0b44af5e3ae8241be02d07ee3c4ba7eb31644d96))
+
+
+
+
+
 ## [0.3.13](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.3.12...@chakra-ui/vue@0.3.13) (2020-04-26)
 
 

@@ -432,13 +432,17 @@ const CPopoverContent = {
 
     return h(CPopper, {
       props: {
-        ...forwardProps(this.$props),
         as: 'section',
         usePortal: usePortal,
         isOpen,
         placement,
         anchorEl: triggerNode,
-        modifiers: { offset: { enabled: true, offset: `0, ${this.gutter}` } },
+        modifiers: [{
+          name: 'offset',
+          options: {
+            offset: [0, this.gutter]
+          }
+        }],
         bg,
         width: '100%',
         position: 'relative',
@@ -447,7 +451,8 @@ const CPopoverContent = {
         rounded: 'md',
         shadow: 'sm',
         maxWidth: 'xs',
-        _focus: { outline: 0, shadow: 'outline' }
+        _focus: { outline: 0, shadow: 'outline' },
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: popoverId,
@@ -478,11 +483,11 @@ const CPopoverHeader = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         as: 'header',
         px: '0.75rem',
         py: '0.5rem',
-        borderBottomWidth: '1px'
+        borderBottomWidth: '1px',
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.headerId
@@ -506,10 +511,10 @@ const CPopoverBody = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         flex: 1,
         px: '0.75rem',
-        py: '0.5rem'
+        py: '0.5rem',
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.bodyId,
@@ -541,13 +546,13 @@ const CPopoverCloseButton = {
   render (h) {
     return h(CCloseButton, {
       props: {
-        ...forwardProps(this.$props),
         size: 'sm',
         pos: 'absolute',
         rounded: 'md',
         top: 1,
         right: 2,
-        p: 2
+        p: 2,
+        ...forwardProps(this.$props)
       },
       on: {
         click: (e) => {
@@ -565,11 +570,11 @@ const CPopoverFooter = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         as: 'footer',
         px: '0.75rem',
         py: '0.5rem',
-        borderTopWidth: '1px'
+        borderTopWidth: '1px',
+        ...forwardProps(this.$props)
       }
     }, this.$slots.default)
   }

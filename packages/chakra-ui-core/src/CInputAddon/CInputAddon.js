@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue InputAddon
+ *
+ * InputAddon allows addition of addons to the left and right of the CInput component
+ *
+ * @see Docs     https://vue.chakra-ui.com/input
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInputAddon/CInputAddon.js
+ */
+
 import styleProps from '../config/props'
 import useInputStyle from '../CInput/utils/input.styles'
 import { forwardProps } from '../utils'
@@ -16,6 +25,14 @@ const addonProps = {
   }
 }
 
+/**
+ * CInputAddon component
+ *
+ * allows addition of addons to the left and right of the CInput component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/input
+ */
 const CInputAddon = {
   name: 'CInputAddon',
   inject: ['$chakraColorMode', '$chakraTheme'],
@@ -60,11 +77,22 @@ const CInputAddon = {
       props: {
         ...forwardProps(this.$props),
         ...styleProps
+      },
+      attrs: {
+        'data-chakra-component': 'CInputAddon'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CInputLeftAddon component
+ *
+ * allows addition of addons to the left of CInput component
+ *
+ * @extends CInputAddon
+ * @see Docs https://vue.chakra-ui.com/input
+ */
 const CInputLeftAddon = {
   name: 'CInputLeftAddon',
   props: addonProps,
@@ -75,12 +103,20 @@ const CInputLeftAddon = {
         placement: 'left'
       },
       attrs: {
-        'data-chakra-input-left-addon': ''
+        'data-chakra-component': 'CInputLeftAddon'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CInputRightAddon component
+ *
+ * allows addition of addons to the right of CInput component
+ *
+ * @extends CInputAddon
+ * @see Docs https://vue.chakra-ui.com/input
+ */
 const CInputRightAddon = {
   name: 'CInputRightAddon',
   props: addonProps,
@@ -91,7 +127,7 @@ const CInputRightAddon = {
         placement: 'right'
       },
       attrs: {
-        'data-chakra-input-right-addon': ''
+        'data-chakra-component': 'CInputRightAddon'
       }
     }, this.$slots.default)
   }

@@ -1,9 +1,27 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CInputGroup
+ *
+ * CInputGroup allows grouping of input elements
+ *
+ * @see Docs     https://vue.chakra-ui.com/input
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInputGroup/CInputGroup.js
+ */
+
 import { StringArray } from '../config/props/props.types'
 import { baseProps } from '../config'
 import { inputSizes } from '../CInput/utils/input.styles'
-import CBox from '../CBox'
 import { cloneVNode, forwardProps, kebabify } from '../utils'
 
+import CBox from '../CBox'
+
+/**
+ * CInputElement component
+ *
+ * allows grouping of input elements
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/input
+ */
 const CInputGroup = {
   name: 'CInputGroup',
   inject: ['$chakraTheme'],
@@ -67,7 +85,7 @@ const CInputGroup = {
         position: 'relative'
       },
       attrs: {
-        'data-chakra-input-group': ''
+        'data-chakra-component': 'CInputGroup'
       }
     }, clones)
   }

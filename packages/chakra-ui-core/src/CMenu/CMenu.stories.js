@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider, CIcon } from '..'
+import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon, defaultTheme } from '..'
+
+console.log({ defaultTheme })
 
 storiesOf('UI | Menu', module)
   .add('Default Menu', () => ({
@@ -88,5 +90,37 @@ storiesOf('UI | Menu', module)
           </CMenuOptionGroup>
         </CMenuList>
       </CMenu>
+    `
+  }))
+  .add('Letter navigation', () => ({
+    components: { CMenu, CMenuGroup, CMenuButton, CImage, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider },
+    template: `
+      <c-menu>
+        <c-menu-button as="button" right-icon="chevron-down">
+          Your Cats
+        </c-menu-button>
+        <c-menu-list>
+          <c-menu-item h="48px">
+            <c-image
+              size="2rem"
+              rounded="full"
+              src="https://placekitten.com/100/100"
+              alt="Fluffybuns the destroyer"
+              mr="12px"
+            />
+            <span>Fluffybuns the Destroyer</span>
+          </c-menu-item>
+          <c-menu-item h="40px">
+            <c-image
+              size="2rem"
+              rounded="full"
+              src="https://placekitten.com/120/120"
+              alt="Simon the pensive"
+              mr="12px"
+            />
+            <span>Simon the pensive</span>
+          </c-menu-item>
+        </c-menu-list>
+      </c-menu>  
     `
   }))

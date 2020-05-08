@@ -17,7 +17,7 @@ exports[`should render correctly 1`] = `
      
     <input
       class="css-0 css-1l17jza"
-      data-chakra-component="CPseudoBox"
+      data-chakra-component="CInput"
       id="fname"
       placeholder="First name"
     />

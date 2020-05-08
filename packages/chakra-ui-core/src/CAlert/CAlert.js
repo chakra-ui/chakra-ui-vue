@@ -22,10 +22,10 @@ import CBox from '../CBox'
 import CIcon from '../CIcon'
 
 export const statuses = {
-  info: { icon: '_info', color: 'blue' },
-  warning: { icon: '_warning-2', color: 'orange' },
-  success: { icon: '_check-circle', color: 'green' },
-  error: { icon: '_warning', color: 'red' }
+  info: { icon: 'info', color: 'blue' },
+  warning: { icon: 'warning-alt', color: 'orange' },
+  success: { icon: 'check-circle', color: 'green' },
+  error: { icon: 'warning', color: 'red' }
 }
 
 /**

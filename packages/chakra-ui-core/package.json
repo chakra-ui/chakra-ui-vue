@@ -24,7 +24,7 @@
     "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
-    "clean": "rm -rf ./dist"
+    "clean": "rimraf ./dist"
   },
   "files": [
     "dist"
@@ -34,6 +34,7 @@
     "max-overall-size": "85KB"
   },
   "dependencies": {
+    "@popperjs/core": "^2.4.0",
     "@styled-system/css": "^5.0.23",
     "animejs": "^3.1.0",
     "aria-hidden": "^1.1.1",
@@ -42,7 +43,6 @@
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15",
-    "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0"
@@ -52,7 +52,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "core-js": "^3.4.5"
+    "core-js": "^3.4.5",
+    "rimraf": "^3.0.2"
   },
   "keywords": [
     "vue",

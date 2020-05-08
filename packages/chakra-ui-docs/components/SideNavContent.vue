@@ -94,18 +94,18 @@ import componentLinks from './components'
 const topNavLinks = [
   'Getting Started',
   'Principles',
-  'Theming with Chakra UI',
   'Style Props',
+  'Theme',
   'Color Mode',
   'Responsive Styles',
-  'Theme',
   'Recipes'
 ]
 
 const aboutNavLinks = [
   'Why Chakra UI',
   'Accessibility',
-  'Constraint Based Design'
+  'Constraint Based Design',
+  'Contributing'
 ]
 
 export default {

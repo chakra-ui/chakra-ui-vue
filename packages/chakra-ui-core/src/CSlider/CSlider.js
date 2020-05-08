@@ -11,6 +11,10 @@ import CPseudoBox from '../CPseudoBox'
 const CSlider = {
   name: 'CSlider',
   inject: ['$chakraTheme', '$chakraColorMode'],
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
     value: Number,
@@ -253,6 +257,15 @@ const CSlider = {
     handleMouseMove (event) {
       let newValue = this.getNewValue(event)
       this.updateValue(newValue)
+    },
+     /**
+     *
+     * @param {Event} event Event object
+     * @param {Any} event Value
+     */
+    handleChange (event, value) {
+      this.updateValue(event.target.value)
+      this.$emit('change', event, value)
     }
   },
   render (h) {

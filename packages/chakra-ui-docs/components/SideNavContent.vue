@@ -31,6 +31,33 @@
       </CPseudoBox>
     </CBox>
     <CHeading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
+      About Chakra UI Vue
+    </CHeading>
+    <CBox v-for="(link, index) in aboutNavLinks" :key="`${index}-about-chakra`">
+      <CPseudoBox
+        as="nuxt-link"
+        :to="link.path"
+        p="0.2rem"
+        outline="none"
+        :_focus="{
+          shadow: 'outline',
+        }"
+        :_hover="{
+          textDecoration: 'none'
+        }"
+        d="block"
+        rounded="md"
+        :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
+        :color="$route.path === link.path ? 'vue.700' : 'inherit'"
+        fontWeight="bold"
+        fontSize="sm"
+        textDecoration="none"
+        transition="background-color 0.15s ease-in"
+      >
+        {{ link.name }}
+      </CPseudoBox>
+    </CBox>
+    <CHeading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
       Components
     </CHeading>
     <CPseudoBox
@@ -67,12 +94,18 @@ import componentLinks from './components'
 const topNavLinks = [
   'Getting Started',
   'Principles',
-  'Theming with Chakra UI',
   'Style Props',
+  'Theme',
   'Color Mode',
   'Responsive Styles',
-  'Theme',
   'Recipes'
+]
+
+const aboutNavLinks = [
+  'Why Chakra UI',
+  'Accessibility',
+  'Constraint Based Design',
+  'Contributing'
 ]
 
 export default {
@@ -99,6 +132,9 @@ export default {
     },
     componentLinks () {
       return componentLinks.map(link => ({ name: link, path: stringToUrl(link) }))
+    },
+    aboutNavLinks () {
+      return aboutNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))
     }
   }
 }

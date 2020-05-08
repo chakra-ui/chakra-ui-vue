@@ -115,6 +115,13 @@ export default {
             fontSize: 'sm'
           }
         },
+        'blockquote': {
+          ...this.callout[colorMode],
+          'code': {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
+        },
         'h1, h2, h3': {
           'code': this.code[colorMode]
         },
@@ -128,42 +135,6 @@ export default {
     },
     hash () {
       return this.$route.name
-    }
-  },
-  // TODO: Setup title hashing
-  // mounted () {
-  //   this.setPageIds()
-  // },
-  watch: {
-    hash (newVal, oldVal) {
-      console.log('Hash changed', newVal)
-      // if (newVal !== oldVal) {
-      //   this.pushWindowToId()
-      // }
-    }
-  },
-  methods: {
-    /**
-     * TODO: Finish implementing this
-     * Sets the IDs for titles to allow for scrolling.
-     */
-    // setPageIds () {
-    //   const pageWrapper = document.getElementById('page-content')
-    //   const h2s = pageWrapper.querySelectorAll('h2')
-    //   const h3s = pageWrapper.querySelectorAll('h3')
-
-    //   const allTitles = [ ...h2s, ...h3s ]
-    //   allTitles.forEach(title => {
-    //     const content = `<div>${title.textContent}` + `<a aria-label="${title.textContent}" href="${stringToUrl(title.textContent, '#')}"></a></div>`
-    //     title.innerHTML = content
-    //   })
-
-    //   setTimeout(() => {
-    //     this.pushWindowToId()
-    //   })
-    // },
-    pushWindowToId () {
-      this.$router.push(this.$route.fullPath)
     }
   }
 }

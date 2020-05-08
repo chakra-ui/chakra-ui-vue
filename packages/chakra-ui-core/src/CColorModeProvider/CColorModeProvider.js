@@ -98,7 +98,7 @@ const CDarkMode = {
  * @see Docs https://vue.chakra-ui.com/color-mode
  */
 const CLightMode = {
-  name: 'CLarkMode',
+  name: 'CLightMode',
   render (h) {
     return h(CColorModeProvider, {
       props: {

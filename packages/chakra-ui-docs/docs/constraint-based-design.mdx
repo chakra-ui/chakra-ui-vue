@@ -1,0 +1,86 @@
+# Constraint Based Design
+
+In order to help you create clean, consistent layouts, Chakra UI provides building blocks that take
+advantage of [constraint-based design principles](https://react-ui.dev/core-concepts/constraints-based-design).
+
+Chakra UI's design principles are built around 2 core concepts:
+
+- Design tokens
+- Space scales
+
+## Design tokens
+
+[Design tokens](https://www.lightningdesignsystem.com/design-tokens) are named values that are
+used in place of hard-coded values (such as hex values for color or pixel values for spacing)
+in order to maintain a scalable and consistent visual system for UI development.
+
+These constraints are help you to create consistent, high quality uer interfaces.
+
+Chakra UI's theming system leverages design tokens for different style properties
+like color, spacing, font sizes, font weights, opacity, radii, shadows, z-indices, border widths and breakpoints.
+
+This allows us to create a system that enables us to style our applications can be scaled
+across different scales. These include a typographic (`font-size`)
+scale, a spacing scale for `margin` and `padding`, and a color object.
+
+By default Chakra UI uses the [System UI Theme Specification](https://system-ui.com/theme/)
+
+## Space Scales
+
+Because Chakra UI uses styled system under the hood, it allows you to reliably create consistent
+spacing of elements in your applications. The `space` key can directly be referenced by
+`padding`, `margin`, `top`, `right`, `bottom` and `left` style properties.
+
+By default, Chakra UI uses a comprehensive **4pt grid** as a single unit. So in order to apply a
+padding of `32px`, you can use the value `32px / 4px = 8`. i.e. `padding: 8` 
+
+```jsx
+export default {
+  space: {
+    px: "1px",
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem",
+    "32": "8rem",
+    "40": "10rem",
+    "48": "12rem",
+    "56": "14rem",
+    "64": "16rem",
+  },
+};
+```
+
+Below are some examples of how to apply values spacing values to Chakra components.
+
+```html
+<!-- Applies a padding of 4px -->
+<c-box padding="1">
+	Box
+</c-box>
+
+<!-- Applies a padding of 16px -->
+<c-box padding="4">
+	Box
+</c-box>
+
+<!-- Applies a padding of 32px -->
+<c-box padding="8">
+	Box
+</c-box>
+```
+
+> Chakra UI's default space scale uses `rems` as the CSS unit which is relative to the default root HTML font size of 16px
+
+## Theme
+By default Chakra UI uses a theme object that you can extend and customize as you see fit for your application.
+To learn more about theming in Chakra UI, check out the [theme page](/theme).

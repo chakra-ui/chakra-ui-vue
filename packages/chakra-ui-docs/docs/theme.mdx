@@ -1,1 +1,253 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Theme"
+  description="The theme object is where you define your application's color palette, type scale, font stacks, breakpoints, border radius values, and more"
+/>
+
+
+import {
+  ColorPalette,
+  ColorPalettes,
+  ColorWrapper,
+} from "../components/ColorPalette";
+
 # Theme
+
+The theme object is where you define your application's color palette, type
+scale, font stacks, breakpoints, border radius values, and more. Theming with
+Chakra UI is based on the
+[Styled System Theme Specification](https://system-ui.com/theme/)
+
+## Colors
+
+Add a `theme.colors` object to provide colors for your project. By default these
+colors can be referenced by the `color`, `borderColor`, and `backgroundColor`,
+`fill`, `stroke`, styles.
+
+We recommend adding palette that go from `50` - `900`. Use tools like
+[Coolors](https://coolors.co/app) or [Palx](https://palx.jxnblk.com) to generate
+these palette.
+
+
+```js
+// theme.js
+export default {
+  colors: {
+    transparent: "transparent",
+    black: "#000",
+    white: "#fff",
+    gray: {
+      50: "#f7fafc",
+      // ...
+      900: "#1a202c",
+    },
+    // ...
+  },
+};
+```
+
+By default, Chakra UI exposes a [**default theme object**](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-theme/src/theme/index.js) that follows the [System UI Theme Specification](https://system-ui.com/theme/).
+
+<!-- Apply Color Palettes here -->
+### Black & White
+
+<ColorWrapper>
+  <ColorPalette color="black" name="Black" />
+  <ColorPalette color="white" name="White" />
+  <div />
+</ColorWrapper>
+
+### Gray
+
+<ColorWrapper>
+  <ColorPalettes color="gray" />
+</ColorWrapper>
+
+### Cyan
+
+<ColorWrapper>
+  <ColorPalettes color="cyan" />
+</ColorWrapper>
+
+### Vue
+
+<ColorWrapper>
+  <ColorPalettes color="vue" />
+</ColorWrapper>
+
+### Green
+
+<ColorWrapper>
+  <ColorPalettes color="green" />
+</ColorWrapper>
+
+### Orange
+
+<ColorWrapper>
+  <ColorPalettes color="orange" />
+</ColorWrapper>
+
+### Red
+
+<ColorWrapper>
+  <ColorPalettes color="red" />
+</ColorWrapper>
+
+### Yellow
+
+<ColorWrapper>
+  <ColorPalettes color="yellow" />
+</ColorWrapper>
+
+### Indigo
+
+<ColorWrapper>
+  <ColorPalettes color="indigo" />
+</ColorWrapper>
+
+### Pink
+
+<ColorWrapper>
+  <ColorPalettes color="pink" />
+</ColorWrapper>
+
+### Blue
+
+<ColorWrapper>
+  <ColorPalettes color="blue" />
+</ColorWrapper>
+
+
+## Breakpoints
+
+To configure the default breakpoints used in responsive array values, add a
+breakpoints array to your theme. These values will be used to generate
+mobile-first (i.e. min-width) media queries, which can then be used to apply
+responsive styles.
+
+> For example, you can write `<c-box :font-size="['14px', '16px']"/>` to make the
+> fontSize responsive.
+
+```js
+// theme.js
+export default {
+  breakpoints: ["30em", "48em", "62em", "80em"],
+};
+```
+
+## Spacing
+
+The `space` key allows you to customize the global spacing and sizing scale for
+your project. By default these spacing value can be referenced by the `padding`,
+`margin`, and `top`, `left`, `right`, `bottom` styles.
+
+```js
+export default {
+  space: {
+    px: "1px",
+    "0": "0",
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem",
+    "20": "5rem",
+    "24": "6rem",
+    "32": "8rem",
+    "40": "10rem",
+    "48": "12rem",
+    "56": "14rem",
+    "64": "16rem",
+  },
+};
+```
+
+By default, Chakra includes a comprehensive numeric spacing scale inspired by
+Tailwind CSS. The values are proportional, so 1 spacing unit is equal to
+`0.25rem`, which translates to `4px` by default in common browsers.
+
+> **Mental model:** If you need a spacing of `40px`, divide it by `4`. That'll
+> give you `10`. Then use it in your component.
+
+| Name | Space   | Pixels |                                     |
+| ---- | ------- | ------ | ----------------------------------  |
+| 0    | 0       | 0px    | <c-box bg="pink.200" h="4" w="0"/>  |
+| px   | 1px     | 1px    | <c-box bg="pink.200" h="4" w="px"/> |
+| 1    | 0.25rem | 4px    | <c-box bg="pink.200" h="4" w="1"/>  |
+| 2    | 0.5rem  | 8px    | <c-box bg="pink.200" h="4" w="2"/>  |
+| 3    | 0.75rem | 12px   | <c-box bg="pink.200" h="4" w="3"/>  |
+| 4    | 1rem    | 16px   | <c-box bg="pink.200" h="4" w="4"/>  |
+| 5    | 1.25rem | 20px   | <c-box bg="pink.200" h="4" w="5"/>  |
+| 6    | 1.5rem  | 24px   | <c-box bg="pink.200" h="4" w="6"/>  |
+| 8    | 2rem    | 32px   | <c-box bg="pink.200" h="4" w="8"/>  |
+| 10   | 2.5rem  | 40px   | <c-box bg="pink.200" h="4" w="10"/> |
+| 12   | 3rem    | 48px   | <c-box bg="pink.200" h="4" w="12"/> |
+| 16   | 4rem    | 64px   | <c-box bg="pink.200" h="4" w="16"/> |
+| 20   | 5rem    | 80px   | <c-box bg="pink.200" h="4" w="20"/> |
+| 24   | 6rem    | 96px   | <c-box bg="pink.200" h="4" w="24"/> |
+| 32   | 8rem    | 128px  | <c-box bg="pink.200" h="4" w="32"/> |
+| 40   | 10rem   | 160px  | <c-box bg="pink.200" h="4" w="40"/> |
+| 48   | 12rem   | 192px  | <c-box bg="pink.200" h="4" w="48"/> |
+| 56   | 14rem   | 224px  | <c-box bg="pink.200" h="4" w="56"/> |
+| 64   | 16rem   | 256px  | <c-box bg="pink.200" h="4" w="64"/> |
+
+## Sizes
+
+The `sizes` key allows you to customize the global sizing of components you
+build for your project. By default these spacing value can be referenced by the
+`width`, `height`, and `maxWidth`, `minWidth`, `maxHeight`, `minHeight` styles.
+
+```js
+export default {
+  sizes: {
+    ...theme.space,
+    full: "100%",
+    "3xs": "14rem",
+    "2xs": "16rem",
+    xs: "20rem",
+    sm: "24rem",
+    md: "28rem",
+    lg: "32rem",
+    xl: "36rem",
+    "2xl": "42rem",
+    "3xl": "48rem",
+    "4xl": "56rem",
+    "5xl": "64rem",
+    "6xl": "72rem",
+  },
+};
+```
+
+For a component like this: `<c-box w="4" h="3" />` will generate an empty `div`
+with width set to `1rem` or `16px` and height set to `0.75rem` or `12px`
+
+## Z-Index
+
+Chakra provides some zIndex values out of the box to control the stacking order
+of components.
+
+```js
+export default {
+  zIndices: {
+    hide: -1,
+    auto: "auto",
+    base: 0,
+    docked: 10,
+    dropdown: 1000,
+    sticky: 1100,
+    banner: 1200,
+    overlay: 1300,
+    modal: 1400,
+    popover: 1500,
+    skipLink: 1600,
+    toast: 1700,
+    tooltip: 1800,
+  },
+};
+```

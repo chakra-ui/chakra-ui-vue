@@ -172,5 +172,6 @@
     "library",
     "styled-system",
     "kittens ;)"
-  ]
+  ],
+  "version": "0.0.0"
 }

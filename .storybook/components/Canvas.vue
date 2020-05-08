@@ -39,9 +39,6 @@
   </CThemeProvider>
 </template>
 
-<!-- Used by Vue dev tools -->
-<script src="http://localhost:8098"></script>
-
 <script>
 import {
   CThemeProvider,

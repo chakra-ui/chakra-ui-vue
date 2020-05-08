@@ -14,8 +14,7 @@
       "packages/*"
     ],
     "nohoist": [
-      "core-js",
-      "emotion"
+      "core-js"
     ]
   },
   "scripts": {
@@ -43,7 +42,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
     "@babel/plugin-transform-parameters": "^7.7.4",
     "@babel/preset-env": "^7.9.5",
-    "@chakra-ui/vue": "^0.3.10",
+    "@chakra-ui/vue": "^0.4.1",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",

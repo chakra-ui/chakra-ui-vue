@@ -1,3 +1,100 @@
 # Color Mode
 
-[Testing colormode](https://hello.world)
+Most @chakra-ui/vue components are dark mode compatible. You can also toggle between dark
+and light modes in your chakra applications.
+
+## Enable Color Mode
+
+To enable this behavior within your apps, wrap your application in a
+`CColorModeProvider`. This component provides two variables in it's descendant's context using the
+[provide/inject](https://vuejs.org/v2/api/#provide-inject) API.
+
+In your main.js
+```js
+import Vue from 'vue'
+import Chakra, { CThemeProvider, CColorModeProvider CReset } from '@chakra-ui/vue'
+import App from './App.vue'
+
+Vue.use(Chakra)
+
+new Vue({
+  el: '#app',
+  render: (h) => h(CThemeProvider, [
+    h(CColorModeProvider, [
+      h(CReset),
+      h(App)
+    ])
+  ])
+}).$mount()
+```
+
+In any component that needs the Chakra color mode, you can now access it by injecting it into that
+component's state:
+
+_In your `App.vue` file._
+
+```vue live=true
+<template>
+  <c-box>
+    <c-button @click="$toggleColorMode">
+      Chakra ColorMode: {{ colorMode }}
+    </c-button>
+  </c-box>
+</template>
+
+<script lang="js">
+
+export default {
+  name: 'App',
+  inject: ['$chakraColorMode', '$toggleColorMode'],
+  computed: {
+    /**
+     * In order to preserve reactivity, Chakra provides the color mode
+     * inside the `$chakraColorMode` function. This function returns the current
+     * color mode.
+     */
+    colorMode () {
+      return this.$chakraColorMode()
+    }
+  },
+}
+</script>
+```
+
+## Forcing a specific mode
+
+In some occasions, you might want Chakra components to look the same in both
+light and dark modes. To achieve this, wrap the component in `CLightMode` or
+`CDarkMode` component. Doing this will override the global `$chakraColorMode`.
+
+> Click the **"Toggle Mode"** button to see it in action.
+
+```vue live=true
+<template>
+  <c-stack is-inline>
+    <c-light-mode>
+      <c-button size="sm" variant-color="blue">
+        Light Mode Always
+      </c-button>
+    </c-light-mode>
+
+    <c-dark-mode>
+      <c-button  size="sm" variant-color="blue">
+        Dark Mode Always
+      </c-button>
+    </c-dark-mode>
+
+    <c-button size="sm" variant-color="blue" @click="$toggleColorMode">
+      Toggle Color Mode
+    </c-button>
+  </c-stack>
+</template>
+
+<script lang="js">
+
+export default {
+  name: 'App',
+  inject: ['$toggleColorMode']
+}
+</script>
+```

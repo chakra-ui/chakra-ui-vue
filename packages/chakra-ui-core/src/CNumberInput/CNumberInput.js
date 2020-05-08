@@ -21,7 +21,7 @@ const CNumberInput = {
   },
   props: {
     ...baseProps,
-    value: Number,
+    value: [Number, String],
     defaultValue: Number,
     focusInputOnChange: {
       type: Boolean,
@@ -169,11 +169,7 @@ const CNumberInput = {
     },
     _value: {
       get () {
-        return this.isControlled
-          ? roundToPrecision(this.value, this._precision)
-          : this.innerValue
-            ? roundToPrecision(this.innerValue, this._precision)
-            : this.innerValue
+        return roundToPrecision(this.value, this._precision)
       },
       set (val) {
         if (!this.defaultValue) {

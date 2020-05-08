@@ -15,6 +15,10 @@ import CIcon from '../CIcon'
  */
 const CNumberInput = {
   name: 'CNumberInput',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
     value: Number,

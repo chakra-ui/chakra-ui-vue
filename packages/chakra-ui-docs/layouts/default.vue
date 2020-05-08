@@ -115,6 +115,13 @@ export default {
             fontSize: 'sm'
           }
         },
+        'blockquote': {
+          ...this.callout[colorMode],
+          'code': {
+            ...this.code[colorMode],
+            fontSize: 'sm'
+          }
+        },
         'h1, h2, h3': {
           'code': this.code[colorMode]
         },

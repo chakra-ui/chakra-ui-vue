@@ -38,12 +38,12 @@ const renderComponent = (props) => {
         <CustomRadio isDisabled value="item-4" data-testid="item-4">Custom Radio 4</CustomRadio>
       </CRadioButtonGroup>
   `,
-  data () {
-    return {
-      selected: 'item-1'
-    }
-  },
-  ...props
+    data () {
+      return {
+        selected: 'item-1'
+      }
+    },
+    ...props
   }
   return render(base)
 }

@@ -231,7 +231,7 @@ const CPopper = {
      * Wrapped handler for clickaway events
      */
     wrapClose (e) {
-      if (this.popper && !(e.target === this.anchor)) {
+      if (this.popper && !(this.anchor.contains(e.target))) {
         this.handleClose()
       }
     },

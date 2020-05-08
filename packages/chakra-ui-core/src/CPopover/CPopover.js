@@ -1,5 +1,6 @@
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
+import { isFunction } from 'lodash-es'
 
 import CBox from '../CBox'
 import CCloseButton from '../CCloseButton'
@@ -14,17 +15,14 @@ const CPopover = {
     }
   },
   props: {
-    id: {
-      type: String,
-      default: `popover-id-${useId()}`
-    },
+    id: String,
     defaultIsOpen: Boolean,
     isOpen: Boolean,
     returnFocusOnClose: {
       type: Boolean,
       default: true
     },
-    initialFocusRef: [Object, String],
+    initialFocusRef: [Object, String, Function],
     trigger: {
       type: String,
       default: 'click'
@@ -54,7 +52,7 @@ const CPopover = {
         triggerNode: this.triggerNode,
         contentNode: this.contentNode,
         setTriggerNode: this.setTriggerNode,
-        popoverId: this.id,
+        popoverId: this.computedId,
         trigger: this.trigger,
         isHovering: this.isHovering,
         handleBlur: this.handleBlur,
@@ -77,13 +75,18 @@ const CPopover = {
       }
     },
     _initialFocusRef () {
-      return this.getNode(this.initialFocusRef)
+      return isFunction(this.initialFocusRef)
+        ? this.getNode(this.initialFocusRef())
+        : this.getNode(this.initialFocusRef)
     },
     headerId () {
-      return `${this.id}-header`
+      return `${this.computedId}-header`
     },
     bodyId () {
-      return `${this.id}-body`
+      return `${this.computedId}-body`
+    },
+    computedId () {
+      return this.id || `popover-id-${useId()}`
     }
   },
   data () {
@@ -118,7 +121,7 @@ const CPopover = {
       if (this._isOpen && this.trigger === 'click') {
         /**
          * Caveat here:
-         * Until Vue 3 is reease, using it's $refs as props may not always return a value
+         * Until Vue 3 is release, using it's $refs as props may not always return a value
          * in the props unless the consumer component updates it's context. This is because
          * Vue asynchronously updtaes the DOM and is also not reactive.
          *
@@ -432,13 +435,17 @@ const CPopoverContent = {
 
     return h(CPopper, {
       props: {
-        ...forwardProps(this.$props),
         as: 'section',
         usePortal: usePortal,
         isOpen,
         placement,
         anchorEl: triggerNode,
-        modifiers: { offset: { enabled: true, offset: `0, ${this.gutter}` } },
+        modifiers: [{
+          name: 'offset',
+          options: {
+            offset: [0, this.gutter]
+          }
+        }],
         bg,
         width: '100%',
         position: 'relative',
@@ -447,7 +454,8 @@ const CPopoverContent = {
         rounded: 'md',
         shadow: 'sm',
         maxWidth: 'xs',
-        _focus: { outline: 0, shadow: 'outline' }
+        _focus: { outline: 0, shadow: 'outline' },
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: popoverId,
@@ -478,11 +486,11 @@ const CPopoverHeader = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         as: 'header',
         px: '0.75rem',
         py: '0.5rem',
-        borderBottomWidth: '1px'
+        borderBottomWidth: '1px',
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.headerId
@@ -506,10 +514,10 @@ const CPopoverBody = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         flex: 1,
         px: '0.75rem',
-        py: '0.5rem'
+        py: '0.5rem',
+        ...forwardProps(this.$props)
       },
       attrs: {
         id: this.bodyId,
@@ -541,13 +549,13 @@ const CPopoverCloseButton = {
   render (h) {
     return h(CCloseButton, {
       props: {
-        ...forwardProps(this.$props),
         size: 'sm',
         pos: 'absolute',
         rounded: 'md',
         top: 1,
         right: 2,
-        p: 2
+        p: 2,
+        ...forwardProps(this.$props)
       },
       on: {
         click: (e) => {
@@ -565,11 +573,11 @@ const CPopoverFooter = {
   render (h) {
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         as: 'footer',
         px: '0.75rem',
         py: '0.5rem',
-        borderTopWidth: '1px'
+        borderTopWidth: '1px',
+        ...forwardProps(this.$props)
       }
     }, this.$slots.default)
   }

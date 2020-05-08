@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
     <div>
       <input
         class="css-0 css-1l17jza"
-        data-chakra-component="CPseudoBox"
+        data-chakra-component="CInput"
         data-testid="inputOutsideModal"
         placeholder="Type here..."
       />
@@ -91,7 +91,7 @@ exports[`should render correctly 1`] = `
             >
               <input
                 class="css-0 css-1l17jza"
-                data-chakra-component="CPseudoBox"
+                data-chakra-component="CInput"
                 data-testid="inputInsideModal"
                 placeholder="Type here..."
               />

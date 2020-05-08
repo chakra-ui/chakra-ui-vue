@@ -346,16 +346,21 @@ const CMenuList = {
     }
   },
   render (h) {
-    const { isOpen, buttonNode, menuId, buttonId, placement } = this.context
+    const { isOpen, buttonNode, menuId, buttonId, placement, closeMenu } = this.context
     return h(CPopper, {
       props: {
         usePortal: false,
         isOpen,
         anchorEl: buttonNode,
         placement,
-        modifiers: {
-          preventOverflow: { enabled: true, boundariesElement: 'viewport' }
-        },
+        modifiers: [
+          {
+            name: 'preventOverflow',
+            options: {
+              rootBoundary: 'viewport'
+            }
+          }
+        ],
         closeOnClickAway: true,
         minW: '3xs',
         rounded: 'md',
@@ -364,6 +369,7 @@ const CMenuList = {
         _focus: {
           outline: 0
         },
+        hasArrow: false,
         ...this.menuListStyles(this.colorMode),
         ...forwardProps(this.$props)
       },
@@ -372,6 +378,9 @@ const CMenuList = {
         role: 'menu',
         'aria-labelledby': buttonId,
         tabIndex: -1
+      },
+      on: {
+        close: closeMenu
       },
       nativeOn: {
         keydown: this.handleKeyDown,

@@ -14,13 +14,13 @@ storiesOf('UI | Collapse', module)
         </CCollapse>
       </div>
     `,
-    data () {
+    data() {
       return {
         showCollapsed: true
       }
     }
   }))
-  .add('Changing the startingHeigh', () => ({
+  .add('Changing the startingHeight', () => ({
     components: { CButton, CCollapse, CBox },
     template: `
       <div>
@@ -32,7 +32,7 @@ storiesOf('UI | Collapse', module)
         </CCollapse>
       </div>
     `,
-    data () {
+    data() {
       return {
         showCollapsed: true
       }

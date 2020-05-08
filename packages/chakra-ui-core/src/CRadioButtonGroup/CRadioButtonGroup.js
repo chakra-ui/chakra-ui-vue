@@ -121,7 +121,7 @@ const CRadioButtonGroup = {
         const spacingProps = _this.isInline ? { mr: _this.spacing } : { mb: _this.spacing }
 
         const isChecked = props.value === _this.value
-        console.log({ value: props.value, modelValue: _this.value })
+
         const handleClick = () => {
           _this.$emit('change', props.value)
         }

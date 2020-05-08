@@ -169,7 +169,11 @@ const CNumberInput = {
     },
     _value: {
       get () {
-        return roundToPrecision(this.value, this._precision)
+        return this.isControlled
+          ? roundToPrecision(this.value, this._precision)
+          : this.innerValue
+            ? roundToPrecision(this.innerValue, this._precision)
+            : this.innerValue
       },
       set (val) {
         if (!this.defaultValue) {

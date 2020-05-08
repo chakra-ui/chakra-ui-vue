@@ -72,17 +72,17 @@ new Vue({
 
 
 If you'd like to add extend the Chakra theme with custom brand colors you can do so as shown below. This is also optional.
-
+<br />
 
 ```js
-import Chakra, { CThemeProvider, theme } from '@chakra-ui/vue'
+import Chakra, { CThemeProvider, defaultTheme } from '@chakra-ui/vue'
 import customTheme from 'my-custom-theme.js'
 
 Vue.use(Chakra, {
   theme: {
-    ...theme,
+    ...defaultTheme,
     colors: {
-      ...theme.colors,
+      ...defaultTheme.colors,
       brand: {
         900: "#1a365d",
         800: "#153e75",
@@ -103,9 +103,9 @@ new Vue({
 
 ## Injecting Global Styles.
 Sometimes you may need to apply css reset styles to your application.
-Chakra UI exports a `CSSReset` that'll remove browser default styles. It's heavily inspired by [Tailwind's preflight](https://unpkg.com/tailwindcss@1.1.2/dist/base.css)
+Chakra UI exports a `CReset` that'll remove browser default styles. It's heavily inspired by [Tailwind's preflight](https://unpkg.com/tailwindcss@1.1.2/dist/base.css)
 
-> 🚨 We highly recommend that you add the `CSSReset` at the root of your application to ensure all components work correctly.
+> 🚨 We highly recommend that you add the `CReset` at the root of your application to ensure all components work correctly.
 
 ```js
 import Vue from 'vue'
@@ -152,6 +152,7 @@ export default {
 ### Codesandbox starters
 - [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
 - [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
 
 
 ### Storybook Components

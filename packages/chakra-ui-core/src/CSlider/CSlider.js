@@ -11,6 +11,10 @@ import CPseudoBox from '../CPseudoBox'
 const CSlider = {
   name: 'CSlider',
   inject: ['$chakraTheme', '$chakraColorMode'],
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
     value: Number,

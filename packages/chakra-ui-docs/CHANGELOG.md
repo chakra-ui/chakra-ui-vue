@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.1...chakra-ui-docs@0.3.2) (2020-05-08)
+
+
+### Bug Fixes
+
+* update radio docs ([16325cb](https://github.com/chakra-ui/chakra-ui-vue/commit/16325cb7ae009805ea26b678f65b62aa2c09f6a5))
+* **radiogroup:** fix radio group name prop ([8e29a81](https://github.com/chakra-ui/chakra-ui-vue/commit/8e29a81873bd64cab41ed6e4058cb8bc09e67b8d))
+
+
+
+
+
 ## [0.3.1](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.0...chakra-ui-docs@0.3.1) (2020-05-08)
 
 **Note:** Version bump only for package chakra-ui-docs

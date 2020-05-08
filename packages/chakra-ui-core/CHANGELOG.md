@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.4.1...@chakra-ui/vue@0.4.2) (2020-05-08)
+
+
+### Bug Fixes
+
+* update radio docs ([bb5a490](https://github.com/chakra-ui/chakra-ui-vue/commit/bb5a49072b3880ede1f8147c1e06d8b6bcf03078))
+* update radio docs ([16325cb](https://github.com/chakra-ui/chakra-ui-vue/commit/16325cb7ae009805ea26b678f65b62aa2c09f6a5))
+* **popover:** add dynamic compoennt ids ([5ec7df5](https://github.com/chakra-ui/chakra-ui-vue/commit/5ec7df5341b588e5b9c9d22a6b3601d3884949a0))
+* include function in initialfocusref prop types ([cae41bb](https://github.com/chakra-ui/chakra-ui-vue/commit/cae41bb6e10a91e22506c69c4c4c1aa1c855a333))
+* **radiobuttongroup:** added v-model implementation ([117bc32](https://github.com/chakra-ui/chakra-ui-vue/commit/117bc320c3c4c54b9b52f67e0d394ef2eab6e041))
+* **radiobuttongroup:** added v-model implementation ([b6840ef](https://github.com/chakra-ui/chakra-ui-vue/commit/b6840ef96c7f30f4b57e31c36ef89571c4408027))
+* **radiogroup:** fix radio group name prop ([8e29a81](https://github.com/chakra-ui/chakra-ui-vue/commit/8e29a81873bd64cab41ed6e4058cb8bc09e67b8d))
+* added support type coersion for number input ([149de1d](https://github.com/chakra-ui/chakra-ui-vue/commit/149de1d589315002f10ceca351a3e564ea8700c3))
+* implement v-model on CNumberInput component ([8a6a68d](https://github.com/chakra-ui/chakra-ui-vue/commit/8a6a68d962db5fc92bda663499a91360e6f66613))
+* implement v-model on CNumberInput component ([055fc01](https://github.com/chakra-ui/chakra-ui-vue/commit/055fc0131f6dcec0bc9b47c63eb92463811b83b6))
+
+
+
+
+
 ## [0.4.1](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.4.0...@chakra-ui/vue@0.4.1) (2020-05-08)
 
 **Note:** Version bump only for package @chakra-ui/vue

@@ -5,12 +5,13 @@ import { isDef, useId, cloneVNodeElement, forwardProps, cleanChildren } from '..
 
 const CRadioButtonGroup = {
   name: 'CRadioButtonGroup',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
-    name: {
-      type: String,
-      default: `radio-${useId()}`
-    },
+    name: String,
     defaultValue: {
       type: StringNumber,
       default: null
@@ -24,23 +25,15 @@ const CRadioButtonGroup = {
   },
   data () {
     return {
-      innerValue: this.defaultValue || null,
       focusableValues: [],
-      allValues: []
+      allValues: [],
+      allNodes: []
     }
   },
   computed: {
-    isControlled () {
-      return isDef(this.value)
+    computedName () {
+      return this.name || `radiobutton-${useId()}`
     },
-    _value: {
-      get () {
-        return this.isControlled ? this.value : this.innerValue
-      },
-      set (val) {
-        this.innerValue = val
-      }
-    }
   },
   mounted () {
     const children = cleanChildren(this.$slots.default)
@@ -50,6 +43,11 @@ const CRadioButtonGroup = {
       .filter(val => isDef(val))
 
     this.allValues = children.map(vnode => vnode.componentOptions.propsData.value)
+
+    this.$nextTick(() => {
+      const children = this.$el.children
+      this.allNodes = Object.assign({}, children)
+    })
   },
   methods: {
     /**
@@ -59,11 +57,7 @@ const CRadioButtonGroup = {
     updateIndex (index) {
       const childValue = this.focusableValues[index]
       const _index = this.allValues.indexOf(childValue)
-      this.allNodes.current[_index].focus()
-
-      if (!this.isControlled) {
-        this.innerValue = childValue
-      }
+      this.allNodes[_index].focus()
       this.$emit('change', childValue)
     },
     /**
@@ -78,7 +72,7 @@ const CRadioButtonGroup = {
       event.preventDefault()
 
       const count = this.focusableValues.length
-      let enabledCheckedIndex = this.focusableValues.indexOf(this._value)
+      let enabledCheckedIndex = this.focusableValues.indexOf(this.value)
 
       if (enabledCheckedIndex === -1) {
         enabledCheckedIndex = 0
@@ -87,14 +81,21 @@ const CRadioButtonGroup = {
       switch (event.key) {
         case 'ArrowRight':
         case 'ArrowDown': {
-          const nextIndex = (enabledCheckedIndex + 1) % count
+          let nextIndex
+          nextIndex = (enabledCheckedIndex + 1) % count
+          if (this.allNodes[nextIndex].disabled) {
+            nextIndex = (enabledCheckedIndex + 2) % count
+          }
           this.updateIndex(nextIndex)
           break
         }
         case 'ArrowLeft':
         case 'ArrowUp': {
-          const nextIndex = (enabledCheckedIndex - 1 + count) % count
-          this.updateIndex(nextIndex)
+          let nextIndex
+          nextIndex = (enabledCheckedIndex - 1 + count) % count
+          if (this.allNodes[nextIndex].disabled) {
+            nextIndex = (enabledCheckedIndex - 2 + count) % count
+          }this.updateIndex(nextIndex)
           break
         }
         default:
@@ -119,18 +120,15 @@ const CRadioButtonGroup = {
         const props = vnode.componentOptions.propsData
         const spacingProps = _this.isInline ? { mr: _this.spacing } : { mb: _this.spacing }
 
-        const isChecked = props.value === this._value
-
+        const isChecked = props.value === _this.value
+        console.log({ value: props.value, modelValue: _this.value })
         const handleClick = () => {
-          if (!_this.isControlled) {
-            _this.innerValue = props.value
-          }
           _this.$emit('change', props.value)
         }
 
         const getTabIndex = () => {
           // If a RadioGroup has no radio selected the first enabled radio should be focusable
-          if (_this._value == null) {
+          if (_this.value == null) {
             return isFirstChild ? 0 : -1
           } else {
             return isChecked ? 0 : -1
@@ -139,7 +137,7 @@ const CRadioButtonGroup = {
 
         return cloneVNodeElement(vnode, {
           props: {
-            name: _this.name,
+            name: _this.computedName,
             isChecked,
             ...(!isLastChild && spacingProps)
           },

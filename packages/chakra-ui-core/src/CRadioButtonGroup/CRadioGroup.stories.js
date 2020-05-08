@@ -82,7 +82,7 @@ storiesOf('UI | RadioGroup', module)
       <div>
         <CFragment>
           <CRadioButtonGroup
-            defaultValue="item-2"
+            v-model="selected"
             isInline
             :spacing="4"
           >
@@ -93,5 +93,10 @@ storiesOf('UI | RadioGroup', module)
         </CRadioButtonGroup>
         </CFragment>
       </div>
-    `
+    `,
+    data () {
+      return {
+        selected: 'item-2'
+      }
+    },
   }))

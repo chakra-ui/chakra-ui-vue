@@ -98,5 +98,5 @@ storiesOf('UI | RadioGroup', module)
       return {
         selected: 'item-2'
       }
-    },
+    }
   }))

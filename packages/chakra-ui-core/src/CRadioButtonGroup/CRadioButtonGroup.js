@@ -33,7 +33,7 @@ const CRadioButtonGroup = {
   computed: {
     computedName () {
       return this.name || `radiobutton-${useId()}`
-    },
+    }
   },
   mounted () {
     const children = cleanChildren(this.$slots.default)
@@ -95,7 +95,7 @@ const CRadioButtonGroup = {
           nextIndex = (enabledCheckedIndex - 1 + count) % count
           if (this.allNodes[nextIndex].disabled) {
             nextIndex = (enabledCheckedIndex - 2 + count) % count
-          }this.updateIndex(nextIndex)
+          } this.updateIndex(nextIndex)
           break
         }
         default:

@@ -257,15 +257,6 @@ const CSlider = {
     handleMouseMove (event) {
       let newValue = this.getNewValue(event)
       this.updateValue(newValue)
-    },
-    /**
-     *
-     * @param {Event} event Event object
-     * @param {Any} event Value
-     */
-    handleChange (event, value) {
-      this.updateValue(event.target.value)
-      this.$emit('change', event, value)
     }
   },
   render (h) {

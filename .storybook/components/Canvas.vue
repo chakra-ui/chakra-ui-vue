@@ -47,7 +47,7 @@ import {
   CButton,
   CBox,
   CIconButton,
-  CColorModeProvider } from '../../packages/chakra-ui-core/dist/esm'
+  CColorModeProvider } from '../../packages/chakra-ui-core/src'
 export default {
   name: 'Canvas',
   components: {

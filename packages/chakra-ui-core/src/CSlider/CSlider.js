@@ -258,7 +258,7 @@ const CSlider = {
       let newValue = this.getNewValue(event)
       this.updateValue(newValue)
     },
-     /**
+    /**
      *
      * @param {Event} event Event object
      * @param {Any} event Value

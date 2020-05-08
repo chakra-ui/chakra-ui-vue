@@ -34,7 +34,7 @@ storiesOf('UI | Tabs', module)
       <CBox w="600px" :defaultIndex="1">
         <CTabs isFitted>
           <CTabList>
-            <CTab>One</CTab>
+            <CTab isDisabled>One</CTab>
             <CTab>Two</CTab>
             <CTab>Three</CTab>
           </CTabList>

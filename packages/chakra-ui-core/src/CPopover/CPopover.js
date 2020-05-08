@@ -1,5 +1,6 @@
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
+import { isFunction } from 'lodash-es'
 
 import CBox from '../CBox'
 import CCloseButton from '../CCloseButton'
@@ -14,17 +15,14 @@ const CPopover = {
     }
   },
   props: {
-    id: {
-      type: String,
-      default: `popover-id-${useId()}`
-    },
+    id: String,
     defaultIsOpen: Boolean,
     isOpen: Boolean,
     returnFocusOnClose: {
       type: Boolean,
       default: true
     },
-    initialFocusRef: [Object, String],
+    initialFocusRef: [Object, String, Function],
     trigger: {
       type: String,
       default: 'click'
@@ -54,7 +52,7 @@ const CPopover = {
         triggerNode: this.triggerNode,
         contentNode: this.contentNode,
         setTriggerNode: this.setTriggerNode,
-        popoverId: this.id,
+        popoverId: this.computedId,
         trigger: this.trigger,
         isHovering: this.isHovering,
         handleBlur: this.handleBlur,
@@ -77,13 +75,18 @@ const CPopover = {
       }
     },
     _initialFocusRef () {
-      return this.getNode(this.initialFocusRef)
+      return isFunction(this.initialFocusRef)
+        ? this.getNode(this.initialFocusRef())
+        : this.getNode(this.initialFocusRef)
     },
     headerId () {
-      return `${this.id}-header`
+      return `${this.computedId}-header`
     },
     bodyId () {
-      return `${this.id}-body`
+      return `${this.computedId}-body`
+    },
+    computedId () {
+      return this.id || `popover-id-${useId()}`
     }
   },
   data () {
@@ -118,7 +121,7 @@ const CPopover = {
       if (this._isOpen && this.trigger === 'click') {
         /**
          * Caveat here:
-         * Until Vue 3 is reease, using it's $refs as props may not always return a value
+         * Until Vue 3 is release, using it's $refs as props may not always return a value
          * in the props unless the consumer component updates it's context. This is because
          * Vue asynchronously updtaes the DOM and is also not reactive.
          *

@@ -21,7 +21,7 @@ const CNumberInput = {
   },
   props: {
     ...baseProps,
-    value: Number,
+    value: [Number, String],
     defaultValue: Number,
     focusInputOnChange: {
       type: Boolean,

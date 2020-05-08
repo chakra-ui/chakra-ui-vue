@@ -17,8 +17,8 @@ const CRadio = {
     id: String,
     name: String,
     value: String,
-    _ariaLabel: String,
-    _ariaLabelledBy: String,
+    ariaLabel: String,
+    ariaLabelledBy: String,
     variantColor: {
       type: String,
       default: 'blue'
@@ -52,7 +52,7 @@ const CRadio = {
   },
   mounted () {
     this.$nextTick(() => {
-      this.$emit('checked', this.defaultIsChecked)
+      this.$emit('checked', Boolean(this.defaultIsChecked))
     })
   },
   render (h) {
@@ -68,7 +68,7 @@ const CRadio = {
         width: this.isFullWidth ? 'full' : undefined,
         cursor: this.isDisabled ? 'not-allowed' : 'pointer'
       },
-      attrs: {
+      domProps: {
         for: this.id
       }
     }, [
@@ -83,8 +83,8 @@ const CRadio = {
         attrs: {
           ...this.$attrs,
           type: 'radio',
-          'aria-label': this._ariaLabel,
-          'aria-labelledby': this._ariaLabelledBy,
+          'aria-label': this.ariaLabel,
+          'aria-labelledby': this.ariaLabelledBy,
           id: this.id,
           name: this.name,
           'aria-invalid': this.isInvalid,

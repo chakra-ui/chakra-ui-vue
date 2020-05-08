@@ -8,22 +8,22 @@ exports[`should render correctly 1`] = `
     role="radiogroup"
   >
     <button
-      class="css-0 css-rup5mm"
+      aria-checked="true"
+      class="css-0 css-1f3kv3a"
       data-chakra-component="CButton"
       data-testid="item-1"
       role="radio"
-      tabindex="-1"
+      tabindex="0"
       type="button"
     >
       Custom Radio 1
     </button>
     <button
-      aria-checked="true"
-      class="css-0 css-1f3kv3a"
+      class="css-0 css-rup5mm"
       data-chakra-component="CButton"
       data-testid="item-2"
       role="radio"
-      tabindex="0"
+      tabindex="-1"
       type="button"
     >
       Custom Radio 2

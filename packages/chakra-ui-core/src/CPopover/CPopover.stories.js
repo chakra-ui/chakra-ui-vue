@@ -41,7 +41,7 @@ storiesOf('UI | Popover', module)
     components: { CButton, CPopover, CPopoverTrigger, CPopoverContent, CPopoverHeader, CPopoverBody, CPopoverArrow, CPopoverCloseButton, CPopoverFooter, CBox, CButtonGroup },
     template: `
       <CPopover
-        initialFocusRef="#next"
+        :initialFocusRef="() => $refs.next"
         placement="bottom"
       >
         <CPopoverTrigger>
@@ -72,7 +72,7 @@ storiesOf('UI | Popover', module)
             <CBox fontSize="sm">Step 2 of 4</CBox>
             <CButtonGroup size="sm">
               <CButton variantColor="green">Setup Email</CButton>
-              <CButton variantColor="blue" id="next">
+              <CButton variantColor="blue" ref="next">
                 Next
               </CButton>
             </CButtonGroup>

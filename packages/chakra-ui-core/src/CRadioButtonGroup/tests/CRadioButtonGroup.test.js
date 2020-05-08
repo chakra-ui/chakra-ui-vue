@@ -31,13 +31,18 @@ const renderComponent = (props) => {
   const base = {
     components: { CRadioButtonGroup, CustomRadio },
     template: `
-    <CRadioButtonGroup defaultValue="item-2" isInline>
-      <CustomRadio value="item-1" data-testid="item-1">Custom Radio 1</CustomRadio>
-      <CustomRadio value="item-2" data-testid="item-2">Custom Radio 2</CustomRadio>
-      <CustomRadio value="item-3" data-testid="item-3">Custom Radio 3</CustomRadio>
-      <CustomRadio isDisabled value="item-4" data-testid="item-4">Custom Radio 4</CustomRadio>
-    </CRadioButtonGroup>
-`,
+      <CRadioButtonGroup v-model="selected" isInline>
+        <CustomRadio value="item-1" data-testid="item-1">Custom Radio 1</CustomRadio>
+        <CustomRadio value="item-2" data-testid="item-2">Custom Radio 2</CustomRadio>
+        <CustomRadio value="item-3" data-testid="item-3">Custom Radio 3</CustomRadio>
+        <CustomRadio isDisabled value="item-4" data-testid="item-4">Custom Radio 4</CustomRadio>
+      </CRadioButtonGroup>
+  `,
+    data () {
+      return {
+        selected: 'item-1'
+      }
+    },
     ...props
   }
   return render(base)
@@ -55,8 +60,14 @@ it('should display children', () => {
   expect(getByText('Custom Radio 2')).toBeInTheDocument()
 })
 
-test('defaultValue works', () => {
-  const { getByTestId } = renderComponent()
+test('v-model works', () => {
+  const { getByTestId } = renderComponent({
+    data () {
+      return {
+        selected: 'item-2'
+      }
+    }
+  })
   const one = getByTestId('item-1')
   const two = getByTestId('item-2')
 

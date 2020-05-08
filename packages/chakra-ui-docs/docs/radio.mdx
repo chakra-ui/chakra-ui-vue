@@ -46,18 +46,23 @@ import { Radio, RadioGroup } from "@chakra-ui/vue";
 ### Usage
 ```vue live=true
 <template>
-  <c-radio-group v-model="selected">
-    <c-radio value="1">First</c-radio>
-    <c-radio value="2">Second</c-radio>
-    <c-radio value="3">Third</c-radio>
-  </c-radio-group>
+  <c-stack>
+    <c-radio-group v-model="selectedHokage">
+      <c-radio value="1">First Hokage</c-radio>
+      <c-radio value="2">Second Hokage</c-radio>
+      <c-radio value="3">Third Hokage</c-radio>
+    </c-radio-group>
+    <c-text>
+      Favourite Hokage: {{ selectedHokage }}
+    </c-text>
+  </c-stack>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      selected: '2'
+      selectedHokage: '2'
     }
   }
 }
@@ -100,17 +105,17 @@ export default {
 The checkbox comes with 3 sizes
 
 ```vue live=true
-<c-stack>
+<c-radio-group>
   <c-radio size="sm" name="1" variant-color="red">
     Radio
   </c-radio>
   <c-radio size="md" name="1" variant-color="green">
     Radio
   </c-radio>
-  <c-radio size="lg" name="1" variant-color="orange" default-checked>
+  <c-radio size="lg" name="1" variant-color="orange" default-is-checked>
     Radio
   </c-radio>
-</c-stack>
+</c-radio-group>
 ```
 
 ### Disabled radios
@@ -118,13 +123,13 @@ The checkbox comes with 3 sizes
 ```vue live=true
 <template>
   <c-stack>
-    <c-radio-group v-model="selected">
+    <c-radio-group v-model="selectedVertical">
       <c-radio value="1" is-disabled>Disabled</c-radio>
       <c-radio value="2">Unchecked</c-radio>
       <c-radio value="3">Unchecked</c-radio>
     </c-radio-group>
     <c-text>
-      Selected: {{ selected }}
+      Selected: {{ selectedVertical }}
     </c-text>
   </c-stack>
 </template>
@@ -133,7 +138,7 @@ The checkbox comes with 3 sizes
 export default {
   data () {
     return {
-      selected: '3'
+      selectedVertical: '3'
     }
   }
 }
@@ -145,13 +150,13 @@ export default {
 ```vue live=true
 <template>
   <c-stack>
-    <c-radio-group v-model="selected" is-inline>
+    <c-radio-group v-model="selectedHorizonatal" is-inline>
       <c-radio value="1" is-disabled>Disabled</c-radio>
       <c-radio value="2">Unchecked</c-radio>
       <c-radio value="3">Unchecked</c-radio>
     </c-radio-group>
     <c-text>
-      Selected: {{ selected }}
+      Selected: {{ selectedHorizonatal }}
     </c-text>
   </c-stack>
 </template>
@@ -160,7 +165,7 @@ export default {
 export default {
   data () {
     return {
-      selected: '1'
+      selectedHorizonatal: '1'
     }
   }
 }

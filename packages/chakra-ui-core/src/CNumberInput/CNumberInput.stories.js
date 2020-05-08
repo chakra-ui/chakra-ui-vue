@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CBox, CStack, CNumberInput, CNumberInputField, CNumberInputStepper, CNumberIncrementStepper, CNumberDecrementStepper } from '..'
+import { CBox, CStack, CNumberInput, CNumberInputField, CNumberInputStepper, CNumberIncrementStepper, CNumberDecrementStepper, CInput } from '..'
 
 storiesOf('UI | NumberInput', module)
   .add('Basic Usage', () => ({
@@ -122,4 +122,24 @@ storiesOf('UI | NumberInput', module)
         </CNumberInputStepper>
       </CNumberInput>
     `
+  }))
+  .add('With v-model', () => ({
+    components: { CNumberInput, CNumberInputField, CNumberInputStepper, CNumberIncrementStepper, CNumberDecrementStepper, CStack, CInput },
+    template: `
+      <c-stack w="350px" spacing="4">
+        <c-input type="number" v-model="value" />
+        <c-number-input v-model="value" :max="20" :min="10">
+          <c-number-input-field />
+          <c-number-input-stepper>
+            <c-numberIncrement-stepper />
+            <c-number-decrement-stepper />
+          </c-number-input-stepper>
+        </c-number-input>
+      </c-stack>
+    `,
+    data () {
+      return {
+        value: 15
+      }
+    }
   }))

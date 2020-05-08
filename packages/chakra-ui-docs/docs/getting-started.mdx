@@ -1,20 +1,30 @@
 # Getting Started
 
 Install Chakra UI and it's peer dependency, `emotion`
+
 <br />
 
 ```bash
 yarn add @chakra-ui/vue emotion
 ```
+
 or (with npm)
 
 ```bash
 npm install @chakra-ui/vue emotion --save
 ```
 
-### With Nuxt.js
-If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
+### With Vue CLI plugin
 
+If you are using Vue CLI 3, then you can install Chakra UI and get a base setup using the Chakra UI [plugin](https://www.npmjs.com/package/vue-cli-plugin-chakra-ui).
+
+```bash
+vue add chakra-ui
+```
+
+### With Nuxt.js
+
+If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
 
 ```bash
 yarn add @chakra-ui/vue emotion @nuxtjs/emotion
@@ -22,38 +32,36 @@ yarn add @chakra-ui/vue emotion @nuxtjs/emotion
 
 Create a theme object to include custom color, typography, and layout values. Chakra UI comes with a default theme, so this step is optional.
 
-
-
-```js 
+```js
 //  example theme.js
 export default {
-  breakpoints: ["30em", "48em", "62em", "80em"],
+  breakpoints: ['30em', '48em', '62em', '80em'],
   fonts: {
     heading: '"Avenir Next", sans-serif',
-    body: "system-ui, sans-serif",
-    mono: "Menlo, monospace",
+    body: 'system-ui, sans-serif',
+    mono: 'Menlo, monospace'
   },
   fontSizes: {
-    xs: "0.75rem",
-    sm: "0.875rem",
-    md: "1rem",
-    lg: "1.125rem",
-    xl: "1.25rem",
-    "2xl": "1.5rem",
-    "3xl": "1.875rem",
-    "4xl": "2.25rem",
-    "5xl": "3rem",
-    "6xl": "4rem",
-  },
-};
+    xs: '0.75rem',
+    sm: '0.875rem',
+    md: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem',
+    '2xl': '1.5rem',
+    '3xl': '1.875rem',
+    '4xl': '2.25rem',
+    '5xl': '3rem',
+    '6xl': '4rem'
+  }
+}
 ```
 
 ## Usage
+
 **1. Import the Chakra UI plugin in your `main.js` file.**
 
 In order to use Chakra, you need to wrap your main application inside the Chakra `CThemeProvider` component.
 You can do so as shown below.
-
 
 ```js
 import Vue from 'vue'
@@ -64,14 +72,12 @@ Vue.use(Chakra)
 
 new Vue({
   el: '#app',
-  render: (h) => h(CThemeProvider, [
-    h(App)
-  ])
+  render: (h) => h(CThemeProvider, [h(App)])
 }).$mount()
 ```
 
-
 If you'd like to add extend the Chakra theme with custom brand colors you can do so as shown below. This is also optional.
+
 <br />
 
 ```js
@@ -84,24 +90,22 @@ Vue.use(Chakra, {
     colors: {
       ...defaultTheme.colors,
       brand: {
-        900: "#1a365d",
-        800: "#153e75",
-        700: "#2a69ac",
-      },
+        900: '#1a365d',
+        800: '#153e75',
+        700: '#2a69ac'
+      }
     }
   }
 })
 
 new Vue({
   el: '#app',
-  render: (h) => h(CThemeProvider, [
-    h(App)
-  ])
+  render: (h) => h(CThemeProvider, [h(App)])
 }).$mount()
 ```
 
-
 ## Injecting Global Styles.
+
 Sometimes you may need to apply css reset styles to your application.
 Chakra UI exports a `CReset` that'll remove browser default styles. It's heavily inspired by [Tailwind's preflight](https://unpkg.com/tailwindcss@1.1.2/dist/base.css)
 
@@ -116,10 +120,7 @@ Vue.use(Chakra)
 
 new Vue({
   el: '#app',
-  render: (h) => h(CThemeProvider, [
-    h(CReset),
-    h(App)
-  ])
+  render: (h) => h(CThemeProvider, [h(CReset), h(App)])
 }).$mount()
 ```
 
@@ -150,10 +151,11 @@ export default {
 ```
 
 ### Codesandbox starters
+
 - [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
 - [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
 - [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
 
-
 ### Storybook Components
+
 You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

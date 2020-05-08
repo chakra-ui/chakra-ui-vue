@@ -41,6 +41,29 @@ export default {
       return this.$chakraColorMode()
     }
   },
+  watch: {
+    colorMode (newVal) {
+      if (!process.client) return
+      try {
+        localStorage.setItem('chakra_ui_docs_color_mode', newVal)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
+  created () {
+    if (!process.client) return
+    try {
+      const savedColorMode = localStorage.getItem('chakra_ui_docs_color_mode')
+      if (!savedColorMode) return
+
+      if (this.colorMode !== savedColorMode) {
+        this.$toggleColorMode()
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  },
   components: {
     CBox,
     CLink,

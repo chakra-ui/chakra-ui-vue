@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon, defaultTheme } from '..'
 
-console.log({defaultTheme})
+console.log({ defaultTheme })
 
 storiesOf('UI | Menu', module)
   .add('Default Menu', () => ({

@@ -1,5 +1,6 @@
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
+import { isFunction } from 'lodash-es'
 
 import CBox from '../CBox'
 import CCloseButton from '../CCloseButton'
@@ -24,7 +25,7 @@ const CPopover = {
       type: Boolean,
       default: true
     },
-    initialFocusRef: [Object, String],
+    initialFocusRef: [Object, String, Function],
     trigger: {
       type: String,
       default: 'click'
@@ -77,7 +78,9 @@ const CPopover = {
       }
     },
     _initialFocusRef () {
-      return this.getNode(this.initialFocusRef)
+      return isFunction(this.initialFocusRef)
+        ? this.getNode(this.initialFocusRef())
+        : this.getNode(this.initialFocusRef)
     },
     headerId () {
       return `${this.id}-header`
@@ -118,7 +121,7 @@ const CPopover = {
       if (this._isOpen && this.trigger === 'click') {
         /**
          * Caveat here:
-         * Until Vue 3 is reease, using it's $refs as props may not always return a value
+         * Until Vue 3 is release, using it's $refs as props may not always return a value
          * in the props unless the consumer component updates it's context. This is because
          * Vue asynchronously updtaes the DOM and is also not reactive.
          *

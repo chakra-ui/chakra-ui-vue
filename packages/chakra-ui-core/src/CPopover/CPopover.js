@@ -15,10 +15,7 @@ const CPopover = {
     }
   },
   props: {
-    id: {
-      type: String,
-      default: `popover-id-${useId()}`
-    },
+    id: String,
     defaultIsOpen: Boolean,
     isOpen: Boolean,
     returnFocusOnClose: {
@@ -55,7 +52,7 @@ const CPopover = {
         triggerNode: this.triggerNode,
         contentNode: this.contentNode,
         setTriggerNode: this.setTriggerNode,
-        popoverId: this.id,
+        popoverId: this.computedId,
         trigger: this.trigger,
         isHovering: this.isHovering,
         handleBlur: this.handleBlur,
@@ -83,10 +80,13 @@ const CPopover = {
         : this.getNode(this.initialFocusRef)
     },
     headerId () {
-      return `${this.id}-header`
+      return `${this.computedId}-header`
     },
     bodyId () {
-      return `${this.id}-body`
+      return `${this.computedId}-body`
+    },
+    computedId () {
+      return this.id || `popover-id-${useId()}`
     }
   },
   data () {

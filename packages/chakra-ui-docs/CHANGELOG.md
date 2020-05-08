@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.0...chakra-ui-docs@0.3.1) (2020-05-08)
+
+**Note:** Version bump only for package chakra-ui-docs
+
+
+
+
+
+# [0.3.0](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.2.13...chakra-ui-docs@0.3.0) (2020-05-08)
+
+
+### Bug Fixes
+
+*  file contributors compoennt ([be9e10e](https://github.com/chakra-ui/chakra-ui-vue/commit/be9e10e39a3be14df292e156ea8042696cf4d81e))
+* downgraded error message ([e2c02c5](https://github.com/chakra-ui/chakra-ui-vue/commit/e2c02c587c1da81b5ac4ec7020a7c163ce78074a))
+* getting stated docs ([d6aa8b1](https://github.com/chakra-ui/chakra-ui-vue/commit/d6aa8b1a618fc96f596a9979767c9bb414f490bc))
+* **codeblock:** copy text to clipboard ([58b7839](https://github.com/chakra-ui/chakra-ui-vue/commit/58b7839a5e76693103bac58a50edcd5b8f250ea9))
+* **switch.mdx:** added a slots table ([46e27c8](https://github.com/chakra-ui/chakra-ui-vue/commit/46e27c8a99c33d276b02ef8c739a59aec333d292))
+* **text.mdx:** removed duplicate titles ([2c54cf5](https://github.com/chakra-ui/chakra-ui-vue/commit/2c54cf55e039beaa48c41c70c436c32d94218df6))
+* added style rule for code element in li ([0084a82](https://github.com/chakra-ui/chakra-ui-vue/commit/0084a823005992a1f62aa3d48f67d5186a1e25a0))
+* applied changes suggested via code review ([cf43cdf](https://github.com/chakra-ui/chakra-ui-vue/commit/cf43cdf89c2983c086007e07e91a6a84992f5417))
+* docs deps ([f958a5a](https://github.com/chakra-ui/chakra-ui-vue/commit/f958a5aca4d11c0f6b9e19344ee4cac8bde2ea54))
+* made sure pages always starts from top when navigating ([d45833c](https://github.com/chakra-ui/chakra-ui-vue/commit/d45833ca2fdcbdf1c552d98605d0fd59dac7e03b))
+* prefix components with 'C' ([fd288ab](https://github.com/chakra-ui/chakra-ui-vue/commit/fd288ab639b70e66ee82ba5ec6e35551aede286b))
+* removed reference to ReactNode in Switch docs ([e638971](https://github.com/chakra-ui/chakra-ui-vue/commit/e6389714c8146256a06818fdc0f2d889761b7e80))
+* renamed Text to CText ([51feeaa](https://github.com/chakra-ui/chakra-ui-vue/commit/51feeaa4abefd6dba8651b2788d0101761b26c40))
+
+
+### Features
+
+* added docs for more components ([e783f70](https://github.com/chakra-ui/chakra-ui-vue/commit/e783f70a89a2a98459ef07c720b0c2e656240a2b))
+* **avatar:** added avatar docs ([257f3ff](https://github.com/chakra-ui/chakra-ui-vue/commit/257f3ff36cc55de52173b04fc980506f222d1390))
+* **avatar:** added code examples ([f0968cb](https://github.com/chakra-ui/chakra-ui-vue/commit/f0968cb48dc472c7ee8a3476aa5a251576846367))
+* **input:** added input element docs ([76ab9b2](https://github.com/chakra-ui/chakra-ui-vue/commit/76ab9b29df7905f2f4ebb1721f1dabf7a6b07be1))
+* added SEO component ([4403cbc](https://github.com/chakra-ui/chakra-ui-vue/commit/4403cbc406a64e98beb9e8035a1b5790174fafb6))
+
+
+
+
+
 ## [0.2.13](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.2.12...chakra-ui-docs@0.2.13) (2020-04-26)
 
 **Note:** Version bump only for package chakra-ui-docs

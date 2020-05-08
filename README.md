@@ -1,3 +1,6 @@
+![Build & Test Components](https://github.com/chakra-ui/chakra-ui-vue/workflows/Build%20&%20Test%20Components/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0140cfa8-f093-4a69-b29b-6b1abce0c04a/deploy-status)](https://app.netlify.com/sites/chakra-ui-vue/deploys)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -12,7 +15,11 @@
 
 <h2 align="center">Build scalable and accessible Vue.js applications with ease.</h2>
 
-**chakra-ui-vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
+
+**@chakra-ui/vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
+
+<p align="center"><strong><i>Made for Vue 2.X</i></strong></p>
+
 
 > Hello, friend! 😄
 > **chakra-ui-vue** is currently under development. Majority of all the components are ready and can be used!
@@ -40,6 +47,7 @@ Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/
    a. [With Nuxt](#nuxt-usage)
 
 - [Features](#features)
+  - [Roadmap to release 🚀](#roadmap-to-release-%f0%9f%9a%80)
   - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)

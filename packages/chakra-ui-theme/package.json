@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/theme-vue",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Default theme for @chakra-ui/vue default theme object",
   "author": {
     "name": "Jonathan Bakebwa",
@@ -16,9 +16,10 @@
   "homepage": "https://github.com/chakra-ui/chakra-ui-vue#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "module": "dist/es/index.js",
+  "module": "src/index.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,9 +30,9 @@
   },
   "scripts": {
     "dev": "watch 'yarn build' src",
-    "build": "yarn build:cjs && yarn build:es",
+    "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel src -d dist --copy-files",
-    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel src -d dist/es --copy-files",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel src -d dist/esm --copy-files",
     "test": "echo \"Test: run test on theme\""
   },
   "babel": {

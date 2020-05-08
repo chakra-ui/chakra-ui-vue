@@ -10,7 +10,9 @@
 
 <h2 align="center">Build scalable and accessible Vue.js applications with ease.</h2>
 
-**chakra-ui-vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
+**@chakra-ui/vue** gives you a set of accessible and composable Vue components that you can use to build your favourite applications and sites.
+
+<p align="center"><strong><i>Made for Vue 2.X</i></strong></p>
 
 > Hello, friend! 😄
 > **chakra-ui-vue** is currently under development. Majority of all the components are ready and can be used!

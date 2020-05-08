@@ -15,9 +15,13 @@ import CIcon from '../CIcon'
  */
 const CNumberInput = {
   name: 'CNumberInput',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     ...baseProps,
-    value: Number,
+    value: [Number, String],
     defaultValue: Number,
     focusInputOnChange: {
       type: Boolean,

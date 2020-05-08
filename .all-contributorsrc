@@ -2,7 +2,7 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 50,
   "commit": false,
   "contributors": [
     {
@@ -51,6 +51,15 @@
       "profile": "http://inusahharis.netlify.com",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "peoray",
+      "name": "Emmanuel Raymond",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23735423?v=4",
+      "profile": "https://peoray.dev",
+      "contributions": [
+        "code"
       ]
     }
   ],

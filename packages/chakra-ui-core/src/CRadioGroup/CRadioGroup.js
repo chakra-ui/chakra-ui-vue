@@ -12,10 +12,7 @@ const CRadioGroup = {
   },
   props: {
     ...baseProps,
-    name: {
-      type: String,
-      default: `radio-${useId()}`
-    },
+    name: String,
     variantColor: String,
     size: String,
     isInline: Boolean,
@@ -24,8 +21,17 @@ const CRadioGroup = {
       default: null
     },
     spacing: {
-      type: Number,
+      type: [String, Number],
       default: 2
+    },
+    as: {
+      type: String,
+      default: 'fieldset'
+    }
+  },
+  computed: {
+    computedName () {
+      return this.name || `radio-${useId()}`
     }
   },
   methods: {
@@ -71,7 +77,7 @@ const CRadioGroup = {
         props: {
           size: vnode.componentOptions.propsData.size || this.size,
           variantColor: vnode.componentOptions.propsData.variantColor || this.variantColor,
-          name: this.name,
+          name: this.computedName,
           isChecked: vnode.componentOptions.propsData.value === this.value
         },
         on: {

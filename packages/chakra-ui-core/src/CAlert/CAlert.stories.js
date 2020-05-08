@@ -42,7 +42,7 @@ storiesOf('UI | Alert', module)
 
         <CAlert mb="3" status="info">
           <CAlertIcon />
-          Kiwi is going live on December 31st. Get ready!
+          Chakra is going live on May 10th. Get ready!
         </CAlert>
       </div>
     `

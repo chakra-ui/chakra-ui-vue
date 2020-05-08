@@ -1,11 +1,12 @@
-import PopperJS from 'popper.js'
+import merge from 'lodash-es/merge'
+import { createPopper } from '@popperjs/core'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
 import styleProps from '../config/props'
 import getPopperArrowStyle from './utils/popper.styles'
+import ClickOutside from '../directives/clickoutside.directive'
 
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
-import CClickOutside from '../CClickOutside'
 import CPortal from '../CPortal'
 
 /**
@@ -37,6 +38,9 @@ function flipPlacement (placement) {
 
 const CPopper = {
   name: 'CPopper',
+  directives: {
+    ClickOutside
+  },
   props: {
     _id: {
       type: String,
@@ -61,8 +65,8 @@ const CPopper = {
       default: true
     },
     modifiers: {
-      type: Object,
-      default: () => {}
+      type: Array,
+      default: () => ([])
     },
     anchorEl: HTMLElement,
     eventsEnabled: {
@@ -94,7 +98,7 @@ const CPopper = {
     placement (newValue) {
       if (this.popper) {
         this.popper.options.placement = newValue
-        this.popper.scheduleUpdate()
+        this.reference.setAttribute('data-show', '')
       }
     },
     isOpen (newValue) {
@@ -129,6 +133,28 @@ const CPopper = {
         ? canUseDOM && document.querySelector(this.portalTarget).firstChild
         : this.getNode(this.$el)
       return ref
+    },
+    computedModifiers () {
+      return merge([
+        this.usePortal && {
+          name: 'preventOverflow',
+          options: {
+            boundary: 'window'
+          }
+        },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10]
+          }
+        },
+        {
+          name: 'arrow',
+          options: {
+            transform: 'rotate(45deg)'
+          }
+        }
+      ], this.modifiers)
     }
   },
   methods: {
@@ -143,28 +169,43 @@ const CPopper = {
 
       if (!this.anchor || !this.reference) return
       if (this.popper) {
-        this.popper.scheduleUpdate()
-      } else {
-        this.popper = new PopperJS(this.anchor, this.reference, {
-          placement: this.rtlPlacement,
-          modifiers: {
-            ...(this.usePortal && {
-              preventOverflow: {
-                boundariesElement: 'window'
+        this.reference.setAttribute('data-show', '')
+        this.popper.update()
+          .then(() => {
+            if (this.hasArrow) {
+              const arrow = this.reference.querySelector(['[data-popper-arrow]'])
+              if (arrow) {
+                arrow.style.transform += 'rotate(45deg)'
               }
-            }),
-            ...this.modifiers
-          },
+            }
+          })
+      } else {
+        this.popper = createPopper(this.anchor, this.reference, {
+          placement: this.rtlPlacement,
+          modifiers: this.computedModifiers,
           onUpdate: createChainedFunction(
             this.handlePopperUpdate
           ),
-          onCreate: createChainedFunction(
+          onFirstUpdate: createChainedFunction(
             this.handlePopperCreated
           ),
+          eventListeners: {
+            resize: true,
+            scroll: true
+          },
           eventsEnabled: this.eventsEnabled,
           positionFixed: this.positionFixed
         })
-        this.popper.scheduleUpdate()
+        this.reference.setAttribute('data-show', '')
+        this.popper.update()
+          .then(() => {
+            if (this.hasArrow) {
+              const arrow = this.reference.querySelector(['[data-popper-arrow]'])
+              if (arrow) {
+                arrow.style.transform += 'rotate(45deg)'
+              }
+            }
+          })
       }
     },
 
@@ -182,18 +223,16 @@ const CPopper = {
      */
     handleClose () {
       if (this.popper) {
-        this.popper.destroy()
-        this.popper = null
-        this.$emit('popper:close', {})
+        this.reference.removeAttribute('data-show')
+        this.$emit('close', {})
       }
     },
     /**
-     * Wrapped handler for close events
+     * Wrapped handler for clickaway events
      */
-    wrapClose () {
-      if (this.popper) {
-        if (this.onClose) this.onClose()
-        this.$emit('popper:close', {})
+    wrapClose (e) {
+      if (this.popper && !(this.anchor.contains(e.target))) {
+        this.handleClose()
       }
     },
 
@@ -202,8 +241,8 @@ const CPopper = {
      * @param {Object} payload
      */
     handlePopperUpdate (payload) {
-      this.$emit('popper:update', payload)
-      this.isOpen && this.$emit('popper:open')
+      this.$emit('update', payload)
+      this.isOpen && this.$emit('open')
     },
 
     /**
@@ -211,8 +250,12 @@ const CPopper = {
      * @param {Object} payload
      */
     handlePopperCreated (payload) {
-      this.$emit('popper:create', payload)
+      this.$emit('create', payload)
     }
+  },
+  beforeDestroy () {
+    this.popper && this.popper.destroy()
+    this.popper = null
   },
   render (h) {
     if (this.isOpen && !this.popper) {
@@ -228,21 +271,20 @@ const CPopper = {
         targetSlim: true
       },
       ref: 'portalRef'
-    }, [h(CClickOutside, { // TODO: Fix this close on clickaway handler. Could revert to useing directive instead
-      props: {
-        whitelist: [this.anchor],
-        isDisabled: !this.closeOnClickAway,
-        do: this.wrapClose
-      }
     }, [h(CPseudoBox, {
       class: [this.arrowStyles],
       style: {
         display: this.isOpen ? 'unset' : 'none'
       },
+      directives: [{
+        name: 'click-outside',
+        value: this.wrapClose
+      }],
       attrs: {
         ...this.$attrs,
         id: this.$attrs.id || `chakra-${this.popperId}`,
-        'data-popper-id': `chakra-${this.popperId}`
+        'data-popper-id': `chakra-${this.popperId}`,
+        'data-chakra-component': 'CPopper'
       },
       scopedSlots: {
         popperId: `chakra-${this.popperId}`
@@ -251,7 +293,7 @@ const CPopper = {
         ...forwardProps(this.$props)
       },
       ref: 'handleRef'
-    }, this.$slots.default)])])
+    }, this.$slots.default)])
   }
 }
 
@@ -261,14 +303,13 @@ const CPopperArrow = {
     return h(CBox, {
       attrs: {
         'x-arrow': true,
-        role: 'presentation'
+        'data-popper-arrow': true,
+        role: 'presentation',
+        'data-chakra-component': 'CPopperArrow'
       },
       props: {
         bg: 'inherit',
         ...forwardProps(this.$props)
-      },
-      on: {
-        click: (e) => this.$emit('cheese', e)
       }
     })
   }

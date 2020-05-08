@@ -97,7 +97,9 @@ export default {
         hid: 'description',
         name: 'description',
         content: 'Simple, Modular and Accessible UI Components for your Vue Applications.'
-      }]
+      },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }]
     }
   }
 }

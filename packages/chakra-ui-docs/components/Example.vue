@@ -6,7 +6,7 @@
     <CBox fontSize="sm" maxW="100%" rounded="md" overflow="hidden" :mr="[0, 0, 5]" :mb="[5, 5, 0]">
       <prism-editor v-model="code" :readonly="true" language="vue"/>
     </CBox>
-    <CBox w="350px" shadow="md" rounded="lg" p="5">
+    <CBox w="100%" shadow="md" rounded="lg" p="5">
       <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6"/>
       <CFlex align="baseline" mt="2">
         <CBadge variantColor="pink">Plus</CBadge>

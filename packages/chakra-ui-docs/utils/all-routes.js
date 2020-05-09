@@ -5,7 +5,7 @@
  * Components listed in this file should be listed alphabetically. Thanks :)
  */
 
-const components = [
+export const components = [
   'Index',
   'Accordion',
   'Alert',
@@ -57,4 +57,29 @@ const components = [
   'Tooltip'
 ]
 
-export default components
+export const topNavLinks = [
+  'Getting Started',
+  'With Nuxt',
+  'Principles',
+  'Style Props',
+  'Theme',
+  'Extending Theme',
+  'Color Mode',
+  'Responsive Styles',
+  'Starters',
+  'Recipes',
+  'Storybook'
+]
+
+export const aboutNavLinks = [
+  'Why Chakra UI',
+  'Accessibility',
+  'Constraint Based Design',
+  'Contributing'
+]
+
+export default [
+  ...topNavLinks,
+  ...aboutNavLinks,
+  ...components
+]

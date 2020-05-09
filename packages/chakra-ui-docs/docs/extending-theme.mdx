@@ -1,0 +1,63 @@
+# Customizing Theme
+
+Chakra UI can easily be customized by adding your desired values to the Chakra plugin.
+
+
+## Extending theme object
+
+In this example we create an example theme object in a file called `custom-theme.js` and use the plugin
+to extend the Chakra UI theme. Create a theme object to include custom color, typography, and layout values.
+
+```js
+//  custom-theme.js
+export default {
+  breakpoints: ['30em', '48em', '62em', '80em'],
+  fonts: {
+    heading: '"Avenir Next", sans-serif',
+    body: 'system-ui, sans-serif',
+    mono: 'Menlo, monospace'
+  },
+  colors: {
+    brand: {
+      50: '#daffff',
+      100: '#b1fbfb',
+      200: '#85f7f7',
+      300: '#58f3f3',
+      400: '#31f0f0',
+      500: '#1ed7d7',
+      600: '#0ca7a7',
+      700: '#007777',
+      800: '#004949',
+      900: '#001a1a',
+    }
+  }
+}
+```
+
+In your `main.js` file, you can then add your custom theme object by passing it in the `extendTheme` option.
+
+<c-alert my="4" flex-dir="column" align-items="start" variant="left-accent">
+  <c-alert-title>
+    <c-alert-icon name="info" />
+    Note
+  </c-alert-title>
+  <c-alert-description>
+    Doing this will prioritize your custom theme values over the default values in Chakra UI's default theme. So
+    any clashing key names will be <strong>recursively</strong> overwritten with your own.
+  </c-alert-description>
+</c-alert>
+
+```js
+import Chakra from '@chakra-ui/vue'
+import customTheme from 'custom-theme.js'
+
+Vue.use(Chakra, {
+  extendTheme: customTheme
+})
+
+new Vue({
+  el: '#app',
+  render: (h) => h(CThemeProvider, [h(App)])
+}).$mount()
+```
+

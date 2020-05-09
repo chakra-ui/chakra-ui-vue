@@ -1,5 +1,9 @@
 <template>
   <CBox as="main" fontFamily="body">
+    <SEO
+      title="Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications."
+      description="Simple, Modular and Accessible UI Components for your Vue Applications."
+    />
     <Hero />
     <CFlex
       as="section"
@@ -76,6 +80,7 @@
 import { CBox, CFlex, CIcon, CHeading, CGrid } from '@chakra-ui/vue'
 import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
+import SEO from '~/components/SEO'
 import Example from '~/components/Example.vue'
 
 export default {
@@ -88,7 +93,8 @@ export default {
     CFlex,
     CIcon,
     CHeading,
-    CGrid
+    CGrid,
+    SEO
   },
   metaInfo () {
     return {

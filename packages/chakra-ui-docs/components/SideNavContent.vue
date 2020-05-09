@@ -89,16 +89,20 @@
 <script>
 import { boxProps, CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
-import componentLinks from './components'
+import { components as componentLinks } from '../utils/all-routes'
 
 const topNavLinks = [
   'Getting Started',
+  'With Nuxt',
   'Principles',
   'Style Props',
   'Theme',
+  'Extending Theme',
   'Color Mode',
   'Responsive Styles',
-  'Recipes'
+  'Starters',
+  'Recipes',
+  'Storybook'
 ]
 
 const aboutNavLinks = [

@@ -12,14 +12,18 @@ export default {
       type: [String, Array],
       default: 'p'
     },
-    isTruncated: Boolean
+    isTruncated: Boolean,
+    fontFamily: {
+      type: [String, Array],
+      default: 'body'
+    }
   },
   render (h) {
     return h(CBox, {
       props: {
         as: this.as,
-        fontFamily: this.as === 'kbd' ? 'mono' : 'body',
         ...forwardProps(this.$props),
+        fontFamily: this.as === 'kbd' ? 'mono' : this.fontFamily,
         ...this.isTruncated && useTruncated()
       }
     }, this.$slots.default)

@@ -54,7 +54,7 @@ Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/
   - [Codesandbox starters](#codesandbox-starters)
   - [Storybook Components](#storybook-components)
   - [Development for Contributing:](#development-for-contributing)
-    - [Project TODOs:](#project-todos)
+    - [Related](#related)
 - [Contributors ✨](#contributors-%e2%9c%a8)
 
 ## Installation
@@ -175,11 +175,11 @@ yarn bootstrap
 yarn dev
 ```
 
-#### Project TODOs:
-
-- [ ] Documentation site (Ongoing)
-- [ ] Set up type system for plugin & components export with Typescript
-- [ ] Create Vue CLI Plugin (Ongoing)
+#### Related
+- [Chakra UI for React](https://github.com/chakra-ui/chakra-ui)
+- [Vuetify](https://vuetifyjs.org)
+- [Buefy](https://buefy.org)
+- [Vuesax](https://lusaxweb.github.io/vuesax/)
 
 <a id="contributors"></a>
 

@@ -9,8 +9,11 @@ const routes = pages
 
 // Configuring dotenv variables.
 dotenv.config({
+  path: '../../config/.env',
   defaults: '../../config/.env.defaults'
 })
+
+const { MIXPANEL_TOKEN } = process.env
 
 export default {
   mode: 'universal',
@@ -29,8 +32,12 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  env: {
+    MIXPANEL_TOKEN
+  },
   loading: { color: '#fff' },
   plugins: [
+    { src: 'plugins/analytics.js', ssr: false },
     'plugins/links.js',
     'plugins/editor.js',
     'plugins/chakra-ui.js',

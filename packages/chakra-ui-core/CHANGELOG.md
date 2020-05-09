@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.4.2...@chakra-ui/vue@0.5.0) (2020-05-09)
+
+
+### Bug Fixes
+
+* light mode component ([e221299](https://github.com/chakra-ui/chakra-ui-vue/commit/e221299705863087a461864c23ddabc39d4ab248))
+* **cslider:** added v-model implementation ([1444731](https://github.com/chakra-ui/chakra-ui-vue/commit/14447311cf66becb78fb746cceae945fca6be312))
+* **cslider:** added v-model implementation ([924bdd3](https://github.com/chakra-ui/chakra-ui-vue/commit/924bdd3095587210c2bb739de80c5ec69ba9da8c))
+* **cslider:** added v-model implementation ([9c012d4](https://github.com/chakra-ui/chakra-ui-vue/commit/9c012d42be82d9052c822e2c6b8fa2187514968e))
+* **docs-ccolapse:** fix typo ([5014801](https://github.com/chakra-ui/chakra-ui-vue/commit/50148019960de11822b5c9191c9288ea9a8eb85a))
+
+
+### Features
+
+* **docs:** add docs for easing function in CCollapse ([956fd0d](https://github.com/chakra-ui/chakra-ui-vue/commit/956fd0d8bd73e654dbd3d1512fb57a2789313fed))
+
+
+
+
+
 ## [0.4.2](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.4.1...@chakra-ui/vue@0.4.2) (2020-05-08)
 
 

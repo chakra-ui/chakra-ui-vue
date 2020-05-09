@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.2...chakra-ui-docs@0.4.0) (2020-05-09)
+
+
+### Bug Fixes
+
+* added a better description for the event table ([27381c0](https://github.com/chakra-ui/chakra-ui-vue/commit/27381c091b632c4d803f2b600244d9261442dd2a))
+* added spaces between section in live code snippets ([ca3ab06](https://github.com/chakra-ui/chakra-ui-vue/commit/ca3ab0634839ab79216548909ecb5fbb48bf41e5))
+* light mode component ([e221299](https://github.com/chakra-ui/chakra-ui-vue/commit/e221299705863087a461864c23ddabc39d4ab248))
+* typo ([921b4eb](https://github.com/chakra-ui/chakra-ui-vue/commit/921b4eb89a3ed15e6ea107d4b97dfcc9d8a33027))
+* **docs:** add full stop ([bebcca3](https://github.com/chakra-ui/chakra-ui-vue/commit/bebcca3213d7a0eeec77cd5107808c85ef3000d8))
+* **tabs.mdx:** prefixed component names with C and moved [@change](https://github.com/change) ([e7381ca](https://github.com/chakra-ui/chakra-ui-vue/commit/e7381ca79dabc44c92ed0a5a84f25c27c4985f1a))
+
+
+### Features
+
+* **docs:** add docs for easing function in CCollapse ([956fd0d](https://github.com/chakra-ui/chakra-ui-vue/commit/956fd0d8bd73e654dbd3d1512fb57a2789313fed))
+
+
+
+
+
 ## [0.3.2](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.1...chakra-ui-docs@0.3.2) (2020-05-08)
 
 

@@ -6,15 +6,19 @@ let mixpanelConfig = {
 }
 
 export default ({ app, router }) => {
-  Vue.use(VueMultianalytics, {
-    modules: {
-      mixpanel: mixpanelConfig
-    },
-    routing: {
-      vueRouter: router,
-      preferredProperty: 'name',
-      ignoredViews: ['Home'],
-      ignoredModules: ['ga']
-    }
-  })
+  try {
+    Vue.use(VueMultianalytics, {
+      modules: {
+        mixpanel: mixpanelConfig
+      },
+      routing: {
+        vueRouter: router,
+        preferredProperty: 'name',
+        ignoredViews: ['Home'],
+        ignoredModules: ['ga']
+      }
+    })
+  } catch (error) {
+    console.error('Error loading analytics token', error)
+  }
 }

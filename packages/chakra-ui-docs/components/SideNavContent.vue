@@ -135,7 +135,9 @@ export default {
       return topNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))
     },
     componentLinks () {
-      return componentLinks.map(link => ({ name: link, path: stringToUrl(link) }))
+      return componentLinks
+        .filter(link => link !== 'Index')
+        .map(link => ({ name: link, path: stringToUrl(link) }))
     },
     aboutNavLinks () {
       return aboutNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))

@@ -20406,6 +20406,11 @@ vue-meta@^2.3.3:
   dependencies:
     deepmerge "^4.2.2"
 
+vue-multianalytics@^1.11.7:
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/vue-multianalytics/-/vue-multianalytics-1.11.7.tgz#e3d10c6952935610317729990f5f604774c86796"
+  integrity sha512-VSVFSlCwbDTloodDainKUjKArebgwpPN77I8Bi6FhYq9fvBQYX5Qkur4zuLUbB8M3EkJLjyWTz4jztrarZ6pMQ==
+
 vue-no-ssr@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"

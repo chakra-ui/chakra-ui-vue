@@ -120,6 +120,7 @@
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-meta": "^2.3.3",
+    "vue-multianalytics": "^1.11.7",
     "vue-prism-editor": "^0.5.1",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.11"

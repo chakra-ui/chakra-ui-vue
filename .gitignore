@@ -33,3 +33,4 @@ packages/*/node_modules
 **/.nuxt/
 lerna-debug.log
 .now
+config/.env

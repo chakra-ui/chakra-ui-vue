@@ -52,7 +52,6 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "core-js": "^3.4.5",
     "rimraf": "^3.0.2"
   },
   "keywords": [

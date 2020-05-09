@@ -1,15 +1,14 @@
-![Build & Test Components](https://github.com/chakra-ui/chakra-ui-vue/workflows/Build%20&%20Test%20Components/badge.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0140cfa8-f093-4a69-b29b-6b1abce0c04a/deploy-status)](https://app.netlify.com/sites/chakra-ui-vue/deploys)
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<p align="center">
+  <img alt="Build & Test Components" src="https://github.com/chakra-ui/chakra-ui-vue/workflows/Build%20&%20Test%20Components/badge.svg" />
+  <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0140cfa8-f093-4a69-b29b-6b1abce0c04a/deploy-status" />
+  <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square" />
+</p>
 
-[**中文文档Github问题**](https://github.com/chakra-ui/chakra-ui-vue/issues/160)
 
 <p align="center">
   <a href="https://github.com/chakra-ui/chakra-ui-vue">
-    <img src="https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue-beta.png" alt="chakra-ui symbol" width="300" />
+    <img src="https://res.cloudinary.com/xtellar/image/upload/v1584242872/chakra-ui/chakra-ui-vue.png" alt="chakra-ui symbol" width="300" />
   </a>
 </p>
 
@@ -20,25 +19,24 @@
 
 <p align="center"><strong><i>Made for Vue 2.X</i></strong></p>
 
+## Looking for the documentation?
+Head over here => https://vue.chakra-ui.com
 
-> Hello, friend! 😄
-> **chakra-ui-vue** is currently under development. Majority of all the components are ready and can be used!
->
-> A more detailed documentation site is in the pipeline and will be released soon! Check out our [storybook](https://chakra-ui-vue.netlify.com) and [Codesandbox Vue & Nuxt Starters](#codesandbox-starters).
+<p align="center">
+  <a href="https://github.com/chakra-ui/chakra-ui-vue/issues/160">
+    <strong>中文文档翻译Github问题</strong>
+  </a>
+</p>
 
 ## Features
 
-- **Ease of Styling:** Chakra UI contains a set of layout components like `Box` and
-  `Stack` that make it easy to style your components by passing props.
+- **Ease of Styling:** Chakra UI contains a set of layout components like `CBox` and
+  `CStack` that make it easy to style your components by passing props.
   [Learn more](https://chakra-ui.com/style-props)
-- **Flexible & composable**: Chakra UI components are built on top of a Vue UI Primitive for endless composability.
+- **Flexible & composable**: Chakra UI  components are built on top of a Vue UI Primitive for endless composability.
 - **Accessible**. Chakra UI components follows the WAI-ARIA guidelines
   specifications and have the right `aria-*` attributes.
 - **Dark Mode 😍**: Most components in Chakra UI are dark mode compatible.
-
-### Roadmap to release 🚀
-
-Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/issues/89) 🚀
 
 ### Table of Contents
 
@@ -46,8 +44,8 @@ Check out our [**release roadmap!**](https://github.com/chakra-ui/chakra-ui-vue/
 2. [Usage](#usage)
    a. [With Nuxt](#nuxt-usage)
 
+- [Looking for the documentation?](#looking-for-the-documentation)
 - [Features](#features)
-  - [Roadmap to release 🚀](#roadmap-to-release-%f0%9f%9a%80)
   - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -206,5 +204,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-<img src="https://opencollective.com/chakra-ui-vue/contributors.svg?width=890&button=false" alt="Contributors" />

@@ -1,0 +1,83 @@
+import SEO from "../components/SEO";
+
+<SEO
+  title="Using UI with Nuxt.js"
+  description="Getting started with Chakra UI and Nuxt.js"
+/>
+
+# Usage with Nuxt.js
+
+💚 We all love Nuxt.js! Getting started with Nuxt.js is also just as simple.
+
+## Installation
+With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-community/emotion-module) package to enable your component
+styles to be generated and injected in the server build.
+
+```bash
+yarn add @chakra-ui/vue emotion @nuxtjs/emotion
+```
+
+### Plugin setup
+Create a file in your `plugins/` directory. For this example, we'll call it `chakra.js`. In here
+we shall import Vue and register the plugin.
+
+```js
+// chakra.js
+import Vue from 'vue'
+import Chakra from '@chakra-ui/vue'
+
+Vue.use(Chakra)
+```
+
+We then add the Chakra plugin's file path in the `plugins` key of our `nuxt.config.js`. [See the Nuxt documentation to learn mroe about plugins in Nuxt.js](https://nuxtjs.org/guide/plugins)
+
+```js
+export default {
+  plugins: ['~/plugins/chakra']
+}
+```
+
+### Finally, setup Chakra's Theme Provider.
+We then wrap our layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your 
+Chakra UI components can access the theme object.
+
+Great! Now you can start consuming Chakra components! 
+
+```vue
+<template>
+  <CThemeProvider>
+    <CReset/>
+    <Nuxt/>
+    <CButton as="nuxt-link" to="/my-other-page">
+      ⚡️ Oh, my Nuxt!
+    </CButton>
+  </CThemeProvider>
+</template>
+
+<script>
+import {
+  name: 'DefaultLayout',
+  CThemeProvider,
+  CReset,
+} from "@chakra-ui/vue";
+
+export default {
+  name: "App",
+  components: {
+    CThemeProvider,
+    CReset
+  }
+};
+</script>
+```
+
+
+### Nuxt codesandbox starters
+Here's a link to sample component starter with Nuxt.js
+
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
+
+### Storybook Components
+
+You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

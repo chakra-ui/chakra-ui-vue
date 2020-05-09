@@ -25,11 +25,14 @@ breakpoints.md = breakpoints[1]
 breakpoints.lg = breakpoints[2]
 breakpoints.xl = breakpoints[3]
 
+const customTheme = {}
+
 Vue.use(Chakra.default, {
   theme: {
     ...theme,
     breakpoints
   },
+  extendTheme: customTheme,
   icons: {
     iconPack: 'fa',
     iconSet: {

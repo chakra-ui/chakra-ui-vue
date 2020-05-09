@@ -3,11 +3,15 @@
 Most @chakra-ui/vue components are dark mode compatible. You can also toggle between dark
 and light modes in your chakra applications.
 
-## Enable Color Mode
+## Enable Color Mode Toggling
 
-To enable this behavior within your apps, wrap your application in a
-`CColorModeProvider`. This component provides two variables in it's descendant's context using the
-[provide/inject](https://vuejs.org/v2/api/#provide-inject) API.
+To enable toggling between Dark and Light modes within your apps, wrap your application in a
+`CColorModeProvider` component. This component provides two variables in it's descendant's context using the
+[provide/inject](https://vuejs.org/v2/api/#provide-inject) API:
+- `$chakraColorMode` => This is a function that returns the current mode. Use it the computed property.
+- `$toggleColorMode` => This function toggles teh current color mode value.
+
+Below is an example of how to use the above variables:
 
 In your main.js
 ```js

@@ -20,6 +20,7 @@
                 overflowY="scroll"
                 :pt="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
+                font-family="body"
               >
                 <Nuxt id="page-content" />
                 <Footer v-if="$route.path === '/'" />

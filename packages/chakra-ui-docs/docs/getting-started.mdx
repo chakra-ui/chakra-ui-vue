@@ -1,6 +1,6 @@
 # Getting Started
 
-Install Chakra UI and it's peer dependency, `emotion`
+Install Chakra UI Vue and it's peer dependency, `emotion`
 
 <br />
 
@@ -22,40 +22,6 @@ If you are using Vue CLI 3, then you can install Chakra UI and get a base setup 
 vue add chakra-ui
 ```
 
-### With Nuxt.js
-
-If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
-
-```bash
-yarn add @chakra-ui/vue emotion @nuxtjs/emotion
-```
-
-Create a theme object to include custom color, typography, and layout values. Chakra UI comes with a default theme, so this step is optional.
-
-```js
-//  example theme.js
-export default {
-  breakpoints: ['30em', '48em', '62em', '80em'],
-  fonts: {
-    heading: '"Avenir Next", sans-serif',
-    body: 'system-ui, sans-serif',
-    mono: 'Menlo, monospace'
-  },
-  fontSizes: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    md: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '4rem'
-  }
-}
-```
-
 ## Usage
 
 **1. Import the Chakra UI plugin in your `main.js` file.**
@@ -69,34 +35,6 @@ import Chakra, { CThemeProvider } from '@chakra-ui/vue'
 import App from './App.vue'
 
 Vue.use(Chakra)
-
-new Vue({
-  el: '#app',
-  render: (h) => h(CThemeProvider, [h(App)])
-}).$mount()
-```
-
-If you'd like to add extend the Chakra theme with custom brand colors you can do so as shown below. This is also optional.
-
-<br />
-
-```js
-import Chakra, { CThemeProvider, defaultTheme } from '@chakra-ui/vue'
-import customTheme from 'my-custom-theme.js'
-
-Vue.use(Chakra, {
-  theme: {
-    ...defaultTheme,
-    colors: {
-      ...defaultTheme.colors,
-      brand: {
-        900: '#1a365d',
-        800: '#153e75',
-        700: '#2a69ac'
-      }
-    }
-  }
-})
 
 new Vue({
   el: '#app',

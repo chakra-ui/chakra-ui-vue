@@ -1,8 +1,10 @@
 # Design Principles
 
-Chakra UI is established on principles that keep its components fairly
+Chakra UI Vue is established on principles that keep its components fairly
 consistent. Understanding these concepts will help you better contribute to
-Chakra UI.
+Chakra UI Vue.
+
+To learn more about Chakra UI Vue, see the [Why Chakra UI page.](/why-chakra-ui)
 
 Our goal is to design simple, composable components that cater to real life UI
 design problems. In order to do that, we developed a set of principles that help
@@ -10,7 +12,7 @@ us always be on that path.
 
 - **Style Props:** All component styles can be overriden or extended via style
   props to reduce the use of inline styles. You can also compose new components by
-  extending the `Box` or `PseudoBox` components.
+  extending the `CBox` or `CPseudoBox` components.
 
 - **Simplicity:** Strive to keep the component API fairly simple and show real
   world scenarios of using the component.
@@ -24,11 +26,11 @@ us always be on that path.
   over, and the correct `aria-*` attributes.
 
 - **Dark Mode:** Try to make components dark mode compatible. The
-  `ColorModeProvider` component provides the `$colorMode` value
+  `CColorModeProvider` component provides the `$chakraColorMode` value
   that can be injected in your components to handle styling for different color modes.
   [Learn more about Dark mode](/color-mode)
 
 - **Naming Props:** We all know naming is the hardest thing in this industry.
   Generally, ensure a prop name is indicative of what it does. Boolean props
   should be named using auxilliary verbs such as `does`, `has`, `is` and
-  `should`. For example, `Button` uses `isDisabled`, `isLoading`, etc.
+  `should`. For example, `CButton` uses `isDisabled`, `isLoading`, etc.

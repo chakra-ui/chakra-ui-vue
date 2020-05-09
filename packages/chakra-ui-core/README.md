@@ -30,7 +30,7 @@ Head over here => https://vue.chakra-ui.com
 
 ## Features
 
-- **Ease of Styling:** Chakra UI contains a set of layout components like `CBox` and
+- **Ease of Styling:** Chakra UI contains a set of layout components like `CBox`, `CFlex` and
   `CStack` that make it easy to style your components by passing props.
   [Learn more](https://chakra-ui.com/style-props)
 - **Flexible & composable**: Chakra UI  components are built on top of a Vue UI Primitive for endless composability.

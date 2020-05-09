@@ -176,7 +176,7 @@ yarn dev
 - [Chakra UI for React](https://github.com/chakra-ui/chakra-ui)
 - [Vuetify](https://vuetifyjs.org)
 - [Buefy](https://buefy.org)
-- [Vuesax](https://lusaxweb.github.io/vuesax/)
+- [Vuesax](https://lusaxweb.github.io/vuesax)
 
 <a id="contributors"></a>
 Created by [Jonathan Bakebwa](https://twitter.com/codebender828)

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueMultianalytics from 'vue-multianalytics/dist/vue-multianalytics'
 
 let mixpanelConfig = {
-  token: undefined
+  token: process.env.MIXPANEL_TOKEN
 }
 
 export default ({ app, router }) => {

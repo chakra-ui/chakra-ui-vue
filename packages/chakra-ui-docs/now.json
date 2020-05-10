@@ -1,4 +1,12 @@
 {
-  "version": 2
+  "version": 2,
+  "env": {
+    "MIXPANEL_TOKEN": "@mixpanel-token"
+  },
+  "build": {
+    "env": {
+      "MIXPANEL_TOKEN": "@mixpanel-token"
+    }
+  }
 }
 

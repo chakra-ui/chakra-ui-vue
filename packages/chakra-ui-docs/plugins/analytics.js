@@ -9,8 +9,12 @@ export default ({ app }) => {
   Vue.prototype.$mixpanel = mixpanel
 
   app.router.afterEach(to => {
-    (process.env.NODE_ENV !== 'production') && console.log({ to })
-    const { path: page, ...rest } = to
-    mixpanel.track('Page View', { page, ...rest })
+    try {
+      (process.env.NODE_ENV !== 'production') && console.log({ to })
+      const { path: page, ...rest } = to
+      mixpanel.track('Page View', { page, ...rest })
+    } catch (error) {
+      console.error(error)
+    }
   })
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueMultianalytics from 'vue-multianalytics/dist/vue-multianalytics'
 
-export default ({ env, router }) => {
+export default ({ env, app }) => {
   let mixpanelConfig = {
     token: env.MIXPANEL_TOKEN
   }
@@ -12,7 +12,7 @@ export default ({ env, router }) => {
         mixpanel: mixpanelConfig
       },
       routing: {
-        vueRouter: router,
+        vueRouter: app.router,
         preferredProperty: 'name',
         ignoredViews: ['Home'],
         ignoredModules: ['ga']

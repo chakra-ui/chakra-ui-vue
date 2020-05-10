@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt generate",
-    "start": "nuxt start",
+    "build": "nuxt generate --max_old_space_size=8000",
+    "start": "nuxt start --max_old_space_size=8000",
     "docs:build": "nuxt ",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },

@@ -13,8 +13,6 @@ dotenv.config({
   defaults: '../../config/.env.defaults'
 })
 
-const { MIXPANEL_TOKEN } = process.env
-
 export default {
   mode: 'universal',
   srcDir: __dirname,
@@ -33,7 +31,7 @@ export default {
     ]
   },
   env: {
-    MIXPANEL_TOKEN
+    MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN
   },
   loading: { color: '#fff' },
   plugins: [

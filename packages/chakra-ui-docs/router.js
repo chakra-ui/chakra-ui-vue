@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import mixpanel from 'mixpanel-browser'
 import { removeHyphenFromString, titleCase } from './utils'
+
+const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN
 
 Vue.use(Router)
 
@@ -39,6 +42,15 @@ export function createRouter () {
       return { x: 0, y: 0 }
     }
   })
+
+  mixpanel.init(MIXPANEL_TOKEN)
+  Vue.prototype.$mixpanel = mixpanel
+
+  // router.afterEach(to => {
+  //   (process.env.NODE_ENV !== 'production') && console.log({ to })
+  //   const { path: page, ...rest } = to
+  //   mixpanel.track('Page View', { page, ...rest })
+  // })
 
   return router
 }

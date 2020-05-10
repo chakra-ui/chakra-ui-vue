@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt generate",
-    "start": "nuxt start",
+    "build": "nuxt generate --max_old_space_size=8000",
+    "start": "nuxt start --max_old_space_size=8000",
     "docs:build": "nuxt ",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
@@ -41,6 +41,7 @@
     "file-contributors": "^1.0.2",
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
+    "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "prismjs": "^1.19.0",
@@ -50,7 +51,6 @@
     "vue-live": "1.5.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-meta": "^2.3.3",
-    "vue-multianalytics": "^1.11.7",
     "vue-prism-editor": "^0.5.1",
     "vue-router": "^3.1.5"
   },

@@ -105,6 +105,7 @@
     "lint-staged": "^9.4.2",
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
+    "mixpanel-browser": "^2.36.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
@@ -120,7 +121,6 @@
     "vue-loader": "^15.7.1",
     "vue-lorem-ipsum": "^0.0.1",
     "vue-meta": "^2.3.3",
-    "vue-multianalytics": "^1.11.7",
     "vue-prism-editor": "^0.5.1",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.11"

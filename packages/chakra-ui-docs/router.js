@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { removeHyphenFromString, titleCase } from './utils'
-
 Vue.use(Router)
 
 export function createRouter () {
@@ -34,8 +33,10 @@ export function createRouter () {
 
   const router = new Router({
     mode: 'history',
-    routes
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   })
-
   return router
 }

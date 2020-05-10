@@ -104,7 +104,8 @@ export default () => {
     input: entries,
     output: {
       dir: `dist/esm/`,
-      format: 'esm'
+      format: 'esm',
+      banner: bannerTxt
     },
     ...commons
   },
@@ -113,7 +114,8 @@ export default () => {
     output: {
       dir: `dist/cjs/`,
       format: 'cjs',
-      exports: 'named'
+      exports: 'named',
+      banner: bannerTxt
     },
     ...commons
   },

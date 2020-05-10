@@ -234,3 +234,88 @@ options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
 **For `MenuList`:**
 
 - It contains the `MenuItem` has role `menu`.
+
+
+## API
+
+### `CMenu` Props
+
+| Name          | Type              | Default | Description                                                  |
+| ------------- | ----------------- | ------- | ------------------------------------------------------------ |
+| isOpen        | `boolean`         |         | If `true`, the menu will be opened                           |
+| autoSelect    | `boolean`         | `true`  | The menu will select the first enabled item when it opens    |
+| closeOnBlur   | `boolean`         | `true`  | If `true`, the menu will close on outside click or blur      |
+| closeOnSelect | `boolean`         | `true`  | If `true`, the menu will close on menu item select           |
+
+### `CMenuButton` Events
+
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuButton` is clicked                          |
+| `@keydown` | Event emitted when the key is pressed while `CMenuButton` is focused |
+
+### `CMenuList` Props
+
+| Name      | Type                      | Description                                                       |
+| --------- | ------------------------- | ----------------------------------------------------------------- |
+| placement | `PopperJS.placement`      | The placement of the `CMenuList`                                  |
+
+### `CMenuList` Events
+
+| Name       | Description                                                         |
+| ---------- | ------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuList` is clicked                            |
+| `@blur`    | Event emitted when focus is removed from the `CMenuList`             |
+
+
+### `CMenuItem` Props
+
+| Name       | Type                                            | Description                                               |
+| ---------- | ----------------------------------------------- | --------------------------------------------------------- |
+| isDisabled | `boolean`                                       | If `true`, the menu item will be disabled                 |
+| role       | `menuitem`, `menuitemradio`, `menuitemcheckbox` | The ARIA role of the menuitem                             |
+
+### `CMenuItem` Events
+
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `@click`   | Event emitted when `CMenuItem` is clicked                            |
+| `@keydown` | Event emitted when the key is pressed while `CMenuItem` is focused   |
+
+
+### `CMenuGroup` Props
+
+| Name     | Type              | Description                   |
+| -------- | ----------------- | ----------------------------- |
+| title    | `string`          | The title of the menu group   |
+
+### `CMenuOptionGroup` Props
+
+| Name         | Type                                          | Description                                             |
+| ------------ | --------------------------------------------- | ------------------------------------------------------- |
+| title        | `string`                                      | Title of the option group                               |
+| type         | `radio`, `checkbox`                           | Used to add roles `menuitemradio` or `menuitemcheckbox` |
+| defaultValue | `string`, `number`, `Array<string or number>` | The initial value of the option group                   |
+| value        | `string`, `number`, `Array<string or number>` | The value of the option group                           |
+
+### `CMenuOptionGroup` Events
+
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
+| `@change`  | Event emitted when the item selection changes is clicked             |
+| `@keydown` | Event emitted when the key is pressed while `CMenuItem` is focused   |
+
+### `CMenuItemOption` Props
+
+| Name         | Type                      | Description                                             |
+| ------------ | ------------------------- | ------------------------------------------------------- |
+| isDisabled   | `boolean`                 | If `true`, the menu item will be disabled               |
+| value        | `StringOrNumber`          | Used to add roles `menuitemradio` or `menuitemcheckbox` |
+| type         | `radio`, `checkbox`       | The initial value of the option item                    |
+
+### `CMenuOptionGroup` Events
+
+| Name           | Description                                                          |
+| -------------- | -------------------------------------------------------------------- |
+| `@mouseleave`  | Event emitted when the mouse enters the `CMenuOptionGroup`            |
+| `@mouseenter`  | Event emitted when the mouse leaves the `CMenuOptionGroup`            |

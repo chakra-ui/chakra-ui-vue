@@ -30,7 +30,7 @@ import { CTag, CTagIcon, CTagLabel, CTagCloseButton } from '@chakra-ui/vue'
 
 ```vue live=true
 <template>
-  <c-stack :spacing="4" is-inline>
+  <c-stack :spacing="4" align-items="start" is-inline>
     <c-tag v-for="size in sizes" :size="size" :key="size" variantColor="vue">
       Vue {{ size }}
     </c-tag>
@@ -51,7 +51,7 @@ export default {
 
 ```vue live=true
 <template>
-  <c-stack :spacing="4" is-inline>
+  <c-stack :spacing="4" align-items="start" is-inline>
     <c-tag v-for="size in sizes" :size="size" :key="size" variant-color="cyan">
       <c-tag-icon icon="add" size="12px" />
       <c-tag-label>New {{ size }}</c-tag-label>
@@ -84,7 +84,7 @@ export default {
 
 ```vue live=true
 <template>
-  <c-stack :spacing="4" is-inline>
+  <c-stack :spacing="4" align-items="start" is-inline>
     <c-tag
       v-for="size in sizes"
       :size="size"

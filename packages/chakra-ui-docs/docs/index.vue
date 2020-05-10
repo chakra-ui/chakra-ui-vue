@@ -107,6 +107,10 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }]
     }
+  },
+  beforeMount () {
+    console.log(this.$mixpanel)
+    this.$mixpanel.track('Page view', { page: '/' })
   }
 }
 </script>

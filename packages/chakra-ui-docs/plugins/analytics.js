@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import mixpanel from 'mixpanel-browser'
 
-const MIXPANEL_TOKEN = process.env.MIXPANEL_TOKEN
-
-mixpanel.init(MIXPANEL_TOKEN)
-
-export default ({ app }) => {
-  Vue.prototype.$mixpanel = mixpanel
+export default ({ app, env }) => {
+  try {
+    mixpanel.init(env.MIXPANEL_TOKEN)
+    Vue.prototype.$mixpanel = mixpanel
+  } catch (error) {
+    console.error('Error initializing docs analytics', error)
+  }
 
   app.router.afterEach(to => {
     try {

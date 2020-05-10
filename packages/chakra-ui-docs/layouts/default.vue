@@ -167,7 +167,6 @@ export default {
   watch: {
     '$route.path' (newVal) {
       this.$nextTick(() => {
-        console.log(this.$refs.docContainer)
         this.$refs.docContainer.$el.scrollTo(0, 0)
       })
     }

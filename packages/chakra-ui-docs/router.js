@@ -45,12 +45,5 @@ export function createRouter () {
 
   mixpanel.init(MIXPANEL_TOKEN)
   Vue.prototype.$mixpanel = mixpanel
-
-  // router.afterEach(to => {
-  //   (process.env.NODE_ENV !== 'production') && console.log({ to })
-  //   const { path: page, ...rest } = to
-  //   mixpanel.track('Page View', { page, ...rest })
-  // })
-
   return router
 }

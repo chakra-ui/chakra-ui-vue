@@ -41,6 +41,7 @@
     "file-contributors": "^1.0.2",
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
+    "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "prismjs": "^1.19.0",

@@ -14302,6 +14302,11 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
+mixpanel-browser@^2.36.0:
+  version "2.36.0"
+  resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.36.0.tgz#2a7c042309c9eeac520c6bc87295fcd05e74599b"
+  integrity sha512-5MJvMYsfkRKGtNsCnJeODYWqhtyT3BSK2XoO0Oy9+fLSEvPLTBbNDSlP6xCBeWeBb2CmCmqWnweheVTT1ls78g==
+
 mkdirp-classic@^0.5.2:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"

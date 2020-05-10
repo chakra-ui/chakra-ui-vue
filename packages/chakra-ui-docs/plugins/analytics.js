@@ -1,22 +1,17 @@
 import Vue from 'vue'
-import VueMultianalytics from 'vue-multianalytics/dist/vue-multianalytics'
+import mixpanel from 'mixpanel-browser'
 
 export default ({ env, app }) => {
-  let mixpanelConfig = {
-    token: env.MIXPANEL_TOKEN
-  }
-
   try {
-    Vue.use(VueMultianalytics, {
-      modules: {
-        mixpanel: mixpanelConfig
-      },
-      routing: {
-        vueRouter: app.router,
-        preferredProperty: 'name',
-        ignoredViews: ['Home'],
-        ignoredModules: ['ga']
-      }
+    mixpanel.init(env.MIXPANEL_TOKEN)
+
+    Vue.prototype.$mixpanel = mixpanel
+
+    app.router.afterEach(to => {
+      (process.env.NODE_ENV !== 'production') && console.log({ to })
+      const { path: page, ...rest } = to
+
+      mixpanel.track('Page View', { page, ...rest })
     })
   } catch (error) {
     console.error('Error loading analytics token', error)

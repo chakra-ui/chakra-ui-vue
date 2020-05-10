@@ -21,6 +21,7 @@
                 :pt="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
                 font-family="body"
+                ref="docContainer"
               >
                 <Nuxt id="page-content" />
                 <Footer v-if="$route.path === '/'" />
@@ -161,6 +162,14 @@ export default {
           name: 'twitter:creator',
           content: '@chakraui_vue'
         }]
+    }
+  },
+  watch: {
+    '$route.path' (newVal) {
+      this.$nextTick(() => {
+        console.log(this.$refs.docContainer)
+        this.$refs.docContainer.$el.scrollTo(0, 0)
+      })
     }
   },
   computed: {

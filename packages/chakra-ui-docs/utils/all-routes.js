@@ -78,8 +78,13 @@ export const aboutNavLinks = [
   'Contributing'
 ]
 
+export const footerLinks = [
+  'Contributors'
+]
+
 export default [
   ...topNavLinks,
   ...aboutNavLinks,
+  ...footerLinks,
   ...components
 ]

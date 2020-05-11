@@ -53,7 +53,7 @@ Head over here => https://vue.chakra-ui.com
   - [Storybook Components](#storybook-components)
   - [Development for Contributing:](#development-for-contributing)
     - [Related](#related)
-- [Contributors ✨](#contributors-%e2%9c%a8)
+- [Contributors ✨](#contributors)
 
 ## Installation
 

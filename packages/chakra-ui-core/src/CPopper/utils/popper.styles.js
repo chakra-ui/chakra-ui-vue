@@ -31,7 +31,7 @@ const getPopperArrowStyle = ({
         backgroundColor: bg,
         display: 'block',
         width: arrowSize,
-        height: arrowSize,
+        height: arrowSize
       }
     },
 

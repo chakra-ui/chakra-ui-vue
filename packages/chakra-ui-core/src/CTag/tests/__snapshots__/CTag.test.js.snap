@@ -8,7 +8,7 @@ exports[`should display tag with custom element 1`] = `
   >
     <div
       class="css-0 css-1jxztok"
-      data-chakra-component="CPseudoBox"
+      data-chakra-component="CTag"
     >
       <div
         class="css-ovunuj"
@@ -23,12 +23,12 @@ exports[`should display tag with custom element 1`] = `
         </div>
       </div>
        
-      <div
-        class="css-0"
-        data-chakra-component="CBox"
+      <span
+        class="css-gbh5ji"
+        data-chakra-component="CTagLabel"
       >
         Mesut
-      </div>
+      </span>
     </div>
   </div>
 </DocumentFragment>
@@ -42,18 +42,18 @@ exports[`should display tag with right icon 1`] = `
   >
     <div
       class="css-0 css-1mwiunl"
-      data-chakra-component="CPseudoBox"
+      data-chakra-component="CTag"
     >
-      <div
-        class="css-0"
-        data-chakra-component="CBox"
+      <span
+        class="css-gbh5ji"
+        data-chakra-component="CTagLabel"
       >
         Green
-      </div>
+      </span>
        
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
-        data-chakra-component="CIcon"
+        data-chakra-component="CTagIcon"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -80,11 +80,11 @@ exports[`should render correctly 1`] = `
   >
     <div
       class="css-0 css-1mwiunl"
-      data-chakra-component="CPseudoBox"
+      data-chakra-component="CTag"
     >
       <svg
         class="css-10whti9 css-y3asau css-9r03b"
-        data-chakra-component="CIcon"
+        data-chakra-component="CTagIcon"
         role="presentation"
         size="12px"
         viewBox="0 0 24 24"
@@ -99,12 +99,12 @@ exports[`should render correctly 1`] = `
     
       </svg>
        
-      <div
-        class="css-0"
-        data-chakra-component="CBox"
+      <span
+        class="css-gbh5ji"
+        data-chakra-component="CTagLabel"
       >
         Green
-      </div>
+      </span>
     </div>
   </div>
 </DocumentFragment>

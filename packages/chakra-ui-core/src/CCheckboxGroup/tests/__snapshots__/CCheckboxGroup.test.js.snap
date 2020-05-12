@@ -23,7 +23,7 @@ exports[`should render correctly 1`] = `
         >
           <input
             class="css-0 css-f8n5zr"
-            data-chakra-component="CBox"
+            data-chakra-component="CVisuallyHidden"
             id="checkbox-1"
             name="numbers-0"
             type="checkbox"
@@ -78,7 +78,7 @@ exports[`should render correctly 1`] = `
           <input
             aria-checked="true"
             class="css-0 css-f8n5zr"
-            data-chakra-component="CBox"
+            data-chakra-component="CVisuallyHidden"
             id="checkbox-2"
             name="numbers-1"
             type="checkbox"
@@ -132,7 +132,7 @@ exports[`should render correctly 1`] = `
         >
           <input
             class="css-0 css-f8n5zr"
-            data-chakra-component="CBox"
+            data-chakra-component="CVisuallyHidden"
             id="checkbox-3"
             name="numbers-2"
             type="checkbox"

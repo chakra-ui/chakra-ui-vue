@@ -1,7 +1,12 @@
 /**
+ * Hey! Welcome to @chakra-ui/vue NoSsr
+ *
+ * This component is used to defer the rendering of it's children to the client-side.
+ *
  * This component is a modification of the fine work of @egoist
  * @see https://github.com/egoist/vue-client-only/blob/master/src/index.js
  */
+
 const NoSsr = {
   name: 'NoSsr',
   functional: true,
@@ -27,7 +32,10 @@ const NoSsr = {
       return h(
         props.placeholderTag,
         {
-          class: ['client-only-placeholder']
+          class: ['client-only-placeholder'],
+          attrs: {
+            'data-chakra-component': 'CNoSsr'
+          }
         },
         props.placeholder || placeholderSlot
       )

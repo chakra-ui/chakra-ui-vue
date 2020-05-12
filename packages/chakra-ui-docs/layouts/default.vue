@@ -18,12 +18,14 @@
                 w="100%"
                 height="calc(100vh - 60px)"
                 overflowY="scroll"
-                :pt="[5, 20]"
+                :py="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
                 font-family="body"
                 ref="docContainer"
               >
-                <Nuxt id="page-content" />
+                <keep-alive>
+                  <Nuxt id="page-content" />
+                </keep-alive>
                 <Footer v-if="$route.path === '/'" />
                 <FileContributors />
               </CBox>

@@ -1,9 +1,8 @@
-import { CBox, CFlex, CGrid } from '@chakra-ui/vue'
-import { baseProps } from '@chakra-ui/vue/dist/cjs/index-5433bb49'
+import { CBox, CFlex, CGrid, boxProps } from '@chakra-ui/vue'
 
 export const ColorPalette = {
   props: {
-    ...baseProps,
+    ...boxProps,
     color: String,
     name: String
   },

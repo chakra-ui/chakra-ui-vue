@@ -1,6 +1,20 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue VisuallyHidden
+ *
+ * This component is used to visually hide elements that have custom
+ * appearance. For example, see the CControlBox.
+ *
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CVisuallyHidden/CVisuallyHidden.js
+ */
+
 import { css } from 'emotion'
 import CBox from '../CBox'
 
+/**
+ * CVisuallyHidden component
+ *
+ * the visually hidden wrapper element
+ */
 const CVisuallyHidden = {
   name: 'CVisuallyHidden',
   props: {
@@ -33,7 +47,10 @@ const CVisuallyHidden = {
       props: {
         as: this.as
       },
-      attrs: this.$attrs
+      attrs: {
+        'data-chakra-component': 'CVisuallyHidden',
+        ...this.$attrs
+      }
     }, this.$slots.default)
   }
 }

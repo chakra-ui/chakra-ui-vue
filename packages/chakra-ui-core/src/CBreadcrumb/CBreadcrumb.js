@@ -84,7 +84,9 @@ const CBreadcrumbLink = {
   name: 'CBreadcrumbLink',
   props: {
     ...baseProps,
-    isCurrentPage: Boolean
+    isCurrentPage: Boolean,
+    as: [String, Object],
+    to: String
   },
   render (h) {
     const Comp = this.isCurrentPage ? Span : CLink

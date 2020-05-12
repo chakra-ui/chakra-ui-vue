@@ -42,7 +42,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
     "@babel/plugin-transform-parameters": "^7.7.4",
     "@babel/preset-env": "^7.9.5",
-    "@chakra-ui/vue": "^0.4.1",
+    "@chakra-ui/vue": "^0.5.2",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",

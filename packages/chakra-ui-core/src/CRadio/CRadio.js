@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CRadio
+ *
+ * Radios are used when only one choice may be
+ * selected in a series of options.
+ *
+ * @see Docs     https://vue.chakra-ui.com/radio
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadio/CRadio.js
+ */
+
 import styleProps from '../config/props'
 import { useVariantColorWarning, forwardProps } from '../utils'
 import useCheckboxStyle from '../CCheckbox/utils/checkbox.styles'
@@ -5,6 +15,14 @@ import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 import CControlBox from '../CControlBox'
 
+/**
+ * CRadio component
+ *
+ * The accessible radio component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/radio
+ */
 const CRadio = {
   name: 'CRadio',
   model: {
@@ -60,13 +78,16 @@ const CRadio = {
 
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
         as: 'label',
         display: 'inline-flex',
         verticalAlign: 'top',
         alignItems: 'center',
         width: this.isFullWidth ? 'full' : undefined,
-        cursor: this.isDisabled ? 'not-allowed' : 'pointer'
+        cursor: this.isDisabled ? 'not-allowed' : 'pointer',
+        ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CRadio'
       },
       domProps: {
         for: this.id

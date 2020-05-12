@@ -1,3 +1,10 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Popper
+ *
+ * The Popper component is an internal utility component used
+ * to wrap the Popper.js library in to a Vue component
+ */
+
 import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
@@ -36,16 +43,20 @@ function flipPlacement (placement) {
   }
 }
 
+/**
+ * CPopper component
+ *
+ * The popper.js component
+ *
+ * @extends CPseudoBox
+ * @see PopperJs https://popper.js.org/
+ */
 const CPopper = {
   name: 'CPopper',
   directives: {
     ClickOutside
   },
   props: {
-    _id: {
-      type: String,
-      default: useId(3)
-    },
     as: String,
     isOpen: Boolean,
     placement: {
@@ -91,7 +102,8 @@ const CPopper = {
   },
   data () {
     return {
-      popper: null
+      popper: null,
+      referenceBackgroundColor: undefined
     }
   },
   watch: {
@@ -111,7 +123,8 @@ const CPopper = {
       return getPopperArrowStyle({
         arrowSize: this.arrowSize,
         arrowShadowColor: this.arrowShadowColor,
-        hasArrow: this.hasArrow
+        hasArrow: this.hasArrow,
+        bg: this.referenceBackgroundColor
       })
     },
     portalTarget () {
@@ -151,6 +164,7 @@ const CPopper = {
         {
           name: 'arrow',
           options: {
+            element: '[data-popper-arrow]',
             transform: 'rotate(45deg)'
           }
         }
@@ -175,7 +189,11 @@ const CPopper = {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
               if (arrow) {
-                arrow.style.transform += 'rotate(45deg)'
+                this.$nextTick(() => {
+                  this.referenceBackgroundColor =
+                    getComputedStyle(this.reference).backgroundColor ||
+                    getComputedStyle(this.reference).background
+                })
               }
             }
           })
@@ -202,7 +220,11 @@ const CPopper = {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
               if (arrow) {
-                arrow.style.transform += 'rotate(45deg)'
+                this.$nextTick(() => {
+                  this.referenceBackgroundColor =
+                    getComputedStyle(this.reference).backgroundColor ||
+                    getComputedStyle(this.reference).background
+                })
               }
             }
           })
@@ -307,10 +329,7 @@ const CPopperArrow = {
         role: 'presentation',
         'data-chakra-component': 'CPopperArrow'
       },
-      props: {
-        bg: 'inherit',
-        ...forwardProps(this.$props)
-      }
+      props: forwardProps(this.$props)
     })
   }
 }

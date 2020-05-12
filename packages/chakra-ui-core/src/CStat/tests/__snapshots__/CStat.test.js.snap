@@ -4,27 +4,27 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 <DocumentFragment>
   <div
     class="css-hkmnjw"
-    data-chakra-component="CBox"
+    data-chakra-component="CStat"
   >
     <p
       class="css-zb0vz7"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
       class="css-1ecn2q9"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
       class="css-1x22fzm"
-      data-chakra-component="CBox"
+      data-chakra-component="CText"
     >
       <svg
         class="css-1nhh26u css-y3asau"
-        data-chakra-component="CIcon"
+        data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -49,27 +49,27 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 <DocumentFragment>
   <div
     class="css-hkmnjw"
-    data-chakra-component="CBox"
+    data-chakra-component="CStat"
   >
     <p
       class="css-zb0vz7"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
       class="css-1ecn2q9"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
       class="css-1x22fzm"
-      data-chakra-component="CBox"
+      data-chakra-component="CText"
     >
       <svg
         class="css-es9pvn css-y3asau"
-        data-chakra-component="CIcon"
+        data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
       >
@@ -94,23 +94,23 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-hkmnjw"
-    data-chakra-component="CBox"
+    data-chakra-component="CStat"
   >
     <p
       class="css-zb0vz7"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatLabel"
     >
       Collected Fees
     </p>
     <p
       class="css-1ecn2q9"
-      data-chakra-component="CBox"
+      data-chakra-component="CStatNumber"
     >
       £0.00
     </p>
     <p
       class="css-1x22fzm"
-      data-chakra-component="CBox"
+      data-chakra-component="CText"
     >
       Feb 12 - Feb 28
     </p>

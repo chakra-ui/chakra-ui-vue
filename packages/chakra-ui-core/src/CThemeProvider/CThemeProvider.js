@@ -1,5 +1,18 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CThemeProvider
+ *
+ * The CThemeProvider componeent provides theme context to all it's
+ * children.
+ *
+ * @see Docs     https://vue.chakra-ui.com/textarea
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CThemeProvider/CThemeProvider.js
+ */
+
 import { colorModeObserver } from '../utils/color-mode-observer'
 
+/**
+ * CThemeProvider component
+ */
 const CThemeProvider = {
   name: 'CThemeProvider',
   provide () {
@@ -39,7 +52,8 @@ const CThemeProvider = {
   render (h) {
     return h('div', {
       attrs: {
-        id: '__chakra-app'
+        id: '__chakra-app',
+        'data-chakra-component': 'CThemeProvider'
       }
     }, this.$slots.default)
   }

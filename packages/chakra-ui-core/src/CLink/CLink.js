@@ -1,9 +1,26 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Link
+ *
+ * `CLink` is an accessible elements used primarily for navigation.
+ *
+ * @see Docs     https://vue.chakra-ui.com/link
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CLink/CLink.js
+ */
+
 import styleProps from '../config/props'
 import { forwardProps, kebabify } from '../utils'
 import { SNA } from '../config/props/props.types'
 
 import CPseudoBox from '../CPseudoBox'
 
+/**
+ * CLink component
+ *
+ * The anchor / router-link / nuxt-link element
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/link
+ */
 const CLink = {
   name: 'CLink',
   props: {
@@ -48,7 +65,8 @@ const CLink = {
       attrs: {
         tabIndex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
-        ...externalAttrs
+        ...externalAttrs,
+        'data-chakra-component': 'CLink'
       },
       on: {
         click: (e) => this.$emit('click', e)

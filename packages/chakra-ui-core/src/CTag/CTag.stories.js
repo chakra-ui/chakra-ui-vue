@@ -1,16 +1,16 @@
 import { storiesOf } from '@storybook/vue'
-import { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar } from '..'
+import { CBox, CTag, CTagLabel, CFlex, CTagIcon, CTagCloseButton, CAvatar } from '..'
 
 storiesOf('UI | Tag', module)
   .add('Basic Usage', () => ({
-    components: { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton },
+    components: { CBox, CFlex, CTag, CTagLabel, CTagIcon, CTagCloseButton },
     template: `
-      <CBox mb="3">
+      <CFlex mb="3">
         <CTag v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size" mx="1" variantColor="green">
           <CTagIcon icon="add" size="12px" />
           <CTagLabel>Green</CTagLabel>
         </CTag>
-      </CBox>
+      </CFlex>
     `
   }))
   .add('With Right Icon', () => ({

@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Progess
+ *
+ * Progress is used to display the progress status
+ * for a task that takes a long time or consists of several steps.
+ *
+ * @see Docs     https://vue.chakra-ui.com/progress
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CProgess/CProgess.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CProgess/accessibility.md
+ */
+
 import CBox from '../CBox'
 import { generateStripe, valueToPercent, forwardProps } from '../utils'
 import { css, keyframes } from 'emotion'
@@ -18,6 +29,14 @@ const progressbarSizes = {
   sm: '0.5rem'
 }
 
+/**
+ * CProgressLabel component
+ *
+ * The label for the progress component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/progress
+ */
 const CProgressLabel = {
   name: 'CProgressLabel',
   props: baseProps,
@@ -27,11 +46,22 @@ const CProgressLabel = {
         textAlign: 'center',
         width: '100%',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CProgressLabel'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CProgressTrack component
+ *
+ * The track for the progress component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/progress
+ */
 const CProgressTrack = {
   name: 'CProgressTrack',
   props: {
@@ -46,11 +76,22 @@ const CProgressTrack = {
         overflow: 'hidden',
         w: '100%',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CProgressTrack'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CProgressIndicator component
+ *
+ * The indicator for the progress component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/progress
+ */
 const CProgressIndicator = {
   name: 'CProgressIndicator',
   props: {
@@ -77,12 +118,21 @@ const CProgressIndicator = {
         'aria-valuemax': this.max,
         'aria-valuemin': this.min,
         'aria-valuenow': this.isIndeterminate ? null : this.value,
-        'role': 'progressbar'
+        'role': 'progressbar',
+        'data-chakra-component': 'CProgressIndicator'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CProgress component
+ *
+ * The progress component wrapper
+ *
+ * @extends CProgressTrack
+ * @see Docs https://vue.chakra-ui.com/progress
+ */
 const CProgress = {
   name: 'CProgress',
   inject: ['$chakraColorMode'],
@@ -155,6 +205,9 @@ const CProgress = {
         bg: trackColor[this.colorMode],
         borderRadius: _borderRadius,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CProgress'
       }
     }, [
       h(CProgressIndicator, {

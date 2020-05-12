@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue List
+ *
+ * `CList` is used to display list items
+ *
+ * @see Docs     https://vue.chakra-ui.com/list
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CList/CList.js
+ */
+
 import { baseProps } from '../config'
 import { cleanChildren, isDef, cloneVNodeElement, forwardProps } from '../utils'
 import { SNA } from '../config/props/props.types'
@@ -7,6 +16,14 @@ import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
 
+/**
+ * CList component
+ *
+ * The list container element
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/list
+ */
 const CList = {
   name: 'CList',
   props: {
@@ -48,11 +65,22 @@ const CList = {
         listStyleType: this.styleType,
         listStylePosition: this.stylePos,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CList'
       }
     }, clones)
   }
 }
 
+/**
+ * CListItem component
+ *
+ * The list item element
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/list
+ */
 const CListItem = {
   name: 'CListItem',
   props: {
@@ -64,11 +92,22 @@ const CListItem = {
       props: {
         as: 'li',
         mb: this.spacing
+      },
+      attrs: {
+        'data-chakra-component': 'CListItem'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CListIcon component
+ *
+ * The list item icon element
+ *
+ * @extends CIcon
+ * @see Docs https://vue.chakra-ui.com/list
+ */
 const CListIcon = {
   name: 'CListIcon',
   props: {
@@ -81,6 +120,9 @@ const CListIcon = {
         name: this.icon,
         mr: 2,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CListIcon'
       }
     })
   }

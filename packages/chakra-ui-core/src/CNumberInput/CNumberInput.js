@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Number Input
+ *
+ * The `CNumberInput` component is similar to the `CInput` component,
+ * but it has controls for incrementing or decrementing numeric values.
+ *
+ * @see Docs     https://vue.chakra-ui.com/numberinput
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CNumberInput/CNumberInput.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CNumberInput/accessibility.md
+ */
+
 import { baseProps } from '../config'
 import styleProps from '../config/props'
 import numberInputStyles from './utils/numberinput.styles'
@@ -11,7 +22,12 @@ import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
 
 /**
- * NumberInput component
+ * CNumberInput component
+ *
+ * The wrapper that provides context and logic to the components
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/numberinput
  */
 const CNumberInput = {
   name: 'CNumberInput',
@@ -426,9 +442,15 @@ const CNumberInput = {
      * @param {Event} event Event object
      * @param {Any} event Value
      */
-    handleChange (event, value) {
-      this.updateValue(event.target.value)
-      this.$emit('change', event, value)
+    handleChange (event, _value) {
+      let finalValue
+      const { value } = event.target
+      if (['', undefined].includes(value)) {
+        finalValue = 0
+      }
+      finalValue = value
+      this.updateValue(finalValue)
+      this.$emit('change', finalValue, event)
     }
   },
   render (h) {
@@ -439,13 +461,21 @@ const CNumberInput = {
         align: 'stretch',
         w: this.isFullWidth ? 'full' : null,
         pos: 'relative'
+      },
+      attrs: {
+        'data-chakra-component': 'CNumberInput'
       }
     }, this.$slots.default)
   }
 }
 
 /**
- * NumberInputField component
+ * CNumberInputField component
+ *
+ * The `input` field itself
+ *
+ * @extends CInput
+ * @see Docs https://vue.chakra-ui.com/numberinput
  */
 const CNumberInputField = {
   name: 'CNumberInputField',
@@ -482,7 +512,8 @@ const CNumberInputField = {
       },
       attrs: {
         id: inputId,
-        ...otherInputAttrs
+        ...otherInputAttrs,
+        'data-chakra-component': 'CNumberInputField'
       },
       on: {
         change: wrapEvent((e) => this.$emit('change', e), _onChange)
@@ -498,7 +529,12 @@ const CNumberInputField = {
 }
 
 /**
- * NumberInputStepper component
+ * CNumberInputStepper component
+ *
+ * The wrapper for the input's stepper buttons.
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/numberinput
  */
 const CNumberInputStepper = {
   name: 'CNumberInputStepper',
@@ -514,13 +550,21 @@ const CNumberInputStepper = {
         right: '0px',
         height: 'calc(100% - 2px)',
         zIndex: 1
+      },
+      attrs: {
+        'data-chakra-component': 'CNumberInputStepper'
       }
     }, this.$slots.default)
   }
 }
 
 /**
- * StepperButton component
+ * CStepperButton component
+ *
+ * The composable element for the stepper buttons.
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/numberinput
  */
 const CStepperButton = {
   name: 'CStepperButton',
@@ -551,11 +595,22 @@ const CStepperButton = {
           colorMode: this.colorMode,
           size
         })
+      },
+      attrs: {
+        'data-chakra-component': 'CStepperButton'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CNumberIncrementStepper component
+ *
+ * The button to increment the value of the input.
+ *
+ * @extends CStepperButton
+ * @see Docs https://vue.chakra-ui.com/numberinput
+ */
 const CNumberIncrementStepper = {
   name: 'CNumberIncrementStepper',
   inject: ['$NumberInputContext'],
@@ -583,11 +638,22 @@ const CNumberIncrementStepper = {
         ...this.$props,
         fontSize: iconSize
       },
+      attrs: {
+        'data-chakra-component': 'CNumberIncrementStepper'
+      },
       nativeOn: incrementStepper
     }, children)
   }
 }
 
+/**
+ * CNumberIncrementStepper component
+ *
+ * The button to decrement the value of the input.
+ *
+ * @extends CStepperButton
+ * @see Docs https://vue.chakra-ui.com/numberinput
+ */
 const CNumberDecrementStepper = {
   name: 'CNumberDecrementStepper',
   inject: ['$NumberInputContext'],
@@ -614,6 +680,9 @@ const CNumberDecrementStepper = {
       props: {
         ...this.$props,
         fontSize: iconSize
+      },
+      attrs: {
+        'data-chakra-component': 'CNumberDecrementStepper'
       },
       nativeOn: decrementStepper
     }, children)

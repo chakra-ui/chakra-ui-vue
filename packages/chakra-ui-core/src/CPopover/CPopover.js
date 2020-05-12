@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Popover
+ *
+ * Popover is a non-modal dialog that floats around a trigger. It's used to display contextual information to the user.
+ *
+ * @see Docs     https://vue.chakra-ui.com/popover
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CPopover/CPopover.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CPopover/accessibility.md
+ */
+
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
 import { isFunction } from 'lodash-es'
@@ -7,6 +17,14 @@ import CCloseButton from '../CCloseButton'
 import CFragment from '../CFragment'
 import { CPopper, CPopperArrow } from '../CPopper'
 
+/**
+ * CPopover component
+ *
+ * The wrapper that provides props, state, and context to it's children
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopover = {
   name: 'CPopover',
   provide () {
@@ -224,7 +242,11 @@ const CPopover = {
     }
   },
   render (h) {
-    return h(CFragment, [
+    return h(CFragment, {
+      attrs: {
+        'data-chakra-component': 'CPopover'
+      }
+    }, [
       this.$scopedSlots.default({
         isOpen: this._isOpen,
         onClose: this.closePopover
@@ -233,6 +255,14 @@ const CPopover = {
   }
 }
 
+/**
+ * CPopoverTrigger component
+ *
+ * Used to wrap the reference (or trigger) element.
+ *
+ * @extends this.$slots.default
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverTrigger = {
   name: 'CPopoverTrigger',
   inject: ['$PopoverContext'],
@@ -326,7 +356,8 @@ const CPopoverTrigger = {
         id: this.triggerId,
         'aria-haspopup': 'dialog',
         'aria-expanded': isOpen,
-        'aria-controls': popoverId
+        'aria-controls': popoverId,
+        'data-chakra-component': 'CPopoverTrigger'
       },
       nativeOn: this.eventHandlers
     }, cloned.componentOptions.children)
@@ -335,6 +366,14 @@ const CPopoverTrigger = {
   }
 }
 
+/**
+ * CPopoverContent component
+ *
+ * The popover content element itself.
+ *
+ * @extends CPopper
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverContent = {
   name: 'CPopoverContent',
   inject: ['$PopoverContext', '$chakraColorMode'],
@@ -464,13 +503,22 @@ const CPopoverContent = {
         'aria-describedby': this.bodyId,
         'aria-label': this.ariaLabel,
         'aria-hidden': !isOpen,
-        ...this.calculatedAttrs
+        ...this.calculatedAttrs,
+        'data-chakra-component': 'CPopoverContent'
       },
       nativeOn: this.eventHandlers
     }, this.$slots.default)
   }
 }
 
+/**
+ * CPopoverHeader component
+ *
+ * The header of the popover.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverHeader = {
   name: 'CPopoverHeader',
   inject: ['$PopoverContext'],
@@ -493,12 +541,21 @@ const CPopoverHeader = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        id: this.headerId
+        id: this.headerId,
+        'data-chakra-component': 'CPopoverHeader'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CPopoverBody component
+ *
+ * The body of the popover.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverBody = {
   name: 'CPopoverBody',
   props: baseProps,
@@ -521,22 +578,42 @@ const CPopoverBody = {
       },
       attrs: {
         id: this.bodyId,
-        'data-id': this.bodyId
+        'data-id': this.bodyId,
+        'data-chakra-component': 'CPopoverBody'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CPopoverArrow component
+ *
+ * A visual arrow that points to the reference (or trigger).
+ *
+ * @extends CPopperArrow
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverArrow = {
   name: 'CPopoverArrow',
   props: baseProps,
   render (h) {
     return h(CPopperArrow, {
-      props: forwardProps(this.$props)
+      props: forwardProps(this.$props),
+      attrs: {
+        'data-chakra-component': 'CPopoverArrow'
+      }
     })
   }
 }
 
+/**
+ * CPopoverCloseButton component
+ *
+ * The button to close the popover.
+ *
+ * @extends CCloseButton
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverCloseButton = {
   name: 'CPopoverCloseButton',
   inject: ['$PopoverContext'],
@@ -562,11 +639,22 @@ const CPopoverCloseButton = {
           this.$emit('click', e)
           this.context.closePopover()
         }
+      },
+      attrs: {
+        'data-chakra-component': 'CPopoverCloseButton'
       }
     })
   }
 }
 
+/**
+ * CPopoverFooter component
+ *
+ * The footer of the popover.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/popover
+ */
 const CPopoverFooter = {
   name: 'CPopoverFooter',
   props: baseProps,
@@ -578,6 +666,9 @@ const CPopoverFooter = {
         py: '0.5rem',
         borderTopWidth: '1px',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CPopoverFooter'
       }
     }, this.$slots.default)
   }

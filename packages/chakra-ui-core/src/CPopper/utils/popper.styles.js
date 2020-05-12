@@ -8,7 +8,8 @@ import { css } from 'emotion'
 const getPopperArrowStyle = ({
   arrowSize = '1rem',
   arrowShadowColor = 'rgba(0, 0, 0, 0.1)',
-  hasArrow = true
+  hasArrow = true,
+  bg = 'inherit'
 }) => {
   const popoverMargin = hasArrow ? `calc(${arrowSize} / 2)` : null
   const arrowPos = `calc(${arrowSize} / 2 * -1)`
@@ -21,20 +22,16 @@ const getPopperArrowStyle = ({
     },
 
     '[data-popper-arrow]': {
-      width: arrowSize,
-      height: arrowSize,
       position: 'absolute',
-      backgroundColor: 'inherit',
       zIndex: -1,
 
       '&::before': {
         content: '""',
+        transform: 'rotate(45deg)',
+        backgroundColor: bg,
+        display: 'block',
         width: arrowSize,
-        height: arrowSize,
-        position: 'absolute',
-        // transform: 'rotate(45deg)',
-        backgroundColor: 'inherit',
-        zIndex: -1
+        height: arrowSize
       }
     },
 

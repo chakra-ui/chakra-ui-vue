@@ -1,8 +1,25 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CRadioButtonGroup
+ *
+ * RadioButtonGroup component provides radio type component
+ *
+ * @see Docs     https://vue.chakra-ui.com/radio
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioButtonGroup/CRadioButtonGroup.js
+ */
+
 import CBox from '../CBox'
 import { baseProps } from '../config'
 import { StringNumber, SNA } from '../config/props/props.types'
 import { isDef, useId, cloneVNodeElement, forwardProps, cleanChildren } from '../utils'
 
+/**
+ * CRadioButtonGroup component
+ *
+ * The group wrapper for radio button children
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/radio
+ */
 const CRadioButtonGroup = {
   name: 'CRadioButtonGroup',
   model: {
@@ -152,7 +169,8 @@ const CRadioButtonGroup = {
     return h(CBox, {
       props: forwardProps(this.$props),
       attrs: {
-        role: 'radiogroup'
+        role: 'radiogroup',
+        'data-chakra-component': 'CRadioButtonGroup'
       },
       nativeOn: {
         keydown: this.handleKeyDown

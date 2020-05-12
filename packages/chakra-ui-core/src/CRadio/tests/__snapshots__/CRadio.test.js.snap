@@ -4,11 +4,11 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
     class="css-1qf83f9"
-    data-chakra-component="CBox"
+    data-chakra-component="CRadio"
   >
     <input
       class="css-0 css-f8n5zr"
-      data-chakra-component="CBox"
+      data-chakra-component="CVisuallyHidden"
       type="radio"
       value=""
     />

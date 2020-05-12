@@ -1,9 +1,26 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CRadioGroup
+ *
+ * CRadioGroup component is a wrapper for it's Radio children
+ *
+ * @see Docs     https://vue.chakra-ui.com/radio
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioGroup/CRadioGroup.js
+ */
+
 import { baseProps } from '../config'
 import { StringNumber } from '../config/props/props.types'
 import { useId, cloneVNodeElement, forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
+/**
+ * CRadioGroup component
+ *
+ * The group for radio element children
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/radio
+ */
 const CRadioGroup = {
   name: 'CRadioGroup',
   model: {
@@ -96,7 +113,8 @@ const CRadioGroup = {
     return h(CBox, {
       props: forwardProps(this.$props),
       attrs: {
-        role: 'radiogroup'
+        role: 'radiogroup',
+        'data-chakra-component': 'CRadioGroup'
       },
       ref: 'radioGroup'
     }, clones)

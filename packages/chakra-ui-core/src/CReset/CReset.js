@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CReset
+ *
+ * CReset component injects global styles.
+ *
+ * @see Docs     https://vue.chakra-ui.com/radio
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CReset/CReset.js
+ */
+
 import { injectGlobal } from 'emotion'
 import { useTailwindPreflight } from './preflight'
 
@@ -16,6 +25,14 @@ const defaultConfig = theme => ({
   }
 })
 
+/**
+ * CReset component
+ *
+ * The CSS Reset component to reset browser styles
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/getting-started
+ */
 const CReset = {
   name: 'CReset',
   inject: ['$chakraTheme', '$chakraColorMode'],

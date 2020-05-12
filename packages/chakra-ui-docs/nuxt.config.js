@@ -42,8 +42,7 @@ export default {
     'plugins/vue-meta.js'
   ],
   css: [
-    'css/page.css',
-    'css/fonts/fonts.css'
+    'css/page.css'
   ],
   buildModules: [
     '@nuxtjs/eslint-module'

@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Toast
+ *
+ * The toast is used to show alerts on top of an overlay.
+ *
+ * @see Docs     https://vue.chakra-ui.com/toast
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CToast/CToast.js
+ */
+
 import Breadstick from 'breadstick'
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
@@ -13,7 +22,12 @@ import CColorModeProvider from '../CColorModeProvider'
 const breadstick = new Breadstick()
 
 /**
- * Toast component
+ * CToast component
+ *
+ * the toast element component
+ *
+ * @extends CAlert
+ * @see Docs https://vue.chakra-ui.com/toast
  */
 const CToast = {
   name: 'CToast',
@@ -63,7 +77,8 @@ const CToast = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        id: this.id
+        id: this.id,
+        'data-chakra-component': 'CToast'
       }
     }, [
       h(CAlertIcon),

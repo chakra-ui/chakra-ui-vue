@@ -1,3 +1,10 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Popper
+ *
+ * The Popper component is an internal utility component used
+ * to wrap the Popper.js library in to a Vue component
+ */
+
 import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
@@ -36,16 +43,20 @@ function flipPlacement (placement) {
   }
 }
 
+/**
+ * CPopper component
+ *
+ * The popper.js component
+ *
+ * @extends CPseudoBox
+ * @see PopperJs https://popper.js.org/
+ */
 const CPopper = {
   name: 'CPopper',
   directives: {
     ClickOutside
   },
   props: {
-    _id: {
-      type: String,
-      default: useId(3)
-    },
     as: String,
     isOpen: Boolean,
     placement: {

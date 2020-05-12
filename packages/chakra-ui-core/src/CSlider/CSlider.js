@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CSlider
+ *
+ * The Slider is used to allow users to make
+ * selections from a range of values.
+ *
+ * @see Docs     https://vue.chakra-ui.com/slider
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSlider/CSlider.js
+ */
+
 import { baseProps } from '../config'
 import { isDef, valueToPercent, useId, getElById, forwardProps } from '../utils'
 import { clampValue, roundValueToStep } from './utils/slider.utils'
@@ -8,6 +18,14 @@ import styleProps from '../config/props'
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 
+/**
+ * CSlider component
+ *
+ * The Slider wrapper component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/slider
+ */
 const CSlider = {
   name: 'CSlider',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -270,7 +288,8 @@ const CSlider = {
       },
       attrs: {
         role: 'presentation',
-        'aria-disabled': this.isDisabled
+        'aria-disabled': this.isDisabled,
+        'data-chakra-component': 'CSlider'
       },
       style: {
         touchAction: 'none'
@@ -300,7 +319,12 @@ const CSlider = {
 }
 
 /**
- * SliderTrack compoennt
+ * CSliderTrack component
+ *
+ * The track for the slider component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderTrack = {
   name: 'CSliderTrack',
@@ -335,14 +359,20 @@ const CSliderTrack = {
       attrs: {
         id: trackId,
         'data-slider-track': '',
-        'aria-disabled': isDisabled
+        'aria-disabled': isDisabled,
+        'data-chakra-component': 'CSliderTrack'
       }
     }, this.$slots.default)
   }
 }
 
 /**
- * SliderFilledTrack component
+ * CSliderFilledTrack component
+ *
+ * The track filler for the slider component
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderFilledTrack = {
   name: 'CSliderFilledTrack',
@@ -376,14 +406,20 @@ const CSliderFilledTrack = {
       },
       attrs: {
         'aria-disabled': isDisabled,
-        'data-slider-filled-track': ''
+        'data-slider-filled-track': '',
+        'data-chakra-component': 'CSliderFilledTrack'
       }
     }, this.$slots.default)
   }
 }
 
 /**
- * SliderThumb component
+ * CSliderThumb component
+ *
+ * The thumb handler for the slider component
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderThumb = {
   name: 'CSliderThumb',
@@ -445,7 +481,8 @@ const CSliderThumb = {
         'aria-orientation': orientation,
         'aria-valuenow': value,
         'aria-valuemax': max,
-        'aria-labelledby': ariaLabelledBy
+        'aria-labelledby': ariaLabelledBy,
+        'data-chakra-component': 'CSliderThumb'
       },
       nativeOn: {
         keydown: onKeyDown,

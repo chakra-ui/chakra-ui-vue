@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Menu
+ *
+ * `CMenu` is An accessible dropdown menu for the common dropdown menu button design pattern.
+ *
+ * @see Docs     https://vue.chakra-ui.com/menu
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CMenu/CMenu.js
+ */
+
 import { useId, getFocusables, canUseDOM, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
 import { buttonProps } from '../CButton/utils/button.props'
@@ -34,6 +43,14 @@ const menuProps = {
   ...baseProps
 }
 
+/**
+ * CMenu component
+ *
+ * The menu container element
+ *
+ * @extends CFragment
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenu = {
   name: 'CMenu',
   inject: ['$chakraColorMode', '$chakraTheme'],
@@ -213,7 +230,11 @@ const CMenu = {
     }
   },
   render (h) {
-    return h(CFragment, [
+    return h(CFragment, {
+      attrs: {
+        'data-chakra-component': 'CMenu'
+      }
+    }, [
       this.$scopedSlots.default({
         isOpen: this.isOpen
       })
@@ -221,6 +242,14 @@ const CMenu = {
   }
 }
 
+/**
+ * CMenuButton component
+ *
+ * The menu button element
+ *
+ * @extends CButton
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuButton = {
   name: 'CMenuButton',
   inject: ['$MenuContext'],
@@ -245,7 +274,8 @@ const CMenuButton = {
         role: 'button',
         'aria-haspopup': 'menu',
         'aria-expanded': isOpen,
-        'aria-controls': menuId
+        'aria-controls': menuId,
+        'data-chakra-component': 'CMenuButton'
       },
       nativeOn: {
         click: (event) => {
@@ -271,11 +301,19 @@ const CMenuButton = {
             focusOnLastItem()
           }
         }
-      }
+      },
     }, this.$slots.default)
   }
 }
 
+/**
+ * CMenuList component
+ *
+ * The menu list element
+ *
+ * @extends CPopper
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuList = {
   name: 'CMenuList',
   props: styleProps,
@@ -377,7 +415,8 @@ const CMenuList = {
         id: menuId,
         role: 'menu',
         'aria-labelledby': buttonId,
-        tabIndex: -1
+        tabIndex: -1,
+        'data-chakra-component': 'CMenuButton'
       },
       on: {
         close: closeMenu
@@ -390,6 +429,14 @@ const CMenuList = {
   }
 }
 
+/**
+ * CMenuItem component
+ *
+ * The menu list item element
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuItem = {
   name: 'CMenuItem',
   inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
@@ -435,7 +482,8 @@ const CMenuItem = {
         role: this.role,
         tabIndex: -1,
         disabled: this.isDisabled,
-        'aria-disabled': this.isDisabled
+        'aria-disabled': this.isDisabled,
+        'data-chakra-component': 'CMenuItem'
       },
       nativeOn: {
         click: event => {
@@ -483,6 +531,14 @@ const CMenuItem = {
   }
 }
 
+/**
+ * CMenuDivider component
+ *
+ * The menu list divider element
+ *
+ * @extends CDivider
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuDivider = {
   name: 'CMenuDivider',
   props: baseProps,
@@ -492,11 +548,22 @@ const CMenuDivider = {
         marginTop: '0.5rem',
         marginBottom: '0.5rem',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CMenuDivider'
       }
     })
   }
 }
 
+/**
+ * CMenuGroup component
+ *
+ * The menu list item group.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuGroup = {
   name: 'CMenuGroup',
   props: {
@@ -505,7 +572,10 @@ const CMenuGroup = {
   },
   render (h) {
     return h(CBox, {
-      attrs: { role: 'group' }
+      attrs: {
+        role: 'group',
+        'data-chakra-component': 'CMenuGroup'
+      }
     }, [
       this.title && h(CText, {
         props: { mx: 4, my: 2, fontWeight: 'semibold', fontSize: 'sm', ...forwardProps(this.$props) }

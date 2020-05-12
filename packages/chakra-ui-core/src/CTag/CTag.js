@@ -1,3 +1,14 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Tag
+ *
+ * Tag component is used for items that need to be
+ * labeled, categorized, or organized using keywords
+ * that describe them.
+ *
+ * @see Docs     https://vue.chakra-ui.com/tag
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTag/CTag.js
+ */
+
 import styleProps, { baseProps } from '../config/props'
 import { css } from 'emotion'
 import { useVariantColorWarning, forwardProps } from '../utils'
@@ -27,6 +38,14 @@ const tagSizes = {
   }
 }
 
+/**
+ * CTagCloseButton component
+ *
+ * the close button for the tag
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTagCloseButton = {
   name: 'CTagCloseButton',
   props: {
@@ -64,7 +83,8 @@ const CTagCloseButton = {
         }
       },
       attrs: {
-        disabled: this.isDisabled
+        disabled: this.isDisabled,
+        'data-chakra-component': 'CTagCloseButton'
       }
     }, [
       h(CIcon, {
@@ -80,6 +100,14 @@ const CTagCloseButton = {
   }
 }
 
+/**
+ * CTagIcon component
+ *
+ * the icon for the tag
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTagIcon = {
   name: 'CTagIcon',
   props: {
@@ -97,6 +125,9 @@ const CTagIcon = {
           ...this.$props,
           name: this.icon,
           mx: '0.5rem'
+        },
+        attrs: {
+          'data-chakra-component': 'CTagIcon'
         }
       })
     }
@@ -116,19 +147,40 @@ const CTagIcon = {
   }
 }
 
+/**
+ * CTagLabel component
+ *
+ * the icon for the tag
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTagLabel = {
   name: 'CTagLabel',
   props: baseProps,
   render (h) {
     return h(CBox, {
-      ...forwardProps(this.$props),
-      as: 'span',
-      isTruncated: true,
-      lineHeight: 1.2
+      props: {
+        ...forwardProps(this.$props),
+        as: 'span',
+        isTruncated: true,
+        lineHeight: 1.2
+      },
+      attrs: {
+        'data-chakra-component': 'CTagLabel'
+      }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CTag component
+ *
+ * the wrapper element for the tag's children
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTag = {
   name: 'CTag',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -179,6 +231,9 @@ const CTag = {
         ...forwardProps(this.$props),
         ...this.sizeProps,
         ...this.styleProps
+      },
+      attrs: {
+        'data-chakra-component': 'CTag'
       }
     }, this.$slots.default)
   }

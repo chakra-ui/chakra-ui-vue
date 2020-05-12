@@ -58,8 +58,7 @@ const CNumberInput = {
       default: 'md'
     },
     inputId: {
-      type: String,
-      default: `number-input-${useId()}`
+      type: String
     }
   },
   provide () {

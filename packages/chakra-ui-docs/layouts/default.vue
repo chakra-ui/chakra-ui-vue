@@ -18,14 +18,16 @@
                 w="100%"
                 height="calc(100vh - 60px)"
                 overflowY="scroll"
-                :pt="[5, 20]"
+                :py="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
                 font-family="body"
                 ref="docContainer"
               >
-                <Nuxt id="page-content" />
+                <keep-alive>
+                  <Nuxt id="page-content" />
+                </keep-alive>
                 <Footer v-if="$route.path === '/'" />
-                <FileContributors />
+                <!-- <FileContributors /> -->
               </CBox>
             </CFlex>
           </CBox>
@@ -50,14 +52,14 @@ import MDXComponents from '../components/MDXComponents'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
-import FileContributors from '../components/FileContributors'
+// import FileContributors from '../components/FileContributors'
 
 // import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
   components: {
-    FileContributors,
+    // FileContributors,
     MDXProvider,
     CThemeProvider,
     CColorModeProvider,

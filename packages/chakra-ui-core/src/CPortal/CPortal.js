@@ -1,9 +1,21 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Portal
+ *
+ * The Portal component is an internal utility component used
+ * to create portals in the browser
+ */
+
 import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import { MountingPortal } from 'portal-vue'
 import CNoSsr from '../CNoSsr'
 
 /**
- * Portal Component
+ * CPortal component
+ *
+ * The portal component
+ *
+ * @extends MountingPortal
+ * @see PortalVue https://portal-vue.linusb.org/api/mounting-portal.html
  */
 const CPortal = {
   name: 'CPortal',
@@ -97,6 +109,9 @@ const CPortal = {
           slim: this.slim,
           bail: this.bail,
           targetSlim: this.targetSlim
+        },
+        attrs: {
+          'data-chakra-component': 'CPortal'
         }
       }, children)
     ]) : children[0]

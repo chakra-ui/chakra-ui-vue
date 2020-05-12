@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Stack
+ *
+ * Stack is a layout utility component that makes
+ * it easy to stack elements together and apply a space between them.
+ *
+ * @see Docs     https://vue.chakra-ui.com/stack
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CStack/CStack.js
+ */
+
 import { baseProps } from '../config/props'
 import { StringArray, SNA } from '../config/props/props.types'
 import { forwardProps, cloneVNode } from '../utils'
@@ -6,8 +16,12 @@ import CFlex from '../CFlex'
 import CBox from '../CBox'
 
 /**
- * Stack is a layout utility component that makes it easy to stack elements together and apply a space between them.
- * It composes the Flex component
+ * CStack component
+ *
+ * Flex container to stck it's children
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/stack
  */
 const CStack = {
   name: 'CStack',
@@ -90,6 +104,9 @@ const CStack = {
         justify: this.justify,
         direction: _direction,
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CStack'
       }
     }, stackables)
   }

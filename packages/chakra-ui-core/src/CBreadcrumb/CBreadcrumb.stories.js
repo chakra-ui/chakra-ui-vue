@@ -32,6 +32,10 @@ storiesOf('UI | Breadcrumb', module)
             <CBreadcrumbLink href="#">Breadcrumb 2</CBreadcrumbLink>
             <CBreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
           </CBreadcrumbItem>
+          <CBreadcrumbItem>
+            <CBreadcrumbLink as="router-link" to="/home">Breadcrumb 2</CBreadcrumbLink>
+            <CBreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
+          </CBreadcrumbItem>
         </CBreadcrumb>
       </div>
     `

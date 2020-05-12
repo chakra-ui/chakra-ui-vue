@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue PseudoBox
+ *
+ * The PseudoBox component
+ *
+ * @see Docs     https://vue.chakra-ui.com/pseudobox
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CPseudoBox/CPseudoBox.js
+ */
+
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
@@ -20,6 +29,14 @@ const systemProps = compose(
   propsConfig
 )
 
+/**
+ * CPseudoBox component
+ *
+ * The pseudobox component that accepts pseudo props
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/pseudobox
+ */
 const CPseudoBox = {
   name: 'CPseudoBox',
   inject: ['$chakraTheme'],

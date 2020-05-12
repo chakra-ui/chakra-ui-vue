@@ -7,6 +7,14 @@ import CBox from '../CBox'
 import CIcon from '../CIcon'
 import CPseudoBox from '../CPseudoBox'
 
+/**
+ * CMenuItemOption component
+ *
+ * The menu item option component
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuItemOption = {
   name: 'CMenuItemOption',
   inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
@@ -112,7 +120,8 @@ const CMenuItemOption = {
         tabIndex: -1,
         'aria-checked': this.isChecked,
         disabled: this.isDisabled,
-        'aria-disabled': this.isDisabled
+        'aria-disabled': this.isDisabled,
+        'data-chakra-component': 'CMenuItemOption'
       },
       nativeOn: {
         click: this.handleClick,
@@ -147,6 +156,14 @@ const CMenuItemOption = {
   }
 }
 
+/**
+ * CMenuOptionGroup component
+ *
+ * The menu item option group component
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/menu
+ */
 const CMenuOptionGroup = {
   name: 'CMenuOptionGroup',
   props: {
@@ -282,6 +299,9 @@ const CMenuOptionGroup = {
       props: {
         ...forwardProps(this.$props),
         title: this.title
+      },
+      attrs: {
+        'data-chakra-component': 'CMenuOptionGroup'
       }
     }, clonedChildNodes)
   }

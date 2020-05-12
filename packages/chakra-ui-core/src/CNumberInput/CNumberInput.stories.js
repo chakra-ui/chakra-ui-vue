@@ -19,16 +19,21 @@ storiesOf('UI | NumberInput', module)
   .add('With min and max', () => ({
     components: { CBox, CNumberInput, CNumberInputField, CNumberInputStepper, CNumberIncrementStepper, CNumberDecrementStepper },
     template: `
-      <CBox mb="3">
-        <CNumberInput :defaultValue="15" :max="20" :min="10">
-          <CNumberInputField />
-          <CNumberInputStepper>
-            <CNumberIncrementStepper />
-            <CNumberDecrementStepper />
-          </CNumberInputStepper>
-        </CNumberInput>
-      </CBox>
-    `
+      <c-box mb="3">
+        <c-number-input v-model="value" :max="20" :min="10">
+          <c-number-input-field />
+          <c-number-input-stepper>
+            <c-numberIncrement-stepper />
+            <c-number-decrement-stepper />
+          </c-number-input-stepper>
+        </c-number-input>
+      </c-box>
+    `,
+    data () {
+      return {
+        value: 15
+      }
+    }
   }))
   .add('With step size', () => ({
     components: { CBox, CNumberInput, CNumberInputField, CNumberInputStepper, CNumberIncrementStepper, CNumberDecrementStepper },

@@ -4,7 +4,7 @@ exports[`should apply variant styles corectly 1`] = `
 <DocumentFragment>
   <div
     class="css-1xhj18k"
-    data-chakra-component="CFlex"
+    data-chakra-component="CStack"
   >
     <div
       class="css-288q6q"

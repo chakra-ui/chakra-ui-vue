@@ -1,3 +1,15 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Menu
+ *
+ * The `CModal` is a dialog window overlaid on either the primary window or another dialog
+ *  window. Contents behind a modal dialog are **inert** meaning that users cannot
+ * interact with content behind the dialog.
+ *
+ * @see Docs     https://vue.chakra-ui.com/modal
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CModal/CModal.js
+ * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CModal/accessibility.md
+ */
+
 import props from './utils/modal.props'
 import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
 import { hideOthers } from 'aria-hidden'
@@ -12,6 +24,14 @@ import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CCloseButton from '../CCloseButton'
 
+/**
+ * CModal component
+ *
+ * The wrapper for `CModal` components. It provides context and state for the modal.
+ *
+ * @extends CPortal
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModal = {
   name: 'CModal',
   props,
@@ -195,6 +215,9 @@ const CModal = {
         slim: true,
         unmountOnDestroy: true,
         targetSlim: true
+      },
+      attrs: {
+        'data-chakra-component': 'CModal'
       }
     }, [
       h(FocusTrap, {
@@ -237,11 +260,19 @@ const CModal = {
 }
 
 /**
- * ModalOverlay component
+ * CModalOverlay component
+ *
+ * The background overlay for the `CModal` component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/modal
  */
 const CModalOverlay = {
   name: 'CModalOverlay',
   props: baseProps,
+  attrs: {
+    'data-chakra-component': 'CModalOverlay'
+  },
   render (h) {
     return h(CBox, {
       props: {
@@ -258,6 +289,14 @@ const CModalOverlay = {
   }
 }
 
+/**
+ * CModalContent component
+ *
+ * The container for the CModal content
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModalContent = {
   name: 'CModalContent',
   inheritAttrs: false,
@@ -394,6 +433,9 @@ const CModalContent = {
             }
           }
         }
+      },
+      attrs: {
+        'data-chakra-component': 'CModalContent'
       }
     }, [
       h(CBox, {
@@ -428,6 +470,14 @@ const CModalContent = {
   }
 }
 
+/**
+ * CModalHeader component
+ *
+ * The header that labels the modal dialog
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModalHeader = {
   name: 'CModalHeader',
   inject: ['$ModalContext'],
@@ -451,12 +501,21 @@ const CModalHeader = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        id: headerId
+        id: headerId,
+        'data-chakra-component': 'CModalHeader'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CModalFooter component
+ *
+ * The footer that houses the modal actions
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModalFooter = {
   name: 'CModalFooter',
   props: baseProps,
@@ -469,11 +528,22 @@ const CModalFooter = {
         py: 4,
         justifyContent: 'flex-end',
         ...forwardProps(this.$props)
+      },
+      attrs: {
+        'data-chakra-component': 'CModalFooter'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CModalBody component
+ *
+ * The wrapper that houses the modal's main content
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModalBody = {
   name: 'CModalBody',
   props: baseProps,
@@ -500,12 +570,21 @@ const CModalBody = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        id: bodyId
+        id: bodyId,
+        'data-chakra-component': 'CModalBody'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CCloseButton component
+ *
+ * The button that closes the modal.
+ *
+ * @extends CCloseButton
+ * @see Docs https://vue.chakra-ui.com/modal
+ */
 const CModalCloseButton = {
   name: 'CModalCloseButton',
   props: styleProps,
@@ -525,7 +604,8 @@ const CModalCloseButton = {
         ...forwardProps(this.$props)
       },
       attrs: {
-        'x-close-button': ''
+        'x-close-button': '',
+        'data-chakra-component': 'CModalCloseButton'
       },
       on: {
         click: (e) => {

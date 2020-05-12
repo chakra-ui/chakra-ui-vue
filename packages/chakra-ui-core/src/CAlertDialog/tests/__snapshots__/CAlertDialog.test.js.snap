@@ -23,7 +23,7 @@ exports[`should render correctly 1`] = `
         />
         <div
           class="css-aibg9d"
-          data-chakra-component="CBox"
+          data-chakra-component="CModalContent"
           data-testid="overlay"
         >
           <section
@@ -38,7 +38,7 @@ exports[`should render correctly 1`] = `
           >
             <header
               class="css-kniazf"
-              data-chakra-component="CBox"
+              data-chakra-component="CModalHeader"
               id="alert-dialog-1-label"
             >
               Dialog Header
@@ -46,7 +46,7 @@ exports[`should render correctly 1`] = `
              
             <div
               class="css-5m10fw"
-              data-chakra-component="CBox"
+              data-chakra-component="CModalBody"
               id="alert-dialog-1-desc"
             >
               
@@ -60,7 +60,7 @@ exports[`should render correctly 1`] = `
              
             <footer
               class="css-plnu2w"
-              data-chakra-component="CBox"
+              data-chakra-component="CModalFooter"
             >
               <button
                 class="css-0 css-rup5mm"

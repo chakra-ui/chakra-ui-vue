@@ -1,3 +1,12 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue Tabs
+ *
+ * The CTab component consists of clickable tabs, that are aligned side by side.
+ *
+ * @see Docs     https://vue.chakra-ui.com/tabs
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTabs/CTabs.js
+ */
+
 import { baseProps } from '../config'
 import { useVariantColorWarning, isDef, useId, forwardProps, cleanChildren, cloneVNodeElement } from '../utils'
 import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
@@ -7,6 +16,14 @@ import CFlex from '../CFlex'
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 
+/**
+ * CTabs component
+ *
+ * the switch component that serves as an alternative for checkbox.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTabs = {
   name: 'CTabs',
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -164,11 +181,22 @@ const CTabs = {
   },
   render (h) {
     return h(CBox, {
-      props: forwardProps(this.$props)
+      props: forwardProps(this.$props),
+      attrs: {
+        'data-chakra-component': 'CTabs'
+      }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CTabList component
+ *
+ * the list wrapper component for each tab
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTabList = {
   name: 'CTabList',
   props: baseProps,
@@ -304,7 +332,8 @@ const CTabList = {
     return h(CFlex, {
       attrs: {
         role: 'tablist',
-        'aria-orientation': orientation
+        'aria-orientation': orientation,
+        'data-chakra-component': 'CTabList'
       },
       props: {
         ...this.tabListStyleProps,
@@ -317,6 +346,14 @@ const CTabList = {
   }
 }
 
+/**
+ * CTab component
+ *
+ * the tab element component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTab = {
   name: 'CTab',
   inject: ['$chakraTheme', '$chakraColorMode', '$TabContext'],
@@ -366,12 +403,21 @@ const CTab = {
         disabled: this.isDisabled,
         'aria-disabled': this.isDisabled,
         'aria-selected': this.isSelected,
-        'aria-controls': `panel:${this.id}`
+        'aria-controls': `panel:${this.id}`,
+        'data-chakra-component': 'CTab'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CTabPanel component
+ *
+ * the panel element component fro tab content
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTabPanel = {
   name: 'CTabPanel',
   props: {
@@ -382,6 +428,7 @@ const CTabPanel = {
   },
   render (h) {
     return h(CBox, {
+      props: forwardProps(this.$props),
       attrs: {
         role: 'tabpanel',
         tabIndex: -1,
@@ -389,12 +436,20 @@ const CTabPanel = {
         hidden: !this.isSelected,
         id: `panel:${this.id}`,
         outline: 0,
-        ...forwardProps(this.$props)
+        'data-chakra-component': 'CTabPanel'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CTabPanels component
+ *
+ * the wrapper  component fro tab panels
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/tabs
+ */
 const CTabPanels = {
   name: 'CTabPanels',
   inject: ['$TabContext'],
@@ -426,7 +481,8 @@ const CTabPanels = {
     return h(CBox, {
       props: forwardProps(this.$props),
       attrs: {
-        tabIndex: -1
+        tabIndex: -1,
+        'data-chakra-component': 'CTabPanels'
       }
     }, clones)
   }

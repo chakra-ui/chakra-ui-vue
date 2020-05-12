@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CSelect
+ *
+ * Select component is a component that allows users
+ * pick a value from predefined options.
+ *
+ * @see Docs     https://vue.chakra-ui.com/select
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSelect/CSelect.js
+ */
+
 import { baseProps } from '../config'
 import styleProps from '../config/props'
 import { inputProps } from '../CInput/utils/input.props'
@@ -8,7 +18,12 @@ import CIcon from '../CIcon'
 import CInput from '../CInput'
 
 /**
- * SelectIconWrapper component
+ * CSelectIconWrapper component
+ *
+ * The wrapper component for the select icon
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/select
  */
 const CSelectIconWrapper = {
   name: 'SelectIconWrapper',
@@ -28,11 +43,22 @@ const CSelectIconWrapper = {
         pointerEvents: 'none',
         zIndex: 2,
         transform: 'translateY(-50%)'
+      },
+      attrs: {
+        'data-chakra-component': 'CSelectIconWrapper'
       }
     }, this.$slots.default)
   }
 }
 
+/**
+ * CSelectInput component
+ *
+ * The select input component
+ *
+ * @extends CInput
+ * @see Docs https://vue.chakra-ui.com/select
+ */
 const CSelectInput = {
   name: 'CSelectInput',
   props: {
@@ -68,6 +94,14 @@ const CSelectInput = {
   }
 }
 
+/**
+ * CSelect component
+ *
+ * The select wrapper component
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/select
+ */
 const CSelect = {
   name: 'CSelect',
   inject: ['$chakraColorMode'],
@@ -122,6 +156,9 @@ const CSelect = {
         ...rootProps,
         position: 'relative',
         width: '100%'
+      },
+      attrs: {
+        'data-chakra-component': 'CSelect'
       }
     }, [
       h(CSelectInput, {

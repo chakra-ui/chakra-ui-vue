@@ -48,6 +48,14 @@ const setSizes = (props) => {
   return sizes[props.size] || createCustomSize(props.size)
 }
 
+/**
+ * CSpinner component
+ *
+ * The spinner componenet
+ *
+ * @extends CPseudoBox
+ * @see Docs https://vue.chakra-ui.com/spinner
+ */
 const CSpinner = {
   name: 'CSpinner',
   props: {

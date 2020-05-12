@@ -1,3 +1,13 @@
+/**
+ * Hey! Welcome to @chakra-ui/vue CSwitch
+ *
+ * The Switch component is used as an alternative for the Checkbox
+ * component, switch between enabled or disabled states.
+ *
+ * @see Docs     https://vue.chakra-ui.com/stat
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSwitch/CSwitch.js
+ */
+
 import styleProps from '../config/props'
 import { forwardProps } from '../utils'
 
@@ -20,6 +30,14 @@ const switchSizes = {
   }
 }
 
+/**
+ * CSwitch component
+ *
+ * the switch component that serves as an alternative for checkbox.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/stat
+ */
 const CSwitch = {
   name: 'CSwitch',
   model: {
@@ -98,6 +116,9 @@ const CSwitch = {
         as: 'label',
         display: 'inline-block',
         verticalAlign: 'middle'
+      },
+      attrs: {
+        'data-chakra-component': 'CSwitch'
       }
     }, [
       h(CVisuallyHidden, {

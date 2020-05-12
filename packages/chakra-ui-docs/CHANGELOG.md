@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.1...chakra-ui-docs@0.4.2) (2020-05-12)
+
+
+### Bug Fixes
+
+* upgraded tooltip modifiers ([b99aa1b](https://github.com/chakra-ui/chakra-ui-vue/commit/b99aa1b13187ba0db8c9caaf95ecc995f304ba4b))
+
+
+
+
+
 ## [0.4.1](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.0...chakra-ui-docs@0.4.1) (2020-05-12)
 
 

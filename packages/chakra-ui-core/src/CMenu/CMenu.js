@@ -301,7 +301,7 @@ const CMenuButton = {
             focusOnLastItem()
           }
         }
-      },
+      }
     }, this.$slots.default)
   }
 }

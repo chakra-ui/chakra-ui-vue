@@ -213,12 +213,12 @@ const CTooltip = {
           hasArrow: true,
           isOpen: this.isOpen,
           placement: this.placement,
-          modifiers: {
-            offset: {
-              enabled: true,
-              offset: '0, 8'
+          modifiers: [{
+            name: 'offset',
+            options: {
+              offset: [0, 8]
             }
-          },
+          }],
           arrowSize: '10px',
           px: '8px',
           py: '2px',

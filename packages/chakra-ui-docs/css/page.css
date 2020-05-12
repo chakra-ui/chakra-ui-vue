@@ -2,3 +2,7 @@ html,
 body {
   margin: 0;
 }
+
+.prism-editor__code {
+  padding-top: 16px;
+}

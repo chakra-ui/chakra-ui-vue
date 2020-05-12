@@ -102,7 +102,8 @@ const CPopper = {
   },
   data () {
     return {
-      popper: null
+      popper: null,
+      referenceBackgroundColor: undefined
     }
   },
   watch: {
@@ -122,7 +123,8 @@ const CPopper = {
       return getPopperArrowStyle({
         arrowSize: this.arrowSize,
         arrowShadowColor: this.arrowShadowColor,
-        hasArrow: this.hasArrow
+        hasArrow: this.hasArrow,
+        bg: this.referenceBackgroundColor
       })
     },
     portalTarget () {
@@ -162,6 +164,7 @@ const CPopper = {
         {
           name: 'arrow',
           options: {
+            element: '[data-popper-arrow]',
             transform: 'rotate(45deg)'
           }
         }
@@ -186,7 +189,11 @@ const CPopper = {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
               if (arrow) {
-                arrow.style.transform += 'rotate(45deg)'
+                this.$nextTick(() => {
+                  this.referenceBackgroundColor =
+                    getComputedStyle(this.reference).backgroundColor ||
+                    getComputedStyle(this.reference).background
+                })
               }
             }
           })
@@ -213,7 +220,11 @@ const CPopper = {
             if (this.hasArrow) {
               const arrow = this.reference.querySelector(['[data-popper-arrow]'])
               if (arrow) {
-                arrow.style.transform += 'rotate(45deg)'
+                this.$nextTick(() => {
+                  this.referenceBackgroundColor =
+                    getComputedStyle(this.reference).backgroundColor ||
+                    getComputedStyle(this.reference).background
+                })
               }
             }
           })
@@ -318,10 +329,7 @@ const CPopperArrow = {
         role: 'presentation',
         'data-chakra-component': 'CPopperArrow'
       },
-      props: {
-        bg: 'inherit',
-        ...forwardProps(this.$props)
-      }
+      props: forwardProps(this.$props)
     })
   }
 }

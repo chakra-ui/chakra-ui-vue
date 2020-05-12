@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.0...chakra-ui-docs@0.4.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* add vuemultianalytics deps ([c26281d](https://github.com/chakra-ui/chakra-ui-vue/commit/c26281d7c38ffb49a2994d463b2410091ef7711b))
+* analytics router ([d5c2f05](https://github.com/chakra-ui/chakra-ui-vue/commit/d5c2f0541274991f004b47b2bdb2e4904f46d780))
+* analytics router ([c7a0383](https://github.com/chakra-ui/chakra-ui-vue/commit/c7a03833df15ff8d5ead2eca47539fa8a12330f7))
+* indexing of component routes ([6842a36](https://github.com/chakra-ui/chakra-ui-vue/commit/6842a36aa7219fc5090c45331604b3c1ae78c509))
+* scroll docs to top ([e3d82a6](https://github.com/chakra-ui/chakra-ui-vue/commit/e3d82a6c06cd5a5c5071edd2a66b315c8a96bd81))
+* use env context ([4ac7961](https://github.com/chakra-ui/chakra-ui-vue/commit/4ac79618f5ee482beb7760939039591ff98e12e2))
+
+
+
+
+
 # [0.4.0](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.3.2...chakra-ui-docs@0.4.0) (2020-05-09)
 
 

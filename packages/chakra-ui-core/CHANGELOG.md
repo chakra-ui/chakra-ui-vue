@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.5.0...@chakra-ui/vue@0.5.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* popper arrow rotation ([7ca30e0](https://github.com/chakra-ui/chakra-ui-vue/commit/7ca30e0b2162e2a55052a0261f35fb7448e48c2a))
+* popper arrow rotation ([f9439dc](https://github.com/chakra-ui/chakra-ui-vue/commit/f9439dcc9833083c91ae1531f985e187ada40039))
+* scroll docs to top ([e3d82a6](https://github.com/chakra-ui/chakra-ui-vue/commit/e3d82a6c06cd5a5c5071edd2a66b315c8a96bd81))
+
+
+
+
+
 # [0.5.0](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.4.2...@chakra-ui/vue@0.5.0) (2020-05-09)
 
 

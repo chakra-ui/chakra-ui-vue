@@ -27,7 +27,7 @@
                   <Nuxt id="page-content" />
                 </keep-alive>
                 <Footer v-if="$route.path === '/'" />
-                <!-- <FileContributors /> -->
+                <FileContributors />
               </CBox>
             </CFlex>
           </CBox>
@@ -52,14 +52,14 @@ import MDXComponents from '../components/MDXComponents'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
-// import FileContributors from '../components/FileContributors'
+import FileContributors from '../components/FileContributors'
 
 // import { stringToUrl } from '../utils'
 
 export default {
   name: 'DefaultLayout',
   components: {
-    // FileContributors,
+    FileContributors,
     MDXProvider,
     CThemeProvider,
     CColorModeProvider,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.2...chakra-ui-docs@0.4.3) (2020-05-13)
+
+
+### Bug Fixes
+
+* colorpalette import fix ([84bf55a](https://github.com/chakra-ui/chakra-ui-vue/commit/84bf55ae6661a2ee318998c19f8854da93630ebb))
+
+
+
+
+
 ## [0.4.2](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.1...chakra-ui-docs@0.4.2) (2020-05-12)
 
 

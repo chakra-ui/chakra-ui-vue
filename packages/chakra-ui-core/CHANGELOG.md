@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.5.2...@chakra-ui/vue@0.5.3) (2020-05-13)
+
+
+### Bug Fixes
+
+* **cnumberinput:** fix number-input ids created at build time ([cd367d3](https://github.com/chakra-ui/chakra-ui-vue/commit/cd367d31373b966b6ae76dec68ed4dd8b5699e3c))
+
+
+
+
+
 ## [0.5.2](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.5.1...@chakra-ui/vue@0.5.2) (2020-05-12)
 
 

@@ -1058,24 +1058,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chakra-ui/vue@^0.4.1":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/vue/-/vue-0.4.2.tgz#5a6dc8ab19cad1b59039632037e6a32360378a71"
-  integrity sha512-wQ53rlbrG4+AsyAUFuaboF2R3kHfwHFD9jUqL51UsVkc5cUecweyXvavNF/YRMBkAI1ni6BzPM/3q/9LqqHE7w==
-  dependencies:
-    "@popperjs/core" "^2.4.0"
-    "@styled-system/css" "^5.0.23"
-    animejs "^3.1.0"
-    aria-hidden "^1.1.1"
-    breadstick "^0.2.14"
-    color "^3.1.2"
-    focus-trap "^5.1.0"
-    focus-trap-vue "^0.0.4"
-    lodash-es "^4.17.15"
-    portal-vue "^2.1.6"
-    styled-system "^5.1.2"
-    v-scroll-lock "^1.1.0"
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -20410,11 +20392,6 @@ vue-meta@^2.3.3:
   integrity sha512-FmeekLkd5+BI7NFBnU4bEnTpVZqmu3q8ztW4R4U3GBQljgDM7QAuwMXs8/aJP0U1tjtxobX8T6HcyZXimGj1DQ==
   dependencies:
     deepmerge "^4.2.2"
-
-vue-multianalytics@^1.11.7:
-  version "1.11.7"
-  resolved "https://registry.yarnpkg.com/vue-multianalytics/-/vue-multianalytics-1.11.7.tgz#e3d10c6952935610317729990f5f604774c86796"
-  integrity sha512-VSVFSlCwbDTloodDainKUjKArebgwpPN77I8Bi6FhYq9fvBQYX5Qkur4zuLUbB8M3EkJLjyWTz4jztrarZ6pMQ==
 
 vue-no-ssr@^1.1.1:
   version "1.1.1"

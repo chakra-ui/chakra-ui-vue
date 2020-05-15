@@ -1,4 +1,4 @@
-import SEO from "../components/SEO";
+import SEO from '../components/SEO'
 
 <SEO
   title="Using UI with Nuxt.js"
@@ -10,6 +10,7 @@ import SEO from "../components/SEO";
 💚 We all love Nuxt.js! Getting started with Nuxt.js is also just as simple.
 
 ## Installation
+
 With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-community/emotion-module) package to enable your component
 styles to be generated and injected in the server build.
 
@@ -18,6 +19,7 @@ yarn add @chakra-ui/vue emotion @nuxtjs/emotion
 ```
 
 ### Plugin setup
+
 Create a file in your `plugins/` directory. For this example, we'll call it `chakra.js`. In here
 we shall import Vue and register the plugin.
 
@@ -38,16 +40,17 @@ export default {
 ```
 
 ### Finally, setup Chakra's Theme Provider.
-We then wrap our layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your 
+
+We then wrap our layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your
 Chakra UI components can access the theme object.
 
-Great! Now you can start consuming Chakra components! 
+Great! Now you can start consuming Chakra components!
 
 ```vue
 <template>
   <CThemeProvider>
-    <CReset/>
-    <Nuxt/>
+    <CReset />
+    <Nuxt />
     <CButton as="nuxt-link" to="/my-other-page">
       ⚡️ Oh, my Nuxt!
     </CButton>
@@ -55,26 +58,21 @@ Great! Now you can start consuming Chakra components!
 </template>
 
 <script>
-import {
-  name: 'DefaultLayout',
-  CThemeProvider,
-  CReset,
-  CButton
-} from "@chakra-ui/vue";
+import { CThemeProvider, CReset, CButton } from '@chakra-ui/vue'
 
 export default {
-  name: "App",
+  name: 'DefaultLayout',
   components: {
     CThemeProvider,
     CReset,
     CButton
   }
-};
+}
 </script>
 ```
 
-
 ### Nuxt codesandbox starters
+
 Here's a link to sample component starter with Nuxt.js
 
 - [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)

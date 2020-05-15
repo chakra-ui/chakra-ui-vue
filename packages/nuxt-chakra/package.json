@@ -1,0 +1,45 @@
+{
+  "name": "@chakra-ui/nuxt",
+  "version": "0.0.0",
+  "description": "Chakra UI Module for Nuxt.js",
+  "repository": "https://github.com/chakra-ui/chakra-ui-vue",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Kelvin Omereshone <kelvinomereshone@gmail.com>"
+    }
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/module.js",
+  "scripts": {
+    "dev": "nuxt example",
+    "lint": "eslint --ext .js,.vue .",
+    "release": "yarn test && standard-version",
+    "test": "yarn lint && jest"
+  },
+  "dependencies": {
+    "@chakra-ui/vue": "^0.5.3",
+    "@nuxtjs/emotion": "^0.0.1",
+    "emotion": "^10.0.27"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@nuxtjs/eslint-config": "^2.0.2",
+    "@nuxtjs/module-test-utils": "^1.6.1",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.5.1",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.2",
+    "nuxt": "^2.12.2",
+    "standard-version": "^7.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

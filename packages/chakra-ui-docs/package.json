@@ -45,7 +45,7 @@
     "mdx-vue-loader": "^1.0.2",
     "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
-    "nuxt-edge": "^2.13.0-26490262.9b29124d",
+    "nuxt": "^2.12.2",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",

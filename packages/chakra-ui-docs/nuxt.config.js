@@ -1,11 +1,4 @@
 import dotenv from 'dotenv-defaults'
-import { stringToUrl } from './utils'
-import pages from './utils/all-routes'
-
-const routes = pages
-  .map(page => {
-    return page === 'Index' ? stringToUrl('') : stringToUrl(page)
-  })
 
 // Configuring dotenv variables.
 dotenv.config({
@@ -19,9 +12,6 @@ export default {
     target: 'static'
   },
   srcDir: __dirname,
-  generate: {
-    routes
-  },
   head: {
     title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [
@@ -78,6 +68,7 @@ export default {
   build: {
     transpile: [
       'vue-lorem-ipsum',
+      '@chakra-ui/vue',
       '@chakra-ui/theme-vue'
     ],
     additionalExtensions: [
@@ -85,14 +76,6 @@ export default {
     ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
-      // config.resolve.extensions.push('.mdx')
-      // config.module.rules.push({
-      //   test: /\.mdx$/,
-      //   use: [
-      //     'babel-loader',
-      //     'mdx-vue-loader'
-      //   ]
-      // })
     }
   }
 }

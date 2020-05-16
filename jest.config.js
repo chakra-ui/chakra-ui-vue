@@ -17,7 +17,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/$1',
     '@chakra-ui/theme-vue': require.resolve('./packages/chakra-ui-theme/src/index.js'),
     '\\.css$': require.resolve('./tests/test-utils/style-mock.js'),
-    'breadstick': require.resolve('./tests/test-utils/module-mock.js')
+    breadstick: require.resolve('./tests/test-utils/module-mock.js')
   },
   snapshotSerializers: [
     'jest-serializer-vue'

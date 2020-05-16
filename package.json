@@ -18,7 +18,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "yarn test && yarn build:dev && yarn theme:dev && lerna link",
+    "postinstall": "yarn build:dev && yarn theme:dev && lerna link",
     "build:dev": "yarn workspace @chakra-ui/vue run rollup --config rollup.dev.config.js",
     "build": "yarn workspace @chakra-ui/vue build",
     "dev": "yarn workspace @chakra-ui/vue dev",

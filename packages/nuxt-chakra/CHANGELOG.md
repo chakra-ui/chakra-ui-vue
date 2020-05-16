@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 0.0.1 (2020-05-16)
+
+
+### Features
+
+* nuxt module for @chakra-ui/vue ([9c311c2](https://github.com/chakra-ui/chakra-ui-vue/commit/9c311c2d58b18611a7053f7110654874e64658e9))
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

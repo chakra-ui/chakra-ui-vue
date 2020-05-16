@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.3...chakra-ui-docs@0.4.4) (2020-05-16)
+
+
+### Bug Fixes
+
+* **with-nuxt.mdx:** fix typo in with-nuxt.mdx ([5a64451](https://github.com/chakra-ui/chakra-ui-vue/commit/5a644519f7811239ddce7ff43e5c8d9a88509cd9))
+
+
+
+
+
 ## [0.4.3](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.2...chakra-ui-docs@0.4.3) (2020-05-13)
 
 

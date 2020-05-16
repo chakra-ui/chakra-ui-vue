@@ -297,12 +297,14 @@ const MDXComponents = {
         ? {
           props: {
             as: 'nuxt-link',
-            to: props.href
+            to: props.href,
+            color: 'vue.500'
           }
         }
         : {
           props: {
-            isExternal: true
+            isExternal: true,
+            color: 'vue.500'
           },
           domProps: {
             href: props.href

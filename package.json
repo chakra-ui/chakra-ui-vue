@@ -18,6 +18,8 @@
     ]
   },
   "scripts": {
+    "postinstall": "yarn test && yarn build:dev && yarn theme:dev && lerna link",
+    "build:dev": "yarn workspace @chakra-ui/vue run rollup --config rollup.dev.config.js",
     "build": "yarn workspace @chakra-ui/vue build",
     "dev": "yarn workspace @chakra-ui/vue dev",
     "lint": "vue-cli-service lint",
@@ -33,7 +35,7 @@
     "bootstrap": "lerna bootstrap --use-workspaces",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
     "now-build-storybook": "build-storybook -o dist/storybook",
-    "docs:dev": "yarn theme:dev && yarn docs-dev",
+    "docs:dev": "yarn docs-dev",
     "theme:dev": "yarn workspace @chakra-ui/theme-vue build",
     "docs-dev": "yarn workspace chakra-ui-docs dev",
     "evalbundle": "bundlesize"
@@ -110,7 +112,7 @@
     "mixpanel-browser": "^2.36.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.2",
     "portal-vue": "^2.1.6",
     "prismjs": "^1.19.0",
     "register-service-worker": "^1.6.2",

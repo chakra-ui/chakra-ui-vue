@@ -1,42 +1,47 @@
-# @nuxtjs/chakraui
-
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-[![Codecov][codecov-src]][codecov-href]
-[![License][license-src]][license-href]
+<h1 align="center">@chakra-ui/nuxt</h1>
 
 > Chakra UI Module for Nuxt.js
 
-[📖 **Release Notes**](./CHANGELOG.md)
+## Looking for documentation?
+See [Documentation site here](https://vue.chakra-ui.com/with-nuxt)
 
 ## Setup
 
-1. Add `@nuxtjs/chakraui` dependency to your project
+1. Add `@chakra-ui/nuxt` dependency to your project
 
 ```bash
-yarn add @nuxtjs/chakraui # or npm install @nuxtjs/chakraui
+yarn add @chakra-ui/nuxt @nuxtjs/emotion
 ```
 
-2. Add `@nuxtjs/chakraui` to the `modules` section of `nuxt.config.js`
+2. Add `@chakra-ui/nuxt` & `@nuxtjs/emotion` to the `modules` section of `nuxt.config.js`
 
 ```js
-{
+// nuxt.config.js
+export default {
   modules: [
-    // Simple usage
-    '@nuxtjs/chakraui',
-
-  ]
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion'
+  ],
+  /**
+   * Add extend the plugin options under the `chakra` key.
+   **/
+  chakra: {
+    extendTheme: {
+      colors: {
+        brand: { /* ... */ }
+      }
+    }
+  }
 }
 ```
 
 3. Wrap your default layout in `layouts/` directory inside CThemeProvider as seen in the Chakra UI [docs](https://vue.chakra-ui.com/with-nuxt) to start consuming Chakra Components. Like so:
 
-```js
+```vue
 <template>
   <c-theme-provider>
     <c-reset/>
-    <Nuxt/>
+    <nuxt/>
   </c-theme-provider>
 </template>
 
@@ -61,27 +66,11 @@ export default {
 ## Development
 
 1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
-3. Start development server using `npm run dev`
+2. Install dependencies using `yarn bootstrap`
+3. Start development server using `yarn dev`
 
 ## License
 
 [MIT License](./LICENSE)
 
 Copyright (c) Kelvin Omereshone <kelvinomereshone@gmail.com>
-
-<!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/chakraui/latest.svg
-[npm-version-href]: https://npmjs.com/package/@nuxtjs/chakraui
-
-[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/chakraui.svg
-[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/chakraui
-
-[github-actions-ci-src]: https://github.com/https://github.com/DominusKelvin/chakraui-module/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/https://github.com/DominusKelvin/chakraui-module/actions?query=workflow%3Aci
-
-[codecov-src]: https://img.shields.io/codecov/c/github/https://github.com/DominusKelvin/chakraui-module.svg
-[codecov-href]: https://codecov.io/gh/https://github.com/DominusKelvin/chakraui-module
-
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/chakraui.svg
-[license-href]: https://npmjs.com/package/@nuxtjs/chakraui

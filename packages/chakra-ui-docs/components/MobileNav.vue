@@ -3,17 +3,17 @@
     <CIconButton
       :display="['inline-flex', 'inline-flex', 'none']"
       aria-label="Navigation Menu"
-      fontSize="20px"
+      font-size="20px"
       variant="ghost"
       icon="bars"
       @click="toggleMenu"
     />
-    <CDrawer size="xs" :isOpen="isOpen" placement="left" :onClose="handleClose">
+    <CDrawer size="xs" :is-open="isOpen" placement="left" :on-close="handleClose">
       <CDrawerOverlay />
       <CDrawerContent>
-        <CDrawerBody  pos="relative" p="0" overflowY="scroll" h="100vh">
+        <CDrawerBody pos="relative" p="0" overflow-y="scroll" h="100vh">
           <CCloseButton pos="absolute" top="4" right="4" @click="handleClose" />
-          <SideNavContent contentHeight="100vh" top="0" />
+          <SideNavContent content-height="100vh" top="0" />
         </CDrawerBody>
       </CDrawerContent>
     </CDrawer>

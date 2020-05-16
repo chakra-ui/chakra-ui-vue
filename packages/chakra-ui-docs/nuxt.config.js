@@ -42,7 +42,8 @@ export default {
   ],
   modules: [
     '@nuxtjs/emotion',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'modules/routes'
   ],
   router: {
     prefetchLinks: true

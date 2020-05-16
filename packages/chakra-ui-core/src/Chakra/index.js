@@ -30,7 +30,7 @@ import useToast from '../CToast'
  * @property {Theme} extendTheme
  * @property {Object} icons
  * @property {Object} icons.extend
- * @property {Object} icons.iconPack
+ * @property {String} icons.iconPack
  * @property {Object} icons.iconSet
  *
  */

@@ -5,3 +5,4 @@ sw.js
 **/lib/plugin.js
 **/.nuxt
 **/coverage
+**/packages/chakra-ui-theme/src/*

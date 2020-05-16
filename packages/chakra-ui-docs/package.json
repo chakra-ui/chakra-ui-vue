@@ -30,7 +30,7 @@
     "@chakra-ui/vue": "^0.5.3",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@mdx-js/vue-loader": "^1.5.7",
+    "@mdx-js/vue-loader": "^1.6.1",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/now-builder": "^0.17.0",

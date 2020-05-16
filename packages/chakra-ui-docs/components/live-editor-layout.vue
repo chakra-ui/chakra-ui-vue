@@ -6,14 +6,16 @@
     <div class="editor-panel">
       <CButton
         chakra-copy-button
-        variantColor="vue"
+        variant-color="vue"
         position="absolute"
         size="sm"
         top="1.5rem"
         right="0.125rem"
-        textTransform="uppercase"
+        text-transform="uppercase"
         transform="scale(0.8)"
-      >Copy</CButton>
+      >
+        Copy
+      </CButton>
       <div
         class="editable-example-notice"
       >

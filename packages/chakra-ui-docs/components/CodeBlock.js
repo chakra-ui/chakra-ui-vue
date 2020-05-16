@@ -3,8 +3,8 @@ import 'prismjs'
 import PrismEditor from 'vue-prism-editor'
 import '../css/night-owl.css'
 import 'vue-prism-editor/dist/VuePrismEditor.css'
-import LiveEditor from './LiveEditor'
 import copy from 'copy-to-clipboard'
+import LiveEditor from './LiveEditor'
 
 function getLanguage (string) {
   return string.slice(string.indexOf('-') + 1)
@@ -48,7 +48,7 @@ const CodeBlock = props => ({
       await copy(this.text)
 
       // Handle timeouts for copy button text
-      if (this.copyTimeout) clearTimeout(this.copyTimeout)
+      if (this.copyTimeout) { clearTimeout(this.copyTimeout) }
       this.copyButtonText = 'Copied!'
       this.copyTimeout = setTimeout(() => {
         this.copyButtonText = 'Copy'

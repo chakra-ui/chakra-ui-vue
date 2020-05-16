@@ -130,17 +130,17 @@ const aboutNavLinks = [
 export default {
   name: 'SideNavContent',
   inject: ['$chakraColorMode'],
+  components: {
+    CBox,
+    CHeading,
+    CPseudoBox
+  },
   props: {
     contentHeight: {
       type: String,
       default: 'calc(100vh - 4rem)'
     },
     ...boxProps
-  },
-  components: {
-    CBox,
-    CHeading,
-    CPseudoBox
   },
   computed: {
     colorMode () {

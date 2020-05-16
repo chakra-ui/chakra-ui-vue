@@ -1,2 +1,4 @@
 **/dist/*
 sw.js
+
+**/packages/chakra-ui-theme/*

@@ -1,11 +1,11 @@
 import { css } from 'emotion'
 import { CHeading, CBox, Css, CPseudoBox, CCode, CText } from '@chakra-ui/vue'
+import CodeBlock from './CodeBlock'
 import { stringToUrl } from '~/utils'
 import pages from '~/utils/all-routes'
-import CodeBlock from './CodeBlock'
 
 const routes = pages
-  .map(page => {
+  .map((page) => {
     return page === 'Index' ? stringToUrl('') : stringToUrl(page)
   })
 
@@ -115,7 +115,8 @@ const MDXComponents = {
       )
     }
   }),
-  code: CodeBlock,
+  // eslint-disable-next-line
+  'code': CodeBlock,
   pre: props => ({
     name: 'Box',
     render () {

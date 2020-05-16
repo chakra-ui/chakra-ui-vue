@@ -3,12 +3,12 @@
     as="nav"
     p="4"
     :display="['none', null, 'block']"
-    maxWidth="18rem"
+    max-width="18rem"
     width="full"
-    borderRight="1px"
-    borderColor="gray.200"
+    border-right="1px"
+    border-color="gray.200"
     h="calc(100vh - 60px)"
-    overflowY="scroll"
+    overflow-y="scroll"
   >
     <SideNavContent />
   </CBox>

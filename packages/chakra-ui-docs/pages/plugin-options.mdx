@@ -6,3 +6,64 @@ import SEO from '../components/SEO'
 />
 
 # Plugin Options
+
+Chakra UI's plugin gives you the ability to extend Chakra's features for your application.
+Here are all the options available when configuring the plugin and their default values:
+
+```js
+import Chakra from '@chakra-ui/vue';
+
+Vue.use(Chakra, {
+  /**
+  * Extends the Chakra theme object with the values
+  * provided in this option. Chakra UI recursively merges this
+  * theme object and will overwrite defaults with extended theme
+  * values.
+  * 
+  * @see
+  * - Theme specification - https://theme-ui.com/theme-spec/
+  * - Example:
+  *  https://vue.chakra-ui.com/extending-theme#extending-theme-object
+  */
+  extendTheme: {},
+  /**
+   * Enables extension of icons inside the Chakra app.
+   * Currently it only supports FontAwesome icons.
+   * 
+   * @see
+   *  - Icons: https://vue.chakra-ui.com/icon
+   */
+  icons: {
+    /**
+     * The pack of the icons being used.
+     * This defaults to FontAwesome (fa).
+    */
+    iconPack: 'fa',
+    /**
+     *The object of icon paths to be consumed.
+     * For example:
+     *  - faArrowUp
+     *  - faArrowDown 
+    */
+    iconSet: {},
+    /**
+     * Custom SVG paths that can be added to the
+     * Chakra application and can be accessed by Chakra.
+     * Chakra defaults all SVG icon paths 'viewBox' to `0 0 24 24`.
+     * 
+     * e.g.
+     * extend: {
+     *    github: {
+     *       path: `<path ...> </path>`,
+     *        viewbox: `0 0 24 24` 
+     *    }
+     * }
+     * 
+     * @see
+     *  - Icons: https://vue.chakra-ui.com/icon
+    */
+    extend: {},
+  }
+})
+
+```

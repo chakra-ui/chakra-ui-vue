@@ -7,7 +7,7 @@
       </linearGradient>
     </defs>
     <g id="Layer_2" data-name="Layer 2">
-      <g fill="currentColor" id="Layer_1-2" data-name="Layer 1"><text class="cls-1" transform="translate(273.17 150.87)">chak<tspan class="cls-2" x="375.71" y="0">r</tspan><tspan x="438" y="0">a</tspan></text>
+      <g id="Layer_1-2" fill="currentColor" data-name="Layer 1"><text class="cls-1" transform="translate(273.17 150.87)">chak<tspan class="cls-2" x="375.71" y="0">r</tspan><tspan x="438" y="0">a</tspan></text>
         <path class="cls-3" d="M108,0A108,108,0,1,0,216,108,108,108,0,0,0,108,0ZM74.16,173,103.46,119l-33.85.65,65.62-76.59L106.88,99l39.85-1.85Z" />
       </g>
     </g>

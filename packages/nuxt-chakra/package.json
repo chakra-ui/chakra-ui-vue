@@ -17,7 +17,7 @@
     "dev": "nuxt example",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version",
-    "test": "yarn lint && jest"
+    "test": "jest"
   },
   "dependencies": {
     "@chakra-ui/vue": "^0.5.3",

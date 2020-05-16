@@ -3,3 +3,5 @@ sw.js
 
 # Plugin
 **/lib/plugin.js
+**/.nuxt
+**/coverage

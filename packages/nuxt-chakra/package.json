@@ -22,6 +22,8 @@
   "dependencies": {
     "@chakra-ui/vue": "^0.5.3",
     "@nuxtjs/emotion": "^0.0.1",
+    "@nuxtjs/module-test-utils": "^1.6.1",
+    "core-js": "2",
     "emotion": "^10.0.27"
   },
   "devDependencies": {

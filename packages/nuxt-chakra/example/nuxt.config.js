@@ -6,5 +6,10 @@ module.exports = {
   srcDir: __dirname,
   modules: [
     { handler: require('../') }
-  ]
+  ],
+  build: {
+    transpile: [
+      '@chakra-ui/vue'
+    ]
+  }
 }

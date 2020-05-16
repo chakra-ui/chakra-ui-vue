@@ -6,7 +6,8 @@ module.exports = function (moduleOptions) {
    */
   this.addPlugin({
     src: resolve(__dirname, 'plugin.js'),
-    fileName: 'chakra.js'
+    fileName: 'chakra.js',
+    options: moduleOptions
   })
 }
 

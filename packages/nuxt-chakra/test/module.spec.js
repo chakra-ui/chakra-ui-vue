@@ -11,8 +11,14 @@ describe('module', () => {
     await nuxt.close()
   })
 
-  test('render', async () => {
+  test('renders app', async () => {
     const html = await get('/')
-    expect(html).toContain('Delete Account')
+    expect(html).toContain('⚡️ Hello chakra-ui/vue')
+  })
+
+  test('renders ThemeProvider component', async () => {
+    const html = await get('/')
+    console.log(html)
+    expect(html).toContain('data-chakra-component="CThemeProvider"')
   })
 })

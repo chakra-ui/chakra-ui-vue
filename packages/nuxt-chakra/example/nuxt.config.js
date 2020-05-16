@@ -6,8 +6,7 @@ module.exports = {
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
   modules: [
-    { handler: require('../') },
-    '@nuxtjs/emotion'
+    { handler: require('../') }
   ],
   build: {
     transpile: [

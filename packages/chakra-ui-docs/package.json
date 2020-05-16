@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt generate --max_old_space_size=8000",
+    "build-static":"nuxt build --target static",
+    "export": "nuxt export",
     "start": "nuxt start --max_old_space_size=8000",
     "docs:build": "nuxt ",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
@@ -43,7 +45,7 @@
     "mdx-vue-loader": "^1.0.2",
     "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.0.0",
+    "nuxt-edge": "^2.13.0-26490262.9b29124d",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",

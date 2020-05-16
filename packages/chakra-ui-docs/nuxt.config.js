@@ -15,6 +15,9 @@ dotenv.config({
 
 export default {
   mode: 'universal',
+  options: {
+    target: 'static'
+  },
   srcDir: __dirname,
   generate: {
     routes
@@ -52,8 +55,11 @@ export default {
       ssr: 'critical'
     }],
     '@nuxtjs/pwa',
-    '@nuxtjs/router'
+    'modules/routes'
   ],
+  router: {
+    prefetchLinks: true
+  },
   pwa: {
     meta: {
       name: 'Chakra UI Vue',
@@ -66,20 +72,27 @@ export default {
       iconFileName: 'chakra.png'
     }
   },
+  extensions: [
+    'mdx'
+  ],
   build: {
     transpile: [
       'vue-lorem-ipsum',
       '@chakra-ui/theme-vue'
     ],
+    additionalExtensions: [
+      '.mdx'
+    ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
-      config.module.rules.push({
-        test: /\.mdx$/,
-        use: [
-          'babel-loader',
-          'mdx-vue-loader'
-        ]
-      })
+      // config.resolve.extensions.push('.mdx')
+      // config.module.rules.push({
+      //   test: /\.mdx$/,
+      //   use: [
+      //     'babel-loader',
+      //     'mdx-vue-loader'
+      //   ]
+      // })
     }
   }
 }

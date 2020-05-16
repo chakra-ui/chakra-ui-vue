@@ -108,7 +108,7 @@
     "mixpanel-browser": "^2.36.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.0.0",
+    "nuxt-edge": "^2.13.0-26490262.9b29124d",
     "portal-vue": "^2.1.6",
     "prismjs": "^1.19.0",
     "register-service-worker": "^1.6.2",

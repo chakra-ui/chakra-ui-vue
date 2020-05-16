@@ -1,2 +1,5 @@
 **/dist/*
 sw.js
+
+# Plugin
+**/lib/plugin.js

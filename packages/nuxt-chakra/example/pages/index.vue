@@ -57,6 +57,9 @@
         >
           Delete Account
         </c-button>
+        <c-text p="3" mt="3" bg="brand.800" color="brand.200" :data-test-custom-theme-color="$chakra.theme.colors.brand['200']">
+          Brand color from extended theme
+        </c-text>
         <c-modal :is-open="showModal">
           <c-modal-overlay />
           <c-modal-content>
@@ -94,7 +97,8 @@ import {
   CModalCloseButton,
   CIconButton,
   CFlex,
-  CHeading
+  CHeading,
+  CText
 } from '@chakra-ui/vue'
 
 export default {
@@ -115,7 +119,8 @@ export default {
     CModalCloseButton,
     CIconButton,
     CFlex,
-    CHeading
+    CHeading,
+    CText
   },
   data () {
     return {

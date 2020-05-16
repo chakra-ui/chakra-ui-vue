@@ -1,4 +1,5 @@
 const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils')
+const customTheme = require('../example/utils/theme')
 
 describe('module', () => {
   let nuxt
@@ -18,7 +19,11 @@ describe('module', () => {
 
   test('renders ThemeProvider component', async () => {
     const html = await get('/')
-    console.log(html)
     expect(html).toContain('data-chakra-component="CThemeProvider"')
+  })
+
+  test('should accept extended variables nuxt config', async () => {
+    const html = await get('/')
+    expect(html).toContain(`data-test-custom-theme-color="${customTheme.colors.brand[200]}`)
   })
 })

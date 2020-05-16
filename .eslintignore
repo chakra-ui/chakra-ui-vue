@@ -1,2 +1,8 @@
 **/dist/*
 sw.js
+
+# Plugin
+**/lib/plugin.js
+**/.nuxt
+**/coverage
+**/packages/chakra-ui-theme/src/*

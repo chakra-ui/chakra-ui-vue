@@ -10,18 +10,18 @@
           >
             <CReset />
             <Navbar />
-            <CFlex maxH="calc(100vh - 60px)">
+            <CFlex max-h="calc(100vh - 60px)">
               <Sidebar />
               <CBox
+                ref="docContainer"
                 :class="styles(colorMode)"
                 as="section"
                 w="100%"
                 height="calc(100vh - 60px)"
-                overflowY="scroll"
+                overflow-y="scroll"
                 :py="[5, 20]"
                 :px="[10, 10, 20, '14rem']"
                 font-family="body"
-                ref="docContainer"
               >
                 <keep-alive>
                   <Nuxt id="page-content" />
@@ -166,37 +166,30 @@ export default {
         }]
     }
   },
-  watch: {
-    '$route.path' (newVal) {
-      this.$nextTick(() => {
-        this.$refs.docContainer.$el.scrollTo(0, 0)
-      })
-    }
-  },
   computed: {
     styles () {
       return colorMode => css(Css({
-        'th': {
+        th: {
           bg: this.thBg[colorMode]
         },
         '.preview-panel': {
           borderColor: this.thBg[colorMode]
         },
         'table, p': {
-          'code': {
+          code: {
             ...this.code[colorMode],
             fontSize: 'sm'
           }
         },
-        'blockquote': {
+        blockquote: {
           ...this.callout[colorMode],
-          'code': {
+          code: {
             ...this.code[colorMode],
             fontSize: 'sm'
           }
         },
         'h1, h2, h3': {
-          'code': this.code[colorMode]
+          code: this.code[colorMode]
         },
         li: {
           code: {
@@ -208,6 +201,13 @@ export default {
     },
     hash () {
       return this.$route.name
+    }
+  },
+  watch: {
+    '$route.path' (newVal) {
+      this.$nextTick(() => {
+        this.$refs.docContainer.$el.scrollTo(0, 0)
+      })
     }
   }
 }

@@ -9,7 +9,7 @@ export default ({ app, env }) => {
     console.error('Error initializing docs analytics', error)
   }
 
-  app.router.afterEach(to => {
+  app.router.afterEach((to) => {
     try {
       (process.env.NODE_ENV !== 'production') && console.log({ to })
       const { path: page, ...rest } = to

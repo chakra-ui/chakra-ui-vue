@@ -1,11 +1,4 @@
 import dotenv from 'dotenv-defaults'
-import { stringToUrl } from './utils'
-import pages from './utils/all-routes'
-
-const routes = pages
-  .map(page => {
-    return page === 'Index' ? stringToUrl('') : stringToUrl(page)
-  })
 
 // Configuring dotenv variables.
 dotenv.config({
@@ -15,10 +8,10 @@ dotenv.config({
 
 export default {
   mode: 'universal',
-  srcDir: __dirname,
-  generate: {
-    routes
+  options: {
+    target: 'static'
   },
+  srcDir: __dirname,
   head: {
     title: 'Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications.',
     meta: [
@@ -48,12 +41,13 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    ['@nuxtjs/emotion', {
-      ssr: 'critical'
-    }],
+    '@nuxtjs/emotion',
     '@nuxtjs/pwa',
-    '@nuxtjs/router'
+    'modules/routes'
   ],
+  router: {
+    prefetchLinks: true
+  },
   pwa: {
     meta: {
       name: 'Chakra UI Vue',
@@ -66,20 +60,20 @@ export default {
       iconFileName: 'chakra.png'
     }
   },
+  extensions: [
+    'mdx'
+  ],
   build: {
     transpile: [
       'vue-lorem-ipsum',
+      '@chakra-ui/vue',
       '@chakra-ui/theme-vue'
+    ],
+    additionalExtensions: [
+      '.mdx'
     ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
-      config.module.rules.push({
-        test: /\.mdx$/,
-        use: [
-          'babel-loader',
-          'mdx-vue-loader'
-        ]
-      })
     }
   }
 }

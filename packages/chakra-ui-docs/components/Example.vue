@@ -1,32 +1,45 @@
 <template>
   <CGrid
-    :templateColumns="['1fr', '1fr', '1fr', '3fr 300px']"
-    alignItems="start"
+    :template-columns="['1fr', '1fr', '1fr', '3fr 300px']"
+    align-items="start"
   >
-    <CBox fontSize="sm" maxW="100%" rounded="md" overflow="hidden" :mr="[0, 0, 5]" :mb="[5, 5, 0]">
-      <prism-editor v-model="code" :readonly="true" language="vue"/>
+    <CBox
+      font-size="sm"
+      max-w="100%"
+      rounded="md"
+      overflow="hidden"
+      :mr="[0, 0, 5]"
+      :mb="[5, 5, 0]"
+    >
+      <prism-editor v-model="code" :readonly="true" language="vue" />
     </CBox>
     <CBox w="100%" shadow="md" rounded="lg" p="5">
-      <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6"/>
+      <CImage rounded="md" w="100%" src="https://bit.ly/2k1H1t6" />
       <CFlex align="baseline" mt="2">
-        <CBadge variantColor="pink">Plus</CBadge>
+        <CBadge variant-color="pink">
+          Plus
+        </CBadge>
         <CText
           ml="2"
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="bold"
+          text-transform="uppercase"
+          font-size="sm"
+          font-weight="bold"
           color="pink.800"
         >
-        Verified &bull; Cape Town
+          Verified &bull; Cape Town
         </CText>
       </CFlex>
-      <CText mt="2" fontSize="xl" fontWeight="semibold" lineHeight="short">
+      <CText mt="2" font-size="xl" font-weight="semibold" line-height="short">
         Modern, Chic Penthouse with Mountain, City & Sea Views
       </CText>
-      <CText mt="2">$119/night</CText>
+      <CText mt="2">
+        $119/night
+      </CText>
       <CFlex mt="2" align="center">
         <CIcon name="star" color="orange.400" />
-        <CText ml="1" fontSize="sm"><b>4.84</b> (190)</CText>
+        <CText ml="1" font-size="sm">
+          <b>4.84</b> (190)
+        </CText>
       </CFlex>
     </CBox>
   </CGrid>

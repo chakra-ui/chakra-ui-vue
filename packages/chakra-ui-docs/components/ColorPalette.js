@@ -13,7 +13,7 @@ export const ColorPalette = {
     },
     colorCode () {
       let colorCode = this.color
-      const [ shade, hue ] = this.color.split('.')
+      const [shade, hue] = this.color.split('.')
 
       if (shade && hue) {
         colorCode = this.theme.colors[shade][hue]

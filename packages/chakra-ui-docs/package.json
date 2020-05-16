@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt generate --max_old_space_size=8000",
+    "build-static":"nuxt build --target static",
+    "export": "nuxt export",
     "start": "nuxt start --max_old_space_size=8000",
     "docs:build": "nuxt ",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
@@ -28,7 +30,7 @@
     "@chakra-ui/vue": "^0.5.3",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@mdx-js/vue-loader": "^1.5.7",
+    "@mdx-js/vue-loader": "^1.6.1",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/now-builder": "^0.17.0",
@@ -43,7 +45,7 @@
     "mdx-vue-loader": "^1.0.2",
     "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.2",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",

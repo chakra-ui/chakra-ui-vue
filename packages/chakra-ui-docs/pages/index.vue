@@ -1,5 +1,5 @@
 <template>
-  <CBox as="main" fontFamily="body">
+  <CBox as="main" font-family="body">
     <SEO
       title="Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications."
       description="Simple, Modular and Accessible UI Components for your Vue Applications."
@@ -8,16 +8,16 @@
     <CFlex
       as="section"
       py="10"
-      :flexDir="['column', 'column', 'row']"
-      fontFamily="body"
+      :flex-dir="['column', 'column', 'row']"
+      font-family="body"
     >
-      <CGrid :templateColumns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
+      <CGrid :template-columns="['auto', 'auto', 'repeat(3, 1fr)']" gap="6">
         <CBox m="3">
-          <CFlex alignItems="center" mb="5">
+          <CFlex align-items="center" mb="5">
             <CFlex
-              justifyContent="center"
+              justify-content="center"
               color="white"
-              alignItems="center"
+              align-items="center"
               mr="5"
               bg="vue.400"
               w="50px"
@@ -26,17 +26,19 @@
             >
               <CIcon size="25px" name="universal-access" />
             </CFlex>
-            <CHeading as="h4" size="md">Accessible</CHeading>
+            <CHeading as="h4" size="md">
+              Accessible
+            </CHeading>
           </CFlex>
           Chakra UI strictly follows WAI-ARIA standards. All components come
           with proper attributes and keyboard interactions out of the box.
         </CBox>
         <CBox m="3">
-          <CFlex alignItems="center" mb="5">
+          <CFlex align-items="center" mb="5">
             <CFlex
-              justifyContent="center"
+              justify-content="center"
               color="white"
-              alignItems="center"
+              align-items="center"
               mr="5"
               bg="vue.400"
               w="50px"
@@ -45,17 +47,19 @@
             >
               <CIcon size="25px" name="palette" />
             </CFlex>
-            <CHeading as="h4" size="md">Themeable</CHeading>
+            <CHeading as="h4" size="md">
+              Themeable
+            </CHeading>
           </CFlex>
           Quickly and easily reference values from your theme throughout your
           entire application, on any component.
         </CBox>
         <CBox m="3">
-          <CFlex alignItems="center" mb="5">
+          <CFlex align-items="center" mb="5">
             <CFlex
-              justifyContent="center"
+              justify-content="center"
               color="white"
-              alignItems="center"
+              align-items="center"
               mr="5"
               bg="vue.400"
               w="50px"
@@ -64,7 +68,9 @@
             >
               <CIcon size="25px" name="cubes" />
             </CFlex>
-            <CHeading as="h4" size="md">Composable</CHeading>
+            <CHeading as="h4" size="md">
+              Composable
+            </CHeading>
           </CFlex>
           Components were built with composition in mind. You can leverage any
           component to create new things.

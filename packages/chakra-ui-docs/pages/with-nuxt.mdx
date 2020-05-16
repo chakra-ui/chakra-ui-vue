@@ -15,27 +15,32 @@ With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-
 styles to be generated and injected in the server build.
 
 ```bash
-yarn add @chakra-ui/vue emotion @nuxtjs/emotion
+yarn add @chakra-ui/nuxt @nuxtjs/emotion
 ```
 
-### Plugin setup
+## Registering the Chakra module
+We then register the Chakra UI module in the `modules` key of our `nuxt.config.js`.
+[See the Nuxt documentation to learn more about modules in Nuxt.js](https://nuxtjs.org/guide/modules)
 
-Create a file in your `plugins/` directory. For this example, we'll call it `chakra.js`. In here
-we shall import Vue and register the plugin.
-
-```js
-// chakra.js
-import Vue from 'vue'
-import Chakra from '@chakra-ui/vue'
-
-Vue.use(Chakra)
-```
-
-We then add the Chakra plugin's file path in the `plugins` key of our `nuxt.config.js`. [See the Nuxt documentation to learn mroe about plugins in Nuxt.js](https://nuxtjs.org/guide/plugins)
+Chakra module options are the same as the Vue CLI plugin options.
+Learn more about the [Chakra plugin options here](/plugin-options).
 
 ```js
 export default {
-  plugins: ['~/plugins/chakra']
+  modules: [
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion'
+  ],
+  /**
+   * Add extend the plugin options under the `chakra` key.
+   **/
+  chakra: {
+    extendTheme: {
+      colors: {
+        brand: { /* ... */ }
+      }
+    }
+  }
 }
 ```
 

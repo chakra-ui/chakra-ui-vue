@@ -1,5 +1,5 @@
-import Layout from './live-editor-layout.vue'
 import copy from 'copy-to-clipboard'
+import Layout from './live-editor-layout.vue'
 
 const LiveEditor = {
   name: 'LiveEditor',
@@ -47,7 +47,7 @@ const LiveEditor = {
       // Copy text to clipboard
       await copy(this.code)
       // Handle timeouts for copy button text
-      if (this.copyTimeout) clearTimeout(this.copyTimeout)
+      if (this.copyTimeout) { clearTimeout(this.copyTimeout) }
       this.copyButton.textContent = 'Copied!'
       this.copyTimeout = setTimeout(() => {
         this.copyButton.textContent = 'Copy'

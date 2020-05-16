@@ -62,6 +62,7 @@ export const topNavLinks = [
   'With Nuxt',
   'Principles',
   'Style Props',
+  'Plugin Options',
   'Theme',
   'Extending Theme',
   'Color Mode',

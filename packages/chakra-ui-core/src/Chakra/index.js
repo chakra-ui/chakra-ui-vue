@@ -1,8 +1,8 @@
+import VScrollLock from 'v-scroll-lock'
+import { merge } from 'lodash-es'
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
 import defaultTheme from '../../../chakra-ui-theme/src'
-import VScrollLock from 'v-scroll-lock'
-import { merge } from 'lodash-es'
 import useToast from '../CToast'
 
 /**
@@ -30,7 +30,7 @@ import useToast from '../CToast'
  * @property {Theme} extendTheme
  * @property {Object} icons
  * @property {Object} icons.extend
- * @property {Object} icons.iconPack
+ * @property {String} icons.iconPack
  * @property {Object} icons.iconSet
  *
  */

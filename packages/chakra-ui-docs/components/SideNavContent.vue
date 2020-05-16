@@ -3,7 +3,7 @@
     p="3"
     :color="colorMode === 'light' ? 'gray.600': 'whiteAlpha.700'"
   >
-    <CHeading size="xs" color="gray.400" letterSpacing="wide" mb="2" textTransform="uppercase">
+    <CHeading size="xs" color="gray.400" letter-spacing="wide" mb="2" text-transform="uppercase">
       Getting Started
     </CHeading>
     <CBox v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
@@ -22,15 +22,22 @@
         rounded="md"
         :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
         :color="$route.path === link.path ? 'vue.700' : 'inherit'"
-        fontWeight="bold"
-        fontSize="sm"
-        textDecoration="none"
+        font-weight="bold"
+        font-size="sm"
+        text-decoration="none"
         transition="background-color 0.15s ease-in"
       >
         {{ link.name }}
       </CPseudoBox>
     </CBox>
-    <CHeading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
+    <CHeading
+      size="xs"
+      color="gray.400"
+      letter-spacing="wide"
+      mt="4"
+      mb="2"
+      text-transform="uppercase"
+    >
       About Chakra UI Vue
     </CHeading>
     <CBox v-for="(link, index) in aboutNavLinks" :key="`${index}-about-chakra`">
@@ -49,15 +56,22 @@
         rounded="md"
         :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
         :color="$route.path === link.path ? 'vue.700' : 'inherit'"
-        fontWeight="bold"
-        fontSize="sm"
-        textDecoration="none"
+        font-weight="bold"
+        font-size="sm"
+        text-decoration="none"
         transition="background-color 0.15s ease-in"
       >
         {{ link.name }}
       </CPseudoBox>
     </CBox>
-    <CHeading size="xs" color="gray.400" letterSpacing="wide" mt="4" mb="2" textTransform="uppercase">
+    <CHeading
+      size="xs"
+      color="gray.400"
+      letter-spacing="wide"
+      mt="4"
+      mb="2"
+      text-transform="uppercase"
+    >
       Components
     </CHeading>
     <CPseudoBox
@@ -75,9 +89,9 @@
       }"
       d="block"
       rounded="md"
-      fontWeight="bold"
-      fontSize="sm"
-      textDecoration="none"
+      font-weight="bold"
+      font-size="sm"
+      text-decoration="none"
       :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
       :color="$route.path === link.path ? 'vue.700' : 'inherit'"
     >
@@ -94,38 +108,39 @@ import { components as componentLinks } from '../utils/all-routes'
 const topNavLinks = [
   'Getting Started',
   'With Nuxt',
+  'Plugin Options',
   'Principles',
   'Style Props',
   'Theme',
   'Extending Theme',
   'Color Mode',
   'Responsive Styles',
-  'Starters',
-  'Recipes',
-  'Storybook'
+  'Starters'
 ]
 
 const aboutNavLinks = [
   'Why Chakra UI',
   'Accessibility',
   'Constraint Based Design',
-  'Contributing'
+  'Contributing',
+  'Recipes',
+  'Storybook'
 ]
 
 export default {
   name: 'SideNavContent',
   inject: ['$chakraColorMode'],
+  components: {
+    CBox,
+    CHeading,
+    CPseudoBox
+  },
   props: {
     contentHeight: {
       type: String,
       default: 'calc(100vh - 4rem)'
     },
     ...boxProps
-  },
-  components: {
-    CBox,
-    CHeading,
-    CPseudoBox
   },
   computed: {
     colorMode () {

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.4...chakra-ui-docs@0.4.5) (2020-05-17)
+
+**Note:** Version bump only for package chakra-ui-docs
+
+
+
+
+
 ## [0.4.4](https://github.com/chakra-ui/chakra-ui-vue/compare/chakra-ui-docs@0.4.3...chakra-ui-docs@0.4.4) (2020-05-16)
 
 

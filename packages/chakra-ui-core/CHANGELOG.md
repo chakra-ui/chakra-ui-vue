@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.6](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.5.5...@chakra-ui/vue@0.5.6) (2020-05-19)
+
+
+### Bug Fixes
+
+* **fontfamily:** default font-family font to body ([19730d8](https://github.com/chakra-ui/chakra-ui-vue/commit/19730d87114438051ebf4b58a454e3b06eed97d8))
+
+
+
+
+
 ## [0.5.5](https://github.com/chakra-ui/chakra-ui-vue/compare/@chakra-ui/vue@0.5.4...@chakra-ui/vue@0.5.5) (2020-05-17)
 
 **Note:** Version bump only for package @chakra-ui/vue

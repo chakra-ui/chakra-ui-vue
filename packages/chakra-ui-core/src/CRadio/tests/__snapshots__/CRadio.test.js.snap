@@ -3,22 +3,22 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-1qf83f9"
+    class="css-109vd24"
     data-chakra-component="CRadio"
   >
     <input
-      class="css-0 css-f8n5zr"
+      class="css-fzcsno css-f8n5zr"
       data-chakra-component="CVisuallyHidden"
       type="radio"
       value=""
     />
     <div
       aria-hidden="true"
-      class="css-1v9glee css-aufuif"
+      class="css-1ht8nam css-aufuif"
       data-chakra-component="CControlBox"
     >
       <span
-        class="css-1qfw50u"
+        class="css-1luw7uj"
         data-chakra-component="CBox"
       />
     </div>

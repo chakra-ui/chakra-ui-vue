@@ -3,7 +3,7 @@
 exports[`should change the style 1`] = `
 <DocumentFragment>
   <div
-    class="css-0 css-mr4uxt"
+    class="css-fzcsno css-mr4uxt"
     data-chakra-component="CPseudoBox"
     data-testid="box"
   >
@@ -15,7 +15,7 @@ exports[`should change the style 1`] = `
 exports[`should display Box with type as header 1`] = `
 <DocumentFragment>
   <header
-    class="css-0 css-0"
+    class="css-fzcsno css-fzcsno"
     data-chakra-component="CPseudoBox"
     data-testid="box"
   >
@@ -27,7 +27,7 @@ exports[`should display Box with type as header 1`] = `
 exports[`should display Box with type as p 1`] = `
 <DocumentFragment>
   <p
-    class="css-0 css-0"
+    class="css-fzcsno css-fzcsno"
     data-chakra-component="CPseudoBox"
     data-testid="box"
   >
@@ -39,7 +39,7 @@ exports[`should display Box with type as p 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-0 css-0"
+    class="css-fzcsno css-fzcsno"
     data-chakra-component="CPseudoBox"
     data-testid="box"
   >

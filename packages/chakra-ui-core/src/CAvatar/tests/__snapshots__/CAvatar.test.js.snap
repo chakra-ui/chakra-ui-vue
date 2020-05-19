@@ -3,13 +3,13 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-86yran"
+    class="css-2sxxyf"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <div
       aria-label="Mesut Koca"
-      class="css-1e8yzjf"
+      class="css-1n1d9mc"
       data-chakra-component="CAvatarName"
     >
       MK
@@ -21,12 +21,12 @@ exports[`should render correctly 1`] = `
 exports[`should render default avatar if name is not provided and image didn't load 1`] = `
 <DocumentFragment>
   <div
-    class="css-n5i113"
+    class="css-7ezpv2"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <div
-      class="css-14vc57m"
+      class="css-1clbu1k"
       data-chakra-component="CDefaultAvatar"
     >
       

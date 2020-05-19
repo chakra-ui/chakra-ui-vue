@@ -77,7 +77,10 @@ const baseProps = {
   bgRepeat: SNA,
   borderWidth: SNA,
   fontWeight: SNA,
-  fontFamily: SNA,
+  fontFamily: {
+    type: SNA,
+    default: 'body'
+  },
   fontSize: SNA,
   fontStyle: SNA,
   textAlign: SNA,

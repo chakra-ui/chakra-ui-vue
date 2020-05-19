@@ -4,7 +4,7 @@ exports[`should change orientation 1`] = `
 <DocumentFragment>
   <hr
     aria-orientation="vertical"
-    class="css-1n8n8cf"
+    class="css-8cfh0v"
     data-chakra-component="CDivider"
   />
 </DocumentFragment>
@@ -14,7 +14,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <hr
     aria-orientation="horizontal"
-    class="css-boncrs"
+    class="css-1onigce"
     data-chakra-component="CDivider"
   />
 </DocumentFragment>

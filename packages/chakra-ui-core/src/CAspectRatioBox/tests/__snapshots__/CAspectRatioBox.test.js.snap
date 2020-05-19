@@ -3,13 +3,13 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-0 css-yotxfm"
+    class="css-fzcsno css-1a546fy"
     data-chakra-component="CAspectRatioBox"
     data-testid="aspectRatioBox"
   >
     <img
       alt="naruto"
-      class="css-1yxkji9"
+      class="css-fxtok7"
       data-chakra-component="CBox"
       data-testid="image"
       src="https://bit.ly/naruto-sage"

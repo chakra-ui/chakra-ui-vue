@@ -4,12 +4,12 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
     aria-label="Close"
-    class="css-0 css-12btrym"
+    class="css-fzcsno css-iwel03"
     data-chakra-component="CCloseButton"
   >
     <svg
       aria-hidden="true"
-      class="css-xmst1h css-y3asau"
+      class="css-1d2a4q2 css-y3asau"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"

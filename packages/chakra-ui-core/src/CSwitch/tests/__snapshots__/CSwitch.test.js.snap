@@ -3,21 +3,21 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-l5ub9m"
+    class="css-810y7c"
     data-chakra-component="CSwitch"
   >
     <input
-      class="css-0 css-f8n5zr"
+      class="css-fzcsno css-f8n5zr"
       data-chakra-component="CVisuallyHidden"
       type="checkbox"
     />
     <div
       aria-hidden="true"
-      class="css-1yyoepi css-14rwhig"
+      class="css-1uokdbb css-14rwhig"
       data-chakra-component="CControlBox"
     >
       <div
-        class="css-4b8l73"
+        class="css-sht12m"
         data-chakra-component="CBox"
       />
     </div>

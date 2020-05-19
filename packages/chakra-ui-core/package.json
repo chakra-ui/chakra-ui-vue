@@ -27,7 +27,8 @@
     "clean": "rimraf ./dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "bundle-phobia": {
     "max-size": "85KB",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.9
+
+### Patch Changes
+
+- fix: add build step to ci publish
+
 ## 0.5.8
 
 ### Patch Changes

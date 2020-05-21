@@ -53,6 +53,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: yarn
+      - run: yarn build
       - run: yarn publish-ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@chakra-ui/vue": "0.5.7",
+    "chakra-ui-docs": "0.4.6",
+    "@chakra-ui/theme-vue": "0.2.5",
+    "@chakra-ui/nuxt": "0.0.3"
+  },
+  "changesets": []
+}

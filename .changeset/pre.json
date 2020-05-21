@@ -7,5 +7,7 @@
     "@chakra-ui/theme-vue": "0.2.5",
     "@chakra-ui/nuxt": "0.0.3"
   },
-  "changesets": []
+  "changesets": [
+    "fuzzy-items-greet"
+  ]
 }

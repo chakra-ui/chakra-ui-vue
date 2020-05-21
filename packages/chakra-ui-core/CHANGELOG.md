@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.8-next.0
+
+### Patch Changes
+
+- db7846d: fix: add build step tp release CI job
+
 ## 0.5.7
 
 ### Patch Changes

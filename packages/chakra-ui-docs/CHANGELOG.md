@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.4.7
+
+### Patch Changes
+
+- Updated dependencies [db7846d]
+  - @chakra-ui/vue@0.5.8
+  - @chakra-ui/theme-vue@0.2.6
+
 ## 0.4.7-next.0
 
 ### Patch Changes

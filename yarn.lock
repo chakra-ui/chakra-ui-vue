@@ -3081,6 +3081,11 @@
     std-env "^2.2.1"
     wrap-ansi "^6.2.0"
 
+"@nuxt/components@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@nuxt/components/-/components-0.2.5.tgz#c47b40dadd810cc54853715dd0e0e482e79ffe4e"
+  integrity sha512-mmZBngU7uP4Z+hRUn3VD3H7K40WKFSqqnfZ6m2CWqjQV61jXdnhILPXdM878lOIAjX1MYnZZk6gAVV8JZ5Wq/A==
+
 "@nuxt/config@2.12.2":
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.12.2.tgz#df0ac32db2c7b36b5bcafc985bff1219dfe5391c"

@@ -57,7 +57,7 @@ const CMoreAvatarLabel = {
         justifyContent: 'center',
         border: '2px',
         borderColor: borderColor[this.colorMode],
-        fontSize: fontSize,
+        fontSize,
         ...forwardProps(this.$props)
       }
     }, this.label)
@@ -98,12 +98,14 @@ const CAvatarGroup = {
       const isFirstAvatar = index === 0
       if (!this.max || (max && index < max)) {
         // Change VNode component options
-        const { propsData } = node.componentOptions
-        propsData['ml'] = isFirstAvatar ? 0 : this.spacing
-        propsData['size'] = this.groupSize
-        propsData['showBorder'] = true
-        propsData['borderColor'] = this.borderColor || propsData['borderColor']
-        propsData['zIndex'] = count - index
+        if (node.componentOptions && node.componentOptions.propsData) {
+          const { propsData } = node.componentOptions
+          propsData.ml = isFirstAvatar ? 0 : this.spacing
+          propsData.size = this.groupSize
+          propsData.showBorder = true
+          propsData.borderColor = this.borderColor || propsData.borderColor
+          propsData.zIndex = count - index
+        }
         return node
       }
 

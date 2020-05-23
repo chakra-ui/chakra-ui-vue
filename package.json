@@ -23,7 +23,7 @@
     "build:dev": "yarn workspace @chakra-ui/vue run rollup --config rollup.dev.config.js",
     "build": "yarn workspace @chakra-ui/vue build",
     "dev": "yarn workspace @chakra-ui/vue dev",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint packages/chakra-ui-core", 
     "lerna:build": "lerna run build",
     "test:core": "jest",
     "test:module": "yarn workspace @chakra-ui/nuxt test",

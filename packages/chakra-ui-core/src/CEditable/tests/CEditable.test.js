@@ -19,7 +19,7 @@ const renderComponent = (props) => {
   return render(base)
 }
 
-it('should render correctly', async () => {
+it('should render correctly', () => {
   const inlineAttrs = 'defaultValue="testing" '
   const { asFragment } = renderComponent({ inlineAttrs })
 
@@ -126,7 +126,7 @@ test('has the proper aria attributes', async () => {
   expect(input).not.toHaveAttribute('aria-disabled')
 })
 
-test('has the proper aria attributes when disabled', async () => {
+test('has the proper aria attributes when disabled', () => {
   const inlineAttrs = 'isDisabled defaultValue=""'
   const { getByTestId } = renderComponent({ inlineAttrs })
 

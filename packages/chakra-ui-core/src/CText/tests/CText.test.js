@@ -42,7 +42,7 @@ it.each`
   ${'sup'}}
 `(
   'should display text type as $as',
-  async ({ as }) => {
+  ({ as }) => {
     const inlineAttrs = `as=${as}`
     const { asFragment } = renderComponent({ inlineAttrs })
 

@@ -335,7 +335,6 @@ const CPopoverTrigger = {
     })
   },
   render (h) {
-    let clone
     const children = this.$slots.default.filter(e => e.tag)
     if (!children) return console.error('[Chakra-ui]: Popover Trigger expects at least one child')
     if (children.length && children.length > 1) return console.error('[Chakra-ui]: Popover Trigger can only have a single child element')
@@ -343,7 +342,7 @@ const CPopoverTrigger = {
 
     const { isOpen, popoverId } = this.context
 
-    clone = h(cloned.componentOptions.Ctor, {
+    const clone = h(cloned.componentOptions.Ctor, {
       ...cloned.data,
       ...(cloned.componentOptions.listeners || {}),
       props: {

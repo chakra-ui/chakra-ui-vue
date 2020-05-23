@@ -21,7 +21,7 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should have correct styles', async () => {
+it('should have correct styles', () => {
   const inlineAttrs = ':ratio="2"'
   const { getByTestId } = renderComponent({ inlineAttrs })
   const image = getByTestId('image')

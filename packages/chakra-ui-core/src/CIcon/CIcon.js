@@ -58,7 +58,7 @@ const CIcon = {
     ...baseProps
   },
   render (h) {
-    let icon, viewBox
+    let icon
     if (this.name) {
       icon = this.$chakraIcons[this.name]
     } else {
@@ -69,7 +69,7 @@ const CIcon = {
       icon = fallbackIcon
     }
 
-    viewBox = icon.viewBox || '0 0 24 24'
+    const viewBox = icon.viewBox || '0 0 24 24'
 
     return h(Svg, {
       props: {

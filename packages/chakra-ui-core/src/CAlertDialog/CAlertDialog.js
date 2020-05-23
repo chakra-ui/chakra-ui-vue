@@ -17,7 +17,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog
  */
 
-import baseProps from '../config/props'
+import { baseProps } from '../config/props'
 import { forwardProps, HTMLElement } from '../utils'
 
 import {

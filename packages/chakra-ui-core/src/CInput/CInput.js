@@ -11,11 +11,10 @@
  */
 
 import styleProps from '../config/props'
-import useInputStyle from './utils/input.styles'
 import { forwardProps } from '../utils'
-import { inputProps } from './utils/input.props'
-
 import CPseudoBox from '../CPseudoBox'
+import useInputStyle from './utils/input.styles'
+import { inputProps } from './utils/input.props'
 
 /**
  * CInput component
@@ -28,13 +27,13 @@ import CPseudoBox from '../CPseudoBox'
 const CInput = {
   name: 'CInput',
   inject: {
-    '$chakraColorMode': {
+    $chakraColorMode: {
       default: 'light'
     },
-    '$chakraTheme': {
+    $chakraTheme: {
       default: () => ({})
     },
-    '$useFormControl': {
+    $useFormControl: {
       default: null
     }
   },

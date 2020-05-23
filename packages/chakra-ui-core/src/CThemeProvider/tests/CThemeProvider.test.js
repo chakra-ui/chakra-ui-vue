@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
-import CThemeProvider from '..'
 import theme from '../../../../chakra-ui-theme/src'
+import CThemeProvider from '..'
 
 describe('===== CThemeProvider Component =====', () => {
   let themeProvider

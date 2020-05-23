@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import cjs from 'rollup-plugin-commonjs'
@@ -6,8 +8,6 @@ import buble from 'rollup-plugin-buble'
 import scss from 'rollup-plugin-scss'
 import vue from 'rollup-plugin-vue'
 import pkg from './package.json'
-import fs from 'fs'
-import path from 'path'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -73,10 +73,10 @@ const commons = {
 const baseFolder = './src/'
 
 const components = fs.readdirSync(baseFolder)
-  .filter((f) => fs.statSync(path.join(baseFolder, f)).isDirectory())
+  .filter(f => fs.statSync(path.join(baseFolder, f)).isDirectory())
 
 const entries = {
-  'index': './src/index.js',
+  index: './src/index.js',
   ...components.reduce((obj, name) => {
     obj[name] = (baseFolder + name + '/index.js')
     return obj
@@ -87,10 +87,10 @@ const entries = {
  * Configurations
  */
 export default () => {
-  let config = [{
+  const config = [{
     input: entries,
     output: {
-      dir: `dist/esm/`,
+      dir: 'dist/esm/',
       format: 'esm'
     },
     ...commons

@@ -70,8 +70,8 @@ const CStack = {
 
     const children = this.$slots.default.filter(e => e.tag)
     const stackables = children.map((node, index) => {
-      let isLastChild = children.length === index + 1
-      let spacingProps = _isInline
+      const isLastChild = children.length === index + 1
+      const spacingProps = _isInline
         ? { [_isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
         : { [_isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
       const clone = cloneVNode(node, h)

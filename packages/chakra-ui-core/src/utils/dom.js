@@ -19,7 +19,7 @@ export const HTMLElement =
  */
 export function isValidElement (element) {
   if (typeof element === 'string') {
-    return htmlElements.indexOf(element) !== -1
+    return htmlElements.includes(element)
   }
 }
 
@@ -52,7 +52,7 @@ export function getFocusables (element, keyboardOnly = false) {
  * @param {Function} theirHandler Userland event handler
  * @param {*} ourHandler Internal Vue chakra event handler
  */
-export const wrapEvent = (theirHandler, ourHandler) => event => {
+export const wrapEvent = (theirHandler, ourHandler) => (event) => {
   if (theirHandler) {
     theirHandler(event)
   }

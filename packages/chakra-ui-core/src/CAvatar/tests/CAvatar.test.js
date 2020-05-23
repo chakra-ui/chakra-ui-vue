@@ -4,7 +4,7 @@ import { render, fireEvent } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const base = {
     components: { CAvatar, CAvatarBadge },
-    template: `<CAvatar name="Mesut Koca" data-testid='avatar' src="http://mesut.dev"></CAvatar>`,
+    template: '<CAvatar name="Mesut Koca" data-testid=\'avatar\' src="http://mesut.dev"></CAvatar>',
     ...props
   }
   return render(base)
@@ -16,7 +16,7 @@ it('should render correctly', () => {
 })
 
 it("should render default avatar if name is not provided and image didn't load", async () => {
-  const { container, asFragment } = renderComponent({ template: `<CAvatar data-testid="avatar" src="mesut.dev" />` })
+  const { container, asFragment } = renderComponent({ template: '<CAvatar data-testid="avatar" src="mesut.dev" />' })
   const image = container.querySelector('img')
 
   if (image) {

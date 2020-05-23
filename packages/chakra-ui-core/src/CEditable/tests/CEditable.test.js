@@ -1,6 +1,6 @@
 import { CEditable, CEditableInput, CEditablePreview } from '../..'
-import { render, userEvent, fireEvent } from '@/tests/test-utils'
 import { useId } from '../../utils'
+import { render, userEvent, fireEvent } from '@/tests/test-utils'
 
 // mocks
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js')

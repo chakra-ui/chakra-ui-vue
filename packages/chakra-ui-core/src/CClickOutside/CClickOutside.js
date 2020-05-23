@@ -36,10 +36,10 @@ const CClickOutside = {
         if (this.do) this.do()
       }
 
-      canUseDOM && document.addEventListener('click', (e) => listener(e, this.$el))
+      canUseDOM && document.addEventListener('click', e => listener(e, this.$el))
 
       this.$once('hook:beforeDestroy', () => {
-        document.removeEventListener('click', (e) => listener(e, this.$el))
+        document.removeEventListener('click', e => listener(e, this.$el))
       })
     }
   },

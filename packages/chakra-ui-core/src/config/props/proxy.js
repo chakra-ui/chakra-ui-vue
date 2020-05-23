@@ -7,7 +7,7 @@ import aliases from './props.aliases'
  */
 export const proxyAliases = (props) => {
   const _props = {}
-  Object.keys(props).forEach(key => {
+  Object.keys(props).forEach((key) => {
     // If is aliased props
     if (aliases[key]) {
       // If single resolve

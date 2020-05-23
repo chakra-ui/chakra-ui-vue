@@ -16,13 +16,13 @@ const renderComponent = (props) => {
 }
 
 it('should render correctly', () => {
-  const inlineAttrs = `:ratio="1"`
+  const inlineAttrs = ':ratio="1"'
   const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()
 })
 
 it('should have correct styles', async () => {
-  const inlineAttrs = `:ratio="2"`
+  const inlineAttrs = ':ratio="2"'
   const { getByTestId } = renderComponent({ inlineAttrs })
   const image = getByTestId('image')
   const aspectRatioBox = getByTestId('aspectRatioBox')

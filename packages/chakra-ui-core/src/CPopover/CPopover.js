@@ -8,9 +8,9 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CPopover/accessibility.md
  */
 
+import { isFunction } from 'lodash-es'
 import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
-import { isFunction } from 'lodash-es'
 
 import CBox from '../CBox'
 import CCloseButton from '../CCloseButton'
@@ -151,10 +151,8 @@ const CPopover = {
         setTimeout(() => {
           if (this._initialFocusRef) {
             this._initialFocusRef.focus()
-          } else {
-            if (this.contentNode) {
-              this.contentNode.focus()
-            }
+          } else if (this.contentNode) {
+            this.contentNode.focus()
           }
         })
       }
@@ -475,7 +473,7 @@ const CPopoverContent = {
     return h(CPopper, {
       props: {
         as: 'section',
-        usePortal: usePortal,
+        usePortal,
         isOpen,
         placement,
         anchorEl: triggerNode,

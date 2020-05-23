@@ -20,7 +20,8 @@ it('should render correctly', () => {
 })
 
 it('should display a label', () => {
-  const { queryByText } = renderComponent({ template: `
+  const { queryByText } = renderComponent({
+    template: `
   <CCircularProgress :value="40">
     <CCircularProgressLabel>40%</CCircularProgressLabel>
   </CCircularProgress>`

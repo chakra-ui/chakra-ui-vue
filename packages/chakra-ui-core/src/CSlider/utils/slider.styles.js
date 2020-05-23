@@ -1,7 +1,7 @@
 const centeredProps = {
   position: 'absolute',
   top: '50%',
-  transform: `translateY(-50%)`
+  transform: 'translateY(-50%)'
 }
 
 const thumbStyle = ({ thumbSize, trackPercent, theme }) => {
@@ -26,7 +26,7 @@ const thumbStyle = ({ thumbSize, trackPercent, theme }) => {
       backgroundColor: 'gray.300'
     },
     _active: {
-      transform: `translateY(-50%) scale(1.15)`
+      transform: 'translateY(-50%) scale(1.15)'
     }
   }
 }
@@ -99,7 +99,7 @@ const sizes = {
  * @param {{theme: Object, colorMode: String, trackPercent: String, size: String, color: String}} props Style props
  * @returns {Object} Slider styles
  */
-const useSliderStyle = props => {
+const useSliderStyle = (props) => {
   const { theme, colorMode, trackPercent, size, color } = props
   const { trackHeight, thumb: thumbSize } = sizes[size]
 

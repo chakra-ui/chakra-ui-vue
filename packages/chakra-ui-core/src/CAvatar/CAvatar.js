@@ -11,9 +11,8 @@
 
 import { baseProps } from '../config/props'
 import { forwardProps, canUseDOM } from '../utils'
-import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
-
 import CBox from '../CBox'
+import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
 
 /**
  * @description Generate Avatar initials from name string
@@ -21,7 +20,7 @@ import CBox from '../CBox'
  * @returns {String} Avatar Initials
  */
 const getInitials = (name) => {
-  let [firstName, lastName] = name.split(' ')
+  const [firstName, lastName] = name.split(' ')
 
   if (firstName && lastName) {
     return `${firstName.charAt(0)}${lastName.charAt(0)}`
@@ -206,12 +205,12 @@ const CAvatar = {
       const image = new window.Image()
       image.src = src
 
-      image.onload = event => {
+      image.onload = (event) => {
         this.hasLoaded = true
         this.$emit('load', event)
       }
 
-      image.onError = event => {
+      image.onError = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }
@@ -280,7 +279,7 @@ const CAvatar = {
 
     return h(CBox, {
       props: {
-        fontSize: fontSize,
+        fontSize,
         lineHeight: _size,
         verticalAlign: 'top',
         w: size,

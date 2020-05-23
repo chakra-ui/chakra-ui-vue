@@ -10,9 +10,8 @@
 
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
-import { getComputedProps } from './utils/circularprogress.styles'
-
 import CBox from '../CBox'
+import { getComputedProps } from './utils/circularprogress.styles'
 
 /**
  * CCircularProgress component

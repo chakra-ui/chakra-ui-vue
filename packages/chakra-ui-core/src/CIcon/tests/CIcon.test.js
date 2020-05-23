@@ -4,7 +4,7 @@ import { render } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const base = {
     components: { CIcon },
-    template: `<CIcon name="add"></CIcon>`,
+    template: '<CIcon name="add"></CIcon>',
     ...props
   }
   return render(base)

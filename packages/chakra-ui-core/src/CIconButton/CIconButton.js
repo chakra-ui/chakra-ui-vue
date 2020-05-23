@@ -73,7 +73,7 @@ const CIconButton = {
         'data-chakra-component': 'CIconButton'
       },
       on: {
-        click: (e) => this.$emit('click', e)
+        click: e => this.$emit('click', e)
       }
     },
     [typeof this.icon === 'string'

@@ -9,7 +9,7 @@ import { config } from '../config/props'
  */
 function normalizeAlias (prop, propValue) {
   const configKeys = Object.keys(config)
-  let result = {}
+  const result = {}
 
   if (configKeys.includes(prop)) {
     const { properties, property } = config[prop]
@@ -33,9 +33,9 @@ function normalizeAlias (prop, propValue) {
  * @param {Object} props - Props object
  * @returns {Object} Normalized Props object
  */
-export const transformAlias = props => {
+export const transformAlias = (props) => {
   let result = {}
-  for (let prop in props) {
+  for (const prop in props) {
     if (typeof props[prop] === 'object') {
       result = { ...result, [prop]: transformAlias(props[prop]) }
     } else {

@@ -57,16 +57,16 @@ const CReset = {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
     useTailwindPreflight(this.theme)
     injectGlobal({
-      'html': {
+      html: {
         lineHeight: 1.5,
-        color: color,
+        color,
         backgroundColor: bg
       },
 
       '*, *::before, *::after': {
         borderWidth: 0,
         borderStyle: 'solid',
-        borderColor: borderColor
+        borderColor
       },
 
       'input:-ms-input-placeholder, textarea:-ms-input-placeholder': {

@@ -70,10 +70,10 @@ const CSwitch = {
       return this.$chakraColorMode()
     },
     _width () {
-      return switchSizes[this.size] && switchSizes[this.size]['width']
+      return switchSizes[this.size] && switchSizes[this.size].width
     },
     _height () {
-      return switchSizes[this.size] && switchSizes[this.size]['height']
+      return switchSizes[this.size] && switchSizes[this.size].height
     },
     styleProps () {
       return {
@@ -88,7 +88,7 @@ const CSwitch = {
           bg: `${this.color}.500`
         },
         _child: {
-          transform: `translateX(0)`
+          transform: 'translateX(0)'
         },
         _checkedAndChild: {
           transform: `translateX(calc(${this._width} - ${this._height}))`
@@ -138,7 +138,7 @@ const CSwitch = {
           disabled: this.isDisabled
         },
         nativeOn: {
-          change: (e) => this.$emit('change', !this.isChecked, e)
+          change: e => this.$emit('change', !this.isChecked, e)
         }
       }),
       h(CControlBox, {

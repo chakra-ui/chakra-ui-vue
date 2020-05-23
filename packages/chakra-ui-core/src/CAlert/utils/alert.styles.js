@@ -23,7 +23,7 @@ const baseProps = {
  * @param {Object} props
  * @property {String} color
  */
-const leftAccent = props => {
+const leftAccent = (props) => {
   const { color } = props
   return {
     light: {
@@ -46,7 +46,7 @@ const leftAccent = props => {
  * @param {Object} props
  * @property {String} color
  */
-const topAccent = props => {
+const topAccent = (props) => {
   const { color } = props
   return {
     light: {
@@ -82,7 +82,7 @@ const solid = ({ color }) => {
  * @property {String} color
  */
 const subtle = ({ color, theme: { colors } }) => {
-  let darkBg = colors[color] && colors[color][200]
+  const darkBg = colors[color] && colors[color][200]
   return {
     light: {
       bg: `${color}.100`
@@ -96,7 +96,7 @@ const subtle = ({ color, theme: { colors } }) => {
  * @param {Object} props
  * @returns {Object} Style props
  */
-const statusStyleProps = props => {
+const statusStyleProps = (props) => {
   switch (props.variant) {
     case 'solid':
       return solid(props)
@@ -138,7 +138,7 @@ const useAlertStyle = ({ variant, color, colorMode, theme }) => {
  */
 export const useAlertIconStyle = ({ variant, colorMode, color }) => {
   if (['left-accent', 'top-accent', 'subtle'].includes(variant)) {
-    let result = {
+    const result = {
       light: { color: `${color}.500` },
       dark: { color: `${color}.200` }
     }

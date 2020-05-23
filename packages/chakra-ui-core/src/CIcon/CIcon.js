@@ -13,9 +13,9 @@ import { css } from 'emotion'
 import iconPaths from '../lib/internal-icons'
 import { forwardProps } from '../utils'
 import { baseProps } from '../config/props'
+import CBox from '../CBox'
 import { iconProps } from './utils/icon.props'
 
-import CBox from '../CBox'
 const fallbackIcon = iconPaths['question-outline']
 
 const Svg = {
@@ -62,7 +62,7 @@ const CIcon = {
     if (this.name) {
       icon = this.$chakraIcons[this.name]
     } else {
-      console.warn(`[Chakra]: You need to provide the "name" or "use" prop to for the Icon component`)
+      console.warn('[Chakra]: You need to provide the "name" or "use" prop to for the Icon component')
     }
 
     if (!icon) {

@@ -10,13 +10,13 @@
 
 import { baseProps } from '../config'
 import { isDef, valueToPercent, useId, getElById, forwardProps } from '../utils'
-import { clampValue, roundValueToStep } from './utils/slider.utils'
-import useSliderStyle from './utils/slider.styles'
 import { percentToValue } from '../utils/transform'
 import styleProps from '../config/props'
 
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
+import useSliderStyle from './utils/slider.styles'
+import { clampValue, roundValueToStep } from './utils/slider.utils'
 
 /**
  * CSlider component
@@ -129,7 +129,7 @@ const CSlider = {
         trackNode: this.trackNode,
         thumbNode: this.thumbNode,
         onThumbKeyDown: this.handleThumbKeyDown,
-        onFocus: (e) => this.$emit('focus', e),
+        onFocus: e => this.$emit('focus', e),
         trackPercent: this.trackPercentage,
         ariaLabelledBy: this.ariaLabelledBy,
         orientation: this.orientation,
@@ -161,8 +161,8 @@ const CSlider = {
         const { left, width } = this.trackNode.getBoundingClientRect()
         const { clientX } = event.touches ? event.touches[0] : event
 
-        let diffX = clientX - left
-        let percent = diffX / width
+        const diffX = clientX - left
+        const percent = diffX / width
         let newValue = percentToValue(percent, this.min, this.max)
 
         if (this.step) {
@@ -256,7 +256,7 @@ const CSlider = {
       this.$emit('mousedown', event)
       event.preventDefault()
 
-      let newValue = this.getNewValue(event)
+      const newValue = this.getNewValue(event)
       if (newValue !== this.actualValue) {
         this.updateValue(newValue)
       }
@@ -273,7 +273,7 @@ const CSlider = {
      * @param {Event} event
      */
     handleMouseMove (event) {
-      let newValue = this.getNewValue(event)
+      const newValue = this.getNewValue(event)
       this.updateValue(newValue)
     }
   },

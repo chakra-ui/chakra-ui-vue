@@ -18,7 +18,7 @@ it('should render correctly', () => {
 })
 
 it('should change the style', () => {
-  const inlineAttrs = `d="flex"`
+  const inlineAttrs = 'd="flex"'
   const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
 
   const text = getByTestId('text')

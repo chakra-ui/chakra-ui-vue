@@ -11,11 +11,11 @@
 import { baseProps } from '../config'
 import styleProps from '../config/props'
 import { inputProps } from '../CInput/utils/input.props'
-import splitProps from './utils/select.utils'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
 import CInput from '../CInput'
+import splitProps from './utils/select.utils'
 
 /**
  * CSelectIconWrapper component
@@ -78,7 +78,7 @@ const CSelectInput = {
         lineHeight: 'normal'
       },
       on: {
-        change: (e) => this.$emit('change', e)
+        change: e => this.$emit('change', e)
       },
       domProps: {
         value: this.value
@@ -168,7 +168,7 @@ const CSelect = {
           ...select
         },
         on: {
-          change: (e) => this.$emit('change', e.target.value)
+          change: e => this.$emit('change', e.target.value)
         },
         domProps: {
           value: this._value

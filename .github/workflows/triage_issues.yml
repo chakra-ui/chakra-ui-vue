@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Triage new issues for @chakra-ui/vue
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  issues:
+    types: [opened, reopened]
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "triage"
+  triage:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Add issue to Triage and Backlog project board
+        uses: actions/github-script@v1
+        env: 
+          COLUMN_ID: 9339326
+        with:
+          gihub-token: ${{ secrets.GITHUB_TOKEN }}
+          scripts: |
+            github.projects.createCard({
+              column_id: process.env.COLUMN_ID,
+              content_id: context.payload.issue.id
+              content_type: "Issue"
+            });

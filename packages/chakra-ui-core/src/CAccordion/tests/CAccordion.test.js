@@ -88,7 +88,7 @@ it('only one accordion can be visible + is not togglable', () => {
 })
 
 // test the only one accordion can be visible + is togglable
-it('only one accordion can be visible + is togglable', async () => {
+it('only one accordion can be visible + is togglable', () => {
   const { getByText } = renderComponent({
     template: `
     <CAccordion allowToggle>

@@ -28,18 +28,21 @@ it('should display children', () => {
 })
 
 it('should display tag with right icon', () => {
-  const { asFragment } = renderComponent({ template: `
+  const { asFragment } = renderComponent({
+    template: `
   <CBox mb="3">
     <CTag size="sm" variantColor="green">
       <CTagLabel>Green</CTagLabel>
       <CTagIcon icon="add" size="12px" />
     </CTag>
   </CBox>
-  ` })
+  `
+  })
   expect(asFragment()).toMatchSnapshot()
 })
 it('should display tag with custom element', () => {
-  const { asFragment } = renderComponent({ template: `
+  const { asFragment } = renderComponent({
+    template: `
   <CBox mb="3">
     <CTag rounded="full" variantColor="red">
       <CAvatar
@@ -50,6 +53,7 @@ it('should display tag with custom element', () => {
       <CTagLabel>Mesut</CTagLabel>
     </CTag>
   </CBox>
-  ` })
+  `
+  })
   expect(asFragment()).toMatchSnapshot()
 })

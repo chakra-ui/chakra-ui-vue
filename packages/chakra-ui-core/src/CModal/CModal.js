@@ -10,19 +10,19 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CModal/accessibility.md
  */
 
-import props from './utils/modal.props'
-import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
+import isFunction from 'lodash-es/isFunction'
+import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
 import { baseProps } from '../config'
 import styleProps from '../config/props'
-import isFunction from 'lodash-es/isFunction'
 
 import { CFade } from '../CTransition'
 import CPortal from '../CPortal'
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CCloseButton from '../CCloseButton'
+import props from './utils/modal.props'
 
 /**
  * CModal component
@@ -53,13 +53,13 @@ const CModal = {
       return this.id || useId(4)
     },
     contentId () {
-      return this.formatIds(this._id)['content']
+      return this.formatIds(this._id).content
     },
     headerId () {
-      return this.formatIds(this._id)['header']
+      return this.formatIds(this._id).header
     },
     bodyId () {
-      return this.formatIds(this._id)['body']
+      return this.formatIds(this._id).body
     },
     modalId () {
       return `modal-${this._id}`
@@ -90,8 +90,8 @@ const CModal = {
   },
   mounted () {
     if (typeof this.addAriaLabels === 'object') {
-      this.addAriaLabelledby = this.addAriaLabels['header']
-      this.addAriaDescribedby = this.addAriaLabels['body']
+      this.addAriaLabelledby = this.addAriaLabels.header
+      this.addAriaDescribedby = this.addAriaLabels.body
     }
 
     if (typeof this.addAriaLabels === 'boolean') {
@@ -107,7 +107,7 @@ const CModal = {
      * Escape key press event handler for modal
      * @param {Event} event Keyboard Event
      */
-    const handler = event => {
+    const handler = (event) => {
       if (event.key === 'Escape' && this.closeOnEsc) {
         this.onClose(event, 'pressedEscape')
       }
@@ -129,16 +129,14 @@ const CModal = {
 
     let undoAriaHidden = null
     this.$watch(vm => [vm.isOpen, vm.useInert], () => {
-      let mountNode = this.mountNode
+      const mountNode = this.mountNode
       if (this.isOpen && canUseDOM) {
         if (this.useInert) {
           undoAriaHidden = hideOthers(mountNode)
         }
         this.contentNode = getElById(this.contentId)
-      } else {
-        if (this.useInert && undoAriaHidden != null) {
-          undoAriaHidden()
-        }
+      } else if (this.useInert && undoAriaHidden != null) {
+        undoAriaHidden()
       }
     })
   },
@@ -159,7 +157,7 @@ const CModal = {
         } else {
           const contentNode = getElById(this.contentId)
           if (contentNode) {
-            let focusables = getFocusables(contentNode)
+            const focusables = getFocusables(contentNode)
             if (focusables.length === 0) {
               contentNode.focus()
             } else {
@@ -318,7 +316,7 @@ const CModalContent = {
         },
         dark: {
           bg: 'gray.700',
-          shadow: `rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px`,
+          shadow: 'rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px',
           color: 'whiteAlpha.900'
         }
       },
@@ -463,7 +461,7 @@ const CModalContent = {
           ...this.$attrs
         },
         nativeOn: {
-          click: wrapEvent((e) => this.$emit('click', e), event => event.stopPropagation())
+          click: wrapEvent(e => this.$emit('click', e), event => event.stopPropagation())
         }
       }, this.$slots.default)
     ])

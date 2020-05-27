@@ -13,11 +13,11 @@ storiesOf('UI | Progress', module)
 
   .add('Default Progress', () => ({
     components: { CProgress },
-    template: `<CProgress :value="80" />`
+    template: '<CProgress :value="80" />'
   }))
   .add('With stripe', () => ({
     components: { CProgress },
-    template: `<CProgress hasStripe :value="64" />`
+    template: '<CProgress hasStripe :value="64" />'
   }))
   .add('With sizes', () => ({
     components: { CProgress, CStack },
@@ -31,5 +31,5 @@ storiesOf('UI | Progress', module)
   }))
   .add('With color', () => ({
     components: { CProgress },
-    template: `<CProgress color="pink" hasStripe />`
+    template: '<CProgress color="pink" hasStripe />'
   }))

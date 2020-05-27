@@ -70,7 +70,7 @@ const enclosedStyle = ({ color, colorMode, theme }) => {
 const enclosedColoredStyle = ({ color, colorMode }) => {
   const bg = { light: 'gray.50', dark: 'whiteAlpha.50' }
   const _selectedColor = { light: `${color}.600`, dark: `${color}.300` }
-  const _selectedBg = { light: `#fff`, dark: `gray.800` }
+  const _selectedBg = { light: '#fff', dark: 'gray.800' }
 
   return {
     tab: {
@@ -115,7 +115,7 @@ const softRoundedStyle = ({ color }) => {
 const solidRoundedStyle = ({ color, colorMode }) => {
   const _color = { light: 'gray.600', dark: 'inherit' }
   const _selectedBg = { light: `${color}.600`, dark: `${color}.300` }
-  const _selectedColor = { light: `#fff`, dark: `gray.800` }
+  const _selectedColor = { light: '#fff', dark: 'gray.800' }
 
   return {
     tab: {
@@ -131,7 +131,7 @@ const solidRoundedStyle = ({ color, colorMode }) => {
   }
 }
 
-export const variantStyle = props => {
+export const variantStyle = (props) => {
   switch (props.variant) {
     case 'line':
       return lineStyle(props)

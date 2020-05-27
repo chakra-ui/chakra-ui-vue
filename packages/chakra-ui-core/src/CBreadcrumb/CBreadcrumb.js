@@ -192,7 +192,7 @@ const CBreadcrumb = {
     const children = this.$slots.default
     if (!children) {
       console.error(
-        `[Chakra-ui:Breadcrumb]: Breadcrumb component should have at least one child`
+        '[Chakra-ui:Breadcrumb]: Breadcrumb component should have at least one child'
       )
       return null
     }

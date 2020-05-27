@@ -195,7 +195,7 @@ const CTooltip = {
           nativeOn: {
             mouseenter: this.handleOpen,
             mouseleave: this.handleClose,
-            click: wrapEvent(this.handleClick, (e) => this.$emit('click', e)),
+            click: wrapEvent(this.handleClick, e => this.$emit('click', e)),
             focus: this.handleOpen,
             blur: this.handleClose,
             keydown: this.handleKeydown

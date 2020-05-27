@@ -11,15 +11,15 @@
 
 import { baseProps } from '../config'
 import styleProps from '../config/props'
-import numberInputStyles from './utils/numberinput.styles'
 import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
-import { calculatePrecision, roundToPrecision, preventNonNumberKey } from './utils/numberinput.utils'
 import { inputProps } from '../CInput/utils/input.props'
 
 import CFlex from '../CFlex'
 import CInput from '../CInput'
 import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
+import { calculatePrecision, roundToPrecision, preventNonNumberKey } from './utils/numberinput.utils'
+import numberInputStyles from './utils/numberinput.styles'
 
 /**
  * CNumberInput component
@@ -314,7 +314,7 @@ const CNumberInput = {
      */
     shouldConvertToNumber (value) {
       const _value = typeof value !== 'string' ? String(value) : value
-      const hasDot = _value.indexOf('.') > -1
+      const hasDot = _value.includes('.')
       const hasTrailingZero = _value.substr(_value.length - 1) === '0'
       const hasTrailingDot = _value.substr(_value.length - 1) === '.'
       if (hasDot && hasTrailingZero) return false
@@ -490,16 +490,17 @@ const CNumberInputField = {
     ...inputProps
   },
   render (h) {
-    const { size, inputId, input: {
-      value,
-      onBlur: _onBlur,
-      onFocus: _onFocus,
-      onChange: _onChange,
-      onKeydown: _onKeydown,
-      disabled: isDisabled,
-      readOnly: isReadOnly,
-      ...otherInputAttrs
-    }
+    const {
+      size, inputId, input: {
+        value,
+        onBlur: _onBlur,
+        onFocus: _onFocus,
+        onChange: _onChange,
+        onKeydown: _onKeydown,
+        disabled: isDisabled,
+        readOnly: isReadOnly,
+        ...otherInputAttrs
+      }
     } = this.context
 
     return h(CInput, {
@@ -516,13 +517,13 @@ const CNumberInputField = {
         'data-chakra-component': 'CNumberInputField'
       },
       on: {
-        change: wrapEvent((e) => this.$emit('change', e), _onChange)
+        change: wrapEvent(e => this.$emit('change', e), _onChange)
       },
       nativeOn: {
-        input: wrapEvent((e) => this.$emit('change', e), _onChange),
-        blur: wrapEvent((e) => this.$emit('blur', e), _onBlur),
-        focus: wrapEvent((e) => this.$emit('focus', e), _onFocus),
-        keydown: wrapEvent((e) => this.$emit('keydown', e), _onKeydown)
+        input: wrapEvent(e => this.$emit('change', e), _onChange),
+        blur: wrapEvent(e => this.$emit('blur', e), _onBlur),
+        focus: wrapEvent(e => this.$emit('focus', e), _onFocus),
+        keydown: wrapEvent(e => this.$emit('keydown', e), _onKeydown)
       }
     })
   }

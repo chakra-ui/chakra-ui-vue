@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { CButton, CModal, CText, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton } from '..'
 import Lorem from 'vue-lorem-ipsum'
+import { CButton, CModal, CText, CModalOverlay, CModalContent, CModalHeader, CModalFooter, CModalBody, CModalCloseButton } from '..'
 
 storiesOf('UI | Modal', module)
   .add('Base Modal', () => ({

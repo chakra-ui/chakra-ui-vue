@@ -105,13 +105,13 @@ const CAccordion = {
           change: (isExpanded) => {
             if (this.allowMultiple) {
               if (isExpanded) {
-                let newIndices = [...this._index, index]
+                const newIndices = [...this._index, index]
                 if (!this.isControlled) {
                   this.expandedIndex = newIndices
                 };
                 this.$emit('change', newIndices)
               } else {
-                let newIndices = this._index.filter(
+                const newIndices = this._index.filter(
                   itemIndex => itemIndex !== index
                 )
                 if (!this.isControlled) {
@@ -119,20 +119,16 @@ const CAccordion = {
                 };
                 this.$emit('change', newIndices)
               }
-            } else {
-              if (isExpanded) {
-                if (!this.isControlled) {
-                  this.expandedIndex = index
-                };
-                this.$emit('change', index)
-              } else {
-                if (this.allowToggle) {
-                  if (!this.isControlled) {
-                    this.expandedIndex = null
-                  };
-                  this.$emit('change', null)
-                }
-              }
+            } else if (isExpanded) {
+              if (!this.isControlled) {
+                this.expandedIndex = index
+              };
+              this.$emit('change', index)
+            } else if (this.allowToggle) {
+              if (!this.isControlled) {
+                this.expandedIndex = null
+              };
+              this.$emit('change', null)
             }
           }
         }

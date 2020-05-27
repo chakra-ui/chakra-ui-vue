@@ -5,8 +5,8 @@
  * to create portals in the browser
  */
 
-import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import { MountingPortal } from 'portal-vue'
+import { canUseDOM, useId, getSubstringAfterChar as gs } from '../utils'
 import CNoSsr from '../CNoSsr'
 
 /**

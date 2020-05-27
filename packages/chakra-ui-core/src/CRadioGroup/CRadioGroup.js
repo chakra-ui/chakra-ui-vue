@@ -98,7 +98,7 @@ const CRadioGroup = {
           isChecked: vnode.componentOptions.propsData.value === this.value
         },
         on: {
-          change: (e) => this.handleChange(e)
+          change: e => this.handleChange(e)
         }
       }, h)
 

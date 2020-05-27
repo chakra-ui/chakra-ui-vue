@@ -1,6 +1,6 @@
 import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CStack } from '../..'
-import { render, defaultProviders } from '@/tests/test-utils'
 import icons from '../../lib/internal-icons'
+import { render, defaultProviders } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

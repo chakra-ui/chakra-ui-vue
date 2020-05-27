@@ -1,6 +1,6 @@
+import Vue from 'vue'
 import { CButton, CAlertDialog, CAlertDialogContent, CAlertDialogBody, CAlertDialogFooter, CAlertDialogOverlay, CAlertDialogHeader } from '../..'
 import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
-import Vue from 'vue'
 import { useId } from '@/packages/chakra-ui-core/src/utils'
 
 // mocks
@@ -56,7 +56,7 @@ it('should render correctly', async () => {
 
 test('clicking the close button calls the onClose callback', async () => {
   const onClose = jest.fn()
-  const inlineAttrs = `isOpen :on-close="close"`
+  const inlineAttrs = 'isOpen :on-close="close"'
   const { getByTestId } = renderComponent({ inlineAttrs, methods: { close: onClose } })
 
   await Vue.nextTick()
@@ -67,7 +67,7 @@ test('clicking the close button calls the onClose callback', async () => {
 
 test('pressing "esc" calls the onClose callback', async () => {
   const onClose = jest.fn()
-  const inlineAttrs = `:isOpen="isOpen" :on-close="close"`
+  const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
   const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
   await Vue.nextTick()
@@ -80,7 +80,7 @@ test('pressing "esc" calls the onClose callback', async () => {
 
 test('clicking overlay calls the onClose callback', async () => {
   const onClose = jest.fn()
-  const inlineAttrs = `:isOpen="isOpen" :on-close="close"`
+  const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
   const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
   await Vue.nextTick()

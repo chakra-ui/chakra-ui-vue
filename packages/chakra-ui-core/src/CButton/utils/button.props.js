@@ -10,13 +10,13 @@ export const buttonProps = {
   cast: {
     type: String,
     default: 'primary',
-    validator: (value) =>
+    validator: value =>
       value.match(/^(primary|secondary|success|warning|danger)$/)
   },
   variant: {
     type: String,
     default: 'solid',
-    validator: (value) =>
+    validator: value =>
       value.match(/^(solid|outline|ghost|flat|link)$/)
   },
   variantColor: {
@@ -38,7 +38,7 @@ export const buttonProps = {
   size: {
     type: String,
     default: 'md',
-    validator: (value) => value.match(/^(sm|md|lg)$/)
+    validator: value => value.match(/^(sm|md|lg)$/)
   },
   loadingText: {
     type: String,

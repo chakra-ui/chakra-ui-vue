@@ -1,6 +1,6 @@
 import Color from 'color'
-import { isDef } from './validators'
 import { css } from 'emotion'
+import { isDef } from './validators'
 
 /**
  * @description Gets color value from theme

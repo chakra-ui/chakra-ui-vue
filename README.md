@@ -2,6 +2,7 @@
 <p align="center">
   <img alt="Build & Test Components" src="https://github.com/chakra-ui/chakra-ui-vue/workflows/Build%20&%20Test%20Components/badge.svg" />
   <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0140cfa8-f093-4a69-b29b-6b1abce0c04a/deploy-status" />
+  <a href="https://www.npmjs.com/package/@chakra-ui/vue"><img alt="Chakra UI Vue downloads" src="https://img.shields.io/npm/dt/@chakra-ui/vue.svg?style=for-the-badge" /></a>
   <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square" />
 </p>
 

@@ -128,8 +128,8 @@ const CListIcon = {
   }
 }
 
-export default CList
 export {
+  CList,
   CListItem,
   CListIcon
 }

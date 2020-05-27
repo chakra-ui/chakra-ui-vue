@@ -108,5 +108,4 @@ const CInputRightElement = {
   }
 }
 
-export default CInputElement
-export { CInputLeftElement, CInputRightElement }
+export { CInputElement, CInputLeftElement, CInputRightElement }

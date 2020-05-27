@@ -43,7 +43,6 @@ export { default as CDivider } from './CDivider'
 export * from './CDrawer'
 
 // E
-export { default as CEditable } from './CEditable'
 export * from './CEditable'
 
 // F
@@ -65,15 +64,12 @@ export { default as CIcon } from './CIcon'
 export { default as CIconButton } from './CIconButton'
 export { default as CImage } from './CImage'
 export { default as CInput } from './CInput'
-export { default as CInputAddon } from './CInputAddon'
 export * from './CInputAddon'
-export { default as CInputElement } from './CInputElement'
 export * from './CInputElement'
 export { default as CInputGroup } from './CInputGroup'
 
 // L
 export { default as CLink } from './CLink'
-export { default as CList } from './CList'
 export * from './CList'
 
 // M
@@ -99,7 +95,6 @@ export { default as CRadioButtonGroup } from './CRadioButtonGroup'
 // S
 export { default as CSimpleGrid } from './CSimpleGrid'
 export { default as CSelect } from './CSelect'
-export { default as CSlider } from './CSlider'
 export * from './CSlider'
 export { default as CSpinner } from './CSpinner'
 export { default as CStack } from './CStack'

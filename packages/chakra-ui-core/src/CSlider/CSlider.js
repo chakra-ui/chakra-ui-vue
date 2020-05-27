@@ -492,8 +492,8 @@ const CSliderThumb = {
   }
 }
 
-export default CSlider
 export {
+  CSlider,
   CSliderTrack,
   CSliderFilledTrack,
   CSliderThumb

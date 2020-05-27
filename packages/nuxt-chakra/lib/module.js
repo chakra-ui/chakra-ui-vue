@@ -68,8 +68,28 @@ export default function (moduleOptions) {
   nuxt.hook('components:extend', (components) => {
     const compoundExports = {
       CAccordion: ['CAccordion', 'CAccordionItem', 'CAccordionHeader', 'CAccordionPanel', 'CAccordionIcon'],
-      CModal: ['CModal', 'CModalOverlay', 'CModalContent', 'CModalHeader', 'CModalFooter', 'CModalBody', 'CModalCloseButton'],
-      CAlert: ['CAlert', 'CAlertIcon', 'CAlertTitle', 'CAlertDescription']
+      CAlert: ['CAlert', 'CAlertIcon', 'CAlertTitle', 'CAlertDescription'],
+      CAlertDialog: ['CAlertDialog', 'CAlertDialogContent', 'CAlertDialogOverlay', 'CAlertDialogBody', 'CAlertDialogHeader', 'CAlertDialogFooter', 'CAlertDialogCloseButton'],
+      CAvatar: ['CAvatar', 'CAvatarBadge'],
+      CBreadcrumb: ['CBreadcrumbSeparator', 'CBreadcrumbLink', 'CBreadcrumbItem', 'CBreadcrumb'],
+      CCircularProgress: ['CCircularProgress', 'CCircularProgressLabel'],
+      CDrawer: ['CDrawer', 'CDrawerContent', 'CDrawerOverlay', 'CDrawerCloseButton', 'CDrawerBody', 'CDrawerHeader', 'CDrawerFooter'],
+      CEditable: ['CEditable', 'CEditableInput', 'CEditablePreview'],
+      CInputAddon: ['CInputAddon', 'CInputLeftAddon', 'CInputRightAddon'],
+      CInputElement: ['CInputElement', 'CInputLeftElement', 'CInputRightElement'],
+      CList: ['CList', 'CListItem', 'CListIcon'],
+      CMenu: ['CMenu', 'CMenuButton', 'CMenuList', 'CMenuItem', 'CMenuGroup', 'CMenuDivider'],
+      CMenuOption: ['CMenuItemOption', 'CMenuOptionGroup'],
+      CNumberInput: ['CNumberInput', 'CNumberInputField', 'CNumberInputStepper', 'CNumberIncrementStepper', 'CNumberDecrementStepper'],
+      CPopover: ['CPopover', 'CPopoverTrigger', 'CPopoverContent', 'CPopoverHeader', 'CPopoverBody', 'CPopoverArrow', 'CPopoverCloseButton', 'CPopoverFooter'],
+      CPopper: ['CPopper', 'CPopperArrow'],
+      CProgress: ['CProgress', 'CProgressLabel'],
+      CSlider: ['CSlider', 'CSliderTrack', 'CSliderFilledTrack', 'CSliderThumb'],
+      CStat: ['CStat', 'CStatGroup', 'CStatArrow', 'CStatNumber', 'CStatHelperText', 'CStatLabel'],
+      CTabs: ['CTabs', 'CTabList', 'CTab', 'CTabPanels', 'CTabPanel'],
+      CTag: ['CTag', 'CTagLabel', 'CTagIcon', 'CTagCloseButton'],
+      CTransition: ['CSlide', 'CScale', 'CSlideIn', 'CAnimateHeight', 'CRevealHeight', 'CFade'],
+      CModal: ['CModal', 'CModalOverlay', 'CModalContent', 'CModalHeader', 'CModalFooter', 'CModalBody', 'CModalCloseButton']
     }
 
     Object.keys(compoundExports).forEach((comp) => {

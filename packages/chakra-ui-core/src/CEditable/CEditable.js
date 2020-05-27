@@ -335,5 +335,4 @@ const CEditableInput = {
   }
 }
 
-export default CEditable
-export { CEditableInput, CEditablePreview }
+export { CEditable, CEditableInput, CEditablePreview }

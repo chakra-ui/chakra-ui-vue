@@ -133,5 +133,4 @@ const CInputRightAddon = {
   }
 }
 
-export default CInputAddon
-export { CInputLeftAddon, CInputRightAddon }
+export { CInputAddon, CInputLeftAddon, CInputRightAddon }

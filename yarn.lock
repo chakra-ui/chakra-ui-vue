@@ -3097,6 +3097,11 @@
     std-env "^2.2.1"
     wrap-ansi "^6.2.0"
 
+"@nuxt/components@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@nuxt/components/-/components-0.3.0.tgz#6a931d54efdf9436f948c2157dc5cfad3c7efa20"
+  integrity sha512-iL5k77INTCocB0/cWF8k8wByPmc9PT4Jhi9Ntcg30B7gi0lhNgmhmfPkhnphPiBcQSEHcX+0n8HXf/yw7znfeA==
+
 "@nuxt/config@2.12.2":
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.12.2.tgz#df0ac32db2c7b36b5bcafc985bff1219dfe5391c"
@@ -9435,6 +9440,11 @@ defu@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/defu/-/defu-1.0.0.tgz#43acb09dfcf81866fa3b0fc047ece18e5c30df71"
   integrity sha512-1Y1KRFxiiq+LYsZ3iP7xYSR8bHfmHFOUpDunZCN1ld1fGfDJWJIvkUBtjl3apnBwPuJtL/H7cwwlLYX8xPkraQ==
+
+defu@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-2.0.4.tgz#09659a6e87a8fd7178be13bd43e9357ebf6d1c46"
+  integrity sha512-G9pEH1UUMxShy6syWk01VQSRVs3CDWtlxtZu7A+NyqjxaCA4gSlWAKDBx6QiUEKezqS8+DUlXLI14Fp05Hmpwg==
 
 del@^4.1.1:
   version "4.1.1"

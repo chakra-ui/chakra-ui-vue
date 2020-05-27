@@ -36,19 +36,19 @@ storiesOf('UI | Stack', module)
       </div>
     `
   }))
-  .add('Nesting Flex in stack', () => ({
+  .add('Nesting Stack in stack', () => ({
     components: { CHeading, CText, CStack, CBox, CFlex, CIcon },
     template: `
       <div>
         <c-stack is-inline spacing="3">
-          <c-flex align-items="center">
+          <c-stack is-inline align-items="center">
             <c-icon mr="3" name="sun" />
-            <c-text>Kitchener, ON, Canada</c-text>
-          </c-flex>
-          <c-flex align-items="center">
-            <c-icon mr="3" name="sun" />
-            <c-text>Kitchener, ON, Canada</c-text>
-          </c-flex>
+            <c-text>Bukoto, Kampala, UG</c-text>
+          </c-stack>
+          <c-stack is-inline align-items="center">
+            <c-icon mr="3" name="moon" />
+            <c-text>Lugogo, Kampala, UG</c-text>
+          </c-stack>
         </c-stack>
       </div>
     `

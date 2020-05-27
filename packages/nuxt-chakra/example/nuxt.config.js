@@ -1,18 +1,11 @@
-const { resolve } = require('path')
-const theme = require('./utils/theme')
+import theme from './utils/theme'
+import chakraNuxtModule from '..'
 
-module.exports = {
-  rootDir: resolve(__dirname, '..'),
-  buildDir: resolve(__dirname, '.nuxt'),
-  srcDir: __dirname,
+export default {
+  rootDir: __dirname,
   modules: [
-    { handler: require('../') }
+    chakraNuxtModule
   ],
-  build: {
-    transpile: [
-      '@chakra-ui/vue'
-    ]
-  },
   chakra: {
     extendTheme: theme
   }

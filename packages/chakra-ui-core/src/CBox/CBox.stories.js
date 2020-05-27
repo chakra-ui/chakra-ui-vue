@@ -27,15 +27,23 @@ storiesOf('UI | Box', module)
     components: { CBox },
     template: `
       <div>
-        <Box
+        <CBox
           w="300px"
           h="200px"
           font-family="body"
           objectFit="contain"
-          bgImg="url(https://lh3.googleusercontent.com/proxy/vG0O53R9-vPA2WpuC5lXWCHIVuIQiQ1R7bpQ1UcDsHnHVlz2BJMeSeJx1I1n4huq_SeB39iegxgQl1zXcnNqpq2IJfCgQwwWXpdRG9pNdA)"
+          bgImg="url(https://res.cloudinary.com/xtellar/image/upload/c_scale,w_400/v1590590033/chakra-ui/docs/eye-for-ebony-vYpbBtkDhNE-unsplash_si32tg.jpg)"
+          bgSize="cover"
         >
-          <Box h="full" bg="red.200" :w="1/2" />
-        </Box>
+          <CBox h="full" bg="red.400" w="50%" p="4" color="white" line-height="1">
+            <CBox fontWeight="bold" fontSize="2xl" >
+              The Rise of Africa's pearl
+            </CBox>
+            <CBox mt="3" fontSize="lg">
+              Here is Miss Uganda's story.
+            </CBox>
+          </CBox>
+        </CBox>
       </div>
     `
   }))

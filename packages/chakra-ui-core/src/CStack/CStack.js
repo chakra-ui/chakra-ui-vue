@@ -75,24 +75,27 @@ const CStack = {
         ? { [_isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
         : { [_isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
       const clone = cloneVNode(node, h)
-      const { propsData } = clone.componentOptions
+      
+      if (clone.componentOptions && clone.componentOptions.propsData) {
+        const { propsData } = clone.componentOptions
 
-      // If children nodes should wrap, we wrap them inside block with
-      // display set to inline block.
-      if (this.shouldWrapChildren) {
-        return h(CBox, {
-          props: {
-            d: 'inline-block',
-            ...spacingProps,
-            ...forwardProps(this.$props)
-          }
-        }, [clone])
-      }
+        // If children nodes should wrap, we wrap them inside block with
+        // display set to inline block.
+        if (this.shouldWrapChildren) {
+          return h(CBox, {
+            props: {
+              d: 'inline-block',
+              ...spacingProps,
+              ...forwardProps(this.$props)
+            }
+          }, [clone])
+        }
 
-      // Otherwise we simply set spacing props to current node.
-      clone.componentOptions.propsData = {
-        ...propsData,
-        ...spacingProps
+        // Otherwise we simply set spacing props to current node.
+        clone.componentOptions.propsData = {
+          ...propsData,
+          ...spacingProps
+        }
       }
 
       return clone

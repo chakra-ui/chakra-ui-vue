@@ -9,7 +9,9 @@
       "name": "Kelvin Omereshone <kelvinomereshone@gmail.com>"
     }
   ],
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/module.js",
   "scripts": {
     "dev": "nuxt example",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "@chakra-ui/vue": "^0.5.8",
+    "@nuxt/components": "^0.3.0",
     "emotion": "^10.0.27"
   },
   "peerDependencies": {

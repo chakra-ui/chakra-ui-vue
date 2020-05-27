@@ -14,6 +14,9 @@ export default function (moduleOptions) {
     nuxt.options.components = { dirs: [] }
   }
 
+  // TODO: Make provision for this module to be opt-out. e.g. `options.importOnDemand`
+  //    If opt-out is true, then we should not require @nuxt/component
+  //     and load
   // Ensure components module is enabled
   this.requireModule('@nuxt/components')
   // Add @nuxtjs/emotion module
@@ -22,7 +25,7 @@ export default function (moduleOptions) {
   // Transpile lodash-es
   nuxt.options.build.transpile.push('lodash-es')
 
-  // Transpile @chakra-ui
+  // Transpile @chakra-ui.
   nuxt.options.build.transpile.push('@chakra-ui')
 
   // Recursively merge extended theme variables
@@ -49,6 +52,7 @@ export default function (moduleOptions) {
     }
   })
 
+  // TODO: Do not load if `options.importOnDemand = false`
   // Provide components on demand
   nuxt.hook('components:dirs', (dirs) => {
     dirs.push({

@@ -75,7 +75,7 @@ const CStack = {
         ? { [_isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
         : { [_isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
       const clone = cloneVNode(node, h)
-      
+
       if (clone.componentOptions && clone.componentOptions.propsData) {
         const { propsData } = clone.componentOptions
 

@@ -5,4 +5,43 @@ sw.js
 **/lib/plugin.js
 **/.nuxt
 **/coverage
-**/packages/chakra-ui-theme/src/*
+node_modules
+
+.DS_Store
+node_modules
+
+**/dist/*
+/public
+/storybook-static
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Workspaces
+packages/*/coverage
+packages/*/dist
+packages/*/node_modules
+**/.nuxt/
+lerna-debug.log
+.now
+config/.env
+packages/nuxt-chakra/.github

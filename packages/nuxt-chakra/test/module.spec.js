@@ -10,7 +10,7 @@ describe('module', () => {
     const rootDir = join(__dirname, '..', 'example')
     /** Nuxt config */
     const config = {
-      rootDir, 
+      rootDir,
       modules: [
         chakraNuxtModule
       ],

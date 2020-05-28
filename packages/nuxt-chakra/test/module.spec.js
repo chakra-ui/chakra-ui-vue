@@ -1,11 +1,25 @@
-const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils')
+const { join } = require('path')
+const { setup, get } = require('@nuxtjs/module-test-utils')
 const customTheme = require('../example/utils/theme')
+const chakraNuxtModule = require('..')
 
 describe('module', () => {
   let nuxt
 
   beforeAll(async () => {
-    ({ nuxt } = (await setup(loadConfig(__dirname, '../../example', { dev: false }))))
+    const rootDir = join(__dirname, '..', 'example')
+    /** Nuxt config */
+    const config = {
+      rootDir, 
+      modules: [
+        chakraNuxtModule
+      ],
+      chakra: {
+        extendTheme: customTheme
+      }
+    }
+
+    nuxt = (await setup(config)).nuxt
   }, 60000)
 
   afterAll(async () => {

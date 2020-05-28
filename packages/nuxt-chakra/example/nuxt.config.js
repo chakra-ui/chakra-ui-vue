@@ -3,7 +3,6 @@ import chakraNuxtModule from '..'
 
 export default {
   rootDir: __dirname,
-  srcDir: __dirname,
   modules: [
     chakraNuxtModule
   ],

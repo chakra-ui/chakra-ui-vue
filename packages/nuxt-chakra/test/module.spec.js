@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { get } from '@nuxtjs/module-test-utils'
 import { Nuxt, Builder } from 'nuxt'
+import customTheme from '../example/utils/theme'
 import chakraNuxtModule from '..'
 
 describe('module', () => {
@@ -16,22 +17,7 @@ describe('module', () => {
         chakraNuxtModule
       ],
       chakra: {
-        extendTheme: {
-          colors: {
-            brand: {
-              50: '#daffff',
-              100: '#b1fbfb',
-              200: '#85f7f7',
-              300: '#58f3f3',
-              400: '#31f0f0',
-              500: '#1ed7d7',
-              600: '#0ca7a7',
-              700: '#007777',
-              800: '#004949',
-              900: '#001a1a'
-            }
-          }
-        }
+        extendTheme: customTheme
       }
     }
 
@@ -52,13 +38,13 @@ describe('module', () => {
     expect(html).toContain('⚡️ Hello chakra-ui/vue')
   })
 
-  // test('renders ThemeProvider component', async () => {
-  //   const html = await get('/')
-  //   expect(html).toContain('data-chakra-component="CThemeProvider"')
-  // })
+  test('renders ThemeProvider component', async () => {
+    const html = await get('/')
+    expect(html).toContain('data-chakra-component="CThemeProvider"')
+  })
 
-  // test('should accept extended variables nuxt config', async () => {
-  //   const html = await get('/')
-  //   expect(html).toContain(`data-test-custom-theme-color="${customTheme.colors.brand[200]}`)
-  // })
+  test('should accept extended variables nuxt config', async () => {
+    const html = await get('/')
+    expect(html).toContain(`data-test-custom-theme-color="${customTheme.colors.brand[200]}`)
+  })
 })

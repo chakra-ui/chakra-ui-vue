@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@chakra-ui/vue": "^0.5.8",
+    "@nuxtjs/emotion": "^0.0.1",
     "@nuxt/components": "^0.3.0",
     "emotion": "^10.0.27"
   },
   "peerDependencies": {
-    "@nuxtjs/emotion": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

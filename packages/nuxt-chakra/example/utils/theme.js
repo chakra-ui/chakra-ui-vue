@@ -15,4 +15,4 @@ const customTheme = {
   }
 }
 
-module.exports = customTheme
+export default customTheme

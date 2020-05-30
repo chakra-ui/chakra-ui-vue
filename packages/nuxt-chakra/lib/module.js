@@ -7,18 +7,13 @@ import { kebabCase } from 'lodash-es'
 
 export default function (moduleOptions) {
   const { nuxt } = this
-  const options = { ...this.options.chakra, ...moduleOptions }
 
-  // Workaround to ensure user components/ dir is not scanned unwillingly
-  if (!nuxt.options.components) {
-    nuxt.options.components = { dirs: [] }
+  const options = {
+    importOnDemand: true,
+    ...this.options.chakra,
+    ...moduleOptions
   }
 
-  // TODO: Make provision for this module to be opt-out. e.g. `options.importOnDemand`
-  //    If opt-out is true, then we should not require @nuxt/component
-  //     and load
-  // Ensure components module is enabled
-  this.requireModule('@nuxt/components')
   // Add @nuxtjs/emotion module
   this.requireModule('@nuxtjs/emotion')
 
@@ -36,6 +31,8 @@ export default function (moduleOptions) {
   if (options.icons && options.icons.iconPack) {
     packIcons = parsePackIcons(options.icons.iconPack, options.icons.iconSet)
   }
+
+  // Icons
   const icons = {
     ...internalIcons,
     ...packIcons,
@@ -52,7 +49,19 @@ export default function (moduleOptions) {
     }
   })
 
-  // TODO: Do not load if `options.importOnDemand = false`
+  /** Do not import and register components with @nuxt/components */
+  if (!options.importOnDemand) {
+    return
+  }
+
+  // Workaround to ensure user components/ dir is not scanned unwillingly
+  if (!nuxt.options.components) {
+    nuxt.options.components = { dirs: [] }
+  }
+
+  // Ensure components module is enabled
+  this.requireModule('@nuxt/components')
+
   // Provide components on demand
   nuxt.hook('components:dirs', (dirs) => {
     dirs.push({

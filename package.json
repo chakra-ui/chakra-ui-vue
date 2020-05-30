@@ -14,7 +14,9 @@
       "packages/*"
     ],
     "nohoist": [
-      "core-js"
+      "core-js",
+      "@nuxt/components",
+      "@nuxtjs/emotion"
     ]
   },
   "scripts": {

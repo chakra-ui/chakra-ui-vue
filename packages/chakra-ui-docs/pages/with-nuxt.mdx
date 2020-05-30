@@ -11,15 +11,12 @@ import SEO from '../components/SEO'
 
 ## Installation
 
-With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-community/emotion-module) package to enable your component
-styles to be generated and injected in the server build.
-
 ```bash
-yarn add @chakra-ui/nuxt @nuxtjs/emotion
+yarn add @chakra-ui/nuxt
 ```
 
 ## Registering the Chakra module
-We then register the Chakra UI module in the `modules` key of our `nuxt.config.js`.
+You then register the Chakra UI module in the `modules` key of our `nuxt.config.js`.
 [See the Nuxt documentation to learn more about modules in Nuxt.js](https://nuxtjs.org/guide/modules)
 
 Chakra module options are the same as the Vue CLI plugin options.
@@ -28,52 +25,73 @@ Learn more about the [Chakra plugin options here](/plugin-options).
 ```js
 export default {
   modules: [
-    '@chakra-ui/nuxt',
-    '@nuxtjs/emotion'
+    '@chakra-ui/nuxt'
   ],
-  /**
-   * Add extend the plugin options under the `chakra` key.
-   **/
+  // extend the plugin options under the `chakra` key
   chakra: {
-    extendTheme: {
-      colors: {
-        brand: { /* ... */ }
-      }
-    }
+    // ...
   }
 }
 ```
 
-### Finally, setup Chakra's Theme Provider.
-
-We then wrap our layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your
+You then wrap your layouts in the `layouts/` directory inside the `CThemeProvider` component so that all your
 Chakra UI components can access the theme object.
-
-Great! Now you can start consuming Chakra components!
 
 ```vue
 <template>
-  <CThemeProvider>
-    <CReset />
-    <Nuxt />
-    <CButton as="nuxt-link" to="/my-other-page">
+  <c-theme-provider>
+    <c-preset />
+    <nuxt />
+    <c-button as="nuxt-link" to="/my-other-page">
       ⚡️ Oh, my Nuxt!
-    </CButton>
-  </CThemeProvider>
+    </c-button>
+  </c-theme-provider>
 </template>
+```
 
-<script>
-import { CThemeProvider, CReset, CButton } from '@chakra-ui/vue'
+🎉 _Voila!_ You're ready to start using Chakra UI Vue in your Nuxt.js app!
 
+
+## Advanced
+If you're looking to get more out of Chakra UI in Nuxt, we've documented a few of the features that
+the `@chakra-ui/nuxt` module ships out of the box and how they work.
+
+### Auto-importing of Chakra UI Vue components.
+
+Notice that in the basic setup, we don't locally register the `CButton` & `CThemeProvider` components
+in the template before using them.
+
+By default, Chakra UI Vue dynamically analyzes your template during development and **only
+registers the components that you use in the template** without having to manually import and
+register them locally in the template. Chakra UI Vue is able to achieve this through the official
+[`@nuxt/components`](https://github.com/nuxt/components) module to achieve this.
+
+This helps you conveniently use Chakra UI Vue components without importing & registering all components globally,
+and completely sacrificing your application's performance. Tree-shaking works out of the box for all consumed
+Chakra UI Vue components. 
+
+If you want to get even performance (smaller bundle size) for your application, [you can opt out of this feature.](#opt-out-of-import-on-demand.)
+
+### Opt out of import on demand.
+Using the default `importOnDemand` feature of Chakra UI Vue in Nuxt comes with one tradeoff - it loads about
+[**~10KB**](https://github.com/chakra-ui/chakra-ui-vue/pull/220#issue-424013613) of Javascript to the Nuxt
+application's entry. We hope to make this zero in the future. We're working with the Nuxt team to improve this feature.
+
+To disable the import on demand feature, simply set the `importOnDemand`  option to false in the Chakra options in your `nuxt.config.js`
+
+> Disbaling the `importOnDemand` feature will require you to manually import Chakra components before using them.
+
+```js
 export default {
-  name: 'DefaultLayout',
-  components: {
-    CThemeProvider,
-    CReset,
-    CButton
+  modules: [
+    '@chakra-ui/nuxt'
+  ],
+  chakra: {
+    // Disables template scanning and auto-import of used
+    // Chakra components.
+    importOnDemand: false
   }
 }
-</script>
 ```
 
 ### Nuxt codesandbox starters

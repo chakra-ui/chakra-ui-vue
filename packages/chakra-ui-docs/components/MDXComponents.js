@@ -51,7 +51,11 @@ const Heading = {
             outline: 'none',
             _focus: { opacity: 1, boxShadow: 'outline' },
             opacity: '0',
-            ml: '0.375rem'
+            ml: '0.375rem',
+            _before: {
+              content: '""',
+              margin: '-70px 0 0'
+            }
           },
           attrs: {
             ...this.$attrs,

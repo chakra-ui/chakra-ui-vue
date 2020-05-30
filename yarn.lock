@@ -3093,6 +3093,11 @@
   resolved "https://registry.yarnpkg.com/@nuxt/components/-/components-0.3.0.tgz#6a931d54efdf9436f948c2157dc5cfad3c7efa20"
   integrity sha512-iL5k77INTCocB0/cWF8k8wByPmc9PT4Jhi9Ntcg30B7gi0lhNgmhmfPkhnphPiBcQSEHcX+0n8HXf/yw7znfeA==
 
+"@nuxt/components@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@nuxt/components/-/components-0.3.1.tgz#b495fe96879c6f057cd765b36d1dc8149dfc3755"
+  integrity sha512-nYk3M/4UNmysiUQLKIsejhrzvVqPityJSq4atiP0A4I/UX6/kma/lPrhrn/ZdgbkMASdbUzo1sJTF/IYnlo4bg==
+
 "@nuxt/config@2.12.2":
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/@nuxt/config/-/config-2.12.2.tgz#df0ac32db2c7b36b5bcafc985bff1219dfe5391c"

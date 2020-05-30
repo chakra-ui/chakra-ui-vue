@@ -33,20 +33,5 @@ export const findNextAndPrevRoute = (path) => {
   const nextPage = extractedRoutes[currentRouteIndex + 1]
   const prevPage = extractedRoutes[currentRouteIndex - 1]
 
-  const prevPageLink = prevPage
-    ? {
-      ...prevPage,
-      name: (prevPage.name =
-          prevPage.name.charAt(0).toUpperCase() + prevPage.name.slice(1))
-    }
-    : ''
-  const nextPageLink = nextPage
-    ? {
-      ...nextPage,
-      name: (nextPage.name =
-          nextPage.name.charAt(0).toUpperCase() + nextPage.name.slice(1))
-    }
-    : ''
-
-  return { prev: prevPageLink, next: nextPageLink }
+  return { prev: prevPage || '', next: nextPage || '' }
 }

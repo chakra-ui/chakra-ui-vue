@@ -24,5 +24,5 @@ export const findNextAndPrevRoute = (path, routes) => {
   const nextPageLink = routes[currentRouteIndex + 1]
   const prevPageLink = routes[currentRouteIndex - 1]
 
-  return { prev: prevPageLink.path, next: nextPageLink.path }
+  return { prev: prevPageLink ? prevPageLink.path : '', next: nextPageLink ? nextPageLink.path : '' }
 }

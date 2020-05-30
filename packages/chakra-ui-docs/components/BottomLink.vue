@@ -1,12 +1,14 @@
 <template>
   <div>
     <CFlex justify="space-between">
-      <CLink as="router-link" :v-show="prev !== ''" :to="prev">
-        Prev
-      </CLink>
+      <div>
+        <CLink as="router-link" :to="prev">
+          {{ prev == '' ? "" : "Prev" }}
+        </CLink>
+      </div>
 
-      <CLink as="router-link" :v-show="next !== ''" :to="next">
-        Next
+      <CLink as="router-link" :to="next">
+        {{ next == '' ? "": "Next" }}
       </CLink>
     </CFlex>
   </div>

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.10-next.0
+
+### Patch Changes
+
+- This release introduces support for `@nuxt/components`.
+
 ## 0.5.9
 
 ### Patch Changes

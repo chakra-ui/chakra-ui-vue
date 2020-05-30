@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.5-next.0
+
+### Patch Changes
+
+- This release introduces support for `@nuxt/components`.
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.5.10-next.0
+
 ## 0.0.4
 
 ### Patch Changes

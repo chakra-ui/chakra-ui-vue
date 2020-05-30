@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt",
-  "version": "0.0.4",
+  "version": "0.0.5-next.0",
   "description": "Chakra UI Module for Nuxt.js",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue",
   "license": "MIT",
@@ -9,9 +9,7 @@
       "name": "Kelvin Omereshone <kelvinomereshone@gmail.com>"
     }
   ],
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "main": "lib/module.js",
   "scripts": {
     "dev": "nuxt example",
@@ -20,13 +18,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@chakra-ui/vue": "^0.5.8",
+    "@chakra-ui/vue": "^0.5.10-next.0",
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxt/components": "^0.3.0",
     "emotion": "^10.0.27"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",

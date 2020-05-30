@@ -21,8 +21,25 @@ export const removeHyphenFromString = (hyphenatedString) => {
 export const findNextAndPrevRoute = (path, routes) => {
   const currentRouteIndex = routes.map(route => route.path).indexOf(path)
 
-  const nextPageLink = routes[currentRouteIndex + 1]
-  const prevPageLink = routes[currentRouteIndex - 1]
+  const nextPage = routes[currentRouteIndex + 1]
+  const prevPage = routes[currentRouteIndex - 1]
 
-  return { prev: prevPageLink ? prevPageLink.path : '', next: nextPageLink ? nextPageLink.path : '' }
+  const prevPageLink = prevPage
+    ? {
+      ...prevPage,
+      name: (prevPage.name =
+          prevPage.name.charAt(0).toUpperCase() + prevPage.name.slice(1))
+    }
+    : ''
+  const nextPageLink = nextPage
+    ? {
+      ...nextPage,
+      name: (nextPage.name =
+          nextPage.name.charAt(0).toUpperCase() + nextPage.name.slice(1))
+    }
+    : ''
+
+  console.log(prevPageLink)
+  console.log(nextPageLink)
+  return { prev: prevPageLink, next: nextPageLink }
 }

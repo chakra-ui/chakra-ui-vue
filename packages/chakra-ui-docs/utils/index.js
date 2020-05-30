@@ -17,3 +17,12 @@ export const removeHyphenFromString = (hyphenatedString) => {
   const str = hyphenatedString.split('-')
   return str.join(' ')
 }
+
+export const findNextAndPrevRoute = (path, routes) => {
+  const currentRouteIndex = routes.map(route => route.path).indexOf(path)
+
+  const nextPageLink = routes[currentRouteIndex + 1]
+  const prevPageLink = routes[currentRouteIndex - 1]
+
+  return { prev: prevPageLink.path, next: nextPageLink.path }
+}

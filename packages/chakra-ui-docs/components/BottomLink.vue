@@ -34,17 +34,16 @@ export default {
   }),
   watch: {
     '$route.path' (nextPath) {
-      const { prev, next } = findNextAndPrevRoute(nextPath, this.$router.options.routes)
+      const { prev, next } = findNextAndPrevRoute(nextPath)
 
       this.prevPath = prev.path
       this.prevName = prev.name
       this.nextPath = next.path
       this.nextName = next.name
-      console.log(this.nextName)
     }
   },
   created () {
-    const { prev, next } = findNextAndPrevRoute(this.$route.path, this.$router.options.routes)
+    const { prev, next } = findNextAndPrevRoute(this.$route.path)
 
     this.prevPath = prev.path
     this.prevName = prev.name

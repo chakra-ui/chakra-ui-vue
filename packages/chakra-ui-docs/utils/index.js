@@ -1,3 +1,5 @@
+import { topNavLinks, components, aboutNavLinks } from './all-routes'
+
 export const stringToUrl = (str, path = '/') => {
   return `${path}${str
     .toLowerCase()
@@ -18,11 +20,18 @@ export const removeHyphenFromString = (hyphenatedString) => {
   return str.join(' ')
 }
 
-export const findNextAndPrevRoute = (path, routes) => {
-  const currentRouteIndex = routes.map(route => route.path).indexOf(path)
+export const findNextAndPrevRoute = (path) => {
+  const orderedRoutes = [...topNavLinks, ...aboutNavLinks, ...components]
 
-  const nextPage = routes[currentRouteIndex + 1]
-  const prevPage = routes[currentRouteIndex - 1]
+  const extractedRoutes = []
+  orderedRoutes.forEach((singleRoute) => {
+    extractedRoutes.push({ name: singleRoute, path: stringToUrl(singleRoute) })
+  })
+
+  const currentRouteIndex = extractedRoutes.map(route => route.path).indexOf(path)
+
+  const nextPage = extractedRoutes[currentRouteIndex + 1]
+  const prevPage = extractedRoutes[currentRouteIndex - 1]
 
   const prevPageLink = prevPage
     ? {
@@ -39,7 +48,5 @@ export const findNextAndPrevRoute = (path, routes) => {
     }
     : ''
 
-  console.log(prevPageLink)
-  console.log(nextPageLink)
   return { prev: prevPageLink, next: nextPageLink }
 }

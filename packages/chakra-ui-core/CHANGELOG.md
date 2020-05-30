@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.10-next.1
+
+### Patch Changes
+
+- Removed components directory from src/
+
 ## 0.5.10-next.0
 
 ### Patch Changes

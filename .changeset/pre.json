@@ -8,6 +8,7 @@
     "@chakra-ui/nuxt": "0.0.4"
   },
   "changesets": [
+    "good-hounds-retire",
     "thick-tomatoes-collect"
   ]
 }

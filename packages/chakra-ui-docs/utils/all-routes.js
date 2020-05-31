@@ -6,7 +6,6 @@
  */
 
 export const components = [
-  'Index',
   'Accordion',
   'Alert',
   'AlertDialog',

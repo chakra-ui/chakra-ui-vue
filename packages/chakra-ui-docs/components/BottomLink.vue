@@ -1,36 +1,44 @@
 <template>
-  <div>
+  <div v-show="visible === true">
     <CFlex justify="space-between">
       <div>
-        <CLink as="router-link" :to="prevPath">
-          <CIcon v-show="prevName" name="chevron-left" />
-          {{ prevName == '' ? "" : prevName }}
+        <CLink v-if="prevName" as="router-link" class="link" :to="prevPath">
+          <c-button left-icon="chevron-left" border-color="green.500" variant-color="green" variant="outline">
+            {{ prevName }}
+          </c-button>
         </CLink>
+        <div v-else />
       </div>
 
-      <CLink as="router-link" :to="nextPath">
-        {{ nextName == '' ? "" : nextName }}
-        <CIcon v-show="nextName" name="chevron-right" />
-      </CLink>
+      <div>
+        <CLink v-if="nextName" as="router-link" class="link" :to="nextPath">
+          <c-button right-icon="chevron-right" border-color="green.500" variant-color="green" variant="outline">
+            {{ nextName }}
+          </c-button>
+        </CLink>
+
+        <div v-else />
+      </div>
     </CFlex>
   </div>
 </template>
 
 <script>
-import { CLink, CFlex, CIcon } from '@chakra-ui/vue'
+import { CLink, CFlex, CButton } from '@chakra-ui/vue'
 import { findNextAndPrevRoute } from '../utils'
 
 export default {
   components: {
     CLink,
     CFlex,
-    CIcon
+    CButton
   },
   data: () => ({
     prevPath: '',
     prevName: '',
     nextPath: '',
-    nextName: ''
+    nextName: '',
+    visible: true
   }),
   watch: {
     '$route.path' (nextPath) {
@@ -45,12 +53,26 @@ export default {
   created () {
     const { prev, next } = findNextAndPrevRoute(this.$route.path)
 
+    if (!prev.path && !next.path) {
+      this.visible = false
+    }
     this.prevPath = prev.path
     this.prevName = prev.name
     this.nextPath = next.path
     this.nextName = next.name
+    console.log(this.prevName, this.nextName)
   }
 }
 </script>
 
-<style></style>
+<style lang="scss">
+  .link {
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+</style>

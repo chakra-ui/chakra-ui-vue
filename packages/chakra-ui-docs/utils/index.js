@@ -21,12 +21,23 @@ export const removeHyphenFromString = (hyphenatedString) => {
 }
 
 export const findNextAndPrevRoute = (path) => {
+  console.log(path)
   const orderedRoutes = [...topNavLinks, ...aboutNavLinks, ...components]
 
+  let isValidRoutePath = false
   const extractedRoutes = []
   orderedRoutes.forEach((singleRoute) => {
-    extractedRoutes.push({ name: singleRoute, path: stringToUrl(singleRoute) })
+    const urlString = stringToUrl(singleRoute)
+    if (urlString === path) {
+      isValidRoutePath = true
+    }
+    extractedRoutes.push({ name: singleRoute, path: urlString })
   })
+
+  console.log(isValidRoutePath)
+  if (isValidRoutePath === false) {
+    return { prev: '', next: '' }
+  }
 
   const currentRouteIndex = extractedRoutes.map(route => route.path).indexOf(path)
 

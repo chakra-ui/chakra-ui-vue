@@ -19,6 +19,11 @@
       ml="auto"
     >
       <CBox as="li" mr="4">
+        <CLink color="gray.600" :_hover="{ color : 'vue.400' }" is-external href="https://chakra-ui.com/">
+          Chakra UI React
+        </CLink>
+      </CBox>
+      <CBox as="li" mr="4">
         <CLink color="gray.500" :_hover="{ color : 'vue.400' }" is-external href="https://github.com/chakra-ui/chakra-ui-vue">
           <CIcon name="github" size="20px" />
         </CLink>

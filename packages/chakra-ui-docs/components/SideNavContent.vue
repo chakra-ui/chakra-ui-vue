@@ -103,29 +103,7 @@
 <script>
 import { boxProps, CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
-import { components as componentLinks } from '../utils/all-routes'
-
-const topNavLinks = [
-  'Getting Started',
-  'With Nuxt',
-  'Plugin Options',
-  'Principles',
-  'Style Props',
-  'Theme',
-  'Extending Theme',
-  'Color Mode',
-  'Responsive Styles',
-  'Starters'
-]
-
-const aboutNavLinks = [
-  'Why Chakra UI',
-  'Accessibility',
-  'Constraint Based Design',
-  'Contributing',
-  'Recipes',
-  'Storybook'
-]
+import { components as componentLinks, topNavLinks, aboutNavLinks } from '../utils/all-routes'
 
 export default {
   name: 'SideNavContent',

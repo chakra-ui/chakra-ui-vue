@@ -6,7 +6,7 @@ import { forwardProps, camelize } from '../utils'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
 
 /** Filter attrs and return object of chakra props */
-function filterChakraProps(attrs) {
+function filterChakraProps (attrs) {
   const pure = {}
   for (const prop in attrs) {
     if (styleProps[camelize(prop)]) {
@@ -17,14 +17,14 @@ function filterChakraProps(attrs) {
 }
 
 /** Purify Chakra attributes */
-function purifyAttrs(el, props) {
+function purifyAttrs (el, props) {
   for (const attr in props) {
     el.removeAttribute(attr)
   }
 }
 
 /** Creates className from styles object */
-function createClassName(styleObject, theme) {
+function createClassName (styleObject, theme) {
   const pure = filterChakraProps(forwardProps(styleObject))
   const { pseudoStyles, baseProps } = parsePseudoStyles(pure)
   const baseStyles = systemProps({ ...baseProps, theme })
@@ -40,7 +40,7 @@ export default function createCharkaDirective (theme) {
       const [className, pure] = createClassName(vnode.data.attrs, theme)
       el.classList.add(className)
       purifyAttrs(el, pure)
-      
+
       if (binding.value && typeof binding.value === 'object') {
         const [className, pure] = createClassName(binding.value, theme)
         el.classList.add(className)

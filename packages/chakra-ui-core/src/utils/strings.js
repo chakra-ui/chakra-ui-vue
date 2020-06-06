@@ -32,8 +32,8 @@ export function kebabify (text) {
  * Converts a kebab-case string into camel case
  * @param {String} string
  */
-export function camelize(string) {
-  return string.replace(/[.-](\w|$)/g, function (_,x) {
-      return x.toUpperCase();
-  });
+export function camelize (string) {
+  return string.replace(/[.-](\w|$)/g, function (_, x) {
+    return x.toUpperCase()
+  })
 }

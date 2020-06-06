@@ -1,9 +1,7 @@
 import { css } from 'emotion'
-import __css from '@styled-system/css'
-import { systemProps } from '../CBox'
+import Css from '../Css'
 import styleProps from '../config/props'
-import { forwardProps, camelize } from '../utils'
-import { parsePseudoStyles } from '../CPseudoBox/utils'
+import { camelize } from '../utils'
 
 /** Filter attrs and return object of chakra props */
 function filterChakraProps (attrs) {
@@ -24,12 +22,13 @@ function purifyAttrs (el, props) {
 }
 
 /** Creates className from styles object */
-function createClassName (styleObject, theme) {
-  const pure = filterChakraProps(forwardProps(styleObject))
-  const { pseudoStyles, baseProps } = parsePseudoStyles(pure)
-  const baseStyles = systemProps({ ...baseProps, theme })
-  const _pseudoStyles = __css(pseudoStyles)(theme)
-  const className = css({ ...baseStyles, ..._pseudoStyles })
+function createClassName (styleObject, theme, hasBindingValue = false) {
+  const pure = filterChakraProps(styleObject)
+  if (hasBindingValue) {
+    const className = css(Css(styleObject)(theme))
+    return [className, pure]
+  }
+  const className = css(Css(pure)(theme))
   return [className, pure]
 }
 
@@ -37,14 +36,24 @@ function createClassName (styleObject, theme) {
 export default function createCharkaDirective (theme) {
   return {
     bind (el, binding, vnode) {
+      console.log(vnode)
       const [className, pure] = createClassName(vnode.data.attrs, theme)
       el.classList.add(className)
       purifyAttrs(el, pure)
 
-      if (binding.value && typeof binding.value === 'object') {
-        const [className, pure] = createClassName(binding.value, theme)
-        el.classList.add(className)
-        purifyAttrs(el, pure)
+      if (binding.value) {
+        if (typeof binding.value === 'object') {
+          const [className, pure] = createClassName(binding.value, theme, true)
+          el.classList.add(className)
+          purifyAttrs(el, pure)
+        }
+
+        if (typeof binding.value === 'function') {
+          const styles = binding.value(theme)
+          const [className, pure] = createClassName(styles, theme, true)
+          el.classList.add(className)
+          purifyAttrs(el, pure)
+        }
       }
     }
   }

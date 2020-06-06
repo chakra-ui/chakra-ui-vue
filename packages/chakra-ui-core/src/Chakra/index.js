@@ -2,6 +2,7 @@ import VScrollLock from 'v-scroll-lock'
 import { merge } from 'lodash-es'
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
+import { createCharkaDirective } from '../directives'
 import defaultTheme from '../../../chakra-ui-theme/src'
 import useToast from '../CToast'
 
@@ -61,6 +62,8 @@ const Chakra = {
 
     // Recursively merge extended theme variables
     const mergedTheme = merge(defaultTheme, options.extendTheme)
+
+    Vue.directive('chakra', createCharkaDirective(mergedTheme))
 
     // Bind theme and icons to prototype
     Vue.prototype.$chakra = {

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.10
+
+### Patch Changes
+
+- Adds the `v-chakra` directive for styling HTML elements
+
 ## 0.5.9
 
 ### Patch Changes

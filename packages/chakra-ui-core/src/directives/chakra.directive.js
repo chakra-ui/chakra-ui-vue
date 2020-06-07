@@ -1,14 +1,14 @@
 import { css } from 'emotion'
 import Css from '../Css'
 import styleProps from '../config/props'
-import { camelize } from '../utils'
+import { camelize, kebabify } from '../utils'
 
 /** Filter attrs and return object of chakra props */
 function filterChakraProps (attrs) {
   const pure = {}
   for (const prop in attrs) {
     if (styleProps[camelize(prop)]) {
-      pure[prop] = attrs[prop]
+      pure[camelize(prop)] = attrs[prop]
     }
   }
   return pure
@@ -18,6 +18,15 @@ function filterChakraProps (attrs) {
 function purifyAttrs (el, props) {
   for (const attr in props) {
     el.removeAttribute(attr)
+  }
+}
+
+/** Purify's Chakra Attributes from VNode object */
+function purifyVNodeAttrs (vnode, props) {
+  if (props && vnode.data.attrs) {
+    for (const attr in props) {
+      delete vnode.data.attrs[kebabify(attr)]
+    }
   }
 }
 
@@ -32,11 +41,46 @@ function createClassName (styleObject, theme, hasBindingValue = false) {
   return [className, pure]
 }
 
-/** Creates Chakra Directive */
-export default function createCharkaDirective (theme) {
+/** Creates SSR `v-chakra` directive for Nuxt */
+export function createServerDirective (theme) {
+  return (vnode, directive) => {
+    const [className, pure] = createClassName(vnode.data.attrs, theme)
+    if (vnode.data.class) {
+      vnode.data.class += ` ${className}`
+    } else {
+      vnode.data.class = className
+    }
+    purifyVNodeAttrs(vnode, pure)
+
+    if (directive.value) {
+      if (typeof directive.value === 'object') {
+        const [className, pure] = createClassName(directive.value, theme, true)
+        if (vnode.data.class) {
+          vnode.data.class += ` ${className}`
+        } else {
+          vnode.data.class = className
+        }
+        purifyVNodeAttrs(vnode, pure)
+      }
+
+      if (typeof directive.value === 'function') {
+        const styles = directive.value(theme)
+        const [className, pure] = createClassName(styles, theme, true)
+        if (vnode.data.class) {
+          vnode.data.class += ` ${className}`
+        } else {
+          vnode.data.class = className
+        }
+        purifyVNodeAttrs(vnode, pure)
+      }
+    }
+  }
+};
+
+/** Creates Client `v-chakra` Directive */
+export function createClientDirective (theme) {
   return {
     bind (el, binding, vnode) {
-      console.log(vnode)
       const [className, pure] = createClassName(vnode.data.attrs, theme)
       el.classList.add(className)
       purifyAttrs(el, pure)

@@ -7,12 +7,11 @@ module.exports = {
   srcDir: __dirname,
   modules: [
     { handler: require('../') },
-    '@nuxtjs/emotion'
+    // During development comment please uncomment,
+    process.env.NODE_ENV === 'development' && { handler: require('@nuxtjs/emotion') }
   ],
   build: {
-    transpile: [
-      '@chakra-ui/vue'
-    ]
+    transpile: ['@nuxtjs/emotion']
   },
   chakra: {
     extendTheme: theme

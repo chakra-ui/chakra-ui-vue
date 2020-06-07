@@ -1,7 +1,5 @@
 const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils')
 const customTheme = require('../example/utils/theme')
-jest.useFakeTimers()
-
 /**
  * nuxtjs/module-test-utils is unable
  * to fully support some of the recent nuxtjs
@@ -22,7 +20,7 @@ jest.useFakeTimers()
  *
  * Contributions are welcome!
  */
-xdescribe('module', () => {
+describe('module', () => {
   let nuxt
 
   beforeAll(async () => {

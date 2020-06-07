@@ -6,13 +6,9 @@ module.exports = {
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
   modules: [
-    { handler: require('../') },
-    // During development comment please uncomment,
-    process.env.NODE_ENV === 'development' && { handler: require('@nuxtjs/emotion') }
+    { handler: require('../lib/module') },
+    { handler: require('@nuxtjs/emotion') }
   ],
-  build: {
-    transpile: ['@nuxtjs/emotion']
-  },
   chakra: {
     extendTheme: theme
   }

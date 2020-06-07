@@ -1,6 +1,5 @@
 import { CAspectRatioBox, CBox } from '../..'
-import { render } from '@/tests/test-utils'
-
+import { render, screen } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
@@ -15,17 +14,53 @@ const renderComponent = (props) => {
   return render(base)
 }
 
+/**
+ * Not sure if we need jest-emotion
+ *
+ * Get styles from document.styleSheets
+ * @param {String} selector
+ */
+function getElementStyles (selector) {
+  selector = new RegExp(selector)
+  let styles = []
+  let i; let j; let sel = selector
+  for (i = 0; i < document.styleSheets.length; ++i) {
+    for (j = 0; j < document.styleSheets[i].cssRules.length; ++j) {
+      if (sel.test(document.styleSheets[i].cssRules[j].selectorText)) {
+        // let selectorText = document.styleSheets[i].cssRules[j].selectorText
+        let cssText = document.styleSheets[i].cssRules[j].style.cssText
+        styles += cssText
+      }
+    }
+  }
+  return styles
+}
+
 it('should render correctly', () => {
   const inlineAttrs = ':ratio="1"'
   const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()
+
+  const [, emotionClassName] = [...screen.getByTestId('aspectRatioBox').classList]
+  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+
+  expect(pseudoStyles).toContain(`
+    padding-bottom: 100%
+  `.trim())
 })
 
-it('should have correct styles', () => {
-  const inlineAttrs = ':ratio="2"'
-  const { getByTestId } = renderComponent({ inlineAttrs })
-  const image = getByTestId('image')
-  const aspectRatioBox = getByTestId('aspectRatioBox')
+it('should have correct styles', async () => {
+  const inlineAttrs = `:ratio="2"`
+  renderComponent({ inlineAttrs })
+  const image = screen.getByTestId('image')
+  const aspectRatioBox = screen.getByTestId('aspectRatioBox')
+
+  const [, emotionClassName] = [...aspectRatioBox.classList]
+  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+
+  expect(pseudoStyles).toContain(`
+    padding-bottom: 50%
+  `.trim())
 
   expect(aspectRatioBox).toHaveStyle(`
     max-width: 400px;
@@ -40,7 +75,4 @@ it('should have correct styles', () => {
     top: 0px;
     left: 0px;
   `)
-
-  // TODO: we can't test pseudo elements.. so better test styles?
-  // aspectRatioBox padding-bottom
 })

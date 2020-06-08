@@ -53,7 +53,8 @@ export const components = [
   'Text',
   'Textarea',
   'Toast',
-  'Tooltip'
+  'Tooltip',
+  'v-chakra'
 ]
 
 export const topNavLinks = [

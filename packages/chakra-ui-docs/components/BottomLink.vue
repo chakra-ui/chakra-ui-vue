@@ -1,6 +1,6 @@
 <template>
   <div v-show="visible === true">
-    <CFlex justify="space-between">
+    <CFlex justify="space-between" pb="20">
       <div>
         <CLink v-if="prevName" as="router-link" class="link" :to="prevPath">
           <c-button left-icon="chevron-left" border-color="green.500" variant-color="green" variant="outline">

@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "Build Accessible and Responsive Vue.js applications with ease",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

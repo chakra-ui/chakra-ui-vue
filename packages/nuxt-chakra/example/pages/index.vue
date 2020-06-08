@@ -11,6 +11,9 @@
       <c-heading text-align="center" mb="4">
         ⚡️ Hello chakra-ui/vue
       </c-heading>
+      <c-link as="nuxt-link" to="/directive">
+        Go to directive ->
+      </c-link>
       <c-flex justify="center" direction="column" align="center">
         <c-box mb="3">
           <c-icon-button
@@ -98,7 +101,8 @@ import {
   CIconButton,
   CFlex,
   CHeading,
-  CText
+  CText,
+  CLink
 } from '@chakra-ui/vue'
 
 export default {
@@ -120,7 +124,8 @@ export default {
     CIconButton,
     CFlex,
     CHeading,
-    CText
+    CText,
+    CLink
   },
   data () {
     return {

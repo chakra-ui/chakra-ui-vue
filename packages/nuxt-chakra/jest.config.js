@@ -16,5 +16,6 @@ module.exports = {
   },
   testMatch: [
     '**/**/*.spec.(js|jsx|ts|tsx)'
-  ]
+  ],
+  transformIgnorePatterns: ['node_modules/(?!(lodash-es|@chakra-ui/vue|@nuxtjs/emotion))']
 }

@@ -49,6 +49,16 @@
             Github
           </CButton>
         </CFlex>
+        <CLink
+          color="gray.600"
+          mt="4"
+          font-size="sm"
+          :_hover="{ color : 'vue.400' }"
+          is-external
+          href="https://chakra-ui.com/"
+        >
+          Looking for React.js verison?
+        </CLink>
       </CFlex>
     </CFlex>
   </CBox>

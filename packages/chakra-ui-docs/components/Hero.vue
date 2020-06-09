@@ -57,7 +57,7 @@
           is-external
           href="https://chakra-ui.com/"
         >
-          Looking for React.js verison?
+          Looking for React.js version?
         </CLink>
       </CFlex>
     </CFlex>

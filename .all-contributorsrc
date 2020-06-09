@@ -109,6 +109,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jbienesdev",
+      "name": "Joshua Angelo Bienes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17470909?v=4",
+      "profile": "https://jbienesdev.netlify.app/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -23,12 +23,12 @@ const renderComponent = (props) => {
 function getElementStyles (selector) {
   selector = new RegExp(selector)
   let styles = []
-  let i; let j; let sel = selector
+  let i; let j; const sel = selector
   for (i = 0; i < document.styleSheets.length; ++i) {
     for (j = 0; j < document.styleSheets[i].cssRules.length; ++j) {
       if (sel.test(document.styleSheets[i].cssRules[j].selectorText)) {
         // let selectorText = document.styleSheets[i].cssRules[j].selectorText
-        let cssText = document.styleSheets[i].cssRules[j].style.cssText
+        const cssText = document.styleSheets[i].cssRules[j].style.cssText
         styles += cssText
       }
     }
@@ -49,8 +49,8 @@ it('should render correctly', () => {
   `.trim())
 })
 
-it('should have correct styles', async () => {
-  const inlineAttrs = `:ratio="2"`
+it('should have correct styles', () => {
+  const inlineAttrs = ':ratio="2"'
   renderComponent({ inlineAttrs })
   const image = screen.getByTestId('image')
   const aspectRatioBox = screen.getByTestId('aspectRatioBox')

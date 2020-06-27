@@ -16,7 +16,7 @@ A link widget provides an interactive reference to a resource. The target resour
 
 ### `CLink` WAI-ARIA compliance
 The element containing the link text or graphic has role of link.
-Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink and semantically renders an <a>.
+Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink and semantically renders an `<a>`.
 
 The `CLink` component composes `CPseudoBox`, so you can pass all `CPseudoBox` props
 

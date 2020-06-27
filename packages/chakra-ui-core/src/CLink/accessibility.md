@@ -11,8 +11,6 @@ A link widget provides an interactive reference to a resource. The target resour
 
 ### `CLink` Keyboard Interaction
 - [x] **`Enter`**: Executes the link and moves focus to the link target.
-- [x] **`Shift + F10 (Optional)`**: Opens a context menu for the link.
-
 
 ### `CLink` WAI-ARIA compliance
 The element containing the link text or graphic has role of link.

@@ -76,13 +76,11 @@ export const _CPseudoBox = {
       type: [String, Object],
       default: () => 'div'
     },
-    to: [String, Object],
-    chakraId: String
+    to: [String, Object]
   },
   render (h) {
-    return h(CBox, {
+    return h(this.as, {
       props: {
-        as: this.as,
         to: this.to
       },
       class: this.className,

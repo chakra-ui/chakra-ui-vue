@@ -50,11 +50,8 @@ storiesOf('UI | Box', module)
         <input type="text" v-model="title" />
         <br />
         <br />
-        <c-box m="1" p="2" font-style="italic" :bg="['pink.200', 'yellow.200', 'blue.200']" font-weight="bold" v-for="i in 1" :random-attr="'box-' + i" :key="'box-' + i">
+        <c-box m="1" p="2" font-style="italic" :bg="['pink.200', 'yellow.200', 'blue.200']" font-weight="bold" v-for="i in 100" :random-attr="'box-' + i" :key="'box-' + i">
           {{ title }}
-        </c-box>
-        <c-box m="1" p="2" font-style="italic" :bg="['red.200', 'orange.200', 'green.200']" font-weight="bold" v-for="i in 1" :random-attr="'box-2-' + i" :key="'box-2-' + i">
-          Another ignored box
         </c-box>
       </div>
     `,

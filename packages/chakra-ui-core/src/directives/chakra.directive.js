@@ -79,26 +79,33 @@ export function createServerDirective (theme) {
 
 /** Creates Client `v-chakra` Directive */
 export function createClientDirective (theme) {
+  function applyClientStyles (el, binding, vnode) {
+    const [className, pure] = createClassName(vnode.data.attrs, theme)
+    el.classList.add(className)
+    purifyAttrs(el, pure)
+
+    if (binding.value) {
+      if (typeof binding.value === 'object') {
+        const [className, pure] = createClassName(binding.value, theme, true)
+        el.classList.add(className)
+        purifyAttrs(el, pure)
+      }
+
+      if (typeof binding.value === 'function') {
+        const styles = binding.value(theme)
+        const [className, pure] = createClassName(styles, theme, true)
+        el.classList.add(className)
+        purifyAttrs(el, pure)
+      }
+    }
+  }
+
   return {
     bind (el, binding, vnode) {
-      const [className, pure] = createClassName(vnode.data.attrs, theme)
-      el.classList.add(className)
-      purifyAttrs(el, pure)
-
-      if (binding.value) {
-        if (typeof binding.value === 'object') {
-          const [className, pure] = createClassName(binding.value, theme, true)
-          el.classList.add(className)
-          purifyAttrs(el, pure)
-        }
-
-        if (typeof binding.value === 'function') {
-          const styles = binding.value(theme)
-          const [className, pure] = createClassName(styles, theme, true)
-          el.classList.add(className)
-          purifyAttrs(el, pure)
-        }
-      }
+      applyClientStyles(el, binding, vnode)
+    },
+    update (el, binding, vnode) {
+      applyClientStyles(el, binding, vnode)
     }
   }
 }

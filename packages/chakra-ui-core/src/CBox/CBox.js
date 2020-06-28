@@ -9,67 +9,8 @@
  */
 
 import { css } from 'emotion'
-import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
-import { baseProps, propsConfig } from '../config/props'
-import { forwardProps } from '../utils'
-
-const baseEllipsis = {
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap'
-}
-
-/**
- * @description Truncates text if `truncate` is set to true.
- * @param {Object} props Props
- */
-const truncate = (props) => {
-  if (props.truncate) {
-    if (!props.lineClamp) {
-      return baseEllipsis
-    }
-  }
-}
-
-/**
- * @description Clamps text based on number of lines.
- * @param {Object} props Props
- */
-const clamp = (props) => {
-  if (props.lineClamp) {
-    return {
-      ...baseEllipsis,
-      '-webkit-box-orient': 'vertical',
-      '-webkit-line-clamp': `${props.lineClamp}`
-    }
-  }
-}
-
-const decorate = (props) => {
-  if (props.textDecoration || props.textDecor) {
-    return {
-      'text-decoration': `${props.textDecoration || props.textDecor}`
-    }
-  }
-}
-
-export const systemProps = compose(
-  space,
-  layout,
-  color,
-  background,
-  border,
-  borderRadius,
-  grid,
-  position,
-  shadow,
-  decorate,
-  typography,
-  flexbox,
-  propsConfig,
-  truncate,
-  clamp
-)
+import { baseProps } from '../config/props'
+import { forwardProps, createStyledAttrsMixin, systemProps } from '../utils'
 
 /**
  * CBox component
@@ -95,15 +36,19 @@ const CBox = {
   computed: {
     theme () {
       return this.$chakraTheme()
+    },
+    boxClassName () {
+      const { as, to, ...cleanedStyleProps } = forwardProps(this.$props)
+      const boxStylesObject = systemProps({ ...cleanedStyleProps, theme: this.theme })
+      return css(boxStylesObject)
     }
   },
   render (h) {
-    const { as, to, ...cleanedStyleProps } = forwardProps(this.$props)
-    const boxStylesObject = systemProps({ ...cleanedStyleProps, theme: this.theme })
-
-    return h(as, {
-      props: { to },
-      class: css(boxStylesObject),
+    return h(this.as, {
+      props: {
+        to: this.to
+      },
+      class: this.boxClassName,
       on: this.$listeners,
       attrs: {
         'data-chakra-component': 'CBox'
@@ -113,3 +58,28 @@ const CBox = {
 }
 
 export default CBox
+
+export const _CBox = {
+  name: 'CBox',
+  mixins: [createStyledAttrsMixin('CBox')],
+  props: {
+    as: {
+      type: [String, Object],
+      default: 'div'
+    },
+    to: {
+      type: [String, Object],
+      default: ''
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      props: {
+        to: this.to
+      },
+      class: this.className,
+      on: this.listeners$,
+      attrs: this.computedAttrs
+    }, this.$slots.default)
+  }
+}

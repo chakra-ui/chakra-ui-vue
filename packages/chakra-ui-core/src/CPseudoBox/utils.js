@@ -1,5 +1,5 @@
-import map from 'lodash-es/map'
-import { forwardProps, filterBaseStyles, filterPseudo as getPseudoStyles, tx } from '../utils'
+import { map } from 'lodash-es'
+import { tx, splitProps, forwardProps } from '../utils'
 
 /**
  * PseudoBox pseudo selectors
@@ -33,20 +33,19 @@ export const selectors = {
 
 /**
  * Filter undefined props and parse pseudo style props to generate css styles object
- * @param {Object} props - Props
- * @returns {Object} Parsed pseudo styles object
+ * @param {Object} props styles objects
+ * @returns {{ baseStyles: Object, pseudoStyles: Object }}
  */
 export function parsePseudoStyles (props) {
-  const pseudoStyles = {}
+  const _pseudoStyles = {}
   const clean = forwardProps(props)
-  const pseudoProps = getPseudoStyles(clean)
-  const baseProps = filterBaseStyles(clean)
-  const result = map(pseudoProps, (value, prop) => ({ prop, value }))
+  const { baseStyles, pseudoStyles } = splitProps(clean)
+  const result = map(pseudoStyles, (value, prop) => ({ prop, value }))
   result.forEach((pair) => {
     if (selectors[pair.prop]) {
-      pseudoStyles[selectors[pair.prop]] = tx(pair.value)
+      _pseudoStyles[selectors[pair.prop]] = tx(pair.value)
     }
   })
-  const mergedPseudoBoxStyles = { pseudoStyles, baseProps }
-  return mergedPseudoBoxStyles
+
+  return { pseudoStyles: _pseudoStyles, baseStyles }
 }

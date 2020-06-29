@@ -2,6 +2,7 @@
 <p align="center">
   <img alt="Build & Test Components" src="https://github.com/chakra-ui/chakra-ui-vue/workflows/Build%20&%20Test%20Components/badge.svg" />
   <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0140cfa8-f093-4a69-b29b-6b1abce0c04a/deploy-status" />
+  <a href="https://www.npmjs.com/package/@chakra-ui/vue"><img alt="Chakra UI Vue downloads" src="https://img.shields.io/npm/dt/@chakra-ui/vue.svg?style=for-the-badge" /></a>
   <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square" />
 </p>
 
@@ -200,6 +201,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Anyitechs"><img src="https://avatars1.githubusercontent.com/u/37679025?v=4" width="50px;" alt=""/><br /><sub><b>IFEANYICHUKWU AMAJUOYI</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=Anyitechs" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/pgrimaud"><img src="https://avatars1.githubusercontent.com/u/1866496?v=4" width="50px;" alt=""/><br /><sub><b>Pierre Grimaud</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=pgrimaud" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://ezekielekunola.com"><img src="https://avatars0.githubusercontent.com/u/24660100?v=4" width="50px;" alt=""/><br /><sub><b>Ekunola Ezekiel</b></sub></a><br /><a href="#tool-Easybuoy" title="Tools">🔧</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=Easybuoy" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.giftegwuenu.com"><img src="https://avatars3.githubusercontent.com/u/17781315?v=4" width="50px;" alt=""/><br /><sub><b>Gift Egwuenu</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=lauragift21" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://jbienesdev.netlify.app/"><img src="https://avatars1.githubusercontent.com/u/17470909?v=4" width="50px;" alt=""/><br /><sub><b>Joshua Angelo Bienes</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=jbienesdev" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/saptaksengupta"><img src="https://avatars2.githubusercontent.com/u/21155006?v=4" width="50px;" alt=""/><br /><sub><b>Saptak Sengupta</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=saptaksengupta" title="Documentation">📖</a></td>
   </tr>
 </table>
 

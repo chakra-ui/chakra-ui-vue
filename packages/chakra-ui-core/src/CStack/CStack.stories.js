@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CHeading, CText, CStack, CBox } from '..'
+import { CHeading, CText, CStack, CBox, CFlex, CIcon } from '..'
 
 storiesOf('UI | Stack', module)
   .add('With vertical stack', () => ({
@@ -33,6 +33,23 @@ storiesOf('UI | Stack', module)
             <CText mt="4">You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process</CText>
           </CBox>
         </CStack>
+      </div>
+    `
+  }))
+  .add('Nesting Flex in stack', () => ({
+    components: { CHeading, CText, CStack, CBox, CFlex, CIcon },
+    template: `
+      <div>
+        <c-stack is-inline spacing="3">
+          <c-flex align-items="center">
+            <c-icon mr="3" name="sun" />
+            <c-text>Kitchener, ON, Canada</c-text>
+          </c-flex>
+          <c-flex align-items="center">
+            <c-icon mr="3" name="sun" />
+            <c-text>Kitchener, ON, Canada</c-text>
+          </c-flex>
+        </c-stack>
       </div>
     `
   }))

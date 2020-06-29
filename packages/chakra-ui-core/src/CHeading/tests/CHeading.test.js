@@ -4,7 +4,7 @@ import { render } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const base = {
     components: { CHeading },
-    template: `<CHeading>Header</CHeading>`,
+    template: '<CHeading>Header</CHeading>',
     ...props
   }
   return render(base)

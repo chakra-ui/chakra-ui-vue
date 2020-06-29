@@ -1,0 +1,95 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="v-chakra directive"
+  description="The v-chakra directive enables using Chakra UI Vue's styling strategy for native HTML elements"
+/>
+
+# The `v-chakra` directive
+
+Chakra UI Vue also provides a handy directive that allows you to style non-Chakra UI Vue components with values in your theme.
+This makes it very convenient for styling basic HTML elements without having to consume a Chakra component.
+
+
+## Basic usage
+The basic way to use this is the add the `v-chakra` directive to any HTML element and then add Chakra style props like you would
+to any other Chakra UI Vue component.
+
+```vue live=true
+<div
+  v-chakra
+  p="3"
+  bg="red.100"
+  rounded="md"
+  color="red.500"
+  font-weight="bold"
+>
+  Welcome to Chakra directive
+</div>
+```
+
+## Styles Object
+The `v-chakra` directive can also accept an object of styles, including pseudo styles.
+
+```vue live=true
+<div
+  v-chakra="{
+    p: 3,
+    shadow: 'sm',
+    header: {
+      bg: 'blue.100',
+      fontSize: 'lg',
+      fontWeight: 'bold'
+    },
+    '& > p': {
+      fontStyle: 'italic'
+    }
+  }"
+>
+  <header>Title</header>
+  <p>Text</p>
+</div>
+```
+
+## Callback function
+The `v-chakra` directive can also accept an function that provides your theme as an argument.
+This function should return an object of styles.
+
+```vue live=true
+<div
+  v-chakra="theme => ({
+    shadow: 'sm',
+    bg: theme.colors.blue[800],
+    color: theme.colors.yellow[300],
+    p: {
+      fontWeight: 'bold',
+      p: 3
+    }
+  })"
+>
+  <p>Computed styles</p>
+</div>
+```
+
+## Button Example
+Here's an example of a simple button styled with the `v-chakra` directive.
+
+```vue live=true
+<button
+  v-chakra="{
+    ':hover': { bg: 'blue.500' },
+    ':active': { bg: 'blue.600' },
+    ':focus': { shadow: 'outline' }
+  }"
+  transition="all .2s ease-in"
+  font-weight="bold"
+  px="4"
+  py="3"
+  color="white"
+  rounded="md"
+  bg="blue.400"
+  outline="none"
+>
+  Button
+</button>
+```

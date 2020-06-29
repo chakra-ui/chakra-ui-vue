@@ -3,12 +3,12 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-0"
+    class="css-fzcsno"
     data-chakra-component="CFormControl"
     role="group"
   >
     <label
-      class="css-3wkg7s"
+      class="css-1dyvyy6"
       data-chakra-component="CFormLabel"
       for="fname"
     >
@@ -16,7 +16,7 @@ exports[`should render correctly 1`] = `
     </label>
      
     <input
-      class="css-0 css-1l17jza"
+      class="css-fzcsno css-1l17jza"
       data-chakra-component="CInput"
       id="fname"
       placeholder="First name"

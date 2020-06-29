@@ -12,12 +12,12 @@
 import { StringNumber, StringArray } from '../config/props/props.types'
 import { baseProps } from '../config'
 import { useVariantColorWarning, useId } from '../utils'
-import useCheckboxStyle from './utils/checkbox.styles'
 
 import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 import CControlBox from '../CControlBox'
 import CIcon from '../CIcon'
+import useCheckboxStyle from './utils/checkbox.styles'
 
 /**
  * CCheckbox component

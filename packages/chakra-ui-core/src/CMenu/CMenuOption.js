@@ -1,11 +1,11 @@
-import { CMenuGroup } from '.'
-import { useMenuItemStyle } from './utils/menu.styles'
 import styleProps, { baseProps } from '../config/props'
 import { forwardProps, useId, cloneVNode } from '../utils'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
 import CPseudoBox from '../CPseudoBox'
+import { useMenuItemStyle } from './utils/menu.styles'
+import { CMenuGroup } from '.'
 
 /**
  * CMenuItemOption component
@@ -87,7 +87,7 @@ const CMenuItemOption = {
         event.preventDefault()
         return
       }
-      let nextIndex = focusableItems.indexOf(event.currentTarget)
+      const nextIndex = focusableItems.indexOf(event.currentTarget)
       focusAtIndex(nextIndex)
 
       this.$emit('mouseenter', event)
@@ -215,7 +215,7 @@ const CMenuOptionGroup = {
       }
 
       if (this.type === 'checkbox') {
-        let newValue = this.computedValue.includes(value)
+        const newValue = this.computedValue.includes(value)
           ? this.computedValue.filter(itemValue => itemValue !== value)
           : [...this.computedValue, value]
 
@@ -230,15 +230,13 @@ const CMenuOptionGroup = {
     // Check for children nodes
     if (!this.$slots || !this.$slots.default) {
       return h(null)
-    } else {
-      if (!this.$slots.default.length) {
-        return console.error('[Chakra-ui]: <CMenuOptionGroup /> component expects at least one child node.')
-      }
+    } else if (!this.$slots.default.length) {
+      return console.error('[Chakra-ui]: <CMenuOptionGroup /> component expects at least one child node.')
     }
 
     const children = this.$slots.default.filter(e => e.tag)
 
-    const clonedChildNodes = children.map(vnode => {
+    const clonedChildNodes = children.map((vnode) => {
       let result
       const cloned = cloneVNode(vnode, h)
       if (!cloned.componentOptions) return console.error('Chakra-ui: <CMenuOptionGroup /> component expects valid component as children')
@@ -251,17 +249,17 @@ const CMenuOptionGroup = {
             ...cloned.componentOptions.propsData,
             type: this.type,
             name: this.name || this.fallbackName,
-            isChecked: cloned.componentOptions.propsData['value'] === this.computedValue
+            isChecked: cloned.componentOptions.propsData.value === this.computedValue
           },
-          key: cloned.componentOptions.propsData['value'],
+          key: cloned.componentOptions.propsData.value,
           nativeOn: {
             click: (event) => {
-              this.handleChange(cloned.componentOptions.propsData['value'])
+              this.handleChange(cloned.componentOptions.propsData.value)
             },
             keydown: (event) => {
               if (['Enter', ' '].includes(event.key)) {
                 event.preventDefault()
-                this.handleChange(cloned.componentOptions.propsData['value'])
+                this.handleChange(cloned.componentOptions.propsData.value)
               }
             }
           }
@@ -275,17 +273,17 @@ const CMenuOptionGroup = {
             ...(cloned.data.props || {}),
             ...cloned.componentOptions.propsData,
             type: this.type,
-            isChecked: this.computedValue.includes(cloned.componentOptions.propsData['value'])
+            isChecked: this.computedValue.includes(cloned.componentOptions.propsData.value)
           },
-          key: cloned.componentOptions.propsData['value'],
+          key: cloned.componentOptions.propsData.value,
           nativeOn: {
             click: (event) => {
-              this.handleChange(cloned.componentOptions.propsData['value'])
+              this.handleChange(cloned.componentOptions.propsData.value)
             },
             keydown: (event) => {
               if (['Enter', ' '].includes(event.key)) {
                 event.preventDefault()
-                this.handleChange(cloned.componentOptions.propsData['value'])
+                this.handleChange(cloned.componentOptions.propsData.value)
               }
             }
           }

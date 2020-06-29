@@ -4,26 +4,26 @@ exports[`should display custom seperator  1`] = `
 <DocumentFragment>
   <nav
     aria-label="breadcrumb"
-    class="css-0"
+    class="css-fzcsno"
     data-chakra-component="CBreadcrumb"
   >
     <ol
-      class="css-0"
+      class="css-fzcsno"
       data-chakra-component="CBox"
     >
       <li
-        class="css-18biwo"
+        class="css-juzgwo"
         data-chakra-component="CBreadcrumbItem"
       >
         <a
-          class="css-0 css-19ysyim"
+          class="css-fzcsno css-1v8ez2b"
           data-chakra-component="CBreadcrumbLink"
           href="/"
         >
           Home
         </a>
         <span
-          class="css-dp0f2t"
+          class="css-1d9u6m1"
           data-chakra-component="CBreadcrumbSeparator"
           role="presentation"
         >
@@ -31,18 +31,18 @@ exports[`should display custom seperator  1`] = `
         </span>
       </li>
       <li
-        class="css-18biwo"
+        class="css-juzgwo"
         data-chakra-component="CBreadcrumbItem"
       >
         <a
-          class="css-0 css-19ysyim"
+          class="css-fzcsno css-1v8ez2b"
           data-chakra-component="CBreadcrumbLink"
           href="/about"
         >
           About
         </a>
         <span
-          class="css-dp0f2t"
+          class="css-1d9u6m1"
           data-chakra-component="CBreadcrumbSeparator"
           role="presentation"
         >
@@ -50,12 +50,12 @@ exports[`should display custom seperator  1`] = `
         </span>
       </li>
       <li
-        class="css-18biwo"
+        class="css-juzgwo"
         data-chakra-component="CBreadcrumbItem"
       >
         <span
           aria-current="page"
-          class="css-0"
+          class="css-fzcsno"
           data-chakra-component="CBreadcrumbLink"
           href="/contact"
         >
@@ -72,26 +72,26 @@ exports[`should render correctly 1`] = `
   <div>
     <nav
       aria-label="breadcrumb"
-      class="css-0"
+      class="css-fzcsno"
       data-chakra-component="CBreadcrumb"
     >
       <ol
-        class="css-0"
+        class="css-fzcsno"
         data-chakra-component="CBox"
       >
         <li
-          class="css-18biwo"
+          class="css-juzgwo"
           data-chakra-component="CBreadcrumbItem"
         >
           <a
-            class="css-0 css-19ysyim"
+            class="css-fzcsno css-1v8ez2b"
             data-chakra-component="CBreadcrumbLink"
             href="#"
           >
             Breadcrumb 1
           </a>
           <span
-            class="css-6eovvf"
+            class="css-s9unhl"
             data-chakra-component="CBreadcrumbSeparator"
             role="presentation"
           >
@@ -99,18 +99,18 @@ exports[`should render correctly 1`] = `
           </span>
         </li>
         <li
-          class="css-18biwo"
+          class="css-juzgwo"
           data-chakra-component="CBreadcrumbItem"
         >
           <a
-            class="css-0 css-19ysyim"
+            class="css-fzcsno css-1v8ez2b"
             data-chakra-component="CBreadcrumbLink"
             href="#"
           >
             Breadcrumb 2
           </a>
           <span
-            class="css-1hgjpgb"
+            class="css-11al2zw"
             data-chakra-component="CBreadcrumbSeparator"
             role="presentation"
           >

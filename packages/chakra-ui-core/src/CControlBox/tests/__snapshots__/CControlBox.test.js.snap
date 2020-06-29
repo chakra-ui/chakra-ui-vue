@@ -3,12 +3,12 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-1jfyukr"
+    class="css-1os9xgq"
     data-chakra-component="CBox"
     for="control-radio"
   >
     <input
-      class="css-0 css-f8n5zr"
+      class="css-fzcsno css-f8n5zr"
       data-chakra-component="CVisuallyHidden"
       data-testid="hiddenControl"
       id="control-radio"
@@ -17,12 +17,12 @@ exports[`should render correctly 1`] = `
      
     <div
       aria-hidden="true"
-      class="css-1nwx1xd css-1y5evcc"
+      class="css-1cs601l css-1y5evcc"
       data-chakra-component="CControlBox"
       data-testid="control"
     >
       <div
-        class="css-1ojhcd8"
+        class="css-1x1dlhn"
         data-chakra-component="CBox"
       />
     </div>

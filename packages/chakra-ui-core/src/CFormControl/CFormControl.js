@@ -18,9 +18,8 @@
 
 import { baseProps } from '../config'
 import { forwardProps } from '../utils'
-import { formControlProps } from './utils/formcontrol.props'
-
 import CBox from '../CBox'
+import { formControlProps } from './utils/formcontrol.props'
 
 /**
  * CFormControl component

@@ -3,11 +3,11 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1baulvz"
+    class="css-1xn5gl6"
     data-chakra-component="CButtonGroup"
   >
     <button
-      class="css-0 css-1egt1u4"
+      class="css-fzcsno css-hz466c"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -15,7 +15,7 @@ exports[`should render correctly 1`] = `
       Button1
     </button>
     <button
-      class="css-0 css-pt9fef"
+      class="css-fzcsno css-bibkwt"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"

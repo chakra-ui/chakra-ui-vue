@@ -1,4 +1,6 @@
 import dotenv from 'dotenv-defaults'
+import { createServerDirective } from '@chakra-ui/vue/src/directives'
+import { defaultTheme } from '@chakra-ui/vue'
 
 // Configuring dotenv variables.
 dotenv.config({
@@ -63,6 +65,13 @@ export default {
   extensions: [
     'mdx'
   ],
+  render: {
+    bundleRenderer: {
+      directives: {
+        chakra: createServerDirective(defaultTheme)
+      }
+    }
+  },
   build: {
     transpile: [
       'vue-lorem-ipsum',

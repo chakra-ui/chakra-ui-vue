@@ -47,7 +47,7 @@ const CLink = {
       props: {
         as: this.as,
         ...this.isRouterLink && { to: this.to },
-        transition: `all 0.15s ease-out`,
+        transition: 'all 0.15s ease-out',
         cursor: 'pointer',
         textDecoration: 'none',
         outline: 'none',
@@ -69,7 +69,7 @@ const CLink = {
         'data-chakra-component': 'CLink'
       },
       on: {
-        click: (e) => this.$emit('click', e)
+        click: e => this.$emit('click', e)
       }
     }, this.$slots.default)
   }

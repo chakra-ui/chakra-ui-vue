@@ -5,14 +5,14 @@ exports[`should render correctly 1`] = `
   <div>
     <div>
       <input
-        class="css-0 css-1l17jza"
+        class="css-fzcsno css-1l17jza"
         data-chakra-component="CInput"
         data-testid="inputOutsideModal"
         placeholder="Type here..."
       />
        
       <button
-        class="css-0 css-rup5mm"
+        class="css-fzcsno css-1240sfg"
         data-chakra-component="CButton"
         data-testid="buttonOutside"
         tabindex="0"
@@ -28,18 +28,18 @@ exports[`should render correctly 1`] = `
     id="modal-portal-1"
   >
     <div
-      class="css-0 css-79elbk"
+      class="css-fzcsno css-1w0sygx"
       data-chakra-component="CPseudoBox"
     >
       <div
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
-          class="css-l5w8ps"
+          class="css-1h6qt27"
           data-chakra-component="CBox"
         />
         <div
-          class="css-aibg9d"
+          class="css-tj90gg"
           data-chakra-component="CModalContent"
         >
           <section
@@ -55,14 +55,14 @@ exports[`should render correctly 1`] = `
           >
             <button
               aria-label="Close"
-              class="css-0 css-1hoaduj"
+              class="css-fzcsno css-mf8t7z"
               data-chakra-component="CModalCloseButton"
               data-testid="close-btn"
               x-close-button=""
             >
               <svg
                 aria-hidden="true"
-                class="css-xmst1h css-y3asau"
+                class="css-1d2a4q2 css-y3asau"
                 data-chakra-component="CIcon"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ exports[`should render correctly 1`] = `
             </button>
              
             <header
-              class="css-kniazf"
+              class="css-cryb04"
               data-chakra-component="CModalHeader"
               id="modal-1-header"
             >
@@ -85,12 +85,12 @@ exports[`should render correctly 1`] = `
             </header>
              
             <div
-              class="css-5m10fw"
+              class="css-1lxlfxt"
               data-chakra-component="CModalBody"
               id="modal-1-body"
             >
               <input
-                class="css-0 css-1l17jza"
+                class="css-fzcsno css-1l17jza"
                 data-chakra-component="CInput"
                 data-testid="inputInsideModal"
                 placeholder="Type here..."
@@ -98,11 +98,11 @@ exports[`should render correctly 1`] = `
             </div>
              
             <footer
-              class="css-plnu2w"
+              class="css-1y6ww5m"
               data-chakra-component="CModalFooter"
             >
               <button
-                class="css-0 css-1tex3qd"
+                class="css-fzcsno css-7un9wl"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"
@@ -111,7 +111,7 @@ exports[`should render correctly 1`] = `
               </button>
                
               <button
-                class="css-0 css-2jmp8f"
+                class="css-fzcsno css-1pavye0"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"

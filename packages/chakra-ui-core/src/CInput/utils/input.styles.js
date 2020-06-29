@@ -137,7 +137,7 @@ const unstyledStyle = {
   height: undefined
 }
 
-const variantProps = props => {
+const variantProps = (props) => {
   switch (props.variant) {
     case 'flushed':
       return flushedStyle(props)
@@ -187,7 +187,7 @@ export const inputSizes = {
 
 const sizeProps = props => inputSizes[props.size]
 
-const useInputStyle = props => {
+const useInputStyle = (props) => {
   return {
     width: props.isFullWidth ? '100%' : undefined,
     ...baseProps,

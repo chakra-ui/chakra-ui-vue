@@ -50,12 +50,12 @@ const CImage = {
       const image = new window.Image()
       image.src = src
 
-      image.onload = event => {
+      image.onload = (event) => {
         this.hasLoaded = true
         this.$emit('load', event)
       }
 
-      image.onError = event => {
+      image.onError = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }
@@ -71,10 +71,10 @@ const CImage = {
     return h(CNoSsr, [
       h(CBox, {
         props: {
-          ...forwardProps(this.$props),
           as: 'img',
           w: this.size,
-          h: this.size
+          h: this.size,
+          ...forwardProps(this.$props)
         },
         domProps: {
           width: this.htmlWidth,

@@ -9,10 +9,10 @@
  */
 
 import { baseProps } from '../config/props'
-import { countToColumns, widthToColumns } from './utils/grid.styles'
 
 import CGrid from '../CGrid'
 import { SNA } from '../config/props/props.types'
+import { countToColumns, widthToColumns } from './utils/grid.styles'
 
 /**
  * CSimpleGrid component

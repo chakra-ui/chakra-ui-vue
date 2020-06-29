@@ -4,7 +4,7 @@ import { render } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const base = {
     components: { CBadge, CStack },
-    template: `<CBadge>500</CBadge>`,
+    template: '<CBadge>500</CBadge>',
     ...props
   }
   return render(base)

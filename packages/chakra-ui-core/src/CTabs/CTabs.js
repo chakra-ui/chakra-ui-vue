@@ -9,12 +9,12 @@
 
 import { baseProps } from '../config'
 import { useVariantColorWarning, isDef, useId, forwardProps, cleanChildren, cloneVNodeElement } from '../utils'
-import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
 import styleProps from '../config/props'
 
 import CFlex from '../CFlex'
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
+import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
 
 /**
  * CTabs component
@@ -297,9 +297,9 @@ const CTabList = {
     const { id, isManual, manualIndex, selectedIndex, onManualTabChange, onChangeTab, orientation } = this.context
     const validChildren = cleanChildren(this.$slots.default)
     const clones = validChildren.map((vnode, index) => {
-      let isSelected = isManual ? index === manualIndex : index === selectedIndex
+      const isSelected = isManual ? index === manualIndex : index === selectedIndex
 
-      const handleClick = event => {
+      const handleClick = (event) => {
         // Hack for Safari. Buttons don't receive focus on click on Safari
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus
         this.allNodes[index].focus()

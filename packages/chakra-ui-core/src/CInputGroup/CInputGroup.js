@@ -41,7 +41,7 @@ const CInputGroup = {
     const { sizes } = this.theme
     let pl = null
     let pr = null
-    const height = inputSizes[this.size] && inputSizes[this.size]['height']
+    const height = inputSizes[this.size] && inputSizes[this.size].height
     const children = this.$slots.default.filter(e => e.tag)
     const clones = children
       .map((vnode) => {

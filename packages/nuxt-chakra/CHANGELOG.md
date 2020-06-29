@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- Adds the `v-chakra` directive for styling HTML elements
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.5.10
+
 ## 0.0.4
 
 ### Patch Changes

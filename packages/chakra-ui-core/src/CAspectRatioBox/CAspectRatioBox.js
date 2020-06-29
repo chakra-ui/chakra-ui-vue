@@ -39,7 +39,7 @@ const CAspectRatioBox = {
   render (h) {
     const child = this.$slots.default[0]
     if (!child) return
-    let vnode = cloneVNode(child, h)
+    const vnode = cloneVNode(child, h)
     const clone = h(vnode.componentOptions.Ctor, {
       ...vnode.data,
       ...(vnode.componentOptions.listeners || {}),
@@ -60,7 +60,7 @@ const CAspectRatioBox = {
         position: 'relative',
         _before: {
           h: '0px',
-          content: `""`,
+          content: '""',
           d: 'block',
           pb: `${(1 / this.ratio) * 100}%`
         }

@@ -34,8 +34,8 @@ const CInputElement = {
   name: 'CInputElement',
   props,
   render (h) {
-    const height = inputSizes[this.size] && inputSizes[this.size]['height']
-    const fontSize = inputSizes[this.size] && inputSizes[this.size]['fontSize']
+    const height = inputSizes[this.size] && inputSizes[this.size].height
+    const fontSize = inputSizes[this.size] && inputSizes[this.size].fontSize
     const placementProp = { [this.placement]: '0' }
 
     return h(CBox, {

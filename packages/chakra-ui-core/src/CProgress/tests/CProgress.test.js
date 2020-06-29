@@ -7,7 +7,7 @@ const renderComponent = (props) => {
       CProgress,
       CProgressLabel
     },
-    template: `<CProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />`,
+    template: '<CProgress rounded="sm" color="green" size="sm" data-testid="progress" :value="40" />',
     ...props
   }
   return render(base)
@@ -25,7 +25,8 @@ it('should have the correct width', () => {
 })
 
 it('should display a label', () => {
-  const { queryByText } = renderComponent({ template: `
+  const { queryByText } = renderComponent({
+    template: `
   <CProgress :value="40">
     <CProgressLabel>Label</CProgressLabel>
   </CProgress>`

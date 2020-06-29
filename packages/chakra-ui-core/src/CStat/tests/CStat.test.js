@@ -28,7 +28,7 @@ it('should render children in DOM', () => {
 
 test('"CStatArrow" should display corresponding icon for "type" prop', () => {
   const types = ['increase', 'decrease']
-  const withTypeFragment = type => {
+  const withTypeFragment = (type) => {
     const { asFragment } = renderComponent({
       template: `
         <CStat>

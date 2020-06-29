@@ -6,7 +6,6 @@
  */
 
 export const components = [
-  'Index',
   'Accordion',
   'Alert',
   'AlertDialog',
@@ -54,29 +53,30 @@ export const components = [
   'Text',
   'Textarea',
   'Toast',
-  'Tooltip'
+  'Tooltip',
+  'v-chakra'
 ]
 
 export const topNavLinks = [
   'Getting Started',
   'With Nuxt',
+  'Plugin Options',
   'Principles',
   'Style Props',
-  'Plugin Options',
   'Theme',
   'Extending Theme',
   'Color Mode',
   'Responsive Styles',
-  'Starters',
-  'Recipes',
-  'Storybook'
+  'Starters'
 ]
 
 export const aboutNavLinks = [
   'Why Chakra UI',
   'Accessibility',
   'Constraint Based Design',
-  'Contributing'
+  'Contributing',
+  'Recipes',
+  'Storybook'
 ]
 
 export const footerLinks = [

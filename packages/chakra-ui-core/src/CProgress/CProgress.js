@@ -9,9 +9,9 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CProgess/accessibility.md
  */
 
+import { css, keyframes } from 'emotion'
 import CBox from '../CBox'
 import { generateStripe, valueToPercent, forwardProps } from '../utils'
-import { css, keyframes } from 'emotion'
 import { baseProps } from '../config/props'
 
 const stripe = keyframes({
@@ -118,7 +118,7 @@ const CProgressIndicator = {
         'aria-valuemax': this.max,
         'aria-valuemin': this.min,
         'aria-valuenow': this.isIndeterminate ? null : this.value,
-        'role': 'progressbar',
+        role: 'progressbar',
         'data-chakra-component': 'CProgressIndicator'
       }
     }, this.$slots.default)

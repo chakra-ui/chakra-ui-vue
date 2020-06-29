@@ -23,7 +23,7 @@ const baseEllipsis = {
  * @description Truncates text if `truncate` is set to true.
  * @param {Object} props Props
  */
-const truncate = props => {
+const truncate = (props) => {
   if (props.truncate) {
     if (!props.lineClamp) {
       return baseEllipsis
@@ -35,7 +35,7 @@ const truncate = props => {
  * @description Clamps text based on number of lines.
  * @param {Object} props Props
  */
-const clamp = props => {
+const clamp = (props) => {
   if (props.lineClamp) {
     return {
       ...baseEllipsis,
@@ -45,7 +45,7 @@ const clamp = props => {
   }
 }
 
-const decorate = props => {
+const decorate = (props) => {
   if (props.textDecoration || props.textDecor) {
     return {
       'text-decoration': `${props.textDecoration || props.textDecor}`

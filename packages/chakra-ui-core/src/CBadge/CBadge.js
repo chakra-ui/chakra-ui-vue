@@ -9,9 +9,8 @@
 
 import { forwardProps } from '../utils'
 import { baseProps } from '../config/props'
-import useBadgeStyles from './utils/badge.styles'
-
 import CBox from '../CBox'
+import useBadgeStyles from './utils/badge.styles'
 
 /**
  * CBadge component

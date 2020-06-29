@@ -316,7 +316,7 @@ const CEditableInput = {
         ...forwardProps(this.$props)
       },
       nativeOn: {
-        blur: event => {
+        blur: (event) => {
           submitOnBlur && onSubmit()
           this.$emit('blur', event)
         },

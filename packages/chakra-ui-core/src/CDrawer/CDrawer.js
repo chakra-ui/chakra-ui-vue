@@ -83,7 +83,7 @@ const CDrawer = {
         closeOnEsc: this.closeOnEsc,
         initialFocusRef: this.initialFocusRef,
         finalFocusRef: this.finalFocusRef,
-        formatIds: (id) => ({
+        formatIds: id => ({
           content: `drawer-${id}`,
           header: `drawer-${id}-header`,
           body: `drawer-${id}-body`
@@ -127,7 +127,7 @@ const getPlacementStyles = (position, { finalWidth, finalHeight }) => {
     }
   }
 
-  return placements[position] || placements['right']
+  return placements[position] || placements.right
 }
 
 /**
@@ -209,7 +209,7 @@ const CDrawerCloseButton = {
         ...forwardProps(this.$props)
       },
       on: {
-        click: (e) => this.$emit('click', e)
+        click: e => this.$emit('click', e)
       },
       attrs: {
         'data-chakra-component': 'CDrawerCloseButton'

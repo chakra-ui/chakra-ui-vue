@@ -24,7 +24,7 @@ storiesOf('UI | Box', module)
     `
   }))
   .add('Box with custom values', () => ({
-    components: { Box },
+    components: { CBox },
     template: `
       <div>
         <Box

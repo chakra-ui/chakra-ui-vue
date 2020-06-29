@@ -44,11 +44,11 @@ const CButtonGroup = {
       const isFirst = index === 0
       const isLast = index === count - 1
       const { propsData } = node.componentOptions
-      propsData['size'] = this.size || propsData['size']
-      propsData['variantColor'] = propsData['variantColor'] || this.variantColor
-      propsData['variant'] = propsData['variant'] || this.variant
-      propsData['rounded'] = propsData['rounded'] || this.rounded
-      propsData['_focus'] = { boxShadow: 'outline', zIndex: 1 }
+      propsData.size = this.size || propsData.size
+      propsData.variantColor = propsData.variantColor || this.variantColor
+      propsData.variant = propsData.variant || this.variant
+      propsData.rounded = propsData.rounded || this.rounded
+      propsData._focus = { boxShadow: 'outline', zIndex: 1 }
 
       // Radius adjustment
       node.componentOptions.propsData = {

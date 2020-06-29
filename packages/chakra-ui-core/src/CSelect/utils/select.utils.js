@@ -35,7 +35,7 @@ const rootOptions = [
  * @param {Object} props Props object
  * @returns {Array<Object>}
  */
-const splitProps = props => {
+const splitProps = (props) => {
   const rootProps = {}
   const selectProps = {}
   for (const key in props) {

@@ -27,3 +27,13 @@ export function kebabify (text) {
     .map(x => x.toLowerCase())
     .join('-')
 }
+
+/**
+ * Converts a kebab-case string into camel case
+ * @param {String} string
+ */
+export function camelize (string) {
+  return string.replace(/[.-](\w|$)/g, function (_, x) {
+    return x.toUpperCase()
+  })
+}

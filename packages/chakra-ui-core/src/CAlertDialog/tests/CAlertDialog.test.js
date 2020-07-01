@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import { CButton, CAlertDialog, CAlertDialogContent, CAlertDialogBody, CAlertDialogFooter, CAlertDialogOverlay, CAlertDialogHeader } from '../..'
-import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
+import { render, userEvent, fireEvent, wait, screen } from '@/tests/test-utils'
 import { useId } from '@/packages/chakra-ui-core/src/utils'
 
 // mocks
@@ -49,18 +48,19 @@ it('should render correctly', async () => {
   const inlineAttrs = 'isOpen'
   const { asFragment } = renderComponent({ inlineAttrs })
 
-  await Vue.nextTick()
-
-  expect(asFragment(document.body.innerHTML)).toMatchSnapshot()
+  await wait(() => {
+    expect(asFragment(document.body.innerHTML)).toMatchSnapshot()
+  })
 })
 
 test('clicking the close button calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = 'isOpen :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, methods: { close: onClose } })
+  renderComponent({ inlineAttrs, methods: { close: onClose } })
 
-  await Vue.nextTick()
-  userEvent.click(getByTestId('close-btn'))
+  await wait(async () => {
+    await userEvent.click(screen.getByTestId('close-btn'))
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
@@ -68,12 +68,12 @@ test('clicking the close button calls the onClose callback', async () => {
 test('pressing "esc" calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
+  renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
-  await Vue.nextTick()
-  const inputInside = getByTestId('inputInsideDrawer')
-
-  fireEvent.keyDown(inputInside, { key: 'Escape' })
+  await wait(async () => {
+    const inputInside = screen.getByTestId('inputInsideDrawer')
+    await fireEvent.keyDown(inputInside, { key: 'Escape' })
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
@@ -81,12 +81,12 @@ test('pressing "esc" calls the onClose callback', async () => {
 test('clicking overlay calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
+  renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
-  await Vue.nextTick()
-  const overlay = getByTestId('overlay')
-
-  userEvent.click(overlay)
+  await wait(async () => {
+    const overlay = screen.getByTestId('overlay')
+    await userEvent.click(overlay)
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
@@ -96,11 +96,11 @@ it('should have proper aria', async () => {
   const inlineAttrs = 'isOpen'
   renderComponent({ inlineAttrs })
 
-  await Vue.nextTick()
-  const dialog = document.querySelector('section')
-  await waitMs()
+  let dialog
+  await wait(() => {
+    dialog = screen.getByRole('alertdialog')
+  })
 
-  expect(dialog).toHaveAttribute('role', 'alertdialog')
   expect(dialog).toHaveAttribute('aria-modal', 'true')
   expect(dialog).toHaveAttribute('aria-labelledby', 'alert-dialog-1-label')
   expect(dialog).toHaveAttribute('aria-describedby', 'alert-dialog-1-desc')

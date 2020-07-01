@@ -50,7 +50,7 @@ const CIcon = {
   mixins: [createStyledAttrsMixin('CIcon')],
   inject: ['$chakraIcons'],
   computed: {
-    icon() {
+    icon () {
       let icon
       if (this.name) {
         icon = this.$chakraIcons[this.name]

@@ -10,7 +10,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIconButton/CIconButton.js
  */
 
-import { forwardProps, createStyledAttrsMixin } from '../utils'
+import { forwardProps } from '../utils'
 import { buttonProps } from '../CButton/utils/button.props'
 
 import CButton from '../CButton'
@@ -41,7 +41,7 @@ const baseStyles = {
  * @see Docs https://vue.chakra-ui.com/iconbutton
  */
 const CIconButton = {
-  mixins: [createStyledAttrsMixin('CIconButton', true)],
+  name: 'CIconButton',
   props: {
     icon: {
       type: [String]
@@ -60,13 +60,11 @@ const CIconButton = {
 
     return h(CButton, {
       props: forwardProps(props),
-      class: this.className,
       attrs: {
-        p: 0,
-        rounded: this.isRound ? 'full' : 'md',
-        size: this.size,
         'aria-label': this.ariaLabel,
-        'data-chakra-component': 'CIconButton'
+        rounded: this.isRound ? 'full' : 'md',
+        ...this.$attrs,
+        p: 0
       },
       on: {
         click: e => this.$emit('click', e)

@@ -8,9 +8,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDivider/accessibility.md
  */
 
-import CBox from '../CBox'
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
 /**
  * CDivider component
@@ -18,36 +16,37 @@ import { forwardProps } from '../utils'
  * Creates a horizontal or vertical dividing rule between sibling
  * elements
  *
- * @extends CBox
  * @see Docs https://vue.chakra-ui.com/divider
  */
 const CDivider = {
-  name: 'CDivider',
+  mixins: [createStyledAttrsMixin('CDivider')],
   props: {
-    ...baseProps,
     orientation: {
       type: String,
       default: 'horizontal'
     }
   },
-  render (h) {
-    const borderProps =
-      this.orientation === 'vertical'
+  computed: {
+    borderProps () {
+      return this.orientation === 'vertical'
         ? { borderLeft: '0.0625rem solid', height: 'auto', mx: 2 }
         : { borderBottom: '0.0625rem solid', width: 'auto', my: 2 }
-
-    return h(CBox, {
-      props: {
-        ...borderProps,
-        as: 'hr',
+    },
+    componentStyles () {
+      return {
         border: 0,
+        ...this.borderProps,
         opacity: 0.6,
-        borderColor: 'inherit',
-        ...forwardProps(this.$props)
-      },
+        borderColor: 'inherit'
+      }
+    }
+  },
+  render (h) {
+    return h('hr', {
+      class: this.className,
       attrs: {
         'aria-orientation': this.orientation,
-        'data-chakra-component': 'CDivider'
+        ...this.computedAttrs
       }
     })
   }

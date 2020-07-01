@@ -18,6 +18,7 @@ storiesOf('UI | Image', module)
       <CImage
         rounded="full"
         size="150px"
+        shadow="md"
         src="https://bit.ly/chakra-jonathan-bakebwa"
         alt="Jonathan Bakebwa"
       />

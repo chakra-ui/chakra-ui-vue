@@ -8,6 +8,12 @@ Object.keys(ChakraComponents).forEach((key) => {
   if (typeof ChakraComponents[key] === 'object' && ChakraComponents[key].name) {
     Vue.component(ChakraComponents[key].name, ChakraComponents[key])
   }
+  if (typeof ChakraComponents[key] === 'object' && ChakraComponents[key].mixins) {
+    const [mixin] = ChakraComponents[key].mixins
+    if (mixin.name) {
+      Vue.component(mixin.name, ChakraComponents[key])
+    }
+  }
 })
 
 storiesOf('Playground', module)

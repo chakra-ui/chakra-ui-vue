@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { _CBox } from './CBox.js'
-import { CBox, CInput } from '..'
+import { CBox } from '..'
 
 storiesOf('UI | Box', module)
   .add('Box', () => ({
@@ -39,30 +38,4 @@ storiesOf('UI | Box', module)
         </CBox>
       </div>
     `
-  }))
-  .add('_CBox Box', () => ({
-    components: { CBox: _CBox, CInput },
-    template: `
-      <div v-chakra d="block" w="100vw" overflow="scroll" h="100vh">
-        <br />
-        <br />
-        <br />
-        <input type="text" v-model="title" />
-        <br />
-        <br />
-        <c-box m="1" p="2" font-style="italic" :bg="['pink.200', 'yellow.200', 'blue.200']" font-weight="bold" v-for="i in 100" :random-attr="'box-' + i" :key="'box-' + i">
-          {{ title }}
-        </c-box>
-      </div>
-    `,
-    data () {
-      return {
-        title: 'Hello world'
-      }
-    },
-    computed: {
-      color () {
-        return this.title.length > 4 ? 'red' : 'blue'
-      }
-    }
   }))

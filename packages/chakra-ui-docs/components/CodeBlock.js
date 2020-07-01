@@ -1,4 +1,3 @@
-import { CBox, CButton } from '@chakra-ui/vue'
 import 'prismjs'
 import PrismEditor from 'vue-prism-editor'
 import '../css/night-owl.css'
@@ -62,7 +61,7 @@ const CodeBlock = props => ({
     this.text = code
 
     if (!props.live) {
-      return h(CBox, {
+      return h('CBox', {
         props: {
           rounded: 'md',
           position: 'relative',
@@ -77,7 +76,7 @@ const CodeBlock = props => ({
             ...this.$props
           }
         }),
-        h(CButton, {
+        h('CButton', {
           props: {
             variantColor: 'vue',
             position: 'absolute',

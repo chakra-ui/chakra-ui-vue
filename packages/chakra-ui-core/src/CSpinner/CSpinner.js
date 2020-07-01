@@ -1,7 +1,6 @@
 import { keyframes } from 'emotion'
 import { createStyledAttrsMixin } from '../utils'
 
-import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 
 const spin = keyframes`
@@ -83,10 +82,9 @@ const CSpinner = {
       default: 'transparent'
     }
   },
-  render (h) {
-    return h(CBox, {
-      class: this.className,
-      attrs: {
+  computed: {
+    componentStyles () {
+      return {
         d: 'inline-block',
         borderWidth: this.thickness,
         borderColor: 'currentColor',
@@ -96,9 +94,14 @@ const CSpinner = {
         borderBottomColor: this.emptyColor,
         borderLeftColor: this.emptyColor,
         animation: `${spin} ${this.speed} linear infinite`,
-        ...setSizes(this.$props),
-        ...this.computedAttrs
+        ...setSizes(this.$props)
       }
+    }
+  },
+  render (h) {
+    return h('div', {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.label && h(CVisuallyHidden, {}, this.label))
   }
 }

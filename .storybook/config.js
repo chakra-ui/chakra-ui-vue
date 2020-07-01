@@ -1,9 +1,9 @@
 import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
+import VueLive from 'vue-live'
 import Chakra, { CThemeProvider, CColorModeProvider, CReset } from '../packages/chakra-ui-core/src'
 import Canvas from './components/Canvas.vue'
 import theme from '../packages/chakra-ui-core/src/lib/theme'
-import icons from '../packages/chakra-ui-core/src/lib/internal-icons'
 import storyBookTheme from './theme'
 
 import {
@@ -81,6 +81,8 @@ addDecorator(() => ({
   components: { CThemeProvider, CColorModeProvider, CReset, Canvas }
 }));
 
+// For playground
+Vue.use(VueLive)
 
 function loadStories() {
   const req = require.context('../packages/chakra-ui-core/src', true, /\.stories\.(js|mdx)$/);

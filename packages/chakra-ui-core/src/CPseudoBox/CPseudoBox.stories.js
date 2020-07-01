@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-// import CBox from '../CBox'
-import { _CPseudoBox } from '../CPseudoBox'
+import CBox from '../CBox'
+import CPseudoBox from '../CPseudoBox'
 
 storiesOf('UI | PseudoBox', module)
   .add('PseudoBox | :hover', () => ({
-    components: { CPseudoBox: _CPseudoBox },
+    components: { CPseudoBox },
     template: `
       <CPseudoBox
         bg="vue.300"
@@ -29,45 +29,45 @@ storiesOf('UI | PseudoBox', module)
       </CPseudoBox>
     `
   }))
-  // .add('Pseudobox | :odd', () => ({
-  //   components: { CBox, CPseudoBox },
-  //   data () {
-  //     return {
-  //       boxes: [
-  //         {
-  //           id: 1,
-  //           name: 'Box 1'
-  //         },
-  //         {
-  //           id: 2,
-  //           name: 'Box 2'
-  //         },
-  //         {
-  //           id: 3,
-  //           name: 'Box 3'
-  //         }
-  //       ]
-  //     }
-  //   },
-  //   template: `
-  //     <CBox
-  //       rounded="md"
-  //       overflow="hidden"
-  //       mt="4"
-  //       w="400px"
-  //       font-family="body"
-  //     >
-  //       <CPseudoBox
-  //         v-for="(box, index) in boxes"
-  //         :key="index"
-  //         px="4"
-  //         py="2"
-  //         bg="white"
-  //         :_hover="{ opacity: '80%' }"
-  //         :_odd="{ bg: 'gray.100' }"
-  //         >
-  //         {{ box.name }}
-  //       </CPseudoBox>
-  //     </CBox>
-  //   `
-  // }))
+  .add('Pseudobox | :odd', () => ({
+    components: { CBox, CPseudoBox },
+    data () {
+      return {
+        boxes: [
+          {
+            id: 1,
+            name: 'Box 1'
+          },
+          {
+            id: 2,
+            name: 'Box 2'
+          },
+          {
+            id: 3,
+            name: 'Box 3'
+          }
+        ]
+      }
+    },
+    template: `
+      <CBox
+        rounded="md"
+        overflow="hidden"
+        mt="4"
+        w="400px"
+        font-family="body"
+      >
+        <CPseudoBox
+          v-for="(box, index) in boxes"
+          :key="index"
+          px="4"
+          py="2"
+          bg="white"
+          :_hover="{ opacity: '80%' }"
+          :_odd="{ bg: 'gray.100' }"
+          >
+          {{ box.name }}
+        </CPseudoBox>
+      </CBox>
+    `
+  }))

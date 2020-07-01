@@ -13,8 +13,7 @@
 
 import { createStyledAttrsMixin } from '../utils'
 
-import CBox, { _CBox } from '../CBox'
-import { _CPseudoBox } from '../CPseudoBox'
+import CBox from '../CBox'
 import CSpinner from '../CSpinner'
 import CIcon from '../CIcon'
 import createButtonStyles, { setIconSizes } from './utils/button.styles'
@@ -53,7 +52,7 @@ const CButtonIcon = {
         }
       })
     } else {
-      return h(_CBox, {
+      return h(CBox, {
         class: this.className,
         props: {
           as: this.icon
@@ -75,105 +74,9 @@ const CButtonIcon = {
  *
  * The Button component is an accessible rich component that does what a button does :)
  *
- * @extends CPseudoBox
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CButton = {
-  name: 'CButton',
-  inject: ['$chakraTheme', '$chakraColorMode'],
-  props: buttonProps,
-  computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    theme () {
-      return this.$chakraTheme()
-    },
-    buttonStyles () {
-      return createButtonStyles({
-        color: this.variantColor,
-        variant: this.variant,
-        theme: this.theme,
-        ripple: this.ripple,
-        colorMode: this.colorMode,
-        size: this.size || 'md'
-      })
-    }
-  },
-  render (h) {
-    return h(_CPseudoBox, {
-      props: {
-        as: this.as,
-        to: this.to
-      },
-      attrs: {
-        type: this.type,
-        tabIndex: 0,
-        disabled: this.isDisabled || this.isLoading,
-        'aria-disabled': this.isDisabled || this.isLoading,
-        dataActive: this.isActive ? 'true' : undefined,
-        outline: 'none',
-        cursor: 'pointer',
-        fontSize: 'md',
-        fontWeight: '700',
-        border: 'none',
-        rounded: 'md',
-        width: this.isFullWidth ? 'full' : undefined,
-        'data-chakra-component': 'CButton',
-        ...this.buttonStyles,
-        ...this.$attrs
-      },
-      nativeOn: {
-        click: $event => this.$emit('click', $event)
-      }
-    }, [
-      this.leftIcon && h(CButtonIcon, {
-        props: {
-          icon: this.leftIcon
-        },
-        attrs: {
-          mr: this.iconSpacing,
-          mb: 'px',
-          icon: this.leftIcon,
-          size: '1em',
-          opacity: this.isLoading ? 0 : 1
-        }
-      }),
-      this.isLoading && h(CSpinner, {
-        props: {
-          position: this.loadingText ? 'relative' : 'absolute',
-          color: 'currentColor',
-          mb: '-4px',
-          mr: this.loadingText ? this.iconSpacing : 0,
-          size: '1em'
-        }
-      }),
-      this.isLoading ? this.loadingText || h(CBox, {
-        props: {
-          as: 'span'
-        },
-        attrs: {
-          opacity: 0
-        }
-      }, this.$slots.default) : this.$slots.default,
-      this.rightIcon && h(CButtonIcon, {
-        props: {
-          icon: this.rightIcon
-        },
-        attrs: {
-          ml: this.iconSpacing,
-          mb: 'px',
-          size: '1em',
-          opacity: this.isLoading ? 0 : 1
-        }
-      })
-    ])
-  }
-}
-
-export default CButton
-
-export const _CButton = {
   mixins: [createStyledAttrsMixin('CButton', true)],
   props: buttonProps,
   computed: {
@@ -223,7 +126,7 @@ export const _CButton = {
           size: '1em'
         }
       }),
-      this.isLoading ? this.loadingText || h(_CBox, {
+      this.isLoading ? this.loadingText || h(CBox, {
         props: {
           as: 'span'
         },
@@ -245,3 +148,5 @@ export const _CButton = {
     ])
   }
 }
+
+export default CButton

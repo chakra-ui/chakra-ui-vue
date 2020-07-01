@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { _CButton as CButton } from './CButton'
+import { CButton } from '../'
 
 storiesOf('UI | Button', module)
   .add('New', () => ({

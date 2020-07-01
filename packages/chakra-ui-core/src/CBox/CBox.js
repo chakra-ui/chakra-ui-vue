@@ -8,9 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBox/CBox.js
  */
 
-import { css } from 'emotion'
-import { baseProps } from '../config/props'
-import { forwardProps, createStyledAttrsMixin, systemProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
 /**
  * CBox component
@@ -20,46 +18,6 @@ import { forwardProps, createStyledAttrsMixin, systemProps } from '../utils'
  * @see Docs https://vue.chakra-ui.com/box
  */
 const CBox = {
-  name: 'CBox',
-  inject: ['$chakraTheme'],
-  props: {
-    as: {
-      type: [String, Object],
-      default: 'div'
-    },
-    to: {
-      type: [String, Object],
-      default: ''
-    },
-    ...baseProps
-  },
-  computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    boxClassName () {
-      const { as, to, ...cleanedStyleProps } = forwardProps(this.$props)
-      const boxStylesObject = systemProps({ ...cleanedStyleProps, theme: this.theme })
-      return css(boxStylesObject)
-    }
-  },
-  render (h) {
-    return h(this.as, {
-      props: {
-        to: this.to
-      },
-      class: this.boxClassName,
-      on: this.$listeners,
-      attrs: {
-        'data-chakra-component': 'CBox'
-      }
-    }, this.$slots.default)
-  }
-}
-
-export default CBox
-
-export const _CBox = {
   name: 'CBox',
   mixins: [createStyledAttrsMixin('CBox')],
   props: {
@@ -83,3 +41,5 @@ export const _CBox = {
     }, this.$slots.default)
   }
 }
+
+export default CBox

@@ -1,7 +1,7 @@
 import { keyframes } from 'emotion'
 import { createStyledAttrsMixin } from '../utils'
 
-import { _CBox } from '../CBox'
+import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 
 const spin = keyframes`
@@ -84,7 +84,7 @@ const CSpinner = {
     }
   },
   render (h) {
-    return h(_CBox, {
+    return h(CBox, {
       class: this.className,
       attrs: {
         d: 'inline-block',

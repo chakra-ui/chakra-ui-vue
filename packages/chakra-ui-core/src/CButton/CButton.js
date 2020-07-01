@@ -80,7 +80,6 @@ const CButtonIcon = {
  */
 const CButton = {
   name: 'CButton',
-  inheritAttrs: false,
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: buttonProps,
   computed: {

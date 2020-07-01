@@ -1,5 +1,5 @@
 import { CAspectRatioBox, CBox } from '../..'
-import { render, screen } from '@/tests/test-utils'
+import { render, screen, getElementStyles } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
@@ -12,28 +12,6 @@ const renderComponent = (props) => {
     ...props
   }
   return render(base)
-}
-
-/**
- * Not sure if we need jest-emotion
- *
- * Get styles from document.styleSheets
- * @param {String} selector
- */
-function getElementStyles (selector) {
-  selector = new RegExp(selector)
-  let styles = []
-  let i; let j; const sel = selector
-  for (i = 0; i < document.styleSheets.length; ++i) {
-    for (j = 0; j < document.styleSheets[i].cssRules.length; ++j) {
-      if (sel.test(document.styleSheets[i].cssRules[j].selectorText)) {
-        // let selectorText = document.styleSheets[i].cssRules[j].selectorText
-        const cssText = document.styleSheets[i].cssRules[j].style.cssText
-        styles += cssText
-      }
-    }
-  }
-  return styles
 }
 
 it('should render correctly', () => {
@@ -55,7 +33,7 @@ it('should have correct styles', () => {
   const image = screen.getByTestId('image')
   const aspectRatioBox = screen.getByTestId('aspectRatioBox')
 
-  const [, emotionClassName] = [...aspectRatioBox.classList]
+  const [, emotionClassName] = [...aspectRatioBox.classList] // second className has the pseudo styles
   const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
 
   expect(pseudoStyles).toContain(`

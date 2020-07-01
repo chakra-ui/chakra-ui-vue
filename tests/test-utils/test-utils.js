@@ -32,8 +32,42 @@ const render = (component, ...rest) => {
   }
 }
 
+/**
+ * Wait for given ms
+ *
+ * @param {number} duration
+ */
 function waitMs (ms = 0) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+/**
+ * Get styles from document.styleSheets
+ *
+ * @param {String} selector
+ *
+ * @example className usage
+ *  getElementStyles('.anyClassName')
+ *
+ * @example Emotion Classname
+ *  const [className1, className2] = [...screen.getByTestId('aspectRatioBox').classList]
+ *  const styles = getElementStyles(`.${className1}`)
+ *  const pseudoStyles = getElementStyles(`.${className2}:before`)
+ */
+export function getElementStyles (selector) {
+  selector = new RegExp(selector)
+  let styles = []
+  let i; let j; const sel = selector
+  for (i = 0; i < document.styleSheets.length; ++i) {
+    for (j = 0; j < document.styleSheets[i].cssRules.length; ++j) {
+      if (sel.test(document.styleSheets[i].cssRules[j].selectorText)) {
+        // let selectorText = document.styleSheets[i].cssRules[j].selectorText
+        const cssText = document.styleSheets[i].cssRules[j].style.cssText
+        styles += cssText
+      }
+    }
+  }
+  return styles
 }
 
 export * from '@testing-library/vue'

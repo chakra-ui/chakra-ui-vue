@@ -8,34 +8,31 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CFlex/CFlex.js
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
-
-import CBox from '../CBox'
+import { createStyledAttrsMixin } from '../utils'
 
 /**
  * CFlex component
  *
  * `CFlex` is `CBox` with display: flex and comes with helpful style shorthands.
  *
- * @extends CBox
  * @see Docs https://vue.chakra-ui.com/flex
  */
 const CFlex = {
-  name: 'CFlex',
+  mixins: [createStyledAttrsMixin('CFlex')],
   props: {
-    as: String,
+    as: {
+      type: String,
+      default: 'div'
+    },
     align: [String, Array],
     justify: [String, Array],
     wrap: [String, Array],
     direction: [String, Array],
-    size: [String, Array],
-    ...baseProps
+    size: [String, Number, Array]
   },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: this.as,
+  computed: {
+    componentStyles() {
+      return {
         display: 'flex',
         flexDirection: this.direction,
         alignItems: this.align,
@@ -43,11 +40,13 @@ const CFlex = {
         flexWrap: this.wrap,
         h: this.size,
         w: this.size,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CFlex'
       }
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

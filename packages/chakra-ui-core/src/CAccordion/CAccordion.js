@@ -21,12 +21,9 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#accordion
  */
 
-import { baseProps } from '../config'
-import { forwardProps, cloneVNodes, useId, isDef } from '../utils'
-import styleProps from '../config/props'
+import { forwardProps, cloneVNodes, useId, isDef, createStyledAttrsMixin } from '../utils'
 import { iconProps } from '../CIcon/utils/icon.props'
 
-import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CCollapse from '../CCollapse'
 import CIcon from '../CIcon'
@@ -42,9 +39,8 @@ import CIcon from '../CIcon'
  */
 
 const CAccordion = {
-  name: 'CAccordion',
+  mixins: [createStyledAttrsMixin('CAccordion')],
   props: {
-    ...baseProps,
     allowMultiple: Boolean,
     allowToggle: Boolean,
     index: {
@@ -136,13 +132,9 @@ const CAccordion = {
       return clone
     })
 
-    return h(CBox, {
-      props: {
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CAccordion'
-      }
+    return h('div', {
+      class: this.className,
+      attrs: this.computedAttrs
     }, clones)
   }
 }
@@ -157,9 +149,8 @@ const CAccordion = {
  */
 
 const CAccordionItem = {
-  name: 'CAccordionItem',
+  mixins: [createStyledAttrsMixin('CAccordionItem', true)],
   props: {
-    ...styleProps,
     isOpen: {
       type: Boolean,
       default: null
@@ -168,10 +159,7 @@ const CAccordionItem = {
       type: Boolean,
       default: false
     },
-    id: {
-      type: String,
-      default: useId()
-    },
+    id: String,
     isDisabled: {
       type: Boolean,
       default: false
@@ -208,11 +196,20 @@ const CAccordionItem = {
         this.isExpanded = value
       }
     },
+    _id () {
+      return this.id || useId()
+    },
     headerId () {
-      return `accordion-header-${this.id}`
+      return `accordion-header-${this._id}`
     },
     panelId () {
-      return `accordion-panel-${this.id}`
+      return `accordion-panel-${this._id}`
+    },
+    componentStyles () {
+      return {
+        borderTopWidth: '1px',
+        _last: { borderBottomWidth: '1px' }
+      }
     }
   },
   methods: {
@@ -225,14 +222,13 @@ const CAccordionItem = {
   },
   render (h) {
     return h(CPseudoBox, {
+      class: this.className,
       props: {
         ...forwardProps(this.$props),
         borderTopWidth: '1px',
         _last: { borderBottomWidth: '1px' }
       },
-      attrs: {
-        'data-chakra-component': 'CAccordionItem'
-      }
+      attrs: this.computedAttrs
     }, [
       this.$scopedSlots.default({
         isExpanded: this._isExpanded,
@@ -252,9 +248,8 @@ const CAccordionItem = {
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionHeader = {
-  name: 'CAccordionHeader',
+  mixins: [createStyledAttrsMixin('CAccordionHeader', true)],
   inject: ['$AccordionContext'],
-  props: styleProps,
   computed: {
     context () {
       return this.$AccordionContext()
@@ -263,8 +258,7 @@ const CAccordionHeader = {
   render (h) {
     const { isExpanded, panelId, headerId, isDisabled, onToggle } = this.context
     return h(CPseudoBox, {
-      props: {
-        ...forwardProps(this.$props),
+      attrs: {
         as: 'button',
         display: 'flex',
         alignItems: 'center',
@@ -275,9 +269,7 @@ const CAccordionHeader = {
         py: 2,
         _focus: { boxShadow: 'outline' },
         _hover: { bg: 'blackAlpha.50' },
-        _disabled: { opacity: '0.4', cursor: 'not-allowed' }
-      },
-      attrs: {
+        _disabled: { opacity: '0.4', cursor: 'not-allowed' },
         id: headerId,
         type: 'button',
         disabled: isDisabled,
@@ -307,8 +299,8 @@ const CAccordionHeader = {
  */
 const CAccordionPanel = {
   name: 'CAccordionPanel',
+  inheritAttrs: false,
   inject: ['$AccordionContext'],
-  props: baseProps,
   computed: {
     context () {
       return this.$AccordionContext()
@@ -316,21 +308,17 @@ const CAccordionPanel = {
   },
   render (h) {
     const { isExpanded, panelId, headerId } = this.context
-
     return h(CCollapse, {
-      props: {
-        ...forwardProps(this.$props),
-        isOpen: isExpanded,
+      attrs: {
         pt: 2,
         px: 4,
-        pb: 5
-      },
-      attrs: {
+        pb: 5,
+        isOpen: isExpanded,
         id: panelId,
-        'data-chakra-component': 'CAccordionPanel',
         'aria-labelledby': headerId,
         'aria-hidden': !isExpanded,
-        role: 'region'
+        role: 'region',
+        ...this.$attrs
       }
     }, this.$slots.default)
   }
@@ -346,32 +334,31 @@ const CAccordionPanel = {
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionIcon = {
-  name: 'CAccordionIcon',
+  mixins: [createStyledAttrsMixin('CAccordionIcon')],
   inject: ['$AccordionContext'],
-  props: {
-    ...baseProps,
-    ...iconProps
-  },
+  props: iconProps,
   computed: {
     context () {
       return this.$AccordionContext()
-    }
-  },
-  render (h) {
-    const { isExpanded, isDisabled } = this.context
-    return h(CIcon, {
-      props: {
-        ...forwardProps(this.$props),
-        size: this.size || '1.25em',
-        name: this.name || 'chevron-down',
+    },
+    componentStyles () {
+      const { isExpanded, isDisabled } = this.context
+      return {
         opacity: isDisabled ? 0.4 : 1,
         transform: isExpanded ? 'rotate(-180deg)' : null,
         transition: 'transform 0.2s',
         transformOrigin: 'center'
-      },
-      attrs: {
-        'data-chakra-component': 'CAccordionIcon'
       }
+    }
+  },
+  render (h) {
+    return h(CIcon, {
+      class: this.className,
+      props: {
+        size: this.size || '1.25em',
+        name: this.name || 'chevron-down'
+      },
+      attrs: this.computedAttrs
     })
   }
 }

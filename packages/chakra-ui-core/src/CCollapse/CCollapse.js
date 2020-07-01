@@ -10,7 +10,6 @@
  */
 
 import { CAnimateHeight } from '../CTransition'
-import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 
@@ -25,7 +24,7 @@ import CBox from '../CBox'
  */
 const CCollapse = {
   name: 'CCollapse',
-  extends: CBox,
+  inheritAttrs: false,
   props: {
     isOpen: Boolean,
     duration: {
@@ -45,7 +44,6 @@ const CCollapse = {
   },
   render (h) {
     const children = this.$slots.default
-
     return h(CAnimateHeight, {
       props: {
         isOpen: this.isOpen,
@@ -60,13 +58,18 @@ const CCollapse = {
         enter: e => this.$emit('start', e),
         leave: e => this.$emit('finish', e)
       },
+      style: {
+        overflow: 'hidden'
+      },
       attrs: {
         'data-chakra-component': 'CCollapse'
       }
     }, [h(CBox, {
       props: {
-        ...forwardProps(this.$props),
-        overflow: 'hidden'
+        as: this.as
+      },
+      attrs: {
+        ...this.$attrs
       }
     }, children)])
   }

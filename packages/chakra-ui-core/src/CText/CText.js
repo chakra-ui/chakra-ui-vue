@@ -31,7 +31,7 @@ const CText = {
     }
   },
   computed: {
-    componentStyles() {
+    componentStyles () {
       return {
         fontFamily: this.as === 'kbd' ? 'mono' : this.fontFamily,
         ...this.isTruncated && useTruncated()

@@ -9,11 +9,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CGrid/CGrid.js
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 import { SNA } from '../config/props/props.types'
-
-import CBox from '../CBox'
 
 /**
  * CGrid component
@@ -24,9 +21,12 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/grid
  */
 const CGrid = {
-  name: 'CGrid',
+  mixins: [createStyledAttrsMixin('CGrid')],
   props: {
-    ...baseProps,
+    as: {
+      type: String,
+      default: 'div'
+    },
     gap: SNA,
     rowGap: SNA,
     columnGap: SNA,
@@ -39,12 +39,10 @@ const CGrid = {
     area: SNA,
     column: SNA,
     row: SNA,
-    as: String
   },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: this.as,
+  computed: {
+    componentStyles () {
+      return {
         d: 'grid',
         gridArea: this.area,
         gridTemplateAreas: this.templateAreas,
@@ -58,11 +56,13 @@ const CGrid = {
         gridAutoRows: this.autoRows,
         gridTemplateRows: this.templateRows,
         gridTemplateColumns: this.templateColumns,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CGrid'
       }
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

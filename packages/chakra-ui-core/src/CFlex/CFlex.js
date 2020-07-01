@@ -9,6 +9,7 @@
  */
 
 import { createStyledAttrsMixin } from '../utils'
+import { SNA } from '../config/props/props.types'
 
 /**
  * CFlex component
@@ -24,14 +25,14 @@ const CFlex = {
       type: String,
       default: 'div'
     },
-    align: [String, Array],
-    justify: [String, Array],
-    wrap: [String, Array],
-    direction: [String, Array],
-    size: [String, Number, Array]
+    align: SNA,
+    justify: SNA,
+    wrap: SNA,
+    direction: SNA,
+    size: SNA,
   },
   computed: {
-    componentStyles() {
+    componentStyles () {
       return {
         display: 'flex',
         flexDirection: this.direction,
@@ -39,7 +40,7 @@ const CFlex = {
         justifyContent: this.justify,
         flexWrap: this.wrap,
         h: this.size,
-        w: this.size,
+        w: this.size
       }
     }
   },

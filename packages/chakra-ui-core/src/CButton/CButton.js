@@ -11,7 +11,6 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
  */
 
-// import styleProps from '../config/props'
 import { createStyledAttrsMixin } from '../utils'
 
 import CBox, { _CBox } from '../CBox'
@@ -217,7 +216,7 @@ export const _CButton = {
         }
       }),
       this.isLoading && h(CSpinner, {
-        props: {
+        attrs: {
           position: this.loadingText ? 'relative' : 'absolute',
           color: 'currentColor',
           mb: '-4px',

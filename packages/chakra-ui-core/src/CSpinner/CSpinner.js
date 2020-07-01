@@ -1,8 +1,7 @@
 import { keyframes } from 'emotion'
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
-import CBox from '../CBox'
+import { _CBox } from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 
 const spin = keyframes`
@@ -57,7 +56,7 @@ const setSizes = (props) => {
  * @see Docs https://vue.chakra-ui.com/spinner
  */
 const CSpinner = {
-  name: 'CSpinner',
+  mixins: [createStyledAttrsMixin('CSpinner')],
   props: {
     size: {
       type: [String, Array],
@@ -82,12 +81,12 @@ const CSpinner = {
     emptyColor: {
       type: [String, Array],
       default: 'transparent'
-    },
-    ...baseProps
+    }
   },
   render (h) {
-    return h(CBox, {
-      props: {
+    return h(_CBox, {
+      class: this.className,
+      attrs: {
         d: 'inline-block',
         borderWidth: this.thickness,
         borderColor: 'currentColor',
@@ -98,10 +97,7 @@ const CSpinner = {
         borderLeftColor: this.emptyColor,
         animation: `${spin} ${this.speed} linear infinite`,
         ...setSizes(this.$props),
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CSpinner'
+        ...this.computedAttrs
       }
     }, this.label && h(CVisuallyHidden, {}, this.label))
   }

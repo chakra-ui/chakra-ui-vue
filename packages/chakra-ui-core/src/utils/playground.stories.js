@@ -1,4 +1,4 @@
-/*eslint import/namespace: [2, { allowComputed: true }]*/
+/* eslint import/namespace: [2, { allowComputed: true }] */
 import { storiesOf } from '@storybook/vue'
 import Vue from 'vue'
 import CodeBlock from '../../../chakra-ui-docs/components/CodeBlock.js'

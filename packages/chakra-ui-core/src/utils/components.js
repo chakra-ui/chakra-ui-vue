@@ -37,8 +37,9 @@ export function createWatcher (property) {
  * @param {String} name Component name
 */
 export const createStyledAttrsMixin = (name, isPseudo) => ({
+  name,
   inheritAttrs: false,
-  inject: ['$chakraTheme'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   data () {
     return {
       attrs$: {},
@@ -46,13 +47,20 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
     }
   },
   computed: {
+    colorMode () {
+      return this.$chakraColorMode()
+    },
     theme () {
       return this.$chakraTheme()
     },
     /** Split style attributes and native attributes */
     splitProps () {
-      const styleProps = filterChakraStyleProps(this.$data.attrs$)
-      const attrs = purifyStyleAttributes(this.$data.attrs$, styleProps)
+      const styles = {
+        ...this.componentStyles && this.componentStyles,
+        ...this.$data.attrs$
+      }
+      const styleProps = filterChakraStyleProps(styles)
+      const attrs = purifyStyleAttributes(styles, styleProps)
       return {
         styleProps,
         attrs
@@ -64,7 +72,10 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
         const { pseudoStyles, baseStyles } = parsePseudoStyles(styleProps)
         const _baseStyles = systemProps({ ...baseStyles, theme: this.theme })
         const _pseudoStyles = __css(pseudoStyles)(this.theme)
-        return css({ ..._baseStyles, ..._pseudoStyles })
+        return css({
+          ..._baseStyles,
+          ..._pseudoStyles
+        })
       }
       const boxStylesObject = systemProps({ ...styleProps, theme: this.theme })
       return css(boxStylesObject)

@@ -10,8 +10,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIconButton/CIconButton.js
  */
 
-import styleProps from '../config/props'
-import { forwardProps } from '../utils'
+import { forwardProps, createStyledAttrsMixin } from '../utils'
 import { buttonProps } from '../CButton/utils/button.props'
 
 import CButton from '../CButton'
@@ -42,8 +41,7 @@ const baseStyles = {
  * @see Docs https://vue.chakra-ui.com/iconbutton
  */
 const CIconButton = {
-  name: 'CIconButton',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CIconButton', true)],
   props: {
     icon: {
       type: [String]
@@ -55,20 +53,18 @@ const CIconButton = {
       type: [String],
       required: true
     },
-    ...buttonProps,
-    ...styleProps
+    ...buttonProps
   },
   render (h) {
     const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = this.$props
 
     return h(CButton, {
-      props: {
+      props: forwardProps(props),
+      class: this.className,
+      attrs: {
         p: 0,
         rounded: this.isRound ? 'full' : 'md',
         size: this.size,
-        ...forwardProps(props)
-      },
-      attrs: {
         'aria-label': this.ariaLabel,
         'data-chakra-component': 'CIconButton'
       },
@@ -79,24 +75,24 @@ const CIconButton = {
     [typeof this.icon === 'string'
       ? h(CIcon, {
         props: {
-          ...baseStyles,
-          name: this.icon,
-          color: 'currentColor',
-          mb: '2px',
-          size: '1em'
+          name: this.icon
         },
         attrs: {
+          ...baseStyles,
+          color: 'currentColor',
+          mb: '2px',
+          size: '1em',
           focusable: false,
           'aria-hidden': true
         }
       })
       : h(CBox, {
         props: {
-          as: this.icon,
-          color: 'currentColor'
+          as: this.icon
         },
         attrs: {
-          focusable: true
+          focusable: true,
+          color: 'currentColor'
         }
       })]
     )

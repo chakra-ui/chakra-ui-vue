@@ -11,7 +11,9 @@ const baseStyles = {
   whiteSpace: 'nowrap',
   verticalAlign: 'middle',
   lineHeight: '1.2',
-  outline: 'none'
+  outline: 'none',
+  fontWeight: 'bold',
+  rounded: 'md'
 }
 
 const disabledProps = {

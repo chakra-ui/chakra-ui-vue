@@ -38,7 +38,7 @@ const CGrid = {
     templateAreas: SNA,
     area: SNA,
     column: SNA,
-    row: SNA,
+    row: SNA
   },
   computed: {
     componentStyles () {
@@ -55,7 +55,7 @@ const CGrid = {
         gridAutoFlow: this.autoFlow,
         gridAutoRows: this.autoRows,
         gridTemplateRows: this.templateRows,
-        gridTemplateColumns: this.templateColumns,
+        gridTemplateColumns: this.templateColumns
       }
     }
   },

@@ -29,7 +29,7 @@ const CFlex = {
     justify: SNA,
     wrap: SNA,
     direction: SNA,
-    size: SNA,
+    size: SNA
   },
   computed: {
     componentStyles () {

@@ -84,7 +84,7 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
     computedAttrs () {
       return {
         ...this.splitProps.attrs,
-        'data-chakra-component': name
+        ...name && { 'data-chakra-component': name }
       }
     }
   },

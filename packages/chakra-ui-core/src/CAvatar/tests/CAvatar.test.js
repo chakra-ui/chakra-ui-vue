@@ -64,7 +64,7 @@ it('renders an image', async () => {
 })
 
 it('renders a name avatar if no src', async () => {
-  renderComponent({ template: '<CAvatar data-testid="avatar" name="Mesut Koca" />' })
+  renderComponent({ template: '<CAvatar name="Mesut Koca" />' })
 
   await wait(() => {
     expect(screen.getByLabelText(/Mesut Koca/i)).toBeInTheDocument()
@@ -73,7 +73,7 @@ it('renders a name avatar if no src', async () => {
 })
 
 it('renders a name avatar if src fails', async () => {
-  renderComponent({ template: '<CAvatar data-testid="avatar" name="Mesut Koca" src="LOAD_FAILURE_SRC" />' })
+  renderComponent({ template: '<CAvatar name="Mesut Koca" src="LOAD_FAILURE_SRC" />' })
 
   await wait(() => {
     expect(screen.queryByAltText(/Mesut Koca/i)).not.toBeInTheDocument()

@@ -10,25 +10,23 @@ exports[`should render correctly 1`] = `
       class="css-1jwki60"
       data-chakra-component="CAvatar"
     >
-      <div
-        aria-label="Mesut Koca"
-        class="css-1n1d9mc"
-        data-chakra-component="CAvatarName"
-      >
-        MK
-      </div>
+      <img
+        alt="Mesut Koca"
+        class="css-58rle2"
+        data-chakra-component="CBox"
+        src="LOAD_SUCCESS_SRC"
+      />
     </div>
     <div
       class="css-1li52eg"
       data-chakra-component="CAvatar"
     >
-      <div
-        aria-label="Evan You"
-        class="css-1n1d9mc"
-        data-chakra-component="CAvatarName"
-      >
-        EY
-      </div>
+      <img
+        alt="Evan You"
+        class="css-58rle2"
+        data-chakra-component="CBox"
+        src="LOAD_SUCCESS_SRC"
+      />
     </div>
     <div
       class="css-lpwrl7"

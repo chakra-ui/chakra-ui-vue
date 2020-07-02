@@ -1,5 +1,5 @@
 import { CButton, CButtonGroup } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -20,10 +20,4 @@ const renderComponent = (props) => {
 it('should render correctly', () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()
-})
-
-it('should display children', () => {
-  const { getByText } = renderComponent()
-  expect(getByText('Button1')).toBeInTheDocument()
-  expect(getByText('Button2')).toBeInTheDocument()
 })

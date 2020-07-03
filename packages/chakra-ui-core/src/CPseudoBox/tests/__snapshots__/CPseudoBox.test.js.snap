@@ -2,10 +2,29 @@
 
 exports[`should change the style 1`] = `
 <DocumentFragment>
-  <div
-    class="css-fzcsno css-mr4uxt"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-radius: 0.125rem;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background-color: #7db1ff;
+  color: #003182;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CPseudoBox"
-    data-testid="box"
+    data-testid="pseudobox"
   >
     Box Works
   </div>
@@ -15,9 +34,9 @@ exports[`should change the style 1`] = `
 exports[`should display Box with type as header 1`] = `
 <DocumentFragment>
   <header
-    class="css-fzcsno css-fzcsno"
+    class="emotion-0"
     data-chakra-component="CPseudoBox"
-    data-testid="box"
+    data-testid="pseudobox"
   >
     Box Works
   </header>
@@ -27,9 +46,9 @@ exports[`should display Box with type as header 1`] = `
 exports[`should display Box with type as p 1`] = `
 <DocumentFragment>
   <p
-    class="css-fzcsno css-fzcsno"
+    class="emotion-0"
     data-chakra-component="CPseudoBox"
-    data-testid="box"
+    data-testid="pseudobox"
   >
     Box Works
   </p>
@@ -39,9 +58,9 @@ exports[`should display Box with type as p 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-fzcsno css-fzcsno"
+    class="css-0"
     data-chakra-component="CPseudoBox"
-    data-testid="box"
+    data-testid="pseudobox"
   >
     Box Works
   </div>

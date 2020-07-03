@@ -1,11 +1,14 @@
+import serializer from 'jest-emotion'
 import CPseudoBox from '../'
-import { render } from '@/tests/test-utils'
+import { render, getTagName } from '@/tests/test-utils'
+
+expect.addSnapshotSerializer(serializer)
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CPseudoBox },
-    template: `<CPseudoBox data-testid="box" ${inlineAttrs}>Box Works</CPseudoBox>`,
+    template: `<CPseudoBox data-testid="pseudobox" ${inlineAttrs}>Box Works</CPseudoBox>`,
     ...props
   }
   return render(base)
@@ -13,7 +16,6 @@ const renderComponent = (props) => {
 
 it('should render correctly', () => {
   const { asFragment } = renderComponent()
-
   expect(asFragment()).toMatchSnapshot()
 })
 
@@ -24,19 +26,19 @@ it('should change the style', () => {
   background-color="blue.200" color="blue.700"`
   const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
 
-  const box = getByTestId('box')
+  const pseudobox = getByTestId('pseudobox')
 
   expect(asFragment()).toMatchSnapshot()
-  expect(box).toHaveStyle('display: flex')
-  expect(box).toHaveStyle('width: auto')
-  expect(box).toHaveStyle('margin-bottom: 1.25rem')
-  expect(box).toHaveStyle('margin-top: 1.25rem')
-  expect(box).toHaveStyle('box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);')
-  expect(box).toHaveStyle('padding: 1.25rem 1.25rem 1.25rem 1.25rem;')
-  expect(box).toHaveStyle('border-radius: 0.125rem;')
-  expect(box).toHaveStyle('font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";')
-  expect(box).toHaveStyle('color: rgb(0, 49, 130);')
-  expect(box).toHaveStyle('background-color: rgb(125, 177, 255);')
+  expect(pseudobox).toHaveStyle('display: flex')
+  expect(pseudobox).toHaveStyle('width: auto')
+  expect(pseudobox).toHaveStyle('margin-bottom: 1.25rem')
+  expect(pseudobox).toHaveStyle('margin-top: 1.25rem')
+  expect(pseudobox).toHaveStyle('box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);')
+  expect(pseudobox).toHaveStyle('padding: 1.25rem 1.25rem 1.25rem 1.25rem;')
+  expect(pseudobox).toHaveStyle('border-radius: 0.125rem;')
+  expect(pseudobox).toHaveStyle('font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";')
+  expect(pseudobox).toHaveStyle('color: rgb(0, 49, 130);')
+  expect(pseudobox).toHaveStyle('background-color: rgb(125, 177, 255);')
 })
 
 it.each`
@@ -47,8 +49,8 @@ it.each`
   'should display Box with type as $as',
   ({ as }) => {
     const inlineAttrs = `as=${as}`
-    const { asFragment } = renderComponent({ inlineAttrs })
-
+    const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
+    expect(getTagName(getByTestId('pseudobox'))).toEqual(as)
     expect(asFragment()).toMatchSnapshot()
   }
 )

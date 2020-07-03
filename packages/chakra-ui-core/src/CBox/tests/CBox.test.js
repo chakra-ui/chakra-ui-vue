@@ -10,7 +10,6 @@ const renderComponent = (props) => {
     template: `<CBox data-testid="box" ${inlineAttrs}>Box Works</CBox>`,
     ...props
   }
-
   return render(base)
 }
 

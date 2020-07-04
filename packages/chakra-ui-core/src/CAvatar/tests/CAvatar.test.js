@@ -33,7 +33,7 @@ const renderComponent = (props) => {
 it('should render correctly', async () => {
   const { asFragment } = renderComponent()
 
-  await waitMs(1) // wait for img.onsuccess to be called.
+  await waitMs() // wait for img.onsuccess to be called.
 
   expect(asFragment()).toMatchSnapshot()
 })
@@ -50,7 +50,7 @@ it('Avatar with AvatarBadge renders correctly', async () => {
   `
   })
 
-  await waitMs(1) // wait for img.onsuccess to be called.
+  await waitMs() // wait for img.onsuccess to be called.
 
   expect(asFragment()).toMatchSnapshot()
 })

@@ -51,7 +51,7 @@ const renderComponent = (props) => {
 it('should render correctly', async () => {
   const { asFragment } = renderComponent()
 
-  await waitMs(1)
+  await waitMs() // wait for img.onsuccess to be called.
 
   expect(asFragment()).toMatchSnapshot()
 })

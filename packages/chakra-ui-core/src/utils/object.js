@@ -54,10 +54,11 @@ export function filterChakraStyleProps (attrs) {
 }
 
 /** Purify's Chakra Attributes from VNode object */
-export function purifyStyleAttributes (attrs = {}, props = {}) {
-  for (const attr in props) {
-    delete attrs[kebabify(attr)]
-    delete attrs[camelize(attr)]
+export function purifyStyleAttributes (attrs, styleAttributes = {}) {
+  for (const attr in styleAttributes) {
+    const prop = camelize(attr)
+    if (attrs[prop]) delete attrs[prop]
+    else delete attrs[kebabify(attr)]
   }
   return attrs
 }

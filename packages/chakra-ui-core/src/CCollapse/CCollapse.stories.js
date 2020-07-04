@@ -25,7 +25,7 @@ storiesOf('UI | Collapse', module)
     template: `
       <div>
         <CButton @click="showCollapsed = !showCollapsed">Collapse</CButton>
-        <CCollapse :animate-opacity="false" :isOpen="showCollapsed" :startingHeight="24">
+        <CCollapse mt="4" :animate-opacity="false" :isOpen="showCollapsed" :startingHeight="24">
           <CBox bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
           </CBox>

@@ -59,10 +59,9 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
     },
     /** Split style attributes and native attributes */
     splitProps () {
-      const styles = {
-        ...this.componentStyles && this.componentStyles,
-        ...this.$data.attrs$
-      }
+      const $attrs = this.$data.attrs$
+      const styles = Object.assign({}, this.componentStyles || {}, $attrs)
+
       const styleProps = filterChakraStyleProps(styles)
       const attrs = purifyStyleAttributes(styles, styleProps)
       return {
@@ -90,6 +89,10 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
         ...name && { 'data-chakra-component': name },
         ...this.splitProps.attrs
       }
+    },
+    /** Computed listeners object */
+    computedListeners () {
+      return this.$data.listeners$
     }
   },
   watch: {

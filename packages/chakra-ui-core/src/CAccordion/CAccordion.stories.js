@@ -2,6 +2,17 @@ import { storiesOf } from '@storybook/vue'
 import { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
 
 storiesOf('UI | Accordion', module)
+  .add('Basic TEst', () => ({
+    components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
+    template: `
+      <CAccordion>
+        <CAccordionItem id="ac-1">
+          <CAccordionHeader>Section 1 title<CAccordionIcon /></CAccordionHeader>
+          <CAccordionPanel>Section 1 text</CAccordionPanel>
+        </CAccordionItem>
+      </CAccordion>
+    `
+  }))
   .add('Basic Usage', () => ({
     components: { CBox, CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon },
     template: `

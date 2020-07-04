@@ -20,7 +20,7 @@ storiesOf('Playground', module)
   .add('New', () => ({
     components: { CodeBlock: CodeBlock({ live: true, lang: 'vue', className: 'lang-vue' }) },
     template: `
-      <c-box max-w="500px">
+      <c-box max-w="500px" h="100vh" mt="200px">
         <h2 v-chakra font-weight="bold" font-size="xl">Chakra UI Vue Playground ⚡️</h2>
         <CodeBlock>
         {{ code }}
@@ -29,8 +29,6 @@ storiesOf('Playground', module)
     `,
     data: () => ({
       code: `
-let value = "Hello Chakra"
-<input v-chakra border="2px solid" mr="3" p="2" rounded="md" border-color="blue.400" v-model="value" />
-<c-button left-icon="github" variant-color="blue">{{ value }}</c-button>`
+<c-button name="PlaygroundButton" disabled>Chakra</c-button>`
     })
   }))

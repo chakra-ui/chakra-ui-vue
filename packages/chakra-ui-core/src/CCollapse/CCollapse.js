@@ -10,7 +10,6 @@
  */
 
 import { CAnimateHeight } from '../CTransition'
-
 import CBox from '../CBox'
 
 /**
@@ -23,7 +22,7 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/collpse
  */
 const CCollapse = {
-  name: 'CCollapse',
+  name: 'Collapse',
   inheritAttrs: false,
   props: {
     isOpen: Boolean,
@@ -57,9 +56,6 @@ const CCollapse = {
       on: {
         enter: e => this.$emit('start', e),
         leave: e => this.$emit('finish', e)
-      },
-      style: {
-        overflow: 'hidden'
       },
       attrs: {
         'data-chakra-component': 'CCollapse'

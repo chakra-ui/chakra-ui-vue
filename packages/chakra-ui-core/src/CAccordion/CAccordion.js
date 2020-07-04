@@ -21,7 +21,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#accordion
  */
 
-import { forwardProps, cloneVNodes, useId, isDef, createStyledAttrsMixin } from '../utils'
+import { forwardProps, cloneVNodes, useId, isDef, createStyledAttrsMixin, createWatcher } from '../utils'
 import { iconProps } from '../CIcon/utils/icon.props'
 
 import CPseudoBox from '../CPseudoBox'
@@ -37,6 +37,12 @@ import CIcon from '../CIcon'
  * @extends CBox
  * @see Docs https://vue.chakra-ui.com/accordion
  */
+
+let renderCAccordionCount = 0
+let renderCAccordionItemCount = 0
+let renderCAccordionHeaderCount = 0
+let renderCAccordionPanelCount = 0
+let renderCAccordionIconCount = 0
 
 const CAccordion = {
   mixins: [createStyledAttrsMixin('CAccordion')],
@@ -86,6 +92,7 @@ const CAccordion = {
     }
   },
   render (h) {
+    console.log('Rendering CAccordion\n ====>', ++renderCAccordionCount)
     const children = this.$slots.default.filter(e => e.tag)
     const cloned = cloneVNodes(children, h)
     const clones = cloned.map((vnode, index) => {
@@ -97,6 +104,7 @@ const CAccordion = {
           ...vnode.componentOptions.propsData,
           isOpen: this.getExpandCondition(this._index, index)
         },
+        attrs: vnode.data.attrs || {},
         on: {
           change: (isExpanded) => {
             if (this.allowMultiple) {
@@ -134,7 +142,8 @@ const CAccordion = {
 
     return h('div', {
       class: this.className,
-      attrs: this.computedAttrs
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, clones)
   }
 }
@@ -221,6 +230,7 @@ const CAccordionItem = {
     }
   },
   render (h) {
+    console.log('Rendering CAccordionItem\n ====>', ++renderCAccordionItemCount)
     return h(CPseudoBox, {
       class: this.className,
       props: {
@@ -248,14 +258,27 @@ const CAccordionItem = {
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionHeader = {
-  mixins: [createStyledAttrsMixin('CAccordionHeader', true)],
+  name: 'CAccordionHeader',
+  inheritAttrs: false,
   inject: ['$AccordionContext'],
   computed: {
     context () {
       return this.$AccordionContext()
+    },
+    computedAttrs () {
+      return this.$data.attrs$
     }
   },
+  data () {
+    return {
+      attrs$: {}
+    }
+  },
+  watch: {
+    $attrs: createWatcher('attrs$')
+  },
   render (h) {
+    console.log('Rendering CAccordionHeader\n ====>', ++renderCAccordionHeaderCount)
     const { isExpanded, panelId, headerId, isDisabled, onToggle } = this.context
     return h(CPseudoBox, {
       attrs: {
@@ -276,8 +299,10 @@ const CAccordionHeader = {
         'aria-disabled': isDisabled,
         'aria-expanded': isExpanded,
         'aria-controls': panelId,
+        ...this.computedAttrs,
         'data-chakra-component': 'CAccordionHeader'
       },
+      on: this.computedListeners,
       nativeOn: {
         click: (e) => {
           onToggle()
@@ -287,7 +312,6 @@ const CAccordionHeader = {
     }, this.$slots.default)
   }
 }
-
 /**
  * CAccordionPanel component
  *
@@ -304,21 +328,29 @@ const CAccordionPanel = {
   computed: {
     context () {
       return this.$AccordionContext()
+    },
+    computedAttrs () {
+      return this.$attrs
     }
   },
   render (h) {
+    console.log('Rendering CAccordionPanel\n ====>', ++renderCAccordionPanelCount)
     const { isExpanded, panelId, headerId } = this.context
     return h(CCollapse, {
+      props: {
+        isOpen: isExpanded
+      },
+      on: this.computedListeners,
       attrs: {
         pt: 2,
         px: 4,
         pb: 5,
-        isOpen: isExpanded,
+        ...this.computedAttrs,
         id: panelId,
         'aria-labelledby': headerId,
         'aria-hidden': !isExpanded,
         role: 'region',
-        ...this.$attrs
+        'data-chakra-component': 'CAccordionPanel'
       }
     }, this.$slots.default)
   }
@@ -352,13 +384,15 @@ const CAccordionIcon = {
     }
   },
   render (h) {
+    console.log('Rendering CAccordionIcon\n ====>', ++renderCAccordionIconCount)
     return h(CIcon, {
       class: this.className,
       props: {
         size: this.size || '1.25em',
         name: this.name || 'chevron-down'
       },
-      attrs: this.computedAttrs
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     })
   }
 }

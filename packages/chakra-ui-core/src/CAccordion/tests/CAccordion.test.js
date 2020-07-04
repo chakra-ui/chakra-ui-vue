@@ -1,6 +1,6 @@
 import { CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
 // import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
-import { render } from '@/tests/test-utils'
+import { render, waitMs } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -10,12 +10,12 @@ const renderComponent = (props) => {
   return render(base)
 }
 
-// beforeEach(async () => {
-//   // Wait for accordion transition to end
-//   await waitMs(1000)
-// })
+beforeEach(async () => {
+  // Wait for accordion transition to end
+  await waitMs(1000)
+})
 
-it.only('should render correctly', () => {
+it('should render correctly', () => {
   const { asFragment } = renderComponent(
     {
       template: `

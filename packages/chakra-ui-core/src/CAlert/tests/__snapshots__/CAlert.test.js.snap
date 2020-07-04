@@ -2,13 +2,56 @@
 
 exports[`should override icon if set explicitly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1153cbl"
+  .emotion-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-0:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-1 {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #f9bcc2;
+}
+
+.emotion-2 {
+  margin-right: 0.75rem;
+  color: #c42231;
+}
+
+<div
+    class="emotion-3"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-1rzyopz css-y3asau"
+      class="emotion-0 emotion-1 emotion-2"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -28,17 +71,139 @@ exports[`should override icon if set explicitly 1`] = `
 
 exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
-  <div
-    class="css-813bdq"
+  .emotion-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-0:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-1 {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-3 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #c2ebd4;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-2 {
+  margin-right: 0.75rem;
+  color: #3ea76a;
+}
+
+.emotion-7 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #3ea76a;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-6 {
+  margin-right: 0.75rem;
+}
+
+.emotion-11 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #c2ebd4;
+  border-left: 4px solid;
+  border-color: #3ea76a;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-15 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  background-color: #c2ebd4;
+  border-top: 4px solid;
+  border-color: #3ea76a;
+}
+
+<div
+    class="emotion-16"
     data-chakra-component="CStack"
   >
     <div
-      class="css-1e0vsp5"
+      class="emotion-3"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="emotion-0 emotion-1 emotion-2"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -83,12 +248,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-13q6fi0"
+      class="emotion-7"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-15wmxy1 css-y3asau"
+        class="emotion-0 emotion-1 emotion-6"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -133,12 +298,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-15bizfj"
+      class="emotion-11"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="emotion-0 emotion-1 emotion-2"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -183,12 +348,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-rtnh94"
+      class="emotion-15"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="emotion-0 emotion-1 emotion-2"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -238,13 +403,61 @@ exports[`should render correct variant styles 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-2fea6z"
+  .emotion-5 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #afd0ff;
+}
+
+.emotion-2 {
+  margin-right: 0.75rem;
+  color: #0058e6;
+}
+
+.emotion-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-0:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-1 {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  font-weight: 700;
+  line-height: normal;
+}
+
+<div
+    class="emotion-5"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-1114uxt css-y3asau"
+      class="emotion-0 emotion-1 emotion-2"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -286,14 +499,14 @@ exports[`should render correctly 1`] = `
     </svg>
      
     <div
-      class="css-nl0mdx"
+      class="emotion-3"
       data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
-      class="css-fzcsno"
+      class="emotion-4"
       data-chakra-component="CAlertDescription"
     >
       alert description

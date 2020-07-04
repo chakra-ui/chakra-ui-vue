@@ -6,7 +6,7 @@ storiesOf('UI | Alert', module)
     components: { CAlert },
     template: `
       <div>
-        <CAlert>Kiwi is the best Vue component library</CAlert>
+        <CAlert>Chakra UI is the best Vue component library</CAlert>
       </div>
     `
   }))
@@ -14,9 +14,9 @@ storiesOf('UI | Alert', module)
     components: { CAlert, CAlertIcon },
     template: `
       <div>
-        <CAlert mb="3" status="info">
+        <CAlert font-family="mono" font-weight="bold" mb="3" status="info">
           <CAlertIcon />
-          Kiwi is the best Vue component library
+          Chakra UI is the best Vue component library
         </CAlert>
       </div>
     `

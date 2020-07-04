@@ -16,6 +16,7 @@ const renderComponent = (props) => {
   }
   return render(base)
 }
+
 it('should render correctly', () => {
   const { asFragment } = renderComponent()
   expect(asFragment()).toMatchSnapshot()

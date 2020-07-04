@@ -60,7 +60,7 @@ it('should display a disabled button', () => {
   expect(getByText('Button')).toHaveAttribute('disabled')
 })
 
-it.only('should emit "click" event', () => {
+it('should emit "click" event', () => {
   const handleClick = jest.fn()
   const { getByTestId } = renderComponent({
     template: '<CButton @click="handleClick" data-testid="btn"></CButton>',

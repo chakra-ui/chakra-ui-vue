@@ -1,5 +1,5 @@
 import { CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
-import { render, userEvent, fireEvent, screen } from '@/tests/test-utils'
+import { render, userEvent, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -177,7 +177,6 @@ it('tab moves focus to the next focusable element', async () => {
   expect(last).toHaveFocus()
 })
 
-
 it('shift+tab moves focus to the previous focusable element', async () => {
   renderComponent({
     template: `
@@ -210,7 +209,7 @@ it('shift+tab moves focus to the previous focusable element', async () => {
   await userEvent.tab()
   expect(last).toHaveFocus()
 
-  await userEvent.tab({shift: true}) // shift+tab
+  await userEvent.tab({ shift: true }) // shift+tab
   expect(second).toHaveFocus()
 })
 

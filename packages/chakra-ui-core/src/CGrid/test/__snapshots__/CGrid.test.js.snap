@@ -2,8 +2,15 @@
 
 exports[`should change gap 1`] = `
 <DocumentFragment>
-  <div
-    class="css-rj19mw"
+  .emotion-0 {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(5,1fr);
+  width: 600px;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     Grid Me
@@ -13,8 +20,12 @@ exports[`should change gap 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-18j4d10"
+  .emotion-0 {
+  display: grid;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     Grid Me

@@ -64,9 +64,8 @@ const CLink = {
       attrs: {
         tabIndex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
-        ...this.computedAttrs,
         ...this.externalAttrs,
-        'data-chakra-component': 'CLink'
+        ...this.computedAttrs
       },
       on: {
         click: e => this.$emit('click', e),

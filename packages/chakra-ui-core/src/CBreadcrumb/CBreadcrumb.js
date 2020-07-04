@@ -16,8 +16,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#breadcrumb
  */
 
-import { baseProps } from '../config/props'
-import { cloneVNodeElement, cleanChildren, kebabify, createStyledAttrsMixin } from '../utils'
+import { cloneVNodeElement, cleanChildren, kebabify, createStyledAttrsMixin, forwardProps } from '../utils'
 
 import CBox from '../CBox'
 import CLink from '../CLink'
@@ -82,25 +81,27 @@ const Span = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumbLink = {
-  name: 'CBreadcrumbLink',
-  functional: true,
+  mixins: [createStyledAttrsMixin('CBreadcrumbLink', true)],
   props: {
     isCurrentPage: Boolean,
     as: [String, Object],
     to: String
   },
-  render (h, context) {
-    const { props, data } = context
-    const Comp = props.isCurrentPage ? Span : CLink
-
-    return h(Comp, {
-      props,
+  computed: {
+    component () {
+      return this.isCurrentPage ? Span : CLink
+    }
+  },
+  render (h) {
+    return h(this.component, {
+      class: this.className,
+      props: forwardProps(this.$props),
       attrs: {
-        'aria-current': props.isCurrentPage ? 'page' : null,
-        'data-chakra-component': 'CBreadcrumbLink',
-        ...data.attrs
+        ...this.computedAttrs,
+        'aria-current': this.isCurrentPage ? 'page' : null,
+        'data-chakra-component': 'CBreadcrumbLink'
       }
-    }, context.slots().default)
+    }, this.$slots.default)
   }
 }
 
@@ -114,7 +115,6 @@ const CBreadcrumbLink = {
 const CBreadcrumbItem = {
   mixins: [createStyledAttrsMixin('CBreadcrumbItem')],
   props: {
-    ...baseProps,
     isCurrentPage: Boolean,
     isLastChild: Boolean,
     separator: [Object, String],
@@ -132,21 +132,6 @@ const CBreadcrumbItem = {
   render (h) {
     const children = this.$slots.default.filter(e => e.tag)
     const clones = children.map((vnode) => {
-      // If vnode is breadcrumb link
-      // i.e (is functional component)
-      if (vnode.fnOptions) {
-        // Kebabify to normalize tage name
-        const tag = kebabify(vnode.fnOptions.name)
-        if (tag === 'c-breadcrumb-link') {
-          const clone = cloneVNodeElement(vnode, {
-            props: {
-              isCurrentPage: this.isCurrentPage
-            }
-          }, h)
-          return clone
-        }
-      }
-
       // If vnode is breadcrumb separator
       // i.e. (is reactive component)
       if (vnode.componentOptions) {
@@ -162,12 +147,24 @@ const CBreadcrumbItem = {
           }, h)
           return clone
         }
+
+        if (tag === 'c-breadcrumb-link') {
+          const clone = cloneVNodeElement(vnode, {
+            props: {
+              isCurrentPage: this.isCurrentPage
+            }
+          }, h)
+          return clone
+        }
       }
     })
 
     return h('li', {
       class: this.className,
-      attrs: this.computedAttrs,
+      attrs: {
+        ...this.computedAttrs,
+        'data-chakra-component': 'CBreadcrumbItem'
+      },
       on: this.computedListeners
     }, [
       ...clones,

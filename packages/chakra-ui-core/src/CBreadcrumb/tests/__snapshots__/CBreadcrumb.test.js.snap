@@ -2,28 +2,71 @@
 
 exports[`should display custom seperator  1`] = `
 <DocumentFragment>
-  <nav
+  .emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.emotion-0:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+<nav
     aria-label="breadcrumb"
-    class="css-fzcsno"
+    class="emotion-1"
     data-chakra-component="CBreadcrumb"
   >
-    <ol
-      class="css-fzcsno"
-      data-chakra-component="CBox"
-    >
+    <ol>
       <li
-        class="css-juzgwo"
+        class="emotion-3"
         data-chakra-component="CBreadcrumbItem"
       >
         <a
-          class="css-fzcsno css-1v8ez2b"
+          class="emotion-0 emotion-1"
           data-chakra-component="CBreadcrumbLink"
           href="/"
         >
           Home
         </a>
         <span
-          class="css-1d9u6m1"
+          class="emotion-2"
           data-chakra-component="CBreadcrumbSeparator"
           role="presentation"
         >
@@ -31,18 +74,18 @@ exports[`should display custom seperator  1`] = `
         </span>
       </li>
       <li
-        class="css-juzgwo"
+        class="emotion-3"
         data-chakra-component="CBreadcrumbItem"
       >
         <a
-          class="css-fzcsno css-1v8ez2b"
+          class="emotion-0 emotion-1"
           data-chakra-component="CBreadcrumbLink"
           href="/about"
         >
           About
         </a>
         <span
-          class="css-1d9u6m1"
+          class="emotion-2"
           data-chakra-component="CBreadcrumbSeparator"
           role="presentation"
         >
@@ -50,12 +93,12 @@ exports[`should display custom seperator  1`] = `
         </span>
       </li>
       <li
-        class="css-juzgwo"
+        class="emotion-3"
         data-chakra-component="CBreadcrumbItem"
       >
         <span
           aria-current="page"
-          class="css-fzcsno"
+          class="emotion-1"
           data-chakra-component="CBreadcrumbLink"
           href="/contact"
         >
@@ -69,29 +112,83 @@ exports[`should display custom seperator  1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div>
+  .emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.emotion-0:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: tomato;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.emotion-6 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: firebrick;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+<div>
     <nav
       aria-label="breadcrumb"
-      class="css-fzcsno"
+      class="emotion-1"
       data-chakra-component="CBreadcrumb"
     >
-      <ol
-        class="css-fzcsno"
-        data-chakra-component="CBox"
-      >
+      <ol>
         <li
-          class="css-juzgwo"
+          class="emotion-3"
           data-chakra-component="CBreadcrumbItem"
         >
           <a
-            class="css-fzcsno css-1v8ez2b"
+            class="emotion-0 emotion-1"
             data-chakra-component="CBreadcrumbLink"
             href="#"
           >
             Breadcrumb 1
           </a>
           <span
-            class="css-s9unhl"
+            class="emotion-2"
             data-chakra-component="CBreadcrumbSeparator"
             role="presentation"
           >
@@ -99,18 +196,18 @@ exports[`should render correctly 1`] = `
           </span>
         </li>
         <li
-          class="css-juzgwo"
+          class="emotion-3"
           data-chakra-component="CBreadcrumbItem"
         >
           <a
-            class="css-fzcsno css-1v8ez2b"
+            class="emotion-0 emotion-1"
             data-chakra-component="CBreadcrumbLink"
             href="#"
           >
             Breadcrumb 2
           </a>
           <span
-            class="css-11al2zw"
+            class="emotion-6"
             data-chakra-component="CBreadcrumbSeparator"
             role="presentation"
           >

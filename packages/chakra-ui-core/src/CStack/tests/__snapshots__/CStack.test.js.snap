@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CStack with element as nav 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-1 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin-top: 1rem;
+}
+
+.emotion-5 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+}
+
+<nav
+    class="emotion-6"
+    data-chakra-component="CFlex"
+    data-testid="stack"
+  >
+    <div
+      class="emotion-2"
+      data-chakra-component="CBox"
+      data-testid="stack-child-1"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Plan Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        The future can be even brighter but a goal without a plan is just a wish
+      </p>
+    </div>
+    <div
+      class="emotion-5"
+      data-chakra-component="CBox"
+      data-testid="stack-child-2"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Save Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
+      </p>
+    </div>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`should render CStack with element as section 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-1 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin-top: 1rem;
+}
+
+.emotion-5 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+}
+
+<section
+    class="emotion-6"
+    data-chakra-component="CFlex"
+    data-testid="stack"
+  >
+    <div
+      class="emotion-2"
+      data-chakra-component="CBox"
+      data-testid="stack-child-1"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Plan Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        The future can be even brighter but a goal without a plan is just a wish
+      </p>
+    </div>
+    <div
+      class="emotion-5"
+      data-chakra-component="CBox"
+      data-testid="stack-child-2"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Save Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
+      </p>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-0 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-1 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin-top: 1rem;
+}
+
+.emotion-5 {
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  border-width: 1px;
+}
+
+<div
+    class="emotion-6"
+    data-chakra-component="CFlex"
+    data-testid="stack"
+  >
+    <div
+      class="emotion-2"
+      data-chakra-component="CBox"
+      data-testid="stack-child-1"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Plan Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        The future can be even brighter but a goal without a plan is just a wish
+      </p>
+    </div>
+    <div
+      class="emotion-5"
+      data-chakra-component="CBox"
+      data-testid="stack-child-2"
+    >
+      <h2
+        class="emotion-0"
+        data-chakra-component="CHeading"
+      >
+        Save Money
+      </h2>
+       
+      <p
+        class="emotion-1"
+        data-chakra-component="CText"
+      >
+        You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

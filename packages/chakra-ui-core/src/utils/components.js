@@ -46,6 +46,10 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
       listeners$: {}
     }
   },
+  props: {
+    as: [String, Object],
+    to: String
+  },
   computed: {
     colorMode () {
       return this.$chakraColorMode()

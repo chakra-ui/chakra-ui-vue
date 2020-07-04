@@ -13,10 +13,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAspectRatioBox/CAspectRatioBox.js
  */
 
-import styleProps from '../config/props'
-import { cloneVNode, forwardProps } from '../utils'
-
-import CPseudoBox from '../CPseudoBox'
+import { cloneVNode, createStyledAttrsMixin } from '../utils'
 
 /**
  * CAspectRatioBox component
@@ -28,12 +25,24 @@ import CPseudoBox from '../CPseudoBox'
  * @see Docs https://vue.chakra-ui.com/aspectratiobox
  */
 const CAspectRatioBox = {
-  name: 'CAspectRatioBox',
+  mixins: [createStyledAttrsMixin('CAspectRatioBox', true)],
   props: {
-    ...styleProps,
     ratio: {
       type: Number,
       default: 4 / 3
+    }
+  },
+  computed: {
+    componentStyles () {
+      return {
+        position: 'relative',
+        _before: {
+          h: '0px',
+          content: '""',
+          d: 'block',
+          pb: `${(1 / this.ratio) * 100}%`
+        }
+      }
     }
   },
   render (h) {
@@ -45,30 +54,22 @@ const CAspectRatioBox = {
       ...(vnode.componentOptions.listeners || {}),
       props: {
         ...(vnode.data.props || {}),
-        ...vnode.componentOptions.propsData,
+        ...vnode.componentOptions.propsData
+      },
+      attrs: {
         position: 'absolute',
         w: 'full',
         h: 'full',
         top: 0,
-        left: 0
+        left: 0,
+        ...vnode.data.attrs
       }
     })
 
-    return h(CPseudoBox, {
-      props: {
-        ...forwardProps(this.$props),
-        position: 'relative',
-        _before: {
-          h: '0px',
-          content: '""',
-          d: 'block',
-          pb: `${(1 / this.ratio) * 100}%`
-        }
-      },
-      attrs: {
-        ...this.$attrs,
-        'data-chakra-component': 'CAspectRatioBox'
-      }
+    return h('div', {
+      class: this.className,
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, [clone])
   }
 }

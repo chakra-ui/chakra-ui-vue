@@ -41,6 +41,7 @@ it('should have correct styles', () => {
     left: 0px;
   `)
 
-  // TODO: we can't test pseudo elements.. so better test styles?
+  // TODO: Use getElementStyles utility cc: @koca
+  // @koca has already written tests for this in PR #235
   // aspectRatioBox padding-bottom
 })

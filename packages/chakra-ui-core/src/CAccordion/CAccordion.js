@@ -37,13 +37,6 @@ import CIcon from '../CIcon'
  * @extends CBox
  * @see Docs https://vue.chakra-ui.com/accordion
  */
-
-let renderCAccordionCount = 0
-let renderCAccordionItemCount = 0
-let renderCAccordionHeaderCount = 0
-let renderCAccordionPanelCount = 0
-let renderCAccordionIconCount = 0
-
 const CAccordion = {
   mixins: [createStyledAttrsMixin('CAccordion')],
   props: {
@@ -92,7 +85,6 @@ const CAccordion = {
     }
   },
   render (h) {
-    console.log('Rendering CAccordion\n ====>', ++renderCAccordionCount)
     const children = this.$slots.default.filter(e => e.tag)
     const cloned = cloneVNodes(children, h)
     const clones = cloned.map((vnode, index) => {
@@ -230,7 +222,6 @@ const CAccordionItem = {
     }
   },
   render (h) {
-    console.log('Rendering CAccordionItem\n ====>', ++renderCAccordionItemCount)
     return h(CPseudoBox, {
       class: this.className,
       props: {
@@ -278,7 +269,6 @@ const CAccordionHeader = {
     $attrs: createWatcher('attrs$')
   },
   render (h) {
-    console.log('Rendering CAccordionHeader\n ====>', ++renderCAccordionHeaderCount)
     const { isExpanded, panelId, headerId, isDisabled, onToggle } = this.context
     return h(CPseudoBox, {
       attrs: {
@@ -297,7 +287,7 @@ const CAccordionHeader = {
         type: 'button',
         disabled: isDisabled,
         'aria-disabled': isDisabled,
-        'aria-expanded': isExpanded,
+        'aria-expanded': isExpanded ? 'true' : 'false',
         'aria-controls': panelId,
         ...this.computedAttrs,
         'data-chakra-component': 'CAccordionHeader'
@@ -334,7 +324,6 @@ const CAccordionPanel = {
     }
   },
   render (h) {
-    console.log('Rendering CAccordionPanel\n ====>', ++renderCAccordionPanelCount)
     const { isExpanded, panelId, headerId } = this.context
     return h(CCollapse, {
       props: {
@@ -384,7 +373,6 @@ const CAccordionIcon = {
     }
   },
   render (h) {
-    console.log('Rendering CAccordionIcon\n ====>', ++renderCAccordionIconCount)
     return h(CIcon, {
       class: this.className,
       props: {

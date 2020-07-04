@@ -48,7 +48,7 @@ const CAlert = {
       return this.$chakraColorMode()
     },
     componentStyles () {
-      return{
+      return {
         fontFamily: 'body',
         ...useAlertStyle({
           variant: this.variant,

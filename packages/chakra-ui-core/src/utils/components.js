@@ -95,7 +95,7 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
       return this.$data.listeners$
     }
   },
-  created() {
+  created () {
     this.$watch('$attrs', createWatcher('attrs$'))
     this.$watch('$listeners', createWatcher('listeners$'))
   }

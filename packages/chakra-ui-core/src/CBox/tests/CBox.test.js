@@ -1,5 +1,5 @@
 import CBox from '../'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -22,9 +22,9 @@ it('should change the style', () => {
   d="flex" :w="['auto']" px="5" py="5" shadow="lg"
   my="5" mb="5" rounded="sm" font-family="body"
   background-color="blue.200" color="blue.700"`
-  const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
+  const { asFragment } = renderComponent({ inlineAttrs })
 
-  const box = getByTestId('box')
+  const box = screen.getByTestId('box')
 
   expect(asFragment()).toMatchSnapshot()
   expect(box).toHaveStyle('display: flex')

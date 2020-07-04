@@ -144,7 +144,6 @@ it('has the proper aria attributes', () => {
   expect(panel).toHaveAttribute('aria-labelledby')
 })
 
-// test that tab moves focus to the next focusable element
 it('tab moves focus to the next focusable element', async () => {
   renderComponent({
     template: `
@@ -178,7 +177,43 @@ it('tab moves focus to the next focusable element', async () => {
   expect(last).toHaveFocus()
 })
 
-// test that aria-contols for button is same as id for panel
+
+it('shift+tab moves focus to the previous focusable element', async () => {
+  renderComponent({
+    template: `
+    <CAccordion>
+      <CAccordionItem>
+        <CAccordionHeader>First section</CAccordionHeader>
+        <CAccordionPanel>Panel 1</CAccordionPanel>
+      </CAccordionItem>
+      <CAccordionItem>
+        <CAccordionHeader>Second section</CAccordionHeader>
+        <CAccordionPanel>Panel 2</CAccordionPanel>
+      </CAccordionItem>
+      <CAccordionItem>
+        <CAccordionHeader>Last section</CAccordionHeader>
+        <CAccordionPanel>Panel 3</CAccordionPanel>
+      </CAccordionItem>
+    </CAccordion>`
+  })
+
+  const first = screen.getByText('First section')
+  const second = screen.getByText('Second section')
+  const last = screen.getByText('Last section')
+
+  await userEvent.tab()
+  expect(first).toHaveFocus()
+
+  await userEvent.tab()
+  expect(second).toHaveFocus()
+
+  await userEvent.tab()
+  expect(last).toHaveFocus()
+
+  await userEvent.tab({shift: true}) // shift+tab
+  expect(second).toHaveFocus()
+})
+
 it('aria-contols for button is same as id for panel', () => {
   renderComponent({
     template: `
@@ -195,7 +230,6 @@ it('aria-contols for button is same as id for panel', () => {
   expect(button.getAttribute('aria-controls')).toEqual(panel.getAttribute('id'))
 })
 
-// test that aria-expanded is true/false when accordion is open/closed
 it('aria-expanded is true/false when accordion is open/closed', () => {
   renderComponent({
     template: `
@@ -215,7 +249,6 @@ it('aria-expanded is true/false when accordion is open/closed', () => {
   expect(button).toHaveAttribute('aria-expanded', 'true')
 })
 
-// test that panel has role=region and aria-labelledby
 it('panel has role=region and aria-labelledby', () => {
   renderComponent({
     template: `
@@ -230,30 +263,4 @@ it('panel has role=region and aria-labelledby', () => {
 
   expect(panel).toHaveAttribute('aria-labelledby')
   expect(panel).toHaveAttribute('role', 'region')
-})
-
-// eslint-disable-next-line no-undef
-xit('arrow up & down moves focus to next/previous accordion', async () => {
-  renderComponent({
-    template: `
-    <CAccordion>
-      <CAccordionItem>
-        <CAccordionHeader>Section 1 title</CAccordionHeader>
-        <CAccordionPanel>Panel 1</CAccordionPanel>
-      </CAccordionItem>
-      <CAccordionItem>
-        <CAccordionHeader>Section 2 title</CAccordionHeader>
-        <CAccordionPanel>Panel 2</CAccordionPanel>
-      </CAccordionItem>
-    </CAccordion>`
-  })
-
-  const first = screen.getByText('Section 1 title')
-  const second = screen.getByText('Section 2 title')
-
-  await fireEvent.keyDown(first, { key: 'ArrowDown', keyCode: 40 })
-  expect(second).toHaveFocus()
-
-  await fireEvent.keyDown(second, { key: 'ArrowUp', keyCode: 38 })
-  expect(first).toHaveFocus()
 })

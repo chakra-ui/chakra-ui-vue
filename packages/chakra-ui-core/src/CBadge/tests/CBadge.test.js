@@ -15,12 +15,6 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should display children', () => {
-  const { getByText } = renderComponent()
-
-  expect(getByText('500')).toBeInTheDocument()
-})
-
 it('should apply variant styles corectly', () => {
   const { asFragment } = renderComponent({
     template: `

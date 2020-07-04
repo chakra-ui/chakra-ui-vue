@@ -1,5 +1,5 @@
 import { CButton, CButtonGroup } from '../..'
-import { render, screen } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {

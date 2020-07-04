@@ -6,12 +6,8 @@
  * @see Docs     https://vue.chakra-ui.com/link
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CLink/CLink.js
  */
-
-import styleProps from '../config/props'
-import { forwardProps, kebabify } from '../utils'
+import { kebabify, createStyledAttrsMixin } from '../utils'
 import { SNA } from '../config/props/props.types'
-
-import CPseudoBox from '../CPseudoBox'
 
 /**
  * CLink component
@@ -22,7 +18,7 @@ import CPseudoBox from '../CPseudoBox'
  * @see Docs https://vue.chakra-ui.com/link
  */
 const CLink = {
-  name: 'CLink',
+  mixins: [createStyledAttrsMixin('CLink', true)],
   props: {
     as: {
       type: String,
@@ -30,23 +26,14 @@ const CLink = {
     },
     to: SNA,
     isDisabled: Boolean,
-    isExternal: Boolean,
-    ...styleProps
+    isExternal: Boolean
   },
   computed: {
     isRouterLink () {
       return ['router-link', 'nuxt-link'].includes(kebabify(this.as))
-    }
-  },
-  render (h) {
-    const externalAttrs = this.isExternal
-      ? { target: '_blank', rel: 'noopener noreferrer' }
-      : null
-
-    return h(CPseudoBox, {
-      props: {
-        as: this.as,
-        ...this.isRouterLink && { to: this.to },
+    },
+    componentStyles () {
+      return {
         transition: 'all 0.15s ease-out',
         cursor: 'pointer',
         textDecoration: 'none',
@@ -59,17 +46,31 @@ const CLink = {
           opacity: '0.4',
           cursor: 'not-allowed',
           textDecoration: 'none'
-        },
-        ...forwardProps(this.$props)
+        }
+      }
+    },
+    externalAttrs () {
+      return this.isExternal
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : null
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      props: {
+        ...this.isRouterLink && { to: this.to }
       },
       attrs: {
         tabIndex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
-        ...externalAttrs,
+        ...this.computedAttrs,
+        ...this.externalAttrs,
         'data-chakra-component': 'CLink'
       },
       on: {
-        click: e => this.$emit('click', e)
+        click: e => this.$emit('click', e),
+        ...this.computedListeners
       }
     }, this.$slots.default)
   }

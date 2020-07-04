@@ -65,7 +65,7 @@ exports[`should apply variant styles corectly 1`] = `
 
 <div
     class="emotion-3"
-    data-chakra-component="CFlex"
+    data-chakra-component="CStack"
   >
     <div
       class="emotion-0"

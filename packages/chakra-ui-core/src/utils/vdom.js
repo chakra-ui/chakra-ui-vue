@@ -37,7 +37,7 @@ export function cloneVNodes (vnodes, createElement) {
  * @param {Object} data VNode data
  * @param {Function} h Render function
  */
-export function cloneVNodeElement (vnode, { props, children, ...rest }, h) {
+export function cloneVNodeElement (vnode, { props, attrs, children, ...rest }, h) {
   const cloned = cloneVNode(vnode, h)
   return h(cloned.componentOptions.Ctor, {
     ...cloned.data,
@@ -46,6 +46,10 @@ export function cloneVNodeElement (vnode, { props, children, ...rest }, h) {
       ...(cloned.data.props || {}),
       ...cloned.componentOptions.propsData,
       ...props
+    },
+    attrs: {
+      ...(cloned.data.attrs || {}),
+      ...attrs
     },
     ...rest
   }, cloned.componentOptions.children || children)

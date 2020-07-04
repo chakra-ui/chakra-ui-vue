@@ -9,7 +9,7 @@
  */
 
 import { createStyledAttrsMixin } from '../utils'
-import { SNA } from '../config/props/props.types'
+import flexProps from './utils/flex.props.js'
 
 /**
  * CFlex component
@@ -20,17 +20,7 @@ import { SNA } from '../config/props/props.types'
  */
 const CFlex = {
   mixins: [createStyledAttrsMixin('CFlex')],
-  props: {
-    as: {
-      type: String,
-      default: 'div'
-    },
-    align: SNA,
-    justify: SNA,
-    wrap: SNA,
-    direction: SNA,
-    size: SNA
-  },
+  props: flexProps,
   computed: {
     componentStyles () {
       return {

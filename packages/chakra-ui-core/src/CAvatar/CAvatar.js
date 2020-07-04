@@ -39,7 +39,7 @@ const getInitials = (name) => {
 const CAvatarBadge = {
   mixins: [createStyledAttrsMixin('CAvatarBadge')],
   props: {
-    size: [String, Number, Array],
+    size: [String, Number, Array]
   },
   computed: {
     componentStyles () {
@@ -56,7 +56,7 @@ const CAvatarBadge = {
         right: '0',
         border: '0.2em solid',
         borderColor: borderColorStyle[this.colorMode],
-        rounded: 'full',
+        rounded: 'full'
       }
     }
   },
@@ -83,7 +83,7 @@ const CAvatarName = {
   mixins: [createStyledAttrsMixin('CAvatarName')],
   props: {
     name: [String, Array],
-    size: [String, Array],
+    size: [String, Array]
   },
   computed: {
     componentStyles () {
@@ -92,7 +92,7 @@ const CAvatarName = {
         h: this.size,
         textAlign: 'center',
         textTransform: 'uppercase',
-        fontWeight: 'medium',
+        fontWeight: 'medium'
       }
     }
   },
@@ -197,12 +197,12 @@ const CAvatar = {
         ..._avatarStyles
       }
     },
-    lineHeight() {
+    lineHeight () {
       const sizeKey = avatarSizes[this.size]
       const lineHeight = this.theme.sizes[sizeKey]
       return lineHeight
     },
-    fontSize() {
+    fontSize () {
       return `calc(${this.lineHeight} / 2.5)`
     }
   },
@@ -241,14 +241,14 @@ const CAvatar = {
       if (this.src && this.hasLoaded) {
         return h(CBox, {
           props: {
-            as: 'img',
+            as: 'img'
           },
           attrs: {
             w: '100%',
             h: '100%',
             rounded: 'full',
             objectFit: 'cover',
-            alt: this.name,
+            alt: this.name
           },
           domProps: {
             src: this.src
@@ -260,7 +260,7 @@ const CAvatar = {
         if (this.name) {
           return h(CAvatarName, {
             props: {
-              name: this.name,
+              name: this.name
             },
             attrs: {
               w: this.lineHeight,

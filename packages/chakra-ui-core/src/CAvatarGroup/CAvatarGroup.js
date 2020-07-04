@@ -8,10 +8,10 @@
  */
 
 import { avatarSizes } from '../CAvatar/utils/avatar.styles'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 
 import CFlex from '../CFlex'
+import flexProps from '../CFlex/utils/flex.props.js'
 
 /**
  * CMoreAvatarLabel component
@@ -23,11 +23,12 @@ import CFlex from '../CFlex'
  */
 const CMoreAvatarLabel = {
   name: 'CMoreAvatarLabel',
+  inheritAttrs: false,
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
     size: [String, Array],
     label: String,
-    ...baseProps
+    ...flexProps
   },
   computed: {
     theme () {
@@ -40,25 +41,27 @@ const CMoreAvatarLabel = {
   render (h) {
     const borderColor = { light: '#fff', dark: 'gray.800' }
     const bg = { light: 'gray.200', dark: 'whiteAlpha.400' }
-
-    const theme = this.theme
     const sizeKey = avatarSizes[this.size]
-    const _size = theme.sizes[sizeKey]
+    const _size = this.theme.sizes[sizeKey]
     const fontSize = `calc(${_size} / 2.75)`
 
     return h(CFlex, {
       props: {
+        align: 'center',
+        justify: 'center',
+        ...forwardProps(this.$props)
+      },
+      attrs: {
         w: avatarSizes[this.size],
         h: avatarSizes[this.size],
         bg: bg[this.colorMode],
         color: 'inherit',
         rounded: 'full',
-        alignItems: 'center',
-        justifyContent: 'center',
         border: '2px',
         borderColor: borderColor[this.colorMode],
         fontSize,
-        ...forwardProps(this.$props)
+        ...this.$attrs,
+        'data-chakra-component': 'CMoreAvatarLabel'
       }
     }, this.label)
   }
@@ -85,7 +88,7 @@ const CAvatarGroup = {
       type: [Number, String, Array],
       default: -3
     },
-    ...baseProps
+    ...flexProps
   },
   render (h) {
     // Get the number of slot nodes inside AvatarGroup
@@ -98,12 +101,25 @@ const CAvatarGroup = {
       const isFirstAvatar = index === 0
       if (!this.max || (max && index < max)) {
         // Change VNode component options
-        const { propsData } = node.componentOptions
-        propsData.ml = isFirstAvatar ? 0 : this.spacing
+        const { attrs } = node.data
+        attrs.ml = isFirstAvatar ? 0 : this.spacing
+        attrs.borderColor = this.borderColor || attrs.borderColor
+        attrs.zIndex = count - index
+
+        const propsData = node.componentOptions
         propsData.size = this.groupSize
         propsData.showBorder = true
-        propsData.borderColor = this.borderColor || propsData.borderColor
-        propsData.zIndex = count - index
+
+        node.componentOptions.propsData = {
+          ...node.componentOptions.propsData,
+          ...propsData
+        }
+
+        node.data.attrs = {
+          ...node.data.attrs,
+          ...attrs
+        }
+
         return node
       }
 
@@ -111,8 +127,10 @@ const CAvatarGroup = {
         return h(CMoreAvatarLabel, {
           props: {
             size: this.groupSize,
-            ml: this.spacing,
             label: `+${count - max}`
+          },
+          attrs: {
+            ml: this.spacing
           }
         })
       }
@@ -121,8 +139,11 @@ const CAvatarGroup = {
     return h(CFlex, {
       props: {
         alignItems: 'center',
+        ...forwardProps()
+      },
+      attrs: {
         zIndex: 0,
-        ...forwardProps(this.$props)
+        'data-chakra-component': 'CAvatarGroup'
       }
     }, clones)
   }

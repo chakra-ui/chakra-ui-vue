@@ -1,38 +1,280 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`should change avatar group size correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-mbvt3n"
-    data-chakra-component="CFlex"
+  .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+}
+
+.emotion-1 {
+  width: 4rem;
+  height: 4rem;
+  font-size: calc(4rem / 2.5);
+  line-height: 4rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  background-color: #a8eb4f;
+  color: #1A202C;
+  border: 2px solid;
+  margin-left: 0;
+  z-index: 3;
+}
+
+.emotion-0 {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.emotion-3 {
+  width: 4rem;
+  height: 4rem;
+  font-size: calc(4rem / 2.5);
+  line-height: 4rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  background-color: #9d7d74;
+  color: #1A202C;
+  border: 2px solid;
+  margin-left: -0.75rem;
+  z-index: 2;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  background-color: #E2E8F0;
+  color: inherit;
+  border-radius: 9999px;
+  border: 2px solid;
+  border-color: #fff;
+  font-size: calc(4rem / 2.75);
+  margin-left: -0.75rem;
+}
+
+<div
+    class="emotion-5"
+    data-chakra-component="CAvatarGroup"
+    zindex="0"
   >
     <div
-      class="css-1jwki60"
+      class="emotion-1"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Mesut Koca"
-        class="css-1n1d9mc"
+        class="emotion-0"
         data-chakra-component="CAvatarName"
       >
         MK
       </div>
     </div>
     <div
-      class="css-1li52eg"
+      class="emotion-3"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Evan You"
-        class="css-1n1d9mc"
+        class="emotion-0"
         data-chakra-component="CAvatarName"
       >
         EY
       </div>
     </div>
     <div
-      class="css-lpwrl7"
-      data-chakra-component="CFlex"
+      class="emotion-4"
+      data-chakra-component="CMoreAvatarLabel"
+    >
+      +1
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+}
+
+.emotion-1 {
+  width: 3rem;
+  height: 3rem;
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  background-color: #a8eb4f;
+  color: #1A202C;
+  border: 2px solid;
+  margin-left: 0;
+  z-index: 3;
+}
+
+.emotion-0 {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.emotion-3 {
+  width: 3rem;
+  height: 3rem;
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  background-color: #9d7d74;
+  color: #1A202C;
+  border: 2px solid;
+  margin-left: -0.75rem;
+  z-index: 2;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: #E2E8F0;
+  color: inherit;
+  border-radius: 9999px;
+  border: 2px solid;
+  border-color: #fff;
+  font-size: calc(3rem / 2.75);
+  margin-left: -0.75rem;
+}
+
+<div
+    class="emotion-5"
+    data-chakra-component="CAvatarGroup"
+    zindex="0"
+  >
+    <div
+      class="emotion-1"
+      data-chakra-component="CAvatar"
+    >
+      <div
+        aria-label="Mesut Koca"
+        class="emotion-0"
+        data-chakra-component="CAvatarName"
+      >
+        MK
+      </div>
+    </div>
+    <div
+      class="emotion-3"
+      data-chakra-component="CAvatar"
+    >
+      <div
+        aria-label="Evan You"
+        class="emotion-0"
+        data-chakra-component="CAvatarName"
+      >
+        EY
+      </div>
+    </div>
+    <div
+      class="emotion-4"
+      data-chakra-component="CMoreAvatarLabel"
     >
       +1
     </div>

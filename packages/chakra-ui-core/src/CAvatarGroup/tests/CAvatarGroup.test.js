@@ -2,13 +2,14 @@ import { CAvatar, CAvatarGroup } from '../..'
 import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
+  const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: {
       CAvatar,
       CAvatarGroup
     },
     template: `
-    <CAvatarGroup max="2">
+    <CAvatarGroup max="2" ${inlineAttrs}>
       <CAvatar
         name="Mesut Koca"
         src="https://pbs.twimg.com/profile_images/953743486842474496/cOrUdK4z_200x200.jpg"
@@ -29,6 +30,12 @@ const renderComponent = (props) => {
 
 it('should render correctly', () => {
   const { asFragment } = renderComponent()
+  expect(asFragment()).toMatchSnapshot()
+})
+
+it('should change avatar group size correctly', () => {
+  const inlineAttrs = 'group-size="lg"'
+  const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()
 })
 

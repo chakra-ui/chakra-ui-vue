@@ -52,6 +52,5 @@ it('should emit "click" event', () => {
   const button = getByTestId('btn')
 
   userEvent.click(button)
-  expect(button).toHaveFocus()
   expect(handleClick).toHaveBeenCalled()
 })

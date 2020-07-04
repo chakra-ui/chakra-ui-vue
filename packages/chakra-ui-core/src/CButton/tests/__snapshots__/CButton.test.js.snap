@@ -103,7 +103,7 @@ exports[`should display button with left icon 1`] = `
   >
     <svg
       class="emotion-0 emotion-1 emotion-2 emotion-3"
-      data-chakra-component="ChakraIconSvg"
+      data-chakra-component="CButtonIcon"
       icon="email"
       role="presentation"
       viewBox="0 0 24 24"
@@ -238,7 +238,7 @@ exports[`should display button with right icon 1`] = `
     Email
     <svg
       class="emotion-0 emotion-1 emotion-2 emotion-3"
-      data-chakra-component="ChakraIconSvg"
+      data-chakra-component="CButtonIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >

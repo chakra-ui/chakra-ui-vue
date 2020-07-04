@@ -1,5 +1,5 @@
 import { CButton } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, userEvent } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -58,4 +58,19 @@ it('should display a disabled button', () => {
   const { getByText } = renderComponent({ template: '<CButton isDisabled>Button</CButton>' })
 
   expect(getByText('Button')).toHaveAttribute('disabled')
+})
+
+it.only('should emit "click" event', () => {
+  const handleClick = jest.fn()
+  const { getByTestId } = renderComponent({
+    template: '<CButton @click="handleClick" data-testid="btn"></CButton>',
+    methods: {
+      handleClick
+    }
+  })
+
+  const button = getByTestId('btn')
+
+  userEvent.click(button)
+  expect(handleClick).toHaveBeenCalled()
 })

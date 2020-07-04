@@ -100,7 +100,15 @@ const CButton = {
   render (h) {
     return h(this.as, {
       class: this.className,
-      attrs: this.computedAttrs,
+      attrs: {
+        type: this.type,
+        tabIndex: 0,
+        disabled: this.isDisabled || this.isLoading,
+        'aria-disabled': this.isDisabled || this.isLoading,
+        dataActive: this.isActive ? 'true' : undefined,
+        'data-chakra-component': 'CButton',
+        ...this.computedAttrs
+      },
       on: {
         click: $event => this.$emit('click', $event)
       }

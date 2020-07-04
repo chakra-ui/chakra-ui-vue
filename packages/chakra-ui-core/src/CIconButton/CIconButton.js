@@ -10,7 +10,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIconButton/CIconButton.js
  */
 
-import { forwardProps } from '../utils'
+import { extractListeners } from '../utils'
 import { buttonProps } from '../CButton/utils/button.props'
 
 import CButton from '../CButton'
@@ -41,6 +41,7 @@ const baseStyles = {
  * @see Docs https://vue.chakra-ui.com/iconbutton
  */
 const CIconButton = {
+  functional: true,
   name: 'CIconButton',
   props: {
     icon: {
@@ -55,25 +56,37 @@ const CIconButton = {
     },
     ...buttonProps
   },
-  render (h) {
-    const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = this.$props
+  render (h, context) {
+    const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = context.props
+    const { ariaLabel, isRound, icon } = props
+
+    const nonNativeEvents = {
+      click: (e) => {
+        const emitClick = context.listeners.click
+        if (emitClick) {
+          emitClick('click', e)
+        }
+      }
+    }
+
+    const { native, nonNative } = extractListeners(context, nonNativeEvents)
 
     return h(CButton, {
-      props: forwardProps(props),
+      props,
       attrs: {
-        'aria-label': this.ariaLabel,
-        rounded: this.isRound ? 'full' : 'md',
-        ...this.$attrs,
+        'aria-label': ariaLabel,
+        rounded: isRound ? 'full' : 'md',
+        ...context.data.attrs,
+        'data-chakra-component': 'CIconButton',
         p: 0
       },
-      on: {
-        click: e => this.$emit('click', e)
-      }
+      on: nonNative,
+      nativeOn: native
     },
-    [typeof this.icon === 'string'
+    [typeof icon === 'string'
       ? h(CIcon, {
         props: {
-          name: this.icon
+          name: icon
         },
         attrs: {
           ...baseStyles,
@@ -86,7 +99,7 @@ const CIconButton = {
       })
       : h(CBox, {
         props: {
-          as: this.icon
+          as: icon
         },
         attrs: {
           focusable: true,

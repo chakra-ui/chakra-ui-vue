@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/vue'
+import { action } from '@storybook/addon-actions'
 import { CIconButton } from '..'
 
 storiesOf('UI | IconButton', module)
@@ -6,9 +7,14 @@ storiesOf('UI | IconButton', module)
     components: { CIconButton },
     template: `
       <div>
-        <CIconButton aria-label="Phone" variant-color="blue" icon="phone" />
+        <CIconButton aria-label="Phone" variant-color="blue" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="phone" />
       </div>
-    `
+    `,
+    methods: {
+      onClick: action('Icon button clicked'),
+      onMouseover: action('[NATIVE_EVENT]: Mouseover event'),
+      onMouseleave: action('[NATIVE_EVENT]: Mouseleave event')
+    }
   }))
   .add('With sizes', () => ({
     components: { CIconButton },

@@ -17,7 +17,6 @@ it('should render correctly', () => {
 
 it('should display children', () => {
   const { getByText } = renderComponent()
-
   expect(getByText('500')).toBeInTheDocument()
 })
 

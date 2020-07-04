@@ -85,3 +85,43 @@ export function cleanChildren (vnodes) {
   if (!vnodes) return []
   return vnodes.filter(vnode => vnode.tag)
 }
+
+/**
+ * Extracts native and nonNative event handlers for functional components
+ *
+ * The returned object returns `native` object contains listeners that
+ * MUST be passed to a Vue component in the render function.
+ *
+ * The returned `nonNative` object contains other native listeners that
+ * can be passed to a native HTML element in the render function.
+ *
+ * @param {Object} context Render function context
+ * @param {Object} nonNative Object of VNode `on` event handlers
+ * @returns {{ nonNative: Object<String, Function>, native: Object<String, Function>}}
+ *
+ * @example
+ * import Comp from 'comp'
+ *
+ * const newComp = {
+ *  functional: true,
+ *  render(h, context) {
+ *    const { native, nonNative } = extractListeners(context, componentEvents)
+ *    return h(Comp, {
+ *      on: nonNative,
+ *      nativeOn: native
+ *    }, context.slots ? context.slots().default : context.children)
+ *  }
+ * }
+ */
+export const extractListeners = (context, nonNative = {}) => {
+  const { listeners } = context
+  const native = {}
+
+  for (const listener in listeners) {
+    if (!nonNative[listener]) {
+      native[listener] = listeners[listener]
+    }
+  }
+
+  return { native, nonNative }
+}

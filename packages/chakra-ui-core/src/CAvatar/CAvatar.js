@@ -9,8 +9,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAvatar/CAvatar.js
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps, canUseDOM } from '../utils'
+import { canUseDOM, createStyledAttrsMixin } from '../utils'
 import CBox from '../CBox'
 import useAvatarStyles, { avatarSizes } from './utils/avatar.styles'
 
@@ -38,24 +37,14 @@ const getInitials = (name) => {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarBadge = {
-  name: 'CAvatarBadge',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CAvatarBadge')],
   props: {
     size: [String, Number, Array],
-    ...baseProps
   },
   computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    }
-  },
-  render (h) {
-    const borderColorStyle = { light: 'white', dark: 'gray.800' }
-    return h(CBox, {
-      props: {
+    componentStyles () {
+      const borderColorStyle = { light: 'white', dark: 'gray.800' }
+      return {
         w: this.size,
         h: this.size,
         position: 'absolute',
@@ -68,11 +57,14 @@ const CAvatarBadge = {
         border: '0.2em solid',
         borderColor: borderColorStyle[this.colorMode],
         rounded: 'full',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CAvatarBadge'
       }
+    }
+  },
+  render (h) {
+    return h('div', {
+      class: this.className,
+      on: this.computedListeners,
+      attrs: this.computedAttrs
     })
   }
 }
@@ -88,26 +80,30 @@ const CAvatarBadge = {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarName = {
-  name: 'CAvatarName',
+  mixins: [createStyledAttrsMixin('CAvatarName')],
   props: {
     name: [String, Array],
     size: [String, Array],
-    ...baseProps
   },
-  render (h) {
-    return h(CBox, {
-      props: {
+  computed: {
+    componentStyles () {
+      return {
         w: this.size,
         h: this.size,
         textAlign: 'center',
         textTransform: 'uppercase',
         fontWeight: 'medium',
-        ...forwardProps(this.$props)
-      },
+      }
+    }
+  },
+  render (h) {
+    return h('div', {
+      class: this.className,
       attrs: {
         'aria-label': this.name,
-        'data-chakra-component': 'CAvatarName'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, [this.name && getInitials(this.name)])
   }
 }
@@ -122,19 +118,18 @@ const CAvatarName = {
  */
 const CDefaultAvatar = {
   name: 'CDefaultAvatar',
+  functional: true,
   props: {
-    size: [String, Number, Array],
-    ...baseProps
+    size: [String, Number, Array]
   },
-  render (h) {
+  render (h, context) {
+    const { props, data } = context
     return h(CBox, {
-      props: {
-        h: this.size,
-        w: this.size,
-        lineHeight: '1rem',
-        ...forwardProps(this.$props)
-      },
       attrs: {
+        h: props.size,
+        w: props.size,
+        lineHeight: '1rem',
+        ...(data && data.attrs) || {},
         'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
@@ -160,16 +155,7 @@ const CDefaultAvatar = {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatar = {
-  name: 'CAvatar',
-  inject: ['$chakraTheme', '$chakraColorMode'],
-  computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    }
-  },
+  mixins: [createStyledAttrsMixin('CAvatar')],
   props: {
     size: {
       type: String,
@@ -181,13 +167,43 @@ const CAvatar = {
     },
     name: [String, Array],
     src: [String, Array],
-    borderColor: [String],
-    ...baseProps
+    borderColor: [String]
   },
   data () {
     return {
       image: undefined,
       hasLoaded: false
+    }
+  },
+  computed: {
+    componentStyles () {
+      const styles = useAvatarStyles({
+        size: this.size,
+        name: this.name,
+        showBorder: this.showBorder,
+        borderColor: this.borderColor,
+        theme: this.theme,
+        colorMode: this.colorMode
+      })
+
+      const { size, ..._avatarStyles } = styles
+
+      return {
+        w: size,
+        h: size,
+        fontSize: this.fontSize,
+        lineHeight: this.lineHeight,
+        verticalAlign: 'top',
+        ..._avatarStyles
+      }
+    },
+    lineHeight() {
+      const sizeKey = avatarSizes[this.size]
+      const lineHeight = this.theme.sizes[sizeKey]
+      return lineHeight
+    },
+    fontSize() {
+      return `calc(${this.lineHeight} / 2.5)`
     }
   },
   created () {
@@ -217,20 +233,6 @@ const CAvatar = {
     }
   },
   render (h) {
-    const avatarStyleProps = useAvatarStyles({
-      size: this.size,
-      name: this.name,
-      showBorder: this.showBorder,
-      borderColor: this.borderColor,
-      theme: this.theme,
-      colorMode: this.colorMode
-    })
-
-    const theme = this.theme
-    const sizeKey = avatarSizes[this.size]
-    const _size = theme.sizes[sizeKey]
-    const fontSize = `calc(${_size} / 2.5)`
-
     /**
      * @description Render child nodes for avatar
      * @returns {Vue.VNode}
@@ -240,13 +242,15 @@ const CAvatar = {
         return h(CBox, {
           props: {
             as: 'img',
+          },
+          attrs: {
             w: '100%',
             h: '100%',
             rounded: 'full',
-            objectFit: 'cover'
-          },
-          attrs: {
+            objectFit: 'cover',
             alt: this.name,
+          },
+          domProps: {
             src: this.src
           }
         })
@@ -257,39 +261,31 @@ const CAvatar = {
           return h(CAvatarName, {
             props: {
               name: this.name,
-              w: _size,
-              h: _size
+            },
+            attrs: {
+              w: this.lineHeight,
+              h: this.lineHeight
             }
           })
         } else {
           return h(CDefaultAvatar, {
-            props: {
+            attrs: {
+              'aria-label': this.name,
               w: '100%',
               h: '100%'
-            },
-            attrs: {
-              'aria-label': this.name
             }
           })
         }
       }
     }
 
-    const { size, ...avatarStyles } = avatarStyleProps
-
-    return h(CBox, {
-      props: {
-        fontSize,
-        lineHeight: _size,
-        verticalAlign: 'top',
-        w: size,
-        h: size,
-        ...avatarStyles,
-        ...forwardProps(this.$props)
-      },
+    return h('div', {
+      class: this.className,
       attrs: {
+        ...this.computedAttrs,
         'data-chakra-component': 'CAvatar'
-      }
+      },
+      on: this.computedListeners
     }, [
       renderChildren(),
       this.$slots.default

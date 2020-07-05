@@ -42,7 +42,7 @@ export function filterBaseStyles (props) {
 }
 
 /** Filter attrs and return object of chakra props */
-export function filterChakraStyleProps (attrs) {
+export function extractChakraAttrs (attrs) {
   const pure = {}
   for (const _prop in attrs) {
     const prop = camelize(_prop)
@@ -53,11 +53,20 @@ export function filterChakraStyleProps (attrs) {
   return pure
 }
 
-/** Purify's Chakra Attributes from VNode object */
-export function purifyStyleAttributes (attrs, styleAttributes = {}) {
+/**
+ * Purify's Chakra Attributes from VNode object
+ * @param {Object} attrs
+ * @param {Object} styleAttributes
+ * @returns {Object} Non-chakra style attributes
+ */
+export function purgeChakraAttrs (attrs, styleAttributes = {}) {
   for (const attr in styleAttributes) {
+    // If attr is provided in ca-case
     const prop = camelize(attr)
+    // If
+    const _prop_ = attr.toLowerCase()
     if (attrs[prop]) delete attrs[prop]
+    if (attrs[_prop_]) delete attrs[_prop_]
     else delete attrs[kebabify(attr)]
   }
   return attrs

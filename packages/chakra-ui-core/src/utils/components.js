@@ -3,7 +3,7 @@ import __css from '@styled-system/css'
 import { hasOwn } from '../utils'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
 import { systemProps } from './styled-system'
-import { purifyStyleAttributes, filterChakraStyleProps } from './object'
+import { purgeChakraAttrs, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
   return (!!value && !!value.$el)
@@ -62,8 +62,8 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
       const $attrs = this.$data.attrs$
       const styles = Object.assign({}, this.componentStyles || {}, $attrs)
 
-      const styleProps = filterChakraStyleProps(styles)
-      const attrs = purifyStyleAttributes(styles, styleProps)
+      const styleProps = extractChakraAttrs(styles)
+      const attrs = purgeChakraAttrs(styles, styleProps)
       return {
         styleProps,
         attrs

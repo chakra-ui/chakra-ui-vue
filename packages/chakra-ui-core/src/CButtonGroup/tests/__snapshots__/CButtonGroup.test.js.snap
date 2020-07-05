@@ -1,13 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`should attach buttons when \`is-attached\` is passed 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1xn5gl6"
+  .emotion-2 {
+  display: inline-block;
+}
+
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.emotion-0:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+  z-index: 1;
+}
+
+.emotion-0:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.emotion-1:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+  z-index: 1;
+}
+
+.emotion-1:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+<div
+    class="emotion-2"
     data-chakra-component="CButtonGroup"
   >
     <button
-      class="css-fzcsno css-hz466c"
+      class="emotion-0"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -15,7 +148,162 @@ exports[`should render correctly 1`] = `
       Button1
     </button>
     <button
-      class="css-fzcsno css-bibkwt"
+      class="emotion-1"
+      data-chakra-component="CButton"
+      tabindex="0"
+      type="button"
+    >
+      Button2
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-2 {
+  display: inline-block;
+}
+
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+  margin-right: 0.5rem;
+}
+
+.emotion-0:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+  z-index: 1;
+}
+
+.emotion-0:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+}
+
+.emotion-1:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+  z-index: 1;
+}
+
+.emotion-1:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+<div
+    class="emotion-2"
+    data-chakra-component="CButtonGroup"
+  >
+    <button
+      class="emotion-0"
+      data-chakra-component="CButton"
+      tabindex="0"
+      type="button"
+    >
+      Button1
+    </button>
+    <button
+      class="emotion-1"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"

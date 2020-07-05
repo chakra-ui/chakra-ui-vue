@@ -1,0 +1,159 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Alert"
+  description="Alerts are used to communicate a state that affects a system, feature or page."
+/>
+
+# 警告
+
+警告可以用于传达影响系统，功能或页面的情况。
+
+请看CAlert的<a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlert/accessibility.md">accessibility report</a>
+
+## 导入
+
+Chakra UI Vue导出四个相关组件。
+
+- CAlert： 警告组件的封装器
+- CAlertIcon： 基于status属性而改变的警告可视标识
+- CAlertTitle： 屏幕阅读器宣读的警告标题
+- CAlertDescription： 屏幕阅读器宣读的警告描述
+
+<br />
+
+```js
+import {
+  CAlert,
+  CAlertIcon,
+  CAlertTitle,
+  CAlertDescription,
+} from "@chakra-ui/vue";
+```
+
+## 使用
+
+```vue live=true
+<c-alert status="error">
+  <c-alert-icon />
+  <c-alert-title :mr="2">Your browser is outdated!</c-alert-title>
+  <c-alert-description>Your Chakra experience may be degraded.</c-alert-description>
+  <c-close-button position="absolute" right="8px" top="8px" />
+</c-alert>
+```
+
+
+### 设定警告状态
+传输status属性可改变警告状态。
+此操作会影响CAlert的颜色搭配和标识。
+CAlert支持error, success, warning和info这些状态。
+
+
+<br />
+
+```vue live=true
+<c-stack>
+  <c-alert status="info">
+    <c-alert-icon />
+    Chakra is going live on April 15th. Get ready!
+  </c-alert>
+  <c-alert status="success">
+    <c-alert-icon />
+    Sage mode chakra successfully infused.
+  </c-alert>
+  <c-alert status="warning">
+    <c-alert-icon />
+    Using Amaterasu is irreversible. Proceed with caution.
+  </c-alert>
+  <c-alert status="error">
+    <c-alert-icon />
+    Unable to load Rasen-Shuriken. Please try again.
+  </c-alert>
+</c-stack>
+```
+
+### 自定义警告标识
+您可以通过此方法使用自定义警告标识：在CAlertIcon的name属性里传输标识的名字 <nuxt-link to="/icons">Click here</nuxt-link>来查看如何在您的Chakra应用里添加标识。
+
+```vue live=true
+<c-alert>
+  <c-alert-icon name="github" />
+  <c-alert-title :mr="2">Kakashi Sensei followed you.</c-alert-title>
+  <c-alert-description>Follow Kakashi to see his Kamui in action.</c-alert-description>
+  <c-close-button position="absolute" right="8px" top="8px" />
+</c-alert>
+```
+
+
+### 变化
+
+CAlert有四个组件可用。
+传输variant属性来使用subtle, solid, left-accent或top-accent其一。
+
+```vue live=true
+<c-stack>
+  <c-alert status="success" variant="subtle">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="solid">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="left-accent">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+  <c-alert status="success" variant="top-accent">
+    <c-alert-icon />
+    Data uploaded to the server. Fire on!
+  </c-alert>
+</c-stack>
+```
+
+### 构成
+
+CAlert和其他较小的组件能实现灵活性且使各种布局的创建变得简单。
+以下为自定义警告的风格和布局。
+
+```vue live=true
+<c-alert
+  status="success"
+  variant="subtle"
+  flexDirection="column"
+  justifyContent="center"
+  textAlign="center"
+  height="200px"
+>
+  <c-alert-icon size="40px" :mr="0" />
+  <c-alert-title :mt="4" :mb="1" fontSize="lg">
+    Application submitted!
+  </c-alert-title>
+  <c-alert-description maxWidth="sm">
+    Thanks for submitting your application. Our team will get back to you soon.
+  </c-alert-description>
+</c-alert>
+```
+
+## 属性
+
+### CAlert属性
+
+CAlert是一个警告组件的封装器。它封装CFlex组件。
+
+| 名称     | 类型                                            | 默认     | 描述                                    |
+|---------|------------------------------------------------|----------|----------------------------------------|
+| 状态     | `error`, `success`, `warning`, `info`          | `info`   | The status of the alert                |
+| 变化     | `subtle`, `solid`, `left-accent`, `top-accent` | `subtle` | The variant of the alert style to use. |
+
+### CAlertIcon属性
+
+CAlertIcon创建CIcon且根据status属性来改变标识。它还会通过传输过的name属性来改变标识。
+
+### CAlertTitle属性
+
+CAlertTitle创建CBox组件。所有的CBox属性都适用。
+
+### CAlertDescription属性
+
+CAlertDescription创建CBox组件。所有的CBox属性都适用。

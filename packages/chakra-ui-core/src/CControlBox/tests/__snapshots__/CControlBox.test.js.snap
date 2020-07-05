@@ -2,13 +2,99 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <label
-    class="css-1os9xgq"
+  .emotion-0 {
+  border: 0px;
+  -webkit-clip: rect(0px,0px,0px,0px);
+  clip: rect(0px,0px,0px,0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+input[type=checkbox]:focus + .emotion-3 {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+input[type=checkbox]:hover:not(:disabled):not(:checked) + .emotion-3 {
+  border-color: #CBD5E0;
+}
+
+input[type=checkbox]:disabled + .emotion-3 {
+  opacity: 0.4;
+}
+
+.emotion-3 > * {
+  opacity: 0;
+}
+
+input[type=checkbox]:checked + .emotion-3,
+input[type=checkbox][aria-checked=mixed] + .emotion-3 {
+  background-color: #3ea76a;
+  border-color: #3ea76a;
+}
+
+input[type=checkbox]:checked + .emotion-3 > *,
+input[type=checkbox][aria-checked=mixed] + .emotion-3 > * {
+  opacity: 1;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-color: #E2E8F0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 120ms;
+  transition: all 120ms;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  background-color: #fff;
+  border-radius: 9999px;
+  border-color: inherit;
+}
+
+.emotion-1 {
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+
+<label
+    class="emotion-4"
     data-chakra-component="CBox"
     for="control-radio"
   >
     <input
-      class="css-fzcsno css-f8n5zr"
+      class="emotion-0"
       data-chakra-component="CVisuallyHidden"
       data-testid="hiddenControl"
       id="control-radio"
@@ -17,12 +103,12 @@ exports[`should render correctly 1`] = `
      
     <div
       aria-hidden="true"
-      class="css-1cs601l css-1y5evcc"
+      class="emotion-2 emotion-3"
       data-chakra-component="CControlBox"
       data-testid="control"
     >
       <div
-        class="css-1x1dlhn"
+        class="emotion-1"
         data-chakra-component="CBox"
       />
     </div>

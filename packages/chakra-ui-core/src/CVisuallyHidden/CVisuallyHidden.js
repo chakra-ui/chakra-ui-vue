@@ -8,7 +8,6 @@
  */
 
 import { css } from 'emotion'
-import CBox from '../CBox'
 
 /**
  * CVisuallyHidden component
@@ -17,41 +16,33 @@ import CBox from '../CBox'
  */
 const CVisuallyHidden = {
   name: 'CVisuallyHidden',
+  functional: true,
   props: {
     as: {
       type: String,
       default: 'div'
-    },
-    w: [String, Number],
-    h: [String, Number],
-    pos: String
-  },
-  computed: {
-    className () {
-      return css({
-        border: '0px',
-        clip: 'rect(0px, 0px, 0px, 0px)',
-        height: `${this.w || '1px'}`,
-        width: `${this.h || '1px'}`,
-        margin: '-1px',
-        padding: '0px',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        position: `${this.pos || 'absolute'}`
-      })
     }
   },
-  render (h) {
-    return h(CBox, {
-      class: [this.className],
-      props: {
-        as: this.as
-      },
+  render (h, { props, data, slots }) {
+    const { attrs } = data
+    const className = css({
+      border: '0px',
+      clip: 'rect(0px, 0px, 0px, 0px)',
+      height: `${attrs.w || '1px'}`,
+      width: `${attrs.h || '1px'}`,
+      margin: '-1px',
+      padding: '0px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      position: `${attrs.pos || 'absolute'}`
+    })
+    return h(props.as, {
+      class: [className],
       attrs: {
-        'data-chakra-component': 'CVisuallyHidden',
-        ...this.$attrs
+        ...attrs,
+        'data-chakra-component': 'CVisuallyHidden'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

@@ -20,9 +20,9 @@ const renderComponent = (props) => {
       rounded="full"
       border-color="inherit"
       :_checked="{
-              bg: 'green.500',
-              borderColor: 'green.500'
-          }"
+          bg: 'green.500',
+          borderColor: 'green.500'
+      }"
       :_hover="{ borderColor: 'gray.300' }"
       :_focus="{ boxShadow: 'outline' }"
       :_disabled="{ opacity: '40%' }"

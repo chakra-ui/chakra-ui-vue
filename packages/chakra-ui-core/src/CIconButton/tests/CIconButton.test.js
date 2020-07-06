@@ -1,5 +1,5 @@
 import CIconButton from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -19,15 +19,15 @@ it('should render correctly', () => {
 
 it('should display spinner and hide the icon', () => {
   const inlineAttrs = 'isLoading'
-  const { container, getByTestId } = renderComponent({ inlineAttrs })
+  const { container } = renderComponent({ inlineAttrs })
 
-  const button = getByTestId('btn')
+  const button = screen.getByTestId('btn')
 
   expect(button).toHaveAttribute('disabled')
   expect(button).toHaveAttribute('aria-disabled', 'true')
 
   // TODO: find a way to easily grab the spinner element
-  // Maybe? expect(getByTestId('Spinner')).toBeInTheDocument()
+  // Maybe? expect(screen.getByTestId('Spinner')).toBeInTheDocument()
   expect(button).toHaveStyle('opacity: 0.4')
   expect(container.querySelector('button > div')).toBeInTheDocument()
 })

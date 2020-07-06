@@ -1,5 +1,5 @@
 import CCode from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -16,7 +16,7 @@ it('should render correctly', () => {
 })
 
 it('should display children', () => {
-  const { getByText } = renderComponent()
+  renderComponent()
 
-  expect(getByText('content')).toBeInTheDocument()
+  expect(screen.getByText('content')).toBeInTheDocument()
 })

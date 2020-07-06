@@ -90,7 +90,7 @@ const CInput = {
       },
       attrs: {
         'aria-readonly': this.isReadOnly,
-        'read-only': this.formControl.isReadOnly,
+        readonly: this.formControl.isReadOnly,
         disabled: this.formControl.isDisabled,
         'aria-disabled': this.formControl.isDisabled,
         'aria-invalid': this.formControl.isInvalid,

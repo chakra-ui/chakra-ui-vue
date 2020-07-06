@@ -143,6 +143,7 @@ const CAlertTitle = {
   render (h, context) {
     const { attrs } = context.data
     return h(CBox, {
+      ...context.data,
       attrs: {
         fontWeight: 'bold',
         lineHeight: 'normal',
@@ -168,6 +169,7 @@ const CAlertDescription = {
   render (h, context) {
     const { attrs } = context.data
     return h(CBox, {
+      ...context.data,
       attrs: {
         ...attrs,
         'data-chakra-component': 'CAlertDescription'

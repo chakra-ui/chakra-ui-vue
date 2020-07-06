@@ -111,8 +111,9 @@ export function cleanChildren (vnodes) {
  *  render(h, context) {
  *    const { native, nonNative } = extractListeners(context, componentEvents)
  *    return h(Comp, {
+ *      ...context.data
  *      on: nonNative,
- *      nativeOn: native
+ *      nativeOn: native,
  *    }, context.slots ? context.slots().default : context.children)
  *  }
  * }

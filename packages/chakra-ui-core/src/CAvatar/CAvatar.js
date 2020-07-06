@@ -124,15 +124,17 @@ const CDefaultAvatar = {
   },
   render (h, context) {
     const { props, data } = context
+    const { attrs, domProps } = data
     return h(CBox, {
       attrs: {
         h: props.size,
         w: props.size,
         lineHeight: '1rem',
-        ...(data && data.attrs) || {},
+        ...(data && attrs) || {},
         'data-chakra-component': 'CDefaultAvatar'
       },
       domProps: {
+        ...domProps,
         innerHTML: `
         <svg fill="#fff" viewBox="0 0 128 128" role="img">
           <g>

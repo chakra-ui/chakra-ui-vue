@@ -10,8 +10,6 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
  */
 
-import { forwardProps } from '../utils'
-
 import CBox from '../CBox'
 
 /**
@@ -71,7 +69,7 @@ const CButtonGroup = {
     })
 
     return h(CBox, {
-      props: forwardProps(props),
+      ...data,
       attrs: {
         d: 'inline-block',
         ...data.attrs,

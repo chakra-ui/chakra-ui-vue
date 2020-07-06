@@ -23,8 +23,8 @@ const CVisuallyHidden = {
       default: 'div'
     }
   },
-  render (h, { props, data, slots }) {
-    const { attrs } = data
+  render (h, { props, data, slots, listeners, ...rest }) {
+    const { attrs, domProps, on } = data
     const className = css({
       border: '0px',
       clip: 'rect(0px, 0px, 0px, 0px)',
@@ -36,11 +36,17 @@ const CVisuallyHidden = {
       whiteSpace: 'nowrap',
       position: `${attrs.pos || 'absolute'}`
     })
+
     return h(props.as, {
       class: [className],
       attrs: {
         ...attrs,
         'data-chakra-component': 'CVisuallyHidden'
+      },
+      domProps,
+      on: {
+        ...listeners,
+        ...on
       }
     }, slots().default)
   }

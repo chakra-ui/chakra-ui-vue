@@ -117,6 +117,7 @@ const CStack = {
     })
 
     return h(CFlex, {
+      class: this.className,
       props: {
         as: this.as,
         align: this.align,

@@ -56,7 +56,7 @@ const CControlBox = {
     _checkedAndFocus: PseudoPropTypes,
     _checkedAndHover: PseudoPropTypes
   },
-  render (h, { props, data, injections, listeners, slots }) {
+  render (h, { props, data, injections, slots }) {
     const { attrs } = data
 
     // Inject theme
@@ -72,17 +72,21 @@ const CControlBox = {
     const checked = `input[type=${props.type}]:checked + &, input[type=${props.type}][aria-checked=mixed] + &`
     const invalid = `input[type=${props.type}][aria-invalid=true] + &`
 
-    const controlBoxStyleObject = __css({
+    const basePseudoAttrs = (attrs && ({
       [focus]: tx(attrs._focus),
       [hover]: tx(attrs._hover),
       [disabled]: tx(attrs._disabled),
-      [invalid]: tx(attrs._invalid),
+      [invalid]: tx(attrs._invalid)
+    })) || {}
+
+    const controlBoxStyleObject = __css({
+      ...basePseudoAttrs,
       [checkedAndDisabled]: tx(props._checkedAndDisabled),
       [checkedAndFocus]: tx(props._checkedAndFocus),
       [checkedAndHover]: tx(props._checkedAndHover),
       '& > *': tx(props._child),
       [checked]: {
-        ...tx(attrs._checked),
+        ...attrs && tx(attrs._checked),
         '& > *': tx(props._checkedAndChild)
       }
     })(theme)
@@ -90,6 +94,7 @@ const CControlBox = {
     const className = css(controlBoxStyleObject)
 
     return h(CBox, {
+      ...data,
       class: [className],
       props: { as: props.as },
       attrs: {

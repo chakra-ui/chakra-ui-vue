@@ -63,13 +63,14 @@ const CBreadcrumbSeparator = {
 const Span = {
   name: 'Span',
   functional: true,
-  render (h, context) {
+  render (h, { data, slots }) {
     return h(CBox, {
       props: {
         as: 'span'
       },
-      attrs: context.data.attrs
-    }, context.slots().default)
+      ...data,
+      attrs: data.attrs
+    }, slots().default)
   }
 }
 

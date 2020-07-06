@@ -38,8 +38,8 @@ exports[`should render CStack with element as nav 1`] = `
 }
 
 <nav
-    class="emotion-6"
-    data-chakra-component="CFlex"
+    class="emotion-6 emotion-7"
+    data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
@@ -122,8 +122,8 @@ exports[`should render CStack with element as section 1`] = `
 }
 
 <section
-    class="emotion-6"
-    data-chakra-component="CFlex"
+    class="emotion-6 emotion-7"
+    data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
@@ -206,8 +206,8 @@ exports[`should render correctly 1`] = `
 }
 
 <div
-    class="emotion-6"
-    data-chakra-component="CFlex"
+    class="emotion-6 emotion-7"
+    data-chakra-component="CStack"
     data-testid="stack"
   >
     <div

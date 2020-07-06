@@ -8,8 +8,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/accessibility.md
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 import CBox from '../CBox'
 import { getComputedProps } from './utils/circularprogress.styles'
 
@@ -22,25 +21,26 @@ import { getComputedProps } from './utils/circularprogress.styles'
  * @see Docs https://vue.chakra-ui.com/circularprogress
  */
 const CCircularProgressLabel = {
-  name: 'CCircularProgressLabel',
-  props: baseProps,
-  render (h) {
-    return h(CBox, {
-      style: {
-        fontVariantNumeric: 'tabular-nums'
-      },
-      props: {
+  mixins: [createStyledAttrsMixin('CCircularProgressLabel')],
+  computed: {
+    componentStyles () {
+      return {
         position: 'absolute',
         left: '50%',
         top: '50%',
         lineHeight: '1',
         transform: 'translate(-50%, -50%)',
-        fontSize: '0.25em',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CCircularProgressLabel'
+        fontSize: '0.25em'
       }
+    }
+  },
+  render (h) {
+    return h(this.as || 'div', {
+      class: [this.className],
+      style: {
+        fontVariantNumeric: 'tabular-nums'
+      },
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }
@@ -55,14 +55,9 @@ const CCircularProgressLabel = {
  */
 const CCircularProgress = {
   name: 'CCircularProgress',
+  functional: true,
   inject: ['$chakraColorMode'],
-  computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    }
-  },
   props: {
-    ...baseProps,
     size: {
       type: String,
       default: '48px'
@@ -99,9 +94,12 @@ const CCircularProgress = {
       default: 'blue'
     }
   },
-  render (h) {
-    const _trackColor = { light: `${this.trackColor}.100`, dark: 'whiteAlpha.300' }
-    const _color = { light: `${this.color}.500`, dark: `${this.color}.200` }
+  render (h, context) {
+    const { data, injections, props, slots } = context
+    const colorMode = injections.$chakraColorMode()
+
+    const _trackColor = { light: `${props.trackColor}.100`, dark: 'whiteAlpha.300' }
+    const _color = { light: `${props.color}.500`, dark: `${props.color}.200` }
 
     const {
       rootData,
@@ -109,37 +107,35 @@ const CCircularProgress = {
       svgData,
       trackCircleData
     } = getComputedProps({
-      min: this.min,
-      max: this.max,
-      value: this.value,
-      size: this.size,
-      angle: this.angle,
-      thickness: this.thickness,
-      capIsRound: this.capIsRound,
-      isIndeterminate: this.isIndeterminate,
-      color: _color[this.colorMode],
-      trackColor: _trackColor[this.colorMode],
-      isTransitioned: this.isTransitioned
+      min: props.min,
+      max: props.max,
+      value: props.value,
+      size: props.size,
+      angle: props.angle,
+      thickness: props.thickness,
+      capIsRound: props.capIsRound,
+      isIndeterminate: props.isIndeterminate,
+      color: _color[colorMode],
+      trackColor: _trackColor[colorMode],
+      isTransitioned: props.isTransitioned
     })
-
     return h(CBox, {
-      props: {
-        ...rootData.props,
-        ...forwardProps(this.$props)
-      },
+      ...data,
+      props,
       attrs: {
-        ...rootData.attrs,
+        ...rootData,
+        ...data.attrs,
         'data-chakra-component': 'CCircularProgress'
       }
     }, [
       h(CBox, {
-        props: svgData.props,
-        attrs: svgData.attrs
+        props: { as: 'svg' },
+        attrs: svgData
       }, [
-        h(CBox, { props: trackCircleData.props, attrs: trackCircleData.attrs }),
-        h(CBox, { props: indicatorCircleData.props, attrs: indicatorCircleData.attrs })
+        h(CBox, { props: { as: 'circle' }, attrs: trackCircleData }),
+        h(CBox, { props: { as: 'circle' }, attrs: indicatorCircleData })
       ]),
-      this.$slots.default
+      slots().default
     ])
   }
 }

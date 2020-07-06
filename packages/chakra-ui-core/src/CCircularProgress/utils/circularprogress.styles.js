@@ -57,58 +57,44 @@ export function getComputedProps ({
 
   function getCircleProps ({ thickness, offset, color }) {
     return {
-      props: {
-        as: 'circle',
-        color,
-        fill: 'transparent',
-        stroke: 'currentColor',
-        ...isTransitioned && { transition: 'all 250ms' }
-      },
-      attrs: {
-        'stroke-width': thickness,
-        'stroke-dasharray': strokeDasharray,
-        'stroke-dashoffset': offset,
-        cx: viewBox,
-        cy: viewBox,
-        r: radius
-      }
+      as: 'circle',
+      color,
+      fill: 'transparent',
+      stroke: 'currentColor',
+      ...isTransitioned && { transition: 'all 250ms' },
+      'stroke-width': thickness,
+      'stroke-dasharray': strokeDasharray,
+      'stroke-dashoffset': offset,
+      cx: viewBox,
+      cy: viewBox,
+      r: radius
     }
   }
 
   return {
     rootData: {
-      props: {
-        width: '1em',
-        height: '1em',
-        fontSize: size,
-        display: 'inline-block',
-        position: 'relative',
-        verticalAlign: 'middle'
-      },
-      attrs: {
-        role: 'progressbar',
-        'aria-valuemin': min,
-        'aria-valuemax': max,
-        'aria-valuenow': isIndeterminate ? null : value
-      }
-
+      width: '1em',
+      height: '1em',
+      fontSize: size,
+      display: 'inline-block',
+      position: 'relative',
+      verticalAlign: 'middle',
+      role: 'progressbar',
+      'aria-valuemin': min,
+      'aria-valuemax': max,
+      'aria-valuenow': isIndeterminate ? null : value
     },
 
     svgData: {
-      props: {
-        as: 'svg',
-        verticalAlign: 'top',
-        transform: `rotate3d(0, 0, 1, ${angle - 90}deg)`,
-        width: '100%',
-        height: '100%',
-        ...(isIndeterminate && {
-          transformOrigin: '50% 50%',
-          animation: `${spin} 2s linear infinite`
-        })
-      },
-      attrs: {
-        viewBox: viewBoxAttr
-      }
+      viewBox: viewBoxAttr,
+      verticalAlign: 'top',
+      transform: `rotate3d(0, 0, 1, ${angle - 90}deg)`,
+      width: '100%',
+      height: '100%',
+      ...(isIndeterminate && {
+        transformOrigin: '50% 50%',
+        animation: `${spin} 2s linear infinite`
+      })
     },
 
     trackCircleData: getCircleProps({
@@ -118,29 +104,25 @@ export function getComputedProps ({
     }),
 
     indicatorCircleData: {
-      attrs: {
-        ...(capIsRound && { strokeLinecap: 'round' }),
-        ...(isIndeterminate && {
-          transition: 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease',
-          animation: `${circularProgressCircle} 1.5s ease-in-out infinite`,
-          strokeDasharray: '1 400',
-          strokeDashoffset: '0'
-        }),
-        ...getCircleProps({
-          thickness: strokeWidth,
-          offset: strokeDashoffset,
-          color
-        }).attrs
-      },
-      props: {
-        ...isTransitioned && { transition: 'all 250ms' },
-        stroke: 'currentColor',
-        ...getCircleProps({
-          thickness: strokeWidth,
-          offset: strokeDashoffset,
-          color
-        }).props
-      }
+      ...(capIsRound && { strokeLinecap: 'round' }),
+      ...(isIndeterminate && {
+        transition: 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease',
+        animation: `${circularProgressCircle} 1.5s ease-in-out infinite`,
+        strokeDasharray: '1 400',
+        strokeDashoffset: '0'
+      }),
+      ...getCircleProps({
+        thickness: strokeWidth,
+        offset: strokeDashoffset,
+        color
+      }),
+      ...isTransitioned && { transition: 'all 250ms' },
+      stroke: 'currentColor',
+      ...getCircleProps({
+        thickness: strokeWidth,
+        offset: strokeDashoffset,
+        color
+      })
     }
   }
 }

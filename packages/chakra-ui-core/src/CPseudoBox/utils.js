@@ -1,5 +1,5 @@
 import { map } from 'lodash-es'
-import { tx, splitProps, forwardProps } from '../utils'
+import { tx, splitProps, forwardProps, isEmpty } from '../utils'
 
 /**
  * PseudoBox pseudo selectors
@@ -38,6 +38,8 @@ export const selectors = {
  */
 export function parsePseudoStyles (props) {
   const _pseudoStyles = {}
+  if (isEmpty(props)) return { pseudoStyles: _pseudoStyles, baseStyles: {} }
+
   const clean = forwardProps(props)
   const { baseStyles, pseudoStyles } = splitProps(clean)
   const result = map(pseudoStyles, (value, prop) => ({ prop, value }))

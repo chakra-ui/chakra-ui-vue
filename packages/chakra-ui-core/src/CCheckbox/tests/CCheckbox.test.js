@@ -1,5 +1,5 @@
 import CCheckbox from '..'
-import { render, userEvent } from '@/tests/test-utils'
+import { render, userEvent, screen } from '@/tests/test-utils'
 
 jest.mock('@/packages/chakra-ui-core/src/utils/generators.js', () => {
   return {
@@ -13,7 +13,7 @@ const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CCheckbox },
-    template: `<CCheckbox ${inlineAttrs}>checkbox</CCheckbox>`,
+    template: `<CCheckbox ${inlineAttrs}>check</CCheckbox>`,
     ...props
   }
   return render(base)
@@ -26,42 +26,42 @@ it('should render correctly', () => {
 
 it('should display a disabled checkbox', () => {
   const inlineAttrs = 'isDisabled'
-  const { getByText, container } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
+  renderComponent({ inlineAttrs })
+  const input = screen.getByLabelText('check')
 
   expect(input).toHaveAttribute('disabled')
-  expect(getByText('checkbox').parentNode).toHaveStyle('cursor: not-allowed;')
+  expect(screen.getByText('check').parentNode).toHaveStyle('cursor: not-allowed;')
 })
 
 it('should display a checkbox with a checked state', () => {
   const inlineAttrs = 'isChecked'
-  const { container } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
+  renderComponent({ inlineAttrs })
+  const input = screen.getByLabelText('check')
 
   expect(input).toBeChecked()
 })
 
 it('should display a checkbox with an unchecked state', () => {
   const inlineAttrs = ':isChecked="false"'
-  const { container } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
+  renderComponent({ inlineAttrs })
+  const input = screen.getByLabelText('check')
 
   expect(input).not.toBeChecked()
 })
 
 it('should have a checked state when setting defaultIsChecked', () => {
   const inlineAttrs = 'defaultIsChecked'
-  const { container } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
+  renderComponent({ inlineAttrs })
+  const input = screen.getByLabelText('check')
 
   expect(input).toBeChecked()
 })
 
 test('Uncontrolled - should not check if disabled', async () => {
   const inlineAttrs = 'isDisabled'
-  const { container, getByText } = renderComponent({ inlineAttrs })
-  const input = container.querySelector('input')
-  const checkbox = getByText('checkbox')
+  renderComponent({ inlineAttrs })
+  const input = screen.getByLabelText('check') // input
+  const checkbox = screen.getByText('check') // div with text
 
   expect(input).toBeDisabled()
 
@@ -71,9 +71,9 @@ test('Uncontrolled - should not check if disabled', async () => {
 })
 
 test('Uncontrolled - should check and uncheck', async () => {
-  const { container, getByText } = renderComponent()
-  const input = container.querySelector('input')
-  const checkbox = getByText('checkbox')
+  renderComponent()
+  const input = screen.getByLabelText('check') // input
+  const checkbox = screen.getByText('check') // div with text
 
   // click the first time, it's checked
   await userEvent.click(checkbox)
@@ -85,23 +85,21 @@ test('Uncontrolled - should check and uncheck', async () => {
 })
 
 test('properly handles v-model', async () => {
-  const { getByText, container } = renderComponent(
-    {
-      data: () => ({
-        enable: false
-      }),
-      template: `
+  renderComponent({
+    data: () => ({
+      enable: false
+    }),
+    template: `
       <div>
         <span>{{enable ? 'enabled' : 'disabled'}}</span>
-        <CCheckbox v-model="enable" />
+        <CCheckbox v-model="enable">check</CCheckbox>
       </div>`
-    }
-  )
-  const input = container.querySelector('input')
+  })
+  const input = screen.getByLabelText('check') // input
 
-  expect(getByText('disabled')).toBeInTheDocument()
+  expect(screen.getByText('disabled')).toBeInTheDocument()
 
   await userEvent.click(input)
 
-  expect(getByText('enabled')).toBeInTheDocument()
+  expect(screen.getByText('enabled')).toBeInTheDocument()
 })

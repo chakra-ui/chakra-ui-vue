@@ -1,5 +1,5 @@
 import { CCircularProgress, CCircularProgressLabel } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -20,26 +20,26 @@ it('should render correctly', () => {
 })
 
 it('should display a label', () => {
-  const { queryByText } = renderComponent({
+  renderComponent({
     template: `
   <CCircularProgress :value="40">
     <CCircularProgressLabel>40%</CCircularProgressLabel>
   </CCircularProgress>`
   })
 
-  expect(queryByText('40%')).toBeInTheDocument()
+  expect(screen.getByText('40%')).toBeInTheDocument()
 })
 
 test('a11y - progress has a "role" set to "progressbar"', () => {
-  const { queryByRole } = renderComponent()
+  renderComponent()
 
-  expect(queryByRole('progressbar')).toBeInTheDocument()
+  expect(screen.queryByRole('progressbar')).toBeInTheDocument()
 })
 
 test('a11y - progress has a "aria-valuenow" set to the percentage completion value', () => {
-  const { queryByTestId } = renderComponent()
+  renderComponent()
 
-  expect(queryByTestId('CircularProgress')).toHaveAttribute(
+  expect(screen.queryByTestId('CircularProgress')).toHaveAttribute(
     'aria-valuenow',
     '40'
   )

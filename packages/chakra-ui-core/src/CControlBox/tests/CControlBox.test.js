@@ -1,5 +1,5 @@
 import { CVisuallyHidden, CControlBox, CBox } from '../..'
-import { render, userEvent } from '@/tests/test-utils'
+import { render, userEvent, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -43,9 +43,9 @@ it('should render correctly', () => {
 })
 
 test('Uncontrolled radio - should be checked always', async () => {
-  const { getByTestId } = renderComponent({ type: 'radio' })
-  const control = getByTestId('control')
-  const hiddenControl = getByTestId('hiddenControl')
+  renderComponent({ type: 'radio' })
+  const control = screen.getByTestId('control')
+  const hiddenControl = screen.getByTestId('hiddenControl')
 
   // click the first time, it's checked
   await userEvent.click(control)
@@ -57,9 +57,9 @@ test('Uncontrolled radio - should be checked always', async () => {
 })
 
 test('Uncontrolled checkbox - should toggle', async () => {
-  const { getByTestId } = renderComponent({ type: 'checkbox' })
-  const control = getByTestId('control')
-  const hiddenControl = getByTestId('hiddenControl')
+  renderComponent({ type: 'checkbox' })
+  const control = screen.getByTestId('control')
+  const hiddenControl = screen.getByTestId('hiddenControl')
 
   // click the first time, it's checked
   await userEvent.click(control)
@@ -72,9 +72,9 @@ test('Uncontrolled checkbox - should toggle', async () => {
 
 test('controlled checkbox - v-model works', async () => {
   const inlineAttrs = ':checked="checked"'
-  const { getByTestId } = renderComponent({ inlineAttrs, type: 'checkbox', data: () => ({ checked: true }) })
-  const control = getByTestId('control')
-  const hiddenControl = getByTestId('hiddenControl')
+  renderComponent({ inlineAttrs, type: 'checkbox', data: () => ({ checked: true }) })
+  const control = screen.getByTestId('control')
+  const hiddenControl = screen.getByTestId('hiddenControl')
 
   // click the first time, it's checked
   expect(hiddenControl).toBeChecked()
@@ -86,9 +86,9 @@ test('controlled checkbox - v-model works', async () => {
 
 test('controlled radio - v-model works', async () => {
   const inlineAttrs = ':checked="checked"'
-  const { getByTestId } = renderComponent({ inlineAttrs, type: 'radio', data: () => ({ checked: true }) })
-  const control = getByTestId('control')
-  const hiddenControl = getByTestId('hiddenControl')
+  renderComponent({ inlineAttrs, type: 'radio', data: () => ({ checked: true }) })
+  const control = screen.getByTestId('control')
+  const hiddenControl = screen.getByTestId('hiddenControl')
 
   // click the first time, it's checked
   expect(hiddenControl).toBeChecked()

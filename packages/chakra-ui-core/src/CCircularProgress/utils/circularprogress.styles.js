@@ -57,7 +57,6 @@ export function getComputedProps ({
 
   function getCircleProps ({ thickness, offset, color }) {
     return {
-      as: 'circle',
       color,
       fill: 'transparent',
       stroke: 'currentColor',

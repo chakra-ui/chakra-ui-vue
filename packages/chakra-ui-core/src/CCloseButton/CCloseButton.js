@@ -11,8 +11,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCloseButton/accessibility.md
  */
 
-import styleProps from '../config/props'
-import { forwardProps } from '../utils'
+import { extractListeners } from '../utils'
 
 import CIcon from '../CIcon'
 import CPseudoBox from '../CPseudoBox'
@@ -61,7 +60,8 @@ const sizes = {
  */
 const CCloseButton = {
   name: 'CCloseButton',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  functional: true,
+  inject: ['$chakraColorMode'],
   props: {
     size: {
       type: String,
@@ -76,47 +76,58 @@ const CCloseButton = {
       type: String,
       default: 'currentColor'
     },
-    _ariaLabel: {
+    ariaLabel: {
       type: String,
       default: 'Close'
-    },
-    ...styleProps
+    }
   },
-  render (h) {
+  render (h, context) {
+    const { props, data, injections, listeners, ...rest } = context
+
+    const colorMode = injections.$chakraColorMode()
+
     // Pseudo styles
     const hoverColor = { light: 'blackAlpha.100', dark: 'whiteAlpha.100' }
     const activeColor = { light: 'blackAlpha.200', dark: 'whiteAlpha.200' }
 
     // Size styles
-    const buttonSize = sizes[this.size] && sizes[this.size].button
-    const iconSize = sizes[this.size] && sizes[this.size].icon
+    const buttonSize = sizes[props.size] && sizes[props.size].button
+    const iconSize = sizes[props.size] && sizes[props.size].icon
+
+    // Event listeners
+    const nonNativeEvents = {
+      click: (e) => {
+        const emitClick = context.listeners.click
+        if (emitClick) {
+          emitClick('click', e)
+        }
+      }
+    }
+    const { native, nonNative } = extractListeners(context, nonNativeEvents)
 
     return h(CPseudoBox, {
+      ...rest,
       props: {
-        as: 'button',
+        as: 'button'
+      },
+      on: nonNative,
+      nativeOn: native,
+      attrs: {
+        'aria-label': props.ariaLabel,
+        'aria-disabled': props.isDisabled,
         outline: 'none',
         h: buttonSize,
         w: buttonSize,
-        disabled: this.isDisabled,
+        disabled: props.isDisabled,
         cursor: 'pointer',
-        _hover: { bg: hoverColor[this.colorMode] },
-        _active: { bg: activeColor[this.colorMode] },
+        _hover: { bg: hoverColor[colorMode] },
+        _active: { bg: activeColor[colorMode] },
         ...baseProps,
-        ...forwardProps(this.$props)
-      },
-      nativeOn: {
-        click: ($e) => {
-          this.$emit('click', $e)
-        }
-      },
-      attrs: {
-        'aria-label': this._ariaLabel,
-        'aria-disabled': this.isDisabled,
         'data-chakra-component': 'CCloseButton'
       }
     }, [h(CIcon, {
       props: {
-        color: this.color,
+        color: props.color,
         name: 'close',
         size: iconSize
       },

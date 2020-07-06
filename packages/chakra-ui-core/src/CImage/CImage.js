@@ -55,7 +55,7 @@ const CImage = {
         this.$emit('load', event)
       }
 
-      image.onError = (event) => {
+      image.onerror = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }

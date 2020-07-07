@@ -86,7 +86,7 @@ test('clicking overlay calls the onClose callback', async () => {
   await Vue.nextTick()
   const overlay = getByTestId('overlay')
 
-  userEvent.click(overlay)
+  userEvent.click(overlay.parentElement)
 
   expect(onClose).toHaveBeenCalled()
 })

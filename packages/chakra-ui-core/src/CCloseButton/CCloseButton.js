@@ -15,40 +15,8 @@ import { extractListeners } from '../utils'
 
 import CIcon from '../CIcon'
 import CPseudoBox from '../CPseudoBox'
-
-const baseProps = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  rounded: 'md',
-  transition: 'all 0.2s',
-  flex: '0 0 auto',
-  _hover: { bg: 'blackAlpha.100' },
-  _active: { bg: 'blackAlpha.200' },
-  _disabled: {
-    cursor: 'not-allowed'
-  },
-  _focus: {
-    boxShadow: 'outline'
-  },
-  border: 'none',
-  bg: 'blackAlpha.50'
-}
-
-const sizes = {
-  lg: {
-    button: '40px',
-    icon: '16px'
-  },
-  md: {
-    button: '32px',
-    icon: '12px'
-  },
-  sm: {
-    button: '24px',
-    icon: '10px'
-  }
-}
+import props from './utils/closebutton.props'
+import { sizes, baseProps } from './utils/closebutton.styles'
 
 /**
  * CCloseButton component
@@ -62,25 +30,7 @@ const CCloseButton = {
   name: 'CCloseButton',
   functional: true,
   inject: ['$chakraColorMode'],
-  props: {
-    size: {
-      type: String,
-      default: 'md',
-      validator: value => value.match(/^(sm|md|lg)$/)
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false
-    },
-    color: {
-      type: String,
-      default: 'currentColor'
-    },
-    ariaLabel: {
-      type: String,
-      default: 'Close'
-    }
-  },
+  props,
   render (h, context) {
     const { props, data, injections, listeners, ...rest } = context
 

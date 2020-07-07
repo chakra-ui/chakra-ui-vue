@@ -2,8 +2,19 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <code
-    class="css-6de9to"
+  .emotion-0 {
+  display: inline-block;
+  font-size: 0.875rem;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  border-radius: 0.125rem;
+  background-color: #EDF2F7;
+  color: #1A202C;
+}
+
+<code
+    class="emotion-0"
     data-chakra-component="CCode"
   >
     content

@@ -10,8 +10,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CDrawer/accessibility.md
  */
 
-import styleProps, { baseProps } from '../config/props'
-import { forwardProps, HTMLElement } from '../utils'
+import { HTMLElement, createStyledAttrsMixin } from '../utils'
 
 import { CModal, CModalContent, CModalBody, CModalHeader, CModalFooter, CModalOverlay, CModalCloseButton } from '../CModal'
 
@@ -24,7 +23,7 @@ import { CModal, CModalContent, CModalBody, CModalHeader, CModalFooter, CModalOv
  * @see Docs https://vue.chakra-ui.com/drawer
  */
 const CDrawer = {
-  name: 'CDrawer',
+  mixins: [createStyledAttrsMixin('CDrawer')],
   props: {
     isOpen: {
       type: Boolean,
@@ -57,8 +56,7 @@ const CDrawer = {
     size: {
       type: String,
       default: 'xs'
-    },
-    ...baseProps
+    }
   },
   provide () {
     return {
@@ -77,6 +75,7 @@ const CDrawer = {
   },
   render (h) {
     return h(CModal, {
+      class: [this.className],
       props: {
         isOpen: this.isOpen,
         onClose: this.onClose,
@@ -87,10 +86,11 @@ const CDrawer = {
           content: `drawer-${id}`,
           header: `drawer-${id}-header`,
           body: `drawer-${id}-body`
-        }),
-        ...forwardProps(this.$props)
+        })
       },
+      on: this.computedListeners,
       attrs: {
+        ...this.computedAttrs,
         'data-chakra-component': 'CDrawer'
       }
     }, this.$slots.default)
@@ -140,29 +140,32 @@ const getPlacementStyles = (position, { finalWidth, finalHeight }) => {
  */
 const CDrawerContent = {
   name: 'CDrawerContent',
-  props: {
-    ...baseProps
-  },
+  inheritAttrs: false,
   inject: ['$DrawerContext'],
   computed: {
     context () {
       return this.$DrawerContext()
+    },
+    placementStyles () {
+      const { placement, isFullHeight } = this.context
+      const placementStyles = getPlacementStyles(placement, {
+        finalHeight: isFullHeight ? '100vh' : 'auto'
+      })
+
+      return {
+        position: 'fixed',
+        ...placementStyles
+      }
     }
   },
   render (h) {
-    const { placement, isFullHeight } = this.context
-    const placementStyles = getPlacementStyles(placement, {
-      finalHeight: isFullHeight ? '100vh' : 'auto'
-    })
-
     return h(CModalContent, {
       props: {
-        noStyles: true,
-        position: 'fixed',
-        ...placementStyles,
-        ...forwardProps(this.$props)
+        noStyles: true
       },
       attrs: {
+        ...this.placementStyles,
+        ...this.$attrs,
         'data-chakra-component': 'CDrawerContent'
       }
     }, this.$slots.default)
@@ -179,11 +182,12 @@ const CDrawerContent = {
  */
 const CDrawerOverlay = {
   name: 'CDrawerOverlay',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CModalOverlay, {
-      props: forwardProps(this.$props),
+      ...rest,
       attrs: {
+        ...data.attrs,
         'data-chakra-component': 'CDrawerOverlay'
       }
     })
@@ -200,18 +204,22 @@ const CDrawerOverlay = {
  */
 const CDrawerCloseButton = {
   name: 'CDrawerCloseButton',
-  props: styleProps,
-  render (h) {
+  functional: true,
+  render (h, { data, listeners }) {
     return h(CModalCloseButton, {
-      props: {
-        position: 'fixed',
-        zIndex: '1',
-        ...forwardProps(this.$props)
-      },
-      on: {
-        click: e => this.$emit('click', e)
+      nativeOn: {
+        ...listeners,
+        click: (e) => {
+          const emitClick = listeners.click
+          if (emitClick) {
+            emitClick('click', e)
+          }
+        }
       },
       attrs: {
+        position: 'fixed',
+        zIndex: '1',
+        ...data.attrs,
         'data-chakra-component': 'CDrawerCloseButton'
       }
     })

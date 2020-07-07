@@ -292,8 +292,9 @@ const CModalOverlay = {
  * @see Docs https://vue.chakra-ui.com/modal
  */
 const CModalContent = {
-  mixins: [createStyledAttrsMixin('CModalContent')],
-  inject: ['$ModalContext'],
+  name: 'CModalContent',
+  inheritAttrs: false,
+  inject: ['$ModalContext', '$chakraColorMode'],
   props: {
     noStyles: Boolean,
     zIndex: {
@@ -321,6 +322,9 @@ const CModalContent = {
   computed: {
     context () {
       return this.$ModalContext()
+    },
+    colorMode () {
+      return this.$chakraColorMode()
     },
     boxStyleProps () {
       return this.colorModeStyles[this.colorMode]
@@ -406,9 +410,16 @@ const CModalContent = {
       closeOnOverlayClick
     } = this.context
 
-    return h(this.as || 'div', {
-      class: [this.className],
-      attrs: this.computedAttrs,
+    return h(CBox, {
+      attrs: {
+        ...this.wrapperStyle,
+        pos: 'fixed',
+        left: '0',
+        top: '0',
+        w: '100%',
+        h: '100%',
+        zIndex: this.zIndex || 'modal'
+      },
       on: {
         click: (event) => {
           event.stopPropagation()
@@ -424,8 +435,7 @@ const CModalContent = {
               onClose(event, 'pressedEscape')
             }
           }
-        },
-        ...this.computedListeners
+        }
       }
     }, [
       h(CBox, {
@@ -448,7 +458,9 @@ const CModalContent = {
           zIndex: this.zIndex,
           fontFamily: 'body',
           ...this.boxStyleProps,
-          ...this.contentStyle
+          ...this.contentStyle,
+          'data-chakra-component': 'CModalContent',
+          ...this.$attrs
         },
         nativeOn: {
           click: wrapEvent(e => this.$emit('click', e), event => event.stopPropagation())
@@ -516,8 +528,8 @@ const CModalFooter = {
         px: 6,
         py: 4,
         justifyContent: 'flex-end',
-        ...data.attrs,
-        'data-chakra-component': 'CModalFooter'
+        'data-chakra-component': 'CModalFooter',
+        ...data.attrs
       }
     }, slots().default)
   }
@@ -558,8 +570,8 @@ const CModalBody = {
       class: [this.className],
       attrs: {
         id: bodyId,
-        ...this.computedAttrs,
-        'data-chakra-component': 'CModalBody'
+        'data-chakra-component': 'CModalBody',
+        ...this.computedAttrs
       },
       on: this.computedListeners
     }, this.$slots.default)
@@ -614,10 +626,10 @@ const CModalCloseButton = {
     return h('button', {
       class: [this.className],
       attrs: {
+        'data-chakra-component': 'CModalCloseButton',
         ...this.computedAttrs,
         'aria-label': this.ariaLabel,
-        'aria-disabled': this.isDisabled,
-        'data-chakra-component': 'CModalCloseButton'
+        'aria-disabled': this.isDisabled
       },
       on: {
         ...this.computedListeners,

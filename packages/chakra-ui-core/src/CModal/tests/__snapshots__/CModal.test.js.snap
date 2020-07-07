@@ -392,15 +392,15 @@ exports[`should render correctly 1`] = `
         />
         <div
           class="emotion-12"
-          data-chakra-component="CModalContent"
-          data-testid="overlay"
+          data-chakra-component="CBox"
         >
           <section
             aria-describedby="modal-1-body"
             aria-labelledby="modal-1-header"
             aria-modal="true"
             class="emotion-11"
-            data-chakra-component="CBox"
+            data-chakra-component="CModalContent"
+            data-testid="overlay"
             id="modal-1"
             role="dialog"
             tabindex="-1"

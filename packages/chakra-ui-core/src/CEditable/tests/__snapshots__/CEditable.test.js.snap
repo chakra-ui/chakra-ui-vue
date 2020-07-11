@@ -2,15 +2,51 @@
 
 exports[`should render correctly - input 1`] = `
 <DocumentFragment>
-  <div>
+  .emotion-0 {
+  outline: none;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  background-color: transparent;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-radius: 0.25rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: -3px;
+  margin-right: -3px;
+  width: 100%;
+}
+
+.emotion-0:focus {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+.emotion-0::-webkit-input-placeholder {
+  opacity: 0.6;
+}
+
+.emotion-0::-moz-placeholder {
+  opacity: 0.6;
+}
+
+.emotion-0:-ms-input-placeholder {
+  opacity: 0.6;
+}
+
+.emotion-0::placeholder {
+  opacity: 0.6;
+}
+
+<div>
     <div
-      class="css-fzcsno"
+      class="emotion-1"
       data-chakra-component="CEditable"
     >
       <!---->
        
       <input
-        class="css-fzcsno css-s4w4he"
+        class="emotion-0"
         data-chakra-component="CEditableInput"
         data-testid="input"
         id="editable-1"
@@ -24,13 +60,29 @@ exports[`should render correctly - input 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div>
+  .emotion-0 {
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  background-color: transparent;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-radius: 0.25rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: -3px;
+  margin-right: -3px;
+  cursor: text;
+  display: inline-block;
+}
+
+<div>
     <div
-      class="css-fzcsno"
+      class="emotion-1"
       data-chakra-component="CEditable"
     >
       <span
-        class="css-fzcsno css-1rdo2d4"
+        class="emotion-0"
         data-chakra-component="CEditablePreview"
         data-testid="preview"
         tabindex="0"

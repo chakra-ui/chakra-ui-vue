@@ -13,11 +13,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CEditable/CEditable.js
  */
 
-import styleProps, { baseProps } from '../config/props'
-import { isDef, getElement, useId, forwardProps } from '../utils'
-
-import CBox from '../CBox'
-import CPseudoBox from '../CPseudoBox'
+import { isDef, getElement, useId, createStyledAttrsMixin } from '../utils'
 
 const sharedEditableProps = {
   fontSize: 'inherit',
@@ -39,9 +35,8 @@ const sharedEditableProps = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditable = {
-  name: 'CEditable',
+  mixins: [createStyledAttrsMixin('CEditable')],
   props: {
-    ...baseProps,
     value: String,
     defaultValue: String,
     isDisabled: Boolean,
@@ -187,11 +182,10 @@ const CEditable = {
     }
   },
   render (h) {
-    return h(CBox, {
-      props: forwardProps(this.$props),
-      attrs: {
-        'data-chakra-component': 'CEditable'
-      }
+    return h('div', {
+      class: this.className,
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, [
       this.$scopedSlots.default({
         isEditing: this.isEditing,
@@ -212,9 +206,8 @@ const CEditable = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditablePreview = {
-  name: 'CEditablePreview',
+  mixins: [createStyledAttrsMixin('CEditablePreview', true)],
   inject: ['$EditableContext'],
-  props: styleProps,
   computed: {
     context () {
       return this.$EditableContext()
@@ -222,7 +215,7 @@ const CEditablePreview = {
     hasValue () {
       return isDef(this.context.value) && this.context.value !== ''
     },
-    styleProps () {
+    componentStyles () {
       return {
         ...sharedEditableProps,
         cursor: 'text',
@@ -244,18 +237,15 @@ const CEditablePreview = {
       return null
     }
 
-    return h(CPseudoBox, {
-      props: {
-        as: 'span',
-        ...this.styleProps,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as || 'span', {
+      class: [this.className],
       attrs: {
         'aria-disabled': isDisabled,
         tabIndex: this.tabIndex,
-        'data-chakra-component': 'CEditablePreview'
+        ...this.computedAttrs
       },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         focus: onRequestEdit
       }
     }, this.hasValue ? value : placeholder)
@@ -271,15 +261,18 @@ const CEditablePreview = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditableInput = {
-  name: 'CEditableInput',
+  mixins: [createStyledAttrsMixin('CEditableInput', true)],
   inject: ['$EditableContext'],
-  props: styleProps,
   computed: {
     context () {
       return this.$EditableContext()
     },
-    styleProps () {
+    componentStyles () {
       return {
+        outline: 'none',
+        _focus: {
+          shadow: 'outline'
+        },
         ...sharedEditableProps,
         width: 'full',
         _placeholder: {
@@ -305,17 +298,10 @@ const CEditableInput = {
       return null
     }
 
-    return h(CPseudoBox, {
-      props: {
-        as: 'input',
-        outline: 'none',
-        _focus: {
-          shadow: 'outline'
-        },
-        ...this.styleProps,
-        ...forwardProps(this.$props)
-      },
-      nativeOn: {
+    return h(this.as || 'input', {
+      class: [this.className],
+      on: {
+        ...this.computedListeners,
         blur: (event) => {
           submitOnBlur && onSubmit()
           this.$emit('blur', event)
@@ -324,12 +310,12 @@ const CEditableInput = {
         keydown: onKeyDown
       },
       attrs: {
+        ...this.computedAttrs,
         id: editableId,
         disabled: isDisabled,
         'aria-disabled': isDisabled,
         value,
-        placeholder,
-        'data-chakra-component': 'CEditableInput'
+        placeholder
       }
     }, this.$slots.default)
   }

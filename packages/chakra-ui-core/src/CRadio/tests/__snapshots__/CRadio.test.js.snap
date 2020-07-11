@@ -2,28 +2,137 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <label
-    class="css-109vd24"
+  .emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: top;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.emotion-0 {
+  border: 0px;
+  -webkit-clip: rect(0px,0px,0px,0px);
+  clip: rect(0px,0px,0px,0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+input[type=radio]:focus + .emotion-3 {
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+input[type=radio]:disabled + .emotion-3 {
+  background-color: #EDF2F7;
+  border-color: #EDF2F7;
+}
+
+input[type=radio][aria-invalid=true] + .emotion-3 {
+  border-color: #c42231;
+}
+
+input[type=radio]:checked:disabled + .emotion-3,
+input[type=radio][aria-checked=mixed]:disabled + .emotion-3 {
+  border-color: #E2E8F0;
+  background-color: #E2E8F0;
+  color: #718096;
+}
+
+.emotion-3 > * {
+  opacity: 0;
+}
+
+input[type=radio]:checked + .emotion-3,
+input[type=radio][aria-checked=mixed] + .emotion-3 {
+  background-color: #0058e6;
+  border-color: #0058e6;
+}
+
+input[type=radio]:checked + .emotion-3 > *,
+input[type=radio][aria-checked=mixed] + .emotion-3 > * {
+  opacity: 1;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: background-color 120ms,box-shadow 250ms;
+  transition: background-color 120ms,box-shadow 250ms;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 2px solid;
+  border-radius: 9999px;
+  border-color: inherit;
+  color: #fff;
+}
+
+.emotion-1 {
+  background-color: currentColor;
+  border-radius: 9999px;
+  width: 50%;
+  height: 50%;
+}
+
+.emotion-4 {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 1;
+}
+
+<label
+    class="emotion-5"
     data-chakra-component="CRadio"
   >
     <input
-      class="css-fzcsno css-f8n5zr"
+      class="emotion-0"
       data-chakra-component="CVisuallyHidden"
       type="radio"
       value=""
     />
     <div
       aria-hidden="true"
-      class="css-1ht8nam css-aufuif"
+      class="emotion-2 emotion-3"
       data-chakra-component="CControlBox"
     >
       <span
-        class="css-1luw7uj"
+        class="emotion-1"
         data-chakra-component="CBox"
       />
     </div>
     <div
-      class="css-np4rym"
+      class="emotion-4"
       data-chakra-component="CBox"
     >
       radio

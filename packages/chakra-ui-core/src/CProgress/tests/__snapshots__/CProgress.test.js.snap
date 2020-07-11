@@ -2,8 +2,26 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-w3ffhx"
+  .emotion-1 {
+  position: relative;
+  height: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+  background-color: #EDF2F7;
+  border-radius: 0.125rem;
+}
+
+.emotion-0 {
+  height: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 40%;
+  background-color: #3ea76a;
+  border-radius: 0.125rem;
+}
+
+<div
+    class="emotion-1"
     data-chakra-component="CProgress"
     data-testid="progress"
   >
@@ -11,7 +29,7 @@ exports[`should render correctly 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="40"
-      class="css-1dfb4kd"
+      class="emotion-0"
       data-chakra-component="CProgressIndicator"
       role="progressbar"
     />

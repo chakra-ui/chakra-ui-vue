@@ -2,14 +2,139 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-fzcsno"
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #dd3b4b;
+  color: #fff;
+}
+
+.emotion-0:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+.emotion-0:hover {
+  background-color: #c42231;
+}
+
+.emotion-0:active,
+.emotion-0[data-active=true] {
+  background-color: #991826;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
+}
+
+.emotion-1:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+<div
+    class="emotion-4"
     data-chakra-component="CRadioButtonGroup"
     role="radiogroup"
   >
     <button
       aria-checked="true"
-      class="css-fzcsno css-bfua14"
+      class="emotion-0"
       data-chakra-component="CButton"
       data-testid="item-1"
       role="radio"
@@ -19,7 +144,7 @@ exports[`should render correctly 1`] = `
       Custom Radio 1
     </button>
     <button
-      class="css-fzcsno css-1240sfg"
+      class="emotion-1"
       data-chakra-component="CButton"
       data-testid="item-2"
       role="radio"
@@ -29,7 +154,7 @@ exports[`should render correctly 1`] = `
       Custom Radio 2
     </button>
     <button
-      class="css-fzcsno css-1240sfg"
+      class="emotion-1"
       data-chakra-component="CButton"
       data-testid="item-3"
       role="radio"
@@ -40,7 +165,7 @@ exports[`should render correctly 1`] = `
     </button>
     <button
       aria-disabled="true"
-      class="css-fzcsno css-1240sfg"
+      class="emotion-1"
       data-chakra-component="CButton"
       data-testid="item-4"
       disabled="disabled"

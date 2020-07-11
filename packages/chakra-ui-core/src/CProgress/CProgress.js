@@ -43,7 +43,7 @@ const CProgressLabel = {
     return h(CBox, {
       ...rest,
       props: {
-        as: data.attrs.as
+        as: (data.attrs && data.attrs.as) || 'div'
       },
       attrs: {
         textAlign: 'center',
@@ -77,8 +77,8 @@ const CProgressTrack = {
         height: progressbarSizes[props.size || 'md'],
         overflow: 'hidden',
         w: '100%',
-        ...data.attrs,
-        'data-chakra-component': 'CProgressTrack'
+        'data-chakra-component': 'CProgressTrack',
+        ...data.attrs
       }
     }, slots().default)
   }

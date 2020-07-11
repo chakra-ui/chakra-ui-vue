@@ -11,8 +11,7 @@
  */
 
 import { SNA } from '../config/props/props.types'
-import { baseProps } from '../config'
-import { isDef, useId, cleanChildren, cloneVNodeElement, forwardProps } from '../utils'
+import { isDef, useId, cleanChildren, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'
 
@@ -25,13 +24,12 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CCheckboxGroup = {
-  name: 'CCheckboxGroup',
+  mixins: [createStyledAttrsMixin('CCheckboxGroup')],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     name: String,
     variantColor: String,
     size: String,
@@ -98,16 +96,17 @@ const CCheckboxGroup = {
       }, h)
 
       return h(CBox, {
-        props: {
+        attrs: {
           display: this.isInline ? 'inline-block' : 'block',
           ...(!isLastCheckbox && spacingProps)
         }
       }, [el])
     })
 
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h('div', {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         role: 'group',
         'data-chakra-component': 'CCheckboxGroup'
       }

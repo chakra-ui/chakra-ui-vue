@@ -11,7 +11,7 @@ storiesOf('UI | Popover', module)
       </CPopoverTrigger>
       <CPopoverContent zIndex="4">
         <CPopoverArrow />
-        <CPopoverCloseButton />
+        <CPopoverCloseButton pos="absolute" />
         <CPopoverHeader>Confirmation!</CPopoverHeader>
         <CPopoverBody>Are you sure you want to have that milkshake?</CPopoverBody>
       </CPopoverContent>

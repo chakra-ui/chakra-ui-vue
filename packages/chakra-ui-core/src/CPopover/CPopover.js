@@ -9,8 +9,7 @@
  */
 
 import { isFunction } from 'lodash-es'
-import { useId, cloneVNode, getElement, isVueComponent, forwardProps } from '../utils'
-import styleProps, { baseProps } from '../config/props'
+import { useId, cloneVNode, getElement, isVueComponent, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'
 import CCloseButton from '../CCloseButton'
@@ -263,6 +262,7 @@ const CPopover = {
  */
 const CPopoverTrigger = {
   name: 'CPopoverTrigger',
+  inheritAttrs: false,
   inject: ['$PopoverContext'],
   computed: {
     triggerId () {
@@ -350,6 +350,8 @@ const CPopoverTrigger = {
         ...cloned.componentOptions.propsData
       },
       attrs: {
+        ...cloned.data.attrs,
+        ...this.$attrs,
         id: this.triggerId,
         'aria-haspopup': 'dialog',
         'aria-expanded': isOpen,
@@ -373,9 +375,9 @@ const CPopoverTrigger = {
  */
 const CPopoverContent = {
   name: 'CPopoverContent',
+  inheritAttrs: false,
   inject: ['$PopoverContext', '$chakraColorMode'],
   props: {
-    ...styleProps,
     gutter: {
       type: [Number, String],
       default: 4
@@ -481,7 +483,9 @@ const CPopoverContent = {
           options: {
             offset: [0, this.gutter]
           }
-        }],
+        }]
+      },
+      attrs: {
         bg,
         width: '100%',
         position: 'relative',
@@ -491,9 +495,7 @@ const CPopoverContent = {
         shadow: 'sm',
         maxWidth: 'xs',
         _focus: { outline: 0, shadow: 'outline' },
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...this.$attrs,
         id: popoverId,
         tabIndex: -1,
         'aria-labelledby': this.headerId,
@@ -517,30 +519,32 @@ const CPopoverContent = {
  * @see Docs https://vue.chakra-ui.com/popover
  */
 const CPopoverHeader = {
-  name: 'CPopoverHeader',
+  mixins: [createStyledAttrsMixin('CPopoverHeader')],
   inject: ['$PopoverContext'],
-  props: baseProps,
   computed: {
     context () {
       return this.$PopoverContext()
     },
     headerId () {
       return this.context.headerId
+    },
+    componentStyles () {
+      return {
+        px: '0.75rem',
+        py: '0.5rem',
+        borderBottomWidth: '1px'
+      }
     }
   },
   render (h) {
-    return h(CBox, {
-      props: {
-        as: 'header',
-        px: '0.75rem',
-        py: '0.5rem',
-        borderBottomWidth: '1px',
-        ...forwardProps(this.$props)
-      },
+    return h('header', {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         id: this.headerId,
         'data-chakra-component': 'CPopoverHeader'
-      }
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -554,8 +558,7 @@ const CPopoverHeader = {
  * @see Docs https://vue.chakra-ui.com/popover
  */
 const CPopoverBody = {
-  name: 'CPopoverBody',
-  props: baseProps,
+  mixins: [createStyledAttrsMixin('CPopoverBody')],
   inject: ['$PopoverContext'],
   computed: {
     context () {
@@ -563,21 +566,24 @@ const CPopoverBody = {
     },
     bodyId () {
       return this.context.bodyId
+    },
+    componentStyles () {
+      return {
+        flex: 1,
+        px: '0.75rem',
+        py: '0.5rem'
+      }
     }
   },
   render (h) {
-    return h(CBox, {
-      props: {
-        flex: 1,
-        px: '0.75rem',
-        py: '0.5rem',
-        ...forwardProps(this.$props)
-      },
+    return h(this.as || 'div', {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         id: this.bodyId,
-        'data-id': this.bodyId,
         'data-chakra-component': 'CPopoverBody'
-      }
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -592,11 +598,12 @@ const CPopoverBody = {
  */
 const CPopoverArrow = {
   name: 'CPopoverArrow',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CPopperArrow, {
-      props: forwardProps(this.$props),
+      ...rest,
       attrs: {
+        ...data.attrs,
         'data-chakra-component': 'CPopoverArrow'
       }
     })
@@ -613,8 +620,8 @@ const CPopoverArrow = {
  */
 const CPopoverCloseButton = {
   name: 'CPopoverCloseButton',
+  inheritAttrs: false,
   inject: ['$PopoverContext'],
-  props: styleProps,
   computed: {
     context () {
       return this.$PopoverContext()
@@ -623,13 +630,7 @@ const CPopoverCloseButton = {
   render (h) {
     return h(CCloseButton, {
       props: {
-        size: 'sm',
-        pos: 'absolute',
-        rounded: 'md',
-        top: 1,
-        right: 2,
-        p: 2,
-        ...forwardProps(this.$props)
+        size: 'sm'
       },
       on: {
         click: (e) => {
@@ -638,6 +639,12 @@ const CPopoverCloseButton = {
         }
       },
       attrs: {
+        pos: 'absolute',
+        rounded: 'md',
+        top: 1,
+        right: 2,
+        p: 2,
+        ...this.$attrs,
         'data-chakra-component': 'CPopoverCloseButton'
       }
     })
@@ -654,20 +661,20 @@ const CPopoverCloseButton = {
  */
 const CPopoverFooter = {
   name: 'CPopoverFooter',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, slots, ...rest }) {
     return h(CBox, {
       props: {
-        as: 'footer',
+        as: 'footer'
+      },
+      attrs: {
         px: '0.75rem',
         py: '0.5rem',
         borderTopWidth: '1px',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...data.attrs,
         'data-chakra-component': 'CPopoverFooter'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

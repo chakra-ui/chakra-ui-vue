@@ -73,6 +73,7 @@ const CCloseButton = {
         _hover: { bg: hoverColor[colorMode] },
         _active: { bg: activeColor[colorMode] },
         ...baseProps,
+        ...data.attrs,
         'data-chakra-component': 'CCloseButton'
       }
     }, [h(CIcon, {

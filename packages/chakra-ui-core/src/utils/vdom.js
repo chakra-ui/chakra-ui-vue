@@ -12,6 +12,8 @@ export function cloneVNode (vnode, createElement) {
   cloned.text = vnode.text
   cloned.isComment = vnode.isComment
   cloned.componentOptions = vnode.componentOptions
+  cloned.fnOptions = vnode.fnOptions
+  cloned.fnContext = vnode.fnContext
   cloned.elm = vnode.elm
   cloned.context = vnode.context
   cloned.ns = vnode.ns

@@ -9,9 +9,7 @@
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 
-import CText from '../CText'
-import { baseProps } from '../config'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
 /**
  * CFormHelperText component
@@ -23,32 +21,30 @@ import { forwardProps } from '../utils'
  * @see Docs https://vue.chakra-ui.com/formcontrol
  */
 const CFormHelperText = {
-  name: 'CFormHelperText',
-  inject: ['$useFormControl', '$chakraColorMode'],
-  props: baseProps,
+  mixins: [createStyledAttrsMixin('CFormHelperText')],
+  inject: ['$useFormControl'],
   computed: {
     formControl () {
       return this.$useFormControl(this.$props)
     },
-    colorMode () {
-      return this.$chakraColorMode()
-    }
-  },
-  render (h) {
-    const color = { light: 'gray.500', dark: 'whiteAlpha.600' }
-
-    return h(CText, {
-      props: {
-        ...forwardProps(this.$props),
+    componentStyles () {
+      const color = { light: 'gray.500', dark: 'whiteAlpha.600' }
+      return {
         mt: 2,
         color: color[this.colorMode],
         lineHeight: 'normal',
         fontSize: 'sm'
-      },
+      }
+    }
+  },
+  render (h) {
+    return h(this.as || 'p', {
+      class: [this.className],
       attrs: {
         id: this.formControl.id ? `${this.formControl.id}-help-text` : null,
-        'data-chakra-component': 'CFormHelperText'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }

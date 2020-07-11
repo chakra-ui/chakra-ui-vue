@@ -20,3 +20,22 @@ it('should render correctly', () => {
 
   expect(asFragment()).toMatchSnapshot()
 })
+
+it('should provide formcontrol state via scoped slot', () => {
+  const { getByTestId } = renderComponent({
+    template: `
+    <CFormControl isRequired isReadOnly #default="props">
+      <pre data-testid="pre">
+        {{ props }}
+      </pre>
+    </CFormControl>`
+  })
+
+  const pre = getByTestId('pre')
+  expect(JSON.parse(pre.textContent, null, 2)).toEqual({
+    isInvalid: false,
+    isRequired: true,
+    isDisabled: false,
+    isReadOnly: true
+  })
+})

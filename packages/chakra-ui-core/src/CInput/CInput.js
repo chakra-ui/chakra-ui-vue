@@ -10,9 +10,7 @@
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 
-import styleProps from '../config/props'
-import { forwardProps } from '../utils'
-import CPseudoBox from '../CPseudoBox'
+import { createStyledAttrsMixin } from '../utils'
 import useInputStyle from './utils/input.styles'
 import { inputProps } from './utils/input.props'
 
@@ -25,7 +23,7 @@ import { inputProps } from './utils/input.props'
  * @see Docs https://vue.chakra-ui.com/input
  */
 const CInput = {
-  name: 'CInput',
+  mixins: [createStyledAttrsMixin('CInput', true)],
   inject: {
     $chakraColorMode: {
       default: 'light'
@@ -41,17 +39,8 @@ const CInput = {
     prop: 'value',
     event: 'input'
   },
-  props: {
-    ...styleProps,
-    ...inputProps
-  },
+  props: inputProps,
   computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    theme () {
-      return this.$chakraTheme()
-    },
     formControl () {
       if (!this.$useFormControl) {
         return {
@@ -69,6 +58,12 @@ const CInput = {
         theme: this.theme,
         colorMode: this.colorMode
       })
+    },
+    componentStyles () {
+      return {
+        ...this.inputStyles,
+        fontFamily: 'body'
+      }
     }
   },
   methods: {
@@ -78,13 +73,8 @@ const CInput = {
     }
   },
   render (h) {
-    return h(CPseudoBox, {
-      props: {
-        ...this.inputStyles,
-        as: this.as,
-        fontFamily: 'body',
-        ...forwardProps(this.$props)
-      },
+    return h(this.as || 'input', {
+      class: [this.className],
       domProps: {
         value: this.value
       },
@@ -96,9 +86,10 @@ const CInput = {
         'aria-invalid': this.formControl.isInvalid,
         required: this.formControl.isRequired,
         'aria-required': this.formControl.isRequired,
-        'data-chakra-component': 'CInput'
+        ...this.computedAttrs
       },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         input: this.emitValue
       },
       ref: 'input'

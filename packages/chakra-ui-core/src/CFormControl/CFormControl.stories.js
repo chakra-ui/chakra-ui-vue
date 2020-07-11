@@ -5,9 +5,9 @@ storiesOf('UI | FormControl', module)
   .add('Basic Usage', () => ({
     components: { CInput, CFormControl, CFormLabel },
     template: `
-      <CFormControl as="form" isRequired>
+      <CFormControl as="form" isRequired #default="props">
         <CFormLabel for="fname">First name</CFormLabel>
-        <CInput id="fname" placeholder="First name" />
+        <CInput focus-border-color="blue.200" id="fname" placeholder="First name" />
       </CFormControl>
     `
   }))
@@ -18,7 +18,7 @@ storiesOf('UI | FormControl', module)
         <c-form-control id="test-error">
           <c-input-group>
             <c-input-left-element color="gray.300" fontSize="1.2em"><c-icon name="lock" /></c-input-left-element>
-            <c-input :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
+            <c-input v-model="pw" :type="shouldShowPassword ? 'text' : 'password'" placeholder="Password" />
             <c-input-right-element @click.native="shouldShowPassword = !shouldShowPassword" ><c-icon :name="shouldShowPassword ? 'eye-slash' : 'eye'" color="gray.500" /></c-input-right-element>
           </c-input-group>
           <c-form-helper-text>Enter your password</c-form-helper-text>
@@ -27,7 +27,8 @@ storiesOf('UI | FormControl', module)
     `,
     data () {
       return {
-        shouldShowPassword: false
+        shouldShowPassword: false,
+        pw: ''
       }
     }
   }))

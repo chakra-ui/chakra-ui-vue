@@ -53,7 +53,6 @@ storiesOf('UI | Menu', module)
         py="2"
         transition="all 0.2s"
         rounded="md"
-        borderWidth="1px"
         :_hover="{ bg: 'gray.100' }"
         :_expanded="{ bg: 'red.200' }"
         :_focus="{ outline: 0, boxShadow: 'outline' }"

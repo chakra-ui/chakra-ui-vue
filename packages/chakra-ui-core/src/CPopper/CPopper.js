@@ -8,7 +8,6 @@
 import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
 import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
-import styleProps from '../config/props'
 import ClickOutside from '../directives/clickoutside.directive'
 
 import CBox from '../CBox'
@@ -53,6 +52,7 @@ function flipPlacement (placement) {
  */
 const CPopper = {
   name: 'CPopper',
+  inheritAttrs: false,
   directives: {
     ClickOutside
   },
@@ -97,8 +97,7 @@ const CPopper = {
       default: true
     },
     positionFixed: Boolean,
-    usePortalTarget: String,
-    ...styleProps
+    usePortalTarget: String
   },
   data () {
     return {
@@ -298,6 +297,7 @@ const CPopper = {
       style: {
         display: this.isOpen ? 'unset' : 'none'
       },
+      props: { as: this.as || 'div' },
       directives: [{
         name: 'click-outside',
         value: this.wrapClose
@@ -310,9 +310,6 @@ const CPopper = {
       },
       scopedSlots: {
         popperId: `chakra-${this.popperId}`
-      },
-      props: {
-        ...forwardProps(this.$props)
       },
       ref: 'handleRef'
     }, this.$slots.default)])

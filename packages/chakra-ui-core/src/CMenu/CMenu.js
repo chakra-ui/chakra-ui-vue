@@ -8,7 +8,6 @@
  */
 
 import { useId, getFocusables, canUseDOM, forwardProps } from '../utils'
-import styleProps, { baseProps } from '../config/props'
 import { buttonProps } from '../CButton/utils/button.props'
 
 import { CPopper } from '../CPopper'
@@ -17,7 +16,6 @@ import CText from '../CText'
 import CPseudoBox from '../CPseudoBox'
 import CFragment from '../CFragment'
 import CDivider from '../CDivider'
-import CBox from '../CBox'
 import { useMenuListStyle, useMenuItemStyle } from './utils/menu.styles'
 
 const menuProps = {
@@ -39,8 +37,7 @@ const menuProps = {
     default: true
   },
   defaultActiveIndex: Number,
-  placement: String,
-  ...baseProps
+  placement: String
 }
 
 /**
@@ -48,7 +45,6 @@ const menuProps = {
  *
  * The menu container element
  *
- * @extends CFragment
  * @see Docs https://vue.chakra-ui.com/menu
  */
 const CMenu = {
@@ -57,6 +53,17 @@ const CMenu = {
   provide () {
     return {
       $MenuContext: () => this.MenuContext
+    }
+  },
+  props: menuProps,
+  data () {
+    return {
+      isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,
+      activeIndex: this.defaultActiveIndex || -1,
+      focusableItems: null,
+      menuNode: undefined,
+      buttonNode: undefined,
+      prevIsOpen: undefined
     }
   },
   computed: {
@@ -91,17 +98,6 @@ const CMenu = {
         closeOnSelect: this.closeOnSelect,
         closeOnBlur: this.closeOnBlur
       }
-    }
-  },
-  props: menuProps,
-  data () {
-    return {
-      isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,
-      activeIndex: this.defaultActiveIndex || -1,
-      focusableItems: null,
-      menuNode: undefined,
-      buttonNode: undefined,
-      prevIsOpen: undefined
     }
   },
   mounted () {
@@ -247,16 +243,13 @@ const CMenu = {
  *
  * The menu button element
  *
- * @extends CButton
  * @see Docs https://vue.chakra-ui.com/menu
  */
 const CMenuButton = {
   name: 'CMenuButton',
+  inheritAttrs: false,
   inject: ['$MenuContext'],
-  props: {
-    ...buttonProps,
-    ...styleProps
-  },
+  props: buttonProps,
   computed: {
     context () {
       return this.$MenuContext()
@@ -275,7 +268,8 @@ const CMenuButton = {
         'aria-haspopup': 'menu',
         'aria-expanded': isOpen,
         'aria-controls': menuId,
-        'data-chakra-component': 'CMenuButton'
+        'data-chakra-component': 'CMenuButton',
+        ...this.$attrs
       },
       nativeOn: {
         click: (event) => {
@@ -314,7 +308,7 @@ const CMenuButton = {
  */
 const CMenuList = {
   name: 'CMenuList',
-  props: styleProps,
+  inheritAttrs: false,
   inject: ['$MenuContext', '$chakraColorMode'],
   computed: {
     context () {
@@ -398,6 +392,9 @@ const CMenuList = {
           }
         ],
         closeOnClickAway: true,
+        hasArrow: false
+      },
+      attrs: {
         minW: '3xs',
         rounded: 'md',
         py: 2,
@@ -405,11 +402,8 @@ const CMenuList = {
         _focus: {
           outline: 0
         },
-        hasArrow: false,
         ...this.menuListStyles(this.colorMode),
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...this.$attrs,
         id: menuId,
         role: 'menu',
         'aria-labelledby': buttonId,
@@ -437,9 +431,9 @@ const CMenuList = {
  */
 const CMenuItem = {
   name: 'CMenuItem',
+  inheritAttrs: false,
   inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
   props: {
-    ...styleProps,
     isDisabled: Boolean,
     role: {
       type: String,
@@ -464,7 +458,9 @@ const CMenuItem = {
     const { focusableItems, focusAtIndex, closeOnSelect, closeMenu } = this.context
     return h(CPseudoBox, {
       props: {
-        as: 'button',
+        as: 'button'
+      },
+      attrs: {
         display: 'flex',
         textDecoration: 'none',
         color: 'inherit',
@@ -474,9 +470,7 @@ const CMenuItem = {
         outline: 'none',
         px: 4,
         ...this.menuItemStyles({ theme: this.theme, colorMode: this.colorMode }),
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...this.$attrs,
         role: this.role,
         tabIndex: -1,
         disabled: this.isDisabled,
@@ -534,20 +528,18 @@ const CMenuItem = {
  *
  * The menu list divider element
  *
- * @extends CDivider
  * @see Docs https://vue.chakra-ui.com/menu
  */
 const CMenuDivider = {
   name: 'CMenuDivider',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CDivider, {
-      props: {
+      ...rest,
+      attrs: {
         marginTop: '0.5rem',
         marginBottom: '0.5rem',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...data.attrs,
         'data-chakra-component': 'CMenuDivider'
       }
     })
@@ -564,21 +556,21 @@ const CMenuDivider = {
  */
 const CMenuGroup = {
   name: 'CMenuGroup',
+  functional: true,
   props: {
-    title: String,
-    ...baseProps
+    title: String
   },
-  render (h) {
-    return h(CBox, {
+  render (h, { props, slots, data }) {
+    return h('div', {
       attrs: {
         role: 'group',
         'data-chakra-component': 'CMenuGroup'
       }
     }, [
-      this.title && h(CText, {
-        props: { mx: 4, my: 2, fontWeight: 'semibold', fontSize: 'sm', ...forwardProps(this.$props) }
-      }, this.title),
-      this.$slots.default
+      props.title && h(CText, {
+        attrs: { mx: 4, my: 2, fontWeight: 'semibold', fontSize: 'sm', ...data.attrs }
+      }, props.title),
+      slots().default
     ])
   }
 }

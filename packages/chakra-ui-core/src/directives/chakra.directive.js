@@ -101,11 +101,8 @@ export function createClientDirective (theme) {
   }
 
   return {
-    bind (el, binding, vnode) {
-      applyClientStyles(el, binding, vnode)
-    },
-    update (el, binding, vnode) {
-      applyClientStyles(el, binding, vnode)
-    }
+    bind: applyClientStyles,
+    update: applyClientStyles,
+    unbind: applyClientStyles
   }
 }

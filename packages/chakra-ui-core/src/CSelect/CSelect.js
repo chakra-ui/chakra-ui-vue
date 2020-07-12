@@ -8,13 +8,12 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSelect/CSelect.js
  */
 
-import { baseProps } from '../config'
-import styleProps from '../config/props'
 import { inputProps } from '../CInput/utils/input.props'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
 import CInput from '../CInput'
+import { createStyledAttrsMixin, extractListeners, forwardProps } from '../utils'
 import splitProps from './utils/select.utils'
 
 /**
@@ -27,11 +26,12 @@ import splitProps from './utils/select.utils'
  */
 const CSelectIconWrapper = {
   name: 'SelectIconWrapper',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, slots, ...rest }) {
     return h(CBox, {
-      props: {
-        ...this.$props,
+      ...rest,
+      attrs: {
+        ...data.attrs,
         position: 'absolute',
         display: 'inline-flex',
         width: '1.5rem',
@@ -42,12 +42,10 @@ const CSelectIconWrapper = {
         top: '50%',
         pointerEvents: 'none',
         zIndex: 2,
-        transform: 'translateY(-50%)'
-      },
-      attrs: {
+        transform: 'translateY(-50%)',
         'data-chakra-component': 'CSelectIconWrapper'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -61,35 +59,51 @@ const CSelectIconWrapper = {
  */
 const CSelectInput = {
   name: 'CSelectInput',
+  functional: true,
   props: {
-    ...styleProps,
     ...inputProps,
     placeholder: String,
     value: String
   },
-  render (h) {
+  render (h, { props, data, slots, listeners, ...rest }) {
+    const nonNativeEvents = {
+      change: (e) => {
+        const emitChange = listeners.change
+        if (emitChange) {
+          emitChange(e)
+        }
+      }
+    }
+
+    const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
+    console.log(forwardProps(props))
     return h(CInput, {
+      ...rest,
       props: {
-        ...this.$props,
+        ...forwardProps(props),
+        as: 'select'
+      },
+      on: nonNative,
+      nativeOn: native,
+      domProps: {
+        value: props.value
+      },
+      attrs: {
         as: 'select',
         appearance: 'none',
         pr: '2rem',
         pb: 'px',
-        lineHeight: 'normal'
-      },
-      on: {
-        change: e => this.$emit('change', e)
-      },
-      domProps: {
-        value: this.value
+        lineHeight: 'normal',
+        ...data.attrs,
+        'data-chakra-component': 'CSelectInput'
       }
     }, [
-      this.placeholder && h('option', {
+      props.placeholder && h('option', {
         attrs: {
           value: ''
         }
-      }, this.placeholder),
-      this.$slots.default
+      }, props.placeholder),
+      slots().default
     ])
   }
 }
@@ -103,14 +117,12 @@ const CSelectInput = {
  * @see Docs https://vue.chakra-ui.com/select
  */
 const CSelect = {
-  name: 'CSelect',
-  inject: ['$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CSelect', true)],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...styleProps,
     ...inputProps,
     rootProps: {
       type: Object,
@@ -134,9 +146,6 @@ const CSelect = {
     }
   },
   computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
     _color () {
       return this.colorMode === 'dark' ? 'whiteAlpha.800' : 'inherit'
     },
@@ -145,45 +154,56 @@ const CSelect = {
     },
     _value () {
       return this.value
+    },
+    allSplitProps () {
+      return splitProps(this.$data.attrs$)
+    },
+    componentStyles () {
+      const [root] = this.allSplitProps
+      return {
+        ...root,
+        ...this.rootProps,
+        position: 'relative',
+        width: '100%'
+      }
     }
   },
   render (h) {
-    const { rootProps, icon, iconSize, ...props } = this.$props
-    const [root, select] = splitProps(props)
-    return h(CBox, {
-      props: {
-        ...root,
-        ...rootProps,
-        position: 'relative',
-        width: '100%'
-      },
+    const { icon, iconSize } = this.$props
+    const [, select] = this.allSplitProps
+    return h('div', {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         'data-chakra-component': 'CSelect'
       }
     }, [
       h(CSelectInput, {
         props: {
-          color: this._color,
           placeholder: this.placeholder,
-          ...select
+          ...forwardProps(this.$props)
+        },
+        attrs: {
+          color: this._color,
+          ...select,
+          value: this._value
         },
         on: {
-          change: e => this.$emit('change', e.target.value)
-        },
-        domProps: {
-          value: this._value
+          change: (e) => {
+            this.$emit('change', e.target.value)
+          }
         }
       }, this.$slots.default),
       h(CSelectIconWrapper, {
-        props: {
+        attrs: {
           opacity: this._opacity,
           color: select.color || this._color
         }
       }, [
         h(CIcon, {
           props: {
-            name: this.icon || 'chevron-down',
-            size: this.iconSize
+            name: icon || 'chevron-down',
+            size: iconSize
           },
           attrs: {
             focusable: false,

@@ -64,7 +64,7 @@ const CIconButton = {
       click: (e) => {
         const emitClick = context.listeners.click
         if (emitClick) {
-          emitClick('click', e)
+          emitClick(e)
         }
       }
     }

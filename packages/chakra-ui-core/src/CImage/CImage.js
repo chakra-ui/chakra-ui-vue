@@ -76,9 +76,6 @@ const CImage = {
     return h(CNoSsr, [
       h('img', {
         class: this.className,
-        // domProps: {
-        //   ...imageProps
-        // },
         attrs: {
           ...imageProps,
           ...this.computedAttrs,

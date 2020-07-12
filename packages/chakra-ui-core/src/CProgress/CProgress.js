@@ -113,7 +113,7 @@ const CProgressIndicator = {
     }
   },
   render (h) {
-    return h(this.as || 'div', {
+    return h(this.as, {
       class: [this.className],
       attrs: {
         ...this.computedAttrs,

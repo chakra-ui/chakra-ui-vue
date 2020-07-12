@@ -35,7 +35,7 @@ const CCircularProgressLabel = {
     }
   },
   render (h) {
-    return h(this.as || 'div', {
+    return h(this.as, {
       class: [this.className],
       style: {
         fontVariantNumeric: 'tabular-nums'

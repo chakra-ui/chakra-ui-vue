@@ -7,7 +7,7 @@
 
 import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
-import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
+import { createChainedFunction, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
 import ClickOutside from '../directives/clickoutside.directive'
 
 import CBox from '../CBox'
@@ -57,7 +57,10 @@ const CPopper = {
     ClickOutside
   },
   props: {
-    as: String,
+    as: {
+      type: [String, Object],
+      default: 'div'
+    },
     isOpen: Boolean,
     placement: {
       type: String,
@@ -297,7 +300,7 @@ const CPopper = {
       style: {
         display: this.isOpen ? 'unset' : 'none'
       },
-      props: { as: this.as || 'div' },
+      props: { as: this.as },
       directives: [{
         name: 'click-outside',
         value: this.wrapClose
@@ -318,15 +321,17 @@ const CPopper = {
 
 const CPopperArrow = {
   name: 'CPopperArrow',
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CBox, {
+      ...rest,
       attrs: {
+        ...data.attrs,
         'x-arrow': true,
         'data-popper-arrow': true,
         role: 'presentation',
         'data-chakra-component': 'CPopperArrow'
-      },
-      props: forwardProps(this.$props)
+      }
     })
   }
 }

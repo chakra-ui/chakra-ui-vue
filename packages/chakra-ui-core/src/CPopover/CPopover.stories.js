@@ -117,7 +117,7 @@ storiesOf('UI | Popover', module)
   .add('Customizing the Popover', () => ({
     components: { CButton, CPopover, CPopoverTrigger, CPopoverContent, CPopoverHeader, CPopoverBody, CPopoverArrow, CPopoverCloseButton, CPopoverFooter, CBox },
     template: `
-      <CPopover>
+      <CPopover :closeOnBlur="false">
         <CPopoverTrigger>
           <CBox
             tabIndex="0"

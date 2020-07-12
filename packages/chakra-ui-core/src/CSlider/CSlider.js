@@ -8,13 +8,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSlider/CSlider.js
  */
 
-import { baseProps } from '../config'
-import { isDef, valueToPercent, useId, getElById, forwardProps } from '../utils'
+import { isDef, valueToPercent, useId, getElById, createStyledAttrsMixin } from '../utils'
 import { percentToValue } from '../utils/transform'
-import styleProps from '../config/props'
-
-import CBox from '../CBox'
-import CPseudoBox from '../CPseudoBox'
 import useSliderStyle from './utils/slider.styles'
 import { clampValue, roundValueToStep } from './utils/slider.utils'
 
@@ -27,14 +22,12 @@ import { clampValue, roundValueToStep } from './utils/slider.utils'
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSlider = {
-  name: 'CSlider',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CSlider')],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     value: Number,
     defaultValue: Number,
     isDisabled: Boolean,
@@ -118,6 +111,12 @@ const CSlider = {
         trackPercent: this.trackPercentage
       })
       return rootStyle
+    },
+    componentStyles () {
+      return {
+        ...this.sliderStyles,
+        py: 3
+      }
     },
     valueText () {
       return this.getAriaValueText
@@ -280,21 +279,18 @@ const CSlider = {
   render (h) {
     const children = this.$slots.default || []
 
-    return h(CBox, {
-      props: {
-        ...this.$props,
-        ...this.sliderStyles,
-        py: 3
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         role: 'presentation',
         'aria-disabled': this.isDisabled,
-        'data-chakra-component': 'CSlider'
+        ...this.computedAttrs
       },
       style: {
         touchAction: 'none'
       },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         mousedown: this.handleMouseDown,
         touchstart: this.handleMouseDown,
         mouseleave: this.handleMouseUp,
@@ -327,20 +323,13 @@ const CSlider = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderTrack = {
-  name: 'CSliderTrack',
-  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
-  props: baseProps,
+  mixins: [createStyledAttrsMixin('CSliderTrack')],
+  inject: ['$SliderContext'],
   computed: {
     context () {
       return this.$SliderContext()
     },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    trackStyles () {
+    componentStyles () {
       const { trackStyle } = useSliderStyle({
         ...this.context,
         theme: this.theme,
@@ -351,17 +340,16 @@ const CSliderTrack = {
   },
   render (h) {
     const { isDisabled, trackId } = this.context
-    return h(CBox, {
-      props: {
-        ...this.trackStyles,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         id: trackId,
         'data-slider-track': '',
         'aria-disabled': isDisabled,
         'data-chakra-component': 'CSliderTrack'
-      }
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -375,20 +363,13 @@ const CSliderTrack = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderFilledTrack = {
-  name: 'CSliderFilledTrack',
-  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
-  props: styleProps,
+  mixins: [createStyledAttrsMixin('CSliderFilledTrack', true)],
+  inject: ['$SliderContext'],
   computed: {
     context () {
       return this.$SliderContext()
     },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    filledTrackStyles () {
+    componentStyles () {
       const { filledTrackStyle } = useSliderStyle({
         ...this.context,
         theme: this.theme,
@@ -399,16 +380,15 @@ const CSliderFilledTrack = {
   },
   render (h) {
     const { isDisabled } = this.context
-    return h(CPseudoBox, {
-      props: {
-        ...this.filledTrackStyles,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         'aria-disabled': isDisabled,
         'data-slider-filled-track': '',
         'data-chakra-component': 'CSliderFilledTrack'
-      }
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -422,18 +402,36 @@ const CSliderFilledTrack = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderThumb = {
-  name: 'CSliderThumb',
-  inject: ['$SliderContext', '$chakraTheme', '$chakraColorMode'],
-  props: baseProps,
+  mixins: [createStyledAttrsMixin('CSliderThumb', true)],
+  inject: ['$SliderContext'],
   computed: {
     context () {
       return this.$SliderContext()
     },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
+    componentStyles () {
+      const {
+        orientation,
+        trackPercent,
+        size,
+        color
+      } = this.context
+
+      const { thumbStyle } = useSliderStyle({
+        trackPercent,
+        orientation,
+        color,
+        size,
+        theme: this.theme,
+        colorMode: this.colorMode
+      })
+
+      return {
+        d: 'flex',
+        alignItems: 'center',
+        outline: 'none',
+        justifyContent: 'center',
+        ...thumbStyle
+      }
     }
   },
   render (h) {
@@ -446,32 +444,14 @@ const CSliderThumb = {
       max,
       valueText,
       orientation,
-      trackPercent,
-      size,
-      color,
       value,
       ariaLabelledBy
     } = this.context
 
-    const { thumbStyle } = useSliderStyle({
-      trackPercent,
-      orientation,
-      color,
-      size,
-      theme: this.theme,
-      colorMode: this.colorMode
-    })
-
-    return h(CPseudoBox, {
-      props: {
-        d: 'flex',
-        alignItems: 'center',
-        outline: 'none',
-        justifyContent: 'center',
-        ...thumbStyle,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         id: thumbId,
         role: 'slider',
         tabIndex: isDisabled ? undefined : 0,
@@ -484,7 +464,8 @@ const CSliderThumb = {
         'aria-labelledby': ariaLabelledBy,
         'data-chakra-component': 'CSliderThumb'
       },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         keydown: onKeyDown,
         focus: onFocus
       }

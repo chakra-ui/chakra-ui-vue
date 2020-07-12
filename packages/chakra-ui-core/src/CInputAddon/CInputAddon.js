@@ -7,12 +7,10 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInputAddon/CInputAddon.js
  */
 
-import styleProps from '../config/props'
 import useInputStyle from '../CInput/utils/input.styles'
 import { forwardProps, createStyledAttrsMixin } from '../utils'
 
 const addonProps = {
-  ...styleProps,
   placement: {
     type: String,
     default: 'left'
@@ -65,7 +63,7 @@ const CInputAddon = {
     }
   },
   render (h) {
-    return h(this.as || 'div', {
+    return h(this.as, {
       class: [this.className],
       attrs: this.computedAttrs,
       on: this.computedListeners

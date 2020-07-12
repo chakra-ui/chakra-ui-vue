@@ -566,7 +566,7 @@ const CModalBody = {
   },
   render (h) {
     const { bodyId } = this.context
-    return h(this.as || 'div', {
+    return h(this.as, {
       class: [this.className],
       attrs: {
         id: bodyId,

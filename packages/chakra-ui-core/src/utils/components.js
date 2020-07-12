@@ -47,7 +47,10 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
     }
   },
   props: {
-    as: [String, Object],
+    as: {
+      type: [String, Object],
+      default: 'div'
+    },
     to: String
   },
   computed: {

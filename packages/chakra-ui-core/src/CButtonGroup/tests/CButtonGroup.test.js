@@ -1,5 +1,5 @@
 import { CButton, CButtonGroup } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -23,7 +23,7 @@ it('should render correctly', () => {
 })
 
 it('should attach buttons when `is-attached` is passed', () => {
-  const { asFragment, getByText } = renderComponent({
+  const { asFragment } = renderComponent({
     template: `
     <CButtonGroup isAttached>
       <CButton>Button1</CButton>
@@ -31,13 +31,13 @@ it('should attach buttons when `is-attached` is passed', () => {
     </CButtonGroup>`
   })
 
-  const button = getByText('Button1')
+  const button = screen.getByText('Button1')
   expect(button).toHaveStyle('border-top-right-radius: 0; border-bottom-right-radius: 0;')
   expect(asFragment()).toMatchSnapshot()
 })
 
 it('should display children', () => {
-  const { getByText } = renderComponent()
-  expect(getByText('Button1')).toBeInTheDocument()
-  expect(getByText('Button2')).toBeInTheDocument()
+  renderComponent()
+  expect(screen.getByText('Button1')).toBeInTheDocument()
+  expect(screen.getByText('Button2')).toBeInTheDocument()
 })

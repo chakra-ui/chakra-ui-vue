@@ -7,13 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTabs/CTabs.js
  */
 
-import { baseProps } from '../config'
-import { useVariantColorWarning, isDef, useId, forwardProps, cleanChildren, cloneVNodeElement } from '../utils'
-import styleProps from '../config/props'
-
-import CFlex from '../CFlex'
-import CBox from '../CBox'
-import CPseudoBox from '../CPseudoBox'
+import { useVariantColorWarning, isDef, useId, cleanChildren, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
 
 /**
@@ -25,10 +19,8 @@ import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabs = {
-  name: 'CTabs',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CTabs')],
   props: {
-    ...baseProps,
     index: Number,
     defaultIndex: Number,
     isManual: Boolean,
@@ -86,12 +78,6 @@ const CTabs = {
         orientation: this.orientation,
         set: this.set
       }
-    },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
     },
     isControlled () {
       return isDef(this.index)
@@ -180,11 +166,10 @@ const CTabs = {
     }
   },
   render (h) {
-    return h(CBox, {
-      props: forwardProps(this.$props),
-      attrs: {
-        'data-chakra-component': 'CTabs'
-      }
+    return h(this.as, {
+      class: [this.className],
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -198,9 +183,8 @@ const CTabs = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabList = {
-  name: 'CTabList',
-  props: baseProps,
-  inject: ['$TabContext', '$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CTabList')],
+  inject: ['$TabContext'],
   data () {
     return {
       allNodes: {},
@@ -212,20 +196,17 @@ const CTabList = {
     context () {
       return this.$TabContext()
     },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    tabListStyleProps () {
+    componentStyles () {
       const { align, variant, orientation } = this.context
-      return useTabListStyle({
-        theme: this.theme,
-        align,
-        orientation,
-        variant
-      })
+      return {
+        display: 'flex',
+        ...useTabListStyle({
+          theme: this.theme,
+          align,
+          orientation,
+          variant
+        })
+      }
     },
     enabledSelectedIndex () {
       const { selectedIndex } = this.context
@@ -329,17 +310,15 @@ const CTabList = {
       .map((child, index) => (child.componentOptions.propsData.isDisabled === true ? null : index))
       .filter(index => index != null)
 
-    return h(CFlex, {
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         role: 'tablist',
         'aria-orientation': orientation,
-        'data-chakra-component': 'CTabList'
+        ...this.computedAttrs
       },
-      props: {
-        ...this.tabListStyleProps,
-        ...forwardProps()
-      },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         keydown: this.handleKeyDown
       }
     }, clones)
@@ -355,46 +334,40 @@ const CTabList = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTab = {
-  name: 'CTab',
-  inject: ['$chakraTheme', '$chakraColorMode', '$TabContext'],
+  mixins: [createStyledAttrsMixin('CTab', true)],
+  inject: ['$TabContext'],
   props: {
-    ...styleProps,
     isSelected: Boolean,
     isDisabled: Boolean,
-    id: String
+    id: String,
+    as: {
+      type: [String, Object],
+      default: 'button'
+    }
   },
   computed: {
     context () {
       return this.$TabContext()
     },
-    tabStyleProps () {
+    componentStyles () {
       const { color, isFitted, orientation, size, variant } = this.context
-      const styles = useTabStyle({
-        colorMode: this.colorMode,
-        theme: this.theme,
-        color,
-        isFitted,
-        orientation,
-        size,
-        variant
-      })
-      return styles
-    },
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
+      return {
+        outline: 'none',
+        ...useTabStyle({
+          colorMode: this.colorMode,
+          theme: this.theme,
+          color,
+          isFitted,
+          orientation,
+          size,
+          variant
+        })
+      }
     }
   },
   render (h) {
-    return h(CPseudoBox, {
-      props: {
-        outline: 'none',
-        as: 'button',
-        ...this.tabStyleProps,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         role: 'tab',
         tabIndex: this.isSelected ? 0 : -1,
@@ -404,8 +377,9 @@ const CTab = {
         'aria-disabled': this.isDisabled,
         'aria-selected': this.isSelected,
         'aria-controls': `panel:${this.id}`,
-        'data-chakra-component': 'CTab'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -419,16 +393,15 @@ const CTab = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabPanel = {
-  name: 'CTabPanel',
+  mixins: [createStyledAttrsMixin('CTabPanel')],
   props: {
-    ...baseProps,
     isSelected: Boolean,
     selectedPanelNode: Object,
     id: String
   },
   render (h) {
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         role: 'tabpanel',
         tabIndex: -1,
@@ -436,8 +409,9 @@ const CTabPanel = {
         hidden: !this.isSelected,
         id: `panel:${this.id}`,
         outline: 0,
-        'data-chakra-component': 'CTabPanel'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -451,9 +425,8 @@ const CTabPanel = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabPanels = {
-  name: 'CTabPanels',
+  mixins: [createStyledAttrsMixin('CTabPanels')],
   inject: ['$TabContext'],
-  props: baseProps,
   computed: {
     context () {
       return this.$TabContext()
@@ -470,20 +443,22 @@ const CTabPanels = {
     const validChildren = cleanChildren(this.$slots.default)
 
     const clones = validChildren.map((child, index) => {
+      const isSelected = isManual ? index === manualIndex : index === selectedIndex
       return cloneVNodeElement(child, {
         props: {
-          isSelected: isManual ? index === manualIndex : index === selectedIndex,
+          isSelected,
           id: `${id}-${index}`
         }
       }, h)
     })
 
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         tabIndex: -1,
-        'data-chakra-component': 'CTabPanels'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, clones)
   }
 }

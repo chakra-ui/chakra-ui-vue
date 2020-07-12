@@ -249,7 +249,8 @@ const CAvatar = {
             h: '100%',
             rounded: 'full',
             objectFit: 'cover',
-            alt: this.name
+            alt: this.name,
+            src: this.src
           },
           domProps: {
             src: this.src

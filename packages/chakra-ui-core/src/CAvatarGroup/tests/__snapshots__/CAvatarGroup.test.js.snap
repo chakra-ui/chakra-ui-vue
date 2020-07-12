@@ -54,7 +54,7 @@ exports[`should render correctly 1`] = `
     >
       <img
         alt="Mesut Koca"
-        class="css-58rle2"
+        class="css-6qjm3j"
         data-chakra-component="CBox"
         src="LOAD_SUCCESS_SRC"
       />
@@ -65,7 +65,7 @@ exports[`should render correctly 1`] = `
     >
       <img
         alt="Evan You"
-        class="css-58rle2"
+        class="css-6qjm3j"
         data-chakra-component="CBox"
         src="LOAD_SUCCESS_SRC"
       />

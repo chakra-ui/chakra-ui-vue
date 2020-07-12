@@ -8,12 +8,12 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
   >
     <img
       alt="Mesut Koca"
-      class="css-58rle2"
+      class="css-6qjm3j"
       data-chakra-component="CBox"
       src="LOAD_SUCCESS_SRC"
     />
     <div
-      class="css-mwkd9l"
+      class="css-bruuz9"
       data-chakra-component="CAvatarBadge"
     />
   </div>
@@ -27,13 +27,13 @@ exports[`renders an image 1`] = `<DocumentFragment />`;
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-2sxxyf"
+    class="css-1sovlky"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <img
       alt="Mesut Koca"
-      class="css-58rle2"
+      class="css-6qjm3j"
       data-chakra-component="CBox"
       src="LOAD_SUCCESS_SRC"
     />

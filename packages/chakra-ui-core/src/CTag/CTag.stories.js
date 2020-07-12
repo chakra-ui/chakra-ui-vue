@@ -1,16 +1,18 @@
 import { storiesOf } from '@storybook/vue'
-import { CBox, CTag, CTagLabel, CFlex, CTagIcon, CTagCloseButton, CAvatar } from '..'
+import { CBox, CTag, CStack, CTagLabel, CTagIcon, CTagCloseButton, CAvatar } from '..'
 
 storiesOf('UI | Tag', module)
   .add('Basic Usage', () => ({
-    components: { CBox, CFlex, CTag, CTagLabel, CTagIcon, CTagCloseButton },
+    components: { CBox, CStack, CTag, CTagLabel, CTagIcon, CTagCloseButton },
     template: `
-      <CFlex mb="3">
-        <CTag v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size" mx="1" variantColor="green">
-          <CTagIcon icon="add" size="12px" />
-          <CTagLabel>Green</CTagLabel>
-        </CTag>
-      </CFlex>
+      <CStack is-inline>
+        <CBox v-for="size in ['sm', 'md', 'lg']" >
+          <CTag :size="size" :key="size" mx="1" variantColor="green">
+            <CTagIcon icon="add" size="12px" />
+            <CTagLabel>Green</CTagLabel>
+          </CTag>
+        </CBox>
+      </CStack>
     `
   }))
   .add('With Right Icon', () => ({
@@ -30,10 +32,15 @@ storiesOf('UI | Tag', module)
       <CBox mb="3">
         <CTag rounded="full" v-for="size in ['sm', 'md', 'lg']" :size="size" :key="size + 'cyan'" mx="1" variantColor="cyan">
           <CTagLabel>Green</CTagLabel>
-          <CTagCloseButton icon="sun" size="12px" />
+          <CTagCloseButton @click="onClick" icon="sun" size="12px" />
         </CTag>
       </CBox>
-    `
+    `,
+    methods: {
+      onClick (e) {
+        console.log('clicked TagIconButton', e)
+      }
+    }
   }))
   .add('With custom element', () => ({
     components: { CBox, CTag, CTagLabel, CTagIcon, CTagCloseButton, CAvatar },

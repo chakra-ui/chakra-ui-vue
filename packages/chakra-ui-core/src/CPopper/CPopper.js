@@ -64,7 +64,10 @@ const CPopper = {
     isOpen: Boolean,
     placement: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
+      validator: value => value.match(
+        /^(top|top-start|top-end|right|right-start|right-end|bottom|bottom-start|bottom-end|left|left-start|left-end)$/
+      )
     },
     usePortal: {
       type: Boolean,

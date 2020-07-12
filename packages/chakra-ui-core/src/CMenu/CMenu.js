@@ -321,6 +321,14 @@ const CMenuList = {
       return this.$chakraColorMode()
     }
   },
+  props: {
+    placement: {
+      type: String,
+      validator: value => value.match(
+        /^(top|top-start|top-end|right|right-start|right-end|bottom|bottom-start|bottom-end|left|left-start|left-end)$/
+      )
+    }
+  },
   methods: {
     handleKeyDown (event) {
       const { activeIndex: index, focusAtIndex, focusOnFirstItem, focusOnLastItem, closeMenu, focusableItems } = this.context
@@ -382,7 +390,7 @@ const CMenuList = {
         usePortal: false,
         isOpen,
         anchorEl: buttonNode,
-        placement,
+        placement: this.placement || placement,
         modifiers: [
           {
             name: 'preventOverflow',

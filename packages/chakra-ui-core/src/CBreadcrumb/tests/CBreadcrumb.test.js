@@ -1,5 +1,5 @@
 import { CBreadcrumb, CBreadcrumbItem, CBreadcrumbLink, CBreadcrumbSeparator } from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -49,7 +49,7 @@ it('should display custom seperator ', () => {
 })
 
 it('should have the proper aria-attributes', () => {
-  const { getByText, getAllByRole, getByLabelText } = renderComponent({
+  renderComponent({
     template: `
     <CBreadcrumb>
       <CBreadcrumbItem>
@@ -65,12 +65,12 @@ it('should have the proper aria-attributes', () => {
   })
 
   // surrounding `nav` has aria-label="breadcrumb"
-  getByLabelText('breadcrumb', { selector: 'nav' })
+  screen.getByLabelText('breadcrumb', { selector: 'nav' })
 
   // `isCurrentPage` link has aria-current="page"
-  const currentPageLink = getByText('Contact')
+  const currentPageLink = screen.getByText('Contact')
   expect(currentPageLink).toHaveAttribute('aria-current', 'page')
 
   // separator receives presentation="role"
-  expect(getAllByRole('presentation')).toHaveLength(2)
+  expect(screen.getAllByRole('presentation')).toHaveLength(2)
 })

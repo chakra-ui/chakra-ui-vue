@@ -44,39 +44,11 @@ exports[`should render correct variant styles 1`] = `
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
@@ -94,39 +66,11 @@ exports[`should render correct variant styles 1`] = `
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
@@ -144,39 +88,11 @@ exports[`should render correct variant styles 1`] = `
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
@@ -194,39 +110,11 @@ exports[`should render correct variant styles 1`] = `
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
@@ -251,36 +139,10 @@ exports[`should render correctly 1`] = `
     >
       
     
-      <g
-        stroke="currentColor"
-        strokewidth="1.5"
-      >
-        
-      
-        <path
-          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-          fill="none"
-          strokelinecap="full"
-        />
-        
-      
-        <path
-          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-          fill="none"
-          strokelinecap="full"
-        />
-        
-      
-        <circle
-          cx="12"
-          cy="12"
-          fill="none"
-          r="11.25"
-          strokemiterlimit="10"
-        />
-        
-    
-      </g>
+      <path
+        d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+        fill="currentColor"
+      />
       
     
     </svg>

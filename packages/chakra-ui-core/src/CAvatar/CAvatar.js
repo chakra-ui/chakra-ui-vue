@@ -219,7 +219,6 @@ const CAvatar = {
       if (!canUseDOM) {
         return
       }
-
       const image = new window.Image()
       image.src = src
 
@@ -228,7 +227,7 @@ const CAvatar = {
         this.$emit('load', event)
       }
 
-      image.onError = (event) => {
+      image.onerror = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }
@@ -258,7 +257,7 @@ const CAvatar = {
         })
       }
 
-      if (this.src && !this.hasLoaded) {
+      if (!this.src || (this.src && !this.hasLoaded)) {
         if (this.name) {
           return h(CAvatarName, {
             props: {

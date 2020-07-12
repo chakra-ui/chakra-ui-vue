@@ -1,5 +1,5 @@
 import { CAccordion, CAccordionItem, CAccordionHeader, CAccordionPanel, CAccordionIcon } from '..'
-import { render, userEvent, fireEvent } from '@/tests/test-utils'
+import { render, userEvent, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -10,9 +10,8 @@ const renderComponent = (props) => {
 }
 
 it('should render correctly', () => {
-  const { asFragment } = renderComponent(
-    {
-      template: `
+  const { asFragment } = renderComponent({
+    template: `
     <CAccordion>
       <CAccordionItem id="ac-1">
         <CAccordionHeader>Section 1 title<CAccordionIcon /></CAccordionHeader>
@@ -20,13 +19,12 @@ it('should render correctly', () => {
       </CAccordionItem>
     </CAccordion>
     `
-    }
-  )
+  })
   expect(asFragment()).toMatchSnapshot()
 })
 
 it('uncontrolled: It opens the accordion panel', () => {
-  const { getByTestId } = renderComponent({
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -35,14 +33,13 @@ it('uncontrolled: It opens the accordion panel', () => {
       </CAccordionItem>
     </CAccordion>
     `
-  }
-  )
-  const button = getByTestId('button')
+  })
+  const button = screen.getByTestId('button')
   expect(button).toHaveAttribute('aria-expanded', 'true')
 })
 
-it('uncontrolled: toggles the accordion on click', () => {
-  const { getByText } = renderComponent({
+it('uncontrolled: toggles the accordion on click', async () => {
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -52,19 +49,17 @@ it('uncontrolled: toggles the accordion on click', () => {
     </CAccordion>`
   })
 
-  const trigger = getByText('Trigger')
-
-  userEvent.click(trigger)
-  expect(trigger).toHaveAttribute('aria-expanded', 'true')
+  await userEvent.click(screen.getByText('Trigger'))
+  expect(screen.getByText('Trigger')).toHaveAttribute('aria-expanded', 'true')
 
   // you can't toggle an accordion without passing `allowToggle`
-  userEvent.click(trigger)
-  expect(trigger).toHaveAttribute('aria-expanded', 'true')
+  await userEvent.click(screen.getByText('Trigger'))
+  expect(screen.getByText('Trigger')).toHaveAttribute('aria-expanded', 'true')
 })
 
 // test the only one accordion can be visible + is not togglable
-it('only one accordion can be visible + is not togglable', () => {
-  const { getByText } = renderComponent({
+it('only one accordion can be visible + is not togglable', async () => {
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -78,21 +73,19 @@ it('only one accordion can be visible + is not togglable', () => {
     </CAccordion>`
   })
 
-  const firstAccordion = getByText('First section')
+  await userEvent.click(screen.getByText('First section'))
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'true')
 
-  userEvent.click(firstAccordion)
-  expect(firstAccordion).toHaveAttribute('aria-expanded', 'true')
-
-  userEvent.click(firstAccordion)
-  expect(firstAccordion).toHaveAttribute('aria-expanded', 'true')
+  await userEvent.click(screen.getByText('First section'))
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'true')
 })
 
 // test the only one accordion can be visible + is togglable
-it('only one accordion can be visible + is togglable', () => {
-  const { getByText } = renderComponent({
+it('only one accordion can be visible + is togglable', async () => {
+  renderComponent({
     template: `
     <CAccordion allowToggle>
-      <CAccordionItem>
+      <CAccordionItem data-testid="accordionItem1">
         <CAccordionHeader>First section</CAccordionHeader>
         <CAccordionPanel>Panel 1</CAccordionPanel>
       </CAccordionItem>
@@ -102,21 +95,19 @@ it('only one accordion can be visible + is togglable', () => {
       </CAccordionItem>
     </CAccordion>`
   })
-  const firstAccordion = getByText('First section')
 
-  // TODO: Why its not working?
-  // fireEvent.click(firstAccordion)
-  // expect(firstAccordion).toHaveAttribute('aria-expanded', 'false')
+  await userEvent.click(screen.getByText('First section'))
+  expect(screen.getByText('First section')).not.toHaveAttribute('aria-expanded') // false or null?
 
-  userEvent.click(firstAccordion)
-  expect(firstAccordion).toHaveAttribute('aria-expanded', 'true')
+  await userEvent.click(screen.getByText('First section'))
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'true')
 })
 
 // test that multiple accordions can be opened + is togglable
-it('multiple accordions can be opened + is togglable', () => {
-  const { getByText } = renderComponent({
+it('multiple accordions can be opened + is togglable', async () => {
+  renderComponent({
     template: `
-    <CAccordion allowMultiple :defaultIndex="[0]">
+    <CAccordion allowMultiple :defaultIndex="[0, 1]">
       <CAccordionItem>
         <CAccordionHeader>First section</CAccordionHeader>
         <CAccordionPanel>Panel 1</CAccordionPanel>
@@ -128,19 +119,16 @@ it('multiple accordions can be opened + is togglable', () => {
     </CAccordion>`
   })
 
-  const firstAccordion = getByText('First section')
-  const secondAccordion = getByText('Second section')
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'true')
+  expect(screen.getByText('Second section')).toHaveAttribute('aria-expanded', 'true')
 
-  userEvent.click(firstAccordion)
-  expect(firstAccordion).toHaveAttribute('aria-expanded', 'true')
-
-  userEvent.click(secondAccordion)
-  expect(firstAccordion).toHaveAttribute('aria-expanded', 'true')
+  await userEvent.click(screen.getByText('First section'))
+  expect(screen.getByText('First section')).not.toHaveAttribute('aria-expanded')
 })
 
 // it has the proper aria attributes
 it('has the proper aria attributes', () => {
-  const { getByText, getByTestId } = renderComponent({
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -149,16 +137,15 @@ it('has the proper aria attributes', () => {
       </CAccordionItem>
     </CAccordion>`
   })
-  const button = getByText('Section 1 title')
-  const panel = getByTestId('panel1')
+  const button = screen.getByText('Section 1 title')
+  const panel = screen.getByTestId('panel1')
   expect(button).toHaveAttribute('aria-controls')
   expect(button).toHaveAttribute('aria-expanded')
   expect(panel).toHaveAttribute('aria-labelledby')
 })
 
-// test that tab moves focus to the next focusable element
-it('tab moves focus to the next focusable element', () => {
-  const { getByText } = renderComponent({
+it('tab moves focus to the next focusable element', async () => {
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -176,23 +163,58 @@ it('tab moves focus to the next focusable element', () => {
     </CAccordion>`
   })
 
-  const first = getByText('First section')
-  const second = getByText('Second section')
-  const last = getByText('Last section')
+  const first = screen.getByText('First section')
+  const second = screen.getByText('Second section')
+  const last = screen.getByText('Last section')
 
-  userEvent.tab()
+  await userEvent.tab()
   expect(first).toHaveFocus()
 
-  userEvent.tab()
+  await userEvent.tab()
   expect(second).toHaveFocus()
 
-  userEvent.tab()
+  await userEvent.tab()
   expect(last).toHaveFocus()
 })
 
-// test that aria-contols for button is same as id for panel
+it('shift+tab moves focus to the previous focusable element', async () => {
+  renderComponent({
+    template: `
+    <CAccordion>
+      <CAccordionItem>
+        <CAccordionHeader>First section</CAccordionHeader>
+        <CAccordionPanel>Panel 1</CAccordionPanel>
+      </CAccordionItem>
+      <CAccordionItem>
+        <CAccordionHeader>Second section</CAccordionHeader>
+        <CAccordionPanel>Panel 2</CAccordionPanel>
+      </CAccordionItem>
+      <CAccordionItem>
+        <CAccordionHeader>Last section</CAccordionHeader>
+        <CAccordionPanel>Panel 3</CAccordionPanel>
+      </CAccordionItem>
+    </CAccordion>`
+  })
+
+  const first = screen.getByText('First section')
+  const second = screen.getByText('Second section')
+  const last = screen.getByText('Last section')
+
+  await userEvent.tab()
+  expect(first).toHaveFocus()
+
+  await userEvent.tab()
+  expect(second).toHaveFocus()
+
+  await userEvent.tab()
+  expect(last).toHaveFocus()
+
+  await userEvent.tab({ shift: true }) // shift+tab
+  expect(second).toHaveFocus()
+})
+
 it('aria-contols for button is same as id for panel', () => {
-  const { getByText, getByTestId } = renderComponent({
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -202,14 +224,13 @@ it('aria-contols for button is same as id for panel', () => {
     </CAccordion>`
   })
 
-  const button = getByText('Section 1 title')
-  const panel = getByTestId('panel1')
+  const button = screen.getByText('Section 1 title')
+  const panel = screen.getByTestId('panel1')
   expect(button.getAttribute('aria-controls')).toEqual(panel.getAttribute('id'))
 })
 
-// test that aria-expanded is true/false when accordion is open/closed
 it('aria-expanded is true/false when accordion is open/closed', () => {
-  const { getByText } = renderComponent({
+  renderComponent({
     template: `
     <CAccordion :defaultIndex="[0]">
       <CAccordionItem>
@@ -223,13 +244,12 @@ it('aria-expanded is true/false when accordion is open/closed', () => {
     </CAccordion>`
   })
 
-  const button = getByText('Section 1 title')
+  const button = screen.getByText('Section 1 title')
   expect(button).toHaveAttribute('aria-expanded', 'true')
 })
 
-// test that panel has role=region and aria-labelledby
 it('panel has role=region and aria-labelledby', () => {
-  const { getByTestId } = renderComponent({
+  renderComponent({
     template: `
     <CAccordion>
       <CAccordionItem>
@@ -238,44 +258,8 @@ it('panel has role=region and aria-labelledby', () => {
       </CAccordionItem>
     </CAccordion>`
   })
-  const panel = getByTestId('panel1')
+  const panel = screen.getByTestId('panel1')
 
   expect(panel).toHaveAttribute('aria-labelledby')
   expect(panel).toHaveAttribute('role', 'region')
-})
-
-/**
- * This particular arrow listener for accordions
- * implementation is optional as per the
- * WAI-ARIA Accordion spec.
- *
- * We may decide to implement this is the future if the
- * need becomes apparent.
- * @see A11Y https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAccordion/accessibility.md
- * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#accordion
- */
-// eslint-disable-next-line no-undef
-xit('arrow up & down moves focus to next/previous accordion', () => {
-  const { getByText } = renderComponent({
-    template: `
-    <CAccordion>
-      <CAccordionItem>
-        <CAccordionHeader>Section 1 title</CAccordionHeader>
-        <CAccordionPanel>Panel 1</CAccordionPanel>
-      </CAccordionItem>
-      <CAccordionItem>
-        <CAccordionHeader>Section 2 title</CAccordionHeader>
-        <CAccordionPanel>Panel 2</CAccordionPanel>
-      </CAccordionItem>
-    </CAccordion>`
-  })
-
-  const first = getByText('Section 1 title')
-  const second = getByText('Section 2 title')
-
-  fireEvent.keyDown(first, { key: 'ArrowDown', keyCode: 40 })
-  expect(second).toHaveFocus()
-
-  fireEvent.keyDown(second, { key: 'ArrowUp', keyCode: 38 })
-  expect(first).toHaveFocus()
 })

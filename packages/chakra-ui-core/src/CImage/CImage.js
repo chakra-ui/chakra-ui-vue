@@ -77,12 +77,13 @@ const CImage = {
       h('img', {
         class: this.className,
         domProps: {
-          width: this.htmlWidth,
-          height: this.htmlHeight
+          ...imageProps
         },
         attrs: {
           ...imageProps,
-          ...this.computedAttrs
+          ...this.computedAttrs,
+          width: this.htmlWidth,
+          height: this.htmlHeight
         }
       })
     ])

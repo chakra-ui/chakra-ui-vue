@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <input
-    class="css-fzcsno css-1l17jza"
+    class="css-18expoa"
     data-chakra-component="CInput"
     data-testid="input"
     placeholder="input placeholder"

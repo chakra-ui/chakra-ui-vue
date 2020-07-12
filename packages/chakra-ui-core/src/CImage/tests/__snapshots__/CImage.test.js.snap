@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <img
     alt="Mesut Koca"
-    class="css-fzcsno"
+    class="css-0"
     data-chakra-component="CImage"
     data-testid="avatar"
     src="LOAD_SUCCESS_SRC"

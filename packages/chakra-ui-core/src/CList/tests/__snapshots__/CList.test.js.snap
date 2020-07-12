@@ -3,15 +3,15 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <ul
-    class="css-kzncz7"
+    class="css-19ndbdu"
     data-chakra-component="CList"
   >
     <li
-      class="css-fzcsno css-1u7dvmo"
+      class="css-82qlwu"
       data-chakra-component="CListItem"
     >
       <svg
-        class="css-4phyzl css-y3asau"
+        class="css-12j51pv css-3vopgu css-154al8w"
         data-chakra-component="CListIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -27,11 +27,11 @@ exports[`should render correctly 1`] = `
       
     </li>
     <li
-      class="css-fzcsno css-fzcsno"
+      class="css-0"
       data-chakra-component="CListItem"
     >
       <svg
-        class="css-4phyzl css-y3asau"
+        class="css-12j51pv css-3vopgu css-154al8w"
         data-chakra-component="CListIcon"
         role="presentation"
         viewBox="0 0 24 24"

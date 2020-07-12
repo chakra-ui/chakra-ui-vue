@@ -97,7 +97,7 @@ it('only one accordion can be visible + is togglable', async () => {
   })
 
   await userEvent.click(screen.getByText('First section'))
-  expect(screen.getByText('First section')).not.toHaveAttribute('aria-expanded') // false or null?
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'false')
 
   await userEvent.click(screen.getByText('First section'))
   expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'true')
@@ -123,7 +123,7 @@ it('multiple accordions can be opened + is togglable', async () => {
   expect(screen.getByText('Second section')).toHaveAttribute('aria-expanded', 'true')
 
   await userEvent.click(screen.getByText('First section'))
-  expect(screen.getByText('First section')).not.toHaveAttribute('aria-expanded')
+  expect(screen.getByText('First section')).toHaveAttribute('aria-expanded', 'false')
 })
 
 // it has the proper aria attributes

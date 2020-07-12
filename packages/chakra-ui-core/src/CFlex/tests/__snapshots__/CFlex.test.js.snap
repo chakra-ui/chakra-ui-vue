@@ -2,26 +2,8 @@
 
 exports[`should change styles 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-<div
-    class="emotion-0"
+  <div
+    class="css-u6v8er"
     data-chakra-component="CFlex"
     data-testid="flex"
   >
@@ -32,15 +14,8 @@ exports[`should change styles 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-    class="emotion-0"
+  <div
+    class="css-k008qs"
     data-chakra-component="CFlex"
     data-testid="flex"
   >

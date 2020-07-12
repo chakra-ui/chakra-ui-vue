@@ -2,107 +2,14 @@
 
 exports[`should display button with left icon 1`] = `
 <DocumentFragment>
-  .emotion-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-}
-
-.emotion-4:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-4:hover {
-  background-color: #E2E8F0;
-}
-
-.emotion-4:active,
-.emotion-4[data-active=true] {
-  background-color: #CBD5E0;
-}
-
-.emotion-4:disabled,
-.emotion-4:disabled:focus,
-.emotion-4:disabled:hover,
-.emotion-4[aria-disabled=true],
-.emotion-4[aria-disabled=true]:focus,
-.emotion-4[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.emotion-3 {
-  margin-right: 0.25rem;
-  margin-bottom: 1px;
-  opacity: 1;
-}
-
-.emotion-2 {
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-<button
-    class="emotion-4"
+  <button
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     <svg
-      class="emotion-0 emotion-1 emotion-2 emotion-3"
+      class="css-12j51pv css-3vopgu css-1me86bq css-amnuoh"
       data-chakra-component="CButtonIcon"
       icon="email"
       role="presentation"
@@ -136,108 +43,15 @@ exports[`should display button with left icon 1`] = `
 
 exports[`should display button with right icon 1`] = `
 <DocumentFragment>
-  .emotion-4 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-}
-
-.emotion-4:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-4:hover {
-  background-color: #E2E8F0;
-}
-
-.emotion-4:active,
-.emotion-4[data-active=true] {
-  background-color: #CBD5E0;
-}
-
-.emotion-4:disabled,
-.emotion-4:disabled:focus,
-.emotion-4:disabled:hover,
-.emotion-4[aria-disabled=true],
-.emotion-4[aria-disabled=true]:focus,
-.emotion-4[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.emotion-2 {
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.emotion-3 {
-  margin-left: 0.25rem;
-  margin-bottom: 1px;
-  opacity: 1;
-}
-
-<button
-    class="emotion-4"
+  <button
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     Email
     <svg
-      class="emotion-0 emotion-1 emotion-2 emotion-3"
+      class="css-12j51pv css-3vopgu css-1me86bq css-1bbplbj"
       data-chakra-component="CButtonIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -269,70 +83,8 @@ exports[`should display button with right icon 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-}
-
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-0:hover {
-  background-color: #E2E8F0;
-}
-
-.emotion-0:active,
-.emotion-0[data-active=true] {
-  background-color: #CBD5E0;
-}
-
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
-.emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-<button
-    class="emotion-0"
+  <button
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"

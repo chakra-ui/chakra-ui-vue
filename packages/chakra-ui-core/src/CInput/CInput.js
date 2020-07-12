@@ -73,7 +73,7 @@ const CInput = {
     }
   },
   render (h) {
-    return h(this.as || 'input', {
+    return h('input', {
       class: [this.className],
       domProps: {
         value: this.value

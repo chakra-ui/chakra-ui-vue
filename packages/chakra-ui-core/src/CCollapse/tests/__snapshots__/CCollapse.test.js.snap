@@ -3,11 +3,11 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-qiuzxw"
     data-chakra-component="CCollapse"
+    style="overflow: hidden;"
   >
     <div
-      class="css-qiuzxw"
+      class="css-0"
       data-chakra-component="CBox"
     >
       content

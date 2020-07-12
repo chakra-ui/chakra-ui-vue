@@ -2,19 +2,9 @@
 
 exports[`should change orientation 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  border: 0;
-  border-left: 0.0625rem solid;
-  height: auto;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  opacity: 0.6;
-  border-color: inherit;
-}
-
-<hr
+  <hr
     aria-orientation="vertical"
-    class="emotion-0"
+    class="css-117cccq"
     data-chakra-component="CDivider"
     data-testid="divider"
   />
@@ -23,19 +13,9 @@ exports[`should change orientation 1`] = `
 
 exports[`should have corresponding aria-orientation attribute 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  border: 0;
-  border-bottom: 0.0625rem solid;
-  width: auto;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  opacity: 0.6;
-  border-color: inherit;
-}
-
-<hr
+  <hr
     aria-orientation="horizontal"
-    class="emotion-0"
+    class="css-cgtghy"
     data-chakra-component="CDivider"
     data-testid="divider"
   />
@@ -44,19 +24,9 @@ exports[`should have corresponding aria-orientation attribute 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  border: 0;
-  border-bottom: 0.0625rem solid;
-  width: auto;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  opacity: 0.6;
-  border-color: inherit;
-}
-
-<hr
+  <hr
     aria-orientation="horizontal"
-    class="emotion-0"
+    class="css-cgtghy"
     data-chakra-component="CDivider"
     data-testid="divider"
   />

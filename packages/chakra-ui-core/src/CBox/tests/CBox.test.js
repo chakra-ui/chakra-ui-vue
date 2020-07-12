@@ -1,7 +1,5 @@
-import serializer from 'jest-emotion'
 import CBox from '../'
 import { render } from '@/tests/test-utils'
-expect.addSnapshotSerializer(serializer)
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''

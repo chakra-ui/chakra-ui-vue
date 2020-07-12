@@ -2,109 +2,25 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-7 {
-  border-top-width: 1px;
-}
-
-.emotion-7:last-of-type {
-  border-bottom-width: 1px;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  outline: 0;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.emotion-4:focus {
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-4:hover {
-  background-color: rgba(0,0,0,0.04);
-}
-
-.emotion-4:disabled,
-.emotion-4:disabled:focus,
-.emotion-4:disabled:hover,
-.emotion-4[aria-disabled=true],
-.emotion-4[aria-disabled=true]:focus,
-.emotion-4[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.emotion-3 {
-  opacity: 1;
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  -webkit-transition: -webkit-transform 0.2s;
-  -webkit-transition: transform 0.2s;
-  transition: transform 0.2s;
-  -webkit-transform-origin: center;
-  -ms-transform-origin: center;
-  transform-origin: center;
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.emotion-5 {
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1.25rem;
-}
-
-<div
-    class="emotion-2"
+  <div
+    class="css-0"
     data-chakra-component="CAccordion"
   >
     <div
-      class="emotion-2 emotion-7"
+      class="css-0 css-1b3isn8"
       data-chakra-component="CAccordionItem"
     >
       <button
         aria-controls="accordion-panel-ac-1"
         aria-expanded="true"
-        class="emotion-4"
+        class="css-3q8x3d"
         data-chakra-component="CAccordionHeader"
         id="accordion-header-ac-1"
         type="button"
       >
         Section 1 title
         <svg
-          class="emotion-0 emotion-1 emotion-2 emotion-3"
+          class="css-12j51pv css-3vopgu css-0 css-1cdnf31"
           data-chakra-component="CAccordionIcon"
           role="presentation"
           viewBox="0 0 24 24"
@@ -124,7 +40,7 @@ exports[`should render correctly 1`] = `
       >
         <div
           aria-labelledby="accordion-header-ac-1"
-          class="emotion-5"
+          class="css-t2ecxu"
           data-chakra-component="CAccordionPanel"
           id="accordion-panel-ac-1"
           role="region"

@@ -2,123 +2,9 @@
 
 exports[`should change icon 1`] = `
 <DocumentFragment>
-  .emotion-3 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #1a72ff;
-  color: #fff;
-  padding: 0;
-}
-
-.emotion-3:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-3:hover {
-  background-color: #0058e6;
-}
-
-.emotion-3:active,
-.emotion-3[data-active=true] {
-  background-color: #0045b4;
-}
-
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
-.emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.emotion-2 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  color: currentColor;
-  margin-bottom: 2px;
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-<button
+  <button
     aria-label="Phone"
-    class="emotion-3"
+    class="css-j4xjee"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -126,7 +12,7 @@ exports[`should change icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="emotion-0 emotion-1 emotion-2"
+      class="css-12j51pv css-3vopgu css-kzfxtu"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -146,123 +32,9 @@ exports[`should change icon 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-3 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #1a72ff;
-  color: #fff;
-  padding: 0;
-}
-
-.emotion-3:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-3:hover {
-  background-color: #0058e6;
-}
-
-.emotion-3:active,
-.emotion-3[data-active=true] {
-  background-color: #0045b4;
-}
-
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
-.emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.emotion-2 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  color: currentColor;
-  margin-bottom: 2px;
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-<button
+  <button
     aria-label="Phone"
-    class="emotion-3"
+    class="css-j4xjee"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -270,7 +42,7 @@ exports[`should render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="emotion-0 emotion-1 emotion-2"
+      class="css-12j51pv css-3vopgu css-kzfxtu"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 14 14"

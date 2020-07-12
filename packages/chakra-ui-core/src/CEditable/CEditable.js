@@ -237,7 +237,7 @@ const CEditablePreview = {
       return null
     }
 
-    return h(this.as || 'span', {
+    return h('span', {
       class: [this.className],
       attrs: {
         'aria-disabled': isDisabled,
@@ -298,7 +298,7 @@ const CEditableInput = {
       return null
     }
 
-    return h(this.as || 'input', {
+    return h('input', {
       class: [this.className],
       on: {
         ...this.computedListeners,

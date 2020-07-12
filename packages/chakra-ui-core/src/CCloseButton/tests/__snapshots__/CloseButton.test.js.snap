@@ -2,82 +2,14 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-3 {
-  outline: none;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border-radius: 0.25rem;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  border: 0;
-  background-color: rgba(0,0,0,0.04);
-}
-
-.emotion-3:hover {
-  background-color: rgba(0,0,0,0.06);
-}
-
-.emotion-3:active,
-.emotion-3[data-active=true] {
-  background-color: rgba(0,0,0,0.08);
-}
-
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
-.emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
-  cursor: not-allowed;
-}
-
-.emotion-3:focus {
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-0 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-0:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-1 {
-  width: 12px;
-  height: 12px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-<button
+  <button
     aria-label="Close"
-    class="emotion-3"
+    class="css-1xs6s6"
     data-chakra-component="CCloseButton"
   >
     <svg
       aria-hidden="true"
-      class="emotion-0 emotion-1 emotion-2"
+      class="css-12j51pv css-xmst1h css-0"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"

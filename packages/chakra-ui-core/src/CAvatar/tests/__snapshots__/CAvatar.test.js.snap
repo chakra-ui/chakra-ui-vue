@@ -2,51 +2,14 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  width: 3rem;
-  height: 3rem;
-  font-size: calc(3rem / 2.5);
-  line-height: 3rem;
-  vertical-align: top;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  border-radius: 9999px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: relative;
-  background-color: #a8eb4f;
-  color: #1A202C;
-  border: 2px solid;
-  border-color: #fff;
-}
-
-.emotion-0 {
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-<div
-    class="emotion-1"
+  <div
+    class="css-1sovlky"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <div
       aria-label="Mesut Koca"
-      class="emotion-0"
+      class="css-1mvw0ld"
       data-chakra-component="CAvatarName"
     >
       MK
@@ -57,48 +20,13 @@ exports[`should render correctly 1`] = `
 
 exports[`should render default avatar if name is not provided and image didn't load 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  width: 3rem;
-  height: 3rem;
-  font-size: calc(3rem / 2.5);
-  line-height: 3rem;
-  vertical-align: top;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  border-radius: 9999px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: relative;
-  background-color: #A0AEC0;
-  color: #fff;
-  border: 2px solid;
-  border-color: #fff;
-}
-
-.emotion-0 {
-  height: 100%;
-  width: 100%;
-  line-height: 1rem;
-}
-
-<div
-    class="emotion-1"
+  <div
+    class="css-1womr59"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <div
-      class="emotion-0"
+      class="css-em66ac"
       data-chakra-component="CDefaultAvatar"
     >
       

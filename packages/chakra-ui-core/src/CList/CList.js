@@ -63,7 +63,7 @@ const CList = {
       }, h)
     })
 
-    return h(this.as || 'ul', {
+    return h('ul', {
       class: [this.className],
       attrs: this.computedAttrs,
       on: this.computedListeners

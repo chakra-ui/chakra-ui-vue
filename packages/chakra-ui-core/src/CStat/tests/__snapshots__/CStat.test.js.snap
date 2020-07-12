@@ -2,81 +2,28 @@
 
 exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 <DocumentFragment>
-  .emotion-6 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding-right: 1rem;
-  position: relative;
-}
-
-.emotion-0 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 1.5rem;
-  vertical-align: baseline;
-  font-weight: 600;
-}
-
-.emotion-5 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 0.875rem;
-  opacity: 0.8;
-  margin-bottom: 0.5rem;
-}
-
-.emotion-4 {
-  margin-right: 0.25rem;
-  vertical-align: middle;
-  color: #58c184;
-}
-
-.emotion-2 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-2:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-3 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-<div
-    class="emotion-6"
+  <div
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="emotion-0"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
-      class="emotion-1"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
-      class="emotion-5"
+      class="css-1lq3jyp"
       data-chakra-component="CStatHelperText"
     >
       <svg
-        class="emotion-2 emotion-3 emotion-4"
+        class="css-12j51pv css-3vopgu css-1p5cxmr"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -100,81 +47,28 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 
 exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 <DocumentFragment>
-  .emotion-6 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding-right: 1rem;
-  position: relative;
-}
-
-.emotion-0 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 1.5rem;
-  vertical-align: baseline;
-  font-weight: 600;
-}
-
-.emotion-5 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 0.875rem;
-  opacity: 0.8;
-  margin-bottom: 0.5rem;
-}
-
-.emotion-2 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-2:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-3 {
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.emotion-4 {
-  margin-right: 0.25rem;
-  vertical-align: middle;
-  color: #dd3b4b;
-}
-
-<div
-    class="emotion-6"
+  <div
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="emotion-0"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
-      class="emotion-1"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
-      class="emotion-5"
+      class="css-1lq3jyp"
       data-chakra-component="CStatHelperText"
     >
       <svg
-        class="emotion-2 emotion-3 emotion-4"
+        class="css-12j51pv css-3vopgu css-1yvh846"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -198,52 +92,24 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  padding-right: 1rem;
-  position: relative;
-}
-
-.emotion-0 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.emotion-1 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 1.5rem;
-  vertical-align: baseline;
-  font-weight: 600;
-}
-
-.emotion-2 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 0.875rem;
-  opacity: 0.8;
-  margin-bottom: 0.5rem;
-}
-
-<div
-    class="emotion-3"
+  <div
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="emotion-0"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Collected Fees
     </p>
     <p
-      class="emotion-1"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       £0.00
     </p>
     <p
-      class="emotion-2"
+      class="css-1lq3jyp"
       data-chakra-component="CStatHelperText"
     >
       Feb 12 - Feb 28

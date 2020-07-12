@@ -20,8 +20,7 @@ module.exports = {
     breadstick: require.resolve('./tests/test-utils/module-mock.js')
   },
   snapshotSerializers: [
-    'jest-serializer-vue',
-    'jest-emotion'
+    'jest-serializer-vue'
   ],
   testMatch: [
     '**/**/*.test.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'

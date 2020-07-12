@@ -2,112 +2,22 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  border: 0px;
-  -webkit-clip: rect(0px,0px,0px,0px);
-  clip: rect(0px,0px,0px,0px);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0px;
-  overflow: hidden;
-  white-space: nowrap;
-  position: absolute;
-}
-
-input[type=checkbox]:focus + .emotion-3 {
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-input[type=checkbox]:hover:not(:disabled):not(:checked) + .emotion-3 {
-  cursor: pointer;
-}
-
-input[type=checkbox]:disabled + .emotion-3 {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-input[type=checkbox]:checked:hover:not(:disabled) + .emotion-3,
-input[type=checkbox][aria-checked=mixed]:hover:not(:disabled) + .emotion-3 {
-  cursor: pointer;
-}
-
-.emotion-3 > * {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-}
-
-input[type=checkbox]:checked + .emotion-3,
-input[type=checkbox][aria-checked=mixed] + .emotion-3 {
-  background-color: #0058e6;
-}
-
-input[type=checkbox]:checked + .emotion-3 > *,
-input[type=checkbox][aria-checked=mixed] + .emotion-3 > * {
-  -webkit-transform: translateX(calc(1.875rem - 1rem));
-  -ms-transform: translateX(calc(1.875rem - 1rem));
-  transform: translateX(calc(1.875rem - 1rem));
-}
-
-.emotion-4 {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.emotion-2 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-transition: all 120ms;
-  transition: all 120ms;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 1.875rem;
-  height: 1rem;
-  border-radius: 9999px;
-  background-color: #CBD5E0;
-  box-sizing: content-box;
-  padding: 2px;
-}
-
-.emotion-1 {
-  background-color: #fff;
-  -webkit-transition: -webkit-transform 250ms;
-  -webkit-transition: transform 250ms;
-  transition: transform 250ms;
-  border-radius: 9999px;
-  height: 1rem;
-  width: 1rem;
-}
-
-<label
-    class="emotion-4"
+  <label
+    class="css-v7ibj3"
     data-chakra-component="CSwitch"
   >
     <input
-      class="emotion-0"
+      class="css-f8n5zr"
       data-chakra-component="CVisuallyHidden"
       type="checkbox"
     />
     <div
       aria-hidden="true"
-      class="emotion-2 emotion-3"
+      class="css-o5cn09 css-14rwhig"
       data-chakra-component="CControlBox"
     >
       <div
-        class="emotion-1"
+        class="css-1jhagep"
         data-chakra-component="CBox"
       />
     </div>

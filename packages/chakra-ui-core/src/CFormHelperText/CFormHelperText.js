@@ -38,7 +38,7 @@ const CFormHelperText = {
     }
   },
   render (h) {
-    return h(this.as || 'p', {
+    return h('p', {
       class: [this.className],
       attrs: {
         id: this.formControl.id ? `${this.formControl.id}-help-text` : null,

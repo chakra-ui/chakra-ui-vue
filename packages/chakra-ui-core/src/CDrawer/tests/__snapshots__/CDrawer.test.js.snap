@@ -2,79 +2,17 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  .emotion-1 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-}
-
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-1:hover {
-  background-color: #E2E8F0;
-}
-
-.emotion-1:active,
-.emotion-1[data-active=true] {
-  background-color: #CBD5E0;
-}
-
-.emotion-1:disabled,
-.emotion-1:disabled:focus,
-.emotion-1:disabled:hover,
-.emotion-1[aria-disabled=true],
-.emotion-1[aria-disabled=true]:focus,
-.emotion-1[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-<div>
+  <div>
     <div>
       <input
-        class="emotion-0"
+        class="css-18expoa"
         data-chakra-component="CInput"
         data-testid="inputOutsideDrawer"
         placeholder="Type here..."
       />
        
       <button
-        class="emotion-1"
+        class="css-1bmeqe7"
         data-chakra-component="CButton"
         data-testid="buttonOutside"
         tabindex="0"
@@ -86,295 +24,7 @@ exports[`should render correctly 1`] = `
       <!---->
     </div>
   </div>
-  .emotion-0 {
-  position: fixed;
-  background-color: rgba(0,0,0,0.4);
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1300;
-}
-
-.emotion-12 {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1400;
-}
-
-.emotion-11 {
-  outline: 0;
-  max-width: 28rem;
-  width: 100%;
-  position: fixed;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  z-index: 1400;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  background-color: #fff;
-  box-shadow: 0 7px 14px 0 rgba(0,0,0,0.1),0 3px 6px 0 rgba(0,0,0,.07);
-  right: 0;
-  top: 0;
-  height: 100vh;
-}
-
-.emotion-4 {
-  outline: none;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  position: fixed;
-  top: 8px;
-  right: 12px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border-radius: 0.25rem;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  border: 0;
-  background-color: rgba(0,0,0,0.04);
-  z-index: 1;
-}
-
-.emotion-4:hover {
-  background-color: rgba(0,0,0,0.06);
-}
-
-.emotion-4:active,
-.emotion-4[data-active=true] {
-  background-color: rgba(0,0,0,0.08);
-}
-
-.emotion-4:disabled,
-.emotion-4:disabled:focus,
-.emotion-4:disabled:hover,
-.emotion-4[aria-disabled=true],
-.emotion-4[aria-disabled=true]:focus,
-.emotion-4[aria-disabled=true]:hover {
-  cursor: not-allowed;
-}
-
-.emotion-4:focus {
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-1 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.emotion-1:not(:root) {
-  overflow: hidden;
-}
-
-.emotion-2 {
-  width: 12px;
-  height: 12px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.emotion-5 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  position: relative;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.emotion-7 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.emotion-10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-.emotion-8 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border: 1px solid;
-  border-color: #E2E8F0;
-  color: #A0AEC0;
-  background-color: transparent;
-  margin-right: 0.75rem;
-}
-
-.emotion-8:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-8:hover {
-  background-color: #F7FAFC;
-}
-
-.emotion-8:active,
-.emotion-8[data-active=true] {
-  background-color: #EDF2F7;
-}
-
-.emotion-8:disabled,
-.emotion-8:disabled:focus,
-.emotion-8:disabled:hover,
-.emotion-8[aria-disabled=true],
-.emotion-8[aria-disabled=true]:focus,
-.emotion-8[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.emotion-9 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: all 250ms;
-  transition: all 250ms;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: middle;
-  line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-}
-
-.emotion-9 color {
-  50: #def0ff;
-  100: #afd0ff;
-  200: #7db1ff;
-  300: #4b91ff;
-  400: #1a72ff;
-  500: #0058e6;
-  600: #0045b4;
-  700: #003182;
-  800: #001d51;
-  900: #000a21;
-}
-
-.emotion-9:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66,153,225,0.6);
-}
-
-.emotion-9:hover {
-  background-color: #E2E8F0;
-}
-
-.emotion-9:active,
-.emotion-9[data-active=true] {
-  background-color: #CBD5E0;
-}
-
-.emotion-9:disabled,
-.emotion-9:disabled:focus,
-.emotion-9:disabled:hover,
-.emotion-9[aria-disabled=true],
-.emotion-9[aria-disabled=true]:focus,
-.emotion-9[aria-disabled=true]:hover {
-  opacity: 0.4;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-<span
+  <span
     id="modal-portal-1"
   >
     <div
@@ -384,18 +34,18 @@ exports[`should render correctly 1`] = `
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
-          class="emotion-0"
+          class="css-1a29t1v"
           data-chakra-component="CModalOverlay"
         />
         <div
-          class="emotion-12"
+          class="css-556rku"
           data-chakra-component="CBox"
         >
           <section
             aria-describedby="drawer-1-body"
             aria-labelledby="drawer-1-header"
             aria-modal="true"
-            class="emotion-11"
+            class="css-rwe4f7"
             data-chakra-component="CDrawerContent"
             data-testid="overlay"
             id="drawer-1"
@@ -404,13 +54,13 @@ exports[`should render correctly 1`] = `
           >
             <button
               aria-label="Close"
-              class="emotion-4"
+              class="css-1p5nos8"
               data-chakra-component="CDrawerCloseButton"
               data-testid="close-btn"
             >
               <svg
                 aria-hidden="true"
-                class="emotion-1 emotion-2 emotion-3"
+                class="css-12j51pv css-xmst1h css-0"
                 data-chakra-component="CIcon"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -425,7 +75,7 @@ exports[`should render correctly 1`] = `
             </button>
              
             <header
-              class="emotion-5"
+              class="css-w7idnj"
               data-chakra-component="CModalHeader"
               id="drawer-1-header"
             >
@@ -433,12 +83,12 @@ exports[`should render correctly 1`] = `
             </header>
              
             <div
-              class="emotion-7"
+              class="css-5m10fw"
               data-chakra-component="CModalBody"
               id="drawer-1-body"
             >
               <input
-                class="emotion-3"
+                class="css-18expoa"
                 data-chakra-component="CInput"
                 data-testid="inputInsideDrawer"
                 placeholder="Type here..."
@@ -446,11 +96,11 @@ exports[`should render correctly 1`] = `
             </div>
              
             <footer
-              class="emotion-10"
+              class="css-plnu2w"
               data-chakra-component="CModalFooter"
             >
               <button
-                class="emotion-8"
+                class="css-14m1qkx"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"
@@ -459,7 +109,7 @@ exports[`should render correctly 1`] = `
               </button>
                
               <button
-                class="emotion-9"
+                class="css-13x9q7f"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"

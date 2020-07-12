@@ -28,19 +28,19 @@ const CVisuallyHidden = {
     const className = css({
       border: '0px',
       clip: 'rect(0px, 0px, 0px, 0px)',
-      height: `${attrs.w || '1px'}`,
-      width: `${attrs.h || '1px'}`,
+      height: `${(attrs && attrs.w) || '1px'}`,
+      width: `${(attrs && attrs.h) || '1px'}`,
       margin: '-1px',
       padding: '0px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      position: `${attrs.pos || 'absolute'}`
+      position: `${(attrs && attrs.pos) || 'absolute'}`
     })
 
     return h(props.as, {
       class: [className],
       attrs: {
-        ...attrs,
+        ...(attrs || {}),
         'data-chakra-component': 'CVisuallyHidden'
       },
       domProps,

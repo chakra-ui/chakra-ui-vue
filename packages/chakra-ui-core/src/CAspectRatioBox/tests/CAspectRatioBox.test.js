@@ -14,7 +14,7 @@ const renderComponent = (props) => {
   return render(base)
 }
 
-xit('should render correctly', () => {
+it('should render correctly', () => {
   const inlineAttrs = ':ratio="1"'
   const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()

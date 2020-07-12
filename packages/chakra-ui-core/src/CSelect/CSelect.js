@@ -76,7 +76,7 @@ const CSelectInput = {
     }
 
     const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
-    console.log(forwardProps(props))
+
     return h(CInput, {
       ...rest,
       props: {

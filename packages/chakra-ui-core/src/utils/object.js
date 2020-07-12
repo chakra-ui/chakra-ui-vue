@@ -1,6 +1,6 @@
 import { pickBy, startsWith } from 'lodash-es'
-import { camelize, kebabify } from '../utils'
 import styleProps from '../config/props'
+import { camelize, kebabify } from './strings'
 
 /**
  * Clears out all undefined properties from an object.

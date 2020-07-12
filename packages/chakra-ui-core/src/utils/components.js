@@ -1,9 +1,8 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
-import { hasOwn } from '../utils'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
 import { systemProps } from './styled-system'
-import { purgeChakraAttrs, extractChakraAttrs } from './object'
+import { purgeChakraAttrs, hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
   return (!!value && !!value.$el)

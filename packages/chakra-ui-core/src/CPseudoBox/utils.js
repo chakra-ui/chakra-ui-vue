@@ -1,5 +1,6 @@
 import { map } from 'lodash-es'
-import { tx, splitProps, forwardProps, isEmpty } from '../utils'
+import { splitProps, pickProperty as forwardProps, isEmpty } from '../utils/object'
+import { transformAlias as tx } from '../utils/transform'
 
 /**
  * PseudoBox pseudo selectors

@@ -20,10 +20,6 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders a name avatar if no src 1`] = `<DocumentFragment />`;
-
-exports[`renders an image 1`] = `<DocumentFragment />`;
-
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div

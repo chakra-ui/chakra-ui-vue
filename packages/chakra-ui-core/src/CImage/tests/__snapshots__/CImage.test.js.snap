@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fallback src works 1`] = `<DocumentFragment />`;
-
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <img

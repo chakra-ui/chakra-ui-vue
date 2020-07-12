@@ -97,7 +97,7 @@ const CStack = {
           },
           attrs: {
             d: 'inline-block',
-            ...this.computedAttrs
+            ...spacingProps
           }
         }, [clone])
       }

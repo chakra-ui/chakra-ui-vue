@@ -2,21 +2,90 @@
 
 exports[`should display tag with custom element 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1u7dvmo"
+  .emotion-4 {
+  margin-bottom: 0.75rem;
+}
+
+.emotion-2 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 2rem;
+  max-width: 100%;
+  border-radius: 9999px;
+  font-weight: 500;
+  min-width: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  background-color: #f9bcc2;
+  color: #44070e;
+}
+
+.emotion-1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: calc(1.5rem / 2.5);
+  line-height: 1.5rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  background-color: #a8eb4f;
+  color: #1A202C;
+  border: 2px solid;
+  border-color: #fff;
+}
+
+.emotion-0 {
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+<div
+    class="emotion-4"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-1v8giig"
+      class="emotion-3"
       data-chakra-component="CTag"
     >
       <div
-        class="css-1cm55yf"
+        class="emotion-1"
         data-chakra-component="CAvatar"
       >
         <div
           aria-label="Mesut Koca"
-          class="css-1wti8hy"
+          class="emotion-0"
           data-chakra-component="CAvatarName"
         >
           MK
@@ -24,7 +93,7 @@ exports[`should display tag with custom element 1`] = `
       </div>
        
       <span
-        class="css-e1yiz6"
+        class="emotion-2"
         data-chakra-component="CTagLabel"
       >
         Mesut
@@ -36,26 +105,90 @@ exports[`should display tag with custom element 1`] = `
 
 exports[`should display tag with right icon 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1u7dvmo"
+  .emotion-4:first-child {
+  margin-left: 0;
+}
+
+.emotion-4:last-child {
+  margin-right: 0;
+}
+
+.emotion-6 {
+  margin-bottom: 0.75rem;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 1.5rem;
+  max-width: 100%;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  min-width: 1.5rem;
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #c2ebd4;
+  color: #0f3921;
+}
+
+.emotion-3 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-0 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+<div
+    class="emotion-6"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-h304f4"
+      class="emotion-5"
       data-chakra-component="CTag"
     >
       <span
-        class="css-e1yiz6"
+        class="emotion-0"
         data-chakra-component="CTagLabel"
       >
         Green
       </span>
        
       <svg
-        class="css-1w7qkv4 css-y3asau css-9r03b"
+        class="emotion-1 emotion-2 emotion-3 emotion-4"
         data-chakra-component="CTagIcon"
         role="presentation"
-        size="12px"
         viewBox="0 0 24 24"
       >
         
@@ -74,19 +207,83 @@ exports[`should display tag with right icon 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1u7dvmo"
+  .emotion-3:first-child {
+  margin-left: 0;
+}
+
+.emotion-3:last-child {
+  margin-right: 0;
+}
+
+.emotion-6 {
+  margin-bottom: 0.75rem;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 1.5rem;
+  max-width: 100%;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  min-width: 1.5rem;
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #c2ebd4;
+  color: #0f3921;
+}
+
+.emotion-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.emotion-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-0:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-1 {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-4 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+<div
+    class="emotion-6"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-h304f4"
+      class="emotion-5"
       data-chakra-component="CTag"
     >
       <svg
-        class="css-1w7qkv4 css-y3asau css-9r03b"
+        class="emotion-0 emotion-1 emotion-2 emotion-3"
         data-chakra-component="CTagIcon"
         role="presentation"
-        size="12px"
         viewBox="0 0 24 24"
       >
         
@@ -100,7 +297,7 @@ exports[`should render correctly 1`] = `
       </svg>
        
       <span
-        class="css-e1yiz6"
+        class="emotion-4"
         data-chakra-component="CTagLabel"
       >
         Green

@@ -44,8 +44,8 @@ it.each`
   'should display text type as $as',
   ({ as }) => {
     const inlineAttrs = `as=${as}`
-    const { asFragment } = renderComponent({ inlineAttrs })
-
-    expect(asFragment()).toMatchSnapshot()
+    const { getByTestId } = renderComponent({ inlineAttrs })
+    const text = getByTestId('text')
+    expect(text.tagName.toLowerCase()).toEqual(as)
   }
 )

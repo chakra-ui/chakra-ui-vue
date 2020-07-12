@@ -29,6 +29,22 @@ storiesOf('Playground', module)
     `,
     data: () => ({
       code: `
-<c-button name="PlaygroundButton" disabled>Chakra</c-button>`
+<c-stack should-wrap-children>
+  <c-tooltip has-arrow label="left" placement="left">
+    <c-button>Left</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="top" placement="top">
+    <c-button>Top</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="right" placement="right">
+    <c-button>Right</c-button>
+  </c-tooltip>
+
+  <c-tooltip has-arrow label="bottom" placement="bottom">
+    <c-button>Bottom</c-button>
+  </c-tooltip>
+</c-stack>`
     })
   }))

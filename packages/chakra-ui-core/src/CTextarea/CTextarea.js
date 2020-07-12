@@ -8,9 +8,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTextarea/CTextarea.js
  */
 
-import styleProps from '../config/props'
 import { inputProps } from '../CInput/utils/input.props'
-import { forwardProps } from '../utils'
+import { forwardProps, extractListeners } from '../utils'
 
 import CInput from '../CInput'
 import { SNA } from '../config/props/props.types'
@@ -25,12 +24,12 @@ import { SNA } from '../config/props/props.types'
  */
 const CTextarea = {
   name: 'CTextarea',
+  functional: true,
   model: {
     prop: 'inputValue',
     event: 'change'
   },
   props: {
-    ...styleProps,
     ...inputProps,
     inputValue: String,
     py: {
@@ -50,19 +49,39 @@ const CTextarea = {
       default: 'shorter'
     }
   },
-  render (h) {
+  render (h, { props, slots, data, listeners, ...rest }) {
+    // Default styles
+    const defaultStyles = {
+      py: '8px',
+      minHeight: '80px',
+      fontFamily: 'body',
+      lineHeight: 'shorter'
+    }
+
+    // Event listeners
+    const nonNativeEvents = {
+      input: (value, $e) => {
+        const emitChange = listeners.change
+        if (emitChange && $e instanceof Event) {
+          emitChange(value, $e)
+        }
+      }
+    }
+    const { nonNative } = extractListeners({ listeners }, nonNativeEvents)
+
     return h(CInput, {
+      ...rest,
       props: {
-        ...forwardProps(this.$props),
+        ...forwardProps(props),
         as: 'textarea'
       },
       attrs: {
+        ...defaultStyles,
+        ...(data.attrs || {}),
         'data-chakra-component': 'CTextarea'
       },
-      on: {
-        input: (value, $e) => this.$emit('change', value, $e)
-      }
-    }, this.$slots.default)
+      on: nonNative
+    }, slots().default)
   }
 }
 

@@ -19,6 +19,7 @@ export function cloneVNode (vnode, createElement) {
   cloned.ns = vnode.ns
   cloned.isStatic = vnode.isStatic
   cloned.key = vnode.key
+  cloned.data = vnode.data
   return cloned
 }
 

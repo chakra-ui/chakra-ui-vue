@@ -1,5 +1,5 @@
 import { CFormControl, CInput, CFormLabel } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -22,7 +22,7 @@ it('should render correctly', () => {
 })
 
 it('should provide formcontrol state via scoped slot', () => {
-  const { getByTestId } = renderComponent({
+  renderComponent({
     template: `
     <CFormControl isRequired isReadOnly #default="props">
       <pre data-testid="pre">
@@ -31,7 +31,7 @@ it('should provide formcontrol state via scoped slot', () => {
     </CFormControl>`
   })
 
-  const pre = getByTestId('pre')
+  const pre = screen.getByTestId('pre')
   expect(JSON.parse(pre.textContent, null, 2)).toEqual({
     isInvalid: false,
     isRequired: true,

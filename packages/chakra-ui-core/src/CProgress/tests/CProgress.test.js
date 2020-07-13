@@ -1,5 +1,5 @@
 import { CProgress, CProgressLabel } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -19,31 +19,31 @@ it('should render correctly', () => {
 })
 
 it('should have the correct width', () => {
-  const { queryByRole } = renderComponent()
+  renderComponent()
 
-  expect(queryByRole('progressbar')).toHaveStyle('width: 40%')
+  expect(screen.queryByRole('progressbar')).toHaveStyle('width: 40%')
 })
 
 it('should display a label', () => {
-  const { queryByText } = renderComponent({
+  renderComponent({
     template: `
   <CProgress :value="40">
     <CProgressLabel>Label</CProgressLabel>
   </CProgress>`
   })
 
-  expect(queryByText('Label')).toBeInTheDocument()
+  expect(screen.queryByText('Label')).toBeInTheDocument()
 })
 
 test('a11y - progress has a "role" set to "progressbar"', () => {
-  const { queryByRole } = renderComponent()
-  expect(queryByRole('progressbar')).toBeInTheDocument()
+  renderComponent()
+  expect(screen.queryByRole('progressbar')).toBeInTheDocument()
 })
 
 test('a11y - progress has a "aria-valuenow" set to the percentage completion value', () => {
-  const { queryByRole } = renderComponent()
+  renderComponent()
 
-  expect(queryByRole('progressbar')).toHaveAttribute(
+  expect(screen.queryByRole('progressbar')).toHaveAttribute(
     'aria-valuenow',
     '40'
   )

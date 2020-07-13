@@ -1,6 +1,5 @@
 import { CAspectRatioBox, CBox } from '../..'
-import { render } from '@/tests/test-utils'
-
+import { render, screen, getElementStyles } from '@/tests/test-utils'
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
@@ -19,13 +18,27 @@ it('should render correctly', () => {
   const inlineAttrs = ':ratio="1"'
   const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()
+
+  const [emotionClassName] = [...screen.getByTestId('aspectRatioBox').classList]
+  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+
+  expect(pseudoStyles).toContain(`
+    padding-bottom: 100%
+  `.trim())
 })
 
 it('should have correct styles', () => {
   const inlineAttrs = ':ratio="2"'
-  const { getByTestId } = renderComponent({ inlineAttrs })
-  const image = getByTestId('image')
-  const aspectRatioBox = getByTestId('aspectRatioBox')
+  renderComponent({ inlineAttrs })
+  const image = screen.getByTestId('image')
+  const aspectRatioBox = screen.getByTestId('aspectRatioBox')
+
+  const [emotionClassName] = [...aspectRatioBox.classList] // second className has the pseudo styles
+  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+
+  expect(pseudoStyles).toContain(`
+    padding-bottom: 50%
+  `.trim())
 
   expect(aspectRatioBox).toHaveStyle(`
     max-width: 400px;
@@ -40,8 +53,4 @@ it('should have correct styles', () => {
     top: 0px;
     left: 0px;
   `)
-
-  // TODO: Use getElementStyles utility cc: @koca
-  // @koca has already written tests for this in PR #235
-  // aspectRatioBox padding-bottom
 })

@@ -46,7 +46,7 @@ exports[`should render correctly 1`] = `
       class="css-1jg3nyw"
       data-chakra-component="CBox"
     >
-      checkbox
+      check
     </div>
   </label>
 </DocumentFragment>

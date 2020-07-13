@@ -8,7 +8,7 @@ storiesOf('UI | Image', module)
       <CImage
         shadow="sm"
         htmlWidth="100px"
-        src="https://avatars3.githubusercontent.com/u/37928?s=52&v=4"
+        src="https://bit.ly/chakra-jonathan-bakebwa"
       />
     `
   }))

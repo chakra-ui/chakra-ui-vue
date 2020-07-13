@@ -1,5 +1,5 @@
 import CPseudoBox from '../'
-import { render, getTagName } from '@/tests/test-utils'
+import { render, getTagName, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -21,9 +21,9 @@ it('should change the style', () => {
   d="flex" :w="['auto']" px="5" py="5" shadow="lg"
   my="5" mb="5" rounded="sm" font-family="body"
   background-color="blue.200" color="blue.700"`
-  const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
+  const { asFragment } = renderComponent({ inlineAttrs })
 
-  const pseudobox = getByTestId('pseudobox')
+  const pseudobox = screen.getByTestId('pseudobox')
 
   expect(asFragment()).toMatchSnapshot()
   expect(pseudobox).toHaveStyle('display: flex')
@@ -46,8 +46,8 @@ it.each`
   'should display Box with type as $as',
   ({ as }) => {
     const inlineAttrs = `as=${as}`
-    const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
-    expect(getTagName(getByTestId('pseudobox'))).toEqual(as)
+    const { asFragment } = renderComponent({ inlineAttrs })
+    expect(getTagName(screen.getByTestId('pseudobox'))).toEqual(as)
     expect(asFragment()).toMatchSnapshot()
   }
 )

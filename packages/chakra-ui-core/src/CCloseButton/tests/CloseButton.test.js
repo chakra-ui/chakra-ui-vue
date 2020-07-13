@@ -1,5 +1,5 @@
 import CloseButton from '../'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -14,18 +14,18 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 it('should allow setting a custom aria-label for the button', () => {
-  const { container } = renderComponent({ template: '<CloseButton aria-label="my aria label" />' })
+  renderComponent({ template: '<CloseButton aria-label="my aria label" />' })
 
-  expect(container.querySelector('button')).toHaveAttribute(
+  expect(screen.getByLabelText('my aria label')).toHaveAttribute(
     'aria-label',
     'my aria label'
   )
 })
 
 test('a11y - should have aria-label set to "Close"', () => {
-  const { container } = renderComponent()
+  renderComponent()
 
-  expect(container.querySelector('button')).toHaveAttribute(
+  expect(screen.getByLabelText('Close')).toHaveAttribute(
     'aria-label',
     'Close'
   )

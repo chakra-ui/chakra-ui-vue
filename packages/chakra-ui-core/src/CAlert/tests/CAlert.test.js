@@ -1,14 +1,12 @@
 import { CAlert, CAlertIcon, CAlertTitle, CAlertDescription, CStack } from '../..'
-import icons from '../../lib/internal-icons'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
     components: { CAlert, CAlertTitle, CAlertDescription, CAlertIcon, CStack },
-    provide: () => defaultProviders({ $chakraIcons: { add: icons.add } }),
     template: `
     <CAlert>
-      <CAlertIcon />
+      <CAlertIcon name="add" />
       <CAlertTitle>alert title</CAlertTitle>
       <CAlertDescription>alert description</CAlertDescription>
     </CAlert>`,
@@ -22,18 +20,6 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
-it('should display title', () => {
-  const { getByText } = renderComponent()
-
-  expect(getByText('alert title')).toBeInTheDocument()
-})
-
-it('should display description', () => {
-  const { getByText } = renderComponent()
-
-  expect(getByText('alert description')).toBeInTheDocument()
-})
-
 it('should override icon if set explicitly', () => {
   const { asFragment } = renderComponent({
     template: `
@@ -43,17 +29,6 @@ it('should override icon if set explicitly', () => {
   })
 
   expect(asFragment()).toMatchSnapshot()
-})
-
-it('should have role=alert', () => {
-  const { getByRole } = renderComponent({
-    template: `
-    <CAlert status="error">
-      <CAlertIcon name="add" />
-    </CAlert>`
-  })
-
-  getByRole('alert')
 })
 
 it('should render correct variant styles', () => {
@@ -81,4 +56,27 @@ it('should render correct variant styles', () => {
   })
 
   expect(asFragment()).toMatchSnapshot()
+})
+
+it('should display title', () => {
+  renderComponent()
+
+  expect(screen.getByText('alert title')).toBeInTheDocument()
+})
+
+it('should display description', () => {
+  renderComponent()
+
+  expect(screen.getByText('alert description')).toBeInTheDocument()
+})
+
+it('should have role=alert', () => {
+  renderComponent({
+    template: `
+    <CAlert status="error">
+      <CAlertIcon name="add" />
+    </CAlert>`
+  })
+
+  screen.getByRole('alert')
 })

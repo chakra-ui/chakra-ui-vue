@@ -60,7 +60,7 @@ const CImage = {
         this.$emit('load', event)
       }
 
-      image.onError = (event) => {
+      image.onerror = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }
@@ -76,13 +76,11 @@ const CImage = {
     return h(CNoSsr, [
       h('img', {
         class: this.className,
-        domProps: {
-          width: this.htmlWidth,
-          height: this.htmlHeight
-        },
         attrs: {
           ...imageProps,
-          ...this.computedAttrs
+          ...this.computedAttrs,
+          width: this.htmlWidth,
+          height: this.htmlHeight
         }
       })
     ])

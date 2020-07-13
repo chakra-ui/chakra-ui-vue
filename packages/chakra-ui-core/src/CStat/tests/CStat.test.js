@@ -1,5 +1,5 @@
 import { CStat, CStatLabel, CStatNumber, CStatHelperText, CStatArrow } from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const base = {
@@ -22,8 +22,8 @@ it('should render correctly', () => {
 })
 
 it('should render children in DOM', () => {
-  const { getByText } = renderComponent()
-  expect(getByText('Collected Fees')).toBeInTheDocument()
+  renderComponent()
+  expect(screen.getByText('Collected Fees')).toBeInTheDocument()
 })
 
 test('"CStatArrow" should display corresponding icon for "type" prop', () => {

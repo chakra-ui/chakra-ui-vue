@@ -1,5 +1,5 @@
 import { CStack, CBox, CHeading, CText } from '../..'
-import { render, getTagName } from '@/tests/test-utils'
+import { render, getTagName, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -27,22 +27,22 @@ it('should render correctly', () => {
 })
 
 it('should default to vertical stack', () => {
-  const { getByTestId } = renderComponent()
-  const stack = getByTestId('stack')
+  renderComponent()
+  const stack = screen.getByTestId('stack')
   expect(stack).toHaveStyle('display: flex')
   expect(stack).toHaveStyle('flex-direction: column')
 })
 
 it('should not space last child', () => {
-  const { getByTestId } = renderComponent()
-  const stack = getByTestId('stack')
+  renderComponent()
+  const stack = screen.getByTestId('stack')
   expect(stack).not.toHaveStyle('margin-bottom: 0.5rem')
 })
 
 it('should should stack horizontally if isInline', () => {
   const inlineAttrs = 'is-inline'
-  const { getByTestId } = renderComponent({ inlineAttrs })
-  const stack = getByTestId('stack')
+  renderComponent({ inlineAttrs })
+  const stack = screen.getByTestId('stack')
   expect(stack).toHaveStyle('display: flex')
   expect(stack).toHaveStyle('flex-direction: row')
 })
@@ -58,8 +58,8 @@ it.each`
   'should render CStack with element as $as',
   ({ as }) => {
     const inlineAttrs = `as="${as}"`
-    const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
-    const stack = getByTestId('stack')
+    const { asFragment } = renderComponent({ inlineAttrs })
+    const stack = screen.getByTestId('stack')
     expect(getTagName(stack)).toEqual(as)
     expect(asFragment()).toMatchSnapshot()
   }

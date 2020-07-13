@@ -1,5 +1,5 @@
 import { CButton, CRadioButtonGroup } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const CustomRadio = {
   name: 'CustomRadio',
@@ -55,29 +55,29 @@ it('should render correctly', () => {
 })
 
 it('should display children', () => {
-  const { getByText } = renderComponent()
-  expect(getByText('Custom Radio 1')).toBeInTheDocument()
-  expect(getByText('Custom Radio 2')).toBeInTheDocument()
+  renderComponent()
+  expect(screen.getByText('Custom Radio 1')).toBeInTheDocument()
+  expect(screen.getByText('Custom Radio 2')).toBeInTheDocument()
 })
 
 test('v-model works', () => {
-  const { getByTestId } = renderComponent({
+  renderComponent({
     data () {
       return {
         selected: 'item-2'
       }
     }
   })
-  const one = getByTestId('item-1')
-  const two = getByTestId('item-2')
+  const one = screen.getByTestId('item-1')
+  const two = screen.getByTestId('item-2')
 
   expect(one).not.toHaveAttribute('aria-checked')
   expect(two).toHaveAttribute('aria-checked', 'true')
 })
 
 test('CustomRadio isDisabled works', () => {
-  const { getByTestId } = renderComponent()
-  const last = getByTestId('item-4')
+  renderComponent()
+  const last = screen.getByTestId('item-4')
 
   expect(last).toHaveAttribute('disabled')
 })

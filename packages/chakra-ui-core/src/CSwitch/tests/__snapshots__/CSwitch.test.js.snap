@@ -5,6 +5,7 @@ exports[`should render correctly 1`] = `
   <label
     class="css-v7ibj3"
     data-chakra-component="CSwitch"
+    data-testid="switch"
   >
     <input
       class="css-f8n5zr"

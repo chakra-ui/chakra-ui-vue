@@ -40,12 +40,12 @@ export default {
     'css/page.css'
   ],
   buildModules: [
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    'modules/routes'
   ],
   modules: [
     '@nuxtjs/emotion',
-    '@nuxtjs/pwa',
-    'modules/routes'
+    '@nuxtjs/pwa'
   ],
   router: {
     prefetchLinks: true

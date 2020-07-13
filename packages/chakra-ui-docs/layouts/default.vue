@@ -28,7 +28,7 @@
                 </keep-alive>
                 <Footer v-if="$route.path === '/'" />
                 <FileContributors />
-                <BottomLink v-if="$route.path !== '/'" />
+                <!-- <BottomLink v-if="$route.path !== '/'" /> -->
               </CBox>
             </CFlex>
           </CBox>
@@ -54,7 +54,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import FileContributors from '../components/FileContributors'
-import BottomLink from '../components/BottomLink'
+// import BottomLink from '../components/BottomLink'
 
 // import { stringToUrl } from '../utils'
 
@@ -70,8 +70,8 @@ export default {
     Sidebar,
     Footer,
     CReset,
-    CFlex,
-    BottomLink
+    CFlex
+    // BottomLink
   },
   data () {
     return {

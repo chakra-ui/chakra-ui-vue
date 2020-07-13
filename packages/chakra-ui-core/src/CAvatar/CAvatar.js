@@ -252,9 +252,6 @@ const CAvatar = {
             alt: this.name,
             src: this.src
           },
-          domProps: {
-            src: this.src
-          }
         })
       }
 

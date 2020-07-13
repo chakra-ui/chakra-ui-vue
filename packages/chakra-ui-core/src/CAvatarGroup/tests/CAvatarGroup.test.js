@@ -13,9 +13,6 @@ beforeAll(() => {
   // eslint-disable-next-line accessor-pairs
   Object.defineProperty(global.Image.prototype, 'src', {
     set (src) {
-      // Mock the Image.prototype.onload/onerror implementations
-      this.onload = jest.fn().mockImplementation(fn => fn)
-      this.onerror = jest.fn().mockImplementation(err => err)
       if (src === LOAD_FAILURE_SRC) {
         setTimeout(() => this.onerror(new Error('mocked error')))
       } else if (src === LOAD_SUCCESS_SRC) {

@@ -32,7 +32,7 @@
             left-icon="bolt"
             variant-color="vue"
             size="lg"
-            @click="$router.push('/getting-started')"
+            as="nuxt-link"
           >
             Get started
           </CButton>

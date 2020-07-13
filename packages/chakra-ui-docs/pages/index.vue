@@ -4,7 +4,7 @@
       title="Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications."
       description="Simple, Modular and Accessible UI Components for your Vue Applications."
     />
-    <!-- <Hero /> -->
+    <Hero />
     <CFlex
       as="section"
       py="10"
@@ -84,7 +84,7 @@
 
 <script>
 import { CBox, CFlex, CIcon, CHeading, CGrid } from '@chakra-ui/vue'
-// import Hero from '~/components/Hero.vue'
+import Hero from '~/components/Hero.vue'
 import Footer from '~/components/Footer.vue'
 import SEO from '~/components/SEO'
 import Example from '~/components/Example.vue'
@@ -92,7 +92,7 @@ import Example from '~/components/Example.vue'
 export default {
   layout: 'home',
   components: {
-    // Hero,
+    Hero,
     Footer,
     Example,
     CBox,

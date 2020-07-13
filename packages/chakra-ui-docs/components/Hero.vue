@@ -27,12 +27,12 @@
           flex-dir="row"
         >
           <CButton
-            as="nuxt-link"
             text-decoration="none"
             to="/getting-started"
             left-icon="bolt"
             variant-color="vue"
             size="lg"
+            @click="$router.push('/getting-started')"
           >
             Get started
           </CButton>

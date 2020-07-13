@@ -17,7 +17,12 @@ composition.
 ## Import
 
 ```js
-import { CTabs, CTabList, CTabPanels, CTab, CTabPanel } from '@chakra-ui/vue'
+import {
+  CTabs,
+  CTabList,
+  CTabPanels,
+  CTab,
+  CTabPanel } from '@chakra-ui/vue'
 ```
 
 ## Usage
@@ -30,25 +35,25 @@ you can have tabs at the top, at the bottom, or both.
 
 ```vue live=true
 <c-box w="600px">
-    <c-tabs>
-        <c-tab-list>
-        <c-tab>One</c-tab>
-        <c-tab>Two</c-tab>
-        <c-tab>Three</c-tab>
-        </c-tab-list>
+  <c-tabs>
+    <c-tab-list>
+      <c-tab>One</c-tab>
+      <c-tab>Two</c-tab>
+      <c-tab>Three</c-tab>
+    </c-tab-list>
         
-        <c-tab-panels>
-        <c-tab-panel>
-            <p>one!</p>
-        </c-tab-panel>
-        <c-tab-panel>
-            <p>two!</p>
-        </c-tab-panel>
-        <c-tab-panel>
-            <p>three!</p>
-        </c-tab-panel>
-        </c-tab-panels>
-    </c-tabs>
+    <c-tab-panels>
+      <c-tab-panel>
+        <p>one!</p>
+      </c-tab-panel>
+      <c-tab-panel>
+        <p>two!</p>
+      </c-tab-panel>
+      <c-tab-panel>
+        <p>three!</p>
+      </c-tab-panel>
+    </c-tab-panels>
+  </c-tabs>
 </c-box>
 ```
 

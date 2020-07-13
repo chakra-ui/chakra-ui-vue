@@ -251,7 +251,7 @@ const CAvatar = {
             objectFit: 'cover',
             alt: this.name,
             src: this.src
-          },
+          }
         })
       }
 

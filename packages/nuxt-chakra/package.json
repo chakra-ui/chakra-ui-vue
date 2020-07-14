@@ -38,7 +38,7 @@
     "husky": "^4.2.5",
     "jest": "^25.5.2",
     "nuxt": "^2.12.2",
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.1"
   },
   "publishConfig": {
     "access": "public"

@@ -17,7 +17,18 @@ module.exports = {
     curly: 'off',
     'testing-library/no-debug': 'error',
     'testing-library/prefer-screen-queries': 'error',
-    'testing-library/await-fire-event': 'error'
+    'testing-library/await-fire-event': 'error',
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+        ignoredNodes: [
+          'TemplateLiteral'
+        ]
+      }
+    ],
+    'template-curly-spacing': 0
   },
   parserOptions: {
     parser: 'babel-eslint'

@@ -72,11 +72,12 @@ it('renders a name avatar if no src', async () => {
   })
 })
 
-it('renders a name avatar if src fails', async () => {
+it('renders Default Avatar if src fails', async () => {
   renderComponent({ template: '<CAvatar name="Mesut Koca" src="LOAD_FAILURE_SRC" />' })
 
   await wait(() => {
-    expect(screen.queryByAltText(/Mesut Koca/i)).not.toBeInTheDocument()
+    expect(screen.queryByAltText(/Mesut Koca/i)).not.toBeInTheDocument() // img
+    expect(screen.getByLabelText(/Mesut Koca/i)).toBeInTheDocument() // DefaultAvatar
     expect(screen.getByText('MK')).toBeInTheDocument()
   })
 })

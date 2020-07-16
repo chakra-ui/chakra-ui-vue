@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <h2
-    class="css-1s17rxi"
+    class="css-1lq7e61"
     data-chakra-component="CHeading"
   >
     Header

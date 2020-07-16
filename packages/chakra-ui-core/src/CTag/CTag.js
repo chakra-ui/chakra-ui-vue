@@ -10,13 +10,13 @@
  */
 
 import { css } from 'emotion'
-import styleProps, { baseProps } from '../config/props'
-import { useVariantColorWarning, forwardProps } from '../utils'
+import { useVariantColorWarning, extractListeners } from '../utils'
 import useBadgeStyle from '../CBadge/utils/badge.styles'
 
 import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
 import CBox from '../CBox'
+import CText from '../CText'
 
 const tagSizes = {
   sm: {
@@ -48,15 +48,31 @@ const tagSizes = {
  */
 const CTagCloseButton = {
   name: 'CTagCloseButton',
+  functional: true,
   props: {
-    ...styleProps,
     isDisabled: Boolean
   },
-  render (h) {
+  render (h, { data, props, listeners, ...rest }) {
+    // Event listeners
+    const nonNativeEvents = {
+      click: (e) => {
+        const emitClick = listeners.click
+        if (emitClick) {
+          emitClick(e)
+        }
+      }
+    }
+    const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
+
     return h(CPseudoBox, {
+      ...rest,
       props: {
-        ...this.$props,
-        as: 'button',
+        as: 'button'
+      },
+      on: nonNative,
+      nativeOn: native,
+      attrs: {
+        ...data.attrs,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -80,10 +96,8 @@ const CTagCloseButton = {
         },
         _active: {
           opacity: '1'
-        }
-      },
-      attrs: {
-        disabled: this.isDisabled,
+        },
+        disabled: props.isDisabled,
         'data-chakra-component': 'CTagCloseButton'
       }
     }, [
@@ -110,38 +124,42 @@ const CTagCloseButton = {
  */
 const CTagIcon = {
   name: 'CTagIcon',
+  functional: true,
   props: {
-    ...baseProps,
     icon: [String, Object]
   },
-  render (h) {
-    if (typeof this.icon === 'string') {
+  render (h, { props, data, ...rest }) {
+    const childrenClassName = css({
+      '&:first-child': { marginLeft: 0 },
+      '&:last-child': { marginRight: 0 }
+    })
+
+    if (typeof props.icon === 'string') {
       return h(CIcon, {
-        class: [css({
-          '&:first-child': { marginLeft: 0 },
-          '&:last-child': { marginRight: 0 }
-        })],
+        ...rest,
+        class: [childrenClassName],
         props: {
-          ...this.$props,
-          name: this.icon,
-          mx: '0.5rem'
+          name: props.icon
         },
         attrs: {
+          ...data.attrs,
+          mx: '0.5rem',
           'data-chakra-component': 'CTagIcon'
         }
       })
     }
 
     return h(CBox, {
-      class: [css({
-        '&:first-child': { marginLeft: 0 },
-        '&:last-child': { marginRight: 0 }
-      })],
+      ...rest,
+      class: [childrenClassName],
       props: {
-        ...this.$props,
-        as: this.icon,
+        as: props.icon
+      },
+      attrs: {
+        ...data.attrs,
         mx: '0.5rem',
-        color: 'currentColor'
+        color: 'currentColor',
+        'data-chakra-component': 'CTagIcon'
       }
     })
   }
@@ -157,19 +175,20 @@ const CTagIcon = {
  */
 const CTagLabel = {
   name: 'CTagLabel',
-  props: baseProps,
-  render (h) {
-    return h(CBox, {
+  functional: true,
+  render (h, { props, data, slots, ...rest }) {
+    return h(CText, {
+      ...rest,
       props: {
-        ...forwardProps(this.$props),
         as: 'span',
-        isTruncated: true,
-        lineHeight: 1.2
+        isTruncated: true
       },
       attrs: {
+        lineHeight: 1.2,
+        ...data.attrs,
         'data-chakra-component': 'CTagLabel'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -184,8 +203,8 @@ const CTagLabel = {
 const CTag = {
   name: 'CTag',
   inject: ['$chakraTheme', '$chakraColorMode'],
+  functional: true,
   props: {
-    ...styleProps,
     variant: {
       type: String,
       default: 'subtle'
@@ -199,43 +218,35 @@ const CTag = {
       default: 'gray'
     }
   },
-  computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    styleProps () {
-      useVariantColorWarning(this.theme, 'Tag', this.variantColor)
-      return useBadgeStyle({
-        variant: this.variant,
-        color: this.variantColor,
-        colorMode: this.colorMode,
-        theme: this.theme
-      })
-    },
-    sizeProps () {
-      return tagSizes[this.size]
-    }
-  },
-  render (h) {
+  render (h, { injections, props, slots, data, ...rest }) {
+    const theme = injections.$chakraTheme()
+    const colorMode = injections.$chakraColorMode()
+
+    useVariantColorWarning(theme, 'Tag', props.variantColor)
+
+    const tagStyles = useBadgeStyle({
+      variant: props.variant,
+      color: props.variantColor,
+      colorMode,
+      theme
+    })
+    const sizeStyles = tagSizes[props.size]
+
     return h(CPseudoBox, {
-      props: {
+      ...rest,
+      attrs: {
         display: 'inline-flex',
         alignItems: 'center',
         minH: 6,
         maxW: '100%',
         rounded: 'md',
         fontWeight: 'medium',
-        ...forwardProps(this.$props),
-        ...this.sizeProps,
-        ...this.styleProps
-      },
-      attrs: {
+        ...(data.attrs || {}),
+        ...sizeStyles,
+        ...tagStyles,
         'data-chakra-component': 'CTag'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

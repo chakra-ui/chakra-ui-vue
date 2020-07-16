@@ -31,7 +31,9 @@ storiesOf('UI | Editable', module)
     <CBox w="sm">
       <CEditable defaultValue="Take some chakra ⚡️ (click me)" fontSize="2xl">
         <CEditablePreview />
-        <CEditableInput />
+        <CEditableInput :_focus="{
+          shadow: '0 0 0 3px rgba(169, 97, 243, 0.6)'
+        }" />
       </CEditable>
     </CBox>
     `

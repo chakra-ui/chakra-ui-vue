@@ -16,9 +16,7 @@
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 
-import { baseProps } from '../config'
-import { forwardProps } from '../utils'
-import CBox from '../CBox'
+import { createStyledAttrsMixin, useId } from '../utils'
 import { formControlProps } from './utils/formcontrol.props'
 
 /**
@@ -31,8 +29,8 @@ import { formControlProps } from './utils/formcontrol.props'
  */
 const CFormControl = {
   name: 'CFormControl',
+  mixins: [createStyledAttrsMixin('CFormControl')],
   props: {
-    ...baseProps,
     ...formControlProps,
     as: {
       type: String,
@@ -57,7 +55,7 @@ const CFormControl = {
         isRequired: this.isRequired,
         isDisabled: this.isDisabled,
         isReadOnly: this.isReadOnly,
-        id: this.$attrs.id
+        id: `fc-${this.computedAttrs.id || useId(3)}`
       }
     }
   },
@@ -70,7 +68,7 @@ const CFormControl = {
   methods: {
     useFormControl () {
       /**
-       * If a <FormContext /> in the ancestor tree,
+       * If a <FormControl /> component is in the ancestor tree,
        * we provide it's values to this components' decendants.
        * However, we give a higher precendence to prop values
        * over context values.
@@ -95,13 +93,19 @@ const CFormControl = {
     }
   },
   render (h) {
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         role: 'group',
-        'data-chakra-component': 'CFormControl'
-      }
-    }, this.$slots.default)
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
+    }, this.$scopedSlots.default({
+      isInvalid: this.isInvalid,
+      isRequired: this.isRequired,
+      isDisabled: this.isDisabled,
+      isReadOnly: this.isReadOnly
+    }))
   }
 }
 

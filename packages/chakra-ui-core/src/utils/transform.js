@@ -1,4 +1,5 @@
 import { config } from '../config/props'
+import { isEmpty } from './object'
 
 /**
  * @description Transforms the custom prop alias to a format that styled-system CSS supports
@@ -8,18 +9,20 @@ import { config } from '../config/props'
  * @see chakra-ui PseudoBox tx_ method.
  */
 function normalizeAlias (prop, propValue) {
-  const configKeys = Object.keys(config)
   const result = {}
+  const entry = config[prop]
 
-  if (configKeys.includes(prop)) {
-    const { properties, property } = config[prop]
+  if (entry) {
+    const { properties, property } = entry
     if (properties) {
-      properties.forEach(_cssProp => (result[_cssProp] = propValue))
+      for (const _cssProp in properties) {
+        result[_cssProp] = propValue
+      }
     }
     if (property) {
       result[property] = propValue
     }
-    if (config[prop] === true) {
+    if (entry === true) {
       result[prop] = propValue
     }
   } else {
@@ -35,6 +38,10 @@ function normalizeAlias (prop, propValue) {
  */
 export const transformAlias = (props) => {
   let result = {}
+  if (!props || isEmpty(props)) {
+    return result
+  }
+
   for (const prop in props) {
     if (typeof props[prop] === 'object') {
       result = { ...result, [prop]: transformAlias(props[prop]) }
@@ -42,6 +49,7 @@ export const transformAlias = (props) => {
       result = { ...result, ...normalizeAlias(prop, props[prop]) }
     }
   }
+
   return result
 }
 

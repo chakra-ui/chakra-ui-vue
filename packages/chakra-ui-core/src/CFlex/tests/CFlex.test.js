@@ -1,5 +1,5 @@
 import CFlex from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -19,11 +19,11 @@ it('should render correctly', () => {
 
 it('should change styles', () => {
   const inlineAttrs = 'align="center" justify="center" direction="column"'
-  const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
+  const { asFragment } = renderComponent({ inlineAttrs })
 
   expect(asFragment()).toMatchSnapshot()
 
-  const flex = getByTestId('flex')
+  const flex = screen.getByTestId('flex')
   expect(flex).toHaveStyle('display: flex')
   expect(flex).toHaveStyle('align-items: center')
   expect(flex).toHaveStyle('justify-content: center')

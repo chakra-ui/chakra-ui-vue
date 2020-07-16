@@ -10,8 +10,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIconButton/CIconButton.js
  */
 
-import styleProps from '../config/props'
-import { forwardProps } from '../utils'
+import { extractListeners } from '../utils'
 import { buttonProps } from '../CButton/utils/button.props'
 
 import CButton from '../CButton'
@@ -43,7 +42,7 @@ const baseStyles = {
  */
 const CIconButton = {
   name: 'CIconButton',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  functional: true,
   props: {
     icon: {
       type: [String]
@@ -55,48 +54,56 @@ const CIconButton = {
       type: [String],
       required: true
     },
-    ...buttonProps,
-    ...styleProps
+    ...buttonProps
   },
-  render (h) {
-    const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = this.$props
+  render (h, context) {
+    const { isFullWidth, leftIcon, rightIcon, loadingText, ...props } = context.props
+    const { ariaLabel, isRound, icon } = props
+
+    const nonNativeEvents = {
+      click: (e) => {
+        const emitClick = context.listeners.click
+        if (emitClick) {
+          emitClick(e)
+        }
+      }
+    }
+
+    const { native, nonNative } = extractListeners(context, nonNativeEvents)
 
     return h(CButton, {
-      props: {
-        p: 0,
-        rounded: this.isRound ? 'full' : 'md',
-        size: this.size,
-        ...forwardProps(props)
-      },
+      props,
       attrs: {
-        'aria-label': this.ariaLabel,
-        'data-chakra-component': 'CIconButton'
+        'aria-label': ariaLabel,
+        rounded: isRound ? 'full' : 'md',
+        ...context.data.attrs,
+        'data-chakra-component': 'CIconButton',
+        p: 0
       },
-      on: {
-        click: e => this.$emit('click', e)
-      }
+      on: nonNative,
+      nativeOn: native
     },
-    [typeof this.icon === 'string'
+    [typeof icon === 'string'
       ? h(CIcon, {
         props: {
-          ...baseStyles,
-          name: this.icon,
-          color: 'currentColor',
-          mb: '2px',
-          size: '1em'
+          name: icon
         },
         attrs: {
+          ...baseStyles,
+          color: 'currentColor',
+          mb: '2px',
+          size: '1em',
           focusable: false,
           'aria-hidden': true
         }
       })
       : h(CBox, {
         props: {
-          as: this.icon,
-          color: 'currentColor'
+          as: icon
         },
         attrs: {
-          focusable: true
+          focusable: true,
+          color: 'currentColor'
         }
       })]
     )

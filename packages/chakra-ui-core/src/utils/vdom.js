@@ -12,11 +12,14 @@ export function cloneVNode (vnode, createElement) {
   cloned.text = vnode.text
   cloned.isComment = vnode.isComment
   cloned.componentOptions = vnode.componentOptions
+  cloned.fnOptions = vnode.fnOptions
+  cloned.fnContext = vnode.fnContext
   cloned.elm = vnode.elm
   cloned.context = vnode.context
   cloned.ns = vnode.ns
   cloned.isStatic = vnode.isStatic
   cloned.key = vnode.key
+  cloned.data = vnode.data
   return cloned
 }
 
@@ -37,7 +40,7 @@ export function cloneVNodes (vnodes, createElement) {
  * @param {Object} data VNode data
  * @param {Function} h Render function
  */
-export function cloneVNodeElement (vnode, { props, children, ...rest }, h) {
+export function cloneVNodeElement (vnode, { props, attrs, children, ...rest }, h) {
   const cloned = cloneVNode(vnode, h)
   return h(cloned.componentOptions.Ctor, {
     ...cloned.data,
@@ -46,6 +49,10 @@ export function cloneVNodeElement (vnode, { props, children, ...rest }, h) {
       ...(cloned.data.props || {}),
       ...cloned.componentOptions.propsData,
       ...props
+    },
+    attrs: {
+      ...(cloned.data.attrs || {}),
+      ...attrs
     },
     ...rest
   }, cloned.componentOptions.children || children)
@@ -84,4 +91,45 @@ export function getFirstComponentChild (children) {
 export function cleanChildren (vnodes) {
   if (!vnodes) return []
   return vnodes.filter(vnode => vnode.tag)
+}
+
+/**
+ * Extracts native and nonNative event handlers for functional components
+ *
+ * The returned object returns `native` object contains listeners that
+ * MUST be passed to a Vue component in the render function.
+ *
+ * The returned `nonNative` object contains other native listeners that
+ * can be passed to a native HTML element in the render function.
+ *
+ * @param {Object} context Render function context
+ * @param {Object} nonNative Object of VNode `on` event handlers
+ * @returns {{ nonNative: Object<String, Function>, native: Object<String, Function>}}
+ *
+ * @example
+ * import Comp from 'comp'
+ *
+ * const newComp = {
+ *  functional: true,
+ *  render(h, context) {
+ *    const { native, nonNative } = extractListeners(context, componentEvents)
+ *    return h(Comp, {
+ *      ...context.data
+ *      on: nonNative,
+ *      nativeOn: native,
+ *    }, context.slots ? context.slots().default : context.children)
+ *  }
+ * }
+ */
+export const extractListeners = (context, nonNative = {}) => {
+  const { listeners } = context
+  const native = {}
+
+  for (const listener in listeners) {
+    if (!nonNative[listener]) {
+      native[listener] = listeners[listener]
+    }
+  }
+
+  return { native, nonNative }
 }

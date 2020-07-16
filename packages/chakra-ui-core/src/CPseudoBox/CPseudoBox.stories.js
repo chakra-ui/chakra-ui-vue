@@ -11,6 +11,7 @@ storiesOf('UI | PseudoBox', module)
         color="vue.800"
         p="3"
         rounded="md"
+        flexDir="row"
         bl="4px"
         font-family="body"
         transition="all 0.2s ease-in-out"

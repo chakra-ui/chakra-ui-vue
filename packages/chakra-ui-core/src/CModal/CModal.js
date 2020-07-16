@@ -13,15 +13,14 @@
 import { hideOthers } from 'aria-hidden'
 import { FocusTrap } from 'focus-trap-vue'
 import isFunction from 'lodash-es/isFunction'
-import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, forwardProps, wrapEvent } from '../utils'
-import { baseProps } from '../config'
-import styleProps from '../config/props'
+import { useId, canUseDOM, getElById, isVueComponent, getElement, getFocusables, cleanChildren, wrapEvent, createStyledAttrsMixin } from '../utils'
 
 import { CFade } from '../CTransition'
 import CPortal from '../CPortal'
 import CBox from '../CBox'
-import CPseudoBox from '../CPseudoBox'
-import CCloseButton from '../CCloseButton'
+import CIcon from '../CIcon'
+import closeButtonProps from '../CCloseButton/utils/closebutton.props'
+import { sizes, baseProps } from '../CCloseButton/utils/closebutton.styles'
 import props from './utils/modal.props'
 
 /**
@@ -228,10 +227,8 @@ const CModal = {
           deactivate: this.deactivateFocusLock
         }
       }, [
-        h(CPseudoBox, {
-          props: {
-            position: 'relative'
-          },
+        h('div', {
+          style: { position: 'relative' },
           directives: [{
             name: 'scroll-lock',
             value: this.isOpen && this.blockScrollOnMount
@@ -267,13 +264,11 @@ const CModal = {
  */
 const CModalOverlay = {
   name: 'CModalOverlay',
-  props: baseProps,
-  attrs: {
-    'data-chakra-component': 'CModalOverlay'
-  },
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CBox, {
-      props: {
+      ...rest,
+      attrs: {
         pos: 'fixed',
         bg: 'rgba(0,0,0,0.4)',
         left: '0',
@@ -281,7 +276,8 @@ const CModalOverlay = {
         w: '100vw',
         h: '100vh',
         zIndex: 'overlay',
-        ...forwardProps(this.$props)
+        ...data.attrs,
+        'data-chakra-component': 'CModalOverlay'
       }
     })
   }
@@ -300,7 +296,6 @@ const CModalContent = {
   inheritAttrs: false,
   inject: ['$ModalContext', '$chakraColorMode'],
   props: {
-    ...baseProps,
     noStyles: Boolean,
     zIndex: {
       type: String,
@@ -325,14 +320,25 @@ const CModalContent = {
     }
   },
   computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
     context () {
       return this.$ModalContext()
     },
+    colorMode () {
+      return this.$chakraColorMode()
+    },
     boxStyleProps () {
       return this.colorModeStyles[this.colorMode]
+    },
+    componentStyles () {
+      return {
+        ...this.wrapperStyle,
+        pos: 'fixed',
+        left: '0',
+        top: '0',
+        w: '100%',
+        h: '100%',
+        zIndex: this.zIndex || 'modal'
+      }
     }
   },
   created () {
@@ -405,8 +411,7 @@ const CModalContent = {
     } = this.context
 
     return h(CBox, {
-      props: {
-        ...forwardProps(this.$props),
+      attrs: {
         ...this.wrapperStyle,
         pos: 'fixed',
         left: '0',
@@ -415,7 +420,7 @@ const CModalContent = {
         h: '100%',
         zIndex: this.zIndex || 'modal'
       },
-      nativeOn: {
+      on: {
         click: (event) => {
           event.stopPropagation()
           if (closeOnOverlayClick) {
@@ -431,14 +436,19 @@ const CModalContent = {
             }
           }
         }
-      },
-      attrs: {
-        'data-chakra-component': 'CModalContent'
       }
     }, [
       h(CBox, {
         props: {
-          as: 'section',
+          as: 'section'
+        },
+        attrs: {
+          role: 'dialog',
+          'aria-modal': 'true',
+          tabIndex: -1,
+          id: contentId,
+          ...(addAriaDescribedby && { 'aria-describedby': bodyId }),
+          ...(addAriaLabelledby && { 'aria-labelledby': headerId }),
           outline: 0,
           maxWidth: size,
           w: '100%',
@@ -449,15 +459,7 @@ const CModalContent = {
           fontFamily: 'body',
           ...this.boxStyleProps,
           ...this.contentStyle,
-          ...forwardProps(this.$props)
-        },
-        attrs: {
-          role: 'dialog',
-          'aria-modal': 'true',
-          tabIndex: -1,
-          id: contentId,
-          ...(addAriaDescribedby && { 'aria-describedby': bodyId }),
-          ...(addAriaLabelledby && { 'aria-labelledby': headerId }),
+          'data-chakra-component': 'CModalContent',
           ...this.$attrs
         },
         nativeOn: {
@@ -478,30 +480,31 @@ const CModalContent = {
  */
 const CModalHeader = {
   name: 'CModalHeader',
+  mixins: [createStyledAttrsMixin('CModalHeader')],
   inject: ['$ModalContext'],
-  props: baseProps,
   computed: {
     context () {
       return this.$ModalContext()
-    }
-  },
-  render (h) {
-    const { headerId } = this.context
-
-    return h(CBox, {
-      props: {
-        as: 'header',
+    },
+    componentStyles () {
+      return {
         px: 6,
         py: 4,
         position: 'relative',
         fontSize: 'xl',
-        fontWeight: 'semibold',
-        ...forwardProps(this.$props)
-      },
+        fontWeight: 'semibold'
+      }
+    }
+  },
+  render (h) {
+    const { headerId } = this.context
+    return h('header', {
+      class: [this.className],
       attrs: {
         id: headerId,
-        'data-chakra-component': 'CModalHeader'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -516,21 +519,20 @@ const CModalHeader = {
  */
 const CModalFooter = {
   name: 'CModalFooter',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { slots, data }) {
     return h(CBox, {
-      props: {
+      ...data,
+      attrs: {
         as: 'footer',
         display: 'flex',
         px: 6,
         py: 4,
         justifyContent: 'flex-end',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CModalFooter'
+        'data-chakra-component': 'CModalFooter',
+        ...data.attrs
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -544,33 +546,36 @@ const CModalFooter = {
  */
 const CModalBody = {
   name: 'CModalBody',
-  props: baseProps,
+  mixins: [createStyledAttrsMixin('CModalBody')],
   inject: ['$ModalContext'],
   computed: {
     context () {
       return this.$ModalContext()
-    }
-  },
-  render (h) {
-    const { bodyId, scrollBehavior } = this.context
-
-    let style = {}
-    if (scrollBehavior === 'inside') {
-      style = { overflowY: 'auto' }
-    }
-
-    return h(CBox, {
-      props: {
+    },
+    componentStyles () {
+      const { scrollBehavior } = this.context
+      let style = {}
+      if (scrollBehavior === 'inside') {
+        style = { overflowY: 'auto' }
+      }
+      return {
         px: 6,
         py: 2,
         flex: 1,
-        ...style,
-        ...forwardProps(this.$props)
-      },
+        ...style
+      }
+    }
+  },
+  render (h) {
+    const { bodyId } = this.context
+    return h(this.as, {
+      class: [this.className],
       attrs: {
         id: bodyId,
-        'data-chakra-component': 'CModalBody'
-      }
+        'data-chakra-component': 'CModalBody',
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -585,32 +590,68 @@ const CModalBody = {
  */
 const CModalCloseButton = {
   name: 'CModalCloseButton',
-  props: styleProps,
+  mixins: [createStyledAttrsMixin('CModalCloseButton', true)],
   inject: ['$ModalContext'],
+  props: closeButtonProps,
   computed: {
     context () {
       return this.$ModalContext()
+    },
+    componentStyles () {
+      const colorMode = this.colorMode
+
+      // Pseudo styles
+      const hoverColor = { light: 'blackAlpha.100', dark: 'whiteAlpha.100' }
+      const activeColor = { light: 'blackAlpha.200', dark: 'whiteAlpha.200' }
+
+      // Size styles
+      const buttonSize = sizes[this.size] && sizes[this.size].button
+
+      return {
+        outline: 'none',
+        h: buttonSize,
+        w: buttonSize,
+        disabled: this.isDisabled,
+        cursor: 'pointer',
+        _hover: { bg: hoverColor[colorMode] },
+        _active: { bg: activeColor[colorMode] },
+        position: 'absolute',
+        top: '8px',
+        right: '12px',
+        ...baseProps
+      }
     }
   },
   render (h) {
     const { onClose } = this.context
-    return h(CCloseButton, {
-      props: {
-        position: 'absolute',
-        top: '8px',
-        right: '12px',
-        ...forwardProps(this.$props)
-      },
+    const iconSize = sizes[this.size] && sizes[this.size].icon
+
+    return h('button', {
+      class: [this.className],
       attrs: {
-        'x-close-button': '',
-        'data-chakra-component': 'CModalCloseButton'
+        'data-chakra-component': 'CModalCloseButton',
+        ...this.computedAttrs,
+        'aria-label': this.ariaLabel,
+        'aria-disabled': this.isDisabled
       },
       on: {
+        ...this.computedListeners,
         click: (e) => {
           wrapEvent(onClose, event => this.$emit('click', event))(e)
-        }
+        },
+        ...this.computedListeners
       }
-    })
+    }, [h(CIcon, {
+      props: {
+        color: props.color,
+        name: 'close',
+        size: iconSize
+      },
+      attrs: {
+        focusable: false,
+        'aria-hidden': true
+      }
+    })])
   }
 }
 

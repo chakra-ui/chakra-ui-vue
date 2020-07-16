@@ -126,7 +126,7 @@ storiesOf('UI | Avatar', module)
       CAvatarGroup
     },
     template: `
-        <CAvatarGroup size="md" max="3" :spacing="-2">
+        <CAvatarGroup max="3" :spacing="-2">
           <CAvatar
             name="Evan You"
             src="https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg"

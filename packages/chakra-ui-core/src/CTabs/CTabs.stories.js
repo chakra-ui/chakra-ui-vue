@@ -5,7 +5,7 @@ storiesOf('UI | Tabs', module)
   .add('Basic Usage', () => ({
     components: { CBox, CTabs, CTabList, CTab, CTabPanels, CTabPanel },
     template: `
-      <CBox w="600px">
+      <CBox w="600px" h="500px">
         <CTabs>
           <CTabList>
             <CTab>One</CTab>
@@ -14,14 +14,23 @@ storiesOf('UI | Tabs', module)
           </CTabList>
 
           <CTabPanels>
-            <CTabPanel>
-              <p>one!</p>
+            <CTabPanel p="4">
+              <p v-chakra font-size="xl" font-weight="bold">
+                <lorem add="2w" />
+              </p>
+              <lorem add="10s" />
             </CTabPanel>
-            <CTabPanel>
-              <p>two!</p>
+            <CTabPanel p="4">
+              <p v-chakra font-size="xl" font-weight="bold">
+                <lorem add="3w" />
+              </p>
+              <lorem add="5s" />
             </CTabPanel>
-            <CTabPanel>
-              <p>three!</p>
+            <CTabPanel p="4">
+              <p v-chakra font-size="xl" font-weight="bold">
+                <lorem add="4w" />
+              </p>
+              <lorem add="8s" />
             </CTabPanel>
           </CTabPanels>
         </CTabs>

@@ -7,10 +7,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioButtonGroup/CRadioButtonGroup.js
  */
 
-import CBox from '../CBox'
-import { baseProps } from '../config'
 import { StringNumber, SNA } from '../config/props/props.types'
-import { isDef, useId, cloneVNodeElement, forwardProps, cleanChildren } from '../utils'
+import { isDef, useId, cloneVNodeElement, cleanChildren, createStyledAttrsMixin } from '../utils'
 
 /**
  * CRadioButtonGroup component
@@ -22,12 +20,12 @@ import { isDef, useId, cloneVNodeElement, forwardProps, cleanChildren } from '..
  */
 const CRadioButtonGroup = {
   name: 'CRadioButtonGroup',
+  mixins: [createStyledAttrsMixin('CRadioButtonGroup')],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     name: String,
     defaultValue: {
       type: StringNumber,
@@ -166,13 +164,14 @@ const CRadioButtonGroup = {
           }
         }, h)
       })
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h('div', {
+      class: [this.className],
       attrs: {
-        role: 'radiogroup',
-        'data-chakra-component': 'CRadioButtonGroup'
+        ...this.computedAttrs,
+        role: 'radiogroup'
       },
-      nativeOn: {
+      on: {
+        ...this.computedListeners,
         keydown: this.handleKeyDown
       }
     }, clones)

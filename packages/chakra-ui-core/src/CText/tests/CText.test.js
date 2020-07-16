@@ -1,5 +1,5 @@
 import CText from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
@@ -19,9 +19,9 @@ it('should render correctly', () => {
 
 it('should change the style', () => {
   const inlineAttrs = 'd="flex"'
-  const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
+  const { asFragment } = renderComponent({ inlineAttrs })
 
-  const text = getByTestId('text')
+  const text = screen.getByTestId('text')
 
   expect(asFragment()).toMatchSnapshot()
   expect(text).toHaveStyle('display: flex')
@@ -44,8 +44,8 @@ it.each`
   'should display text type as $as',
   ({ as }) => {
     const inlineAttrs = `as=${as}`
-    const { asFragment } = renderComponent({ inlineAttrs })
-
-    expect(asFragment()).toMatchSnapshot()
+    renderComponent({ inlineAttrs })
+    const text = screen.getByTestId('text')
+    expect(text.tagName.toLowerCase()).toEqual(as)
   }
 )

@@ -8,7 +8,6 @@
  */
 
 import Breadstick from 'breadstick'
-import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
 import { colorModeObserver } from '../utils/color-mode-observer'
 
@@ -31,6 +30,7 @@ const breadstick = new Breadstick()
  */
 const CToast = {
   name: 'CToast',
+  inheritAttrs: false,
   props: {
     status: {
       type: String,
@@ -58,14 +58,16 @@ const CToast = {
     description: {
       type: String,
       default: ''
-    },
-    ...baseProps
+    }
   },
   render (h) {
     return h(CAlert, {
       props: {
         status: this.status,
         variant: this.variant,
+        ...forwardProps(this.$props)
+      },
+      attrs: {
         textAlign: 'left',
         boxShadow: 'lg',
         rounded: 'md',
@@ -74,10 +76,8 @@ const CToast = {
         m: 2,
         pr: 2,
         p: 4,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
         id: this.id,
+        ...(this.$attrs || {}),
         'data-chakra-component': 'CToast'
       }
     }, [
@@ -92,7 +92,9 @@ const CToast = {
       ]),
       this.isClosable && h(CCloseButton, {
         props: {
-          size: 'sm',
+          size: 'sm'
+        },
+        attrs: {
           position: 'absolute',
           right: '4px',
           top: '4px',

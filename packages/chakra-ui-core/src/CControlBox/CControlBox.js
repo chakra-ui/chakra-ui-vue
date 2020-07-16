@@ -16,9 +16,7 @@
 
 import { css } from 'emotion'
 import __css from '@styled-system/css'
-import { tx, forwardProps } from '../utils'
-import { baseProps } from '../config'
-
+import { tx } from '../utils'
 import CBox from '../CBox'
 
 // Default ControlBox props types
@@ -34,8 +32,10 @@ const PseudoPropTypes = [Object, Array]
  */
 const CControlBox = {
   name: 'CControlBox',
+  functional: true,
   inject: ['$chakraTheme'],
   props: {
+    as: [String, Object],
     type: {
       type: String,
       default: 'checkbox'
@@ -44,11 +44,6 @@ const CControlBox = {
       type: [Number, String, Array],
       default: 'auto'
     },
-    _hover: PseudoPropTypes,
-    _invalid: PseudoPropTypes,
-    _disabled: PseudoPropTypes,
-    _focus: PseudoPropTypes,
-    _checked: PseudoPropTypes,
     _child: {
       type: PseudoPropTypes,
       default: () => ({ opacity: 0 })
@@ -59,58 +54,62 @@ const CControlBox = {
     },
     _checkedAndDisabled: PseudoPropTypes,
     _checkedAndFocus: PseudoPropTypes,
-    _checkedAndHover: PseudoPropTypes,
-    ...baseProps
+    _checkedAndHover: PseudoPropTypes
   },
-  computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    className () {
-      const checkedAndDisabled = `input[type=${this.type}]:checked:disabled + &, input[type=${this.type}][aria-checked=mixed]:disabled + &`
-      const checkedAndHover = `input[type=${this.type}]:checked:hover:not(:disabled) + &, input[type=${this.type}][aria-checked=mixed]:hover:not(:disabled) + &`
-      const checkedAndFocus = `input[type=${this.type}]:checked:focus + &, input[type=${this.type}][aria-checked=mixed]:focus + &`
-      const disabled = `input[type=${this.type}]:disabled + &`
-      const focus = `input[type=${this.type}]:focus + &`
-      const hover = `input[type=${this.type}]:hover:not(:disabled):not(:checked) + &`
-      const checked = `input[type=${this.type}]:checked + &, input[type=${this.type}][aria-checked=mixed] + &`
-      const invalid = `input[type=${this.type}][aria-invalid=true] + &`
+  render (h, { props, data, injections, slots }) {
+    const { attrs } = data
 
-      const controlBoxStyleObject = __css({
-        [focus]: tx(this._focus),
-        [hover]: tx(this._hover),
-        [disabled]: tx(this._disabled),
-        [invalid]: tx(this._invalid),
-        [checkedAndDisabled]: tx(this._checkedAndDisabled),
-        [checkedAndFocus]: tx(this._checkedAndFocus),
-        [checkedAndHover]: tx(this._checkedAndHover),
-        '& > *': tx(this._child),
-        [checked]: {
-          ...tx(this._checked),
-          '& > *': tx(this._checkedAndChild)
-        }
-      })(this.theme)
-      return css(controlBoxStyleObject)
-    }
-  },
-  render (h) {
+    // Inject theme
+    const theme = injections.$chakraTheme()
+
+    // Parse child styles
+    const checkedAndDisabled = `input[type=${props.type}]:checked:disabled + &, input[type=${props.type}][aria-checked=mixed]:disabled + &`
+    const checkedAndHover = `input[type=${props.type}]:checked:hover:not(:disabled) + &, input[type=${props.type}][aria-checked=mixed]:hover:not(:disabled) + &`
+    const checkedAndFocus = `input[type=${props.type}]:checked:focus + &, input[type=${props.type}][aria-checked=mixed]:focus + &`
+    const disabled = `input[type=${props.type}]:disabled + &`
+    const focus = `input[type=${props.type}]:focus + &`
+    const hover = `input[type=${props.type}]:hover:not(:disabled):not(:checked) + &`
+    const checked = `input[type=${props.type}]:checked + &, input[type=${props.type}][aria-checked=mixed] + &`
+    const invalid = `input[type=${props.type}][aria-invalid=true] + &`
+
+    const basePseudoAttrs = (attrs && ({
+      [focus]: tx(attrs._focus),
+      [hover]: tx(attrs._hover),
+      [disabled]: tx(attrs._disabled),
+      [invalid]: tx(attrs._invalid)
+    })) || {}
+
+    const controlBoxStyleObject = __css({
+      ...basePseudoAttrs,
+      [checkedAndDisabled]: tx(props._checkedAndDisabled),
+      [checkedAndFocus]: tx(props._checkedAndFocus),
+      [checkedAndHover]: tx(props._checkedAndHover),
+      '& > *': tx(props._child),
+      [checked]: {
+        ...attrs && tx(attrs._checked),
+        '& > *': tx(props._checkedAndChild)
+      }
+    })(theme)
+
+    const className = css(controlBoxStyleObject)
+
     return h(CBox, {
-      class: [this.className],
-      props: {
+      ...data,
+      class: [className],
+      props: { as: props.as },
+      attrs: {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
         transition: 'all 120ms',
         flexShrink: '0',
-        width: this.size,
-        height: this.size,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        width: props.size,
+        height: props.size,
         'aria-hidden': 'true',
+        ...attrs,
         'data-chakra-component': 'CControlBox'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

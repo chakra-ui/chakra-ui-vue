@@ -8,9 +8,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CStack/CStack.js
  */
 
-import { baseProps } from '../config/props'
 import { StringArray, SNA } from '../config/props/props.types'
-import { forwardProps, cloneVNode } from '../utils'
+import { cloneVNode, createStyledAttrsMixin } from '../utils'
 
 import CFlex from '../CFlex'
 import CBox from '../CBox'
@@ -25,6 +24,7 @@ import CBox from '../CBox'
  */
 const CStack = {
   name: 'CStack',
+  mixins: [createStyledAttrsMixin('CStack')],
   props: {
     direction: [String, Array],
     isInline: {
@@ -44,54 +44,73 @@ const CStack = {
     shouldWrapChildren: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    _isInline () {
+      return this.isInline || (this.direction && this.direction.startsWith('row'))
     },
-    ...baseProps
+    _isReversed () {
+      return this.isReversed || (this.direction && this.direction.endsWith('reverse'))
+    },
+    _direction () {
+      let _direction
+
+      if (this._isInline) {
+        _direction = 'row'
+      }
+
+      if (this._isReversed) {
+        _direction = this.isInline ? 'row-reverse' : 'column-reverse'
+      }
+
+      if (this.direction) {
+        _direction = this.direction
+      }
+
+      if (!this._isInline && !this._isReversed && !this.direction) {
+        _direction = 'column'
+      }
+
+      return _direction
+    }
   },
   render (h) {
-    const _isReversed = this.isReversed || (this.direction && this.direction.endsWith('reverse'))
-    const _isInline = this.isInline || (this.direction && this.direction.startsWith('row'))
-    let _direction
-
-    if (_isInline) {
-      _direction = 'row'
-    }
-
-    if (_isReversed) {
-      _direction = this.isInline ? 'row-reverse' : 'column-reverse'
-    }
-
-    if (this.direction) {
-      _direction = this.direction
-    }
-
-    if (!_isInline && !_isReversed && !this.direction) {
-      _direction = 'column'
-    }
-
     const children = this.$slots.default.filter(e => e.tag)
     const stackables = children.map((node, index) => {
       const isLastChild = children.length === index + 1
-      const spacingProps = _isInline
-        ? { [_isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
-        : { [_isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
+      const spacingProps = this._isInline
+        ? { [this._isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
+        : { [this._isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
+
       const clone = cloneVNode(node, h)
       const { propsData } = clone.componentOptions
+      const { attrs } = clone.data
 
-      // If children nodes should wrap, we wrap them inside block with
+      // If children nodes should wrap,
+      // we wrap them inside block with
       // display set to inline block.
       if (this.shouldWrapChildren) {
         return h(CBox, {
           props: {
+            as: this.as,
+            to: this.to
+          },
+          attrs: {
             d: 'inline-block',
-            ...spacingProps,
-            ...forwardProps(this.$props)
+            ...spacingProps
           }
         }, [clone])
       }
 
-      // Otherwise we simply set spacing props to current node.
+      // Otherwise we simply set spacing props
+      // to current node.
       clone.componentOptions.propsData = {
-        ...propsData,
+        ...propsData
+      }
+
+      clone.data.attrs = {
+        ...attrs,
         ...spacingProps
       }
 
@@ -99,15 +118,14 @@ const CStack = {
     })
 
     return h(CFlex, {
+      class: this.className,
       props: {
+        as: this.as,
         align: this.align,
         justify: this.justify,
-        direction: _direction,
-        ...forwardProps(this.$props)
+        direction: this._direction
       },
-      attrs: {
-        'data-chakra-component': 'CStack'
-      }
+      attrs: this.computedAttrs
     }, stackables)
   }
 }

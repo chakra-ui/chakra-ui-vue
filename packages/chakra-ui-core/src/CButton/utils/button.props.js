@@ -3,15 +3,10 @@ export const buttonProps = {
     type: [String, Object],
     default: 'button'
   },
+  to: [String, Object],
   type: {
     type: String,
     default: 'button'
-  },
-  cast: {
-    type: String,
-    default: 'primary',
-    validator: value =>
-      value.match(/^(primary|secondary|success|warning|danger)$/)
   },
   variant: {
     type: String,
@@ -55,14 +50,5 @@ export const buttonProps = {
   rightIcon: {
     type: String,
     default: null
-  },
-  rounded: {
-    type: Boolean,
-    default: false
-  },
-  ripple: {
-    type: [String, Boolean],
-    default: true
-  },
-  forwardRef: Object
+  }
 }

@@ -11,7 +11,7 @@ storiesOf('UI | Popover', module)
       </CPopoverTrigger>
       <CPopoverContent zIndex="4">
         <CPopoverArrow />
-        <CPopoverCloseButton />
+        <CPopoverCloseButton pos="absolute" />
         <CPopoverHeader>Confirmation!</CPopoverHeader>
         <CPopoverBody>Are you sure you want to have that milkshake?</CPopoverBody>
       </CPopoverContent>
@@ -117,7 +117,7 @@ storiesOf('UI | Popover', module)
   .add('Customizing the Popover', () => ({
     components: { CButton, CPopover, CPopoverTrigger, CPopoverContent, CPopoverHeader, CPopoverBody, CPopoverArrow, CPopoverCloseButton, CPopoverFooter, CBox },
     template: `
-      <CPopover>
+      <CPopover :closeOnBlur="false">
         <CPopoverTrigger>
           <CBox
             tabIndex="0"

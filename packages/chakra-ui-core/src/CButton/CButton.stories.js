@@ -1,8 +1,21 @@
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue'
-import { CButton } from '..'
+import { CButton } from '../'
 
 storiesOf('UI | Button', module)
+  .add('New', () => ({
+    components: { CButton },
+    template: `
+      <div>
+        <input v-chakra="{ ':focus': { shadow: 'outline' } }" transition="all 0.2s ease-in-out" shadow="sm" rounded="md" h="100%" v-model="value" />
+        <CButton variant-color="blue" @click="action">New button</CButton>
+      </div>
+    `,
+    methods: { action: action('Button Clicked') },
+    data: () => ({
+      value: ''
+    })
+  }))
   .add('Unstyled', () => ({
     components: { CButton },
     template: `

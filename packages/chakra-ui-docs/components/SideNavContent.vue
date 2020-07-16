@@ -1,5 +1,6 @@
 <template>
   <CBox
+    v-bind="$attrs"
     p="3"
     :color="colorMode === 'light' ? 'gray.600': 'whiteAlpha.700'"
   >
@@ -101,24 +102,24 @@
 </template>
 
 <script>
-import { boxProps, CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
+import { CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
 import { components as componentLinks, topNavLinks, aboutNavLinks } from '../utils/all-routes'
 
 export default {
   name: 'SideNavContent',
-  inject: ['$chakraColorMode'],
   components: {
     CBox,
     CHeading,
     CPseudoBox
   },
+  inheritAttrs: false,
+  inject: ['$chakraColorMode'],
   props: {
     contentHeight: {
       type: String,
       default: 'calc(100vh - 4rem)'
-    },
-    ...boxProps
+    }
   },
   computed: {
     colorMode () {

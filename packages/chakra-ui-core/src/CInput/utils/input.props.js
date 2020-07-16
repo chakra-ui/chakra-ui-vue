@@ -25,7 +25,7 @@ export const inputProps = {
   isRequired: Boolean,
   focusBorderColor: {
     type: String,
-    default: 'blue.400'
+    default: 'blue.200'
   },
   errorBorderColor: {
     type: String,

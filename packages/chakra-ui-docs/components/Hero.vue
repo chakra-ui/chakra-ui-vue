@@ -50,7 +50,7 @@
           </CButton>
         </CFlex>
         <CLink
-          color="gray.600"
+          :color="colorMode === 'light' ? 'gray.600' : 'gray.50'"
           mt="4"
           font-size="sm"
           :_hover="{ color : 'vue.400' }"
@@ -65,14 +65,19 @@
 </template>
 
 <script>
-import { CFlex, CBox, CHeading, CButton, CText } from '@chakra-ui/vue'
+import { CFlex, CBox, CHeading, CButton, CText, CLink } from '@chakra-ui/vue'
 export default {
   components: {
     CFlex,
     CHeading,
     CButton,
     CText,
-    CBox
+    CBox,
+    CLink
+  },
+  inject: ['$chakraColorMode'],
+  computed: {
+    colorMode: vm => vm.$chakraColorMode()
   }
 }
 </script>

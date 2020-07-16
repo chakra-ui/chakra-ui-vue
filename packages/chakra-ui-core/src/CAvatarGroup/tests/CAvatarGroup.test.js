@@ -1,25 +1,47 @@
 import { CAvatar, CAvatarGroup } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen, waitMs } from '@/tests/test-utils'
+
+const LOAD_FAILURE_SRC = 'LOAD_FAILURE_SRC'
+const LOAD_SUCCESS_SRC = 'LOAD_SUCCESS_SRC'
+
+beforeAll(() => {
+  process.browser = true // Mock process.browser for CAvatar created()
+})
+
+beforeAll(() => {
+  // Mock Img
+  // eslint-disable-next-line accessor-pairs
+  Object.defineProperty(global.Image.prototype, 'src', {
+    set (src) {
+      if (src === LOAD_FAILURE_SRC) {
+        setTimeout(() => this.onerror(new Error('mocked error')))
+      } else if (src === LOAD_SUCCESS_SRC) {
+        setTimeout(() => this.onload())
+      }
+    }
+  })
+})
 
 const renderComponent = (props) => {
+  const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: {
       CAvatar,
       CAvatarGroup
     },
     template: `
-    <CAvatarGroup max="2">
+    <CAvatarGroup max="2" ${inlineAttrs}>
       <CAvatar
         name="Mesut Koca"
-        src="https://pbs.twimg.com/profile_images/953743486842474496/cOrUdK4z_200x200.jpg"
+        src="LOAD_SUCCESS_SRC"
       />
       <CAvatar
         name="Evan You"
-        src="https://pbs.twimg.com/profile_images/888432310504370176/mhoGA4uj_400x400.jpg"
+        src="LOAD_SUCCESS_SRC"
       />
       <CAvatar
         name="Jonathan Bakebwa"
-        src="https://res.cloudinary.com/xtellar/image/upload/v1572857445/me_zqos4e.jpg"
+        src="LOAD_SUCCESS_SRC"
       />
     </CAvatarGroup>`,
     ...props
@@ -27,13 +49,21 @@ const renderComponent = (props) => {
   return render(base)
 }
 
-it('should render correctly', () => {
+it('should render correctly', async () => {
   const { asFragment } = renderComponent()
+
+  await waitMs() // wait for img.onsuccess to be called.
+
+  expect(asFragment()).toMatchSnapshot()
+})
+
+it('should change avatar group size correctly', () => {
+  const inlineAttrs = 'group-size="lg"'
+  const { asFragment } = renderComponent({ inlineAttrs })
   expect(asFragment()).toMatchSnapshot()
 })
 
 test('renders a number avatar showing count of truncated avatars', () => {
-  const { getByText } = renderComponent()
-
-  getByText('+1')
+  renderComponent()
+  screen.getByText('+1')
 })

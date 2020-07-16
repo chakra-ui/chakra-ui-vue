@@ -9,8 +9,6 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CNumberInput/accessibility.md
  */
 
-import { baseProps } from '../config'
-import styleProps from '../config/props'
 import { isDef, useId, getElement, canUseDOM, wrapEvent } from '../utils'
 import { inputProps } from '../CInput/utils/input.props'
 
@@ -31,12 +29,12 @@ import numberInputStyles from './utils/numberinput.styles'
  */
 const CNumberInput = {
   name: 'CNumberInput',
+  inheritAttrs: false,
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     value: [Number, String],
     defaultValue: Number,
     focusInputOnChange: {
@@ -457,12 +455,12 @@ const CNumberInput = {
     const { size, ...styles } = this.$props
     return h(CFlex, {
       props: {
-        ...styles,
-        align: 'stretch',
-        w: this.isFullWidth ? 'full' : null,
-        pos: 'relative'
+        align: 'stretch'
       },
       attrs: {
+        ...styles,
+        w: this.isFullWidth ? 'full' : null,
+        pos: 'relative',
         'data-chakra-component': 'CNumberInput'
       }
     }, this.$slots.default)
@@ -479,16 +477,14 @@ const CNumberInput = {
  */
 const CNumberInputField = {
   name: 'CNumberInputField',
+  inheritAttrs: false,
   inject: ['$NumberInputContext'],
   computed: {
     context () {
       return this.$NumberInputContext()
     }
   },
-  props: {
-    ...styleProps,
-    ...inputProps
-  },
+  props: inputProps,
   render (h) {
     const {
       size, inputId, input: {
@@ -512,6 +508,7 @@ const CNumberInputField = {
         value
       },
       attrs: {
+        ...this.$attrs,
         id: inputId,
         ...otherInputAttrs,
         'data-chakra-component': 'CNumberInputField'
@@ -539,23 +536,23 @@ const CNumberInputField = {
  */
 const CNumberInputStepper = {
   name: 'CNumberInputStepper',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, slots, ...rest }) {
     return h(CFlex, {
+      ...rest,
       props: {
-        ...this.$props,
-        direction: 'column',
+        direction: 'column'
+      },
+      attrs: {
         width: '24px',
         margin: '1px',
         position: 'absolute',
         right: '0px',
         height: 'calc(100% - 2px)',
-        zIndex: 1
-      },
-      attrs: {
+        zIndex: 1,
         'data-chakra-component': 'CNumberInputStepper'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -569,8 +566,8 @@ const CNumberInputStepper = {
  */
 const CStepperButton = {
   name: 'CStepperButton',
+  inheritAttrs: false,
   inject: ['$NumberInputContext', '$chakraColorMode'],
-  props: styleProps,
   computed: {
     context () {
       return this.$NumberInputContext()
@@ -582,8 +579,8 @@ const CStepperButton = {
   render (h) {
     const { isDisabled, size } = this.context
     return h(CPseudoBox, {
-      props: {
-        ...this.$props,
+      attrs: {
+        ...this.$attrs,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -595,9 +592,7 @@ const CStepperButton = {
         ...numberInputStyles({
           colorMode: this.colorMode,
           size
-        })
-      },
-      attrs: {
+        }),
         'data-chakra-component': 'CStepperButton'
       }
     }, this.$slots.default)
@@ -614,18 +609,20 @@ const CStepperButton = {
  */
 const CNumberIncrementStepper = {
   name: 'CNumberIncrementStepper',
+  inheritAttrs: false,
   inject: ['$NumberInputContext'],
   computed: {
     context () {
       return this.$NumberInputContext()
     }
   },
-  props: styleProps,
   render (h) {
     const children = this.$slots.default ||
       [h(CIcon, {
         props: {
-          name: 'triangle-up',
+          name: 'triangle-up'
+        },
+        attrs: {
           height: '0.6em',
           width: '0.6em'
         }
@@ -635,11 +632,9 @@ const CNumberIncrementStepper = {
     const iconSize = size === 'sm' ? '11px' : '15px'
 
     return h(CStepperButton, {
-      props: {
-        ...this.$props,
-        fontSize: iconSize
-      },
       attrs: {
+        ...this.$attrs,
+        fontSize: iconSize,
         'data-chakra-component': 'CNumberIncrementStepper'
       },
       nativeOn: incrementStepper
@@ -657,18 +652,20 @@ const CNumberIncrementStepper = {
  */
 const CNumberDecrementStepper = {
   name: 'CNumberDecrementStepper',
+  inheritAttrs: false,
   inject: ['$NumberInputContext'],
   computed: {
     context () {
       return this.$NumberInputContext()
     }
   },
-  props: styleProps,
   render (h) {
     const children = this.$slots.default ||
       [h(CIcon, {
         props: {
-          name: 'triangle-down',
+          name: 'triangle-down'
+        },
+        attrs: {
           height: '0.6em',
           width: '0.6em'
         }
@@ -678,11 +675,9 @@ const CNumberDecrementStepper = {
     const iconSize = size === 'sm' ? '11px' : '15px'
 
     return h(CStepperButton, {
-      props: {
-        ...this.$props,
-        fontSize: iconSize
-      },
       attrs: {
+        ...this.$attrs,
+        fontSize: iconSize,
         'data-chakra-component': 'CNumberDecrementStepper'
       },
       nativeOn: decrementStepper

@@ -3,7 +3,7 @@
 exports[`should change the style 1`] = `
 <DocumentFragment>
   <div
-    class="css-mr4uxt"
+    class="css-1pl3ejm"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -15,7 +15,7 @@ exports[`should change the style 1`] = `
 exports[`should display CBox with type as header 1`] = `
 <DocumentFragment>
   <header
-    class="css-fzcsno"
+    class="css-0"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -27,7 +27,7 @@ exports[`should display CBox with type as header 1`] = `
 exports[`should display CBox with type as p 1`] = `
 <DocumentFragment>
   <p
-    class="css-fzcsno"
+    class="css-0"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -39,7 +39,7 @@ exports[`should display CBox with type as p 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-fzcsno"
+    class="css-0"
     data-chakra-component="CBox"
     data-testid="box"
   >

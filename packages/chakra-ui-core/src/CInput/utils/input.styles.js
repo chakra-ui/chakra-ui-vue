@@ -152,7 +152,7 @@ const variantProps = (props) => {
   }
 }
 
-const baseProps = {
+const baseStyles = {
   display: 'flex',
   alignItems: 'center',
   position: 'relative',
@@ -190,7 +190,7 @@ const sizeProps = props => inputSizes[props.size]
 const useInputStyle = (props) => {
   return {
     width: props.isFullWidth ? '100%' : undefined,
-    ...baseProps,
+    ...baseStyles,
     ...sizeProps(props),
     ...variantProps(props)
   }

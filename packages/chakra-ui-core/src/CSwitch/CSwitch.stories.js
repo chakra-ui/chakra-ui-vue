@@ -28,3 +28,19 @@ storiesOf('UI | Switch', module)
     `,
     methods: { action: action('@change(event)') }
   }))
+  .add('With v-model', () => ({
+    components: { CBox, CSwitch },
+    data: () => ({
+      enable: false
+    }),
+    template: `
+    <div>
+      <span>{{enable ? 'enabled' : 'disabled'}}</span>
+      <CSwitch v-model="enable" />
+    </div>`,
+    methods: {
+      action () {
+        action('@change(event)')
+      }
+    }
+  }))

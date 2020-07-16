@@ -6,8 +6,8 @@ storiesOf('UI | Collapse', module)
     components: { CButton, CCollapse, CBox },
     template: `
       <div>
-        <CButton @click="showCollapsed = !showCollapsed">Collapse</CButton>
-        <CCollapse mt="4" :isOpen="showCollapsed">
+        <CButton mb="4" @click="showCollapsed = !showCollapsed">Collapse</CButton>
+        <CCollapse @finish="handleFinished" :isOpen="showCollapsed">
           <CBox bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!
           </CBox>
@@ -18,13 +18,18 @@ storiesOf('UI | Collapse', module)
       return {
         showCollapsed: true
       }
+    },
+    methods: {
+      handleFinished (e) {
+        console.log('Collapse complete!', e)
+      }
     }
   }))
   .add('Changing the startingHeight', () => ({
     components: { CButton, CCollapse, CBox },
     template: `
       <div>
-        <CButton @click="showCollapsed = !showCollapsed">Collapse</CButton>
+        <CButton mb="4" @click="showCollapsed = !showCollapsed">Collapse</CButton>
         <CCollapse :animate-opacity="false" :isOpen="showCollapsed" :startingHeight="24">
           <CBox bg="tomato" w="250px">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae officia rem mollitia molestias eveniet, reiciendis perspiciatis minima deleniti iure voluptates laborum vel accusamus enim officiis dolorum necessitatibus, animi perferendis reprehenderit!

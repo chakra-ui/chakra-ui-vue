@@ -10,8 +10,7 @@
  */
 
 import { StringNumber, StringArray } from '../config/props/props.types'
-import { baseProps } from '../config'
-import { useVariantColorWarning, useId } from '../utils'
+import { useVariantColorWarning, useId, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
@@ -29,13 +28,12 @@ import useCheckboxStyle from './utils/checkbox.styles'
  */
 const CCheckbox = {
   name: 'CCheckbox',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CCheckbox')],
   model: {
     prop: 'isChecked',
     event: 'change'
   },
   props: {
-    ...baseProps,
     id: String,
     name: String,
     value: [String, Boolean],
@@ -66,18 +64,21 @@ const CCheckbox = {
     }
   },
   computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
     checkBoxStyles () {
       return useCheckboxStyle({
         color: this.variantColor,
         size: this.size,
         colorMode: this.colorMode
       })
+    },
+    componentStyles () {
+      return {
+        display: 'inline-flex',
+        verticalAlign: 'top',
+        alignItems: 'center',
+        width: this.isFullWidth ? 'full' : undefined,
+        cursor: this.isDisabled ? 'not-allowed' : 'pointer'
+      }
     },
     _id () {
       return this.id || `checkbox-${useId(4)}`
@@ -95,19 +96,11 @@ const CCheckbox = {
   render (h) {
     const children = this.$slots.default
 
-    return h(CBox, {
-      props: {
-        ...this.$props,
-        as: 'label',
-        display: 'inline-flex',
-        verticalAlign: 'top',
-        alignItems: 'center',
-        width: this.isFullWidth ? 'full' : undefined,
-        cursor: this.isDisabled ? 'not-allowed' : 'pointer'
-      },
+    return h('label', {
+      class: this.className,
       attrs: {
         for: this._id,
-        'data-chakra-component': 'CCheckbox'
+        ...this.computedAttrs
       }
     }, [
       h(CVisuallyHidden, {
@@ -136,12 +129,12 @@ const CCheckbox = {
           'aria-invalid': this.isInvalid,
           'aria-checked': this.isIndeterminate ? 'mixed' : this.isChecked
         },
-        nativeOn: {
+        on: {
           change: this.isReadOnly ? undefined : this.handleChange
         }
       }),
       h(CControlBox, {
-        props: {
+        attrs: {
           opacity: this.isReadOnly ? 0.8 : 1,
           ...this.checkBoxStyles
         }
@@ -156,7 +149,7 @@ const CCheckbox = {
         })
       ]),
       children && h(CBox, {
-        props: {
+        attrs: {
           ml: 2,
           fontSize: this.size,
           fontFamily: 'body',

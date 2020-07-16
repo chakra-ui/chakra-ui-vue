@@ -8,7 +8,7 @@ storiesOf('UI | Image', module)
       <CImage
         shadow="sm"
         htmlWidth="100px"
-        src="https://avatars3.githubusercontent.com/u/37928?s=52&v=4"
+        src="https://bit.ly/chakra-jonathan-bakebwa"
       />
     `
   }))
@@ -18,6 +18,7 @@ storiesOf('UI | Image', module)
       <CImage
         rounded="full"
         size="150px"
+        shadow="md"
         src="https://bit.ly/chakra-jonathan-bakebwa"
         alt="Jonathan Bakebwa"
       />

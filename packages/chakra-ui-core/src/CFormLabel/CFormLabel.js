@@ -9,8 +9,7 @@
  * @see WAI      https://www.w3.org/WAI/tutorials/forms/
  */
 
-import { baseProps } from '../config'
-import { forwardProps } from '../utils'
+import { runIfFn, createStyledAttrsMixin } from '../utils'
 import { formControlProps } from '../CFormControl/utils/formcontrol.props'
 
 import CBox from '../CBox'
@@ -25,25 +24,21 @@ import CBox from '../CBox'
  */
 const CRequiredIndicator = {
   name: 'CRequiredIndicator',
+  functional: true,
   inject: ['$chakraColorMode'],
-  computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    color () {
-      const color = { light: 'red.500', dark: 'red.300' }
-      return color[this.colorMode]
-    }
-  },
-  render (h) {
+  render (h, { data, injections, ...rest }) {
+    const colorMode = injections.$chakraColorMode()
+    const colors = { light: 'red.500', dark: 'red.300' }
+    const color = colors[colorMode]
+
     return h(CBox, {
-      props: {
+      ...rest,
+      attrs: {
         as: 'span',
         ml: 1,
-        color: this.color
-      },
-      attrs: {
+        color,
         'aria-hidden': true,
+        ...data.attrs,
         'data-chakra-component': 'CRequiredIndicator'
       }
     }, '*')
@@ -60,45 +55,36 @@ const CRequiredIndicator = {
  */
 const CFormLabel = {
   name: 'CFormLabel',
+  mixins: [createStyledAttrsMixin('CFormLabel')],
   inject: {
     $useFormControl: {
       default: null
     }
   },
-  props: {
-    ...baseProps,
-    ...formControlProps
-  },
+  props: formControlProps,
   computed: {
-    formControlProps () {
-      return {
-        isInvalid: this.isInvalid,
-        isRequired: this.isRequired,
-        isDisabled: this.isDisabled,
-        isReadOnly: this.isReadOnly
-      }
-    },
     formControl () {
-      return this.$useFormControl(this.$props)
-    }
-  },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: 'label',
+      return runIfFn(this.$useFormControl, this.$props)
+    },
+    componentStyles () {
+      return {
         fontSize: 'md',
         pr: '12px',
         pb: '4px',
         opacity: this.formControl.isDisabled ? '0.4' : '1',
         fontWeight: 'medium',
+        fontFamily: 'body',
         textAlign: 'left',
         verticalAlign: 'middle',
-        display: 'inline-block',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CFormLabel'
+        display: 'inline-block'
       }
+    }
+  },
+  render (h) {
+    return h('label', {
+      class: [this.className],
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, [
       ...this.$slots.default,
       this.formControl.isRequired && h(CRequiredIndicator)

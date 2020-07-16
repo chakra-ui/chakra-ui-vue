@@ -7,9 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CText/CText.js
  */
 
-import CBox from '../CBox'
-import { forwardProps } from '../utils'
-import { baseProps } from '../config/props'
+import { createStyledAttrsMixin } from '../utils'
 import { useTruncated } from './utils/text.utils'
 
 /**
@@ -17,14 +15,12 @@ import { useTruncated } from './utils/text.utils'
  *
  * the text element component
  *
- * @extends CBox
  * @see Docs https://vue.chakra-ui.com/text
  */
 const CText = {
   name: 'CText',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CText')],
   props: {
-    ...baseProps,
     as: {
       type: [String, Array],
       default: 'p'
@@ -35,17 +31,18 @@ const CText = {
       default: 'body'
     }
   },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: this.as,
-        ...forwardProps(this.$props),
+  computed: {
+    componentStyles () {
+      return {
         fontFamily: this.as === 'kbd' ? 'mono' : this.fontFamily,
         ...this.isTruncated && useTruncated()
-      },
-      attrs: {
-        'data-chakra-component': 'CText'
       }
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

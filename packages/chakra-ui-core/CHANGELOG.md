@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- 38460db: Resolves performance issues my changing the underlying styling api.
+  Lots of optimizations in low-level primitives that yield better runtime performance for Chakra UI Vue.
+
 ## 0.5.10
 
 ### Patch Changes

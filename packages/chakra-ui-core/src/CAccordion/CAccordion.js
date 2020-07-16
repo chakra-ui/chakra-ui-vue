@@ -38,6 +38,7 @@ import CIcon from '../CIcon'
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordion = {
+  name: 'CAccordion',
   mixins: [createStyledAttrsMixin('CAccordion')],
   props: {
     allowMultiple: Boolean,
@@ -150,6 +151,7 @@ const CAccordion = {
  */
 
 const CAccordionItem = {
+  name: 'CAccordionItem',
   mixins: [createStyledAttrsMixin('CAccordionItem', true)],
   props: {
     isOpen: {
@@ -355,6 +357,7 @@ const CAccordionPanel = {
  * @see Docs https://vue.chakra-ui.com/accordion
  */
 const CAccordionIcon = {
+  name: 'CAccordionIcon',
   mixins: [createStyledAttrsMixin('CAccordionIcon')],
   inject: ['$AccordionContext'],
   props: iconProps,

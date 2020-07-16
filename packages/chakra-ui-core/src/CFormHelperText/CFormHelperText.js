@@ -21,6 +21,7 @@ import { createStyledAttrsMixin } from '../utils'
  * @see Docs https://vue.chakra-ui.com/formcontrol
  */
 const CFormHelperText = {
+  name: 'CFormHelperText',
   mixins: [createStyledAttrsMixin('CFormHelperText')],
   inject: ['$useFormControl'],
   computed: {

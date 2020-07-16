@@ -35,6 +35,7 @@ const sharedEditableProps = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditable = {
+  name: 'CEditable',
   mixins: [createStyledAttrsMixin('CEditable')],
   props: {
     value: String,
@@ -206,6 +207,7 @@ const CEditable = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditablePreview = {
+  name: 'CEditablePreview',
   mixins: [createStyledAttrsMixin('CEditablePreview', true)],
   inject: ['$EditableContext'],
   computed: {
@@ -261,6 +263,7 @@ const CEditablePreview = {
  * @see Docs https://vue.chakra-ui.com/editable
  */
 const CEditableInput = {
+  name: 'CEditableInput',
   mixins: [createStyledAttrsMixin('CEditableInput', true)],
   inject: ['$EditableContext'],
   computed: {

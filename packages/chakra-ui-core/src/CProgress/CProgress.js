@@ -93,6 +93,7 @@ const CProgressTrack = {
  * @see Docs https://vue.chakra-ui.com/progress
  */
 const CProgressIndicator = {
+  name: 'CProgressIndicator',
   mixins: [createStyledAttrsMixin('CProgressIndicator')],
   props: {
     isIndeterminate: Boolean,

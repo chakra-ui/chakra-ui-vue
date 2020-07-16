@@ -11,19 +11,19 @@ const routes = pages
 
 const Heading = {
   name: 'Heading',
+  inheritAttrs: false,
   inject: ['$chakraTheme'],
   computed: {
     theme () {
       return this.$chakraTheme()
     }
   },
-  extends: CBox,
   render (h) {
     const text = this.$slots.default[0].text
 
     return h(CHeading, {
-      props: {
-        ...this.$props,
+      attrs: {
+        ...this.$attrs,
         mb: '1rem',
         mt: '2rem'
       }
@@ -35,7 +35,7 @@ const Heading = {
           },
           '&[id]:hover a': { opacity: 1 }
         })(this.theme))],
-        props: {
+        attrs: {
           display: 'inline-block'
         },
         domProps: {
@@ -45,15 +45,15 @@ const Heading = {
         this.$slots.default,
         h(CPseudoBox, {
           props: {
-            as: 'a',
+            as: 'a'
+          },
+          attrs: {
             color: 'vue.500',
             fontWeight: 'normal',
             outline: 'none',
             _focus: { opacity: 1, boxShadow: 'outline' },
             opacity: '0',
-            ml: '0.375rem'
-          },
-          attrs: {
+            ml: '0.375rem',
             ...this.$attrs,
             'aria-label': 'anchor',
             ...text && { href: stringToUrl(text, '#') }

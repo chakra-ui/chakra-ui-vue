@@ -19,6 +19,7 @@ import { useTabListStyle, useTabStyle } from './utils/tabs.styles'
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabs = {
+  name: 'CTabs',
   mixins: [createStyledAttrsMixin('CTabs')],
   props: {
     index: Number,
@@ -183,6 +184,7 @@ const CTabs = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabList = {
+  name: 'CTabList',
   mixins: [createStyledAttrsMixin('CTabList')],
   inject: ['$TabContext'],
   data () {
@@ -334,6 +336,7 @@ const CTabList = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTab = {
+  name: 'CTab',
   mixins: [createStyledAttrsMixin('CTab', true)],
   inject: ['$TabContext'],
   props: {
@@ -393,6 +396,7 @@ const CTab = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabPanel = {
+  name: 'CTabPanel',
   mixins: [createStyledAttrsMixin('CTabPanel')],
   props: {
     isSelected: Boolean,
@@ -425,6 +429,7 @@ const CTabPanel = {
  * @see Docs https://vue.chakra-ui.com/tabs
  */
 const CTabPanels = {
+  name: 'CTabPanels',
   mixins: [createStyledAttrsMixin('CTabPanels')],
   inject: ['$TabContext'],
   computed: {

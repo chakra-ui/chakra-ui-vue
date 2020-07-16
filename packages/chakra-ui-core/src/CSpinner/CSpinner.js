@@ -55,6 +55,7 @@ const setSizes = (props) => {
  * @see Docs https://vue.chakra-ui.com/spinner
  */
 const CSpinner = {
+  name: 'CSpinner',
   mixins: [createStyledAttrsMixin('CSpinner')],
   props: {
     size: {

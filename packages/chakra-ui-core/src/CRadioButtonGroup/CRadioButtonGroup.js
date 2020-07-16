@@ -19,6 +19,7 @@ import { isDef, useId, cloneVNodeElement, cleanChildren, createStyledAttrsMixin 
  * @see Docs https://vue.chakra-ui.com/radio
  */
 const CRadioButtonGroup = {
+  name: 'CRadioButtonGroup',
   mixins: [createStyledAttrsMixin('CRadioButtonGroup')],
   model: {
     prop: 'value',

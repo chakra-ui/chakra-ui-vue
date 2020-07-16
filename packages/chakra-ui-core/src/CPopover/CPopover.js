@@ -519,6 +519,7 @@ const CPopoverContent = {
  * @see Docs https://vue.chakra-ui.com/popover
  */
 const CPopoverHeader = {
+  name: 'CPopoverHeader',
   mixins: [createStyledAttrsMixin('CPopoverHeader')],
   inject: ['$PopoverContext'],
   computed: {
@@ -558,6 +559,7 @@ const CPopoverHeader = {
  * @see Docs https://vue.chakra-ui.com/popover
  */
 const CPopoverBody = {
+  name: 'CPopoverBody',
   mixins: [createStyledAttrsMixin('CPopoverBody')],
   inject: ['$PopoverContext'],
   computed: {

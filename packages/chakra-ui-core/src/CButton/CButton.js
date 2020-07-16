@@ -28,6 +28,7 @@ import { buttonProps } from './utils/button.props'
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CButtonIcon = {
+  name: 'CBreadcrumb',
   mixins: [createStyledAttrsMixin('CButtonIcon', true)],
   props: {
     icon: {
@@ -77,6 +78,7 @@ const CButtonIcon = {
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CButton = {
+  name: 'CButton',
   mixins: [createStyledAttrsMixin('CButton', true)],
   props: buttonProps,
   computed: {
@@ -100,6 +102,7 @@ const CButton = {
   render (h) {
     return h(this.as, {
       class: this.className,
+      props: this.$props,
       attrs: {
         type: this.type,
         tabIndex: 0,

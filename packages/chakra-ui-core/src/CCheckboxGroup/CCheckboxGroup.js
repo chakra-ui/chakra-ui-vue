@@ -24,6 +24,7 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CCheckboxGroup = {
+  name: 'CCheckboxGroup',
   mixins: [createStyledAttrsMixin('CCheckboxGroup')],
   model: {
     prop: 'value',

@@ -22,6 +22,7 @@ import { clampValue, roundValueToStep } from './utils/slider.utils'
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSlider = {
+  name: 'CSlider',
   mixins: [createStyledAttrsMixin('CSlider')],
   model: {
     prop: 'value',
@@ -323,6 +324,7 @@ const CSlider = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderTrack = {
+  name: 'CSliderTrack',
   mixins: [createStyledAttrsMixin('CSliderTrack')],
   inject: ['$SliderContext'],
   computed: {
@@ -362,6 +364,7 @@ const CSliderTrack = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderFilledTrack = {
+  name: 'CSliderFilledTrack',
   mixins: [createStyledAttrsMixin('CSliderFilledTrack', true)],
   inject: ['$SliderContext'],
   computed: {
@@ -400,6 +403,7 @@ const CSliderFilledTrack = {
  * @see Docs https://vue.chakra-ui.com/slider
  */
 const CSliderThumb = {
+  name: 'CSliderThumb',
   mixins: [createStyledAttrsMixin('CSliderThumb', true)],
   inject: ['$SliderContext'],
   computed: {

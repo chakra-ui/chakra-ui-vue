@@ -22,6 +22,7 @@ import CIcon from '../CIcon'
  * @see Docs https://vue.chakra-ui.com/list
  */
 const CList = {
+  name: 'CList',
   mixins: [createStyledAttrsMixin('CList')],
   props: {
     styleType: {
@@ -81,20 +82,23 @@ const CList = {
  */
 const CListItem = {
   name: 'CListItem',
+  functional: true,
   props: {
     spacing: SNA
   },
-  render (h) {
+  render (h, { props, slots, data, ...rest }) {
     return h(CPseudoBox, {
+      ...rest,
       props: {
-        as: 'li'
+        as: 'li',
+        ...props
       },
       attrs: {
-        mb: this.spacing,
-        ...this.$attrs,
+        mb: props.spacing,
+        ...data.attrs,
         'data-chakra-component': 'CListItem'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

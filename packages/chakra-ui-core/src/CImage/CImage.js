@@ -21,6 +21,7 @@ import { createStyledAttrsMixin } from '../utils'
  * @see Docs https://vue.chakra-ui.com/image
  */
 const CImage = {
+  name: 'CImage',
   mixins: [createStyledAttrsMixin('CImage')],
   props: {
     src: String,

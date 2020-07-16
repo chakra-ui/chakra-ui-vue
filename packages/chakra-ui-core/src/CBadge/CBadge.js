@@ -18,6 +18,7 @@ import useBadgeStyles from './utils/badge.styles'
  * @see Docs https://vue.chakra-ui.com/badge
  */
 const CBadge = {
+  name: 'CBadge',
   mixins: [createStyledAttrsMixin('CBadge')],
   props: {
     variant: {

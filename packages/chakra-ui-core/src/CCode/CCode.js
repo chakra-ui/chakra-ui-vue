@@ -21,6 +21,7 @@ import { SNA } from '../config/props/props.types'
  * @see Docs https://vue.chakra-ui.com/code
  */
 const CCode = {
+  name: 'CCode',
   mixins: [createStyledAttrsMixin('CCode')],
   props: {
     variantColor: {

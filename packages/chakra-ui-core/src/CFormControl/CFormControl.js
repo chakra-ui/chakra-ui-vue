@@ -28,6 +28,7 @@ import { formControlProps } from './utils/formcontrol.props'
  * @see Docs https://vue.chakra-ui.com/formcontrol
  */
 const CFormControl = {
+  name: 'CFormControl',
   mixins: [createStyledAttrsMixin('CFormControl')],
   props: {
     ...formControlProps,

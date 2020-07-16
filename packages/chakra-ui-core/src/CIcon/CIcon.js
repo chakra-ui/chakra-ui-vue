@@ -17,6 +17,7 @@ import { iconProps } from './utils/icon.props'
 const fallbackIcon = iconPaths['question-outline']
 
 const Svg = {
+  name: 'ChakraIconSvg',
   mixins: [createStyledAttrsMixin('ChakraIconSvg')],
   props: iconProps,
   computed: {
@@ -47,6 +48,7 @@ const Svg = {
  * @see Docs https://vue.chakra-ui.com/icon
  */
 const CIcon = {
+  name: 'CIcon',
   mixins: [createStyledAttrsMixin('CIcon')],
   inject: ['$chakraIcons'],
   computed: {

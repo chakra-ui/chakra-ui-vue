@@ -23,6 +23,7 @@ import { CModal, CModalContent, CModalBody, CModalHeader, CModalFooter, CModalOv
  * @see Docs https://vue.chakra-ui.com/drawer
  */
 const CDrawer = {
+  name: 'CDrawer',
   mixins: [createStyledAttrsMixin('CDrawer')],
   props: {
     isOpen: {

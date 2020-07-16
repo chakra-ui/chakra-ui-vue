@@ -23,6 +23,7 @@ import { inputProps } from './utils/input.props'
  * @see Docs https://vue.chakra-ui.com/input
  */
 const CInput = {
+  name: 'CInput',
   mixins: [createStyledAttrsMixin('CInput', true)],
   inject: {
     $chakraColorMode: {
@@ -73,7 +74,7 @@ const CInput = {
     }
   },
   render (h) {
-    return h('input', {
+    return h(this.as, {
       class: [this.className],
       domProps: {
         value: this.value

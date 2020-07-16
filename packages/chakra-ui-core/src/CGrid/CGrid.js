@@ -21,6 +21,7 @@ import { SNA } from '../config/props/props.types'
  * @see Docs https://vue.chakra-ui.com/grid
  */
 const CGrid = {
+  name: 'CGrid',
   mixins: [createStyledAttrsMixin('CGrid')],
   props: {
     as: {

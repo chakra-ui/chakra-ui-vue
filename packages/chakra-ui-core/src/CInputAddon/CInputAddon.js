@@ -30,6 +30,7 @@ const addonProps = {
  * @see Docs https://vue.chakra-ui.com/input
  */
 const CInputAddon = {
+  name: 'CInputAddon',
   mixins: [createStyledAttrsMixin('CInputAddon')],
   props: addonProps,
   computed: {

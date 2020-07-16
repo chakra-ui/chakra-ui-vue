@@ -32,7 +32,7 @@ storiesOf('UI | Input', module)
       <CInput
         variant="filled"
         errorBorderColor="red.200"
-        focusBorderColor="blue.400"
+        focusBorderColor="green.400"
         placeholder="Text goes here"
       />
     `

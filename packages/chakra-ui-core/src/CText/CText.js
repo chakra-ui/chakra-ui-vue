@@ -18,6 +18,7 @@ import { useTruncated } from './utils/text.utils'
  * @see Docs https://vue.chakra-ui.com/text
  */
 const CText = {
+  name: 'CText',
   mixins: [createStyledAttrsMixin('CText')],
   props: {
     as: {

@@ -22,6 +22,7 @@ import { countToColumns, widthToColumns } from './utils/grid.styles'
  * @see Docs https://vue.chakra-ui.com/select
  */
 const CSimpleGrid = {
+  name: 'CSimpleGrid',
   mixins: [createStyledAttrsMixin('CSimpleGrid')],
   props: {
     columns: SNA,

@@ -19,6 +19,7 @@ import { createStyledAttrsMixin } from '../utils'
  * @see Docs https://vue.chakra-ui.com/divider
  */
 const CDivider = {
+  name: 'CDivider',
   mixins: [createStyledAttrsMixin('CDivider')],
   props: {
     orientation: {

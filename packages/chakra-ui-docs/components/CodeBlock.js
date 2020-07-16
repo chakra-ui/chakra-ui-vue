@@ -62,7 +62,7 @@ const CodeBlock = props => ({
 
     if (!props.live) {
       return h('CBox', {
-        props: {
+        attrs: {
           rounded: 'md',
           position: 'relative',
           fontSize: '0.9rem'
@@ -78,7 +78,9 @@ const CodeBlock = props => ({
         }),
         h('CButton', {
           props: {
-            variantColor: 'vue',
+            variantColor: 'vue'
+          },
+          attrs: {
             position: 'absolute',
             size: 'sm',
             top: '0.2rem',

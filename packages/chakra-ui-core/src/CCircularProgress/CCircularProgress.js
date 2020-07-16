@@ -21,6 +21,7 @@ import { getComputedProps } from './utils/circularprogress.styles'
  * @see Docs https://vue.chakra-ui.com/circularprogress
  */
 const CCircularProgressLabel = {
+  name: 'CCircularProgressLabel',
   mixins: [createStyledAttrsMixin('CCircularProgressLabel')],
   computed: {
     componentStyles () {

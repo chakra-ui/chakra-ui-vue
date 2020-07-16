@@ -41,8 +41,8 @@ const baseStyles = {
  * @see Docs https://vue.chakra-ui.com/iconbutton
  */
 const CIconButton = {
-  functional: true,
   name: 'CIconButton',
+  functional: true,
   props: {
     icon: {
       type: [String]

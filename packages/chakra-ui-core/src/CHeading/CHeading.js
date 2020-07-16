@@ -31,6 +31,7 @@ const sizes = {
  * @see Docs https://vue.chakra-ui.com/heading
  */
 const CHeading = {
+  name: 'CHeading',
   mixins: [createStyledAttrsMixin('CHeading')],
   props: {
     size: {

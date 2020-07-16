@@ -37,6 +37,7 @@ const getInitials = (name) => {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarBadge = {
+  name: 'CAvatarBadge',
   mixins: [createStyledAttrsMixin('CAvatarBadge')],
   props: {
     size: [String, Number, Array]
@@ -80,6 +81,7 @@ const CAvatarBadge = {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatarName = {
+  name: 'CAvatarName',
   mixins: [createStyledAttrsMixin('CAvatarName')],
   props: {
     name: [String, Array],
@@ -157,6 +159,7 @@ const CDefaultAvatar = {
  * @see Docs https://vue.chakra-ui.com/avatar
  */
 const CAvatar = {
+  name: 'CAvatar',
   mixins: [createStyledAttrsMixin('CAvatar')],
   props: {
     size: {

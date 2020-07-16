@@ -25,6 +25,7 @@ import { cloneVNode, createStyledAttrsMixin } from '../utils'
  * @see Docs https://vue.chakra-ui.com/aspectratiobox
  */
 const CAspectRatioBox = {
+  name: 'CAspectRatioBox',
   mixins: [createStyledAttrsMixin('CAspectRatioBox', true)],
   props: {
     ratio: {

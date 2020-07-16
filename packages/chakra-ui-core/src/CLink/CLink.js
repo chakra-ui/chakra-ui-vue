@@ -18,6 +18,7 @@ import { SNA } from '../config/props/props.types'
  * @see Docs https://vue.chakra-ui.com/link
  */
 const CLink = {
+  name: 'CLink',
   mixins: [createStyledAttrsMixin('CLink', true)],
   props: {
     as: {

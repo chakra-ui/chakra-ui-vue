@@ -23,6 +23,7 @@ import CControlBox from '../CControlBox'
  * @see Docs https://vue.chakra-ui.com/radio
  */
 const CRadio = {
+  name: 'CRadio',
   mixins: [createStyledAttrsMixin('CRadio')],
   model: {
     prop: 'isChecked',

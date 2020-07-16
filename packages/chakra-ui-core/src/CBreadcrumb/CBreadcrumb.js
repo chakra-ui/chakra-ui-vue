@@ -29,6 +29,7 @@ import CLink from '../CLink'
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumbSeparator = {
+  name: 'CBreadcrumbSeparator',
   mixins: [createStyledAttrsMixin('CBreadcrumbSeparator')],
   props: {
     spacing: [String, Number, Array],
@@ -82,6 +83,7 @@ const Span = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumbLink = {
+  name: 'CBreadcrumbLink',
   mixins: [createStyledAttrsMixin('CBreadcrumbLink', true)],
   props: {
     isCurrentPage: Boolean,
@@ -113,6 +115,7 @@ const CBreadcrumbLink = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumbItem = {
+  name: 'CBreadcrumbItem',
   mixins: [createStyledAttrsMixin('CBreadcrumbItem')],
   props: {
     isCurrentPage: Boolean,
@@ -183,6 +186,7 @@ const CBreadcrumbItem = {
 * @see Docs https://vue.chakra-ui.com/breadcrumb
 */
 const CBreadcrumb = {
+  name: 'CBreadcrumb',
   mixins: [createStyledAttrsMixin('CBreadcrumb')],
   props: {
     spacing: {

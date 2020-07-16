@@ -89,7 +89,6 @@ const CSelectInput = {
         value: props.value
       },
       attrs: {
-        as: 'select',
         appearance: 'none',
         pr: '2rem',
         pb: 'px',
@@ -117,6 +116,7 @@ const CSelectInput = {
  * @see Docs https://vue.chakra-ui.com/select
  */
 const CSelect = {
+  name: 'CSelect',
   mixins: [createStyledAttrsMixin('CSelect', true)],
   model: {
     prop: 'value',

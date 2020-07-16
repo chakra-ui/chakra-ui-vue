@@ -54,6 +54,7 @@ const CRequiredIndicator = {
  * @see Docs https://vue.chakra-ui.com/formcontrol
  */
 const CFormLabel = {
+  name: 'CFormLabel',
   mixins: [createStyledAttrsMixin('CFormLabel')],
   inject: {
     $useFormControl: {

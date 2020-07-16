@@ -19,6 +19,7 @@ import flexProps from './utils/flex.props.js'
  * @see Docs https://vue.chakra-ui.com/flex
  */
 const CFlex = {
+  name: 'CFlex',
   mixins: [createStyledAttrsMixin('CFlex')],
   props: flexProps,
   computed: {

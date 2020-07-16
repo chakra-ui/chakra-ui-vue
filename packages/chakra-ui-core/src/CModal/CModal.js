@@ -479,6 +479,7 @@ const CModalContent = {
  * @see Docs https://vue.chakra-ui.com/modal
  */
 const CModalHeader = {
+  name: 'CModalHeader',
   mixins: [createStyledAttrsMixin('CModalHeader')],
   inject: ['$ModalContext'],
   computed: {
@@ -544,6 +545,7 @@ const CModalFooter = {
  * @see Docs https://vue.chakra-ui.com/modal
  */
 const CModalBody = {
+  name: 'CModalBody',
   mixins: [createStyledAttrsMixin('CModalBody')],
   inject: ['$ModalContext'],
   computed: {
@@ -587,6 +589,7 @@ const CModalBody = {
  * @see Docs https://vue.chakra-ui.com/modal
  */
 const CModalCloseButton = {
+  name: 'CModalCloseButton',
   mixins: [createStyledAttrsMixin('CModalCloseButton', true)],
   inject: ['$ModalContext'],
   props: closeButtonProps,

@@ -61,9 +61,9 @@ const tooltipProps = {
  * @see Docs https://vue.chakra-ui.com/tooltip
  */
 const CTooltip = {
+  name: 'CTooltip',
   inject: ['$chakraColorMode'],
   inheritAttrs: false,
-  name: 'CTooltip',
   data () {
     return {
       isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,

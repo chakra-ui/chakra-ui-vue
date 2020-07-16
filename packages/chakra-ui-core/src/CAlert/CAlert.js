@@ -36,6 +36,7 @@ export const statuses = {
  * @see Docs https://vue.chakra-ui.com/alert
  */
 const CAlert = {
+  name: 'CAlert',
   mixins: [createStyledAttrsMixin('CAlert')],
   provide () {
     return {

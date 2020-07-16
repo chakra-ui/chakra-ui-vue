@@ -27,6 +27,7 @@ import useCheckboxStyle from './utils/checkbox.styles'
  * @see Docs https://vue.chakra-ui.com/checkbox
  */
 const CCheckbox = {
+  name: 'CCheckbox',
   mixins: [createStyledAttrsMixin('CCheckbox')],
   model: {
     prop: 'isChecked',

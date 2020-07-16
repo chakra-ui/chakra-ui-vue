@@ -23,6 +23,7 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/stack
  */
 const CStack = {
+  name: 'CStack',
   mixins: [createStyledAttrsMixin('CStack')],
   props: {
     direction: [String, Array],

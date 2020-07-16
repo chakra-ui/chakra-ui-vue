@@ -1,38 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`should change avatar group size correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-mbvt3n"
-    data-chakra-component="CFlex"
+    class="css-nqilgt"
+    data-chakra-component="CAvatarGroup"
   >
     <div
-      class="css-1jwki60"
+      class="css-1vz9fru"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Mesut Koca"
-        class="css-1n1d9mc"
+        class="css-1sr52zs"
         data-chakra-component="CAvatarName"
       >
         MK
       </div>
     </div>
     <div
-      class="css-1li52eg"
+      class="css-z8puoe"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Evan You"
-        class="css-1n1d9mc"
+        class="css-1sr52zs"
         data-chakra-component="CAvatarName"
       >
         EY
       </div>
     </div>
     <div
-      class="css-lpwrl7"
-      data-chakra-component="CFlex"
+      class="css-pxig6c"
+      data-chakra-component="CMoreAvatarLabel"
+    >
+      +1
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-nqilgt"
+    data-chakra-component="CAvatarGroup"
+  >
+    <div
+      class="css-m3wjcp"
+      data-chakra-component="CAvatar"
+    >
+      <img
+        alt="Mesut Koca"
+        class="css-6qjm3j"
+        data-chakra-component="CBox"
+        src="LOAD_SUCCESS_SRC"
+      />
+    </div>
+    <div
+      class="css-1a6a0zc"
+      data-chakra-component="CAvatar"
+    >
+      <img
+        alt="Evan You"
+        class="css-6qjm3j"
+        data-chakra-component="CBox"
+        src="LOAD_SUCCESS_SRC"
+      />
+    </div>
+    <div
+      class="css-ypaprh"
+      data-chakra-component="CMoreAvatarLabel"
     >
       +1
     </div>

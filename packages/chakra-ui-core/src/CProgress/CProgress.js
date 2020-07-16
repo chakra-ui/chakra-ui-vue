@@ -11,8 +11,7 @@
 
 import { css, keyframes } from 'emotion'
 import CBox from '../CBox'
-import { generateStripe, valueToPercent, forwardProps } from '../utils'
-import { baseProps } from '../config/props'
+import { generateStripe, valueToPercent, createStyledAttrsMixin } from '../utils'
 
 const stripe = keyframes({
   from: { backgroundPosition: '1rem 0' },
@@ -39,18 +38,20 @@ const progressbarSizes = {
  */
 const CProgressLabel = {
   name: 'CProgressLabel',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, slots, ...rest }) {
     return h(CBox, {
+      ...rest,
       props: {
-        textAlign: 'center',
-        width: '100%',
-        ...forwardProps(this.$props)
+        as: (data.attrs && data.attrs.as) || 'div'
       },
       attrs: {
+        textAlign: 'center',
+        width: '100%',
+        ...data.attrs,
         'data-chakra-component': 'CProgressLabel'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -64,23 +65,22 @@ const CProgressLabel = {
  */
 const CProgressTrack = {
   name: 'CProgressTrack',
+  functional: true,
   props: {
-    ...baseProps,
     size: [String, Number, Array]
   },
-  render (h) {
+  render (h, { props, slots, data, ...rest }) {
     return h(CBox, {
-      props: {
+      ...rest,
+      attrs: {
         pos: 'relative',
-        height: progressbarSizes[this.size || 'md'],
+        height: progressbarSizes[props.size || 'md'],
         overflow: 'hidden',
         w: '100%',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CProgressTrack'
+        'data-chakra-component': 'CProgressTrack',
+        ...data.attrs
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -94,8 +94,8 @@ const CProgressTrack = {
  */
 const CProgressIndicator = {
   name: 'CProgressIndicator',
+  mixins: [createStyledAttrsMixin('CProgressIndicator')],
   props: {
-    ...baseProps,
     isIndeterminate: Boolean,
     min: Number,
     max: Number,
@@ -104,23 +104,27 @@ const CProgressIndicator = {
   computed: {
     percent () {
       return valueToPercent(this.value, this.min, this.max)
+    },
+    componentStyles () {
+      return {
+        height: '100%',
+        transition: 'all 0.3s',
+        width: `${this.percent}%`
+      }
     }
   },
   render (h) {
-    return h(CBox, {
-      props: {
-        height: '100%',
-        transition: 'all 0.3s',
-        width: `${this.percent}%`,
-        ...forwardProps(this.$props)
-      },
+    return h(this.as, {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         'aria-valuemax': this.max,
         'aria-valuemin': this.min,
         'aria-valuenow': this.isIndeterminate ? null : this.value,
         role: 'progressbar',
         'data-chakra-component': 'CProgressIndicator'
-      }
+      },
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }
@@ -135,9 +139,9 @@ const CProgressIndicator = {
  */
 const CProgress = {
   name: 'CProgress',
+  inheritAttrs: false,
   inject: ['$chakraColorMode'],
   props: {
-    ...baseProps,
     color: {
       type: String,
       default: 'blue'
@@ -201,13 +205,13 @@ const CProgress = {
 
     return h(CProgressTrack, {
       props: {
-        size: this.size,
-        bg: trackColor[this.colorMode],
-        borderRadius: _borderRadius,
-        ...forwardProps(this.$props)
+        size: this.size
       },
       attrs: {
-        'data-chakra-component': 'CProgress'
+        bg: trackColor[this.colorMode],
+        borderRadius: _borderRadius,
+        'data-chakra-component': 'CProgress',
+        ...this.$attrs
       }
     }, [
       h(CProgressIndicator, {
@@ -218,7 +222,9 @@ const CProgress = {
         props: {
           min: this.min,
           max: this.max,
-          value: this.value,
+          value: this.value
+        },
+        attrs: {
           bg: indicatorColor[this.colorMode],
           borderRadius: this.__borderRadius,
           ...this.isIndeterminate && {

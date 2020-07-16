@@ -1,45 +1,83 @@
 import { CAvatar, CAvatarBadge } from '..'
-import { render, fireEvent } from '@/tests/test-utils'
+import { render, wait, waitMs, screen } from '@/tests/test-utils'
+const LOAD_FAILURE_SRC = 'LOAD_FAILURE_SRC'
+const LOAD_SUCCESS_SRC = 'LOAD_SUCCESS_SRC'
+
+beforeAll(() => {
+  process.browser = true // Mock process.browser for CAvatar created()
+})
+
+beforeAll(() => {
+  // Mock Img
+  // eslint-disable-next-line accessor-pairs
+  Object.defineProperty(global.Image.prototype, 'src', {
+    set (src) {
+      if (src === LOAD_FAILURE_SRC) {
+        setTimeout(() => this.onerror(new Error('mocked error')))
+      } else if (src === LOAD_SUCCESS_SRC) {
+        setTimeout(() => this.onload())
+      }
+    }
+  })
+})
 
 const renderComponent = (props) => {
   const base = {
     components: { CAvatar, CAvatarBadge },
-    template: '<CAvatar name="Mesut Koca" data-testid=\'avatar\' src="http://mesut.dev"></CAvatar>',
+    template: '<CAvatar name="Mesut Koca" data-testid="avatar" src="LOAD_SUCCESS_SRC"></CAvatar>',
     ...props
   }
   return render(base)
 }
 
-it('should render correctly', () => {
+it('should render correctly', async () => {
   const { asFragment } = renderComponent()
-  expect(asFragment()).toMatchSnapshot()
-})
 
-it("should render default avatar if name is not provided and image didn't load", async () => {
-  const { container, asFragment } = renderComponent({ template: '<CAvatar data-testid="avatar" src="mesut.dev" />' })
-  const image = container.querySelector('img')
-
-  if (image) {
-    await fireEvent.error(image)
-  }
+  await waitMs() // wait for img.onsuccess to be called.
 
   expect(asFragment()).toMatchSnapshot()
 })
 
-// TODO: change mounted logic in avatar
-xit('should render image if loaded correctly', () => {
-  const { getByAltText } = renderComponent()
+it('Avatar with AvatarBadge renders correctly', async () => {
+  const { asFragment } = renderComponent({
+    template: `
+    <CAvatar
+      name="Mesut Koca"
+      src="LOAD_SUCCESS_SRC"
+    >
+      <CAvatarBadge size="1.0em" bg="green.500" />
+    </CAvatar>
+  `
+  })
 
-  expect(getByAltText('Mesut Koca')).toBeInTheDocument()
+  await waitMs() // wait for img.onsuccess to be called.
+
+  expect(asFragment()).toMatchSnapshot()
 })
 
-// TODO: change mounted logic in avatar
-xit("should render avatar name as fallback if image didn't loaded correctly", async () => {
-  const { getByAltText, queryByAltText, getByText } = renderComponent()
-  const image = getByAltText('Mesut Koca')
+it('renders an image', async () => {
+  renderComponent({ template: '<CAvatar name="Mesut Koca" src="LOAD_SUCCESS_SRC" />' })
 
-  await fireEvent.error(image)
+  await wait(() => {
+    expect(screen.getByAltText(/Mesut Koca/i)).toBeInTheDocument()
+  })
+})
 
-  expect(queryByAltText('Mesut Koca')).not.toBeInTheDocument()
-  expect(getByText('MK')).toBeInTheDocument()
+it('renders a name avatar if no src', async () => {
+  renderComponent({ template: '<CAvatar name="Mesut Koca" />' })
+
+  await wait(() => {
+    expect(screen.getByLabelText(/Mesut Koca/i)).toBeInTheDocument()
+    expect(screen.getByText('MK')).toBeInTheDocument()
+  })
+})
+
+it('renders Default Avatar if src fails', async () => {
+  renderComponent({ template: '<CAvatar name="Mesut Koca" src="LOAD_FAILURE_SRC" />' })
+
+  await wait(() => {
+    expect(screen.queryByAltText(/Mesut Koca/i)).not.toBeInTheDocument() // img
+    expect(screen.getByLabelText(/Mesut Koca/i)).toBeInTheDocument() // DefaultAvatar
+    expect(screen.getByText('MK')).toBeInTheDocument()
+  })
 })

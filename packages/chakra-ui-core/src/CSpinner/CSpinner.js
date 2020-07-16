@@ -1,8 +1,6 @@
 import { keyframes } from 'emotion'
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
-import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
 
 const spin = keyframes`
@@ -58,6 +56,7 @@ const setSizes = (props) => {
  */
 const CSpinner = {
   name: 'CSpinner',
+  mixins: [createStyledAttrsMixin('CSpinner')],
   props: {
     size: {
       type: [String, Array],
@@ -82,12 +81,11 @@ const CSpinner = {
     emptyColor: {
       type: [String, Array],
       default: 'transparent'
-    },
-    ...baseProps
+    }
   },
-  render (h) {
-    return h(CBox, {
-      props: {
+  computed: {
+    componentStyles () {
+      return {
         d: 'inline-block',
         borderWidth: this.thickness,
         borderColor: 'currentColor',
@@ -97,12 +95,14 @@ const CSpinner = {
         borderBottomColor: this.emptyColor,
         borderLeftColor: this.emptyColor,
         animation: `${spin} ${this.speed} linear infinite`,
-        ...setSizes(this.$props),
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CSpinner'
+        ...setSizes(this.$props)
       }
+    }
+  },
+  render (h) {
+    return h('div', {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.label && h(CVisuallyHidden, {}, this.label))
   }
 }

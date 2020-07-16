@@ -15,9 +15,5 @@ export const iconProps = {
   size: {
     type: [String, Number, Array],
     default: '1em'
-  },
-  color: {
-    type: [String, Array],
-    default: 'currentColor'
   }
 }

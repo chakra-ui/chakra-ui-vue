@@ -1,6 +1,3 @@
-import LiveEditor from '../components/LiveEditor'
-import Code from '../components/CodeBlock'
-
 # Style Props
 
 Chakra UI adopts a convenient approach to styling it's components by using style props.
@@ -20,16 +17,18 @@ each group. To learn more about it, you can also check the
 
 ### Margin & padding
 
-<Code code={`<template>\n
+```vue
+<template>
   <!-- m="2" refers to the value of theme.space.[2] -->
-  <Box m="2">Tomato</Box>\n
+  <c-box m="2">Tomato</c-box>
+  
   <!-- You can also make use of custom values -->
-  <Box maxW="960px" mx="auto">Custom</Box>\n
-  <!-- sets margin \`8px\` on all viewports and \`12px\` from the first breakpoint and up -->
-  <Box :m="['2', '3']" />
-</template>
-`} />
+  <c-box max-w="960px" mx="auto">Custom</c-box>
 
+  <!-- sets margin `8px` on all viewports and `12px` from the first breakpoint and up -->
+  <c-box :m="['2', '3']" />
+</template>
+```
 
 | Prop                  | CSS Property                       | Theme Key |
 | --------------------- | ---------------------------------- | --------- |
@@ -50,16 +49,16 @@ each group. To learn more about it, you can also check the
 
 ### Color & background color
 
-<Code code={`<template>\n
+```vue
+<template>
   <!-- picks up a nested color value using dot notation -->
-  <Box color="gray.50" />\n
+  <c-box color="gray.50" />
   <!-- You can also use raw CSS color values -->
-  <Box color="#f00" />\n
+  <c-box color="#f00" />
   <!-- Sets background color to pink -->
-  <Box bg="pink" />\n
+  <c-box bg="pink" />
 </template>
-`} />
-
+```
 
 | Prop                    | CSS Property       | Theme Key |
 | ----------------------- | ------------------ | --------- |
@@ -68,17 +67,18 @@ each group. To learn more about it, you can also check the
 | `opacity`               | `opacity`          | none      |
 
 ### Typography
-<Code code={`<template>\n
-  <!-- font-size of \`theme.fontSizes.md\` -->
-  <Text fontSize="md" />\n
-  <!-- font-size \`32px\` -->
-  <Text fontSize="32" />\n
-  <!-- font-size \`'2em'\` -->
-  <Text fontSize="2em" />\n
-  <!-- text-align \`left\` on all viewports and \`center\` from the first breakpoint and up -->
-  <Text :textAlign="[ 'left', 'center' ]" />\n
+```vue
+<template>
+  <!-- font-size of `theme.fontSizes.md` -->
+  <c-text fontSize="md" />
+  <!-- font-size `32px` -->
+  <c-text fontSize="32" />
+  <!-- font-size `'2em'` -->
+  <c-text fontSize="2em" />
+  <!-- text-align `left` on all viewports and `center` from the first breakpoint and up -->
+  <c-text :textAlign="[ 'left', 'center' ]" />
 </template>
-`} />
+```
 
 | Prop             | CSS Property      | Theme Key        |
 | ---------------- | ----------------- | ---------------- |
@@ -94,17 +94,18 @@ each group. To learn more about it, you can also check the
 
 ### Layout, width and height
 
-<Code code={`<template>
+```vue
+<template>
   <!-- verbose -->
-  <Box width="100%" height="32px" />\n
+  <c-box width="100%" height="32px" />
   <!-- shorthand -->
-  <Box w="100%" h="32px" />\n
-  <!-- width \`256px\` -->
-  <Box w="256" />\n
-  <!-- width \`40px\` -->
-  <Box w="40px" />\n
+  <c-box w="100%" h="32px" />
+  <!-- width `256px` -->
+  <c-box w="256" />
+  <!-- width `40px` -->
+  <c-box w="40px" />
 </template>
-`} />
+```
 
 
 | Prop                | CSS Property     | Theme Key |
@@ -123,27 +124,32 @@ each group. To learn more about it, you can also check the
 | `overflowY`         | `overflowY`      | none      |
 
 ### Flexbox
-<Code code={`<template>
+```vue
+<template>
   <!-- verbose -->
-  <Box display="flex" alignItems="center" justifyContent="space-between">
+  <c-box display="flex" align-items="center" justify-content="space-between">
     Box with Flex props
-  </Box>\n
-  <!-- shorthand using the \`Flex\` component -->
-  <Flex align="center" justify="center">
+  </c-box>
+  
+  <!-- shorthand using the `Flex` component -->
+  <c-flex align="center" justify="center">
     Flex Container
-  </Flex>
-</template>\n
-<script>
-  import { Box, Flex } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box,
-      Flex
-    }
-  }
-<\/script>`} />
+  </c-flex>
+</template>
 
-> Note: Props in `*` will only work if you use the `Flex` component.
+<script>
+import { CBox, CFlex } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CBox,
+    CFlex
+  }
+}
+</script>
+```
+
+> Note: Props in `*` will only work if you use the `CFlex` component.
 
 | Prop                                      | CSS Property       | Theme Key |
 | ----------------------------------------- | ------------------ | --------- |
@@ -162,27 +168,31 @@ each group. To learn more about it, you can also check the
 | `order`                                   | `order`            | none      |
 
 ### Grid Layout
-<Code code={`<template>
+```vue
+<template>
   <!-- verbose -->
-  <Box display="grid" gridGap="2" gridAutoFlow="row dense">
+  <c-box display="grid" gridGap="2" gridAutoFlow="row dense">
     Grid
-  </Box>\n
-  <!-- shorthand using the \`Grid\` component -->
-  <Grid gap="2" autoFlow="row dense">
-    Grid
-  </Grid>
-</template>\n
-<script>
-  import { Box, Grid } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box,
-      Grid
-    }
-  }
-<\/script>`} />
+  </c-box>
 
-> Note: Props in `*` will only work if you use the `Grid` component.
+  <!-- shorthand using the `Grid` component -->
+  <c-grid gap="2" auto-flow="row dense">
+    Grid
+  </c-grid>
+</template>
+<script>
+import { CBox, CGrid } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CBox,
+    CGrid
+  }
+}
+</script>
+```
+
+> Note: Props in `*` will only work if you use the `CGrid` component.
 
 | Prop                                       | CSS Property            | Theme Key |
 | ------------------------------------------ | ----------------------- | --------- |
@@ -200,24 +210,29 @@ each group. To learn more about it, you can also check the
 | `gridTemplateAreas`, \*`templateAreas`     | `grid-template-areas`   | none      |
 
 ### Background
-<Code code={`<template>
+```vue
+<template>
   <!-- verbose -->
-  <Box
+  <c-box
     backgroundImage="url('/images/kyuubi.png')"
     backgroundPosition="center"
     backgroundRepeat="no-repeat"
-  >\n
+  >
+
   <!-- shorthand -->
-  <Box bgImage="url('/images/gaara.png')" bgPos="center" bgRepeat="no-repeat" >
-</template>\n
+  <c-box bgImage="url('/images/gaara.png')" bgPos="center" bgRepeat="no-repeat" >
+</template>
+
 <script>
-  import { Box } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box
-    }
+import { CCBox } from '@chakra-ui/vue'\n
+
+export default {
+  components: {
+    CBox
   }
-<\/script>`} />
+}
+</script>
+```
 
 | Prop                                  | CSS Property            | Theme Key |
 | ------------------------------------- | ----------------------- | --------- |
@@ -230,19 +245,23 @@ each group. To learn more about it, you can also check the
 
 ### Borders
 
-<Code code={`<template>
-  <Box border="1px" borderRadius="md" borderColor="gray.200">
+```vue
+<template>
+  <c-box border="1px" borderRadius="md" borderColor="gray.200">
     Card
-  </Box>
-</template>\n
+  </c-box>
+</template>
+
 <script>
-  import { Box } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box
-    }
+import { CBox } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CBox
   }
-<\/script>`} />
+}
+</script>
+```
 
 
 | Prop                | CSS Property                   | Theme Field    |
@@ -272,24 +291,28 @@ each group. To learn more about it, you can also check the
 
 ### Border Radius
 
-<Code code={`<template>
+```vue
+<template>
   <!-- This button will have no right borderRadius -->
-  <Button roundedRight="0">Button 1</Button>\n
+  <c-button roundedRight="0">Button 1</c-button>
 
   <!-- This button will have no left borderRadius*/ -->
-  <Button roundedLeft="0">Button 2</Button>\n
+  <c-button roundedLeft="0">Button 2</c-button>
 
-  <!-- top left and top right radius will be \`theme.radii.md\` => 4px -->
-  <Button roundedTop="md">Button 2</Button>
-</template>\n
+  <!-- top left and top right radius will be `theme.radii.md` => 4px -->
+  <c-button roundedTop="md">Button 2</c-button>
+</template>
+
 <script>
-  import { Button } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Button
-    }
+import { CButton } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CButton
   }
-<\/script>`} />
+}
+</script>
+```
 
 
 | Prop                                            | CSS Property                                               | Theme Field |
@@ -305,26 +328,34 @@ each group. To learn more about it, you can also check the
 | `roundedLeft`                                   | `border-top-left-radius` & `border-bottom-left-radius`     | `radii`     |
 
 ### Position
-<Code code={`<template>
+```vue
+<template>
+
   <!-- verbose -->
-  <Box position="absolute">Cover</Box>\n
+  <c-box position="absolute">Cover</c-box>
+
   <!-- shorthand -->
-  <Box pos="absolute">Cover</Box>\n
-  <Box pos="absolute" top="0" left="0">
+  <c-box pos="absolute">Cover</c-box>
+
+  <c-box pos="absolute" top="0" left="0">
     Absolute with top and left
-  </Box>\n
-  <Box pos="fixed" w="100%" zIndex="2">
+  </c-box>
+
+  <c-box pos="fixed" w="100%" zIndex="2">
     Fixed with zIndex
-  </Box>
-</template>\n
+  </c-box>
+</template>
+
 <script>
-  import { Box } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box
-    }
+import { CBox } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CBox
   }
-<\/script>`} />
+}
+</script>
+```
 
 
 | Prop             | CSS Property | Theme Field |
@@ -337,25 +368,30 @@ each group. To learn more about it, you can also check the
 | `left`           | `left`       | `space`     |
 
 ### Shadow
-<Code code={`<template>
+```vue
+<template>
   <!-- verbose -->
-  <!-- text-shadow will be \`theme.shadows.sm\` -->
-  <!-- box-shadow will be \`theme.shadows.md\` -->
-  <Box textShadow="sm" boxShadow="md" />\n
+  <!-- text-shadow will be `theme.shadows.sm` -->
+  <!-- box-shadow will be `theme.shadows.md` -->
+  <c-box textShadow="sm" boxShadow="md" />
+
   <!-- raw CSS values -->
-  <Text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
+  <c-text textShadow="2px 2px #ff0000" boxShadow="5px 10px #888888">
     Text with shadows
-  </Text>
-</template>\n
+  </c-text>
+</template>
+
 <script>
-  import { Box, Text } from '@chakra-ui/vue'\n
-  export default {
-    components: {
-      Box,
-      Text
-    }
+import { CBox, CText } from '@chakra-ui/vue'
+
+export default {
+  components: {
+    CBox,
+    CText
   }
-<\/script>`} />
+}
+</script>
+```
 
 
 | Prop                 | CSS Property  | Theme Field |
@@ -405,9 +441,11 @@ For example, say you are using a Button component, and you need to make it a
 link instead. You can compose `router-link` and Button like this:
 <br/>
 
-<Code code={`<template>
-  <Button as="router-link" to="/about">About Page Button</Button>
-</template>`}/>
+```vue
+<template>
+  <c-button as="router-link" to="/about">About Page Button</c-button>
+</template>
+```
 
 This allows you to use all of the `Button` props and all of the `<router-link>` props
 without having to wrap the Button in an `<router-link>` component.

@@ -10,11 +10,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CHeading/CHeading.js
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 import { useTruncated } from '../CText/utils/text.utils'
-
-import CBox from '../CBox'
 
 const sizes = {
   '2xl': ['4xl', null, '5xl'],
@@ -35,6 +32,7 @@ const sizes = {
  */
 const CHeading = {
   name: 'CHeading',
+  mixins: [createStyledAttrsMixin('CHeading')],
   props: {
     size: {
       type: [String, Array, Object],
@@ -44,23 +42,23 @@ const CHeading = {
       type: String,
       default: 'h2'
     },
-    ...baseProps,
     isTruncated: Boolean
   },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: this.as,
+  computed: {
+    componentStyles () {
+      return {
         fontSize: sizes[this.size],
         lineHeight: 'shorter',
         fontWeight: 'bold',
         fontFamily: 'heading',
-        ...forwardProps(this.$props),
         ...this.isTruncated && useTruncated()
-      },
-      attrs: {
-        'data-chakra-component': 'CHeading'
       }
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

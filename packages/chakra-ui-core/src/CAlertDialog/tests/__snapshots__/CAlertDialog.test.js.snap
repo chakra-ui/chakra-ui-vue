@@ -11,33 +11,32 @@ exports[`should render correctly 1`] = `
     id="modal-portal-1"
   >
     <div
-      class="css-fzcsno css-1w0sygx"
-      data-chakra-component="CPseudoBox"
+      style="position: relative;"
     >
       <div
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
-          class="css-1h6qt27"
-          data-chakra-component="CBox"
+          class="css-1a29t1v"
+          data-chakra-component="CModalOverlay"
         />
         <div
-          class="css-tj90gg"
-          data-chakra-component="CModalContent"
-          data-testid="overlay"
+          class="css-16gt2qg"
+          data-chakra-component="CBox"
         >
           <section
             aria-describedby="alert-dialog-1-desc"
             aria-labelledby="alert-dialog-1-label"
             aria-modal="true"
-            class="css-i76yoi"
+            class="css-1uxbpb7"
             data-chakra-component="CAlertDialogContent"
+            data-testid="overlay"
             id="alert-dialog-1"
             role="alertdialog"
             tabindex="-1"
           >
             <header
-              class="css-cryb04"
+              class="css-w7idnj"
               data-chakra-component="CModalHeader"
               id="alert-dialog-1-label"
             >
@@ -45,7 +44,7 @@ exports[`should render correctly 1`] = `
             </header>
              
             <div
-              class="css-1lxlfxt"
+              class="css-5m10fw"
               data-chakra-component="CModalBody"
               id="alert-dialog-1-desc"
             >
@@ -59,11 +58,11 @@ exports[`should render correctly 1`] = `
             </div>
              
             <footer
-              class="css-1y6ww5m"
+              class="css-plnu2w"
               data-chakra-component="CModalFooter"
             >
               <button
-                class="css-fzcsno css-1240sfg"
+                class="css-1bmeqe7"
                 data-chakra-component="CButton"
                 data-testid="close-btn"
                 tabindex="0"
@@ -73,7 +72,7 @@ exports[`should render correctly 1`] = `
               </button>
                
               <button
-                class="css-fzcsno css-1uibj8n"
+                class="css-7p9ddn"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"

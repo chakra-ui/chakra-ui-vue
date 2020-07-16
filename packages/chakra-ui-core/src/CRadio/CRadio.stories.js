@@ -44,7 +44,7 @@ storiesOf('UI | Radio', module)
   .add('default is checked', () => ({
     components: { CFragment, CRadioGroup, CRadio, CStack },
     template: `
-      <c-stack spacing="10">
+      <c-stack spacing="10" is-inline>
         <c-radio-group :spacing="4" v-model="vertical">
           <c-radio size="sm" value="sm" name="1" variant-color="red">
             Radio

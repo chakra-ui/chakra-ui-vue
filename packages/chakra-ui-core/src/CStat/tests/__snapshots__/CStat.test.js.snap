@@ -3,27 +3,27 @@
 exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 <DocumentFragment>
   <div
-    class="css-i8ou7a"
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="css-zb0vz7"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
-      class="css-1ecn2q9"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
-      class="css-1x22fzm"
-      data-chakra-component="CText"
+      class="css-1lq3jyp"
+      data-chakra-component="CStatHelperText"
     >
       <svg
-        class="css-ata6yd css-y3asau"
+        class="css-12j51pv css-3vopgu css-1p5cxmr"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -48,27 +48,27 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 <DocumentFragment>
   <div
-    class="css-i8ou7a"
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="css-zb0vz7"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Sent
     </p>
     <p
-      class="css-1ecn2q9"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       345,670
     </p>
     <p
-      class="css-1x22fzm"
-      data-chakra-component="CText"
+      class="css-1lq3jyp"
+      data-chakra-component="CStatHelperText"
     >
       <svg
-        class="css-4vpgj8 css-y3asau"
+        class="css-12j51pv css-3vopgu css-1yvh846"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -93,24 +93,24 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-i8ou7a"
+    class="css-j0m6ar"
     data-chakra-component="CStat"
   >
     <p
-      class="css-zb0vz7"
+      class="css-fit510"
       data-chakra-component="CStatLabel"
     >
       Collected Fees
     </p>
     <p
-      class="css-1ecn2q9"
+      class="css-gju2n4"
       data-chakra-component="CStatNumber"
     >
       £0.00
     </p>
     <p
-      class="css-1x22fzm"
-      data-chakra-component="CText"
+      class="css-1lq3jyp"
+      data-chakra-component="CStatHelperText"
     >
       Feb 12 - Feb 28
     </p>

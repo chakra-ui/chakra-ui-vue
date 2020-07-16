@@ -1,6 +1,5 @@
 import anime from 'animejs'
 import { isUndef, isVueComponent, cloneVNodeElement, cleanChildren } from '../utils'
-import CBox from '../CBox'
 
 const enterEasing = 'spring(1, 100, 50, 0)'
 const leaveEasing = 'spring(1, 100, 70, 0)'
@@ -516,8 +515,8 @@ const CAnimateHeight = {
   },
   render (h) {
     const children = this.$slots.default
-    return h(CBox, {
-      props: {
+    return h('div', {
+      style: {
         overflow: 'hidden'
       },
       attrs: {

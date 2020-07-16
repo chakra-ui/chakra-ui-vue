@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import { CInput, CButton, CDrawer, CDrawerBody, CDrawerFooter, CDrawerHeader, CDrawerOverlay, CDrawerContent, CDrawerCloseButton } from '../../'
-import { render, userEvent, fireEvent, waitMs } from '@/tests/test-utils'
+import { render, userEvent, fireEvent, waitMs, wait, screen } from '@/tests/test-utils'
 import { useId } from '@/packages/chakra-ui-core/src/utils'
 
 // mocks
@@ -49,7 +48,7 @@ it('should render correctly', async () => {
   const inlineAttrs = 'isOpen'
   const { asFragment } = renderComponent({ inlineAttrs })
 
-  await Vue.nextTick()
+  await waitMs() // render
 
   expect(asFragment(document.body.innerHTML)).toMatchSnapshot()
 })
@@ -57,10 +56,11 @@ it('should render correctly', async () => {
 test('clicking the close button calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = 'isOpen :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, methods: { close: onClose } })
+  renderComponent({ inlineAttrs, methods: { close: onClose } })
 
-  await Vue.nextTick()
-  userEvent.click(getByTestId('close-btn'))
+  await wait(() => {
+    userEvent.click(screen.getByTestId('close-btn'))
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
@@ -68,12 +68,12 @@ test('clicking the close button calls the onClose callback', async () => {
 test('pressing "esc" calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
+  renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
-  await Vue.nextTick()
-  const inputInside = getByTestId('inputInsideDrawer')
-
-  fireEvent.keyDown(inputInside, { key: 'Escape' })
+  await wait(async () => {
+    const inputInside = screen.getByTestId('inputInsideDrawer')
+    await fireEvent.keyDown(inputInside, { key: 'Escape' })
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
@@ -81,39 +81,41 @@ test('pressing "esc" calls the onClose callback', async () => {
 test('clicking overlay calls the onClose callback', async () => {
   const onClose = jest.fn()
   const inlineAttrs = ':isOpen="isOpen" :on-close="close"'
-  const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
+  renderComponent({ inlineAttrs, data: () => ({ isOpen: true }), methods: { close: onClose } })
 
-  await Vue.nextTick()
-  const overlay = getByTestId('overlay')
-
-  userEvent.click(overlay)
+  await wait(async () => {
+    const overlay = screen.getByTestId('overlay')
+    await fireEvent.click(overlay.parentElement)
+  })
 
   expect(onClose).toHaveBeenCalled()
 })
 
 test('focuses the initial focus ref when opened - initialFocusRef', async () => {
   const inlineAttrs = 'isOpen :on-close="close" :initialFocusRef="()=>$refs.inputInsideDrawer"'
-  const { getByTestId } = renderComponent({ inlineAttrs })
+  renderComponent({ inlineAttrs })
 
-  await Vue.nextTick()
-  const inputInside = getByTestId('inputInsideDrawer')
+  await waitMs() // render
 
-  await waitMs()
-  expect(inputInside).toHaveFocus()
+  await wait(() => {
+    expect(screen.getByTestId('inputInsideDrawer')).toHaveFocus()
+  })
 })
 
 test('returns focus when closed - finalFocusRef', async () => {
   const inlineAttrs = ':isOpen="isOpen" :on-close="close" :finalFocusRef="$refs.inputOutsideDrawer"'
-  const { getByTestId } = renderComponent({ inlineAttrs, data: () => ({ isOpen: true }) })
+  renderComponent({ inlineAttrs, data: () => ({ isOpen: true }) })
 
-  await Vue.nextTick()
-  const inputOutside = getByTestId('inputOutsideDrawer')
-  const closeButton = getByTestId('close-btn')
+  await waitMs() // render
 
-  await userEvent.click(closeButton)
-  await waitMs()
+  const inputOutside = screen.getByTestId('inputOutsideDrawer')
+  const closeButton = screen.getByTestId('close-btn')
 
-  expect(inputOutside).toHaveFocus()
+  await fireEvent.click(closeButton)
+
+  await wait(() => {
+    expect(inputOutside).toHaveFocus()
+  })
 })
 
 it('should have proper aria', async () => {
@@ -121,12 +123,12 @@ it('should have proper aria', async () => {
   const inlineAttrs = 'isOpen'
   renderComponent({ inlineAttrs })
 
-  await Vue.nextTick()
-  const dialog = document.querySelector('section')
-  await waitMs()
+  await wait(() => {
+    const dialog = screen.getByRole('dialog')
 
-  expect(dialog).toHaveAttribute('role', 'dialog')
-  expect(dialog).toHaveAttribute('aria-modal', 'true')
-  expect(dialog).toHaveAttribute('aria-labelledby', 'drawer-1-header')
-  expect(dialog).toHaveAttribute('aria-describedby', 'drawer-1-body')
+    expect(dialog).toHaveAttribute('role', 'dialog')
+    expect(dialog).toHaveAttribute('aria-modal', 'true')
+    expect(dialog).toHaveAttribute('aria-labelledby', 'drawer-1-header')
+    expect(dialog).toHaveAttribute('aria-describedby', 'drawer-1-body')
+  })
 })

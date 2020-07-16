@@ -1,11 +1,11 @@
 import CDivider from '..'
-import { render } from '@/tests/test-utils'
+import { render, screen } from '@/tests/test-utils'
 
 const renderComponent = (props) => {
   const inlineAttrs = (props && props.inlineAttrs) || ''
   const base = {
     components: { CDivider },
-    template: `<CDivider ${inlineAttrs} />`,
+    template: `<CDivider data-testid="divider" ${inlineAttrs} />`,
     ...props
   }
   return render(base)
@@ -22,4 +22,12 @@ it('should change orientation', () => {
   const { asFragment } = renderComponent({ inlineAttrs })
 
   expect(asFragment()).toMatchSnapshot()
+})
+
+it('should have corresponding aria-orientation attribute', () => {
+  const inlineAttrs = 'orientation="horizontal"'
+  renderComponent({ inlineAttrs })
+
+  const divider = screen.getByTestId('divider')
+  expect(divider).toHaveAttribute('aria-orientation', 'horizontal')
 })

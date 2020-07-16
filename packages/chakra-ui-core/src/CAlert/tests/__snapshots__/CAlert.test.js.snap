@@ -3,12 +3,12 @@
 exports[`should override icon if set explicitly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1153cbl"
+    class="css-nhrqr1"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-1rzyopz css-y3asau"
+      class="css-12j51pv css-1oh9bp8 css-3v23kb"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -29,204 +29,92 @@ exports[`should override icon if set explicitly 1`] = `
 exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
   <div
-    class="css-813bdq"
+    class="css-j7qwjs css-0"
     data-chakra-component="CStack"
   >
     <div
-      class="css-1e0vsp5"
+      class="css-jc40v6"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="css-12j51pv css-1oh9bp8 css-8uesx6"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
       
     </div>
     <div
-      class="css-13q6fi0"
+      class="css-u5y8wy"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-15wmxy1 css-y3asau"
+        class="css-12j51pv css-1oh9bp8 css-uoder"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
       
     </div>
     <div
-      class="css-15bizfj"
+      class="css-16xha8s"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="css-12j51pv css-1oh9bp8 css-8uesx6"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
       
     </div>
     <div
-      class="css-rtnh94"
+      class="css-i78vk9"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-qer2jp css-y3asau"
+        class="css-12j51pv css-1oh9bp8 css-8uesx6"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
       >
         
-    
-        <g
-          stroke="currentColor"
-          strokewidth="1.5"
-        >
-          
       
-          <path
-            d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <path
-            d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-            fill="none"
-            strokelinecap="full"
-          />
-          
-      
-          <circle
-            cx="12"
-            cy="12"
-            fill="none"
-            r="11.25"
-            strokemiterlimit="10"
-          />
-          
-    
-        </g>
-        
-    
+        <path
+          d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+          fill="currentColor"
+        />
       </svg>
       
         Data uploaded to the server. Fire on!
@@ -239,61 +127,35 @@ exports[`should render correct variant styles 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-2fea6z"
+    class="css-8c8mos"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-1114uxt css-y3asau"
+      class="css-12j51pv css-1oh9bp8 css-9y8umg"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
     >
       
     
-      <g
-        stroke="currentColor"
-        strokewidth="1.5"
-      >
-        
-      
-        <path
-          d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-          fill="none"
-          strokelinecap="full"
-        />
-        
-      
-        <path
-          d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-          fill="none"
-          strokelinecap="full"
-        />
-        
-      
-        <circle
-          cx="12"
-          cy="12"
-          fill="none"
-          r="11.25"
-          strokemiterlimit="10"
-        />
-        
-    
-      </g>
+      <path
+        d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+        fill="currentColor"
+      />
       
     
     </svg>
      
     <div
-      class="css-nl0mdx"
+      class="css-11a523j"
       data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
-      class="css-fzcsno"
+      class="css-0"
       data-chakra-component="CAlertDescription"
     >
       alert description

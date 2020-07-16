@@ -7,8 +7,7 @@
 
 import merge from 'lodash-es/merge'
 import { createPopper } from '@popperjs/core'
-import { createChainedFunction, forwardProps, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
-import styleProps from '../config/props'
+import { createChainedFunction, isVueComponent, canUseDOM, useId, HTMLElement } from '../utils'
 import ClickOutside from '../directives/clickoutside.directive'
 
 import CBox from '../CBox'
@@ -53,15 +52,22 @@ function flipPlacement (placement) {
  */
 const CPopper = {
   name: 'CPopper',
+  inheritAttrs: false,
   directives: {
     ClickOutside
   },
   props: {
-    as: String,
+    as: {
+      type: [String, Object],
+      default: 'div'
+    },
     isOpen: Boolean,
     placement: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
+      validator: value => value.match(
+        /^(top|top-start|top-end|right|right-start|right-end|bottom|bottom-start|bottom-end|left|left-start|left-end)$/
+      )
     },
     usePortal: {
       type: Boolean,
@@ -97,8 +103,7 @@ const CPopper = {
       default: true
     },
     positionFixed: Boolean,
-    usePortalTarget: String,
-    ...styleProps
+    usePortalTarget: String
   },
   data () {
     return {
@@ -298,6 +303,7 @@ const CPopper = {
       style: {
         display: this.isOpen ? 'unset' : 'none'
       },
+      props: { as: this.as },
       directives: [{
         name: 'click-outside',
         value: this.wrapClose
@@ -311,9 +317,6 @@ const CPopper = {
       scopedSlots: {
         popperId: `chakra-${this.popperId}`
       },
-      props: {
-        ...forwardProps(this.$props)
-      },
       ref: 'handleRef'
     }, this.$slots.default)])
   }
@@ -321,15 +324,17 @@ const CPopper = {
 
 const CPopperArrow = {
   name: 'CPopperArrow',
-  render (h) {
+  functional: true,
+  render (h, { data, ...rest }) {
     return h(CBox, {
+      ...rest,
       attrs: {
+        ...data.attrs,
         'x-arrow': true,
         'data-popper-arrow': true,
         role: 'presentation',
         'data-chakra-component': 'CPopperArrow'
-      },
-      props: forwardProps(this.$props)
+      }
     })
   }
 }

@@ -8,10 +8,9 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSimpleGrid/CSimpleGrid.js
  */
 
-import { baseProps } from '../config/props'
-
 import CGrid from '../CGrid'
 import { SNA } from '../config/props/props.types'
+import { createStyledAttrsMixin } from '../utils'
 import { countToColumns, widthToColumns } from './utils/grid.styles'
 
 /**
@@ -19,18 +18,18 @@ import { countToColumns, widthToColumns } from './utils/grid.styles'
  *
  * The simple grid component provides basic grid functionalities.
  *
- * @extends CBox
+ * @extends CGrid
  * @see Docs https://vue.chakra-ui.com/select
  */
 const CSimpleGrid = {
   name: 'CSimpleGrid',
+  mixins: [createStyledAttrsMixin('CSimpleGrid')],
   props: {
     columns: SNA,
     spacingX: SNA,
     spacingY: SNA,
     spacing: SNA,
-    minChildWidth: SNA,
-    ...baseProps
+    minChildWidth: SNA
   },
   computed: {
     templateColumns () {
@@ -41,15 +40,14 @@ const CSimpleGrid = {
   },
   render (h) {
     return h(CGrid, {
+      class: this.className,
       props: {
         gap: this.spacing,
         columnGap: this.spacingX,
         rowGap: this.spacingY,
         templateColumns: this.templateColumns
       },
-      attrs: {
-        'data-chakra-component': 'CSimpleGrid'
-      }
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

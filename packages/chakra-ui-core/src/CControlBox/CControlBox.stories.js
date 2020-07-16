@@ -67,3 +67,40 @@ storiesOf('UI | ControlBox', module)
       </CBox>
     `
   }))
+  .add('Functional control box', () => ({
+    components: { CControlBox, CVisuallyHidden, CBox, CIcon },
+    template: `
+      <CBox as="label" display="flex" alignItems="center" cursor="pointer" for="control-checkbox">
+        <!-- This is the sibling input, it's visually hidden -->
+        <CVisuallyHidden as="input" @change.native="handleChange" id="control-checkbox" type="checkbox" checked="true" />
+
+        <!-- This is the control box with a check icon as children -->
+        <CControlBox
+          borderWidth="1px"
+          size="24px"
+          rounded="sm"
+          :_checked="{
+            bg: 'green.500',
+            color: 'white',
+            borderColor: 'green.500'
+          }"
+          :_focus="{
+            borderColor: 'green.600',
+            boxShadow: 'outline'
+          }"
+        >
+          <CIcon name="check" size="16px" />
+        </CControlBox>
+
+        <!-- You can pass additional text -->
+        <CBox ml="2" as="span" vertical-align="center" user-select="none">
+          Checkbox Label
+        </CBox>
+      </CBox>
+    `,
+    methods: {
+      handleChange (e) {
+        console.log('changed', e)
+      }
+    }
+  }))

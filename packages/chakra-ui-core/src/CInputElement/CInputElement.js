@@ -7,19 +7,18 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInputElement/CInputElement.js
  */
 
-import { baseProps } from '../config'
 import { inputSizes } from '../CInput/utils/input.styles'
 import CBox from '../CBox'
 import { forwardProps } from '../utils'
 
 const props = {
-  ...baseProps,
   size: String,
   placement: {
     type: String,
     default: 'left'
   },
-  disablePointerEvents: Boolean
+  disablePointerEvents: Boolean,
+  fine: Boolean
 }
 
 /**
@@ -32,15 +31,17 @@ const props = {
  */
 const CInputElement = {
   name: 'CInputElement',
+  functional: true,
   props,
-  render (h) {
-    const height = inputSizes[this.size] && inputSizes[this.size].height
-    const fontSize = inputSizes[this.size] && inputSizes[this.size].fontSize
-    const placementProp = { [this.placement]: '0' }
-
+  render (h, { props, slots, data, ...rest }) {
+    const height = inputSizes[props.size] && inputSizes[props.size].height
+    const fontSize = inputSizes[props.size] && inputSizes[props.size].fontSize
+    const placementProp = { [props.placement]: '0' }
     return h(CBox, {
-      props: {
-        ...forwardProps(this.$props),
+      ...rest,
+      attrs: {
+        'data-chakra-component': 'CInputElement',
+        ...data.attrs,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -50,13 +51,10 @@ const CInputElement = {
         fontSize,
         top: 0,
         zIndex: 2,
-        ...(this.disablePointerEvents && { pointerEvents: 'none' }),
+        ...(props.disablePointerEvents && { pointerEvents: 'none' }),
         ...placementProp
-      },
-      attrs: {
-        'data-chakra-component': 'CInputElement'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -78,6 +76,7 @@ const CInputLeftElement = {
         placement: 'left'
       },
       attrs: {
+        ...this.$attrs,
         'data-chakra-component': 'CInputLeftElement'
       }
     }, this.$slots.default)
@@ -102,6 +101,7 @@ const CInputRightElement = {
         placement: 'right'
       },
       attrs: {
+        ...this.$attrs,
         'data-chakra-component': 'CInputRightElement'
       }
     }, this.$slots.default)

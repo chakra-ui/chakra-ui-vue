@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render correctly 1`] = `
+exports[`should attach buttons when \`is-attached\` is passed 1`] = `
 <DocumentFragment>
   <div
-    class="css-1xn5gl6"
+    class="css-1baulvz"
     data-chakra-component="CButtonGroup"
   >
     <button
-      class="css-fzcsno css-hz466c"
+      class="css-9x7nat"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -15,7 +15,33 @@ exports[`should render correctly 1`] = `
       Button1
     </button>
     <button
-      class="css-fzcsno css-bibkwt"
+      class="css-566v0a"
+      data-chakra-component="CButton"
+      tabindex="0"
+      type="button"
+    >
+      Button2
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1baulvz"
+    data-chakra-component="CButtonGroup"
+  >
+    <button
+      class="css-tcle5v"
+      data-chakra-component="CButton"
+      tabindex="0"
+      type="button"
+    >
+      Button1
+    </button>
+    <button
+      class="css-ldbpgl"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"

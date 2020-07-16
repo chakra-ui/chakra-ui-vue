@@ -14,8 +14,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alert
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
@@ -38,7 +37,7 @@ export const statuses = {
  */
 const CAlert = {
   name: 'CAlert',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CAlert')],
   provide () {
     return {
       _status: this.status,
@@ -48,6 +47,17 @@ const CAlert = {
   computed: {
     colorMode () {
       return this.$chakraColorMode()
+    },
+    componentStyles () {
+      return {
+        fontFamily: 'body',
+        ...useAlertStyle({
+          variant: this.variant,
+          color: statuses[this.status] && statuses[this.status].color,
+          colorMode: this.colorMode,
+          theme: this.$chakraTheme()
+        })
+      }
     }
   },
   props: {
@@ -58,26 +68,14 @@ const CAlert = {
     variant: {
       type: [String, Array],
       default: 'subtle'
-    },
-    ...baseProps
+    }
   },
   render (h) {
-    const alertStyles = useAlertStyle({
-      variant: this.variant,
-      color: statuses[this.status] && statuses[this.status].color,
-      colorMode: this.colorMode,
-      theme: this.$chakraTheme()
-    })
-
-    return h(CBox, {
-      props: {
-        fontFamily: 'body',
-        ...alertStyles,
-        ...forwardProps(this.$props)
-      },
+    return h('div', {
+      class: this.className,
       attrs: {
         role: 'alert',
-        'data-chakra-component': 'CAlert'
+        ...this.computedAttrs
       }
     }, this.$slots.default)
   }
@@ -94,37 +92,38 @@ const CAlert = {
  */
 const CAlertIcon = {
   name: 'CAlertIcon',
+  inheritAttrs: false,
   inject: ['_status', '_variant', '$chakraColorMode', '$chakraTheme'],
   props: {
     size: {
       default: 5
     },
-    name: String,
-    ...baseProps
+    name: String
   },
   computed: {
     colorMode () {
       return this.$chakraColorMode()
+    },
+    alertIconStyles () {
+      return useAlertIconStyle({
+        variant: this._variant,
+        colorMode: this.colorMode,
+        color: statuses[this._status] && statuses[this._status].color
+      })
     }
   },
   render (h) {
-    const alertIconStyles = useAlertIconStyle({
-      variant: this._variant,
-      colorMode: this.colorMode,
-      color: statuses[this._status] && statuses[this._status].color
-    })
-
     return h(CIcon, {
       props: {
-        mr: this.$props.mr || 3,
         size: this.size,
-        name: this.name || (statuses[this._status] && statuses[this._status].icon),
-        ...alertIconStyles,
-        ...forwardProps(this.$props)
+        name: this.name || (statuses[this._status] && statuses[this._status].icon)
       },
       attrs: {
         focusable: false,
-        'data-chakra-component': 'CAlertIcon'
+        'data-chakra-component': 'CAlertIcon',
+        mr: this.$attrs.mr || 3,
+        ...this.alertIconStyles,
+        ...this.$attrs
       }
     })
   }
@@ -141,20 +140,18 @@ const CAlertIcon = {
  */
 const CAlertTitle = {
   name: 'CAlertTitle',
-  props: {
-    ...baseProps
-  },
-  render (h) {
+  functional: true,
+  render (h, context) {
+    const { attrs } = context.data
     return h(CBox, {
-      props: {
+      ...context.data,
+      attrs: {
         fontWeight: 'bold',
         lineHeight: 'normal',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...attrs,
         'data-chakra-component': 'CAlertTitle'
       }
-    }, this.$slots.default)
+    }, context.slots().default)
   }
 }
 
@@ -169,19 +166,16 @@ const CAlertTitle = {
  */
 const CAlertDescription = {
   name: 'CAlertDescription',
-  props: {
-    ...baseProps
-  },
-  render (h) {
+  functional: true,
+  render (h, context) {
+    const { attrs } = context.data
     return h(CBox, {
-      props: {
-        ...forwardProps(this.$props),
-        chakraId: 'CAlertDescription'
-      },
+      ...context.data,
       attrs: {
+        ...attrs,
         'data-chakra-component': 'CAlertDescription'
       }
-    }, this.$slots.default)
+    }, context.slots().default)
   }
 }
 

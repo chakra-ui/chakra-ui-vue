@@ -8,10 +8,8 @@
  */
 
 import useBadgeStyle from '../CBadge/utils/badge.styles'
-import { useVariantColorWarning, forwardProps } from '../utils'
-import { baseProps } from '../config/props'
+import { useVariantColorWarning, createStyledAttrsMixin } from '../utils'
 
-import CBox from '../CBox'
 import { SNA } from '../config/props/props.types'
 
 /**
@@ -24,9 +22,8 @@ import { SNA } from '../config/props/props.types'
  */
 const CCode = {
   name: 'CCode',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CCode')],
   props: {
-    ...baseProps,
     variantColor: {
       type: String,
       default: 'gray'
@@ -37,12 +34,6 @@ const CCode = {
     }
   },
   computed: {
-    theme () {
-      return this.$chakraTheme()
-    },
-    colorMode () {
-      return this.$chakraColorMode()
-    },
     badgeStyle () {
       useVariantColorWarning(this.theme, 'CCode', this.variantColor)
       return useBadgeStyle({
@@ -51,23 +42,22 @@ const CCode = {
         colorMode: this.colorMode,
         theme: this.theme
       })
-    }
-  },
-  render (h) {
-    return h(CBox, {
-      props: {
-        as: 'code',
+    },
+    componentStyles () {
+      return {
         display: 'inline-block',
         fontSize: 'sm',
         px: '0.2em',
         fontFamily: 'mono',
         rounded: 'sm',
-        ...this.badgeStyle,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CCode'
+        ...this.badgeStyle
       }
+    }
+  },
+  render (h) {
+    return h('code', {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

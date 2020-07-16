@@ -4,13 +4,13 @@ exports[`should render correctly - input 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="css-fzcsno"
+      class="css-0"
       data-chakra-component="CEditable"
     >
       <!---->
        
       <input
-        class="css-fzcsno css-s4w4he"
+        class="css-gfj8et"
         data-chakra-component="CEditableInput"
         data-testid="input"
         id="editable-1"
@@ -26,11 +26,11 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="css-fzcsno"
+      class="css-0"
       data-chakra-component="CEditable"
     >
       <span
-        class="css-fzcsno css-1rdo2d4"
+        class="css-87ebly"
         data-chakra-component="CEditablePreview"
         data-testid="preview"
         tabindex="0"

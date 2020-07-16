@@ -8,9 +8,8 @@
  */
 
 import { StringArray } from '../config/props/props.types'
-import { baseProps } from '../config'
 import { inputSizes } from '../CInput/utils/input.styles'
-import { cloneVNode, forwardProps, kebabify } from '../utils'
+import { cloneVNode, kebabify } from '../utils'
 
 import CBox from '../CBox'
 
@@ -24,25 +23,24 @@ import CBox from '../CBox'
  */
 const CInputGroup = {
   name: 'CInputGroup',
+  functional: true,
   inject: ['$chakraTheme'],
   props: {
-    ...baseProps,
     size: {
       type: StringArray,
       default: 'md'
     }
   },
-  computed: {
-    theme () {
-      return this.$chakraTheme()
-    }
-  },
-  render (h) {
-    const { sizes } = this.theme
+  render (h, { injections, data, slots, props }) {
+    const theme = injections.$chakraTheme()
+    const { sizes } = theme
+
     let pl = null
     let pr = null
-    const height = inputSizes[this.size] && inputSizes[this.size].height
-    const children = this.$slots.default.filter(e => e.tag)
+    const height = inputSizes[props.size] && inputSizes[props.size].height
+
+    const children = slots().default.filter(e => e.tag)
+
     const clones = children
       .map((vnode) => {
         if (vnode.tag.includes('CInputLeftElement')) {
@@ -59,13 +57,17 @@ const CInputGroup = {
             props: {
               ...(clone.data.props || {}),
               ...clone.componentOptions.propsData,
-              borderRadius: clone.componentOptions.propsData.rounded,
-              size: this.size,
-              paddingLeft: clone.componentOptions.propsData.pl || pl,
-              paddingRight: clone.componentOptions.propsData.pr || pr
+              size: props.size
+            },
+            attrs: {
+              borderRadius: clone.data.attrs.rounded,
+              paddingLeft: clone.data.attrs.pl || pl,
+              paddingRight: clone.data.attrs.pr || pr,
+              ...clone.data.attrs
             }
           }, vnode.componentOptions.children)
         }
+
         const clone = cloneVNode(vnode, h)
         return h(clone.componentOptions.Ctor, {
           ...clone.data,
@@ -73,18 +75,19 @@ const CInputGroup = {
           props: {
             ...(clone.data.props || {}),
             ...clone.componentOptions.propsData,
-            size: this.size
+            size: props.size
           }
         }, vnode.componentOptions.children)
       })
 
     return h(CBox, {
       props: {
-        ...forwardProps(this.$props),
-        display: 'flex',
-        position: 'relative'
+        as: props.as
       },
       attrs: {
+        display: 'flex',
+        position: 'relative',
+        ...data.attrs,
         'data-chakra-component': 'CInputGroup'
       }
     }, clones)

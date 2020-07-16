@@ -3,20 +3,20 @@
 exports[`should display tag with custom element 1`] = `
 <DocumentFragment>
   <div
-    class="css-1u7dvmo"
+    class="css-82qlwu"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-1v8giig"
+      class="css-bq4nt5"
       data-chakra-component="CTag"
     >
       <div
-        class="css-1cm55yf"
+        class="css-1kvyzeh"
         data-chakra-component="CAvatar"
       >
         <div
           aria-label="Mesut Koca"
-          class="css-1wti8hy"
+          class="css-1nx39wu"
           data-chakra-component="CAvatarName"
         >
           MK
@@ -24,7 +24,7 @@ exports[`should display tag with custom element 1`] = `
       </div>
        
       <span
-        class="css-e1yiz6"
+        class="css-12hz31w"
         data-chakra-component="CTagLabel"
       >
         Mesut
@@ -37,25 +37,24 @@ exports[`should display tag with custom element 1`] = `
 exports[`should display tag with right icon 1`] = `
 <DocumentFragment>
   <div
-    class="css-1u7dvmo"
+    class="css-82qlwu"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-h304f4"
+      class="css-1h7p6x3"
       data-chakra-component="CTag"
     >
       <span
-        class="css-e1yiz6"
+        class="css-12hz31w"
         data-chakra-component="CTagLabel"
       >
         Green
       </span>
        
       <svg
-        class="css-1w7qkv4 css-y3asau css-9r03b"
+        class="css-12j51pv css-xmst1h css-dp0f2t css-9r03b"
         data-chakra-component="CTagIcon"
         role="presentation"
-        size="12px"
         viewBox="0 0 24 24"
       >
         
@@ -75,18 +74,17 @@ exports[`should display tag with right icon 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-1u7dvmo"
+    class="css-82qlwu"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno css-h304f4"
+      class="css-1h7p6x3"
       data-chakra-component="CTag"
     >
       <svg
-        class="css-1w7qkv4 css-y3asau css-9r03b"
+        class="css-12j51pv css-xmst1h css-dp0f2t css-9r03b"
         data-chakra-component="CTagIcon"
         role="presentation"
-        size="12px"
         viewBox="0 0 24 24"
       >
         
@@ -100,7 +98,7 @@ exports[`should render correctly 1`] = `
       </svg>
        
       <span
-        class="css-e1yiz6"
+        class="css-12hz31w"
         data-chakra-component="CTagLabel"
       >
         Green

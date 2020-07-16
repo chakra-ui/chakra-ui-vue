@@ -3,7 +3,7 @@
 exports[`should change styles 1`] = `
 <DocumentFragment>
   <div
-    class="css-ypce8f"
+    class="css-u6v8er"
     data-chakra-component="CFlex"
     data-testid="flex"
   >
@@ -15,7 +15,7 @@ exports[`should change styles 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-zlhv1"
+    class="css-k008qs"
     data-chakra-component="CFlex"
     data-testid="flex"
   >

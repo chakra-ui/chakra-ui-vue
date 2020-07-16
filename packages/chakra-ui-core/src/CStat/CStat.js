@@ -38,17 +38,17 @@ const arrowOptions = {
  */
 const CStat = {
   name: 'CStat',
-  extends: CBox,
-  render (h) {
-    const children = cleanChildren(this.$slots.default)
+  functional: true,
+  render (h, { props, slots, data, ...rest }) {
+    const children = cleanChildren(slots().default)
     return h(CBox, {
-      props: {
+      ...rest,
+      props: { as: props.as },
+      attrs: {
         flex: 1,
         pr: 4,
         position: 'relative',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...(data.attrs || {}),
         'data-chakra-component': 'CStat'
       }
     }, children)
@@ -65,17 +65,20 @@ const CStat = {
  */
 const CStatGroup = {
   name: 'CStatGroup',
-  extends: CFlex,
-  render (h) {
-    const children = cleanChildren(this.$slots.default)
+  functional: true,
+  props: CFlex.props,
+  render (h, { props, slots, data, ...rest }) {
+    const children = cleanChildren(slots().default)
     return h(CFlex, {
+      ...rest,
       props: {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         alignItems: 'flex-start',
-        ...forwardProps(this.$props)
+        ...forwardProps(props)
       },
       attrs: {
+        ...(data.attrs || {}),
         'data-chakra-component': 'CStatGroup'
       }
     }, children)
@@ -92,23 +95,27 @@ const CStatGroup = {
  */
 const CStatArrow = {
   name: 'CStatArrow',
-  extends: CIcon,
+  functional: true,
   props: {
+    ...CIcon.props,
     type: {
       type: String,
       default: 'increase'
     }
   },
-  render (h) {
+  render (h, { props, slots, data, ...rest }) {
     return h(CIcon, {
+      ...rest,
       props: {
-        mr: 1,
         size: '14px',
-        verticalAlign: 'middle',
-        ...arrowOptions[this.type],
-        ...forwardProps(this.$props)
+        ...arrowOptions[props.type],
+        ...forwardProps(props)
       },
       attrs: {
+        mr: 1,
+        verticalAlign: 'middle',
+        ...(data.attrs || {}),
+        color: arrowOptions[props.type].color,
         'data-chakra-component': 'CStatArrow'
       }
     })
@@ -125,19 +132,20 @@ const CStatArrow = {
  */
 const CStatNumber = {
   name: 'CStatNumber',
-  extends: CText,
-  render (h) {
+  functional: true,
+  props: CText.props,
+  render (h, { props, slots, data, ...rest }) {
     return h(CText, {
-      props: {
+      ...rest,
+      props: forwardProps(props),
+      attrs: {
         fontSize: '2xl',
         verticalAlign: 'baseline',
         fontWeight: 'semibold',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...(data.attrs || {}),
         'data-chakra-component': 'CStatNumber'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -151,16 +159,20 @@ const CStatNumber = {
  */
 const CStatHelperText = {
   name: 'CStatHelperText',
-  extends: CText,
-  render (h) {
+  functional: true,
+  props: CText.props,
+  render (h, { props, slots, data, ...rest }) {
     return h(CText, {
-      props: {
+      ...rest,
+      props: forwardProps(props),
+      attrs: {
         fontSize: 'sm',
         opacity: 0.8,
         mb: 2,
-        ...forwardProps(this.$props)
+        ...(data.attrs || {}),
+        'data-chakra-component': 'CStatHelperText'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -174,18 +186,19 @@ const CStatHelperText = {
  */
 const CStatLabel = {
   name: 'CStatLabel',
-  extends: CText,
-  render (h) {
+  functional: true,
+  props: CText.props,
+  render (h, { props, slots, data, ...rest }) {
     return h(CText, {
-      props: {
+      ...rest,
+      props: forwardProps(props),
+      attrs: {
         fontWeight: 'medium',
         fontSize: 'sm',
-        ...forwardProps(this.$props)
-      },
-      attrs: {
+        ...(data.attrs || {}),
         'data-chakra-component': 'CStatLabel'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

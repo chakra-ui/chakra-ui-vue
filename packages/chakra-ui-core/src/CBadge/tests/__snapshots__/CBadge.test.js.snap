@@ -3,23 +3,23 @@
 exports[`should apply variant styles corectly 1`] = `
 <DocumentFragment>
   <div
-    class="css-jlqe4x"
+    class="css-1xhj18k css-0"
     data-chakra-component="CStack"
   >
     <div
-      class="css-288q6q"
+      class="css-1sgz2im"
       data-chakra-component="CBadge"
     >
       Subtle
     </div>
     <div
-      class="css-4lwleq"
+      class="css-ps6r4y"
       data-chakra-component="CBadge"
     >
       Solid
     </div>
     <div
-      class="css-n4e54f"
+      class="css-1bvhmsh"
       data-chakra-component="CBadge"
     >
       Outline
@@ -31,7 +31,7 @@ exports[`should apply variant styles corectly 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-96ute0"
+    class="css-2cw9wt"
     data-chakra-component="CBadge"
   >
     500

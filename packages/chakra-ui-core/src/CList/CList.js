@@ -7,13 +7,9 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CList/CList.js
  */
 
-import { baseProps } from '../config'
-import { cleanChildren, isDef, cloneVNodeElement, forwardProps } from '../utils'
+import { cleanChildren, isDef, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 import { SNA } from '../config/props/props.types'
-import styleProps from '../config/props'
 
-import CBox from '../CBox'
-import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
 
 /**
@@ -26,8 +22,8 @@ import CIcon from '../CIcon'
  */
 const CList = {
   name: 'CList',
+  mixins: [createStyledAttrsMixin('CList', true)],
   props: {
-    ...baseProps,
     styleType: {
       type: String,
       default: 'none'
@@ -37,6 +33,14 @@ const CList = {
       default: 'inside'
     },
     spacing: SNA
+  },
+  computed: {
+    componentStyles () {
+      return {
+        listStyleType: this.styleType,
+        listStylePosition: this.stylePos
+      }
+    }
   },
   render (h) {
     const children = this.$slots.default
@@ -52,23 +56,18 @@ const CList = {
         return vnode
       }
 
-      return cloneVNodeElement(vnode, {
-        props: {
-          spacing: this.spacing
+      const clone = cloneVNodeElement(vnode, {
+        attrs: {
+          mb: this.spacing
         }
       }, h)
+      return clone
     })
 
-    return h(CBox, {
-      props: {
-        as: 'ul',
-        listStyleType: this.styleType,
-        listStylePosition: this.stylePos,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CList'
-      }
+    return h('ul', {
+      class: [this.className],
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, clones)
   }
 }
@@ -83,19 +82,21 @@ const CList = {
  */
 const CListItem = {
   name: 'CListItem',
+  mixins: [createStyledAttrsMixin('CListItem')],
   props: {
-    ...styleProps,
     spacing: SNA
   },
-  render (h) {
-    return h(CPseudoBox, {
-      props: {
-        as: 'li',
+  computed: {
+    componentStyles () {
+      return {
         mb: this.spacing
-      },
-      attrs: {
-        'data-chakra-component': 'CListItem'
       }
+    }
+  },
+  render (h) {
+    return h('li', {
+      class: [this.className],
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }
@@ -110,18 +111,19 @@ const CListItem = {
  */
 const CListIcon = {
   name: 'CListIcon',
+  functional: true,
   props: {
-    ...baseProps,
     icon: String
   },
-  render (h) {
+  render (h, { props, data, ...rest }) {
     return h(CIcon, {
+      ...rest,
       props: {
-        name: this.icon,
-        mr: 2,
-        ...forwardProps(this.$props)
+        name: props.icon
       },
       attrs: {
+        mr: 2,
+        ...data.attrs,
         'data-chakra-component': 'CListIcon'
       }
     })

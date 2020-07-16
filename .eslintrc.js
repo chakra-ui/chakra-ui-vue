@@ -3,15 +3,32 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  plugins: ['testing-library'],
+  extends: [
     'plugin:vue/essential',
     '@vue/standard',
-    '@nuxtjs'
+    '@nuxtjs',
+    'plugin:testing-library/recommended',
+    'plugin:testing-library/vue'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'curly': 'off'
+    curly: 'off',
+    'testing-library/no-debug': 'error',
+    'testing-library/prefer-screen-queries': 'error',
+    'testing-library/await-fire-event': 'error',
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+        ignoredNodes: [
+          'TemplateLiteral'
+        ]
+      }
+    ],
+    'template-curly-spacing': 0
   },
   parserOptions: {
     parser: 'babel-eslint'
@@ -23,10 +40,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/*.{j,t}s?(x)'
-      ],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/*.{j,t}s?(x)'],
       env: {
         jest: true
       }

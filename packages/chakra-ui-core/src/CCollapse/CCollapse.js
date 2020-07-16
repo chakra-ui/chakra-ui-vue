@@ -10,9 +10,8 @@
  */
 
 import { CAnimateHeight } from '../CTransition'
-import { forwardProps } from '../utils'
-
 import CBox from '../CBox'
+import { extractListeners } from '../utils'
 
 /**
  * CCollapse component
@@ -24,8 +23,8 @@ import CBox from '../CBox'
  * @see Docs https://vue.chakra-ui.com/collpse
  */
 const CCollapse = {
-  name: 'CCollapse',
-  extends: CBox,
+  name: 'Collapse',
+  functional: true,
   props: {
     isOpen: Boolean,
     duration: {
@@ -43,31 +42,48 @@ const CCollapse = {
       default: true
     }
   },
-  render (h) {
-    const children = this.$slots.default
+  render (h, { slots, props, data, listeners, ...rest }) {
+    // Get children
+    const children = slots().default
+
+    // Handle events
+    const nonNativeEvents = {
+      start: (e) => {
+        const emitStart = listeners.start
+        if (emitStart) {
+          emitStart('start', e)
+        }
+      },
+      finish: (e) => {
+        const emitFinish = listeners.finish
+        if (emitFinish) {
+          emitFinish('finish', e)
+        }
+      }
+    }
+    const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
 
     return h(CAnimateHeight, {
+      ...rest,
       props: {
-        isOpen: this.isOpen,
-        duration: this.duration,
-        enterEasing: this.easing,
-        leaveEasing: this.easing,
-        initialHeight: this.startingHeight,
-        finalHeight: this.endingHeight,
-        animateOpacity: this.animateOpacity
+        isOpen: props.isOpen,
+        duration: props.duration,
+        enterEasing: props.easing,
+        leaveEasing: props.easing,
+        initialHeight: props.startingHeight,
+        finalHeight: props.endingHeight,
+        animateOpacity: props.animateOpacity
       },
-      on: {
-        enter: e => this.$emit('start', e),
-        leave: e => this.$emit('finish', e)
-      },
+      on: nonNative,
+      nativeOn: native,
       attrs: {
         'data-chakra-component': 'CCollapse'
       }
     }, [h(CBox, {
       props: {
-        ...forwardProps(this.$props),
-        overflow: 'hidden'
-      }
+        as: props.as
+      },
+      attrs: data.attrs
     }, children)])
   }
 }

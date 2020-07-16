@@ -7,9 +7,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioGroup/CRadioGroup.js
  */
 
-import { baseProps } from '../config'
 import { StringNumber } from '../config/props/props.types'
-import { useId, cloneVNodeElement, forwardProps } from '../utils'
+import { useId, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'
 
@@ -23,12 +22,12 @@ import CBox from '../CBox'
  */
 const CRadioGroup = {
   name: 'CRadioGroup',
+  mixins: [createStyledAttrsMixin('CRadioGroup')],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    ...baseProps,
     name: String,
     variantColor: String,
     size: String,
@@ -97,26 +96,26 @@ const CRadioGroup = {
           name: this.computedName,
           isChecked: vnode.componentOptions.propsData.value === this.value
         },
-        on: {
+        nativeOn: {
           change: e => this.handleChange(e)
         }
       }, h)
 
       return h(CBox, {
-        props: {
+        attrs: {
           display: this.isInline ? 'inline-block' : 'block',
           ...(!isLastRadio && spacingProps)
         }
       }, [clone])
     })
 
-    return h(CBox, {
-      props: forwardProps(this.$props),
+    return h('div', {
+      class: [this.className],
       attrs: {
+        ...this.computedAttrs,
         role: 'radiogroup',
         'data-chakra-component': 'CRadioGroup'
-      },
-      ref: 'radioGroup'
+      }
     }, clones)
   }
 }

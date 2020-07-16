@@ -1,5 +1,4 @@
 import { StringArray } from '../../config/props/props.types'
-import { baseProps } from '../../config/props'
 import { HTMLElement } from '../../utils'
 
 export default {
@@ -54,6 +53,5 @@ export default {
   onClose: {
     type: Function,
     default: () => null
-  },
-  ...baseProps
+  }
 }

@@ -9,10 +9,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CImage/CImage.js
  */
 
-import { baseProps } from '../config/props'
-import CBox from '../CBox'
 import CNoSsr from '../CNoSsr'
-import { forwardProps } from '../utils'
+import { createStyledAttrsMixin } from '../utils'
 
 /**
  * CImage component
@@ -24,8 +22,8 @@ import { forwardProps } from '../utils'
  */
 const CImage = {
   name: 'CImage',
+  mixins: [createStyledAttrsMixin('CImage')],
   props: {
-    ...baseProps,
     src: String,
     fallbackSrc: String,
     ignoreFalback: Boolean,
@@ -37,6 +35,14 @@ const CImage = {
     return {
       image: undefined,
       hasLoaded: false
+    }
+  },
+  computed: {
+    componentStyles () {
+      return {
+        w: this.size,
+        h: this.size
+      }
     }
   },
   created () {
@@ -55,7 +61,7 @@ const CImage = {
         this.$emit('load', event)
       }
 
-      image.onError = (event) => {
+      image.onerror = (event) => {
         this.hasLoaded = false
         this.$emit('error', event)
       }
@@ -69,21 +75,13 @@ const CImage = {
       imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc }
     }
     return h(CNoSsr, [
-      h(CBox, {
-        props: {
-          as: 'img',
-          w: this.size,
-          h: this.size,
-          ...forwardProps(this.$props)
-        },
-        domProps: {
-          width: this.htmlWidth,
-          height: this.htmlHeight
-        },
+      h('img', {
+        class: this.className,
         attrs: {
           ...imageProps,
-          ...this.$attrs,
-          'data-chakra-component': 'CImage'
+          ...this.computedAttrs,
+          width: this.htmlWidth,
+          height: this.htmlHeight
         }
       })
     ])

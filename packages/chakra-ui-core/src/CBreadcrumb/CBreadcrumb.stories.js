@@ -11,7 +11,7 @@ storiesOf('UI | Breadcrumb', module)
           <c-breadcrumb-item>
             <c-breadcrumb-link href="#">Breadcrumb 1</c-breadcrumb-link>
           </c-breadcrumb-item>
-          <c-breadcrumb-item>
+          <c-breadcrumb-item isCurrentPage>
             <c-breadcrumb-link href="#">Breadcrumb 2</c-breadcrumb-link>
           </c-breadcrumb-item>
         </c-breadcrumb>
@@ -33,7 +33,7 @@ storiesOf('UI | Breadcrumb', module)
             <CBreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
           </CBreadcrumbItem>
           <CBreadcrumbItem>
-            <CBreadcrumbLink as="router-link" to="/home">Breadcrumb 2</CBreadcrumbLink>
+            <CBreadcrumbLink isCurrentPage>Breadcrumb 2</CBreadcrumbLink>
             <CBreadcrumbSeparator color="firebrick" font-size="20px" font-weight="bold" />
           </CBreadcrumbItem>
         </CBreadcrumb>

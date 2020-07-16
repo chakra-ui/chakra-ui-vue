@@ -1,5 +1,5 @@
 import { CBox, CCheckbox, CCheckboxGroup } from '../..'
-import { render } from '@/tests/test-utils'
+import { render, screen, wait } from '@/tests/test-utils'
 
 // mocks
 import { useId } from '@/packages/chakra-ui-core/src/utils'
@@ -33,20 +33,18 @@ it('should render correctly', () => {
 })
 
 it('should display children', () => {
-  const { getByText } = renderComponent()
-  expect(getByText('One')).toBeInTheDocument()
-  expect(getByText('Two')).toBeInTheDocument()
-  expect(getByText('Three')).toBeInTheDocument()
+  renderComponent()
+  expect(screen.getByText('One')).toBeInTheDocument()
+  expect(screen.getByText('Two')).toBeInTheDocument()
+  expect(screen.getByText('Three')).toBeInTheDocument()
 })
 
 test('selectedValues prop works', () => {
-  const { getByTestId } = renderComponent()
+  renderComponent()
 
-  const one = getByTestId('one').querySelector('input')
-  const two = getByTestId('two').querySelector('input')
-  const three = getByTestId('three').querySelector('input')
-
-  expect(one).not.toBeChecked()
-  expect(two).toBeChecked()
-  expect(three).not.toBeChecked()
+  wait(() => {
+    expect(screen.getByLabelText('One')).not.toBeChecked()
+    expect(screen.getByLabelText('Two')).toBeChecked()
+    expect(screen.getByLabelText('Three')).not.toBeChecked()
+  })
 })

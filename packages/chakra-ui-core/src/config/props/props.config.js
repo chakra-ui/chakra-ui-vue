@@ -98,19 +98,19 @@ export const config = {
     scale: 'borders'
   },
   bl: {
-    property: 'border-left',
+    property: 'borderLeft',
     scale: 'borders'
   },
   bt: {
-    property: 'border-top',
+    property: 'borderTop',
     scale: 'borders'
   },
   br: {
-    property: 'border-right',
+    property: 'borderRight',
     scale: 'borders'
   },
   bb: {
-    property: 'border-bottom',
+    property: 'borderBottom',
     scale: 'borders'
   },
   textDecoration: {

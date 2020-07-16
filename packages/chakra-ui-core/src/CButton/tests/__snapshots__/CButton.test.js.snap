@@ -3,14 +3,15 @@
 exports[`should display button with left icon 1`] = `
 <DocumentFragment>
   <button
-    class="css-fzcsno css-1240sfg"
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     <svg
-      class="css-1vuvkvf css-y3asau"
+      class="css-12j51pv css-3vopgu css-1me86bq css-amnuoh"
       data-chakra-component="CButtonIcon"
+      icon="email"
       role="presentation"
       viewBox="0 0 24 24"
     >
@@ -43,14 +44,14 @@ exports[`should display button with left icon 1`] = `
 exports[`should display button with right icon 1`] = `
 <DocumentFragment>
   <button
-    class="css-fzcsno css-1240sfg"
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"
   >
     Email
     <svg
-      class="css-bgnibt css-y3asau"
+      class="css-12j51pv css-3vopgu css-1me86bq css-1bbplbj"
       data-chakra-component="CButtonIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -83,7 +84,7 @@ exports[`should display button with right icon 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
-    class="css-fzcsno css-1240sfg"
+    class="css-1bmeqe7"
     data-chakra-component="CButton"
     tabindex="0"
     type="button"

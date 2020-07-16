@@ -7,9 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBadge/CBadge.js
  */
 
-import { forwardProps } from '../utils'
-import { baseProps } from '../config/props'
-import CBox from '../CBox'
+import { createStyledAttrsMixin } from '../utils'
 import useBadgeStyles from './utils/badge.styles'
 
 /**
@@ -17,12 +15,11 @@ import useBadgeStyles from './utils/badge.styles'
  *
  * Used to highlight an item's status for quick recognition.
  *
- * @extends CBox
  * @see Docs https://vue.chakra-ui.com/badge
  */
 const CBadge = {
   name: 'CBadge',
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  mixins: [createStyledAttrsMixin('CBadge')],
   props: {
     variant: {
       type: String,
@@ -32,23 +29,22 @@ const CBadge = {
       type: String,
       default: 'gray'
     },
-    ...baseProps
-  },
-  computed: {
-    colorMode () {
-      return this.$chakraColorMode()
+    as: {
+      type: String,
+      default: 'div'
     }
   },
-  render (h) {
-    const badgeStyleProps = useBadgeStyles({
-      theme: this.$chakraTheme(),
-      colorMode: this.colorMode,
-      color: this.variantColor,
-      variant: this.variant
-    })
-
-    return h(CBox, {
-      props: {
+  computed: {
+    badgeStyles () {
+      return useBadgeStyles({
+        theme: this.theme,
+        colorMode: this.colorMode,
+        color: this.variantColor,
+        variant: this.variant
+      })
+    },
+    componentStyles () {
+      return {
         d: 'inline-block',
         textTransform: 'uppercase',
         fontSize: 'xs',
@@ -58,12 +54,14 @@ const CBadge = {
         fontWeight: 'bold',
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
-        ...badgeStyleProps,
-        ...forwardProps(this.$props)
-      },
-      attrs: {
-        'data-chakra-component': 'CBadge'
+        ...this.badgeStyles
       }
+    }
+  },
+  render (h) {
+    return h(this.as, {
+      class: this.className,
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

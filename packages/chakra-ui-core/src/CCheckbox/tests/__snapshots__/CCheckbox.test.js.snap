@@ -3,12 +3,12 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-109vd24"
+    class="css-jwmyb8"
     data-chakra-component="CCheckbox"
     for="checkbox-1"
   >
     <input
-      class="css-fzcsno css-f8n5zr"
+      class="css-f8n5zr"
       data-chakra-component="CVisuallyHidden"
       id="checkbox-1"
       type="checkbox"
@@ -16,11 +16,11 @@ exports[`should render correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="css-t7hqiq css-xkdust"
+      class="css-v1yklk css-xkdust"
       data-chakra-component="CControlBox"
     >
       <svg
-        class="css-tvanhj css-y3asau"
+        class="css-12j51pv css-2adi1i css-0"
         data-chakra-component="CIcon"
         role="presentation"
         viewBox="0 0 14 14"
@@ -43,10 +43,10 @@ exports[`should render correctly 1`] = `
       </svg>
     </div>
     <div
-      class="css-np4rym"
+      class="css-1jg3nyw"
       data-chakra-component="CBox"
     >
-      checkbox
+      check
     </div>
   </label>
 </DocumentFragment>

@@ -15,7 +15,6 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTooltip/accessibility.md
  */
 
-import { baseProps } from '../config/props'
 import { cloneVNode, useId, forwardProps, wrapEvent } from '../utils'
 
 import CFragment from '../CFragment'
@@ -45,8 +44,7 @@ const tooltipProps = {
   controlledIsOpen: Boolean,
   isControlled: Boolean,
   onOpen: Function,
-  onClose: Function,
-  ...baseProps
+  onClose: Function
 }
 
 /**
@@ -63,8 +61,9 @@ const tooltipProps = {
  * @see Docs https://vue.chakra-ui.com/tooltip
  */
 const CTooltip = {
-  inject: ['$chakraColorMode'],
   name: 'CTooltip',
+  inject: ['$chakraColorMode'],
+  inheritAttrs: false,
   data () {
     return {
       isOpen: this.isControlled ? this.controlledIsOpen : this.defaultIsOpen || false,
@@ -170,15 +169,6 @@ const CTooltip = {
     } else {
       const cloned = cloneVNode(children[0], h)
       if (cloned.componentOptions) {
-        /**
-         * For now consumer's need to use `.native` modifier on events
-         * because we're cloning vnodes and I presently do not know how
-         * to capture those events and log them.
-         *
-         * In the future it will be good to implement such.
-         * -> We'd like to be able to wrap cloned VNode events with our
-         * internal tooltips events.
-         */
         clone = h(cloned.componentOptions.Ctor, {
           ...cloned.data,
           ...(cloned.componentOptions.listeners || {}),
@@ -220,9 +210,11 @@ const CTooltip = {
             }
           }],
           arrowSize: '10px',
+          ...forwardProps(this.$props)
+        },
+        attrs: {
           px: '8px',
           py: '2px',
-          _id: this.tooltipId,
           bg: _bg,
           borderRadius: 'sm',
           fontWeight: 'medium',
@@ -231,9 +223,7 @@ const CTooltip = {
           fontSize: 'sm',
           shadow: 'md',
           maxW: '320px',
-          ...forwardProps(this.$props)
-        },
-        attrs: {
+          ...this.$attrs,
           id: hasAriaLabel ? undefined : this.tooltipId,
           role: hasAriaLabel ? undefined : 'tooltip',
           'data-noop': this.noop,

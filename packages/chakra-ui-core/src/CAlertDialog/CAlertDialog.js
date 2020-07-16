@@ -17,8 +17,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps, HTMLElement } from '../utils'
+import { HTMLElement } from '../utils'
 
 import {
   CModal,
@@ -46,6 +45,7 @@ const formatIds = id => ({
  */
 const CAlertDialog = {
   name: 'CAlertDialog',
+  functional: true,
   props: {
     isOpen: {
       type: Boolean,
@@ -55,22 +55,21 @@ const CAlertDialog = {
       type: Function,
       default: () => null
     },
-    leastDestructiveRef: [HTMLElement, Object],
-    ...baseProps
+    leastDestructiveRef: [HTMLElement, Object]
   },
-  render (h) {
+  render (h, { slots, props, data }) {
     return h(CModal, {
       props: {
-        isOpen: this.isOpen,
-        onClose: this.onClose,
-        initialFocusRef: this.leastDestructiveRef,
-        formatIds,
-        ...forwardProps(this.$props)
+        isOpen: props.isOpen,
+        onClose: props.onClose,
+        initialFocusRef: props.leastDestructiveRef,
+        formatIds
       },
       attrs: {
+        ...data.attrs,
         'data-chakra-component': 'CAlertDialog'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 
@@ -84,17 +83,15 @@ const CAlertDialog = {
  */
 const CAlertDialogContent = {
   name: 'CAlertDialogContent',
-  props: baseProps,
-  render (h) {
+  functional: true,
+  render (h, { data, slots }) {
     return h(CModalContent, {
-      props: {
-        ...forwardProps(this.$props)
-      },
       attrs: {
         role: 'alertdialog',
+        ...data.attrs,
         'data-chakra-component': 'CAlertDialogContent'
       }
-    }, this.$slots.default)
+    }, slots().default)
   }
 }
 

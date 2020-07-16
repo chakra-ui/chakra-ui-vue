@@ -3,26 +3,26 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-tfbmoi"
+    class="css-1v5z18m"
     data-chakra-component="CBox"
   >
     <div
-      class="css-fzcsno"
+      class="css-0"
       data-chakra-component="CCheckboxGroup"
       role="group"
     >
       <div
-        class="css-de9qzh"
+        class="css-1x9mqzb"
         data-chakra-component="CBox"
       >
         <label
-          class="css-109vd24"
+          class="css-jwmyb8"
           data-chakra-component="CCheckbox"
           data-testid="one"
           for="checkbox-1"
         >
           <input
-            class="css-fzcsno css-f8n5zr"
+            class="css-f8n5zr"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-1"
             name="numbers-0"
@@ -31,11 +31,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-t7hqiq css-hpvc67"
+            class="css-v1yklk css-hpvc67"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-tvanhj css-y3asau"
+              class="css-12j51pv css-2adi1i css-0"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -58,7 +58,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-np4rym"
+            class="css-1jg3nyw"
             data-chakra-component="CBox"
           >
             One
@@ -66,18 +66,18 @@ exports[`should render correctly 1`] = `
         </label>
       </div>
       <div
-        class="css-de9qzh"
+        class="css-1x9mqzb"
         data-chakra-component="CBox"
       >
         <label
-          class="css-109vd24"
+          class="css-jwmyb8"
           data-chakra-component="CCheckbox"
           data-testid="two"
           for="checkbox-2"
         >
           <input
             aria-checked="true"
-            class="css-fzcsno css-f8n5zr"
+            class="css-f8n5zr"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-2"
             name="numbers-1"
@@ -86,11 +86,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-t7hqiq css-hpvc67"
+            class="css-v1yklk css-hpvc67"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-tvanhj css-y3asau"
+              class="css-12j51pv css-2adi1i css-0"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -113,7 +113,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-np4rym"
+            class="css-1jg3nyw"
             data-chakra-component="CBox"
           >
             Two
@@ -121,17 +121,17 @@ exports[`should render correctly 1`] = `
         </label>
       </div>
       <div
-        class="css-gewor6"
+        class="css-13o7eu2"
         data-chakra-component="CBox"
       >
         <label
-          class="css-109vd24"
+          class="css-jwmyb8"
           data-chakra-component="CCheckbox"
           data-testid="three"
           for="checkbox-3"
         >
           <input
-            class="css-fzcsno css-f8n5zr"
+            class="css-f8n5zr"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-3"
             name="numbers-2"
@@ -140,11 +140,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-t7hqiq css-hpvc67"
+            class="css-v1yklk css-hpvc67"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-tvanhj css-y3asau"
+              class="css-12j51pv css-2adi1i css-0"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -167,7 +167,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-np4rym"
+            class="css-1jg3nyw"
             data-chakra-component="CBox"
           >
             Three

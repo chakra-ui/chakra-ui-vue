@@ -16,8 +16,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#breadcrumb
  */
 
-import { baseProps } from '../config/props'
-import { forwardProps, cloneVNodeElement, cleanChildren, kebabify } from '../utils'
+import { cloneVNodeElement, cleanChildren, kebabify, createStyledAttrsMixin, forwardProps } from '../utils'
 
 import CBox from '../CBox'
 import CLink from '../CLink'
@@ -31,22 +30,26 @@ import CLink from '../CLink'
 */
 const CBreadcrumbSeparator = {
   name: 'CBreadcrumbSeparator',
+  mixins: [createStyledAttrsMixin('CBreadcrumbSeparator')],
   props: {
-    ...baseProps,
     spacing: [String, Number, Array],
     separator: [String, Object]
   },
+  computed: {
+    componentStyles () {
+      return {
+        mx: this.spacing
+      }
+    }
+  },
   render (h) {
-    return h(CBox, {
-      props: {
-        as: 'span',
-        mx: this.spacing,
-        ...forwardProps(this.$props)
-      },
+    return h('span', {
+      class: this.className,
       attrs: {
         role: 'presentation',
-        'data-chakra-component': 'CBreadcrumbSeparator'
-      }
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
     }, [this.separator])
   }
 }
@@ -60,16 +63,15 @@ const CBreadcrumbSeparator = {
 */
 const Span = {
   name: 'Span',
-  props: {
-    ...baseProps
-  },
-  render (h) {
+  functional: true,
+  render (h, { data, slots, ...rest }) {
     return h(CBox, {
+      ...rest,
       props: {
-        as: 'span',
-        ...forwardProps(this.$props)
-      }
-    }, this.$slots.default)
+        as: 'span'
+      },
+      attrs: data.attrs
+    }, slots().default)
   }
 }
 
@@ -82,20 +84,24 @@ const Span = {
 */
 const CBreadcrumbLink = {
   name: 'CBreadcrumbLink',
+  mixins: [createStyledAttrsMixin('CBreadcrumbLink', true)],
   props: {
-    ...baseProps,
     isCurrentPage: Boolean,
     as: [String, Object],
     to: String
   },
+  computed: {
+    component () {
+      return this.isCurrentPage ? Span : CLink
+    }
+  },
   render (h) {
-    const Comp = this.isCurrentPage ? Span : CLink
-
-    return h(Comp, {
+    return h(this.component, {
+      class: this.className,
       props: forwardProps(this.$props),
       attrs: {
         'aria-current': this.isCurrentPage ? 'page' : null,
-        'data-chakra-component': 'CBreadcrumbLink'
+        ...this.computedAttrs
       }
     }, this.$slots.default)
   }
@@ -110,48 +116,56 @@ const CBreadcrumbLink = {
 */
 const CBreadcrumbItem = {
   name: 'CBreadcrumbItem',
+  mixins: [createStyledAttrsMixin('CBreadcrumbItem')],
   props: {
-    ...baseProps,
     isCurrentPage: Boolean,
     isLastChild: Boolean,
     separator: [Object, String],
     addSeparator: Boolean,
     spacing: [String, Number, Array]
   },
+  computed: {
+    componentStyles () {
+      return {
+        display: 'inline-flex',
+        alignItems: 'center'
+      }
+    }
+  },
   render (h) {
     const children = this.$slots.default.filter(e => e.tag)
     const clones = children.map((vnode) => {
-      // Kebabify to normalize tage names
-      const tag = kebabify(vnode.componentOptions.tag)
-      if (tag === 'c-breadcrumb-link') {
-        const clone = cloneVNodeElement(vnode, {
-          props: {
-            isCurrentPage: this.isCurrentPage
-          }
-        }, h)
-        return clone
-      }
-      if (tag === 'c-breadcrumb-separator') {
-        const clone = cloneVNodeElement(vnode, {
-          props: {
-            spacing: this.spacing,
-            separator: this.separator
-          },
-          children: vnode.componentOptions.children || this.separator
-        }, h)
-        return clone
+      // If vnode is breadcrumb separator
+      // i.e. (is reactive component)
+      if (vnode.componentOptions) {
+        // Kebabify to normalize tage name
+        const tag = kebabify(vnode.componentOptions.tag)
+        if (tag === 'c-breadcrumb-separator') {
+          const clone = cloneVNodeElement(vnode, {
+            props: {
+              spacing: this.spacing,
+              separator: this.separator
+            },
+            children: vnode.componentOptions.children || this.separator
+          }, h)
+          return clone
+        }
+
+        if (tag === 'c-breadcrumb-link') {
+          const clone = cloneVNodeElement(vnode, {
+            props: {
+              isCurrentPage: this.isCurrentPage
+            }
+          }, h)
+          return clone
+        }
       }
     })
 
-    return h(CBox, {
-      props: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        as: 'li'
-      },
-      attrs: {
-        'data-chakra-component': 'CBreadcrumbItem'
-      }
+    return h('li', {
+      class: this.className,
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, [
       ...clones,
       !this.isLastChild && this.addSeparator && h(CBreadcrumbSeparator, {
@@ -173,6 +187,7 @@ const CBreadcrumbItem = {
 */
 const CBreadcrumb = {
   name: 'CBreadcrumb',
+  mixins: [createStyledAttrsMixin('CBreadcrumb')],
   props: {
     spacing: {
       type: [String, Number, Array],
@@ -185,8 +200,7 @@ const CBreadcrumb = {
     separator: {
       type: [String, Object],
       default: '/'
-    },
-    ...baseProps
+    }
   },
   render (h) {
     const children = this.$slots.default
@@ -208,20 +222,14 @@ const CBreadcrumb = {
       }, h)
     })
 
-    return h(CBox, {
-      props: {
-        as: 'nav',
-        ...forwardProps(this.$props)
-      },
+    return h('nav', {
+      class: this.className,
       attrs: {
         'aria-label': 'breadcrumb',
-        'data-chakra-component': 'CBreadcrumb'
-      }
-    }, [h(CBox, {
-      props: {
-        as: 'ol'
-      }
-    }, clones)])
+        ...this.computedAttrs
+      },
+      on: this.computedListeners
+    }, [h('ol', clones)])
   }
 }
 

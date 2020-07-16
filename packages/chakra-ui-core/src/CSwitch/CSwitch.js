@@ -8,8 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSwitch/CSwitch.js
  */
 
-import styleProps from '../config/props'
-import { forwardProps } from '../utils'
+import { forwardProps, extractListeners } from '../utils'
 
 import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
@@ -40,18 +39,18 @@ const switchSizes = {
  */
 const CSwitch = {
   name: 'CSwitch',
+  functional: true,
   model: {
     prop: 'isChecked',
     event: 'change'
   },
   inject: ['$chakraColorMode'],
   props: {
-    ...styleProps,
     id: String,
     name: String,
     value: Boolean,
-    _ariaLabel: String,
-    _ariaLabelledBy: String,
+    ariaLabel: String,
+    ariaLabelledBy: String,
     color: {
       type: String,
       default: 'blue'
@@ -65,59 +64,65 @@ const CSwitch = {
     isDisabled: Boolean,
     isInvalid: Boolean
   },
-  computed: {
-    colorMode () {
-      return this.$chakraColorMode()
-    },
-    _width () {
-      return switchSizes[this.size] && switchSizes[this.size].width
-    },
-    _height () {
-      return switchSizes[this.size] && switchSizes[this.size].height
-    },
-    styleProps () {
-      return {
-        rounded: 'full',
-        justifyContent: 'flex-start',
-        width: this._width,
-        height: this._height,
-        bg: this.colorMode === 'dark' ? 'whiteAlpha.400' : 'gray.300',
-        boxSizing: 'content-box',
-        p: '2px',
-        _checked: {
-          bg: `${this.color}.500`
-        },
-        _child: {
-          transform: 'translateX(0)'
-        },
-        _checkedAndChild: {
-          transform: `translateX(calc(${this._width} - ${this._height}))`
-        },
-        _focus: {
-          boxShadow: 'outline'
-        },
-        _hover: {
-          cursor: 'pointer'
-        },
-        _checkedAndHover: {
-          cursor: 'pointer'
-        },
-        _disabled: {
-          opacity: 0.4,
-          cursor: 'not-allowed'
+  render (h, { props, data, listeners, injections, ...rest }) {
+    const colorMode = injections.$chakraColorMode()
+    const width = switchSizes[props.size] && switchSizes[props.size].width
+    const height = switchSizes[props.size] && switchSizes[props.size].height
+
+    const styleProps = {
+      rounded: 'full',
+      justifyContent: 'flex-start',
+      width,
+      height,
+      bg: colorMode === 'dark' ? 'whiteAlpha.400' : 'gray.300',
+      boxSizing: 'content-box',
+      p: '2px',
+      _checked: {
+        bg: `${props.color}.500`
+      },
+      _child: {
+        transform: 'translateX(0)'
+      },
+      _checkedAndChild: {
+        transform: `translateX(calc(${width} - ${height}))`
+      },
+      _focus: {
+        boxShadow: 'outline'
+      },
+      _hover: {
+        cursor: 'pointer'
+      },
+      _checkedAndHover: {
+        cursor: 'pointer'
+      },
+      _disabled: {
+        opacity: 0.4,
+        cursor: 'not-allowed'
+      }
+    }
+
+    // Events
+    const nonNativeEvents = {
+      change: (e) => {
+        const emitChange = listeners.change
+        if (emitChange && typeof emitChange === 'function') {
+          emitChange(!props.isChecked)
         }
       }
     }
-  },
-  render (h) {
+
+    const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
+
     return h(CBox, {
+      ...rest,
       props: {
-        ...forwardProps(this.$props),
-        as: 'label',
-        display: 'inline-block',
-        verticalAlign: 'middle'
+        ...forwardProps(props),
+        as: 'label'
       },
       attrs: {
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        ...data.attrs,
         'data-chakra-component': 'CSwitch'
       }
     }, [
@@ -127,30 +132,29 @@ const CSwitch = {
         },
         attrs: {
           type: 'checkbox',
-          'aria-label': this._ariaLabel,
-          'aria-labelledby': this._ariaLabelledBy,
-          id: this.id,
-          name: this.name,
-          value: this.value,
-          'aria-invalid': this.isInvalid,
-          defaultChecked: this.defaultIsChecked,
-          checked: this.isChecked,
-          disabled: this.isDisabled
+          'aria-label': props.ariaLabel,
+          'aria-labelledby': props.ariaLabelledBy,
+          id: props.id,
+          name: props.name,
+          value: props.value,
+          'aria-invalid': props.isInvalid,
+          defaultChecked: props.defaultIsChecked,
+          checked: props.isChecked,
+          disabled: props.isDisabled
         },
-        nativeOn: {
-          change: e => this.$emit('change', !this.isChecked, e)
-        }
+        on: nonNative,
+        nativeOn: native
       }),
       h(CControlBox, {
-        props: this.styleProps
+        attrs: styleProps
       }, [
         h(CBox, {
-          props: {
+          attrs: {
             bg: 'white',
             transition: 'transform 250ms',
             rounded: 'full',
-            h: this._height,
-            w: this._height
+            h: height,
+            w: height
           }
         })
       ])

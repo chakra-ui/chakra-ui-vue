@@ -1,11 +1,11 @@
 {
   "name": "chakra-ui-docs",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "description": "Chakra UI Vue documentation site",
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt generate --max_old_space_size=8000",
+    "build": "yarn build-static && yarn export",
     "build-static": "nuxt build --target static",
     "export": "nuxt export",
     "start": "nuxt start --max_old_space_size=8000",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@chakra-ui/theme-vue": "^0.2.6",
-    "@chakra-ui/vue": "^0.5.10",
+    "@chakra-ui/vue": "^0.6.0",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@mdx-js/vue-loader": "^1.6.1",
@@ -35,7 +35,6 @@
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/now-builder": "^0.17.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/router": "^1.5.0",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "2",
     "dotenv-defaults": "^1.1.1",
@@ -45,7 +44,7 @@
     "mdx-vue-loader": "^1.0.2",
     "mixpanel-browser": "^2.36.0",
     "node-sass": "^4.13.1",
-    "nuxt": "^2.12.2",
+    "nuxt": "^2.13.3",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
@@ -59,7 +58,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",

@@ -1,5 +1,4 @@
-import styleProps, { baseProps } from '../config/props'
-import { forwardProps, useId, cloneVNode } from '../utils'
+import { useId, cloneVNode } from '../utils'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
@@ -17,9 +16,9 @@ import { CMenuGroup } from '.'
  */
 const CMenuItemOption = {
   name: 'CMenuItemOption',
+  inheritAttrs: false,
   inject: ['$MenuContext', '$chakraTheme', '$chakraColorMode'],
   props: {
-    ...styleProps,
     type: String,
     isDisabled: Boolean,
     isChecked: Boolean,
@@ -33,7 +32,7 @@ const CMenuItemOption = {
       return `menuitem${this.type}`
     },
     menuItemStyles () {
-      return props => useMenuItemStyle(props)
+      return useMenuItemStyle({ theme: this.theme, colorMode: this.colorMode })
     },
     theme () {
       return this.$chakraTheme()
@@ -100,22 +99,19 @@ const CMenuItemOption = {
       const { focusAtIndex } = this.context
       focusAtIndex(-1)
       this.$emit('mouseleave', event)
-    },
-    getMenuItemStyles () {
-      return useMenuItemStyle({ theme: this.theme, colorMode: this.colorMode })
     }
   },
   render (h) {
     return h(CPseudoBox, {
       props: {
-        ...forwardProps(this.$props),
-        ...this.getMenuItemStyles(),
-        as: 'button',
-        display: 'flex',
-        minHeight: '32px',
-        alignItems: 'center'
+        as: 'button'
       },
       attrs: {
+        ...this.menuItemStyles,
+        display: 'flex',
+        minHeight: '32px',
+        alignItems: 'center',
+        ...this.$attrs,
         role: this.role,
         tabIndex: -1,
         'aria-checked': this.isChecked,
@@ -132,21 +128,23 @@ const CMenuItemOption = {
     }, [
       h(CIcon, {
         props: {
-          name: 'check',
+          name: 'check'
+        },
+        attrs: {
           opacity: this.isChecked ? 1 : 0,
           color: 'currentColor',
           size: '1em',
           ml: '1rem',
-          mr: '-4px'
-        },
-        attrs: {
+          mr: '-4px',
           'aria-hidden': true,
           'data-menuitem-icon': ''
         }
       }),
       h(CBox, {
         props: {
-          as: 'span',
+          as: 'span'
+        },
+        attrs: {
           textAlign: 'left',
           flex: '1',
           mx: '1rem'
@@ -166,8 +164,8 @@ const CMenuItemOption = {
  */
 const CMenuOptionGroup = {
   name: 'CMenuOptionGroup',
+  inheritAttrs: false,
   props: {
-    ...baseProps,
     type: {
       type: String,
       default: 'radio'
@@ -251,6 +249,9 @@ const CMenuOptionGroup = {
             name: this.name || this.fallbackName,
             isChecked: cloned.componentOptions.propsData.value === this.computedValue
           },
+          attrs: {
+            ...(cloned.data.attrs || {})
+          },
           key: cloned.componentOptions.propsData.value,
           nativeOn: {
             click: (event) => {
@@ -275,6 +276,9 @@ const CMenuOptionGroup = {
             type: this.type,
             isChecked: this.computedValue.includes(cloned.componentOptions.propsData.value)
           },
+          attrs: {
+            ...(cloned.data.attrs || {})
+          },
           key: cloned.componentOptions.propsData.value,
           nativeOn: {
             click: (event) => {
@@ -295,10 +299,10 @@ const CMenuOptionGroup = {
 
     return h(CMenuGroup, {
       props: {
-        ...forwardProps(this.$props),
         title: this.title
       },
       attrs: {
+        ...this.$attrs,
         'data-chakra-component': 'CMenuOptionGroup'
       }
     }, clonedChildNodes)

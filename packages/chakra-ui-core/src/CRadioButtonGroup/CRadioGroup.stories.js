@@ -4,11 +4,11 @@ import { CFragment, CButton, CRadio, CRadioGroup, CRadioButtonGroup } from '..'
 
 const CustomRadio = {
   name: 'CustomRadio',
+  inheritAttrs: false,
   props: {
     isChecked: Boolean,
     isDisabled: Boolean,
-    value: [String, Number],
-    mx: String
+    value: [String, Number]
   },
   render (h) {
     return h(CButton, {
@@ -18,6 +18,7 @@ const CustomRadio = {
         variantColor: this.isChecked ? 'red' : 'gray'
       },
       attrs: {
+        ...this.$attrs,
         role: 'radio',
         'aria-checked': this.isChecked
       }

@@ -10,7 +10,6 @@
 import { cleanChildren, isDef, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 import { SNA } from '../config/props/props.types'
 
-import CPseudoBox from '../CPseudoBox'
 import CIcon from '../CIcon'
 
 /**
@@ -23,7 +22,7 @@ import CIcon from '../CIcon'
  */
 const CList = {
   name: 'CList',
-  mixins: [createStyledAttrsMixin('CList')],
+  mixins: [createStyledAttrsMixin('CList', true)],
   props: {
     styleType: {
       type: String,
@@ -57,11 +56,12 @@ const CList = {
         return vnode
       }
 
-      return cloneVNodeElement(vnode, {
-        props: {
-          spacing: this.spacing
+      const clone = cloneVNodeElement(vnode, {
+        attrs: {
+          mb: this.spacing
         }
       }, h)
+      return clone
     })
 
     return h('ul', {
@@ -82,23 +82,22 @@ const CList = {
  */
 const CListItem = {
   name: 'CListItem',
-  functional: true,
+  mixins: [createStyledAttrsMixin('CListItem')],
   props: {
     spacing: SNA
   },
-  render (h, { props, slots, data, ...rest }) {
-    return h(CPseudoBox, {
-      ...rest,
-      props: {
-        as: 'li',
-        ...props
-      },
-      attrs: {
-        mb: props.spacing,
-        ...data.attrs,
-        'data-chakra-component': 'CListItem'
+  computed: {
+    componentStyles () {
+      return {
+        mb: this.spacing
       }
-    }, slots().default)
+    }
+  },
+  render (h) {
+    return h('li', {
+      class: [this.className],
+      attrs: this.computedAttrs
+    }, this.$slots.default)
   }
 }
 

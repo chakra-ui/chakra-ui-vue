@@ -93,12 +93,12 @@ export default {
       },
       code: {
         light: {
-          bg: '#fefcbf',
-          color: '#744210'
+          bg: 'orange.100',
+          color: 'orange.800'
         },
         dark: {
           bg: 'rgba(250, 240, 137, 0.16)',
-          color: 'rgb(250, 240, 137)'
+          color: 'rgb(250, 195, 137)'
         }
       },
       MDXComponents

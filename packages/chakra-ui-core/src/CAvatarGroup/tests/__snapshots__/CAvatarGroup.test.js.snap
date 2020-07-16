@@ -5,7 +5,6 @@ exports[`should change avatar group size correctly 1`] = `
   <div
     class="css-nqilgt"
     data-chakra-component="CAvatarGroup"
-    zindex="0"
   >
     <div
       class="css-1vz9fru"
@@ -46,7 +45,6 @@ exports[`should render correctly 1`] = `
   <div
     class="css-nqilgt"
     data-chakra-component="CAvatarGroup"
-    zindex="0"
   >
     <div
       class="css-m3wjcp"

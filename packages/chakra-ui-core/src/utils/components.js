@@ -2,7 +2,7 @@ import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
 import { systemProps } from './styled-system'
-import { purgeChakraAttrs, hasOwn, extractChakraAttrs } from './object'
+import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
   return (!!value && !!value.$el)
@@ -64,17 +64,16 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
       const $attrs = this.$data.attrs$
       const styles = Object.assign({}, this.componentStyles || {}, $attrs)
 
-      const styleProps = extractChakraAttrs(styles)
-      const attrs = purgeChakraAttrs(styles, styleProps)
+      const { styleAttrs, nativeAttrs } = extractChakraAttrs(styles)
       return {
-        styleProps,
-        attrs
+        styleAttrs,
+        nativeAttrs
       }
     },
     className () {
-      const { styleProps } = this.splitProps
+      const { styleAttrs } = this.splitProps
       if (isPseudo) {
-        const { pseudoStyles, baseStyles } = parsePseudoStyles(styleProps)
+        const { pseudoStyles, baseStyles } = parsePseudoStyles(styleAttrs)
         const _baseStyles = systemProps({ ...baseStyles, theme: this.theme })
         const _pseudoStyles = __css(pseudoStyles)(this.theme)
         return css({
@@ -82,14 +81,14 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
           ..._pseudoStyles
         })
       }
-      const boxStylesObject = systemProps({ ...styleProps, theme: this.theme })
+      const boxStylesObject = systemProps({ ...styleAttrs, theme: this.theme })
       return css(boxStylesObject)
     },
     /** Computed attributes object */
     computedAttrs () {
       return {
         ...name && { 'data-chakra-component': name },
-        ...this.splitProps.attrs
+        ...this.splitProps.nativeAttrs
       }
     },
     /** Computed listeners object */

@@ -1,6 +1,6 @@
 import { pickBy, startsWith } from 'lodash-es'
 import styleProps from '../config/props'
-import { camelize, kebabify } from './strings'
+import { camelize } from './strings'
 
 /**
  * Clears out all undefined properties from an object.
@@ -43,33 +43,18 @@ export function filterBaseStyles (props) {
 
 /** Filter attrs and return object of chakra props */
 export function extractChakraAttrs (attrs) {
-  const pure = {}
+  const styleAttrs = {}
+  const nativeAttrs = {}
+
   for (const _prop in attrs) {
     const prop = camelize(_prop)
     if (styleProps[prop]) {
-      pure[prop] = attrs[_prop]
+      styleAttrs[prop] = attrs[_prop]
+    } else {
+      nativeAttrs[_prop] = attrs[_prop]
     }
   }
-  return pure
-}
-
-/**
- * Purify's Chakra Attributes from VNode object
- * @param {Object} attrs
- * @param {Object} styleAttributes
- * @returns {Object} Non-chakra style attributes
- */
-export function purgeChakraAttrs (attrs, styleAttributes = {}) {
-  for (const attr in styleAttributes) {
-    // If attr is provided in ca-case
-    const prop = camelize(attr)
-    // If
-    const _prop_ = attr.toLowerCase()
-    if (attrs[prop]) delete attrs[prop]
-    if (attrs[_prop_]) delete attrs[_prop_]
-    else delete attrs[kebabify(attr)]
-  }
-  return attrs
+  return { styleAttrs, nativeAttrs }
 }
 
 /**

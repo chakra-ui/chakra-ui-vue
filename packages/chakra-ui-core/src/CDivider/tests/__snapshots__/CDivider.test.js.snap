@@ -11,17 +11,6 @@ exports[`should change orientation 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should have corresponding aria-orientation attribute 1`] = `
-<DocumentFragment>
-  <hr
-    aria-orientation="horizontal"
-    class="css-cgtghy"
-    data-chakra-component="CDivider"
-    data-testid="divider"
-  />
-</DocumentFragment>
-`;
-
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <hr

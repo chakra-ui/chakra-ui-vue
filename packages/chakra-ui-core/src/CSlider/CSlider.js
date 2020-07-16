@@ -346,8 +346,7 @@ const CSliderTrack = {
         ...this.computedAttrs,
         id: trackId,
         'data-slider-track': '',
-        'aria-disabled': isDisabled,
-        'data-chakra-component': 'CSliderTrack'
+        'aria-disabled': isDisabled
       },
       on: this.computedListeners
     }, this.$slots.default)
@@ -385,8 +384,7 @@ const CSliderFilledTrack = {
       attrs: {
         ...this.computedAttrs,
         'aria-disabled': isDisabled,
-        'data-slider-filled-track': '',
-        'data-chakra-component': 'CSliderFilledTrack'
+        'data-slider-filled-track': ''
       },
       on: this.computedListeners
     }, this.$slots.default)
@@ -461,8 +459,7 @@ const CSliderThumb = {
         'aria-orientation': orientation,
         'aria-valuenow': value,
         'aria-valuemax': max,
-        'aria-labelledby': ariaLabelledBy,
-        'data-chakra-component': 'CSliderThumb'
+        'aria-labelledby': ariaLabelledBy
       },
       on: {
         ...this.computedListeners,

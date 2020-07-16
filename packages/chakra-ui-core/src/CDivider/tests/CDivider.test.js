@@ -26,9 +26,8 @@ it('should change orientation', () => {
 
 it('should have corresponding aria-orientation attribute', () => {
   const inlineAttrs = 'orientation="horizontal"'
-  const { asFragment } = renderComponent({ inlineAttrs })
+  renderComponent({ inlineAttrs })
 
   const divider = screen.getByTestId('divider')
   expect(divider).toHaveAttribute('aria-orientation', 'horizontal')
-  expect(asFragment()).toMatchSnapshot()
 })

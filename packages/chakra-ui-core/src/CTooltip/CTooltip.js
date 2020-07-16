@@ -169,16 +169,6 @@ const CTooltip = {
     } else {
       const cloned = cloneVNode(children[0], h)
       if (cloned.componentOptions) {
-        /**
-         * For now consumer's need to use `.native` modifier on events
-         * because we're cloning vnodes and I presently do not know how
-         * to capture those events and log them.
-         *
-         * In the future it will be good to implement such.
-         * -> We'd like to be able to wrap cloned VNode events with our
-         * internal tooltips events.
-         */
-        console.log(cloned)
         clone = h(cloned.componentOptions.Ctor, {
           ...cloned.data,
           ...(cloned.componentOptions.listeners || {}),
@@ -203,8 +193,6 @@ const CTooltip = {
         }, cloned.componentOptions.children)
       }
     }
-
-    console.log(this.$attrs)
 
     return h(CFragment, [
       clone,

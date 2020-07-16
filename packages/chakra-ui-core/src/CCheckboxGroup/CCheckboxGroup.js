@@ -107,8 +107,7 @@ const CCheckboxGroup = {
       class: [this.className],
       attrs: {
         ...this.computedAttrs,
-        role: 'group',
-        'data-chakra-component': 'CCheckboxGroup'
+        role: 'group'
       }
     }, clones)
   }

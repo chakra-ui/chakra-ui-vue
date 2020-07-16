@@ -106,7 +106,6 @@ const CButton = {
         disabled: this.isDisabled || this.isLoading,
         'aria-disabled': this.isDisabled || this.isLoading,
         dataActive: this.isActive ? 'true' : undefined,
-        'data-chakra-component': 'CButton',
         ...this.computedAttrs
       },
       on: {

@@ -98,9 +98,8 @@ const CBreadcrumbLink = {
       class: this.className,
       props: forwardProps(this.$props),
       attrs: {
-        ...this.computedAttrs,
         'aria-current': this.isCurrentPage ? 'page' : null,
-        'data-chakra-component': 'CBreadcrumbLink'
+        ...this.computedAttrs
       }
     }, this.$slots.default)
   }
@@ -162,10 +161,7 @@ const CBreadcrumbItem = {
 
     return h('li', {
       class: this.className,
-      attrs: {
-        ...this.computedAttrs,
-        'data-chakra-component': 'CBreadcrumbItem'
-      },
+      attrs: this.computedAttrs,
       on: this.computedListeners
     }, [
       ...clones,

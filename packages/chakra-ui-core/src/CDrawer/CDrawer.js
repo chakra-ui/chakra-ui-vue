@@ -89,10 +89,7 @@ const CDrawer = {
         })
       },
       on: this.computedListeners,
-      attrs: {
-        ...this.computedAttrs,
-        'data-chakra-component': 'CDrawer'
-      }
+      attrs: this.computedAttrs
     }, this.$slots.default)
   }
 }

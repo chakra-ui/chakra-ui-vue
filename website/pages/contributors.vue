@@ -1,6 +1,6 @@
 <template>
   <c-box>
-    <c-heading>
+    <c-heading as="h1">
       Core contributors
     </c-heading>
 

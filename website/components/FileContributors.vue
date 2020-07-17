@@ -31,7 +31,7 @@ export default {
       return this.$route.path
     },
     filePath () {
-      return `packages/chakra-ui-docs/docs${this.fileRoute}.mdx`
+      return `website/docs${this.fileRoute}.mdx`
     }
   }
 }

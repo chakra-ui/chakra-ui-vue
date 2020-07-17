@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <client-only>
+      <VueSkipTo to="#main-content" label="Skip to main content" />
+    </client-only>
     <MDXProvider :components="MDXComponents">
       <CThemeProvider>
         <CColorModeProvider v-slot="{ colorMode }">
@@ -13,7 +16,14 @@
             <CFlex max-h="calc(100vh - 60px)">
               <Sidebar />
               <CBox
+                id="main-content"
                 ref="docContainer"
+                v-chakra="{
+                  ':focus': {
+                    outline: 'none',
+                    shadow: 'outline'
+                  }
+                }"
                 :class="styles(colorMode)"
                 as="section"
                 w="100%"

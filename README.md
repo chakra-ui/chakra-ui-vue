@@ -206,6 +206,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.giftegwuenu.com"><img src="https://avatars3.githubusercontent.com/u/17781315?v=4" width="50px;" alt=""/><br /><sub><b>Gift Egwuenu</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=lauragift21" title="Documentation">📖</a></td>
     <td align="center"><a href="https://jbienesdev.netlify.app/"><img src="https://avatars1.githubusercontent.com/u/17470909?v=4" width="50px;" alt=""/><br /><sub><b>Joshua Angelo Bienes</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=jbienesdev" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/saptaksengupta"><img src="https://avatars2.githubusercontent.com/u/21155006?v=4" width="50px;" alt=""/><br /><sub><b>Saptak Sengupta</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=saptaksengupta" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://kuro.tw"><img src="https://avatars1.githubusercontent.com/u/362912?v=4" width="50px;" alt=""/><br /><sub><b>Kuro Hsu</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=kurotanshi" title="Documentation">📖</a></td>
   </tr>
 </table>
 

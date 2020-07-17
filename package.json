@@ -11,7 +11,8 @@
   },
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "website"
     ],
     "nohoist": [
       "core-js"

@@ -10,7 +10,6 @@
 import { useId, getFocusables, canUseDOM, forwardProps } from '../utils'
 import styleProps, { baseProps } from '../config/props'
 import { buttonProps } from '../CButton/utils/button.props'
-import { useMenuListStyle, useMenuItemStyle } from './utils/menu.styles'
 
 import { CPopper } from '../CPopper'
 import CButton from '../CButton'
@@ -19,6 +18,7 @@ import CPseudoBox from '../CPseudoBox'
 import CFragment from '../CFragment'
 import CDivider from '../CDivider'
 import CBox from '../CBox'
+import { useMenuListStyle, useMenuItemStyle } from './utils/menu.styles'
 
 const menuProps = {
   controlledIsOpen: Boolean,
@@ -124,7 +124,7 @@ const CMenu = {
 
     this.$watch('isOpen', (isOpen) => {
       if (isOpen && menuNode) {
-        let focusables = getFocusables(menuNode).filter(node =>
+        const focusables = getFocusables(menuNode).filter(node =>
           ['menuitem', 'menuitemradio', 'menuitemcheckbox'].includes(
             node.getAttribute('role')
           )
@@ -163,8 +163,8 @@ const CMenu = {
      */
     updateTabIndex (index) {
       if (this.focusableItems.length > 0) {
-        let nodeAtIndex = this.focusableItems[index]
-        this.focusableItems.forEach(node => {
+        const nodeAtIndex = this.focusableItems[index]
+        this.focusableItems.forEach((node) => {
           if (node !== nodeAtIndex) {
             node.setAttribute('tabindex', -1)
           }
@@ -282,12 +282,10 @@ const CMenuButton = {
           this.$emit('click', event)
           if (isOpen) {
             closeMenu()
+          } else if (autoSelect) {
+            focusOnFirstItem()
           } else {
-            if (autoSelect) {
-              focusOnFirstItem()
-            } else {
-              openMenu()
-            }
+            openMenu()
           }
         },
         keydown: (event) => {
@@ -356,7 +354,7 @@ const CMenuList = {
       if (/^[a-z0-9_-]$/i.test(event.key)) {
         event.stopPropagation()
         event.preventDefault()
-        let foundNode = focusableItems.find(item =>
+        const foundNode = focusableItems.find(item =>
           item.textContent.toLowerCase().startsWith(event.key)
         )
         if (foundNode) {
@@ -486,7 +484,7 @@ const CMenuItem = {
         'data-chakra-component': 'CMenuItem'
       },
       nativeOn: {
-        click: event => {
+        click: (event) => {
           this.$emit('click', event)
           if (this.isDisabled) {
             event.stopPropagation()
@@ -497,7 +495,7 @@ const CMenuItem = {
             closeMenu()
           }
         },
-        mouseenter: event => {
+        mouseenter: (event) => {
           this.$emit('mouseenter', event)
           if (this.isDisabled) {
             event.stopPropagation()
@@ -505,14 +503,14 @@ const CMenuItem = {
             return
           }
           if (focusableItems && focusableItems.length > 0) {
-            let nextIndex = focusableItems.indexOf(event.currentTarget)
+            const nextIndex = focusableItems.indexOf(event.currentTarget)
             focusAtIndex(nextIndex)
           }
         },
         mouseleave: () => {
           focusAtIndex(-1)
         },
-        keydown: event => {
+        keydown: (event) => {
           this.$emit('keydown', event)
           if (this.isDisabled) return
           if (event.key === 'Enter' || event.key === ' ') {

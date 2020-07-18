@@ -9,8 +9,8 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTag/CTag.js
  */
 
-import styleProps, { baseProps } from '../config/props'
 import { css } from 'emotion'
+import styleProps, { baseProps } from '../config/props'
 import { useVariantColorWarning, forwardProps } from '../utils'
 import useBadgeStyle from '../CBadge/utils/badge.styles'
 

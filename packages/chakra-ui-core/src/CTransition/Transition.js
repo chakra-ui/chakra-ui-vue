@@ -63,11 +63,11 @@ const CSlide = {
     transitions () {
       return {
         enter: {
-          [this.transform]: ['0%', this.transitionOptions[this.from]['offset']],
+          [this.transform]: ['0%', this.transitionOptions[this.from].offset],
           opacity: [0, 1]
         },
         leave: {
-          [this.transform]: [this.transitionOptions[this.from]['offset'], '0%'],
+          [this.transform]: [this.transitionOptions[this.from].offset, '0%'],
           opacity: 0
         }
       }
@@ -77,7 +77,7 @@ const CSlide = {
     enter (el, complete) {
       anime({
         targets: el,
-        ...this.transitions['enter'],
+        ...this.transitions.enter,
         complete,
         easing: this.enterEasing
       })
@@ -86,7 +86,7 @@ const CSlide = {
     leave (el, complete) {
       anime({
         targets: el,
-        ...this.transitions['leave'],
+        ...this.transitions.leave,
         complete,
         easing: this.leaveEasing
       })

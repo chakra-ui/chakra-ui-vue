@@ -22,7 +22,7 @@ it('should render correctly', () => {
 it('should switch', async () => {
   const { getByTestId, getByRole } = renderComponent(
     {
-      template: `<CSwitch data-testid="label" />`
+      template: '<CSwitch data-testid="label" />'
     }
   )
   const label = getByTestId('label')
@@ -38,7 +38,7 @@ it('should emit a change event', async () => {
       methods: {
         handleChange: spy
       },
-      template: `<CSwitch data-testid="label" @change="handleChange"  /> `
+      template: '<CSwitch data-testid="label" @change="handleChange"  /> '
     }
   )
 

@@ -6,7 +6,7 @@ const renderComponent = (props) => {
     components: {
       CButton
     },
-    template: `<CButton>Works</CButton>`,
+    template: '<CButton>Works</CButton>',
     ...props
   }
   return render(base)
@@ -35,7 +35,7 @@ it('should display button with right icon', () => {
 })
 
 it('should display spinner and hide text', () => {
-  const { getByTestId, container } = renderComponent({ template: `<CButton isLoading data-testid="btn">CButton</CButton>` })
+  const { getByTestId, container } = renderComponent({ template: '<CButton isLoading data-testid="btn">CButton</CButton>' })
   const button = getByTestId('btn')
 
   expect(button).toHaveAttribute('disabled')
@@ -47,7 +47,7 @@ it('should display spinner and hide text', () => {
 })
 
 it('should display spinner with text', () => {
-  const { getByText, container } = renderComponent({ template: `<CButton isLoading loadingText="Submitting" data-testid="Spinner">Button</CButton>` })
+  const { getByText, container } = renderComponent({ template: '<CButton isLoading loadingText="Submitting" data-testid="Spinner">Button</CButton>' })
 
   expect(getByText('Submitting')).toBeInTheDocument()
   const spinner = container.querySelector('[data-chakra-component=CSpinner]')
@@ -55,7 +55,7 @@ it('should display spinner with text', () => {
 })
 
 it('should display a disabled button', () => {
-  const { getByText } = renderComponent({ template: `<CButton isDisabled>Button</CButton>` })
+  const { getByText } = renderComponent({ template: '<CButton isDisabled>Button</CButton>' })
 
   expect(getByText('Button')).toHaveAttribute('disabled')
 })

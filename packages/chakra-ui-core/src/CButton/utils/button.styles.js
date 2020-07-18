@@ -173,7 +173,7 @@ const getSolidStyles = ({ color, colorMode }) => {
  */
 const getGhostStyles = ({ color, colorMode, theme }) => {
   const _color = theme.colors[color] && theme.colors[color][200]
-  let result = {
+  const result = {
     light: {
       color: `${color}.500`,
       bg: 'transparent',
@@ -205,7 +205,7 @@ const getGhostStyles = ({ color, colorMode, theme }) => {
  */
 const getFlatStyles = ({ color, colorMode, theme }) => {
   const _color = theme.colors[color] && theme.colors[color][200]
-  let result = {
+  const result = {
     light: {
       color: `${color}.400`,
       bg: 'transparent',
@@ -235,7 +235,7 @@ const getFlatStyles = ({ color, colorMode, theme }) => {
  * @param {Object} props - Style props object
  * @returns {Object} - Solid styles object
  */
-const getOutlineStyles = props => {
+const getOutlineStyles = (props) => {
   const { color, colorMode } = props
   const borderColor = { light: 'gray.200', dark: 'whiteAlpha.300' }
 

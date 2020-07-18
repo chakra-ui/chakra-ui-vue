@@ -18,7 +18,7 @@ it('should render correctly', () => {
 })
 
 it('should change the style', () => {
-  const inlineAttrs = `d="flex"`
+  const inlineAttrs = 'd="flex"'
   const { asFragment, getByTestId } = renderComponent({ inlineAttrs })
 
   const text = getByTestId('text')
@@ -42,7 +42,7 @@ it.each`
   ${'sup'}}
 `(
   'should display text type as $as',
-  async ({ as }) => {
+  ({ as }) => {
     const inlineAttrs = `as=${as}`
     const { asFragment } = renderComponent({ inlineAttrs })
 

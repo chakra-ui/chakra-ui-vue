@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    // Load standalone Vue.js dev tools in dev mode
+	if (%STORYBOOK_VUE_DEV_TOOLS%) {
+		const script = document.createElement('script');
+		script.src = 'http://localhost:8098';
+		document.head.appendChild(script);
+	}
+</script>

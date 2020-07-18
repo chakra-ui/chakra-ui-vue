@@ -3,7 +3,7 @@
 exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 <DocumentFragment>
   <div
-    class="css-hkmnjw"
+    class="css-i8ou7a"
     data-chakra-component="CStat"
   >
     <p
@@ -23,7 +23,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
       data-chakra-component="CText"
     >
       <svg
-        class="css-1nhh26u css-y3asau"
+        class="css-ata6yd css-y3asau"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 <DocumentFragment>
   <div
-    class="css-hkmnjw"
+    class="css-i8ou7a"
     data-chakra-component="CStat"
   >
     <p
@@ -68,7 +68,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
       data-chakra-component="CText"
     >
       <svg
-        class="css-es9pvn css-y3asau"
+        class="css-4vpgj8 css-y3asau"
         data-chakra-component="CStatArrow"
         role="presentation"
         viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-hkmnjw"
+    class="css-i8ou7a"
     data-chakra-component="CStat"
   >
     <p

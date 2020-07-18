@@ -9,9 +9,9 @@ const borders = {
 }
 
 export const borderWidths = {
-  'sm': '1px',
-  'md': '2px',
-  'lg': '4px'
+  sm: '1px',
+  md: '2px',
+  lg: '4px'
 }
 
 export default borders

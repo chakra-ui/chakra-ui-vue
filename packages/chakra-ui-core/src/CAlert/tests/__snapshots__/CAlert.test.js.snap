@@ -8,7 +8,7 @@ exports[`should override icon if set explicitly 1`] = `
     role="alert"
   >
     <svg
-      class="css-9jzj25 css-y3asau"
+      class="css-1rzyopz css-y3asau"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ exports[`should override icon if set explicitly 1`] = `
 exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
   <div
-    class="css-j7qwjs"
+    class="css-813bdq"
     data-chakra-component="CStack"
   >
     <div
@@ -38,7 +38,7 @@ exports[`should render correct variant styles 1`] = `
       role="alert"
     >
       <svg
-        class="css-1gbfvwr css-y3asau"
+        class="css-qer2jp css-y3asau"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ exports[`should render correct variant styles 1`] = `
       role="alert"
     >
       <svg
-        class="css-vpe47c css-y3asau"
+        class="css-15wmxy1 css-y3asau"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ exports[`should render correct variant styles 1`] = `
       role="alert"
     >
       <svg
-        class="css-1gbfvwr css-y3asau"
+        class="css-qer2jp css-y3asau"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ exports[`should render correct variant styles 1`] = `
       role="alert"
     >
       <svg
-        class="css-1gbfvwr css-y3asau"
+        class="css-qer2jp css-y3asau"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -244,7 +244,7 @@ exports[`should render correctly 1`] = `
     role="alert"
   >
     <svg
-      class="css-10jngok css-y3asau"
+      class="css-1114uxt css-y3asau"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -286,14 +286,14 @@ exports[`should render correctly 1`] = `
     </svg>
      
     <div
-      class="css-11a523j"
+      class="css-nl0mdx"
       data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
-      class="css-0"
+      class="css-fzcsno"
       data-chakra-component="CAlertDescription"
     >
       alert description

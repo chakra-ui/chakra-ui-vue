@@ -12,6 +12,7 @@ import { useVariantColorWarning, forwardProps } from '../utils'
 import { baseProps } from '../config/props'
 
 import CBox from '../CBox'
+import { SNA } from '../config/props/props.types'
 
 /**
  * CCode component
@@ -25,11 +26,15 @@ const CCode = {
   name: 'CCode',
   inject: ['$chakraTheme', '$chakraColorMode'],
   props: {
+    ...baseProps,
     variantColor: {
       type: String,
       default: 'gray'
     },
-    ...baseProps
+    fontFamily: {
+      type: SNA,
+      default: 'mono'
+    }
   },
   computed: {
     theme () {
@@ -53,9 +58,9 @@ const CCode = {
       props: {
         as: 'code',
         display: 'inline-block',
-        fontFamily: 'mono',
         fontSize: 'sm',
         px: '0.2em',
+        fontFamily: 'mono',
         rounded: 'sm',
         ...this.badgeStyle,
         ...forwardProps(this.$props)

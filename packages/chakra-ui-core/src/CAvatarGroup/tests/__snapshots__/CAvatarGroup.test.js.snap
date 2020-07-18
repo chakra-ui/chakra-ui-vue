@@ -3,35 +3,35 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-80aj1h"
+    class="css-mbvt3n"
     data-chakra-component="CFlex"
   >
     <div
-      class="css-lv2eyz"
+      class="css-1jwki60"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Mesut Koca"
-        class="css-1e8yzjf"
+        class="css-1n1d9mc"
         data-chakra-component="CAvatarName"
       >
         MK
       </div>
     </div>
     <div
-      class="css-o0a73u"
+      class="css-1li52eg"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Evan You"
-        class="css-1e8yzjf"
+        class="css-1n1d9mc"
         data-chakra-component="CAvatarName"
       >
         EY
       </div>
     </div>
     <div
-      class="css-3dare1"
+      class="css-lpwrl7"
       data-chakra-component="CFlex"
     >
       +1

@@ -45,7 +45,7 @@ it.each`
   ${'p'}}
 `(
   'should display CBox with type as $as',
-  async ({ as }) => {
+  ({ as }) => {
     const inlineAttrs = `as=${as}`
     const { asFragment } = renderComponent({ inlineAttrs })
 

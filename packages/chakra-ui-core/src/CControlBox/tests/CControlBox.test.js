@@ -71,7 +71,7 @@ test('Uncontrolled checkbox - should toggle', async () => {
 })
 
 test('controlled checkbox - v-model works', async () => {
-  const inlineAttrs = `:checked="checked"`
+  const inlineAttrs = ':checked="checked"'
   const { getByTestId } = renderComponent({ inlineAttrs, type: 'checkbox', data: () => ({ checked: true }) })
   const control = getByTestId('control')
   const hiddenControl = getByTestId('hiddenControl')
@@ -85,7 +85,7 @@ test('controlled checkbox - v-model works', async () => {
 })
 
 test('controlled radio - v-model works', async () => {
-  const inlineAttrs = `:checked="checked"`
+  const inlineAttrs = ':checked="checked"'
   const { getByTestId } = renderComponent({ inlineAttrs, type: 'radio', data: () => ({ checked: true }) })
   const control = getByTestId('control')
   const hiddenControl = getByTestId('hiddenControl')

@@ -38,17 +38,17 @@ const outlineStyle = ({ theme: { colors }, color }) => {
   const boxShadowColor = colors[color] && colors[color][500]
   return {
     light: {
-      boxShadow: `inset 0 0 0px 1px ` + boxShadowColor,
+      boxShadow: 'inset 0 0 0px 1px ' + boxShadowColor,
       color: get(color, 500)
     },
     dark: {
-      boxShadow: `inset 0 0 0px 1px ` + darkModeColor,
+      boxShadow: 'inset 0 0 0px 1px ' + darkModeColor,
       color: darkModeColor
     }
   }
 }
 
-const variantProps = props => {
+const variantProps = (props) => {
   const { variant, colorMode } = props
   switch (variant) {
     case 'solid':
@@ -62,7 +62,7 @@ const variantProps = props => {
   }
 }
 
-const useBadgeStyle = props => {
+const useBadgeStyle = (props) => {
   return variantProps(props)
 }
 

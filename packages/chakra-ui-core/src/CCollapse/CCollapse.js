@@ -57,8 +57,8 @@ const CCollapse = {
         animateOpacity: this.animateOpacity
       },
       on: {
-        enter: (e) => this.$emit('start', e),
-        leave: (e) => this.$emit('finish', e)
+        enter: e => this.$emit('start', e),
+        leave: e => this.$emit('finish', e)
       },
       attrs: {
         'data-chakra-component': 'CCollapse'

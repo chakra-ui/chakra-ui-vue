@@ -4,7 +4,7 @@ exports[`should change icon 1`] = `
 <DocumentFragment>
   <button
     aria-label="Phone"
-    class="css-0 css-1tcmof5"
+    class="css-fzcsno css-120g2o4"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -12,7 +12,7 @@ exports[`should change icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="css-iav4tc css-y3asau"
+      class="css-1bsnxqn css-y3asau"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -34,7 +34,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <button
     aria-label="Phone"
-    class="css-0 css-1tcmof5"
+    class="css-fzcsno css-120g2o4"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -42,7 +42,7 @@ exports[`should render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="css-iav4tc css-y3asau"
+      class="css-1bsnxqn css-y3asau"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 14 14"

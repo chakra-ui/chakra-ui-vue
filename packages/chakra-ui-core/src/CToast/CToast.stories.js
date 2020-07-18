@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
-import { CButton } from '..'
 import { colorModeObserver } from '../utils/color-mode-observer'
+import { CButton } from '..'
 
 const watch = {
   $chakraTheme: {

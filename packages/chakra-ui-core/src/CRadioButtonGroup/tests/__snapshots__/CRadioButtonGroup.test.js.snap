@@ -3,13 +3,13 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-0"
+    class="css-fzcsno"
     data-chakra-component="CRadioButtonGroup"
     role="radiogroup"
   >
     <button
       aria-checked="true"
-      class="css-0 css-1f3kv3a"
+      class="css-fzcsno css-bfua14"
       data-chakra-component="CButton"
       data-testid="item-1"
       role="radio"
@@ -19,7 +19,7 @@ exports[`should render correctly 1`] = `
       Custom Radio 1
     </button>
     <button
-      class="css-0 css-rup5mm"
+      class="css-fzcsno css-1240sfg"
       data-chakra-component="CButton"
       data-testid="item-2"
       role="radio"
@@ -29,7 +29,7 @@ exports[`should render correctly 1`] = `
       Custom Radio 2
     </button>
     <button
-      class="css-0 css-rup5mm"
+      class="css-fzcsno css-1240sfg"
       data-chakra-component="CButton"
       data-testid="item-3"
       role="radio"
@@ -40,7 +40,7 @@ exports[`should render correctly 1`] = `
     </button>
     <button
       aria-disabled="true"
-      class="css-0 css-rup5mm"
+      class="css-fzcsno css-1240sfg"
       data-chakra-component="CButton"
       data-testid="item-4"
       disabled="disabled"

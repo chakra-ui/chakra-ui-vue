@@ -12,14 +12,14 @@
  */
 
 import styleProps from '../config/props'
-import { buttonProps } from './utils/button.props'
-import createButtonStyles, { setIconSizes } from './utils/button.styles'
 import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 import CPseudoBox from '../CPseudoBox'
 import CSpinner from '../CSpinner'
 import CIcon from '../CIcon'
+import createButtonStyles, { setIconSizes } from './utils/button.styles'
+import { buttonProps } from './utils/button.props'
 
 /**
  * CButtonIcon component
@@ -129,7 +129,7 @@ const CButton = {
         'data-chakra-component': 'CButton'
       },
       nativeOn: {
-        click: ($event) => this.$emit('click', $event)
+        click: $event => this.$emit('click', $event)
       }
     }, [
       this.leftIcon && h(CButtonIcon, {

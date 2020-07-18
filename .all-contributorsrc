@@ -81,6 +81,52 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "pgrimaud",
+      "name": "Pierre Grimaud",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1866496?v=4",
+      "profile": "https://github.com/pgrimaud",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Easybuoy",
+      "name": "Ekunola Ezekiel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/24660100?v=4",
+      "profile": "https://ezekielekunola.com",
+      "contributions": [
+        "tool",
+        "doc"
+      ]
+    },
+    {
+      "login": "lauragift21",
+      "name": "Gift Egwuenu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17781315?v=4",
+      "profile": "https://www.giftegwuenu.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jbienesdev",
+      "name": "Joshua Angelo Bienes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17470909?v=4",
+      "profile": "https://jbienesdev.netlify.app/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "saptaksengupta",
+      "name": "Saptak Sengupta",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/21155006?v=4",
+      "profile": "https://github.com/saptaksengupta",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

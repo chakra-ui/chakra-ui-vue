@@ -88,8 +88,8 @@ const CCloseButton = {
     const activeColor = { light: 'blackAlpha.200', dark: 'whiteAlpha.200' }
 
     // Size styles
-    const buttonSize = sizes[this.size] && sizes[this.size]['button']
-    const iconSize = sizes[this.size] && sizes[this.size]['icon']
+    const buttonSize = sizes[this.size] && sizes[this.size].button
+    const iconSize = sizes[this.size] && sizes[this.size].icon
 
     return h(CPseudoBox, {
       props: {

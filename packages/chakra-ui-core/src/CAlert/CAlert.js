@@ -16,10 +16,10 @@
 
 import { baseProps } from '../config/props'
 import { forwardProps } from '../utils'
-import useAlertStyle, { useAlertIconStyle } from './utils/alert.styles'
 
 import CBox from '../CBox'
 import CIcon from '../CIcon'
+import useAlertStyle, { useAlertIconStyle } from './utils/alert.styles'
 
 export const statuses = {
   info: { icon: 'info', color: 'blue' },
@@ -64,7 +64,7 @@ const CAlert = {
   render (h) {
     const alertStyles = useAlertStyle({
       variant: this.variant,
-      color: statuses[this.status] && statuses[this.status]['color'],
+      color: statuses[this.status] && statuses[this.status].color,
       colorMode: this.colorMode,
       theme: this.$chakraTheme()
     })
@@ -111,14 +111,14 @@ const CAlertIcon = {
     const alertIconStyles = useAlertIconStyle({
       variant: this._variant,
       colorMode: this.colorMode,
-      color: statuses[this._status] && statuses[this._status]['color']
+      color: statuses[this._status] && statuses[this._status].color
     })
 
     return h(CIcon, {
       props: {
         mr: this.$props.mr || 3,
         size: this.size,
-        name: this.name || (statuses[this._status] && statuses[this._status]['icon']),
+        name: this.name || (statuses[this._status] && statuses[this._status].icon),
         ...alertIconStyles,
         ...forwardProps(this.$props)
       },

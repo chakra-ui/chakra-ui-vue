@@ -33,7 +33,7 @@ export const buttonProps = {
   size: {
     type: String,
     default: 'md',
-    validator: value => value.match(/^(sm|md|lg)$/)
+    validator: value => value.match(/^(xs|sm|md|lg)$/)
   },
   loadingText: {
     type: String,

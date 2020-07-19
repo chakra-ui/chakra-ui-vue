@@ -1,7 +1,7 @@
 /* eslint import/namespace: [2, { allowComputed: true }] */
 import { storiesOf } from '@storybook/vue'
 import Vue from 'vue'
-import CodeBlock from '../../../chakra-ui-docs/components/CodeBlock.js'
+import CodeBlock from '../../../../website/components/CodeBlock.js'
 import * as ChakraComponents from '..'
 
 Object.keys(ChakraComponents).forEach((key) => {

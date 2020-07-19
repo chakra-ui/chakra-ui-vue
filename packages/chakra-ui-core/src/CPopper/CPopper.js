@@ -259,7 +259,7 @@ const CPopper = {
      */
     wrapClose (e) {
       if (this.popper && !(this.anchor.contains(e.target))) {
-        this.handleClose()
+        this.closeOnClickAway && this.handleClose()
       }
     },
 

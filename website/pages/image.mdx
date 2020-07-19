@@ -60,6 +60,25 @@ The size of the image can be adjusted using the `size` prop.
 />
 ```
 
+## Using relative paths
+Ina Vue CLI project you might find that using relative assets doesn't load the image paths
+correctly in Chakra's image components.
+
+This is because `vue-loader` converts relative paths like `@/assets/path-to-img.jpg` into `require` functions
+automatically for you at build time. Unfortunately, this is not the case when it comes to custom
+components from an installed component library like Chakra UI Vue.
+
+You can circumvent this issue by using `require('@/assets/path-to-img.jpg')`.
+Below is the correct way to `require` relative assets for the `CImage` and `CAvatar` components.
+
+```vue
+<!-- ❌ Incorrect -->
+<c-image src="@/assets/path-to-img.jpg" />
+
+<!-- ✅ Correct -->
+<c-image :src="require('@/assets/path-to-img.jpg)" />
+```
+
 ## Fallback support
 
 You can provide a fallback image for when there is an error loading the `src` of

@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <client-only>
+      <VueSkipTo to="#main-content" label="Skip to main content" />
+    </client-only>
     <CThemeProvider>
       <CColorModeProvider v-slot="{ colorMode }">
         <CBox
@@ -10,7 +13,7 @@
         >
           <CReset />
           <Navbar />
-          <CBox :px="[4, 10, '12rem']">
+          <CBox as="main" :px="[4, 10, '12rem']">
             <Nuxt />
           </CBox>
         </CBox>

@@ -10,21 +10,47 @@
     <CLink as="nuxt-link" w="130px" to="/" font-weight="bold" font-size="1.2rem">
       <Logo />
     </CLink>
+    <CBadge
+      variant-color="vue"
+      variant="solid"
+      font-size="0.9em"
+      ml="2"
+      font-family="mono"
+      rounded="md"
+      text-transform="lowercase"
+    >
+      v{{ version }}
+    </CBadge>
+    <AlgoliaSearch ml="auto" />
     <CBox
       as="ul"
       :color="colorMode === 'light' ? 'gray.500' : 'whiteAlpha.900'"
       d="flex"
       align-items="center"
       list-style-type="none"
-      ml="auto"
     >
-      <CBox as="li" mr="4">
-        <CLink color="gray.500" :_hover="{ color : 'vue.400' }" is-external href="https://github.com/chakra-ui/chakra-ui-vue">
-          <CIcon name="github" size="20px" />
-        </CLink>
+      <CBox :display="['none', 'none', 'block']" as="li" mr="2">
+        <span id="github-star-button" />
+      </CBox>
+      <CBox as="li" mr="2">
+        <CIconButton
+          as="a"
+          variant="ghost"
+          variant-color="gray"
+          aria-label="View Github repo"
+          target="_blank"
+          href="https://github.com/chakra-ui/chakra-ui-vue"
+          icon="github"
+        />
       </CBox>
       <CBox as="li">
         <CIconButton
+          v-chakra="{
+            'svg': {
+              w: '12px',
+              h: '12px'
+            }
+          }"
           variant="ghost"
           variant-color="gray"
           :aria-label="colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
@@ -38,9 +64,11 @@
 </template>
 
 <script>
-import { CBox, CLink, CIcon, CIconButton } from '@chakra-ui/vue'
+import { CBox, CLink, CIconButton, CBadge } from '@chakra-ui/vue'
+import { version } from '@chakra-ui/vue/package.json'
 import Logo from './Logo.vue'
 import MobileNav from './MobileNav.vue'
+import AlgoliaSearch from './AlgoliaSearch.vue'
 
 export default {
   name: 'Navbar',
@@ -48,14 +76,18 @@ export default {
   components: {
     CBox,
     CLink,
-    CIcon,
+    CBadge,
     Logo,
     CIconButton,
-    MobileNav
+    MobileNav,
+    AlgoliaSearch
   },
   computed: {
     colorMode () {
       return this.$chakraColorMode()
+    },
+    version () {
+      return version
     }
   },
   watch: {
@@ -67,6 +99,27 @@ export default {
         console.error(error)
       }
     }
+  },
+  async mounted () {
+    const { render } = require('github-buttons')
+    await this.$nextTick()
+    const container = document.querySelector('#github-star-button')
+    if (!container) return
+
+    // Github options
+    const options = {
+      href: 'https://github.com/chakra-ui/chakra-ui-vue',
+      title: 'Star Chakra UI Vue on Github',
+      'data-text': 'Star',
+      'data-icon': 'octicon-star',
+      'data-size': 'large',
+      'data-show-count': true,
+      'aria-label': 'Star Chakra UI Vue on Github'
+    }
+
+    render(options, (el) => {
+      container.appendChild(el)
+    })
   },
   created () {
     if (!process.client) { return }

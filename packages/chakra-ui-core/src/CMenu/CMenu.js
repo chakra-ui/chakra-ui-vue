@@ -384,7 +384,7 @@ const CMenuList = {
     }
   },
   render (h) {
-    const { isOpen, buttonNode, menuId, buttonId, placement, closeMenu } = this.context
+    const { isOpen, buttonNode, menuId, buttonId, placement, closeMenu, closeOnBlur } = this.context
     return h(CPopper, {
       props: {
         usePortal: false,
@@ -399,7 +399,7 @@ const CMenuList = {
             }
           }
         ],
-        closeOnClickAway: true,
+        closeOnClickAway: closeOnBlur,
         hasArrow: false
       },
       attrs: {

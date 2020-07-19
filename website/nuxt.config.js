@@ -25,16 +25,14 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  env: {
-    MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN
-  },
   loading: { color: '#fff' },
   plugins: [
     { src: 'plugins/analytics.js', ssr: false },
     'plugins/links.js',
     'plugins/editor.js',
     'plugins/chakra-ui.js',
-    'plugins/vue-meta.js'
+    'plugins/vue-meta.js',
+    'plugins/skip-to.js'
   ],
   css: [
     'css/page.css'
@@ -60,6 +58,11 @@ export default {
     icon: {
       iconSrc: 'static/chakra.png',
       iconFileName: 'chakra.png'
+    },
+    manifest: {
+      name: 'Chakra UI Vue',
+      short_name: 'Build accessible Vue applications with speed ⚡️',
+      lang: 'en'
     }
   },
   extensions: [

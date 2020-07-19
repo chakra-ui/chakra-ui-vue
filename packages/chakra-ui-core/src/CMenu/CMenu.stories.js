@@ -1,46 +1,29 @@
 import { storiesOf } from '@storybook/vue'
-import { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon, defaultTheme } from '..'
+import { CMenu, CFade, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon, defaultTheme } from '..'
 
 console.log({ defaultTheme })
 
 storiesOf('UI | Menu', module)
-  .add('Default Menu', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
-    template: `
-    <CMenu>
-      <CMenuButton as="Button" rightIcon="chevron-down">
-        Actions
-      </CMenuButton>
-      <CMenuList>
-        <CMenuItem>Download</CMenuItem>
-        <CMenuItem>Create a Copy</CMenuItem>
-        <CMenuItem>Mark as Draft</CMenuItem>
-        <CMenuItem>Delete</CMenuItem>
-        <CMenuItem as="a" href="#">
-          Attend a Workshop
-        </CMenuItem>
-      </CMenuList>
-    </CMenu>
-    `
-  }))
   .add('With internal state', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider },
+    components: { CFade, CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider },
     template: `
-      <CMenu v-slot="{ isOpen }">
+      <CMenu v-slot="{ isOpen }" :close-on-blur="false">
         <CMenuButton right-icon="chevron-down" variantColor="pink">
           {{ isOpen ? 'Close' : 'Open' }}
         </CMenuButton>
-        <CMenuList>
-        <CMenuGroup title="Profile">
-          <CMenuItem>My Account</CMenuItem>
-          <CMenuItem>Payments </CMenuItem>
-        </CMenuGroup>
-        <CMenuDivider />
-        <CMenuGroup title="Help">
-          <CMenuItem>Docs</CMenuItem>
-          <CMenuItem>FAQ</CMenuItem>
-        </CMenuGroup>
-      </CMenuList>
+        <CFade>
+          <CMenuList>
+            <CMenuGroup title="Profile">
+              <CMenuItem>My Account</CMenuItem>
+              <CMenuItem>Payments </CMenuItem>
+            </CMenuGroup>
+            <CMenuDivider />
+            <CMenuGroup title="Help">
+              <CMenuItem>Docs</CMenuItem>
+              <CMenuItem>FAQ</CMenuItem>
+            </CMenuGroup>
+          </CMenuList>
+        </CFade>
       </CMenu>
     `
   }))
@@ -121,5 +104,24 @@ storiesOf('UI | Menu', module)
           </c-menu-item>
         </c-menu-list>
       </c-menu>  
+    `
+  }))
+  .add('No close on blur', () => ({
+    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
+    template: `
+    <CMenu :closeOnBlur="false">
+      <CMenuButton as="Button" rightIcon="chevron-down">
+        Actions
+      </CMenuButton>
+      <CMenuList>
+        <CMenuItem>Download</CMenuItem>
+        <CMenuItem>Create a Copy</CMenuItem>
+        <CMenuItem>Mark as Draft</CMenuItem>
+        <CMenuItem>Delete</CMenuItem>
+        <CMenuItem as="a" href="#">
+          Attend a Workshop
+        </CMenuItem>
+      </CMenuList>
+    </CMenu>
     `
   }))

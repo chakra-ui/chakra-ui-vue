@@ -17,8 +17,10 @@
           shadow: 'outline',
         }"
         :_hover="{
-          textDecoration: 'none'
+          textDecoration: 'none',
+          transform: 'translateX(3px)'
         }"
+        transition="background-color,transform 0.15s ease-in"
         d="block"
         rounded="md"
         :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
@@ -26,7 +28,6 @@
         font-weight="bold"
         font-size="sm"
         text-decoration="none"
-        transition="background-color 0.15s ease-in"
       >
         {{ link.name }}
       </CPseudoBox>
@@ -51,7 +52,8 @@
           shadow: 'outline',
         }"
         :_hover="{
-          textDecoration: 'none'
+          textDecoration: 'none',
+          transform: 'translateX(3px)'
         }"
         d="block"
         rounded="md"
@@ -60,7 +62,7 @@
         font-weight="bold"
         font-size="sm"
         text-decoration="none"
-        transition="background-color 0.15s ease-in"
+        transition="background-color,transform 0.15s ease-in"
       >
         {{ link.name }}
       </CPseudoBox>
@@ -86,8 +88,10 @@
         shadow: 'outline',
       }"
       :_hover="{
-        textDecoration: 'none'
+        textDecoration: 'none',
+        transform: 'translateX(3px)'
       }"
+      transition="background-color,transform 0.15s ease-in"
       d="block"
       rounded="md"
       font-weight="bold"

@@ -4,7 +4,15 @@
       title="Chakra UI Vue | Simple, Modular and Accessible UI Components for your Vue Applications."
       description="Simple, Modular and Accessible UI Components for your Vue Applications."
     />
-    <Hero />
+    <Hero
+      id="main-content"
+      v-chakra="{
+        ':focus': {
+          outline: 'none',
+          shadow: 'outline'
+        }
+      }"
+    />
     <CFlex
       as="section"
       py="10"

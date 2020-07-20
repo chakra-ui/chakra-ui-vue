@@ -5,20 +5,20 @@ import SEO from '../components/SEO'
   description="Alerts are used to communicate a state that affects a system, feature or page."
 />
 
-# Alert
+# 警告
 
-Alerts are used to communicate a state that affects a system, feature or page.
+警告可以用于传达影响系统，功能或页面的情况。
 
-See `CAlert`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlert/accessibility.md">accessibility report</a>
+请看CAlert的<a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlert/accessibility.md">accessibility report</a>
 
-## Import
+## 导入
 
-Chakra UI Vue exports 4 Alert related components.
+Chakra UI Vue导出四个相关组件。
 
-- `CAlert`: The wrapper for alert components.
-- `CAlertIcon`: The visual icon for the alert that changes based on the `status` prop.
-- `CAlertTitle`: The title of the alert to be announced by screen readers.
-- `CAlertDescription`: The description of the alert to be announced by screen readers.
+- CAlert： 警告组件的封装器
+- CAlertIcon： 基于status属性而改变的警告可视标识
+- CAlertTitle： 屏幕阅读器宣读的警告标题
+- CAlertDescription： 屏幕阅读器宣读的警告描述
 
 <br />
 
@@ -31,7 +31,7 @@ import {
 } from "@chakra-ui/vue";
 ```
 
-## Usage
+## 使用
 
 ```vue live=true
 <c-alert status="error">
@@ -39,14 +39,14 @@ import {
   <c-alert-title :mr="2">Your browser is outdated!</c-alert-title>
   <c-alert-description>Your Chakra experience may be degraded.</c-alert-description>
   <c-close-button position="absolute" right="8px" top="8px" />
-</c-alert>    
+</c-alert>
 ```
 
 
-### Setting the Alert status
-The status of the alerts can be changed by passing the `status` prop. This affects the
-`CAlert`'s color scheme and icon used. `CAlert` supports `error`, `success`, `warning`, and
-`info` statuses.
+### 设定警告状态
+传输status属性可改变警告状态。
+此操作会影响CAlert的颜色搭配和标识。
+CAlert支持error, success, warning和info这些状态。
 
 
 <br />
@@ -72,8 +72,8 @@ The status of the alerts can be changed by passing the `status` prop. This affec
 </c-stack>
 ```
 
-### Custom Alert icons
-You can also use custom Alert icons by passing the name of the icon in the `name` prop of the `CAlertIcon`. <nuxt-link to="/icons">Click here</nuxt-link> to see how to add icons to your Chakra app.
+### 自定义警告标识
+您可以通过此方法使用自定义警告标识：在CAlertIcon的name属性里传输标识的名字 <nuxt-link to="/icons">Click here</nuxt-link>来查看如何在您的Chakra应用里添加标识。
 
 ```vue live=true
 <c-alert>
@@ -81,14 +81,14 @@ You can also use custom Alert icons by passing the name of the icon in the `name
   <c-alert-title :mr="2">Kakashi Sensei followed you.</c-alert-title>
   <c-alert-description>Follow Kakashi to see his Kamui in action.</c-alert-description>
   <c-close-button position="absolute" right="8px" top="8px" />
-</c-alert>    
+</c-alert>
 ```
 
 
-### Variant
+### 变化
 
-The `CAlert` component has 4 variant styles you can use. Pass the `variant` prop and use either
-`subtle`, `solid`, `left-accent` or `top-accent`.
+CAlert有四个组件可用。
+传输variant属性来使用subtle, solid, left-accent或top-accent其一。
 
 ```vue live=true
 <c-stack>
@@ -111,10 +111,10 @@ The `CAlert` component has 4 variant styles you can use. Pass the `variant` prop
 </c-stack>
 ```
 
-### Composition
+### 构成
 
-`CAlert` ships with other smaller components to allow for flexibility and make it easy to
-create all kinds of layout. Here's an example of a custom alert style and layout.
+CAlert和其他较小的组件能实现灵活性且使各种布局的创建变得简单。
+以下为自定义警告的风格和布局。
 
 ```vue live=true
 <c-alert
@@ -135,25 +135,25 @@ create all kinds of layout. Here's an example of a custom alert style and layout
 </c-alert>
 ```
 
-## Props
+## 属性
 
-### `CAlert` Props
+### CAlert属性
 
-`CAlert` is the wrapper for the alert component. It composes the `CFlex` component.
+CAlert是一个警告组件的封装器。它封装CFlex组件。
 
-| Name    | Type                                           | Default  | Description                            |
+| 名称     | 类型                                            | 默认     | 描述                                    |
 |---------|------------------------------------------------|----------|----------------------------------------|
-| status  | `error`, `success`, `warning`, `info`          | `info`   | The status of the alert                |
-| variant | `subtle`, `solid`, `left-accent`, `top-accent` | `subtle` | The variant of the alert style to use. |
+| 状态     | `error`, `success`, `warning`, `info`          | `info`   | The status of the alert                |
+| 变化     | `subtle`, `solid`, `left-accent`, `top-accent` | `subtle` | The variant of the alert style to use. |
 
-### `CAlertIcon` Props
+### CAlertIcon属性
 
-`CAlertIcon` composes `CIcon` and changes the icon based on the `status` prop. It will also change the icon based on the value of the `name` prop only if it is passed.
+CAlertIcon创建CIcon且根据status属性来改变标识。它还会通过传输过的name属性来改变标识。
 
-### `CAlertTitle` Props
+### CAlertTitle属性
 
-`CAlertTitle` composes the `CBox` component. All `CBox` props are applicable.
+CAlertTitle创建CBox组件。所有的CBox属性都适用。
 
-### `CAlertDescription` Props
+### CAlertDescription属性
 
-`CAlertDescription` composes the `CBox` component. All `CBox` props are applicable.
+CAlertDescription创建CBox组件。所有的CBox属性都适用。

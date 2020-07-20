@@ -1,0 +1,262 @@
+import SEO from '../../components/SEO'
+
+<SEO
+  title="折叠面板"
+  description="折叠面板可以通过展开/折叠来显示更多信息。保持页面的整洁。"
+/>
+
+# 折叠面板
+
+折叠面板可以通过展开/折叠来显示更多信息。保持页面的整洁。
+* 手风琴是一种特殊的折叠面板，只允许单个内容区域展开。
+
+阅读 `CAccordion(折叠面板)`的 <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAccordion/accessibility.md">辅助功能。</a>
+
+
+## Imports 引入
+
+Chakra UI Vue 提供了 5个与折叠面板相关的组件:
+- `CAccordion`: 声明折叠面板，该组件用来包含子组件例如 `CAccordionItem`。
+- `CAccordionItem`: 折叠面板内的一个面板。
+- `CAccordionHeader`: 一个面板的头部，同时也是用来切换 `CAccordionItem`展开/折叠状态的按钮。
+- `CAccordionPanel`: 存放一个面板的详细信息的容器。
+- `CAccordionIcon`: 一个可以上/下变化的默认方向图标，随着展开/折叠状态的变化而变化。
+
+<br />
+
+```js
+import {
+  CAccordion,
+  CAccordionItem,
+  CAccordionHeader,
+  CAccordionPanel,
+  CAccordionIcon,
+} from "@chakra-ui/vue";
+```
+
+## 基础用法
+
+默认情况下，只能展开一个面板（手风琴）。 它只能通过扩展另一个手风琴项目来再次折叠。
+
+```vue live=true
+  <c-accordion>
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 1 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 2 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+  </c-accordion>
+```
+
+### 同时展开多个面板
+设置 `allowMultiple` 属性 为 `true` 可使折叠面板允许可以同时展开多个面板。
+
+> 如果你使用这个属性，请确保 `index` 或 `defaultIndex` 属性为一个数组。
+
+```vue live=true
+  <c-accordion :allow-multiple="true" :default-index="[0]">
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 1 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 2 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+  </c-accordion>
+```
+
+### 切换每个面板的折叠效果
+
+将 `allowToggle` 属性 设置为true，可以再次切换每一个面板展开/折叠的效果。
+
+```vue live=true
+  <c-accordion :allow-toggle="true">
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 1 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+    <c-accordion-item>
+      <c-accordion-header>
+        <c-box flex="1" text-align="left">
+          Section 2 title
+        </c-box>
+        <c-accordion-icon />
+      </c-accordion-header>
+      <c-accordion-panel pb="4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </c-accordion-panel>
+    </c-accordion-item>
+  </c-accordion>
+```
+
+### 对展开状态进行样式修改
+根据 `CAccordionItem`的状态，`CAccordionHeader` 组件的 `aria-expanded` 会被设定为 `true` 或 `false`。 使用样式属性 `_expanded` 对状态进行样式设定。
+
+```vue live=true
+<c-accordion-item>
+  <c-accordion-header :_expanded="{ bg: 'tomato', color: 'white' }">
+    <c-box flex="1" text-align="left">
+      Section 1 title
+    </c-box>
+    <c-accordion-icon />
+  </c-accordion-header>
+  <c-accordion-panel pb="4">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat.
+  </c-accordion-panel>
+</c-accordion-item>
+```
+
+### 访问内部扩展和禁用状态
+`CAccordionItem` 组件公开了具有两个变量的范围限定的插槽：`isExpanded` 和 `isDisabled`。 
+在下面的示例中，我们根据 `CAccordionItems` 展开状态，更改由 `CAccordionIcon`  渲染的图标。
+
+```vue live=true<c-accordion :allow-toggle="true">
+  <c-accordion-item>
+    <c-accordion-header>
+      <c-box flex="1" text-align="left">
+        Section 1 title
+      </c-box>
+      <c-accordion-icon />
+    </c-accordion-header>
+    <c-accordion-panel pb="4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </c-accordion-panel>
+  </c-accordion-item>
+  <c-accordion-item v-slot="{ isExpanded }">
+    <c-accordion-header>
+      <c-box flex="1" text-align="left">
+        Section 2 title
+      </c-box>
+      <c-accordion-icon size="12px" :name="isExpanded ? 'minus' : 'add'" />
+    </c-accordion-header>
+    <c-accordion-panel pb="4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </c-accordion-panel>
+  </c-accordion-item>
+</c-accordion>
+```
+
+### 辅助功能
+当焦点位于 `CAccordionHeader` 上时按 `空格` 或 `Enter` 将切换（展开或折叠）折叠面板。
+
+# API
+
+## `CAccordion`
+
+| 参数          | 类型                               | 默认值    | 说明                                                                                                      |
+| ------------- | --------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| allowMultiple | `boolean`                         | `false` | If `true`, multiple accordion items can be expanded at once.                                              |
+| allowToggle   | `boolean`                         | `false` | If `true`, any expanded accordion item can be collapsed again.                                            |
+| index         | `Number` or `Array of Number`     |    0    | The index(es) of the expanded accordion item                                                              |
+| defaultIndex  | `Number` or `Array of Number`     |         | The initial index(es) of the expanded accordion item                                                      |
+
+### Events
+| 参数          | 有效类型 （Payload type）            | 默认值   | 说明                                                                                                      |
+| ------------- | --------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| change        | `Number` | `Array of Number`      |         | Event emitted when the accordion items are expanded.                                                      |
+
+### Slots
+| 参数           | 说明                                       |
+| ------------- | ------------------------------------------|
+| default       | Slot for `CAccordionItems` components     |
+
+
+
+## `CAccordionItem`
+
+
+| 参数           | 类型                            | 默认值    | 说明                                                                                                      |
+| ------------- | ------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| isOpen        | `boolean`                       | false   | If `true`, expands the accordion in the controlled mode.                                                  |
+| defaultIsOpen | `boolean`                       | false   | If `true`, expands the accordion by on initial mount.                                                     |
+| id            | `string`                        |         | A unique `id` for the accordion item.                                                                     |
+| isDisabled    | `boolean`                       | false   | If `true`, the accordion header will be disabled.                                                         |
+
+
+### Events
+| 参数           | 有效类型 （Payload type）           | 默认值   | 说明                                                                                                      |
+| ------------- | --------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| change        | `Number` | `Array of Number`      |         | Event emitted when the `CAccordionItem` expands or collapses.                                             |
+
+
+### Scoped Slots
+| 参数           | 类型                              | Slot    | 默认值    | 说明                                                              |
+| ------------- | --------------------------------- | ------- | -------  | ----------------------------------------------------------------  |
+| isExpanded    | `Number` | `Array of Number`      | default |          | Exposes the expanded state of the `CAccordionItem`                |
+| isDisabled    | `Number` | `Array of Number`      | default |          | Exposes the disabled state of the `CAccordionItem`                |
+
+
+## `CAccordionHeader`
+
+### 属性
+`CAccordionHeader` 会被渲染成 元素 `button` and  `CPseudoBox`, 这意味着您可以通过传递 `_expanded`, `_disabled`, `_hover`等伪样式来对其进行样式设置。
+etc.
+
+## `CAccordionPanel`
+`CAccordionPanel` 会被渲染成 元素 `div` and  `Collapse` 来提供高质量的动画效果.

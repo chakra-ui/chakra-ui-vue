@@ -4,7 +4,7 @@ import {
   parseComponent
 } from 'vue-template-compiler'
 
-/** Extracts all tags from user template */
+/** Extracts all tags from template */
 export async function extractTags (resourcePath) {
   const tags = new Set()
   const file = (await readFileSync(resourcePath)).toString('utf8')
@@ -21,6 +21,7 @@ export async function extractTags (resourcePath) {
         /* Ignore compilation errors, they'll be picked up by other loaders */
       }
     }
+
     compile(component.template.content, {
       modules: [{
         postTransformNode: (el) => {

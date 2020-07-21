@@ -1,0 +1,47 @@
+{
+  "name": "chakra-loader",
+  "version": "0.0.0",
+  "description": "Webpack plugin to autoload Chakra UI components",
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "email": "codebender828@gmail.com",
+    "url": "https://jbakebwa.dev"
+  },
+  "keywords": [
+    "chakra",
+    "ui",
+    "vue",
+    "webpack",
+    "loaders"
+  ],
+  "homepage": "https://github.com/chakra-ui/chakra-ui-vue/packages/chakra-loader#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakra-ui/chakra-ui-vue.git"
+  },
+  "scripts": {
+    "test": "echo \"TODO: testing chakra-loader\""
+  },
+  "dependencies": {
+    "loader-utils": "^2.0.0"
+  },
+  "devDependencies": {
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0"
+  },
+  "bugs": {
+    "url": "https://github.com/chakra-ui/chakra-ui-vue/issues"
+  },
+  "gitHead": "cb7ffb7adeb926b99c75f195300d09780e8910e6"
+}

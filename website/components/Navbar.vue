@@ -43,6 +43,17 @@
           icon="github"
         />
       </CBox>
+      <CBox as="li" mr="2">
+        <CIconButton
+          as="a"
+          variant="ghost"
+          variant-color="gray"
+          aria-label="Join Discord channel"
+          target="_blank"
+          href="https://discord.gg/sq2Kp6x"
+          icon="discord"
+        />
+      </CBox>
       <CBox as="li">
         <CIconButton
           v-chakra="{

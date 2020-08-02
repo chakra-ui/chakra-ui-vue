@@ -79,6 +79,10 @@ export const aboutNavLinks = [
   'Storybook'
 ]
 
+export const toolingLinks = [
+  'Auto-import components'
+]
+
 export const footerLinks = [
   'Contributors'
 ]

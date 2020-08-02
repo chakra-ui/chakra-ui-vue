@@ -14,7 +14,7 @@ module.exports = function (moduleOptions) {
   }
 
   // Recursively merge extended theme variables
-  const theme = defu(defaultTheme, options.extendTheme)
+  const theme = defu(options.extendTheme, defaultTheme)
 
   // Resolve icons
   let packIcons = {}

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import * as Chakra from '@chakra-ui/vue'
 import theme from '@chakra-ui/theme-vue'
-import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faDiscord, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import {
   faBolt,
   faAnchor,
@@ -38,6 +38,7 @@ Vue.use(Chakra.default, {
     iconPack: 'fa',
     iconSet: {
       faGithub,
+      faDiscord,
       faAnchor,
       faBolt,
       faUniversalAccess,

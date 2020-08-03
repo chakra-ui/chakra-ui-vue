@@ -208,6 +208,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/saptaksengupta"><img src="https://avatars2.githubusercontent.com/u/21155006?v=4" width="50px;" alt=""/><br /><sub><b>Saptak Sengupta</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=saptaksengupta" title="Documentation">📖</a></td>
     <td align="center"><a href="https://kuro.tw"><img src="https://avatars1.githubusercontent.com/u/362912?v=4" width="50px;" alt=""/><br /><sub><b>Kuro Hsu</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=kurotanshi" title="Documentation">📖</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=kurotanshi" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Anmol270900"><img src="https://avatars2.githubusercontent.com/u/43845658?v=4" width="50px;" alt=""/><br /><sub><b>Anmol</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=Anmol270900" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

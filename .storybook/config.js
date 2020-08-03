@@ -33,6 +33,10 @@ import {
   faGithub
 } from '@fortawesome/free-brands-svg-icons'
 
+import {
+  faDiscord
+} from '@fortawesome/free-brands-svg-icons'
+
 Vue.use(Chakra, {
   icons: {
     iconPack: 'fa',
@@ -51,6 +55,7 @@ Vue.use(Chakra, {
       faSearch,
       faTimesCircle,
       faGithub,
+      faDiscord,
       faCheckCircle,
       faCog,
       faLock,

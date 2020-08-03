@@ -75,6 +75,41 @@
       mb="2"
       text-transform="uppercase"
     >
+      Tooling
+    </CHeading>
+    <CPseudoBox
+      v-for="(link, index) in toolingLinks"
+      :key="`${index}-tooling`"
+      as="nuxt-link"
+      :to="link.path"
+      outline="none"
+      p="0.2rem"
+      :_focus="{
+        shadow: 'outline',
+      }"
+      :_hover="{
+        textDecoration: 'none',
+        transform: 'translateX(3px)'
+      }"
+      transition="background-color,transform 0.15s ease-in"
+      d="block"
+      rounded="md"
+      font-weight="bold"
+      font-size="sm"
+      text-decoration="none"
+      :bg="$route.path === link.path ? 'vue.50' : 'transparent'"
+      :color="$route.path === link.path ? 'vue.700' : 'inherit'"
+    >
+      {{ link.name }}
+    </CPseudoBox>
+    <CHeading
+      size="xs"
+      color="gray.400"
+      letter-spacing="wide"
+      mt="4"
+      mb="2"
+      text-transform="uppercase"
+    >
       Components
     </CHeading>
     <CPseudoBox
@@ -108,7 +143,7 @@
 <script>
 import { CBox, CHeading, CPseudoBox } from '@chakra-ui/vue'
 import { stringToUrl } from '../utils'
-import { components as componentLinks, topNavLinks, aboutNavLinks } from '../utils/all-routes'
+import { components as componentLinks, topNavLinks, aboutNavLinks, toolingLinks } from '../utils/all-routes'
 
 export default {
   name: 'SideNavContent',
@@ -130,15 +165,24 @@ export default {
       return this.$chakraColorMode()
     },
     topNavLinks () {
-      return topNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))
+      return this.parsedLinks(topNavLinks)
     },
     componentLinks () {
-      return componentLinks
-        .filter(link => link !== 'Index')
-        .map(link => ({ name: link, path: stringToUrl(link) }))
+      return this.parsedLinks(
+        componentLinks
+          .filter(link => link !== 'Index')
+      )
     },
     aboutNavLinks () {
-      return aboutNavLinks.map(link => ({ name: link, path: stringToUrl(link) }))
+      return this.parsedLinks(aboutNavLinks)
+    },
+    toolingLinks () {
+      return this.parsedLinks(toolingLinks)
+    },
+    parsedLinks () {
+      return value => Array.isArray(value)
+        ? value.map(link => ({ name: link, path: stringToUrl(link) }))
+        : []
     }
   }
 }

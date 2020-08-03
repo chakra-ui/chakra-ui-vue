@@ -1,0 +1,118 @@
+import SEO from '../components/SEO'
+
+<SEO
+  title="Auto-import Chakra components"
+  description="Use the chakra-loader webpack plugin to automatically import and register Chakra components used in your templates"
+/>
+
+# Auto-importing Chakra UI Vue components
+We know that it can be cumbersome to import every single Chakra component you want to use in your Vue templates. Chakra UI offers webpack plugin solution that allows
+you to directly consume Chakra UI Vue components without manually importing and globally registering all Chakra components.
+
+This provides a better developer experience without sacrificing your applications bundle-size performance.
+
+
+## Installation
+With Yarn:
+
+```bash
+yarn add chakra-loader -D
+```
+With NPM:
+
+```bash
+npm install chakra-loader --save-dev
+```
+
+## Usage
+If you're using webpack with Vue CLI or Nuxt.js for your Chakra project, import the `ChakraLoaderPlugin` from the `chakra-loader` package and add it to your `vue.config.js` file.
+
+### With Vue CLI
+```js
+/* vue.config.js */
+
+const { ChakraLoaderPlugin } = require('chakra-loader')
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new ChakraLoaderPlugin()
+    ]
+  }
+}
+
+```
+### With `webpack.config.js`
+```js
+/* webkack.config.js */
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { ChakraLoaderPlugin } = require('chakra-loader')
+
+module.exports = {
+  // ... other options
+  plugins: [
+    new VueLoaderPlugin(),
+    new ChakraLoaderPlugin()
+  ]
+}
+```
+
+### With Nuxt.js
+```js
+/* nuxt.config.js */
+
+import { ChakraLoaderPlugin } from 'chakra-loader'
+
+export default {
+  build: {
+    extend(config) {
+      config.plugins.push(
+        new ChakraLoaderPlugin()
+      )
+    }
+  }
+}
+```
+
+## How it works
+`ChakraLoaderPlugin` will analyse your SFC template at during development and at build time, and scan it for all Chakra UI Vue components that you consume in it. The loader will then proceed to automatically import those components and register them while preserving treeshaking.
+
+For example, consider the component below, `Component.vue` which uses Chakra's `CBox` and `CButton` components.
+```vue
+<template>
+  <c-box p="3" m="auto" bg="tomato" font-weight="bold" color="white">
+    Chakra UI Vue Box
+  </c-box>
+  <c-button>
+    Hello world!
+  </c-button>
+</template>
+```
+
+Using `chakra-loader` will yield:
+```vue
+<template>
+  <c-box p="3" m="auto" bg="tomato" font-weight="bold" color="white">
+    Chakra UI Vue Box
+  </c-box>
+  <c-button>
+    Hello world!
+  </c-button>
+</template>
+
+<script>
+// 👇🏽 Automatically imports and registers
+//    the CBox and CButton components from Chakra UI Vue. 🎉
+
+import { CBox, CButton } from '@chakra-ui/vue'
+
+export default {
+  name: 'App',
+  components: {
+    CBox,
+    CButton
+  }
+}
+</script>
+```

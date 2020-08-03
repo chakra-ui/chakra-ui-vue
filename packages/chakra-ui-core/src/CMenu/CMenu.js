@@ -446,6 +446,10 @@ const CMenuItem = {
     role: {
       type: String,
       default: 'menuitem'
+    },
+    as: {
+      type: [String, Object],
+      default: 'button'
     }
   },
   computed: {
@@ -466,7 +470,7 @@ const CMenuItem = {
     const { focusableItems, focusAtIndex, closeOnSelect, closeMenu } = this.context
     return h(CPseudoBox, {
       props: {
-        as: 'button'
+        as: this.as
       },
       attrs: {
         display: 'flex',

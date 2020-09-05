@@ -7,5 +7,7 @@
     "@chakra-ui/nuxt": "0.0.9",
     "chakra-ui-docs": "0.5.1"
   },
-  "changesets": []
+  "changesets": [
+    "wise-donkeys-buy"
+  ]
 }

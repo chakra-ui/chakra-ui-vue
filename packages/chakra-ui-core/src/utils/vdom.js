@@ -127,7 +127,7 @@ export const extractListeners = (context, nonNative = {}) => {
 
   for (const listener in listeners) {
     if (!nonNative[listener]) {
-      native[listener] = listeners[listener]
+      nonNative[listener] = listeners[listener]
     }
   }
 

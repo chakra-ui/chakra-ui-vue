@@ -284,8 +284,9 @@ pass the `isCentered`
       :is-open="isOpen"
       :on-close="close"
       :closeOnOverlayClick="false"
+      is-centered
     >
-      <c-modal-content ref="content" is-centered>
+      <c-modal-content ref="content">
         <c-modal-header>Modal Title</c-modal-header>
         <c-modal-close-button />
         <c-modal-body>
@@ -344,8 +345,9 @@ If the content within the modal overflows beyond the viewport, you can use the
       :on-close="close"
       :closeOnOverlayClick="false"
       :scroll-behavior="scrollBehavior"
+      is-centered
     >
-      <c-modal-content ref="content" is-centered>
+      <c-modal-content ref="content" >
         <c-modal-header>Modal Title</c-modal-header>
         <c-modal-close-button />
         <c-modal-body>
@@ -400,8 +402,9 @@ Pass the `size` prop if you need to adjust the size of the modal. Values can be
       :on-close="close"
       :closeOnOverlayClick="false"
       :size="size"
+      is-centered
     >
-      <c-modal-content ref="content" is-centered>
+      <c-modal-content ref="content">
         <c-modal-header>Modal Title</c-modal-header>
         <c-modal-close-button />
         <c-modal-body>

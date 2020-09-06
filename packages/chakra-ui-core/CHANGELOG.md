@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- 3533e00: Fix: CSwitch component v-model + @change event handler.
+
 ## 0.6.2-next.0
 
 ### Patch Changes

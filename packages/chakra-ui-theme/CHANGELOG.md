@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.2.7
+
 ## 0.2.6
 
 All notable changes to this project will be documented in this file.

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- 3533e00: Fix: CSwitch component v-model + @change event handler.
+- Updated dependencies [3533e00]
+  - @chakra-ui/vue@0.6.2
+
 ## 0.0.10-next.0
 
 ### Patch Changes

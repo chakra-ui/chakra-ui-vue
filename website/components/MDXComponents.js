@@ -180,8 +180,10 @@ const MDXComponents = {
     name: 'Table',
     render () {
       return (
-        <CBox as="table" textAlign="left" mt="32px" width="full" {...props}>
-          {this.$slots.default}
+        <CBox overflowX="auto">
+          <CBox as="table" textAlign="left" mt="32px" width="full" {...props}>
+            {this.$slots.default}
+          </CBox>
         </CBox>
       )
     }

@@ -2,14 +2,7 @@ import '@testing-library/jest-dom/extend-expect'
 import * as vtl from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 
-import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
-import theme from '@/packages/chakra-ui-core/src/lib/theme'
-const defaultProviders = options => ({
-  $chakraTheme: () => theme,
-  $chakraColorMode: () => 'light',
-  $chakraIcons: icons,
-  ...options
-})
+import defaultProviders from './providers-mock'
 
 const render = (component, ...rest) => {
   const defaults = {

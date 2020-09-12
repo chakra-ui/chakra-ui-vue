@@ -3,12 +3,12 @@
 exports[`should render CStack with element as nav 1`] = `
 <DocumentFragment>
   <nav
-    class="css-j7qwjs css-0"
+    class="css-j7qwjs css-k008qs css-1lp2as9"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="css-1ipbp6k"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
@@ -26,6 +26,7 @@ exports[`should render CStack with element as nav 1`] = `
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
+     
     <div
       class="css-1ipbp6k"
       data-chakra-component="CBox"
@@ -52,12 +53,12 @@ exports[`should render CStack with element as nav 1`] = `
 exports[`should render CStack with element as section 1`] = `
 <DocumentFragment>
   <section
-    class="css-j7qwjs css-0"
+    class="css-j7qwjs css-k008qs css-1lp2as9"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="css-1ipbp6k"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
@@ -75,6 +76,7 @@ exports[`should render CStack with element as section 1`] = `
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
+     
     <div
       class="css-1ipbp6k"
       data-chakra-component="CBox"
@@ -101,12 +103,12 @@ exports[`should render CStack with element as section 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-j7qwjs css-0"
+    class="css-j7qwjs css-k008qs css-1lp2as9"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="css-1ipbp6k"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
@@ -124,6 +126,7 @@ exports[`should render correctly 1`] = `
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
+     
     <div
       class="css-1ipbp6k"
       data-chakra-component="CBox"
@@ -143,6 +146,42 @@ exports[`should render correctly 1`] = `
         You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
       </p>
     </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should should stack native html elements 1`] = `
+<DocumentFragment>
+  <div
+    class="css-j7qwjs css-k008qs css-1lp2as9"
+    data-chakra-component="CStack"
+    data-testid="stack"
+  >
+    <p
+      class="css-18iq2bq"
+      data-chakra-component="CText"
+    >
+      The future can be even brighter but a goal without a plan is just a wish
+    </p>
+     
+    <p
+      data-testid="stacked-p"
+    >
+      I am a happy paragraph element
+    </p>
+     
+    <h3
+      data-testid="stacked-h3"
+    >
+      I am a jolly heading element
+    </h3>
+     
+    <p
+      class="css-18iq2bq"
+      data-chakra-component="CText"
+    >
+      You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
+    </p>
   </div>
 </DocumentFragment>
 `;

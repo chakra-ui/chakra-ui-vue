@@ -38,7 +38,7 @@ export function createWatcher (property) {
 export const createStyledAttrsMixin = (name, isPseudo) => ({
   name,
   inheritAttrs: false,
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode', '$chakraSystem'],
   data () {
     return {
       attrs$: {},

@@ -47,6 +47,21 @@ it('should should stack horizontally if isInline', () => {
   expect(stack).toHaveStyle('flex-direction: row')
 })
 
+it('should should stack native html elements', () => {
+  const { asFragment } = renderComponent({
+    template: `
+      <CStack data-testid="stack">
+        <CText mt="4">The future can be even brighter but a goal without a plan is just a wish</CText>
+        <p data-testid="stacked-p">I am a happy paragraph element</p>
+        <h3 data-testid="stacked-h3">I am a jolly heading element</h3>
+        <CText mt="4">You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process</CText>
+      </CStack>
+    `
+  })
+
+  expect(asFragment()).toMatchSnapshot()
+})
+
 // Cannot use `it.each` because it cannot accept
 // component as interpolated variable
 

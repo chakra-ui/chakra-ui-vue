@@ -53,3 +53,23 @@ storiesOf('UI | Stack', module)
       </div>
     `
   }))
+  .add('with HTML elements', () => ({
+    components: { CHeading, CText, CStack, CBox, CFlex, CIcon },
+    template: `
+      <div>
+        <c-stack spacing="5" align="flex-end" direction="column">
+          <c-flex align-items="center">
+            <c-icon mr="3" name="moon" />
+            <c-text>Wakanda, 🌍 Africa</c-text>
+          </c-flex>
+          <p>I am a happy paragraph element</p>
+          <h3>I am a jolly heading element</h3>
+          <c-flex align-items="center">
+            <c-icon mr="3" name="sun" />
+            <c-text>Kitchener, ON, Canada</c-text>
+          </c-flex>
+          <button>O nankana ani?</button>
+        </c-stack>
+      </div>
+    `
+  }))

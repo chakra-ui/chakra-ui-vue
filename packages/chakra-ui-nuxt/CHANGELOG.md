@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.12
+
+### Patch Changes
+
+- improve component style props
+
 ## 0.0.10
 
 ### Patch Changes

@@ -146,6 +146,33 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "vishnumohanrk",
+      "name": "Vishnumohan R K",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51525368?v=4",
+      "profile": "https://github.com/vishnumohanrk",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "freality",
+      "name": "Ken Love",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15808?v=4",
+      "profile": "https://github.com/freality",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "gbschalch",
+      "name": "Guilherme Schalch",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/13435327?v=4",
+      "profile": "http://www.linkedin.com/in/schalch",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

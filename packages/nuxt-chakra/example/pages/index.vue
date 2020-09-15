@@ -107,7 +107,7 @@ import {
 
 export default {
   name: 'App',
-  inject: ['$chakraColorMode', '$toggleColorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode', '$toggleColorMode'],
   components: {
     CBox,
     CButton,

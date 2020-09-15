@@ -32,7 +32,7 @@ const CRadio = {
   props: {
     id: String,
     name: String,
-    value: String,
+    value: [String, Number],
     ariaLabel: String,
     ariaLabelledBy: String,
     variantColor: {

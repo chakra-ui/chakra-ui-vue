@@ -51,7 +51,7 @@ const CReset = {
     }
   },
   props: {
-    config: Object
+    config: Function
   },
   created () {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]

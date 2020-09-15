@@ -8,7 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSwitch/CSwitch.js
  */
 
-import { forwardProps, extractListeners } from '../utils'
+import { forwardProps } from '../utils'
 
 import CBox from '../CBox'
 import CVisuallyHidden from '../CVisuallyHidden'
@@ -26,6 +26,15 @@ const switchSizes = {
   lg: {
     width: '2.875rem',
     height: '1.5rem'
+  }
+}
+
+/** Emits events for functional components */
+const emitFunctionalEvent = (fn, ...args) => {
+  if (fn && typeof fn === 'function') {
+    fn(...args)
+  } else if (Array.isArray(fn)) {
+    fn.forEach(handler => typeof handler === 'function' && handler(...args))
   }
 }
 
@@ -101,17 +110,13 @@ const CSwitch = {
       }
     }
 
-    // Events
-    const nonNativeEvents = {
+    const eventListeners = {
+      ...listeners,
       change: (e) => {
-        const emitChange = listeners.change
-        if (emitChange && typeof emitChange === 'function') {
-          emitChange(!props.isChecked)
-        }
+        const newValue = !props.isChecked
+        emitFunctionalEvent(listeners.change, newValue, e)
       }
     }
-
-    const { native, nonNative } = extractListeners({ listeners }, nonNativeEvents)
 
     return h(CBox, {
       ...rest,
@@ -142,8 +147,7 @@ const CSwitch = {
           checked: props.isChecked,
           disabled: props.isDisabled
         },
-        on: nonNative,
-        nativeOn: native
+        on: eventListeners
       }),
       h(CControlBox, {
         attrs: styleProps

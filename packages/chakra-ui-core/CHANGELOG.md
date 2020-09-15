@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- fix: includes missing style props for border-radius and flex-grow style declarations"
+
 ## 0.6.2
 
 ### Patch Changes

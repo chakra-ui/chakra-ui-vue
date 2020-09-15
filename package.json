@@ -33,7 +33,7 @@
     "release": "lerna version patch && lerna publish from-package",
     "push": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna version --conventional-commits",
     "clean": "lerna run clean",
-    "storybook": "STORYBOOK_VUE_DEV_TOOLS=1 start-storybook -p 9000",
+    "storybook": "cross-env STORYBOOK_VUE_DEV_TOOLS=1 start-storybook -p 9000",
     "storybook:devtools": "vue-devtools",
     "build-storybook": "build-storybook --quiet",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",

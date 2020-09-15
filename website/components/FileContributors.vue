@@ -31,7 +31,7 @@ export default {
       return this.$route.path
     },
     filePath () {
-      return `website/docs${this.fileRoute}.mdx`
+      return `website/pages${this.fileRoute}.mdx`
     }
   }
 }

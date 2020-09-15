@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [3533e00]
+  - @chakra-ui/vue@0.6.2
+  - @chakra-ui/theme-vue@0.2.7
+
+## 0.5.2-next.0
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.2-next.0
+
+## 0.5.1
+
+### Patch Changes
+
+- ## Bug fixes
+  - `CCollapse` component name option typo fix
+  - `CMenu`: add `as` polymophic prop support for `CMenuItem` component
+  - `chakra-loader`: Add documentation for the `chakra-loader` webpack plugin
+  - Community: Add link to Chakra UI discord to docs.
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.1
+
 ## 0.5.0
 
 ### Minor Changes

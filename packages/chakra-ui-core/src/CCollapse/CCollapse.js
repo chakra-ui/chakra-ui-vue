@@ -23,7 +23,7 @@ import { extractListeners } from '../utils'
  * @see Docs https://vue.chakra-ui.com/collpse
  */
 const CCollapse = {
-  name: 'Collapse',
+  name: 'CCollapse',
   functional: true,
   props: {
     isOpen: Boolean,

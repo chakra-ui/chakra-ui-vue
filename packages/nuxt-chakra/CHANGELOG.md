@@ -1,5 +1,33 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- 3533e00: Fix: CSwitch component v-model + @change event handler.
+- Updated dependencies [3533e00]
+  - @chakra-ui/vue@0.6.2
+
+## 0.0.10-next.0
+
+### Patch Changes
+
+- Fix: CSwitch component v-model + @change event handler.
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.2-next.0
+
+## 0.0.7
+
+### Patch Changes
+
+- ## Bug fixes
+  - `CCollapse` component name option typo fix
+  - `CMenu`: add `as` polymophic prop support for `CMenuItem` component
+  - `chakra-loader`: Add documentation for the `chakra-loader` webpack plugin
+  - Community: Add link to Chakra UI discord to docs.
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.1
+
 ## 0.0.6
 
 ### Patch Changes

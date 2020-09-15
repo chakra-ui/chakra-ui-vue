@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- 3533e00: Fix: CSwitch component v-model + @change event handler.
+
+## 0.6.2-next.0
+
+### Patch Changes
+
+- Fix: CSwitch component v-model + @change event handler.
+
+## 0.6.1
+
+### Patch Changes
+
+- ## Bug fixes
+  - `CCollapse` component name option typo fix
+  - `CMenu`: add `as` polymophic prop support for `CMenuItem` component
+  - `chakra-loader`: Add documentation for the `chakra-loader` webpack plugin
+  - Community: Add link to Chakra UI discord to docs.
+
 ## 0.6.0
 
 ### Minor Changes

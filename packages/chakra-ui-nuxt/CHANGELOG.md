@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.0.13
+
+### Patch Changes
+
+- fix style props for @chakra-ui/vue
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.5
+
+## 0.0.12
+
+### Patch Changes
+
+- improve component style props
+
 ## 0.0.10
 
 ### Patch Changes

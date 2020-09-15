@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- fix style props for @chakra-ui/vue
+
 ## 0.6.4
 
 ### Patch Changes

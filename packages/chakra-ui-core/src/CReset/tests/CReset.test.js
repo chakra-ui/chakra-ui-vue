@@ -1,12 +1,14 @@
 import CReset from '../'
-import { render, defaultProviders } from '@/tests/test-utils'
+import { render } from '@/tests/test-utils'
 
-const renderComponent = (options = {}) => {
-  return render(
-    CReset,
-    options,
-    () => ({ provide: defaultProviders() })
-  )
+const renderComponent = (props) => {
+  const inlineAttrs = (props && props.inlineAttrs) || ''
+  const base = {
+    components: { CReset },
+    template: `<CReset data-testid="reset" ${inlineAttrs} />`,
+    ...props
+  }
+  return render(base)
 }
 
 describe('CReset.vue', () => {
@@ -17,10 +19,22 @@ describe('CReset.vue', () => {
   })
 
   it('should inject global styles', () => {
-    const { container } = renderComponent({
-      container: document
-    })
+    renderComponent()
 
-    expect(container.head).toMatchSnapshot()
+    expect(document.head).toMatchSnapshot()
+  })
+
+  it('should accept config prop', () => {
+    const inlineAttrs = ':config="cssResetConfig"'
+    const cssResetConfig = (_, defaults) => {
+      const { light } = defaults
+      return {
+        ...defaults, light: { ...light, bg: 'pink', color: 'indigo' }
+      }
+    }
+
+    renderComponent({ inlineAttrs, methods: { cssResetConfig } })
+
+    expect(document.head).toMatchSnapshot()
   })
 })

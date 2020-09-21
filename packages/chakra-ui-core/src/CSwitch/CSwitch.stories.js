@@ -44,3 +44,20 @@ storiesOf('UI | Switch', module)
       }
     }
   }))
+  .add('With v-model + @change', () => ({
+    components: { CBox, CSwitch },
+    data: () => ({
+      enable: false
+    }),
+    template: `
+      <p>
+        <span>{{enable}}</span>
+        <c-switch v-model="enable" id="email-alerts" @change="action"/>
+      </p>`,
+    methods: {
+      action: action('@change(event) + v-model'),
+      handleClick (e) {
+        console.log('Native event handler', e)
+      }
+    }
+  }))

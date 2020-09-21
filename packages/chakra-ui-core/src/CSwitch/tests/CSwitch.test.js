@@ -49,3 +49,29 @@ test('properly handles v-model', async () => {
 
   expect(screen.getByText('enabled')).toBeInTheDocument()
 })
+
+/**
+ * Because the CSwitch is a functional component, it
+ * handles event emission differently when the
+ * consumer uses both v-model and the @change
+ * event listener.
+ */
+it('should emit a change event when v-model + event listener are provided', async () => {
+  const onChange = jest.fn()
+  renderComponent({
+    data: () => ({
+      enable: false
+    }),
+    template: `
+      <div>
+        <span>{{enable ? 'enabled' : 'disabled'}}</span>
+        <CSwitch v-model="enable" data-testid="switch" @change="handleChange" />
+      </div>`,
+    methods: { handleChange: onChange }
+  })
+
+  expect(screen.getByText('disabled')).toBeInTheDocument()
+  await userEvent.click(screen.getByTestId('switch'))
+  expect(screen.getByText('enabled')).toBeInTheDocument()
+  expect(onChange).toHaveBeenCalledTimes(1)
+})

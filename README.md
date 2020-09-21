@@ -211,7 +211,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Anmol270900"><img src="https://avatars2.githubusercontent.com/u/43845658?v=4" width="50px;" alt=""/><br /><sub><b>Anmol</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=Anmol270900" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/vishnumohanrk"><img src="https://avatars3.githubusercontent.com/u/51525368?v=4" width="50px;" alt=""/><br /><sub><b>Vishnumohan R K</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=vishnumohanrk" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/freality"><img src="https://avatars3.githubusercontent.com/u/15808?v=4" width="50px;" alt=""/><br /><sub><b>Ken Love</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=freality" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/freality"><img src="https://avatars3.githubusercontent.com/u/15808?v=4" width="50px;" alt=""/><br /><sub><b>Ken Love</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=freality" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=freality" title="Tests">⚠️</a></td>
   </tr>
 </table>
 

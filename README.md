@@ -213,6 +213,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/vishnumohanrk"><img src="https://avatars3.githubusercontent.com/u/51525368?v=4" width="50px;" alt=""/><br /><sub><b>Vishnumohan R K</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=vishnumohanrk" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/freality"><img src="https://avatars3.githubusercontent.com/u/15808?v=4" width="50px;" alt=""/><br /><sub><b>Ken Love</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=freality" title="Code">💻</a></td>
     <td align="center"><a href="http://www.linkedin.com/in/schalch"><img src="https://avatars3.githubusercontent.com/u/13435327?v=4" width="50px;" alt=""/><br /><sub><b>Guilherme Schalch</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=gbschalch" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.be-codified.com"><img src="https://avatars1.githubusercontent.com/u/10107183?v=4" width="50px;" alt=""/><br /><sub><b>Žiga Vukčevič</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=be-codified" title="Documentation">📖</a></td>
   </tr>
 </table>
 

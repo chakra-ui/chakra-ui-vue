@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- fix style props for @chakra-ui/vue
+
+## 0.6.4
+
+### Patch Changes
+
+- improvements to style props
+
+## 0.6.3
+
+### Patch Changes
+
+- fix: includes missing style props for border-radius and flex-grow style declarations"
+
 ## 0.6.2
 
 ### Patch Changes

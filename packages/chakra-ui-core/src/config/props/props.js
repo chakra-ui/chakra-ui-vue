@@ -63,6 +63,10 @@ const baseProps = {
   borderLeft: SNA,
   borderRight: SNA,
   borderTop: SNA,
+  borderTopLeftRadius: SNA,
+  borderTopRightRadius: SNA,
+  borderBottomRightRadius: SNA,
+  borderBottomLeftRadius: SNA,
   borderBottom: SNA,
   shadow: SNA,
   backgroundColor: SNA,
@@ -158,7 +162,8 @@ const baseProps = {
   opacity: SNA,
   letterSpacing: SNA,
   flexShrink: SNA,
-  boxShadow: SNA
+  boxShadow: SNA,
+  flexGrow: SNA
 }
 
 export default baseProps

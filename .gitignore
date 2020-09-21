@@ -34,5 +34,5 @@ packages/*/node_modules
 lerna-debug.log
 .now
 config/.env
-packages/nuxt-chakra/.github
+packages/chakra-ui-nuxt/.github
 packages/chakra-ui-docs/static/sw.js

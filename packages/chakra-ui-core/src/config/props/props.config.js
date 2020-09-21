@@ -120,6 +120,14 @@ export const config = {
   overflowY: true,
   textTransform: true,
   animation: true,
+  animationDelay: true,
+  animationDirection: true,
+  animationDuration: true,
+  animationFillMode: true,
+  animationIterationCount: true,
+  animationName: true,
+  animationPlayState: true,
+  animationTimingFunction: true,
   appearance: true,
   transform: true,
   transformOrigin: true,
@@ -153,7 +161,9 @@ export const config = {
   },
   outline: true,
   float: true,
-  willChange: true
+  willChange: true,
+  accelerator: true,
+  alignmentBaseline: true
 }
 
 config.bgAttachment = config.backgroundAttachment

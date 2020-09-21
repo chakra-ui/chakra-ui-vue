@@ -1,4 +1,5 @@
 import { background, border, color, borderRadius, flexbox, grid, layout, position, shadow, space, typography, compose } from 'styled-system'
+import _css from '@styled-system/css'
 import { propsConfig } from '../config/props'
 
 /**
@@ -78,3 +79,9 @@ export const systemProps = compose(
   truncate,
   clamp
 )
+
+/** Composes all styled-system css and theme props and returns resolved styles */
+export const composeSystem = (props = {}, theme = {}) => ({
+  ..._css(props)(theme),
+  ...systemProps({ ...props, theme })
+})

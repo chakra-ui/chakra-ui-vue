@@ -173,6 +173,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "be-codified",
+      "name": "Žiga Vukčevič",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10107183?v=4",
+      "profile": "http://www.be-codified.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

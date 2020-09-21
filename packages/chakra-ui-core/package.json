@@ -43,7 +43,6 @@
     "color": "^3.1.2",
     "focus-trap": "^5.1.0",
     "focus-trap-vue": "^0.0.4",
-    "known-css-properties": "^0.20.0",
     "lodash-es": "^4.17.15",
     "portal-vue": "^2.1.6",
     "styled-system": "^5.1.2",

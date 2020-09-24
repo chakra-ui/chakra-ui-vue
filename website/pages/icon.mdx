@@ -95,6 +95,34 @@ Vue.use(Chakra, {
 })
 ```
 
+### In Nuxt.js
+In your `nuxt.config.js` file import the icons you wish to use and add them to the Chakra module options.
+```js
+// Import FontAwesome icons
+import { faGlobeAfrica, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+export default {
+  ...
+  modules: [
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion'
+  ],
+  chakra: {
+    icons: {
+      // Here we state that we use `fa`
+      // icons library for Chakra's
+      // internal icon parser
+      iconPack: 'fa',
+      iconSet: {
+        faGlobeAfrica,
+        faEnvelope
+      }
+    }
+  }
+  ...
+}
+```
+
 ## Adding custom icons
 
 All Chakra icons are registered in the Chakra plugin under the `icons.extend` key. So you

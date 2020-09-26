@@ -162,7 +162,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/15808?v=4",
       "profile": "https://github.com/freality",
       "contributions": [
-        "code"
+        "code",
+        "test"
       ]
     },
     {
@@ -172,6 +173,15 @@
       "profile": "http://www.linkedin.com/in/schalch",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "be-codified",
+      "name": "Žiga Vukčevič",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10107183?v=4",
+      "profile": "http://www.be-codified.com",
+      "contributions": [
+        "doc"
       ]
     }
   ],

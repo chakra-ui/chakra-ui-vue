@@ -69,6 +69,11 @@ storiesOf('UI | Stack', module)
             <c-text>Kitchener, ON, Canada</c-text>
           </c-flex>
           <button>O nankana ani?</button>
+          <div>Raw div element</div>
+          <c-flex align-items="center">
+            <c-icon mr="3" name="sun" />
+            <c-text>Kitchener, ON, Canada</c-text>
+          </c-flex>
         </c-stack>
       </div>
     `

@@ -1,16 +1,50 @@
-import { css } from 'emotion'
+/**
+ * Hey! Welcome to @chakra-ui/vue Stack
+ *
+ * Stack is a layout utility component that makes
+ * it easy to stack elements together and apply a space between them.
+ *
+ * @see Docs     https://vue.chakra-ui.com/stack
+ * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CStack/CStack.js
+ */
+
+import { StringArray, SNA } from '../config/props/props.types'
+import { cloneVNode, createStyledAttrsMixin } from '../utils'
 
 import CFlex from '../CFlex'
-import { createStyledAttrsMixin } from '../utils'
+import CBox from '../CBox'
 
+/**
+ * CStack component
+ *
+ * Flex container to stck it's children
+ *
+ * @extends CFlex
+ * @see Docs https://vue.chakra-ui.com/stack
+ */
 const CStack = {
   name: 'CStack',
   mixins: [createStyledAttrsMixin('CStack')],
   props: {
-    ...CFlex.props,
-    isInline: [Boolean, String, Array],
-    isReversed: [Boolean, String, Array],
-    direction: [Boolean, String, Array]
+    direction: [String, Array],
+    isInline: {
+      type: Boolean,
+      default: false
+    },
+    isReversed: {
+      type: Boolean,
+      default: false
+    },
+    align: StringArray,
+    justify: StringArray,
+    spacing: {
+      type: SNA,
+      default: 2
+    },
+    shouldWrapChildren: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     _isInline () {
@@ -39,28 +73,65 @@ const CStack = {
       }
 
       return _direction
-    },
-    spacingProps () {
-      return this._isInline
-        ? this._isReversed
-          ? { mr: this.spacing, mb: 0 }
-          : { ml: this.spacing, mt: 0 }
-        : this._isReversed
-          ? { mb: this.spacing, mr: 0 }
-          : { mt: this.spacing, ml: 0 }
     }
   },
   render (h) {
+    const children = this.$slots.default.filter(e => e.tag)
+    const stackables = children.map((node, index) => {
+      const isLastChild = children.length === index + 1
+      const spacingProps = this._isInline
+        ? { [this._isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
+        : { [this._isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
+
+      let clone = cloneVNode(node, h)
+
+      if (!clone.componentOptions) {
+        clone = h(CBox, [clone])
+      }
+
+      const { propsData } = clone.componentOptions
+      const { attrs } = clone.data
+
+      // If children nodes should wrap,
+      // we wrap them inside block with
+      // display set to inline block.
+      if (this.shouldWrapChildren) {
+        return h(CBox, {
+          props: {
+            as: this.as,
+            to: this.to
+          },
+          attrs: {
+            d: 'inline-block',
+            ...spacingProps
+          }
+        }, [clone])
+      }
+
+      // Otherwise we simply set spacing props
+      // to current node.
+      clone.componentOptions.propsData = {
+        ...propsData
+      }
+
+      clone.data.attrs = {
+        ...attrs,
+        ...spacingProps
+      }
+
+      return clone
+    })
+
     return h(CFlex, {
-      class: [this.className, css({
-        '& > *:not(template) ~ *:not(template)': this.$chakraSystem(this.spacingProps)
-      })],
+      class: this.className,
       props: {
-        ...this.$props,
+        as: this.as,
+        align: this.align,
+        justify: this.justify,
         direction: this._direction
       },
       attrs: this.computedAttrs
-    }, this.$slots.default)
+    }, stackables)
   }
 }
 

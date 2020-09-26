@@ -29,7 +29,7 @@ describe('CReset.vue', () => {
     const cssResetConfig = (_, defaults) => {
       const { light } = defaults
       return {
-        ...defaults, light: { ...light, bg: 'pink', color: 'indigo' }
+        ...defaults, light: { ...light, bg: 'pink', color: 'indigo', fontFamily: "'Comic Sans MS'" }
       }
     }
 

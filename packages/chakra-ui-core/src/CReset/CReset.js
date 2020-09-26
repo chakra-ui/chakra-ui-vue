@@ -51,7 +51,12 @@ const CReset = {
     }
   },
   props: {
-    config: Function
+    config: {
+      type: Function,
+      validator (value) {
+        return typeof value === 'function'
+      }
+    }
   },
   created () {
     const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]

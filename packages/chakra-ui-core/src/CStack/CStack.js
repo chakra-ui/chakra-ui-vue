@@ -83,7 +83,12 @@ const CStack = {
         ? { [this._isReversed ? 'ml' : 'mr']: isLastChild ? null : this.spacing }
         : { [this._isReversed ? 'mt' : 'mb']: isLastChild ? null : this.spacing }
 
-      const clone = cloneVNode(node, h)
+      let clone = cloneVNode(node, h)
+
+      if (!clone.componentOptions) {
+        clone = h(CBox, [clone])
+      }
+
       const { propsData } = clone.componentOptions
       const { attrs } = clone.data
 

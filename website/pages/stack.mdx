@@ -21,14 +21,14 @@ By default, each item is stacked vertically. Stack clones it's children and pass
 
 ```vue live=true
 <c-stack :spacing="5">
-    <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>See the Vue</c-heading>
-        <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
-    </c-box>
-    <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>Go Nuxt!</c-heading>
-        <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
-    </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>See the Vue</c-heading>
+    <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
+  </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>Go Nuxt!</c-heading>
+    <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
+  </c-box>
 </c-stack>
 ```
 
@@ -40,14 +40,14 @@ Optionally, you can use align and justify to adjust the alignment and distributi
 
 ```vue live=true
 <c-stack :spacing="5" is-inline>
-    <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>See the Vue</c-heading>
-        <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
-    </c-box>
-      <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>Go Nuxt!</c-heading>
-        <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
-    </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>See the Vue</c-heading>
+    <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
+  </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>Go Nuxt!</c-heading>
+    <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
+  </c-box>
 </c-stack>
 ```
 
@@ -57,14 +57,27 @@ Pass the `isReversed` prop or set `direction` to `row-reverse` or `column-revers
 
 ```vue live=true
 <c-stack :spacing="5" is-reversed>
-    <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>See the Vue</c-heading>
-        <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
-    </c-box>
-      <c-box :p="5" shadow="md" border-width="1px">
-        <c-heading>Go Nuxt!</c-heading>
-        <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
-    </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>See the Vue</c-heading>
+    <c-text :mt="4">Vue makes front-end development a breeze.</c-text>
+  </c-box>
+  <c-box :p="5" shadow="md" border-width="1px">
+    <c-heading>Go Nuxt!</c-heading>
+    <c-text :mt="4">Nuxt makes writing Vue even easier.</c-text>
+  </c-box>
+</c-stack>
+```
+
+## Stacking HTML elements
+The `CStack` element is able also to stack HTML elements. Internally it wraps HTML elements inside a `CBox` primitive
+component and spaces it like it would any other Chakra component.
+
+```vue live=true
+<c-stack :spacing="4">
+  <c-text>Chakra component 1</c-text>
+  <p>HTML paragraph element</p>
+  <h3>HTML heading element</h3>
+  <c-text>Chakra component 2</c-text>
 </c-stack>
 ```
 

@@ -9,7 +9,6 @@
  */
 
 import { colorModeObserver } from '../utils/color-mode-observer'
-import { systemProps } from '../utils'
 
 /**
  * CThemeProvider component
@@ -25,9 +24,7 @@ const CThemeProvider = {
        * If no `ColorModeProvider` is provided in children/ consumer app, all chakra
        * components will consume the $chakraColorMode from here.
        */
-      $chakraColorMode: () => 'light',
-
-      $chakraSystem: props => systemProps({ ...props, theme: this.theme })
+      $chakraColorMode: () => 'light'
     }
   },
   computed: {

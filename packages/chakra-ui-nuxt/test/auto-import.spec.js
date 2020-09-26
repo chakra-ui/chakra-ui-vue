@@ -1,11 +1,11 @@
 const { setup, loadConfig, get } = require('@nuxtjs/module-test-utils')
-const customTheme = require('../example/utils/theme')
+const customTheme = require('../example/autoimport/utils/theme')
 
 describe('module', () => {
   let nuxt
 
   beforeAll(async () => {
-    ({ nuxt } = await setup(loadConfig(__dirname, '../../example')))
+    ({ nuxt } = await setup(loadConfig(__dirname, '../../example/autoimport')))
   }, 60000)
 
   afterAll(async () => {

@@ -78,3 +78,6 @@ export const systemProps = compose(
   truncate,
   clamp
 )
+
+/** Composes all styled-system css and theme props and returns resolved styles */
+export const composeSystem = (props = {}, theme = {}) => systemProps({ ...props, theme })

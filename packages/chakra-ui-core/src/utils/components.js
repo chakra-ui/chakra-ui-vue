@@ -1,7 +1,7 @@
 import { css } from 'emotion'
 import __css from '@styled-system/css'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
-import { systemProps } from './styled-system'
+import { composeSystem } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
@@ -74,14 +74,14 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
       const { styleAttrs } = this.splitProps
       if (isPseudo) {
         const { pseudoStyles, baseStyles } = parsePseudoStyles(styleAttrs)
-        const _baseStyles = systemProps({ ...baseStyles, theme: this.theme })
+        const _baseStyles = composeSystem(baseStyles, this.theme)
         const _pseudoStyles = __css(pseudoStyles)(this.theme)
         return css({
           ..._baseStyles,
           ..._pseudoStyles
         })
       }
-      const boxStylesObject = systemProps({ ...styleAttrs, theme: this.theme })
+      const boxStylesObject = composeSystem(styleAttrs, this.theme)
       return css(boxStylesObject)
     },
     /** Computed attributes object */

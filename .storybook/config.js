@@ -2,9 +2,8 @@ import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
 import VueLive from 'vue-live'
 import Lorem from 'vue-lorem-ipsum'
-import Chakra, { CThemeProvider, CColorModeProvider, CReset } from '../packages/chakra-ui-core/src'
+import Chakra from '../packages/chakra-ui-core/src'
 import Canvas from './components/Canvas.vue'
-import theme from '../packages/chakra-ui-core/src/lib/theme'
 import storyBookTheme from './theme'
 
 import {
@@ -75,16 +74,11 @@ addParameters({
 
 addDecorator(() => ({
   template: `
-    <Canvas :theme="theme">
+    <Canvas>
       <story/>
     </Canvas>
   `,
-  data() {
-    return {
-      theme,
-    }
-  },
-  components: { CThemeProvider, CColorModeProvider, CReset, Canvas }
+  components: { Canvas }
 }));
 
 // For playground

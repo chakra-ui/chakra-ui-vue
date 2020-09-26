@@ -103,11 +103,9 @@ export default {
       },
       code: {
         light: {
-          bg: 'orange.100',
-          color: 'orange.800'
+          color: 'orange.600'
         },
         dark: {
-          bg: 'rgba(250, 240, 137, 0.16)',
           color: 'rgb(250, 195, 137)'
         }
       },

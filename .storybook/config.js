@@ -37,6 +37,13 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 Vue.use(Chakra, {
+  extendTheme: {
+    fonts: {
+      heading: "'Comic Sans MS'",
+      body: "'Comic Sans MS'",
+      monospace: "'Comic Sans MS'"
+    }
+  },
   icons: {
     iconPack: 'fa',
     iconSet: {

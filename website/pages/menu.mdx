@@ -109,7 +109,7 @@ the letter you typed.
     py="2"
     transition="all 0.2s"
     rounded="md"
-    borderWidth="1px"
+    border-width="1px"
     :_hover="{ bg: 'gray.100' }"
     :_expanded="{ bg: 'red.100' }"
     :_focus="{ outline: 0, boxShadow: 'outline' }"
@@ -188,23 +188,23 @@ You can compose a menu for table headers to help with sorting and filtering
 options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
 
 ```vue live=true
-<CMenu :closeOnSelect="false">
-  <CMenuButton variantColor="blue">
-    MenuItem
-  </CMenuButton>
-  <CMenuList minWidth="240px">
-    <CMenuOptionGroup defaultValue="asc" title="Order" type="radio">
-      <CMenuItemOption value="asc">Ascending</CMenuItemOption>
-      <CMenuItemOption value="desc">Descending</CMenuItemOption>
-    </CMenuOptionGroup>
-    <CMenuDivider />
-    <CMenuOptionGroup title="Country" type="checkbox">
-      <CMenuItemOption value="email">Email</CMenuItemOption>
-      <CMenuItemOption value="phone">Phone</CMenuItemOption>
-      <CMenuItemOption value="country">Country</CMenuItemOption>
-    </CMenuOptionGroup>
-  </CMenuList>
-</CMenu>
+<c-menu :close-on-select="false">
+  <c-menu-button variant-color="blue">
+    Menu Item
+  </c-menu-button>
+  <c-menu-list min-width="240px">
+    <c-menu-option-group default-value="asc" title="Order" type="radio">
+      <c-menu-item-option value="asc">Ascending</c-menu-item-option>
+      <c-menu-item-option value="desc">Descending</c-menu-item-option>
+    </c-menu-option-group>
+    <c-menu-divider />
+    <c-menu-option-group title="Country" type="checkbox">
+      <c-menu-item-option value="email">Email</c-menu-item-option>
+      <c-menu-item-option value="phone">Phone</c-menu-item-option>
+      <c-menu-item-option value="country">Country</c-menu-item-option>
+    </c-menu-option-group>
+  </c-menu-list>
+</c-menu>
 ```
 
 ## Accessibility

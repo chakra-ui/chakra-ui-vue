@@ -48,6 +48,7 @@ import {
   CBox,
   CIconButton,
   CColorModeProvider } from '../../packages/chakra-ui-core/src'
+
 export default {
   name: 'Canvas',
   components: {

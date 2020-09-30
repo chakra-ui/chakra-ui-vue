@@ -87,6 +87,7 @@ const CInputGroup = {
       attrs: {
         display: 'flex',
         position: 'relative',
+        zIndex: 0,
         ...data.attrs,
         'data-chakra-component': 'CInputGroup'
       }

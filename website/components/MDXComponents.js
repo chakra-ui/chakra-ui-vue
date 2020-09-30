@@ -109,7 +109,7 @@ const MDXComponents = {
     name: 'InlineCode',
     render () {
       return (
-        <CCode variant-color="orange" font-weight="bold" px="1" rounded="md" fontSize="0.84em" {...props}>
+        <CCode variant-color="orange" bg="transparent" font-weight="bold" px="1" rounded="md" fontSize="0.84em" {...props}>
           {this.$slots.default}
         </CCode>
       )

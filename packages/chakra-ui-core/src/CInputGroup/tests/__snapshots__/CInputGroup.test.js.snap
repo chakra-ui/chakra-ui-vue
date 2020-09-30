@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-15frdhg"
+    data-chakra-component="CInputGroup"
+  >
+    <div
+      class="css-rbouvx"
+      color="gray.300"
+      data-chakra-component="CInputLeftElement"
+      fontsize="1.2em"
+    >
+      ¥
+    </div>
+    <input
+      class="css-lr9hjy"
+      data-chakra-component="CInput"
+      placeholder="Enter amount"
+    />
+    <div
+      class="css-wqp70x"
+      data-chakra-component="CInputRightElement"
+    >
+      <svg
+        class="css-12j51pv css-3vopgu css-7w9hf9"
+        data-chakra-component="CIcon"
+        role="presentation"
+        viewBox="0 0 14 14"
+      >
+        
+      
+        <g
+          fill="currentColor"
+        >
+          
+        
+          <polygon
+            points="5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039"
+          />
+          
+      
+        </g>
+        
+    
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

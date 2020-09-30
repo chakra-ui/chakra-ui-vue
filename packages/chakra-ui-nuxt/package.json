@@ -12,13 +12,14 @@
   "files": ["lib"],
   "main": "lib/module.js",
   "scripts": {
-    "dev": "nuxt example",
+    "dev": "nuxt example/base",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version",
     "test": "jest"
   },
   "dependencies": {
     "@chakra-ui/vue": "^0.6.5",
+    "chakra-loader": "latest",
     "emotion": "^10.0.27"
   },
   "peerDependencies": {

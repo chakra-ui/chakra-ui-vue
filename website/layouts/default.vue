@@ -93,20 +93,22 @@ export default {
         light: {
           bg: 'rgb(254, 235, 200)',
           color: 'black',
-          borderLeft: '4px solid rgb(221, 107, 32)'
+          borderLeft: '4px solid rgb(221, 107, 32)',
+          rounded: 'md'
         },
         dark: {
           bg: 'rgba(251, 211, 141, 0.16)',
           color: 'inherit',
-          borderLeft: '4px solid rgb(251, 211, 141);'
+          borderLeft: '4px solid rgb(251, 211, 141);',
+          rounded: 'md'
         }
       },
       code: {
         light: {
-          color: 'orange.600'
+          color: 'indigo.500'
         },
         dark: {
-          color: 'rgb(250, 195, 137)'
+          color: 'indigo.100'
         }
       },
       MDXComponents

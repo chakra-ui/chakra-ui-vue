@@ -44,7 +44,7 @@ module.exports = {
 ```
 ### With `webpack.config.js`
 ```js
-/* webkack.config.js */
+/* webpack.config.js */
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { ChakraLoaderPlugin } = require('chakra-loader')
@@ -59,12 +59,37 @@ module.exports = {
 ```
 
 ### With Nuxt.js
+As of `@chakra-ui/nuxt@0.1.0`, you can enable and disable component auto-import using the `chakra.config.autoImport: {Boolean}` property of your `nuxt.config.js` file.
+
+> This change is only supported for `@chakra-ui/nuxt@^0.1.0`. We recommend upgrading your Nuxt module version to `^0.1.0`.
+
+```js
+/* nuxt.config.js */
+
+export default {
+  // ...
+  chakra: {
+    config: {
+      /**
+       * Setting this value to false disables
+       * component auto-import in your Vue templates
+       * @type {Boolean}
+       **/
+      autoImport: true
+    }
+  }
+}
+```
+
+For older versions of `@chakra-ui/nuxt`, you can enable component auto importing yourself:
+
 ```js
 /* nuxt.config.js */
 
 import { ChakraLoaderPlugin } from 'chakra-loader'
 
 export default {
+  // ...
   build: {
     extend(config) {
       config.plugins.push(
@@ -74,6 +99,8 @@ export default {
   }
 }
 ```
+
+
 
 ## How it works
 `ChakraLoaderPlugin` will analyse your SFC template at during development and at build time, and scan it for all Chakra UI Vue components that you consume in it. The loader will then proceed to automatically import those components and register them while preserving treeshaking.

@@ -6,7 +6,7 @@ describe('module', () => {
 
   beforeAll(async () => {
     ({ nuxt } = await setup(loadConfig(__dirname, '../../example/autoimport')))
-  }, 60000)
+  }, 120000)
 
   afterAll(async () => {
     await nuxt.close()

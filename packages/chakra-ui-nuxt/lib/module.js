@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const defu = require('defu')
 const { defaultTheme } = require('@chakra-ui/vue')
+const { ChakraLoaderPlugin } = require('chakra-loader')
 const { parsePackIcons } = require('@chakra-ui/vue/src/utils/icons')
 const internalIcons = require('@chakra-ui/vue/src/lib/internal-icons')
 const { createServerDirective } = require('@chakra-ui/vue/src/directives/chakra.directive')
@@ -9,6 +10,9 @@ module.exports = function (moduleOptions) {
   const { nuxt } = this
 
   const options = {
+    config: {
+      autoImport: true
+    },
     ...this.options.chakra,
     ...moduleOptions
   }
@@ -41,6 +45,15 @@ module.exports = function (moduleOptions) {
     ...internalIcons.default,
     ...packIcons,
     ...(options.icons && options.icons.extend)
+  }
+
+  // Auto-import components
+  if (options.config.autoImport) {
+    this.extendBuild((config) => {
+      config.plugins.push(
+        new ChakraLoaderPlugin()
+      )
+    })
   }
 
   // Global bindings and plugins

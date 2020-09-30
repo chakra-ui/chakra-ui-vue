@@ -15,13 +15,15 @@ const defaultConfig = theme => ({
     color: theme.colors.gray[800],
     bg: undefined,
     borderColor: theme.colors.gray[200],
-    placeholderColor: theme.colors.gray[400]
+    placeholderColor: theme.colors.gray[400],
+    fontFamily: theme.fonts.body
   },
   dark: {
     color: theme.colors.whiteAlpha[900],
     bg: theme.colors.gray[800],
     borderColor: theme.colors.whiteAlpha[300],
-    placeholderColor: theme.colors.whiteAlpha[400]
+    placeholderColor: theme.colors.whiteAlpha[400],
+    fontFamily: theme.fonts.body
   }
 })
 
@@ -51,16 +53,22 @@ const CReset = {
     }
   },
   props: {
-    config: Function
+    config: {
+      type: Function,
+      validator (value) {
+        return typeof value === 'function'
+      }
+    }
   },
   created () {
-    const { color, bg, borderColor, placeholderColor } = this.styleConfig[this.colorMode]
+    const { color, bg, borderColor, placeholderColor, fontFamily } = this.styleConfig[this.colorMode]
     useTailwindPreflight(this.theme)
     injectGlobal({
       html: {
         lineHeight: 1.5,
         color,
-        backgroundColor: bg
+        backgroundColor: bg,
+        fontFamily
       },
 
       '*, *::before, *::after': {

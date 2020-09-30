@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.1.0
+
+### Minor Changes
+**🌟 New features**
+- feat: add autoImport to @chakra-ui/nuxt module options #326
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.6
+
 ## 0.0.13
 
 ### Patch Changes

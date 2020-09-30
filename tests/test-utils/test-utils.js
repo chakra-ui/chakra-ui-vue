@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 
 import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
 import theme from '@/packages/chakra-ui-core/src/lib/theme'
+
 const defaultProviders = options => ({
   $chakraTheme: () => theme,
   $chakraColorMode: () => 'light',

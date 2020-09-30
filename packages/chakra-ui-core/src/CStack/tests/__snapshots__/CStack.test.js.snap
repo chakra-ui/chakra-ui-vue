@@ -146,3 +146,46 @@ exports[`should render correctly 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`should should stack native html elements 1`] = `
+<DocumentFragment>
+  <div
+    class="css-j7qwjs css-0"
+    data-chakra-component="CStack"
+    data-testid="stack"
+  >
+    <p
+      class="css-16ec2e8"
+      data-chakra-component="CText"
+    >
+      The future can be even brighter but a goal without a plan is just a wish
+    </p>
+    <div
+      class="css-cet0rr"
+      data-chakra-component="CBox"
+    >
+      <p
+        data-testid="stacked-p"
+      >
+        I am a happy paragraph element
+      </p>
+    </div>
+    <div
+      class="css-cet0rr"
+      data-chakra-component="CBox"
+    >
+      <h3
+        data-testid="stacked-h3"
+      >
+        I am a jolly heading element
+      </h3>
+    </div>
+    <p
+      class="css-18iq2bq"
+      data-chakra-component="CText"
+    >
+      You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
+    </p>
+  </div>
+</DocumentFragment>
+`;

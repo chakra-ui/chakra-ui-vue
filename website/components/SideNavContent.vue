@@ -1,14 +1,14 @@
 <template>
-  <CBox
+  <c-box
     v-bind="$attrs"
     p="3"
     :color="colorMode === 'light' ? 'gray.600': 'whiteAlpha.700'"
   >
-    <CHeading size="xs" color="gray.400" letter-spacing="wide" mb="2" text-transform="uppercase">
+    <c-heading size="xs" color="gray.400" letter-spacing="wide" mb="2" text-transform="uppercase">
       Getting Started
-    </CHeading>
-    <CBox v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
-      <CPseudoBox
+    </c-heading>
+    <c-box v-for="(link, index) in topNavLinks" :key="`${index}-getting-started`">
+      <c-pseudo-box
         as="nuxt-link"
         :to="link.path"
         p="0.2rem"
@@ -30,9 +30,9 @@
         text-decoration="none"
       >
         {{ link.name }}
-      </CPseudoBox>
-    </CBox>
-    <CHeading
+      </c-pseudo-box>
+    </c-box>
+    <c-heading
       size="xs"
       color="gray.400"
       letter-spacing="wide"
@@ -41,9 +41,9 @@
       text-transform="uppercase"
     >
       About Chakra UI Vue
-    </CHeading>
-    <CBox v-for="(link, index) in aboutNavLinks" :key="`${index}-about-chakra`">
-      <CPseudoBox
+    </c-heading>
+    <c-box v-for="(link, index) in aboutNavLinks" :key="`${index}-about-chakra`">
+      <c-pseudo-box
         as="nuxt-link"
         :to="link.path"
         p="0.2rem"
@@ -65,9 +65,9 @@
         transition="background-color,transform 0.15s ease-in"
       >
         {{ link.name }}
-      </CPseudoBox>
-    </CBox>
-    <CHeading
+      </c-pseudo-box>
+    </c-box>
+    <c-heading
       size="xs"
       color="gray.400"
       letter-spacing="wide"
@@ -76,8 +76,8 @@
       text-transform="uppercase"
     >
       Tooling
-    </CHeading>
-    <CPseudoBox
+    </c-heading>
+    <c-pseudo-box
       v-for="(link, index) in toolingLinks"
       :key="`${index}-tooling`"
       as="nuxt-link"
@@ -101,8 +101,8 @@
       :color="$route.path === link.path ? 'vue.700' : 'inherit'"
     >
       {{ link.name }}
-    </CPseudoBox>
-    <CHeading
+    </c-pseudo-box>
+    <c-heading
       size="xs"
       color="gray.400"
       letter-spacing="wide"
@@ -111,8 +111,8 @@
       text-transform="uppercase"
     >
       Components
-    </CHeading>
-    <CPseudoBox
+    </c-heading>
+    <c-pseudo-box
       v-for="(link, index) in componentLinks"
       :key="`${index}-components`"
       as="nuxt-link"
@@ -136,8 +136,8 @@
       :color="$route.path === link.path ? 'vue.700' : 'inherit'"
     >
       {{ link.name }}
-    </CPseudoBox>
-  </CBox>
+    </c-pseudo-box>
+  </c-box>
 </template>
 
 <script>
@@ -148,9 +148,7 @@ import { components as componentLinks, topNavLinks, aboutNavLinks, toolingLinks 
 export default {
   name: 'SideNavContent',
   components: {
-    CBox,
-    CHeading,
-    CPseudoBox
+    CBox, CHeading, CPseudoBox
   },
   inheritAttrs: false,
   inject: ['$chakraColorMode'],

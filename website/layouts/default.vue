@@ -1,21 +1,21 @@
 <template>
   <div class="container">
     <client-only>
-      <VueSkipTo to="#main-content" label="Skip to main content" />
+      <vue-skip-to to="#main-content" label="Skip to main content" />
     </client-only>
-    <MDXProvider :components="MDXComponents">
-      <CThemeProvider>
-        <CColorModeProvider v-slot="{ colorMode }">
-          <CBox
+    <MDXProvider :components="MdxComponents">
+      <c-theme-provider>
+        <c-color-mode-provider v-slot="{ colorMode }">
+          <c-box
             font-family="body"
             :bg="colorMode === 'light' ? 'white' : 'gray.800'"
             :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
           >
-            <CReset />
-            <Navbar />
-            <CFlex max-h="calc(100vh - 60px)">
-              <Sidebar />
-              <CBox
+            <c-reset />
+            <navbar />
+            <c-flex max-h="calc(100vh - 60px)">
+              <sidebar />
+              <c-box
                 id="main-content"
                 ref="docContainer"
                 v-chakra="{
@@ -34,16 +34,16 @@
                 font-family="body"
               >
                 <keep-alive>
-                  <Nuxt id="page-content" />
+                  <nuxt id="page-content" />
                 </keep-alive>
                 <Footer v-if="$route.path === '/'" />
-                <FileContributors />
-                <BottomLink v-if="$route.path !== '/'" />
-              </CBox>
-            </CFlex>
-          </CBox>
-        </CColorModeProvider>
-      </CThemeProvider>
+                <file-contributors />
+                <bottom-link v-if="$route.path !== '/'" />
+              </c-box>
+            </c-flex>
+          </c-box>
+        </c-color-mode-provider>
+      </c-theme-provider>
     </MDXProvider>
   </div>
 </template>
@@ -59,7 +59,7 @@ import {
 import { css } from 'emotion'
 import { MDXProvider } from 'mdx-vue'
 
-import MDXComponents from '../components/MDXComponents'
+import MdxComponents from '../components/MDXComponents'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
@@ -111,7 +111,7 @@ export default {
           color: 'indigo.100'
         }
       },
-      MDXComponents
+      MdxComponents
     }
   },
   metaInfo () {

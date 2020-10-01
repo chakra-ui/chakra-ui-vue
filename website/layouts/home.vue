@@ -1,24 +1,24 @@
 <template>
   <div class="container">
     <client-only>
-      <VueSkipTo to="#main-content" label="Skip to main content" />
+      <vue-skip-to to="#main-content" label="Skip to main content" />
     </client-only>
-    <CThemeProvider>
-      <CColorModeProvider v-slot="{ colorMode }">
-        <CBox
+    <c-theme-provider>
+      <c-color-mode-provider v-slot="{ colorMode }">
+        <c-box
           font-family="body"
           as="main"
           :bg="colorMode === 'light' ? 'white' : 'gray.800'"
           :color="colorMode === 'light' ? 'black' : 'whiteAlpha.900'"
         >
-          <CReset />
-          <Navbar />
-          <CBox as="main" :px="[4, 10, '12rem']">
-            <Nuxt />
-          </CBox>
-        </CBox>
-      </CColorModeProvider>
-    </CThemeProvider>
+          <c-reset />
+          <navbar />
+          <c-box as="main" :px="[4, 10, '12rem']">
+            <nuxt />
+          </c-box>
+        </c-box>
+      </c-color-mode-provider>
+    </c-theme-provider>
   </div>
 </template>
 <script>

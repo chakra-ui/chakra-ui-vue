@@ -19,11 +19,11 @@ describe('module', () => {
 
   test('renders ThemeProvider component', async () => {
     const html = await get('/')
-    expect(html).toContain('data-chakra-component="CThemeProvider"')
+    expect(html).toContain('data-chakra-component="c-theme-provider"')
   })
 
   test('should accept extended variables nuxt config', async () => {
     const html = await get('/')
-    expect(html).toContain(`data-test-custom-theme-color="${customTheme.colors.brand[200]}`)
+    expect(html).toContain(`data-test-custom-theme-color="${customTheme.colors.brand[200]}"`)
   })
 })

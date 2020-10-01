@@ -1,32 +1,32 @@
 <template>
-  <CBox
+  <c-box
     as="header"
     pos="relative"
   >
-    <CFlex
+    <c-flex
       :px="[8, 8]"
       :py="10"
       :h="['auto', 'auto', '60vh']"
       align-items="center"
       justify-content="center"
     >
-      <CFlex
+      <c-flex
         flex-dir="column"
         :align-items="['flex-start', 'center']"
         justify-content="center"
         :text-align="['left', 'center']"
         w="550px"
       >
-        <CHeading as="h1">
+        <c-heading as="h1">
           Build Accessible Vue apps with Speed ⚡️
-        </CHeading>
-        <CText mt="4" mb="6">
+        </c-heading>
+        <c-text mt="4" mb="6">
           Chakra UI is a simple modular and accessible component library that gives you the building blocks to build Vue applications with speed.
-        </CText>
-        <CFlex
+        </c-text>
+        <c-flex
           flex-dir="row"
         >
-          <CButton
+          <c-button
             as="nuxt-link"
             text-decoration="none"
             to="/getting-started"
@@ -35,8 +35,8 @@
             size="lg"
           >
             Get started
-          </CButton>
-          <CButton
+          </c-button>
+          <c-button
             as="a"
             text-decoration="none"
             href="https://github.com/codebender828/kiwi-ui"
@@ -47,9 +47,9 @@
             size="lg"
           >
             Github
-          </CButton>
-        </CFlex>
-        <CLink
+          </c-button>
+        </c-flex>
+        <c-link
           :color="colorMode === 'light' ? 'gray.600' : 'gray.50'"
           mt="4"
           font-size="sm"
@@ -58,22 +58,17 @@
           href="https://chakra-ui.com/"
         >
           Looking for React.js version?
-        </CLink>
-      </CFlex>
-    </CFlex>
-  </CBox>
+        </c-link>
+      </c-flex>
+    </c-flex>
+  </c-box>
 </template>
 
 <script>
 import { CFlex, CBox, CHeading, CButton, CText, CLink } from '@chakra-ui/vue'
 export default {
   components: {
-    CFlex,
-    CHeading,
-    CButton,
-    CText,
-    CBox,
-    CLink
+    CFlex, CBox, CHeading, CButton, CText, CLink
   },
   inject: ['$chakraColorMode'],
   computed: {

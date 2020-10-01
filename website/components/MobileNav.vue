@@ -1,6 +1,6 @@
 <template>
-  <CFragment>
-    <CIconButton
+  <c-fragment>
+    <c-icon-button
       :display="['inline-flex', 'inline-flex', 'none']"
       aria-label="Navigation Menu"
       font-size="20px"
@@ -8,16 +8,16 @@
       icon="bars"
       @click="toggleMenu"
     />
-    <CDrawer size="xs" :is-open="isOpen" placement="left" :on-close="handleClose">
-      <CDrawerOverlay />
-      <CDrawerContent>
-        <CDrawerBody pos="relative" p="0" overflow-y="scroll" h="100vh">
-          <CCloseButton pos="absolute" top="4" right="4" @click="handleClose" />
-          <SideNavContent content-height="100vh" top="0" />
-        </CDrawerBody>
-      </CDrawerContent>
-    </CDrawer>
-  </CFragment>
+    <c-drawer size="xs" :is-open="isOpen" placement="left" :on-close="handleClose">
+      <c-drawer-overlay />
+      <c-drawer-content>
+        <c-drawer-body pos="relative" p="0" overflow-y="scroll" h="100vh">
+          <c-close-button pos="absolute" top="4" right="4" @click="handleClose" />
+          <side-nav-content content-height="100vh" top="0" />
+        </c-drawer-body>
+      </c-drawer-content>
+    </c-drawer>
+  </c-fragment>
 </template>
 
 <script>

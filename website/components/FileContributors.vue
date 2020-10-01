@@ -1,17 +1,17 @@
 <template>
-  <CBox
+  <c-box
     pt="10"
     pb="20"
   >
-    <CHeading as="h3" font-size="xl">
+    <c-heading as="h3" font-size="xl">
       ❤️  Contribute to this page
-    </CHeading>
-    <CText my="4">
-      Caught a mistake or want to contribute to the documentation? <CLink :href="`https://github.com/chakra-ui/chakra-ui-vue/blob/master/${filePath}`">
+    </c-heading>
+    <c-text my="4">
+      Caught a mistake or want to contribute to the documentation? <c-link :href="`https://github.com/chakra-ui/chakra-ui-vue/blob/master/${filePath}`">
         Edit this page on GitHub!
-      </CLink>
-    </CText>
-  </CBox>
+      </c-link>
+    </c-text>
+  </c-box>
 </template>
 
 <script>

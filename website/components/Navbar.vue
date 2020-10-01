@@ -1,5 +1,5 @@
 <template>
-  <CBox
+  <c-box
     as="nav"
     h="60px"
     px="4"
@@ -7,10 +7,10 @@
     align-items="center"
     shadow="sm"
   >
-    <CLink as="nuxt-link" w="130px" to="/" font-weight="bold" font-size="1.2rem">
-      <Logo />
-    </CLink>
-    <CBadge
+    <c-link as="nuxt-link" w="130px" to="/" font-weight="bold" font-size="1.2rem">
+      <logo />
+    </c-link>
+    <c-bagde
       variant-color="vue"
       variant="solid"
       font-size="0.9em"
@@ -20,20 +20,20 @@
       text-transform="lowercase"
     >
       v{{ version }}
-    </CBadge>
-    <AlgoliaSearch ml="auto" />
-    <CBox
+    </c-bagde>
+    <algolia-search ml="auto" />
+    <c-box
       as="ul"
       :color="colorMode === 'light' ? 'gray.500' : 'whiteAlpha.900'"
       d="flex"
       align-items="center"
       list-style-type="none"
     >
-      <CBox :display="['none', 'none', 'block']" as="li" mr="2">
+      <c-box :display="['none', 'none', 'block']" as="li" mr="2">
         <span id="github-star-button" />
-      </CBox>
-      <CBox as="li" mr="2">
-        <CIconButton
+      </c-box>
+      <c-box as="li" mr="2">
+        <c-icon-button
           as="a"
           variant="ghost"
           variant-color="gray"
@@ -42,9 +42,9 @@
           href="https://github.com/chakra-ui/chakra-ui-vue"
           icon="github"
         />
-      </CBox>
-      <CBox as="li" mr="2">
-        <CIconButton
+      </c-box>
+      <c-box as="li" mr="2">
+        <c-icon-button
           as="a"
           variant="ghost"
           variant-color="gray"
@@ -53,9 +53,9 @@
           href="https://discord.gg/sq2Kp6x"
           icon="discord"
         />
-      </CBox>
-      <CBox as="li">
-        <CIconButton
+      </c-box>
+      <c-box as="li">
+        <c-icon-button
           v-chakra="{
             'svg': {
               w: '12px',
@@ -68,14 +68,14 @@
           :icon="colorMode === 'light' ? 'moon' : 'sun'"
           @click="$toggleColorMode"
         />
-      </CBox>
+      </c-box>
       <MobileNav />
-    </CBox>
-  </CBox>
+    </c-box>
+  </c-box>
 </template>
 
 <script>
-import { CBox, CLink, CIconButton, CBadge } from '@chakra-ui/vue'
+import { CBox, CLink, CIconButton, CBagde } from '@chakra-ui/vue'
 import { version } from '@chakra-ui/vue/package.json'
 import Logo from './Logo.vue'
 import MobileNav from './MobileNav.vue'
@@ -87,9 +87,9 @@ export default {
   components: {
     CBox,
     CLink,
-    CBadge,
-    Logo,
     CIconButton,
+    CBagde,
+    Logo,
     MobileNav,
     AlgoliaSearch
   },

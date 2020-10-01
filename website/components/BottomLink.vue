@@ -1,25 +1,25 @@
 <template>
   <div v-show="visible === true">
-    <CFlex justify="space-between" pb="20">
+    <c-flex justify="space-between" pb="20">
       <div>
-        <CLink v-if="prevName" as="router-link" class="link" :to="prevPath">
+        <c-link v-if="prevName" as="router-link" class="link" :to="prevPath">
           <c-button left-icon="chevron-left" border-color="green.500" variant-color="green" variant="outline">
             {{ prevName }}
           </c-button>
-        </CLink>
+        </c-link>
         <div v-else />
       </div>
 
       <div>
-        <CLink v-if="nextName" as="router-link" class="link" :to="nextPath">
+        <c-link v-if="nextName" as="router-link" class="link" :to="nextPath">
           <c-button right-icon="chevron-right" border-color="green.500" variant-color="green" variant="outline">
             {{ nextName }}
           </c-button>
-        </CLink>
+        </c-link>
 
         <div v-else />
       </div>
-    </CFlex>
+    </c-flex>
   </div>
 </template>
 
@@ -65,13 +65,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .link {
-    &:focus {
-      box-shadow: none;
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
+.link {
+  &:focus {
+    box-shadow: none;
   }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
 </style>

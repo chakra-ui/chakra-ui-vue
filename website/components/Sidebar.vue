@@ -1,5 +1,5 @@
 <template>
-  <CBox
+  <c-box
     as="nav"
     p="4"
     :display="['none', null, 'block']"
@@ -10,8 +10,8 @@
     h="calc(100vh - 60px)"
     overflow-y="scroll"
   >
-    <SideNavContent />
-  </CBox>
+    <side-nav-content />
+  </c-box>
 </template>
 
 <script>

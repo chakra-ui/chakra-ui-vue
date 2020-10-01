@@ -4,7 +4,7 @@
       <slot name="preview" />
     </div>
     <div class="editor-panel">
-      <CButton
+      <c-button
         chakra-copy-button
         variant-color="vue"
         position="absolute"
@@ -15,7 +15,7 @@
         transform="scale(0.8)"
       >
         Copy
-      </CButton>
+      </c-button>
       <div
         class="editable-example-notice"
       >

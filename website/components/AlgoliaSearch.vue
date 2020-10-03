@@ -36,6 +36,8 @@
     as="form"
     v-bind="$attrs"
     align="center"
+    position="relative"
+    z-index="1"
     @submit.prevent
   >
     <c-input-group>

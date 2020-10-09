@@ -61,3 +61,22 @@ new Vue({
 }).$mount()
 ```
 
+### In Nuxt.js
+In your nuxt.config.js file, you can then add your custom theme object by passing it in the `extendTheme` option.
+
+```js
+// Import your customTheme object
+import customTheme from 'custom-theme.js'
+export default {
+  ...
+  modules: [
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion'
+  ],
+  chakra: {
+      extendTheme: customTheme
+    }
+  }
+  ...
+}
+```

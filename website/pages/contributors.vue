@@ -88,6 +88,14 @@ export default {
         website: 'https://mesut.dev',
         contributions: 'Testing & Code',
         nationality: '🇹🇷'
+      },
+      {
+        name: 'Dom Bavetta',
+        github: 'https://github.com/dombavetta',
+        twitter: 'https://twitter.com/dombavetta',
+        website: 'https://dombavetta.dev',
+        contributions: 'Documentation & Issue Triage',
+        nationality: '🇺🇸'
       }]
     }
   }

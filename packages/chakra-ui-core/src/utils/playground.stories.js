@@ -1,7 +1,7 @@
 /* eslint import/namespace: [2, { allowComputed: true }] */
 import { storiesOf } from '@storybook/vue'
 import Vue from 'vue'
-import CodeBlock from '../../../../website/components/CodeBlock.js'
+import { MDXCodeBlock } from '../../../../website/components/code-block'
 import * as ChakraComponents from '..'
 
 Object.keys(ChakraComponents).forEach((key) => {
@@ -18,7 +18,9 @@ Object.keys(ChakraComponents).forEach((key) => {
 
 storiesOf('Playground', module)
   .add('New', () => ({
-    components: { CodeBlock: CodeBlock({ live: true, lang: 'vue', className: 'lang-vue' }) },
+    components: {
+      CodeBlock: MDXCodeBlock({ live: true, lang: 'vue', className: 'lang-vue' })
+    },
     template: `
       <c-box max-w="500px" h="100vh" mt="200px">
         <h2 v-chakra font-weight="bold" font-size="xl">Chakra UI Vue Playground ⚡️</h2>

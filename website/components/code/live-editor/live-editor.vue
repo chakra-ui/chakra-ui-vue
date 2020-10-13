@@ -1,10 +1,14 @@
+<script>
 import copy from 'copy-to-clipboard'
 import Layout from './live-editor-layout.vue'
 
-const LiveEditor = {
+export default {
   name: 'LiveEditor',
   props: {
-    code: String
+    code: {
+      type: String,
+      default: null
+    }
   },
   data () {
     return {
@@ -13,6 +17,13 @@ const LiveEditor = {
       copyButton: null,
       error: null,
       codeText: undefined
+    }
+  },
+  watch: {
+    codeText (newVal, oldVal) {
+      if (this.error && (newVal !== oldVal)) {
+        this.error = null
+      }
     }
   },
   async mounted () {
@@ -33,13 +44,6 @@ const LiveEditor = {
       codeInput.addEventListener('input', (e) => {
         this.codeText = e.srcElement.textContent
       })
-    }
-  },
-  watch: {
-    codeText (newVal, oldVal) {
-      if (this.error && (newVal !== oldVal)) {
-        this.error = null
-      }
     }
   },
   methods: {
@@ -83,5 +87,4 @@ const LiveEditor = {
     ])
   }
 }
-
-export default LiveEditor
+</script>

@@ -1,7 +1,7 @@
 /* eslint import/namespace: [2, { allowComputed: true }] */
 import { storiesOf } from '@storybook/vue'
 import Vue from 'vue'
-import { MDXCodeBlock } from '../../../../website/components/code-block'
+import { MDXCodeBlock } from '../../../../website/components/code'
 import * as ChakraComponents from '..'
 
 Object.keys(ChakraComponents).forEach((key) => {

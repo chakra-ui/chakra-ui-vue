@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import Css from '../Css'
 import { kebabify, extractChakraAttrs } from '../utils'
 

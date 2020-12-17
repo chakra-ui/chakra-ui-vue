@@ -20,7 +20,7 @@
   "dependencies": {
     "@chakra-ui/vue": "^0.6.6",
     "chakra-loader": "latest",
-    "emotion": "^10.0.27"
+    "@emotion/css": "^11.0.0"
   },
   "peerDependencies": {
     "@nuxtjs/emotion": "^0.0.1"

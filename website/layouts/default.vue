@@ -56,7 +56,7 @@ import {
   CFlex,
   Css
 } from '@chakra-ui/vue'
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { MDXProvider } from 'mdx-vue'
 
 import MDXComponents from '../components/MDXComponents'

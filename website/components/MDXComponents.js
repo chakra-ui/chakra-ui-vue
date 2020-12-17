@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { CHeading, CBox, Css, CPseudoBox, CCode, CText } from '@chakra-ui/vue'
 import { MDXCodeBlock } from './code'
 import { stringToUrl } from '~/utils'

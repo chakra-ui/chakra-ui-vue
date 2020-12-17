@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import __css from '@styled-system/css'
 import { parsePseudoStyles } from '../CPseudoBox/utils'
 import { composeSystem } from './styled-system'

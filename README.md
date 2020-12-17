@@ -54,18 +54,18 @@ Head over here => https://vue.chakra-ui.com
   - [Storybook Components](#storybook-components)
   - [Development for Contributing:](#development-for-contributing)
     - [Related](#related)
-- [Contributors ✨](#contributors)
+- [Contributors ✨](#contributors-)
 
 ## Installation
 
 ```bash
-yarn add @chakra-ui/vue emotion
+yarn add @chakra-ui/vue @emotion/css
 ```
 
 or
 
 ```bash
-npm install @chakra-ui/vue emotion
+npm install @chakra-ui/vue @emotion/css
 ```
 
 <a id="nuxt-usage"></a>
@@ -74,7 +74,7 @@ npm install @chakra-ui/vue emotion
 > If you're using Nuxt, you need to install `@nuxtjs/emotion` package as well to server-side render your styles.
 
 ```bash
-yarn add @chakra-ui/vue emotion @nuxtjs/emotion
+yarn add @chakra-ui/vue @emotion/css @nuxtjs/emotion
 ```
 
 ## Usage

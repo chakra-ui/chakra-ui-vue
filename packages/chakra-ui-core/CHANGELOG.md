@@ -1,14 +1,22 @@
 # Change Log
 
+## 0.7.0-next.0
+
+### Minor Changes
+
+- Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
 ## 0.6.6
 
 ### Patch Changes
 
 **🌟 New features**
+
 - feat: include all known css properties #319
 - feat(CStack): allow stack html elements #324
 
 **🛠 Bug fixes**
+
 - fix(creset): include font-family to global styles #323
 - fix(inputgroup): default inputgroup z-index to containing element zindex #325
 - Documentation fixes #329, #328, #321

@@ -1,9 +1,22 @@
 # Change Log
 
+## 0.2.0-next.0
+
+### Minor Changes
+
+- Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.0
+
 ## 0.1.0
 
 ### Minor Changes
+
 **🌟 New features**
+
 - feat: add autoImport to @chakra-ui/nuxt module options #326
 
 ### Patch Changes

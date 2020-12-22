@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.0-next.1
+
+### Patch Changes
+
+- Upgraded to @nuxtjs/emotion@^0.1.0
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.1
+
 ## 0.2.0-next.0
 
 ### Minor Changes

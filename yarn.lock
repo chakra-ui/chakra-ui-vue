@@ -2047,7 +2047,7 @@
     global-agent "^2.0.2"
     global-tunnel-ng "^2.7.1"
 
-"@emotion/babel-plugin@^11.0.0":
+"@emotion/babel-plugin@^11.0.0", "@emotion/babel-plugin@^11.1.2":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.1.2.tgz#68fe1aa3130099161036858c64ee92056c6730b7"
   integrity sha512-Nz1k7b11dWw8Nw4Z1R99A9mlB6C6rRsCtZnwNUOj4NsoZdrO2f2A/83ST7htJORD5zpOiLKY59aJN23092949w==
@@ -2161,6 +2161,16 @@
     "@emotion/unitless" "^0.7.5"
     "@emotion/utils" "^1.0.0"
     csstype "^3.0.2"
+
+"@emotion/server@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion/server/-/server-11.0.0.tgz#bec7fbaa139f42ce7bb3c8dc7f96c96e2fa02f77"
+  integrity sha512-2iyQf841Ir//9EmXk4L35gZJxl4T8q9pmKPQIj9JmM9mkaHpIu1P2ZrWuQ7cxFZc7HU230vNvnY9pAk17nRDKA==
+  dependencies:
+    "@emotion/utils" "^1.0.0"
+    html-tokenize "^2.0.0"
+    multipipe "^1.0.2"
+    through "^2.3.8"
 
 "@emotion/sheet@0.9.4":
   version "0.9.4"
@@ -2305,13 +2315,6 @@
   version "5.13.0"
   resolved "https://npm.fontawesome.com/@fortawesome/free-solid-svg-icons/-/5.13.0/free-solid-svg-icons-5.13.0.tgz#44d9118668ad96b4fd5c9434a43efc5903525739"
   integrity sha512-IHUgDJdomv6YtG4p3zl1B5wWf9ffinHIvebqQOmV3U+3SLw4fC+LUCCgwfETkbTtjy5/Qws2VoVf6z/ETQpFpg==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.28"
-
-"@fortawesome/pro-light-svg-icons@^5.11.2":
-  version "5.13.0"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/5.13.0/pro-light-svg-icons-5.13.0.tgz#f531e5a39e7a3e033b615292561f9b96bf0dfeed"
-  integrity sha512-zi7rrtH7qpJ8o4qQQ3NS31eLQUG2To3jeOqkTjdmA9dpQKRw5eJ/G4Q1YxQIXQohxSY85rc1JuTzFoRiCqmElg==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.28"
 
@@ -3864,6 +3867,15 @@
     emotion "^10.0.7"
     emotion-server "^10.0.7"
 
+"@nuxtjs/emotion@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/emotion/-/emotion-0.1.0.tgz#1785c8b96f39f6e01210d96d8dd50f3ed4a0f1bb"
+  integrity sha512-4CZnmwIVnWAMBK4mV5KgLBMeMuCPFmNgKg6nBucbDTazYBXV8omSj3wJSvKHZRYzUoJHQBASQxyePTQFFabPrQ==
+  dependencies:
+    "@emotion/babel-plugin" "^11.1.2"
+    "@emotion/css" "^11.0.0"
+    "@emotion/server" "^11.0.0"
+
 "@nuxtjs/eslint-config@^2.0.0", "@nuxtjs/eslint-config@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-config/-/eslint-config-2.0.2.tgz#ff521ee1c0b875ac340f17ed656db213b6af854e"
@@ -3906,6 +3918,17 @@
   integrity sha512-uNWp0AXYkBIcOejpYgZ4A4ZAoZB+Lmpb8HcITgZVswETirwtdzUGKodRyrmkK4EK7Esm+NAA++HtfMi0qB0Ghw==
   dependencies:
     "@nuxt/types" "^0.6.4"
+    clone-deep "^4.0.1"
+    deepmerge "^4.2.2"
+    get-port "^5.1.1"
+    request "^2.88.2"
+    request-promise-native "^1.0.8"
+
+"@nuxtjs/module-test-utils@latest":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/module-test-utils/-/module-test-utils-1.6.3.tgz#478de4d98591c4f8ff654a3eeab83b457c473534"
+  integrity sha512-xvA76WP+A96rmsfNlBO4m548vob0sy9Tjp3/pXLLm/l1fMGCGrqoqoyEd5ioJ+69QiWjVoSv5iBw5Ff4K16y3Q==
+  dependencies:
     clone-deep "^4.0.1"
     deepmerge "^4.2.2"
     get-port "^5.1.1"
@@ -10461,7 +10484,7 @@ emotion-theming@^10.0.19:
     "@emotion/weak-memoize" "0.2.5"
     hoist-non-react-statics "^3.3.0"
 
-emotion@^10.0.27, emotion@^10.0.7:
+emotion@^10.0.7:
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.27.tgz#f9ca5df98630980a23c819a56262560562e5d75e"
   integrity sha512-2xdDzdWWzue8R8lu4G76uWX5WhyQuzATon9LmNeCy/2BHVC6dsEpfhN1a0qhELgtDVdjyEA6J8Y/VlI5ZnaH0g==

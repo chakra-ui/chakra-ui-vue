@@ -21,18 +21,13 @@ import {
   faCog,
   faLock,
   faEye,
+  faChevronCircleUp,
+  faSearch,
+  faTimesCircle,
   faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 import {
-  faChevronCircleUp,
-  faSearch,
-  faTimesCircle } from '@fortawesome/pro-light-svg-icons'
-
-import {
-  faGithub
-} from '@fortawesome/free-brands-svg-icons'
-
-import {
+  faGithub,
   faDiscord
 } from '@fortawesome/free-brands-svg-icons'
 

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0-next.1
+
+### Patch Changes
+
+- Upgraded to @nuxtjs/emotion@^0.1.0
+
 ## 0.7.0-next.0
 
 ### Minor Changes

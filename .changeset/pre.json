@@ -8,6 +8,7 @@
     "chakra-ui-docs": "0.5.2"
   },
   "changesets": [
+    "four-rabbits-warn",
     "warm-birds-arrive"
   ]
 }

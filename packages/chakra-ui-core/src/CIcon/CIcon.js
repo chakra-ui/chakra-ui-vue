@@ -74,6 +74,7 @@ const CIcon = {
     return h(Svg, {
       class: this.className,
       attrs: {
+        ...this.icon.attrs || {},
         w: this.size,
         h: this.size,
         color: this.color,

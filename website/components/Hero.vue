@@ -30,7 +30,7 @@
             as="nuxt-link"
             text-decoration="none"
             to="/getting-started"
-            left-icon="bolt"
+            left-icon="star"
             variant-color="vue"
             size="lg"
           >

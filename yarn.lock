@@ -11745,10 +11745,10 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-feather-icons-paths@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/feather-icons-paths/-/feather-icons-paths-1.0.6.tgz#e0d1815dc51a43979baf5198d88ca6e353429313"
-  integrity sha512-w2uVXUQDgI2PS2h4yKwxRuHyoAhKOz85pbr7f9d3DDFY4fQLNx92ctumWUhwoydHhRJ07uOFtle3sRj5Ywyw8w==
+feather-icons-paths@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/feather-icons-paths/-/feather-icons-paths-1.0.8.tgz#5cd68b6a1eb22b1ec08a8b2eaaf05a345cb216e4"
+  integrity sha512-B07o6Vtx3ATZDbsdx6jyYEXEmsn7Rwl0tT80657DL3kHf9Fo4Jncun3nxjZjNHbhKmd44wFXH269kU893E1DhQ==
 
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   version "3.5.2"

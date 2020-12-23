@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0-next.2
+
+### Patch Changes
+
+- Added support for feather-icons to Chakr aUI Vue
+
 ## 0.7.0-next.1
 
 ### Patch Changes

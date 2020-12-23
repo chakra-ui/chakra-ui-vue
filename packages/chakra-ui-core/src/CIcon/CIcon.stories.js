@@ -10,6 +10,7 @@ storiesOf('UI | Icon', module)
         <CIcon name="email" mx="2" color="indigo.400" size="5" />
         <CIcon name="phone" mx="2" color="green.400" size="6" />
         <CIcon name="anchor" mx="2" color="red.400" size="10" />
+        <CIcon name="activity" mx="2" color="red.400" size="10" />
       </div>
     `
   }))

@@ -31,10 +31,17 @@ import {
   faDiscord
 } from '@fortawesome/free-brands-svg-icons'
 
+import {
+  feActivity,
+  feAirplay,
+  feCloudRain
+} from 'feather-icons-paths'
+
 Vue.use(Chakra, {
   icons: {
     iconPack: 'fa',
     iconSet: {
+      feActivity,
       faBraille,
       faAnchor,
       faPlus,
@@ -54,7 +61,9 @@ Vue.use(Chakra, {
       faCog,
       faLock,
       faEye,
-      faEyeSlash
+      faEyeSlash,
+      feAirplay,
+      feCloudRain
     }
   }
 })

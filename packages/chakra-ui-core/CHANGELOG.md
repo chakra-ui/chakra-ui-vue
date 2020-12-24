@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 8715f8c: Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
+### Patch Changes
+
+- 6b21ca5: Upgraded to @nuxtjs/emotion@^0.1.0
+- 98ccc9f: Added support for feather-icons to Chakr aUI Vue
+- eb47ac5: Removes UMD builds for Chakra UI Vue
+
 ## 0.7.0-next.3
 
 ### Patch Changes

@@ -8,6 +8,7 @@ import {
   fePlay,
   feExternalLink,
   feGlobe,
+  feGithub,
   feMenu,
   feLinkedin,
   feSearch,
@@ -49,7 +50,8 @@ Vue.use(Chakra.default, {
       feEdit,
       feSettings,
       feTwitter,
-      feCoffee
+      feCoffee,
+      feGithub
     },
     extend: {
       storybook: {

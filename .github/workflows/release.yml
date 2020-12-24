@@ -5,57 +5,58 @@ name: Build & Test Components
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+    paths:
+      - "packages/**"
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: yarn
-    - run: yarn bootstrap
-    - run: yarn lint
-    - run: yarn build --if-present
-    - run: yarn test
-      env:
-        CI: true
   release:
     name: Release
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: 12.x
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v1
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install Dependencies
-        run: yarn
-      - name: Create Release Pull Request
-        uses: changesets/action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn build
-      - run: yarn publish-ci
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Checkout Repo
+      uses: actions/checkout@master
+      with:
+        # This makes Actions fetch all Git history
+        # so that Changesets can generate changelogs with the correct commits
+        fetch-depth: 0
 
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Bootstrap
+      run: yarn bootstrap
+
+    - name: Linting
+      run: yarn lint
+
+    - name: Testing components
+      run: yarn test
+      env:
+        CI: true
+
+    - name: Building packages
+      run: yarn build --if-present
+
+    - name: Setup CI Git User
+      run: |
+        git config --global user.email "jbakebwa@gmail.com"
+        git config --global user.name "codebender828"
+    
+    - name: Publish packages
+      uses: changesets/action@master
+      with:
+        publish: yarn release
+        commit: "chore(release): version packages"
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}    

@@ -30,7 +30,7 @@
     "test:core": "jest",
     "test:module": "yarn workspace @chakra-ui/nuxt test",
     "test": "yarn test:core && yarn test:module",
-    "publish-ci": "git add -A && git commit -m \"chore(lerna): publishing package \" && lerna publish from-package -y --no-verify-access",
+    "publish-ci": "changeset publish",
     "clean": "lerna run clean",
     "storybook": "cross-env STORYBOOK_VUE_DEV_TOOLS=1 start-storybook -p 9000",
     "storybook:devtools": "vue-devtools",

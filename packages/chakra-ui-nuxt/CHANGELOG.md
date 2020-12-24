@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- Improve publishing workflow
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.1
+
 ## 0.2.0
 
 ### Minor Changes

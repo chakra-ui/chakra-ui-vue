@@ -1709,24 +1709,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chakra-ui/vue@latest":
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/vue/-/vue-0.6.6.tgz#1c34797a509e396aa75a6e2b875eff81a4e5f6f8"
-  integrity sha512-Ss7+Ht0KW0RBfh4R2IjGPZ64Pjvc+oQFjezLhV0UTskiNHRHzgLKwKy6A8UzN7mcydGkjXpRvT6GGZvoGQe9ZQ==
-  dependencies:
-    "@popperjs/core" "^2.4.0"
-    "@styled-system/css" "^5.0.23"
-    animejs "^3.1.0"
-    aria-hidden "^1.1.1"
-    breadstick "^0.2.14"
-    color "^3.1.2"
-    focus-trap "^5.1.0"
-    focus-trap-vue "^0.0.4"
-    lodash-es "^4.17.15"
-    portal-vue "^2.1.6"
-    styled-system "^5.1.2"
-    v-scroll-lock "^1.1.0"
-
 "@changesets/apply-release-plan@^3.0.1":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-3.0.2.tgz#e8f77518f065181717cc998d60b9dcaeb7387870"
@@ -3915,6 +3897,13 @@
   dependencies:
     consola "^2.10.1"
     eslint-loader "^3.0.0"
+
+"@nuxtjs/google-analytics@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.4.0.tgz#3bb9f398a05cc23340d1f423f8d8653dc4114f46"
+  integrity sha512-rDQTwHIjyjVrx8GywHPuWykJ3jRFGaHl5Iqji/y8tQWUc0yGEeHxOoR0yimzxnTS1Ph2/PubQYpgnVeEPEdL/A==
+  dependencies:
+    vue-analytics "^5.22.1"
 
 "@nuxtjs/module-test-utils@^1.6.1":
   version "1.6.1"
@@ -17163,11 +17152,6 @@ mixme@^0.3.1:
   resolved "https://registry.yarnpkg.com/mixme/-/mixme-0.3.5.tgz#304652cdaf24a3df0487205e61ac6162c6906ddd"
   integrity sha512-SyV9uPETRig5ZmYev0ANfiGeB+g6N2EnqqEfBbCGmmJ6MgZ3E4qv5aPbnHVdZ60KAHHXV+T3sXopdrnIXQdmjQ==
 
-mixpanel-browser@^2.36.0:
-  version "2.36.0"
-  resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.36.0.tgz#2a7c042309c9eeac520c6bc87295fcd05e74599b"
-  integrity sha512-5MJvMYsfkRKGtNsCnJeODYWqhtyT3BSK2XoO0Oy9+fLSEvPLTBbNDSlP6xCBeWeBb2CmCmqWnweheVTT1ls78g==
-
 mkdirp-classic@^0.5.2:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
@@ -23751,6 +23735,11 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
+vue-analytics@^5.22.1:
+  version "5.22.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
+  integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
 vue-client-only@^2.0.0:
   version "2.0.0"

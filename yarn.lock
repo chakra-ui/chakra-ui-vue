@@ -1709,6 +1709,24 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@chakra-ui/vue@latest":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/vue/-/vue-0.6.6.tgz#1c34797a509e396aa75a6e2b875eff81a4e5f6f8"
+  integrity sha512-Ss7+Ht0KW0RBfh4R2IjGPZ64Pjvc+oQFjezLhV0UTskiNHRHzgLKwKy6A8UzN7mcydGkjXpRvT6GGZvoGQe9ZQ==
+  dependencies:
+    "@popperjs/core" "^2.4.0"
+    "@styled-system/css" "^5.0.23"
+    animejs "^3.1.0"
+    aria-hidden "^1.1.1"
+    breadstick "^0.2.14"
+    color "^3.1.2"
+    focus-trap "^5.1.0"
+    focus-trap-vue "^0.0.4"
+    lodash-es "^4.17.15"
+    portal-vue "^2.1.6"
+    styled-system "^5.1.2"
+    v-scroll-lock "^1.1.0"
+
 "@changesets/apply-release-plan@^3.0.1":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-3.0.2.tgz#e8f77518f065181717cc998d60b9dcaeb7387870"
@@ -2117,6 +2135,11 @@
     "@emotion/serialize" "^1.0.0"
     "@emotion/sheet" "^1.0.0"
     "@emotion/utils" "^1.0.0"
+
+"@emotion/eslint-plugin@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion/eslint-plugin/-/eslint-plugin-11.0.0.tgz#7666b750df62dc33a93bb1e09086f1caaecadc6f"
+  integrity sha512-V5w/LgV61xta+U6LKht3WQqfjTLueU2mh1aRTcK5OfkRhZ4OZFE0Inq/oVwLCq5g3Hzoaq27PRm+Tk9W18QScw==
 
 "@emotion/hash@0.8.0", "@emotion/hash@^0.8.0":
   version "0.8.0"

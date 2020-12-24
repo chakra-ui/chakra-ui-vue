@@ -23,7 +23,6 @@ const parseIcons = (iconSet) => {
         }
       }
     } else {
-      console.log(iconObject)
       return {}
     }
   }

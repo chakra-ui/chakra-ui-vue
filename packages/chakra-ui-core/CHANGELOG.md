@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0-next.3
+
+### Patch Changes
+
+- Removes UMD builds for Chakra UI Vue
+
 ## 0.7.0-next.2
 
 ### Patch Changes

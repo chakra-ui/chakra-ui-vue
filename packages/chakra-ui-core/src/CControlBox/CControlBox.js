@@ -14,7 +14,7 @@
  * @see Strategy https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036
  */
 
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import __css from '@styled-system/css'
 import { tx } from '../utils'
 import CBox from '../CBox'

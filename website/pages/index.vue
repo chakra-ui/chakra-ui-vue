@@ -74,7 +74,7 @@
               h="50px"
               rounded="full"
             >
-              <CIcon size="25px" name="cubes" />
+              <CIcon size="25px" name="box" />
             </CFlex>
             <CHeading as="h4" size="md">
               Composable

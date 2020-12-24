@@ -1,14 +1,52 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 8715f8c: Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
+### Patch Changes
+
+- 6b21ca5: Upgraded to @nuxtjs/emotion@^0.1.0
+- 98ccc9f: Added support for feather-icons to Chakr aUI Vue
+- eb47ac5: Removes UMD builds for Chakra UI Vue
+
+## 0.7.0-next.3
+
+### Patch Changes
+
+- Removes UMD builds for Chakra UI Vue
+
+## 0.7.0-next.2
+
+### Patch Changes
+
+- Added support for feather-icons to Chakr aUI Vue
+
+## 0.7.0-next.1
+
+### Patch Changes
+
+- Upgraded to @nuxtjs/emotion@^0.1.0
+
+## 0.7.0-next.0
+
+### Minor Changes
+
+- Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
 ## 0.6.6
 
 ### Patch Changes
 
 **🌟 New features**
+
 - feat: include all known css properties #319
 - feat(CStack): allow stack html elements #324
 
 **🛠 Bug fixes**
+
 - fix(creset): include font-family to global styles #323
 - fix(inputgroup): default inputgroup z-index to containing element zindex #325
 - Documentation fixes #329, #328, #321

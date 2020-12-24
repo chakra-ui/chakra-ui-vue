@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.0
+
 ## 0.5.2
 
 ### Patch Changes

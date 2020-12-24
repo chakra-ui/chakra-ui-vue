@@ -1,4 +1,5 @@
 import SEO from '../components/SEO'
+import { CodeGroup, CodeTab } from '~/components/code'
 
 <SEO
   title="Using UI with Nuxt.js"
@@ -14,9 +15,16 @@ import SEO from '../components/SEO'
 With Nuxt.js we need to install the [`@nuxtjs/emotion`](https://github.com/nuxt-community/emotion-module) package to enable your component
 styles to be generated and injected in the server build.
 
-```bash
-yarn add @chakra-ui/nuxt @nuxtjs/emotion
-```
+<br/>
+
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add @chakra-ui/nuxt @nuxtjs/emotion
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install @chakra-ui/nuxt @nuxtjs/emotion
+  </CodeTab>
+</CodeGroup>
 
 ## Registering the Chakra module
 We then register the Chakra UI module in the `modules` key of our `nuxt.config.js`.

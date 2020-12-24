@@ -50,8 +50,8 @@ const Chakra = {
     let packIcons = {}
     const extendedIcons = options.icons ? options.icons.extend || {} : {}
 
-    if (options.icons && options.icons.iconPack) {
-      packIcons = parsePackIcons(options.icons.iconPack, options.icons.iconSet)
+    if (options.icons) {
+      packIcons = parsePackIcons(options.icons.iconSet)
     }
 
     const icons = {

@@ -30,7 +30,7 @@ storiesOf('UI | List', module)
             Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
           </CListItem>
           <CListItem>
-            <CListIcon icon="cog" color="green.300" />
+            <CListIcon icon="settings" color="green.300" />
             Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
           </CListItem>
         </CList>

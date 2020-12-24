@@ -8,6 +8,10 @@ storiesOf('UI | IconButton', module)
     template: `
       <div>
         <CIconButton aria-label="Phone" variant-color="blue" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="phone" />
+        <CIconButton aria-label="Map" variant-color="orange" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="map" />
+        <CIconButton aria-label="Upload" variant-color="pink" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="server" />
+        <CIconButton aria-label="Send" variant-color="green" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="send" />
+        <CIconButton aria-label="Discord" @click="onClick" @mouseover="onMouseover" @mouseleave="onMouseleave" icon="discord" />
       </div>
     `,
     methods: {

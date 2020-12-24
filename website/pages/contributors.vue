@@ -44,7 +44,7 @@
           is-external
           :href="person.website"
         >
-          <c-icon name="globe-africa" />
+          <c-icon name="globe" />
         </c-link>
       </c-box>
     </c-box>

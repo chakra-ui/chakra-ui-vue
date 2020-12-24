@@ -14,9 +14,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['12.x']
     steps:
     - name: Checkout Repo
       uses: actions/checkout@master
@@ -25,10 +22,10 @@ jobs:
         # so that Changesets can generate changelogs with the correct commits
         fetch-depth: 0
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 12.x
       uses: actions/setup-node@master
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 12.x
 
     - name: Install dependencies
       run: yarn

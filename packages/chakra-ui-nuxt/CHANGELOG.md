@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.2
+
+### Patch Changes
+
+- 5db9572: Export utils
+- Updated dependencies [5db9572]
+- Updated dependencies [5db9572]
+  - @chakra-ui/vue@0.7.2
+
 ## 0.2.2-next.0
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.7.2-next.0
+
+### Patch Changes
+
+- Fix build for nuxt.js
+- Export utils
+
 ## 0.7.1
 
 ### Patch Changes

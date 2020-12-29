@@ -10,6 +10,8 @@ storiesOf('UI | Icon', module)
         <CIcon name="email" mx="2" color="indigo.400" size="5" />
         <CIcon name="phone" mx="2" color="green.400" size="6" />
         <CIcon name="anchor" mx="2" color="red.400" size="10" />
+        <CIcon name="cloud-rain" mx="2" color="blue.400" size="4" />
+        <CIcon name="airplay" mx="2" color="blue.400" size="4" />
       </div>
     `
   }))
@@ -17,7 +19,7 @@ storiesOf('UI | Icon', module)
     components: { CIcon },
     template: `
       <div>
-        <CIcon name="ambulance" color="blue.400" size="10" />
+        <CIcon name="shopping-bag" color="blue.400" size="10" />
       </div>
     `
   }))

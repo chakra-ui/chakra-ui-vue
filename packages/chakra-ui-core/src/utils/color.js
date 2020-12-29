@@ -1,5 +1,5 @@
 import Color from 'color'
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { isDef } from './validators'
 
 /**

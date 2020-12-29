@@ -9,7 +9,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CProgess/accessibility.md
  */
 
-import { css, keyframes } from 'emotion'
+import { css, keyframes } from '@emotion/css'
 import CBox from '../CBox'
 import { generateStripe, valueToPercent, createStyledAttrsMixin } from '../utils'
 

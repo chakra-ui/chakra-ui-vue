@@ -9,7 +9,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CTag/CTag.js
  */
 
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { useVariantColorWarning, extractListeners } from '../utils'
 import useBadgeStyle from '../CBadge/utils/badge.styles'
 

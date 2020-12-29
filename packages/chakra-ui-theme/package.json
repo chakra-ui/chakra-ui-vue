@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/theme-vue",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Default theme for @chakra-ui/vue default theme object",
   "author": {
     "name": "Jonathan Bakebwa",

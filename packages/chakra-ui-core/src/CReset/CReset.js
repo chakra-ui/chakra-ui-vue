@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CReset/CReset.js
  */
 
-import { injectGlobal } from 'emotion'
+import { injectGlobal } from '@emotion/css'
 import { useTailwindPreflight } from './preflight'
 
 const defaultConfig = theme => ({

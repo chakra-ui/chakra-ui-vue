@@ -1,4 +1,4 @@
-import { keyframes } from 'emotion'
+import { keyframes } from '@emotion/css'
 import { createStyledAttrsMixin } from '../utils'
 
 import CVisuallyHidden from '../CVisuallyHidden'

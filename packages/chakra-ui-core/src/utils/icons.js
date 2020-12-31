@@ -5,7 +5,7 @@ import { merge } from 'lodash-es'
  * @param {Object} iconSet - Registered Icons object
  * @returns {Object}
  */
-const parseIcons = (iconSet) => {
+const parseIcons = (iconSet = {}) => {
   const parseIcon = (iconObject) => {
     const { icon } = iconObject
     // Is library icon
@@ -43,7 +43,7 @@ const parseIcons = (iconSet) => {
 export const parsePackIcons = (iconSet) => {
   // TODO: Add support for other icon libraries
   // - Material Icons
-  // - Tailwind Icons
+  // - Tailwind Icons (Hero icons)
   const packIcons = parseIcons(iconSet)
   return packIcons
 }

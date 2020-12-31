@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.2.3
+
+### Patch Changes
+
+- e7fd349: Fixes registration of internal icons
+  - @chakra-ui/vue@0.7.3
+
 ## 0.2.3-next.0
 
 ### Patch Changes

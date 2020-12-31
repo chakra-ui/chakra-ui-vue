@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.4
+
+### Patch Changes
+
+- @chakra-ui/vue@0.7.3
+- @chakra-ui/theme-vue@0.2.9
+
 ## 0.5.3
 
 ### Patch Changes

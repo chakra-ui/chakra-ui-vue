@@ -5,10 +5,10 @@ name: Release
 
 on:
   push:
-    branches:
-      - master
     paths:
       - "packages/**"
+    branches:
+      - master
 
 jobs:
   release:
@@ -28,10 +28,8 @@ jobs:
         node-version: 12.x
 
     - name: Install dependencies
-      run: yarn
+      run: yarn install --frozen-lockfile && yarn bootstrap
 
-    - name: Bootstrap
-      run: yarn bootstrap
 
     - name: Linting
       run: yarn lint
@@ -46,8 +44,8 @@ jobs:
 
     - name: Setup CI Git User
       run: |
-        git config --global user.email "jbakebwa@gmail.com"
         git config --global user.name "codebender828"
+        git config --global user.email "jbakebwa@163.com"
     
     - name: Publish packages
       uses: changesets/action@master
@@ -56,4 +54,4 @@ jobs:
         commit: "chore(release): version packages"
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}    
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.3-next.0
+
+### Patch Changes
+
+- Fixes registration of internal icons
+
 ## 0.2.2
 
 ### Patch Changes

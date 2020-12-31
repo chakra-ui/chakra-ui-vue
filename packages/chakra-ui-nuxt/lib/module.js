@@ -39,7 +39,7 @@ module.exports = function (moduleOptions) {
 
   // Icons
   const icons = {
-    ...internalIcons.default,
+    ...internalIcons,
     ...packIcons,
     ...(options.icons && options.icons.extend)
   }

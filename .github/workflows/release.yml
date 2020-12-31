@@ -28,8 +28,10 @@ jobs:
         node-version: 12.x
 
     - name: Install dependencies
-      run: yarn install --frozen-lockfile && yarn bootstrap
-
+      run: yarn install
+      
+    - name: Bootstrap
+      run: yarn bootstrap
 
     - name: Linting
       run: yarn lint

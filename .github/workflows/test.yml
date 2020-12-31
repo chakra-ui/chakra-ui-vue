@@ -1,15 +1,14 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build & Test Components
+name: PR Workflow
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
-  push:
-    branches:
-      - develop
   pull_request:
+    branches:
+      - master
+      - develop
+  push:
     branches:
       - develop
 
@@ -20,15 +19,24 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn
-    - run: yarn bootstrap
-    - run: yarn lint
-    - run: yarn build --if-present
-    - run: yarn test
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile && yarn bootstrap
+
+    - name: Lint types and code
+      run: yarn lint
+
+    - name: Build packages
+      run: yarn build
+
+    - name: Run tests
+      run: yarn test
       env:
         CI: true

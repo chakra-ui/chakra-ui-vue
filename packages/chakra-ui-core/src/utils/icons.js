@@ -1,4 +1,4 @@
-import merge from 'lodash-es/merge'
+import { merge } from 'lodash-es'
 
 /**
  * @description Custom parse all Icons provided by user

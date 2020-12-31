@@ -1,10 +1,9 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "description": "Build Accessible and Responsive Vue.js websites and applications with speed ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
   "maintainers": [
     "Jonathan Bakebwa <jonas@akkadu-team.com>"

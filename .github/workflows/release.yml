@@ -5,8 +5,8 @@ name: Release
 
 on:
   push:
-    paths:
-      - "packages/**"
+    # paths:
+    #   - "packages/**"
     branches:
       - master
 

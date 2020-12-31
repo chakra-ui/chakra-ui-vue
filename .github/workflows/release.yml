@@ -28,21 +28,19 @@ jobs:
         node-version: 12.x
 
     - name: Install dependencies
-      run: yarn install
-      
-    - name: Bootstrap
-      run: yarn bootstrap
+      run: yarn install --frozen-lockfile && yarn bootstrap
+
 
     - name: Linting
       run: yarn lint
+
+    - name: Building packages
+      run: yarn build
 
     - name: Testing components
       run: yarn test
       env:
         CI: true
-
-    - name: Building packages
-      run: yarn build --if-present
 
     - name: Setup CI Git User
       run: |

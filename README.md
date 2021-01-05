@@ -170,7 +170,7 @@ Interested in contributing? See our [open issues](https://github.com/chakra-ui/c
 
 ```bash
 yarn install
-yarn bootstrap
+yarn build && yarn bootstrap
 yarn dev
 ```
 

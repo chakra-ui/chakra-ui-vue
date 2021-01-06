@@ -108,6 +108,7 @@
     "@babel/plugin-transform-parameters": "^7.7.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/runtime-corejs2": "^7.8.7",
+    "@changesets/changelog-github": "^0.2.7",
     "@changesets/cli": "^2.7.1",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",

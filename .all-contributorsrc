@@ -192,7 +192,8 @@
       "contributions": [
         "doc",
         "content",
-        "example"
+        "example",
+        "code"
       ]
     }
   ],

@@ -69,7 +69,7 @@ const MDXComponents = {
     name: 'H1',
     render () {
       return (
-        <CHeading as="h1" size="2xl" my="1em" { ...props}>
+        <CHeading as="h1" id="chakra-documentation-title" size="2xl" my="1em" { ...props}>
           {this.$slots.default}
         </CHeading>
       )

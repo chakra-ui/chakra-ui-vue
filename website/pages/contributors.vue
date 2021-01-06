@@ -8,6 +8,8 @@
       Special thanks to these people that helped contribute towards Chakra UI Vue.
     </c-text>
 
+    <carbon-ad />
+
     <c-box>
       <c-box v-for="(person, _i) in contributors" :key="_i" bb="1px solid" border-color="gray.200" p="3">
         <c-text font-weight="bold" mt="3" font-size="1.3rem">

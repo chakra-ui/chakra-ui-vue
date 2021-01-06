@@ -3,10 +3,10 @@
   "changelog": [
     "@changesets/changelog-github",
     { "repo": "chakra-ui/chakra-ui-vue" }
-    ],
+  ],
   "commit": false,
   "linked": [],
-  "access": "restricted",
+  "access": "public",
   "baseBranch": "master",
   "updateInternalDependencies": "patch"
 }

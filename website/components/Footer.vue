@@ -49,7 +49,7 @@
         }"
         color="gray.400"
       >
-        <CIcon name="envelope" size="20px" />
+        <CIcon name="email" size="20px" />
       </CLink>
       <CLink
         href="https://jbakebwa.dev"
@@ -60,7 +60,7 @@
         }"
         color="gray.400"
       >
-        <CIcon name="globe-africa" size="20px" />
+        <CIcon name="globe" size="20px" />
       </CLink>
     </CStack>
   </CFlex>

@@ -9,7 +9,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CIcon/CIcon.js
  */
 
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import iconPaths from '../lib/internal-icons'
 import { createStyledAttrsMixin } from '../utils'
 import { iconProps } from './utils/icon.props'
@@ -74,6 +74,7 @@ const CIcon = {
     return h(Svg, {
       class: this.className,
       attrs: {
+        ...this.icon.attrs || {},
         w: this.size,
         h: this.size,
         color: this.color,

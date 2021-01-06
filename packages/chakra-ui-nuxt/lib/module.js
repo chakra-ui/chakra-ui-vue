@@ -1,14 +1,15 @@
 const { resolve } = require('path')
 const defu = require('defu')
-const { defaultTheme } = require('@chakra-ui/vue')
-const { parsePackIcons } = require('@chakra-ui/vue/src/utils/icons')
-const internalIcons = require('@chakra-ui/vue/src/lib/internal-icons')
-const { createServerDirective } = require('@chakra-ui/vue/src/directives/chakra.directive')
+const { defaultTheme, parsePackIcons, internalIcons, createServerDirective } = require('@chakra-ui/vue')
+const { ChakraLoaderPlugin } = require('chakra-loader')
 
 module.exports = function (moduleOptions) {
   const { nuxt } = this
 
   const options = {
+    config: {
+      autoImport: true
+    },
     ...this.options.chakra,
     ...moduleOptions
   }
@@ -19,7 +20,7 @@ module.exports = function (moduleOptions) {
   // Resolve icons
   let packIcons = {}
   if (options.icons && options.icons.iconPack) {
-    packIcons = parsePackIcons(options.icons.iconPack, options.icons.iconSet)
+    packIcons = parsePackIcons(options.icons.iconSet)
   }
 
   // Transpile lodash-es
@@ -38,9 +39,18 @@ module.exports = function (moduleOptions) {
 
   // Icons
   const icons = {
-    ...internalIcons.default,
+    ...internalIcons,
     ...packIcons,
     ...(options.icons && options.icons.extend)
+  }
+
+  // Auto-import components
+  if (options.config.autoImport) {
+    this.extendBuild((config) => {
+      config.plugins.push(
+        new ChakraLoaderPlugin()
+      )
+    })
   }
 
   // Global bindings and plugins

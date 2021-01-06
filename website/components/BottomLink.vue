@@ -60,7 +60,6 @@ export default {
     this.prevName = prev.name
     this.nextPath = next.path
     this.nextName = next.name
-    console.log(this.prevName, this.nextName)
   }
 }
 </script>

@@ -3,7 +3,10 @@ module.exports = {
   env: {
     node: true
   },
-  plugins: ['testing-library'],
+  plugins: [
+    'testing-library',
+    '@emotion'
+  ],
   extends: [
     'plugin:vue/essential',
     '@vue/standard',
@@ -28,7 +31,8 @@ module.exports = {
         ]
       }
     ],
-    'template-curly-spacing': 0
+    'template-curly-spacing': 0,
+    '@emotion/pkg-renaming': 'error'
   },
   parserOptions: {
     parser: 'babel-eslint'

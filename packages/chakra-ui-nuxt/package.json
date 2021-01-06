@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/nuxt",
-  "version": "0.0.13",
+  "version": "0.2.3",
   "description": "Chakra UI Module for Nuxt.js",
   "repository": "https://github.com/chakra-ui/chakra-ui-vue",
   "license": "MIT",
@@ -12,17 +12,18 @@
   "files": ["lib"],
   "main": "lib/module.js",
   "scripts": {
-    "dev": "nuxt example",
+    "dev": "nuxt example/base",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version",
     "test": "jest"
   },
   "dependencies": {
-    "@chakra-ui/vue": "^0.6.5",
-    "emotion": "^10.0.27"
+    "@chakra-ui/vue": "^0.7.3",
+    "chakra-loader": "latest",
+    "@emotion/css": "^11.0.0"
   },
   "peerDependencies": {
-    "@nuxtjs/emotion": "^0.0.1"
+    "@nuxtjs/emotion": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -30,7 +31,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@nuxtjs/eslint-config": "^2.0.2",
-    "@nuxtjs/module-test-utils": "^1.6.1",
+    "@nuxtjs/module-test-utils": "latest",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.5.1",
     "core-js": "2",

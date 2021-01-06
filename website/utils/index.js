@@ -21,7 +21,6 @@ export const removeHyphenFromString = (hyphenatedString) => {
 }
 
 export const findNextAndPrevRoute = (path) => {
-  console.log(path)
   const orderedRoutes = [...topNavLinks, ...aboutNavLinks, ...components]
 
   let isValidRoutePath = false
@@ -33,8 +32,6 @@ export const findNextAndPrevRoute = (path) => {
     }
     extractedRoutes.push({ name: singleRoute, path: urlString })
   })
-
-  console.log(isValidRoutePath)
   if (isValidRoutePath === false) {
     return { prev: '', next: '' }
   }

@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import Css from '../Css'
 import { kebabify, extractChakraAttrs } from '../utils'
 
@@ -63,7 +63,6 @@ export function createServerDirective (theme) {
 export function createClientDirective (theme) {
   function applyClientStyles (el, binding, vnode) {
     const { styleAttrs } = extractChakraAttrs(vnode.data.attrs)
-    // console.log({ styleAttrs, nativeAttrs })
     const className = css(Css(styleAttrs)(theme))
     el.classList.add(className)
     purifyAttrs(el, styleAttrs)

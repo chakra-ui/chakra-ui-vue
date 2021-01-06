@@ -1,5 +1,100 @@
 # Change Log
 
+## 0.2.3
+
+### Patch Changes
+
+- e7fd349: Fixes registration of internal icons
+  - @chakra-ui/vue@0.7.3
+
+## 0.2.3-next.0
+
+### Patch Changes
+
+- Fixes registration of internal icons
+
+## 0.2.2
+
+### Patch Changes
+
+- 5db9572: Export utils
+- Updated dependencies [5db9572]
+- Updated dependencies [5db9572]
+  - @chakra-ui/vue@0.7.2
+
+## 0.2.2-next.0
+
+### Patch Changes
+
+- Export utils
+- Updated dependencies [undefined]
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.2-next.0
+
+## 0.2.1
+
+### Patch Changes
+
+- Improve publishing workflow
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.1
+
+## 0.2.0
+
+### Minor Changes
+
+- 8715f8c: Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
+### Patch Changes
+
+- 6b21ca5: Upgraded to @nuxtjs/emotion@^0.1.0
+- 98ccc9f: Added support for feather-icons to Chakr aUI Vue
+- Updated dependencies [6b21ca5]
+- Updated dependencies [98ccc9f]
+- Updated dependencies [eb47ac5]
+- Updated dependencies [8715f8c]
+  - @chakra-ui/vue@0.7.0
+
+## 0.2.0-next.2
+
+### Patch Changes
+
+- Added support for feather-icons to Chakr aUI Vue
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.2
+
+## 0.2.0-next.1
+
+### Patch Changes
+
+- Upgraded to @nuxtjs/emotion@^0.1.0
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.1
+
+## 0.2.0-next.0
+
+### Minor Changes
+
+- Upgraded `emotion` dependencies to namespaced `@emotion/css` packages
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.0
+
+## 0.1.0
+
+### Minor Changes
+
+**🌟 New features**
+
+- feat: add autoImport to @chakra-ui/nuxt module options #326
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.6.6
+
 ## 0.0.13
 
 ### Patch Changes

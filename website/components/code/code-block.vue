@@ -1,16 +1,16 @@
+<script>
 import 'prismjs'
 import PrismEditor from 'vue-prism-editor'
-import '../css/night-owl.css'
 import 'vue-prism-editor/dist/VuePrismEditor.css'
-import copy from 'copy-to-clipboard'
-import LiveEditor from './LiveEditor'
+import '../../css/night-owl.css'
 
-function getLanguage (string) {
-  return string.slice(string.indexOf('-') + 1)
-}
+import LiveEditor from './live-editor/live-editor.vue'
+import { getLanguage } from './utils'
+import { CopyTextMixin } from './mixins'
 
-const CodeBlock = props => ({
+export default {
   name: 'CodeBlock',
+  mixins: [CopyTextMixin],
   props: {
     lang: {
       type: String,
@@ -31,36 +31,14 @@ const CodeBlock = props => ({
     autoStyleLineNumbers: {
       type: Boolean,
       default: true
-    },
-    live: Boolean
-  },
-  data () {
-    return {
-      text: undefined,
-      copyTimeout: null,
-      copyButtonText: 'Copy'
-    }
-  },
-  methods: {
-    async copy () {
-      // Copy text to clipboard
-      await copy(this.text)
-
-      // Handle timeouts for copy button text
-      if (this.copyTimeout) { clearTimeout(this.copyTimeout) }
-      this.copyButtonText = 'Copied!'
-      this.copyTimeout = setTimeout(() => {
-        this.copyButtonText = 'Copy'
-        clearTimeout(this.copyTimeout)
-      }, 1000)
     }
   },
   render (h) {
-    const language = getLanguage(props.className)
+    const language = getLanguage(this.lang)
     const code = this.$slots.default[0].text
     this.text = code
 
-    if (!props.live) {
+    if (this.isReadOnly) {
       return h('CBox', {
         attrs: {
           rounded: 'md',
@@ -95,18 +73,15 @@ const CodeBlock = props => ({
       ])
     } else {
       const liveEditor = h(LiveEditor, {
-        props: {
-          code
-        }
+        props: { code }
       })
 
-      if (props.browser) {
+      if (process.browser) {
         return h('client-only', [liveEditor])
       } else {
         return liveEditor
       }
     }
   }
-})
-
-export default CodeBlock
+}
+</script>

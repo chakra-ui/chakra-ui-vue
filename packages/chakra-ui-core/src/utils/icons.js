@@ -1,23 +1,34 @@
-import merge from 'lodash-es/merge'
+import { merge } from 'lodash-es'
 
 /**
- * @description Custom parse all Font Awesome Icons provided by user
+ * @description Custom parse all Icons provided by user
  * @param {Object} iconSet - Registered Icons object
- * @returns {Object} - All Font awesome icons parsed.
+ * @returns {Object}
  */
-const parseFAIcons = (iconSet) => {
-  const parseFAIcon = (iconObject) => {
+const parseIcons = (iconSet) => {
+  const parseIcon = (iconObject) => {
     const { icon } = iconObject
-    return {
-      [`${iconObject.iconName}`]: {
-        path: `<path d="${icon[4]}" fa-key="${3}" fill="currentColor" />`,
-        viewBox: `0 0 ${icon[0]} ${icon[1]}`
+    // Is library icon
+    if (icon) {
+      const [w, h, content, svg, path, , attrs] = icon
+      return {
+        [`${iconObject.iconName}`]: {
+          path: iconObject.prefix.startsWith('fa')
+            ? `<path d="${path}" fill="currentColor" />`
+            : iconObject.prefix.startsWith('fe')
+              ? content
+              : svg,
+          viewBox: `0 0 ${w} ${h}`,
+          attrs
+        }
       }
+    } else {
+      return {}
     }
   }
 
   const result = Object.values(iconSet)
-    .map(value => parseFAIcon(value))
+    .map(value => parseIcon(value))
     .reduce((target, source) => merge(target, source), {})
 
   return result
@@ -29,10 +40,10 @@ const parseFAIcons = (iconSet) => {
  * @param {Object} iconSet Registered Icon set
  * @returns {Object} Parsed pack icons object
  */
-export const parsePackIcons = (pack, iconSet) => {
+export const parsePackIcons = (iconSet) => {
   // TODO: Add support for other icon libraries
   // - Material Icons
   // - Tailwind Icons
-  const packIcons = pack === 'fa' ? parseFAIcons(iconSet) : {}
+  const packIcons = parseIcons(iconSet)
   return packIcons
 }

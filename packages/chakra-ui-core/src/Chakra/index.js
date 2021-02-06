@@ -7,38 +7,8 @@ import defaultTheme from '../../../chakra-ui-theme/src'
 import useToast from '../CToast'
 
 /**
- * @typedef {Object} Theme Chakra UI Theme object
- * @property {Object} breakpoints
- * @property {Object} zIndices
- * @property {Object} radii
- * @property {Object} opacity
- * @property {Object} borders
- * @property {Object} colors
- * @property {Object} borderWidths
- * @property {Object} sizes
- * @property {Object} shadows
- * @property {Object} space
- * @property {Object} fontSizes
- * @property {Object} fonts
- * @property {Object} fontWeights
- * @property {Object} lineHeights
- * @property {Object} letterSpacings
- */
-
-/**
- * @typedef {Object} Options
- * @property {Theme} theme
- * @property {Theme} extendTheme
- * @property {Object} icons
- * @property {Object} icons.extend
- * @property {String} icons.iconPack
- * @property {Object} icons.iconSet
- *
- */
-
-/**
  * Chakra-ui Component library plugin
- * @type {Chakra}
+ * @type {import("../../types").default}
  */
 const Chakra = {
   /**

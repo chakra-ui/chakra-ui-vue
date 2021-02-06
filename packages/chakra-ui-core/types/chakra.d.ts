@@ -28,6 +28,7 @@ export type Options = {
   }
 }
 
-type Chakra = PluginObject<Options>
+export type Chakra = PluginObject<Options>
 
-export default Chakra
+declare let chakra: Chakra
+export default chakra

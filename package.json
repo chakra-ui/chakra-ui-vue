@@ -41,6 +41,8 @@
     "docs:lint": "yarn workspace chakra-ui-docs lint",
     "theme:dev": "yarn workspace @chakra-ui/theme-vue build",
     "docs-dev": "yarn workspace chakra-ui-docs dev",
+    "docs-build": "yarn workspace chakra-ui-docs build",
+    "docs-serve": "yarn workspace chakra-ui-docs nuxt start",
     "evalbundle": "bundlesize"
   },
   "dependencies": {

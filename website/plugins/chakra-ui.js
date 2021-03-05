@@ -16,10 +16,10 @@ import {
   feSettings,
   feTwitter,
   feCoffee
-
 } from 'feather-icons-paths'
 
 import Lorem from 'vue-lorem-ipsum'
+import CarbonAd from '@/components/CarbonAd'
 
 const breakpoints = ['30em', '48em', '72em', '80em']
 
@@ -77,6 +77,7 @@ Vue.use(Chakra.default, {
 })
 
 Vue.component('Lorem', Lorem)
+Vue.component('CarbonAd', CarbonAd)
 
 Object.keys(Chakra).forEach((key) => {
   if (typeof Chakra[key] === 'object' && Chakra[key].name) {

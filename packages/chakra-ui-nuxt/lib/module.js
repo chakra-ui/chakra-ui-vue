@@ -19,7 +19,7 @@ module.exports = function (moduleOptions) {
 
   // Resolve icons
   let packIcons = {}
-  if (options.icons && options.icons.iconPack) {
+  if (options.icons) {
     packIcons = parsePackIcons(options.icons.iconSet)
   }
 

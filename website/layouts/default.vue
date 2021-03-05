@@ -105,10 +105,12 @@ export default {
       },
       code: {
         light: {
-          color: 'indigo.500'
+          color: 'indigo.500',
+          bg: 'indigo.50'
         },
         dark: {
-          color: 'indigo.100'
+          color: 'indigo.500',
+          bg: 'indigo.50'
         }
       },
       MDXComponents

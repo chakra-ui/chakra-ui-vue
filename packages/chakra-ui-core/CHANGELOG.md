@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- [`951906a`](https://github.com/chakra-ui/chakra-ui-vue/commit/951906a61deabdcf1d3f04b7f8f9fdeaad1f3841) [#375](https://github.com/chakra-ui/chakra-ui-vue/pull/375) Thanks [@codebender828](https://github.com/codebender828)! - Added support for Feather Icons to Nuxt.js
+
+* fix(nuxt): nuxt module icon parsing
+
 ## 0.7.3
 
 ## 0.7.2

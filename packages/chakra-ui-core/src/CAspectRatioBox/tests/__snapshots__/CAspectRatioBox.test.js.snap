@@ -7,13 +7,19 @@ exports[`should render correctly 1`] = `
     data-chakra-component="CAspectRatioBox"
     data-testid="aspectRatioBox"
   >
-    <img
-      alt="naruto"
-      class="css-1mlkgdx"
+    <div
+      class="css-k57fb3"
       data-chakra-component="CBox"
-      data-testid="image"
-      src="https://bit.ly/naruto-sage"
-    />
+      data-testid="child"
+    >
+      <img
+        alt="naruto"
+        class="css-ygtapu"
+        data-chakra-component="CBox"
+        data-testid="image"
+        src="https://bit.ly/naruto-sage"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

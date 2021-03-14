@@ -205,6 +205,17 @@
         "code",
         "tool"
       ]
+    },
+    {
+      "login": "IHIutch",
+      "name": "Jonathan Hutchison",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20825047?v=4",
+      "profile": "https://github.com/IHIutch",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

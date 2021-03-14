@@ -125,6 +125,7 @@ const CSwitch = {
         as: 'label'
       },
       attrs: {
+        position: 'relative',
         display: 'inline-block',
         verticalAlign: 'middle',
         ...data.attrs,

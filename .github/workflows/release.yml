@@ -51,6 +51,7 @@ jobs:
       uses: changesets/action@master
       with:
         publish: yarn release
+        title: "chore(release): version packages"
         commit: "chore(release): version packages"
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

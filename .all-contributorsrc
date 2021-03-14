@@ -195,6 +195,36 @@
         "example",
         "code"
       ]
+    },
+    {
+      "login": "odanado",
+      "name": "odanado",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6040962?v=4",
+      "profile": "https://github.com/odanado",
+      "contributions": [
+        "code",
+        "tool"
+      ]
+    },
+    {
+      "login": "IHIutch",
+      "name": "Jonathan Hutchison",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20825047?v=4",
+      "profile": "https://github.com/IHIutch",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas"
+      ]
+    },
+    {
+      "login": "HoukasaurusRex",
+      "name": "JT Houk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23695312?v=4",
+      "profile": "https://jt.houk.space/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

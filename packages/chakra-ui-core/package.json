@@ -1,9 +1,10 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "description": "Build Accessible and Responsive Vue.js websites and applications with speed ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "maintainers": [
     "Jonathan Bakebwa <jonas@akkadu-team.com>"
@@ -27,7 +28,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
   "bundle-phobia": {
     "max-size": "85KB",

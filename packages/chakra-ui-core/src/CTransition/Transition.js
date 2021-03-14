@@ -486,7 +486,7 @@ const CAnimateHeight = {
           height: [this.initialHeight || 0, this.finalHeight || height],
           easing: this.enterEasing,
           duration: this.duration,
-          complete
+          complete: () => { el.style.height = this.finalHeight || 'auto' }
         })
       })
     },

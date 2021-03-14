@@ -1,10 +1,23 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- [`8af1c07`](https://github.com/chakra-ui/chakra-ui-vue/commit/8af1c07404d2cfa94bb338e4268c5e0869a50776) Thanks [@codebender828](https://github.com/codebender828)! - Adds type definitions, aspect-ratio-box fixes, switch fixes and collapse fixes
+- feat: add type definition of component #380 by @odanado 
+- feat: CCollapse now renders with collapsed height if initially closed by @codebender828 . closes #269
+- fix: Set ccollapse height to auto on enter complete, unless finalHeight wa... #384  by @IHIutch 
+- fix: Add position: relative to switch label #396 by @IHIutch 
+- fix: Deeply nested aspect-ratio by @IHIutch 
+
 ## 0.7.4
 
 ### Patch Changes
 
 - [`951906a`](https://github.com/chakra-ui/chakra-ui-vue/commit/951906a61deabdcf1d3f04b7f8f9fdeaad1f3841) [#375](https://github.com/chakra-ui/chakra-ui-vue/pull/375) Thanks [@codebender828](https://github.com/codebender828)! - Added support for Feather Icons to Nuxt.js
+
+* fix(nuxt): nuxt module icon parsing
 
 ## 0.7.3
 

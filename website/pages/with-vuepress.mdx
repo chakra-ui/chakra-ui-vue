@@ -1,0 +1,140 @@
+import SEO from '../components/SEO'
+import { CodeGroup, CodeTab } from '~/components/code'
+
+<SEO
+  title="Using UI with Vuepress"
+  description="Getting started with Chakra UI and Vuepress"
+/>
+
+# Usage with Vuepress
+
+If you use Vuepress, you can extend your theme to install Chakra globally using Vuepress's [theme inheritance](https://vuepress.vuejs.org/theme/inheritance.html).
+
+<carbon-ad />
+
+## Installation
+
+Install Chakra UI Vue and its peer dependency, `@emotion/css`
+
+<br/>
+
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add @chakra-ui/vue @emotion/css
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install @chakra-ui/vue @emotion/css
+  </CodeTab>
+</CodeGroup>
+
+## Usage
+
+### Extend Your Theme
+
+First create a `theme` folder in your .vuepress directory and extend you Vuepress theme in your `theme/index.js` file.
+
+```js
+module.exports = {
+  extend: '@vuepress/theme-default' // whichever vuepress theme you use
+}
+```
+
+### Add Chakra's Global Mixins
+
+Add the Chakra UI providers in your `theme/enhanceApp.js` file as shown.
+
+```js
+import Chakra, { internalIcons, defaultTheme, parsePackIcons } from '@chakra-ui/vue'
+import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons'
+
+export default ({
+  Vue, // the version of Vue being used in the VuePress app
+  options, // the options for the root Vue instance
+  router, // the router instance for the app
+  siteData, // site metadata
+  isServer // is this enhancement applied in server-rendering or client
+}) => {
+  Vue.use(Chakra)
+  Vue.mixin({
+    provide () {
+      return {
+        $chakraTheme: () => defaultTheme,
+        $chakraColorMode: () => this.colorMode,
+        $toggleColorMode: this.toggleColorMode,
+        // icons must be parsed and spread into the icons provider to be available globally
+        $chakraIcons: {
+          ...internalIcons,
+          ...parsePackIcons({ faHandHoldingHeart })
+        }
+      }
+    },
+    methods: {
+      toggleColorMode () {
+        this.colorMode = this.colorMode === 'light' ? 'dark' : 'light'
+      }
+    }
+  })
+})
+```
+
+Now you can wrap your main application inside the Chakra `CThemeProvider` component by creating a layout wrapper in `theme/layouts/Layout.vue`.
+
+```vue
+<template>
+  <CThemeProvider>
+    <CReset />  <!-- NOTE: Resetting styles may have adverse effects on some themes -->
+    <Layout />
+  </CThemeProvider>
+</template>
+
+<script>
+import { CThemeProvider, CReset } from '@chakra-ui/vue'
+import Layout from '@parent-theme/layouts/Layout.vue'
+
+export default {
+  name: 'ChakraLayout',
+  components: {
+    CThemeProvider,
+    CReset,
+    Layout
+  }
+}
+</script>
+```
+
+
+## Using Chakra components
+
+_In your `App.vue` file._
+
+```vue
+<template>
+  <c-box>
+    <c-button>
+      Chakra Consumed! ⚡️
+    </c-button>
+  </c-box>
+</template>
+
+<script lang="js">
+import { CBox, CButton } from '@chakra-ui/vue'
+
+export default {
+  name: 'App',
+  components: {
+    CBox,
+    CButton
+  }
+}
+</script>
+```
+
+### Codesandbox starters
+
+- [Vue Starter](https://codesandbox.io/s/chakra-ui-vue-starter-2sy0g)
+- [Nuxt Starter](https://codesandbox.io/s/chakra-ui-nuxt-demo-f8tq4)
+- [Gridsome Starter](https://codesandbox.io/s/chakra-ui-gridsome-demo-038c9)
+
+### Storybook Components
+
+You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

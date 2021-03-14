@@ -65,7 +65,7 @@ const CAspectRatioBox = {
         left: 0,
         ...vnode.data.attrs
       }
-    })
+    }, vnode.componentOptions.children || [])
 
     return h('div', {
       class: this.className,

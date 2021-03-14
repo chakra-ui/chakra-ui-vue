@@ -205,6 +205,15 @@
         "code",
         "tool"
       ]
+    },
+    {
+      "login": "HoukasaurusRex",
+      "name": "JT Houk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23695312?v=4",
+      "profile": "https://jt.houk.space/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -1,4 +1,4 @@
-import CGrid from '..'
+import { CGrid } from '..'
 import { render } from '@/tests/test-utils'
 
 const renderComponent = (props) => {

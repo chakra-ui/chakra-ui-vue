@@ -3,7 +3,7 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <label
-    class="css-v7ibj3"
+    class="css-lncjus"
     data-chakra-component="CSwitch"
     data-testid="switch"
   >

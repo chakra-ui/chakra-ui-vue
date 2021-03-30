@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies [[`8af1c07`](https://github.com/chakra-ui/chakra-ui-vue/commit/8af1c07404d2cfa94bb338e4268c5e0869a50776)]:
+  - @chakra-ui/vue@0.8.0
+
 ## 0.5.5
 
 ### Patch Changes

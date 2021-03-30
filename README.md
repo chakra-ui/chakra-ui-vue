@@ -218,8 +218,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/odanado"><img src="https://avatars.githubusercontent.com/u/6040962?v=4?s=50" width="50px;" alt=""/><br /><sub><b>odanado</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=odanado" title="Code">💻</a> <a href="#tool-odanado" title="Tools">🔧</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://jt.houk.space/"><img src="https://avatars.githubusercontent.com/u/23695312?v=4?s=50" width="50px;" alt=""/><br /><sub><b>JT Houk</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=HoukasaurusRex" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/IHIutch"><img src="https://avatars.githubusercontent.com/u/20825047?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Jonathan Hutchison</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=IHIutch" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/issues?q=author%3AIHIutch" title="Bug reports">🐛</a> <a href="#ideas-IHIutch" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://jt.houk.space/"><img src="https://avatars.githubusercontent.com/u/23695312?v=4?s=50" width="50px;" alt=""/><br /><sub><b>JT Houk</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=HoukasaurusRex" title="Documentation">📖</a> <a href="#platform-HoukasaurusRex" title="Packaging/porting to new platform">📦</a></td>
   </tr>
 </table>
 

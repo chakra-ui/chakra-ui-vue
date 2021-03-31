@@ -78,7 +78,6 @@ const CCloseButton = {
       }
     }, [h(CIcon, {
       props: {
-        color: props.color,
         name: 'close',
         size: iconSize
       },

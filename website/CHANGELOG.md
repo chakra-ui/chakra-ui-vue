@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.5.7
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
+- Updated dependencies [[`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007)]:
+  - @chakra-ui/vue@0.8.1
+  - @chakra-ui/theme-vue@0.2.11
+
 ## 0.5.6
 
 ### Patch Changes

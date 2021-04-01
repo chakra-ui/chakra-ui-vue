@@ -74,7 +74,7 @@ export default ({
       }
     }
   })
-})
+}
 ```
 
 Now you can wrap your main application inside the Chakra `CThemeProvider` component by creating a layout wrapper in `theme/layouts/Layout.vue`.
@@ -105,7 +105,11 @@ export default {
 
 ## Using Chakra components
 
-_In your `App.vue` file._
+You can now use Chakra in your custom components for your theme in either your `theme/components` folder (available to other theme components),
+or your `theme/global-components` folder (available to your markdown pages as well as other components).
+Learn more about theme inheritance in the [Vuepress documentation](https://vuepress.vuejs.org/theme/inheritance.html#inheritance-strategy)
+
+_In your `my-component.vue` file._
 
 ```vue
 <template>
@@ -120,7 +124,7 @@ _In your `App.vue` file._
 import { CBox, CButton } from '@chakra-ui/vue'
 
 export default {
-  name: 'App',
+  name: 'MyComponent',
   components: {
     CBox,
     CButton
@@ -128,3 +132,13 @@ export default {
 }
 </script>
 ```
+
+### Vuepress Codesandbox Starters
+
+Here's a link to sample component starter with Nuxt.js
+
+- [Vuepress Starter](https://codesandbox.io/s/chakra-ui-vuepress-starter-qx4up)
+
+### Storybook Components
+
+You can also view all developed components in [Storybook](https://chakra-ui-vue.netlify.com)!

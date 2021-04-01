@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.11
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
 ## 0.2.10
 
 ## 0.2.9

@@ -1,15 +1,24 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
+- Updated dependencies [[`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007)]:
+  - @chakra-ui/vue@0.8.1
+
 ## 0.3.0
 
 ### Minor Changes
 
 - [`8af1c07`](https://github.com/chakra-ui/chakra-ui-vue/commit/8af1c07404d2cfa94bb338e4268c5e0869a50776) Thanks [@codebender828](https://github.com/codebender828)! - Adds type definitions, aspect-ratio-box fixes, switch fixes and collapse fixes
-- feat: add type definition of component #380 by @odanado 
+- feat: add type definition of component #380 by @odanado
 - feat: CCollapse now renders with collapsed height if initially closed by @codebender828 . closes #269
-- fix: Set ccollapse height to auto on enter complete, unless finalHeight wa... #384  by @IHIutch 
-- fix: Add position: relative to switch label #396 by @IHIutch 
-- fix: Deeply nested aspect-ratio by @IHIutch 
+- fix: Set ccollapse height to auto on enter complete, unless finalHeight wa... #384 by @IHIutch
+- fix: Add position: relative to switch label #396 by @IHIutch
+- fix: Deeply nested aspect-ratio by @IHIutch
 
 ### Patch Changes
 

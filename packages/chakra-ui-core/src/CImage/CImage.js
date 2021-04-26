@@ -25,6 +25,7 @@ const CImage = {
   mixins: [createStyledAttrsMixin('CImage')],
   props: {
     src: String,
+    srcset: String,
     fallbackSrc: String,
     ignoreFalback: Boolean,
     htmlWidth: String,
@@ -48,12 +49,13 @@ const CImage = {
   created () {
     // Should only invoke window.Image in the browser.
     if (process.browser) {
-      this.loadImage(this.src)
+      this.loadImage(this.src, this.srcset)
     }
   },
   methods: {
-    loadImage (src) {
+    loadImage (src, srcset) {
       const image = new window.Image()
+      image.srcset = srcset
       image.src = src
 
       image.onload = (event) => {

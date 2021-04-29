@@ -43,6 +43,27 @@ function flipPlacement (placement) {
 }
 
 /**
+ * Call _.merge() for each item of `object` array with the corresponding
+ * item of `source` array
+ * @param {*} object The destination Modifiers array.
+ * @param {*} source The source array.
+ * @returns Returns merged `array`
+ */
+function mergeModifiers (object, source) {
+  if (!Array.isArray(object)) throw new Error('`object` must be an array')
+
+  const _source = Array.isArray(source) ? source : [source]
+
+  object.forEach((o) => {
+    const { name } = o
+    const _s = _source.find(s => s.name === name)
+    if (_s) merge(o, _s)
+  })
+
+  return object
+}
+
+/**
  * CPopper component
  *
  * The popper.js component
@@ -153,7 +174,7 @@ const CPopper = {
       return ref
     },
     computedModifiers () {
-      return merge([
+      return mergeModifiers([
         this.usePortal && {
           name: 'preventOverflow',
           options: {

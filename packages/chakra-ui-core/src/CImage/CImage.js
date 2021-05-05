@@ -72,9 +72,9 @@ const CImage = {
   render (h) {
     let imageProps
     if (this.ignoreFallback) {
-      imageProps = { src: this.src }
+      imageProps = { src: this.src, srcset: this.srcset }
     } else {
-      imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc }
+      imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc, srcset: this.srcset }
     }
     return h(CNoSsr, [
       h('img', {

@@ -1,4 +1,4 @@
-import SEO from "../components/SEO";
+import SEO from '../components/SEO'
 
 <SEO
   title="Grid"
@@ -15,9 +15,8 @@ comes with helpful style shorthand. It renders a `div` element.
 ## Import
 
 ```js
-import { CGrid } from "@chakra-ui/vue";
+import { CGrid, CGridItem } from '@chakra-ui/vue'
 ```
-
 
 ## Usage
 
@@ -51,6 +50,43 @@ time.
 </c-grid>
 ```
 
+## Spanning Columns
+
+In some layouts, you may need certain grid items to span specific amount of columns or rows instead of an even distribution. To achieve this, you need to pass the `colSpan` prop to the `CGridItem` component to span across columns and also pass the `rowSpan` component to span across rows. You also need to specify the `templateColumns` and `templateRows`.
+
+```vue live=true
+<c-grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
+  <c-grid-item row-span="2" col-span="1" bg="blue.300"" />
+  <c-grid-item col-span="2" bg="red.300" />
+  <c-grid-item col-span="2" bg="red.300" />
+  <c-grid-item col-span="4" bg="blue.300" />
+</c-grid>
+```
+
+## Starting and Ending Lines
+
+Pass the `colStart` and `colEnd` prop to `CGridItem` component to make an element start or end at the `nth` grid position.
+
+```vue live=true
+<c-grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
+  <c-grid-item col-span="2" h="10" bg="blue.500" />
+  <c-grid-item col-start="4" col-end="6" h="10" bg="red.500" />
+</c-grid>
+```
+
 ## Props
 
 > `CGrid` composes the `CBox` component. So it accepts all Box props along with the related CSS grid props. See [Box](/box#props) component for list of props
+
+### `CGridItem` Props
+
+> `CGridItem` composes `CBox` so you can pass all `CBox` props.
+
+| Name     | Type     | Description                                      |
+| -------- | -------- | ------------------------------------------------ |
+| colSpan  | `number` | The number of columns the grid item should span. |
+| colStart | `number` | The column number the grid item should start.    |
+| colEnd   | `number` | The column number the grid item should end.      |
+| rowSpan  | `number` | The number of rows the grid item should span.    |
+| rowStart | `number` | The row number the grid item should start.       |
+| rowEnd   | `number` | The row number the grid item should end.         |

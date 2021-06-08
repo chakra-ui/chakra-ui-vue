@@ -45,3 +45,10 @@ it('fallback src works', async () => {
     expect(screen.getByAltText(/Mesut Koca/i)).toHaveAttribute('src', 'LOAD_FALLBACK_SRC')
   })
 })
+
+it('srcset works', async () => {
+  renderComponent({ template: '<CImage alt="My Image Description" src="LOAD_SUCCESS_SRC" srcset="LOAD_SUCCESS_SRC 400w" />' })
+  await wait(() => {
+    expect(screen.getByAltText(/My Image Description/i)).toHaveAttribute('srcset', 'LOAD_SUCCESS_SRC 400w')
+  })
+})

@@ -55,8 +55,14 @@ time.
 In some layouts, you may need certain grid items to span specific amount of columns or rows instead of an even distribution. To achieve this, you need to pass the `colSpan` prop to the `CGridItem` component to span across columns and also pass the `rowSpan` component to span across rows. You also need to specify the `templateColumns` and `templateRows`.
 
 ```vue live=true
-<c-grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
-  <c-grid-item row-span="2" col-span="1" bg="blue.300"" />
+<c-grid
+  h="200px"
+  w="600px"
+  template-rows="repeat(2, 1fr)"
+  template-columns="repeat(5, 1fr)"
+  gap="6"
+>
+  <c-grid-item row-span="2" col-span="1" bg="blue.300" />
   <c-grid-item col-span="2" bg="red.300" />
   <c-grid-item col-span="2" bg="red.300" />
   <c-grid-item col-span="4" bg="blue.300" />
@@ -69,8 +75,8 @@ Pass the `colStart` and `colEnd` prop to `CGridItem` component to make an elemen
 
 ```vue live=true
 <c-grid w="600px" template-columns="repeat(5, 1fr)" gap="6">
-  <c-grid-item col-span="2" h="10" bg="blue.500" />
-  <c-grid-item col-start="4" col-end="6" h="10" bg="red.500" />
+  <c-grid-item col-span="2" h="10" bg="blue.300" />
+  <c-grid-item col-start="4" col-end="6" h="10" bg="red.300" />
 </c-grid>
 ```
 

@@ -11,6 +11,22 @@ exports[`should change gap 1`] = `
 </DocumentFragment>
 `;
 
+exports[`should offset columns 1`] = `
+<DocumentFragment>
+  <div
+    class="css-12kxrxg"
+    data-chakra-component="CGrid"
+  >
+    <div
+      class="css-1i8ejg0"
+      data-chakra-component="CGridItem"
+    >
+      I'm in a grid item
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
@@ -18,6 +34,22 @@ exports[`should render correctly 1`] = `
     data-chakra-component="CGrid"
   >
     Grid Me
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should span columns 1`] = `
+<DocumentFragment>
+  <div
+    class="css-12kxrxg"
+    data-chakra-component="CGrid"
+  >
+    <div
+      class="css-tuh9u2"
+      data-chakra-component="CGridItem"
+    >
+      I'm in a grid item
+    </div>
   </div>
 </DocumentFragment>
 `;

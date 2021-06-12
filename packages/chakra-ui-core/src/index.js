@@ -55,7 +55,7 @@ export { default as CFormHelperText } from './CFormHelperText'
 export { default as CFragment } from './CFragment'
 
 // G
-export { default as CGrid } from './CGrid'
+export * from './CGrid'
 
 // H
 export { default as CHeading } from './CHeading'

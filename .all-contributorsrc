@@ -235,6 +235,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "MWFIAE",
+      "name": "Martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6072971?v=4",
+      "profile": "https://github.com/MWFIAE",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

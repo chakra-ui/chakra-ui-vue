@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- [`5552440`](https://github.com/chakra-ui/chakra-ui-vue/commit/5552440eb8e0f1fb283c7dc263888bf09dcfa7b9) [#438](https://github.com/chakra-ui/chakra-ui-vue/pull/438) Thanks [@codebender828](https://github.com/codebender828)! - - This changeset adds a srcset support to the CImage component.
+  - Fixes merging of Popper.js modifiers
+  - Adds CGridItems components to the core 👏🏾
+
 ## 0.8.1
 
 ### Patch Changes

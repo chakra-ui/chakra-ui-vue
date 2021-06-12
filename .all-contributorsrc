@@ -214,7 +214,9 @@
       "contributions": [
         "code",
         "bug",
-        "ideas"
+        "ideas",
+        "test",
+        "doc"
       ]
     }
   ],

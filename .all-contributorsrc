@@ -235,6 +235,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "MaySoMusician",
+      "name": "MaySoMusician",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34566290?v=4",
+      "profile": "https://github.com/MaySoMusician",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

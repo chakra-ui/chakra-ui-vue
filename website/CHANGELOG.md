@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- [`5552440`](https://github.com/chakra-ui/chakra-ui-vue/commit/5552440eb8e0f1fb283c7dc263888bf09dcfa7b9) [#438](https://github.com/chakra-ui/chakra-ui-vue/pull/438) Thanks [@codebender828](https://github.com/codebender828)! - - This changeset adds a srcset support to the CImage component.
+  - Fixes merging of Popper.js modifiers
+  - Adds CGridItems components to the core 👏🏾
+
+### Patch Changes
+
+- Updated dependencies [[`5552440`](https://github.com/chakra-ui/chakra-ui-vue/commit/5552440eb8e0f1fb283c7dc263888bf09dcfa7b9)]:
+  - @chakra-ui/vue@0.9.0
+
+## 0.5.7
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
+- Updated dependencies [[`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007)]:
+  - @chakra-ui/vue@0.8.1
+  - @chakra-ui/theme-vue@0.2.11
+
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies [[`8af1c07`](https://github.com/chakra-ui/chakra-ui-vue/commit/8af1c07404d2cfa94bb338e4268c5e0869a50776)]:
+  - @chakra-ui/vue@0.8.0
+
 ## 0.5.5
 
 ### Patch Changes

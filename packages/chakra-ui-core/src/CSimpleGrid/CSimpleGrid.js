@@ -8,7 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSimpleGrid/CSimpleGrid.js
  */
 
-import CGrid from '../CGrid'
+import { CGrid } from '../CGrid'
 import { SNA } from '../config/props/props.types'
 import { createStyledAttrsMixin } from '../utils'
 import { countToColumns, widthToColumns } from './utils/grid.styles'

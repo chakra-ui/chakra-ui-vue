@@ -10,7 +10,65 @@
  */
 
 import { createStyledAttrsMixin } from '../utils'
-import { SNA } from '../config/props/props.types'
+import { SNA, StringArray } from '../config/props/props.types'
+
+/**
+ * @description Map "span" values to accommodate breakpoint values
+ * @param {Array} value
+ * @returns {(String|Array)} String or Array of breakpoint values
+ */
+const spanFn = (value) => {
+  if (Array.isArray(value)) {
+    return value.map(v =>
+      v === 'auto' ? 'auto' : `span ${v}/span ${v}`
+    )
+  } else {
+    return value === 'auto' ? 'auto' : `span ${value}/span ${value}`
+  }
+}
+
+/**
+ * CGridItem component
+ *
+ * A primitive component useful for grid layouts.
+ *
+ * @extends CBox
+ * @see Docs https://vue.chakra-ui.com/grid
+ */
+
+const CGridItem = {
+  name: 'CGridItem',
+  mixins: [createStyledAttrsMixin('CGridItem')],
+  props: {
+    colSpan: { type: StringArray },
+    rowSpan: { type: StringArray },
+    colStart: { type: StringArray },
+    colEnd: { type: StringArray },
+    rowStart: { type: StringArray },
+    rowEnd: { type: StringArray }
+  },
+  computed: {
+    componentStyles () {
+      return {
+        gridColumn: this.colSpan ? spanFn(this.colSpan) : null,
+        gridRow: this.rowSpan ? spanFn(this.rowSpan) : null,
+        gridColumnStart: this.colStart,
+        gridColumnEnd: this.colEnd,
+        gridRowStart: this.rowStart,
+        gridRowEnd: this.rowEnd
+      }
+    }
+  },
+  render (h) {
+    return h('div',
+      {
+        class: this.className,
+        attrs: this.computedAttrs
+      },
+      this.$slots.default
+    )
+  }
+}
 
 /**
  * CGrid component
@@ -61,11 +119,18 @@ const CGrid = {
     }
   },
   render (h) {
-    return h(this.as, {
-      class: this.className,
-      attrs: this.computedAttrs
-    }, this.$slots.default)
+    return h(
+      this.as,
+      {
+        class: this.className,
+        attrs: this.computedAttrs
+      },
+      this.$slots.default
+    )
   }
 }
 
-export default CGrid
+export {
+  CGrid,
+  CGridItem
+}

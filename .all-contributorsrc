@@ -218,6 +218,35 @@
         "test",
         "doc"
       ]
+    },
+    {
+      "login": "HoukasaurusRex",
+      "name": "JT Houk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23695312?v=4",
+      "profile": "https://jt.houk.space/",
+      "contributions": [
+        "doc",
+        "platform"
+      ]
+    },
+    {
+      "login": "vincentpalma",
+      "name": "Vincent Palma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10133632?v=4",
+      "profile": "https://github.com/vincentpalma",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "MWFIAE",
+      "name": "Martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6072971?v=4",
+      "profile": "https://github.com/MWFIAE",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

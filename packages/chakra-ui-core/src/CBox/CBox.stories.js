@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CBox } from '..'
+import CBox from '../CBox'
 
 storiesOf('UI | Box', module)
   .add('Box', () => ({
@@ -28,13 +28,26 @@ storiesOf('UI | Box', module)
     template: `
       <div>
         <CBox
+          position="relative"
           w="300px"
           h="200px"
-          font-family="body"
-          objectFit="contain"
-          bgImg="url(https://lh3.googleusercontent.com/proxy/vG0O53R9-vPA2WpuC5lXWCHIVuIQiQ1R7bpQ1UcDsHnHVlz2BJMeSeJx1I1n4huq_SeB39iegxgQl1zXcnNqpq2IJfCgQwwWXpdRG9pNdA)"
+          overflow="hidden"
+          rounded="20px"
         >
-          <CBox h="full" bg="red.200" :w="1/2" />
+          <CBox
+            as="img"
+            font-family="body"
+            objectFit="contain"
+            src="https://images.unsplash.com/photo-1600002415506-dd06090d3480?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+          />
+          <CBox px="5" display="flex" flex-direction="column" justify-content="center" py="3" h="full" pos="absolute" top="0" left="0" bg="pink.200" w="50%">
+            <CBox as="h1" font-size="xl" font-weight="bold">
+              Tempations
+            </CBox>
+            <CBox as="p" font-size="md">
+              Spacial cakes for special moments.
+            </CBox>
+          </CBox>
         </CBox>
       </div>
     `

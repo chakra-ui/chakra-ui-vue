@@ -220,6 +220,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://jt.houk.space/"><img src="https://avatars.githubusercontent.com/u/23695312?v=4?s=50" width="50px;" alt=""/><br /><sub><b>JT Houk</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=HoukasaurusRex" title="Documentation">📖</a> <a href="#platform-HoukasaurusRex" title="Packaging/porting to new platform">📦</a></td>
     <td align="center"><a href="https://github.com/vincentpalma"><img src="https://avatars.githubusercontent.com/u/10133632?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Vincent Palma</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=vincentpalma" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/MaySoMusician"><img src="https://avatars.githubusercontent.com/u/34566290?v=4?s=50" width="50px;" alt=""/><br /><sub><b>MaySoMusician</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MaySoMusician" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/MWFIAE"><img src="https://avatars.githubusercontent.com/u/6072971?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Martin</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MWFIAE" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MWFIAE" title="Tests">⚠️</a></td>
   </tr>
 </table>

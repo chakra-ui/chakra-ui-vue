@@ -21,6 +21,7 @@
   },
   "scripts": {
     "postinstall": "lerna link",
+    "csb:install": "yarn && yarn bootstrap",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "build:dev": "yarn workspace @chakra-ui/vue run rollup --config rollup.dev.config.js",
     "build": "yarn workspace @chakra-ui/vue build",

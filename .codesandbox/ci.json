@@ -1,0 +1,10 @@
+{
+  "installCommand": "install",
+  "buildCommand": "build",
+  "packages": [
+    "packages/chakra-ui-core",
+    "packages/chakra-ui-nuxt"
+  ],
+  "sandboxes": ["chakra-ui-vue-0x-starter-template-2sy0g", "chakra-ui-nuxt-demo-f8tq4"],
+  "node": "14"
+}

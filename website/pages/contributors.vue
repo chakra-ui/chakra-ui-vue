@@ -10,6 +10,8 @@
 
     <carbon-ad />
 
+    <c-image :src="require('@/assets/logo/chakra-ui-vue-blue@2x.png')" />
+
     <c-box>
       <c-box v-for="(person, _i) in contributors" :key="_i" bb="1px solid" border-color="gray.200" p="3">
         <c-text font-weight="bold" mt="3" font-size="1.3rem">

@@ -55,8 +55,12 @@ const CImage = {
   methods: {
     loadImage (src, srcset) {
       const image = new window.Image()
-      image.srcset = srcset
-      image.src = src
+      if (srcset) {
+        image.srcset = srcset
+      }
+      if (src) {
+        image.src = src
+      }
 
       image.onload = (event) => {
         this.hasLoaded = true
@@ -76,6 +80,7 @@ const CImage = {
     } else {
       imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc, srcset: this.srcset }
     }
+    debugger
     return h(CNoSsr, [
       h('img', {
         class: this.className,

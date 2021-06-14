@@ -214,7 +214,9 @@
       "contributions": [
         "code",
         "bug",
-        "ideas"
+        "ideas",
+        "test",
+        "doc"
       ]
     },
     {
@@ -234,6 +236,15 @@
       "profile": "https://github.com/vincentpalma",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "MaySoMusician",
+      "name": "MaySoMusician",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34566290?v=4",
+      "profile": "https://github.com/MaySoMusician",
+      "contributions": [
+        "code"
       ]
     },
     {

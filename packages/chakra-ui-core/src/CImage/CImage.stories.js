@@ -8,7 +8,18 @@ storiesOf('UI | Image', module)
       <CImage
         shadow="sm"
         htmlWidth="100px"
-        src="https://bit.ly/chakra-jonathan-bakebwa"
+        src="https://bit.ly/chakra-jonathan-bakebw3a"
+        srcset="https://bit.ly/chakra-jonathan-bakebwa"
+      />
+    `
+  }))
+  .add('Webpack required image', () => ({
+    components: { CImage },
+    template: `
+      <CImage
+        shadow="sm"
+        htmlWidth="100px"
+        :src="require('@/assets/chakra.png')"
       />
     `
   }))

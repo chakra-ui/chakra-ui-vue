@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"srcset" should work and be prioritized over "src" if provided to CImage 1`] = `
+<DocumentFragment>
+  <img
+    alt="My Image Description"
+    class="css-0"
+    data-chakra-component="CImage"
+    src="LOAD_SUCCESS_SRC"
+    srcset="LOAD_SUCCESS_SRC 400w"
+  />
+</DocumentFragment>
+`;
+
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <img
@@ -8,6 +20,18 @@ exports[`should render correctly 1`] = `
     data-chakra-component="CImage"
     data-testid="avatar"
     src="LOAD_SUCCESS_SRC"
+  />
+</DocumentFragment>
+`;
+
+exports[`should use src if srcset provided is undefined 1`] = `
+<DocumentFragment>
+  <img
+    alt="My Image Description"
+    class="css-0"
+    data-chakra-component="CImage"
+    src="LOAD_SUCCESS_SRC"
+    srcset="LOAD_FAILURE_SRC"
   />
 </DocumentFragment>
 `;

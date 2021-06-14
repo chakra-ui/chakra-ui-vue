@@ -38,3 +38,4 @@ packages/chakra-ui-nuxt/.github
 packages/chakra-ui-docs/static/sw.js
 website/static/sw.js
 .npmrc
+**/static/sw.js

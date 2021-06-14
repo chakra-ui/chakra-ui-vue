@@ -46,9 +46,18 @@ it('fallback src works', async () => {
   })
 })
 
-it('srcset works', async () => {
-  renderComponent({ template: '<CImage alt="My Image Description" src="LOAD_SUCCESS_SRC" srcset="LOAD_SUCCESS_SRC 400w" />' })
+it('"srcset" should work and be prioritized over "src" if provided to CImage', async () => {
+  const { asFragment } = renderComponent({ template: '<CImage alt="My Image Description" src="LOAD_SUCCESS_SRC" srcset="LOAD_SUCCESS_SRC 400w" />' })
   await wait(() => {
     expect(screen.getByAltText(/My Image Description/i)).toHaveAttribute('srcset', 'LOAD_SUCCESS_SRC 400w')
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
+
+it('should use src if srcset provided is undefined', async () => {
+  const { asFragment } = renderComponent({ template: '<CImage alt="My Image Description" src="LOAD_SUCCESS_SRC" srcset="LOAD_FAILURE_SRC" />' })
+  await wait(() => {
+    expect(screen.getByAltText(/My Image Description/i)).toHaveAttribute('src', 'LOAD_SUCCESS_SRC')
+    expect(asFragment()).toMatchSnapshot()
   })
 })

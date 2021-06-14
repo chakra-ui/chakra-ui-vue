@@ -1,5 +1,5 @@
 {
-  "installCommand": "install",
+  "installCommand": "bootstrap",
   "buildCommand": "build",
   "packages": [
     "packages/chakra-ui-core",

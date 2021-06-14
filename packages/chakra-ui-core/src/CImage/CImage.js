@@ -80,7 +80,6 @@ const CImage = {
     } else {
       imageProps = { src: this.hasLoaded ? this.src : this.fallbackSrc, srcset: this.srcset }
     }
-    debugger
     return h(CNoSsr, [
       h('img', {
         class: this.className,

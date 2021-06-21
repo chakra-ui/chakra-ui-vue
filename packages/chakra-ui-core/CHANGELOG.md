@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- [`f124d5c`](https://github.com/chakra-ui/chakra-ui-vue/commit/f124d5c48d023882a7bd94c96e46a5723bd9a85d) [#446](https://github.com/chakra-ui/chakra-ui-vue/pull/446) Thanks [@codebender828](https://github.com/codebender828)! - Fixes CImage src attribute bug
+
 ## 0.9.0
 
 ### Minor Changes

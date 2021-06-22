@@ -256,6 +256,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "ejirocodes",
+      "name": "Ejiro Asiuwhu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45228014?v=4",
+      "profile": "http://linkedin.com/in/ejiro-asiuwhu",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

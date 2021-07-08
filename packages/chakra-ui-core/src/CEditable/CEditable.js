@@ -225,7 +225,7 @@ const CEditablePreview = {
         opacity: !this.hasValue ? 0.6 : undefined
       }
     },
-    tabIndex () {
+    tabindex () {
       const { isEditing, isDisabled, isPreviewFocusable } = this.context
       if ((!isEditing || !isDisabled) && isPreviewFocusable) {
         return 0
@@ -243,7 +243,7 @@ const CEditablePreview = {
       class: [this.className],
       attrs: {
         'aria-disabled': isDisabled,
-        tabIndex: this.tabIndex,
+        tabindex: this.tabindex,
         ...this.computedAttrs
       },
       on: {

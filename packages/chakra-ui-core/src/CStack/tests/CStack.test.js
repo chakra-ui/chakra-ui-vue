@@ -26,6 +26,13 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 })
 
+it('should render empty children correctly', () => {
+  const { asFragment } = renderComponent({
+    template: '<c-stack></c-stack>'
+  })
+  expect(asFragment()).toMatchSnapshot()
+})
+
 it('should default to vertical stack', () => {
   renderComponent()
   const stack = screen.getByTestId('stack')

@@ -76,7 +76,8 @@ const CStack = {
     }
   },
   render (h) {
-    const children = this.$slots.default.filter(e => e.tag)
+    const defaultSlot = this.$slots.default || []
+    const children = defaultSlot.filter(e => e.tag)
     const stackables = children.map((node, index) => {
       const isLastChild = children.length === index + 1
       const spacingProps = this._isInline

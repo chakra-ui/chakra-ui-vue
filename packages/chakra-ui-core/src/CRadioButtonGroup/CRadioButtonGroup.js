@@ -157,7 +157,7 @@ const CRadioButtonGroup = {
             ...(!isLastChild && spacingProps)
           },
           attrs: {
-            tabIndex: getTabIndex()
+            tabindex: getTabIndex()
           },
           nativeOn: {
             click: handleClick

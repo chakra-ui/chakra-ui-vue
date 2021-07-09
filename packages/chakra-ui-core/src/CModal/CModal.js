@@ -445,7 +445,7 @@ const CModalContent = {
         attrs: {
           role: 'dialog',
           'aria-modal': 'true',
-          tabIndex: -1,
+          tabindex: -1,
           id: contentId,
           ...(addAriaDescribedby && { 'aria-describedby': bodyId }),
           ...(addAriaLabelledby && { 'aria-labelledby': headerId }),

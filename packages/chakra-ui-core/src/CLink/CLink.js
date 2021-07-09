@@ -63,7 +63,7 @@ const CLink = {
         ...this.isRouterLink && { to: this.to }
       },
       attrs: {
-        tabIndex: this.isDisabled ? -1 : undefined,
+        tabindex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
         ...this.externalAttrs,
         ...this.computedAttrs

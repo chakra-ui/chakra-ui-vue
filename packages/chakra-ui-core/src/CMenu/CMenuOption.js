@@ -113,7 +113,7 @@ const CMenuItemOption = {
         alignItems: 'center',
         ...this.$attrs,
         role: this.role,
-        tabIndex: -1,
+        tabindex: -1,
         'aria-checked': this.isChecked,
         disabled: this.isDisabled,
         'aria-disabled': this.isDisabled,

@@ -70,7 +70,7 @@ the Menu component. `isOpen` reflects the current open or closed state of the `C
 ```vue live=true
 <template>
   <c-menu v-slot="{ isOpen }">
-    <c-menu-button :is-active="isOpen" :right-icon="isOpen ? 'chevron-up' : 'chevron-down'" right-icon="chevron-down">
+    <c-menu-button :is-active="isOpen" :right-icon="isOpen ? 'chevron-up' : 'chevron-down'">
       {{ isOpen ? 'Close' : 'Open' }}
     </c-menu-button>
     <c-menu-list>

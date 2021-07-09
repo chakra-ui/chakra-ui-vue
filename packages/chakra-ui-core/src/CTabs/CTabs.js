@@ -373,7 +373,7 @@ const CTab = {
       class: [this.className],
       attrs: {
         role: 'tab',
-        tabIndex: this.isSelected ? 0 : -1,
+        tabindex: this.isSelected ? 0 : -1,
         id: `tab:${this.id}`,
         type: 'button',
         disabled: this.isDisabled,
@@ -408,7 +408,7 @@ const CTabPanel = {
       class: [this.className],
       attrs: {
         role: 'tabpanel',
-        tabIndex: -1,
+        tabindex: -1,
         'aria-labelledby': `tab:${this.id}`,
         hidden: !this.isSelected,
         id: `panel:${this.id}`,
@@ -460,7 +460,7 @@ const CTabPanels = {
     return h(this.as, {
       class: [this.className],
       attrs: {
-        tabIndex: -1,
+        tabindex: -1,
         ...this.computedAttrs
       },
       on: this.computedListeners

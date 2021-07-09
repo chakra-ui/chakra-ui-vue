@@ -415,7 +415,7 @@ const CMenuList = {
         id: menuId,
         role: 'menu',
         'aria-labelledby': buttonId,
-        tabIndex: -1,
+        tabindex: -1,
         'data-chakra-component': 'CMenuButton'
       },
       on: {
@@ -484,7 +484,7 @@ const CMenuItem = {
         ...this.menuItemStyles({ theme: this.theme, colorMode: this.colorMode }),
         ...this.$attrs,
         role: this.role,
-        tabIndex: -1,
+        tabindex: -1,
         disabled: this.isDisabled,
         'aria-disabled': this.isDisabled,
         'data-chakra-component': 'CMenuItem'

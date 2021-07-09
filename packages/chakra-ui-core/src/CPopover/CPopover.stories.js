@@ -120,7 +120,7 @@ storiesOf('UI | Popover', module)
       <CPopover :closeOnBlur="false">
         <CPopoverTrigger>
           <CBox
-            tabIndex="0"
+            tabindex="0"
             role="button"
             aria-label="Some box"
             p="5"

@@ -147,6 +147,15 @@ exports[`should render correctly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`should render empty children correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="css-j7qwjs css-0"
+    data-chakra-component="CStack"
+  />
+</DocumentFragment>
+`;
+
 exports[`should should stack native html elements 1`] = `
 <DocumentFragment>
   <div

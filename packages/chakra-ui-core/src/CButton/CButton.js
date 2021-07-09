@@ -105,7 +105,7 @@ const CButton = {
       props: this.$props,
       attrs: {
         type: this.type,
-        tabIndex: 0,
+        tabindex: 0,
         disabled: this.isDisabled || this.isLoading,
         'aria-disabled': this.isDisabled || this.isLoading,
         dataActive: this.isActive ? 'true' : undefined,

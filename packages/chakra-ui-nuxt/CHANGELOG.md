@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- [`2627e9f`](https://github.com/chakra-ui/chakra-ui-vue/commit/2627e9f833ec62d4bc35703bcb3bb1293d20c391) [#455](https://github.com/chakra-ui/chakra-ui-vue/pull/455) Thanks [@codebender828](https://github.com/codebender828)! -
+
+- Updated dependencies [[`2627e9f`](https://github.com/chakra-ui/chakra-ui-vue/commit/2627e9f833ec62d4bc35703bcb3bb1293d20c391)]:
+  - @chakra-ui/vue@0.9.2
+
 ## 0.3.2
 
 ### Patch Changes

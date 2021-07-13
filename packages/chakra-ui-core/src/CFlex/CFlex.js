@@ -38,7 +38,8 @@ const CFlex = {
   render (h) {
     return h(this.as, {
       class: this.className,
-      attrs: this.computedAttrs
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, this.$slots.default)
   }
 }

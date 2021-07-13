@@ -131,7 +131,8 @@ const CStack = {
         justify: this.justify,
         direction: this._direction
       },
-      attrs: this.computedAttrs
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, stackables)
   }
 }

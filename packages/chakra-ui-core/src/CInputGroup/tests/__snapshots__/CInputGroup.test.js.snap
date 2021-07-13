@@ -2,12 +2,154 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-15frdhg"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.emotion-1 {
+  color: #CBD5E0;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 0;
+  z-index: 2;
+  left: 0;
+}
+
+.emotion-2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: inherit;
+  background-color: #fff;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-2[aria-readonly=true],
+.emotion-2[readonly] {
+  background-color: transparent;
+  box-shadow: none!important;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.emotion-2:hover {
+  border-color: #CBD5E0;
+}
+
+.emotion-2:disabled,
+.emotion-2:disabled:focus,
+.emotion-2:disabled:hover,
+.emotion-2[aria-disabled=true],
+.emotion-2[aria-disabled=true]:focus,
+.emotion-2[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emotion-2:focus {
+  z-index: 1;
+  border-color: #7db1ff;
+  box-shadow: 0 0 0 1px #7db1ff;
+}
+
+.emotion-2[aria-invalid=true] {
+  border-color: #e66673;
+  box-shadow: 0 0 0 1px #e66673;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  top: 0;
+  z-index: 2;
+  right: 0;
+}
+
+.emotion-4 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-4:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-5 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-6 {
+  color: #3ea76a;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CInputGroup"
   >
     <div
-      class="css-rbouvx"
+      class="emotion-1"
       color="gray.300"
       data-chakra-component="CInputLeftElement"
       fontsize="1.2em"
@@ -15,16 +157,16 @@ exports[`should render correctly 1`] = `
       ¥
     </div>
     <input
-      class="css-lr9hjy"
+      class="emotion-2"
       data-chakra-component="CInput"
       placeholder="Enter amount"
     />
     <div
-      class="css-wqp70x"
+      class="emotion-3"
       data-chakra-component="CInputRightElement"
     >
       <svg
-        class="css-12j51pv css-3vopgu css-7w9hf9"
+        class="emotion-4 emotion-5 emotion-6"
         data-chakra-component="CIcon"
         role="presentation"
         viewBox="0 0 14 14"

@@ -2,17 +2,145 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div>
+  .emotion-0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: inherit;
+  background-color: #fff;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-0[aria-readonly=true],
+.emotion-0[readonly] {
+  background-color: transparent;
+  box-shadow: none!important;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.emotion-0:hover {
+  border-color: #CBD5E0;
+}
+
+.emotion-0:disabled,
+.emotion-0:disabled:focus,
+.emotion-0:disabled:hover,
+.emotion-0[aria-disabled=true],
+.emotion-0[aria-disabled=true]:focus,
+.emotion-0[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emotion-0:focus {
+  z-index: 1;
+  border-color: #7db1ff;
+  box-shadow: 0 0 0 1px #7db1ff;
+}
+
+.emotion-0[aria-invalid=true] {
+  border-color: #e66673;
+  box-shadow: 0 0 0 1px #e66673;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+}
+
+.emotion-1:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+}
+
+.emotion-1:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-1:active,
+.emotion-1[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-1:disabled,
+.emotion-1:disabled:focus,
+.emotion-1:disabled:hover,
+.emotion-1[aria-disabled=true],
+.emotion-1[aria-disabled=true]:focus,
+.emotion-1[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+<div>
     <div>
       <input
-        class="css-18expoa"
+        class="emotion-0"
         data-chakra-component="CInput"
         data-testid="inputOutsideModal"
         placeholder="Type here..."
       />
        
       <button
-        class="css-1bmeqe7"
+        class="emotion-1"
         data-chakra-component="CButton"
         data-testid="buttonOutside"
         tabindex="0"
@@ -24,7 +152,365 @@ exports[`should render correctly 1`] = `
       <!---->
     </div>
   </div>
-  <span
+  .emotion-0 {
+  position: fixed;
+  background-color: rgba(0,0,0,0.4);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1300;
+}
+
+.emotion-1 {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1400;
+}
+
+.emotion-2 {
+  outline: 0;
+  max-width: 28rem;
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 1400;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background-color: #fff;
+  box-shadow: 0 7px 14px 0 rgba(0,0,0, 0.1),0 3px 6px 0 rgba(0, 0, 0, .07);
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+}
+
+.emotion-3 {
+  outline: none;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.emotion-3:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.emotion-3:active,
+.emotion-3[data-active=true] {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.emotion-3:disabled,
+.emotion-3:disabled:focus,
+.emotion-3:disabled:hover,
+.emotion-3[aria-disabled=true],
+.emotion-3[aria-disabled=true]:focus,
+.emotion-3[aria-disabled=true]:hover {
+  cursor: not-allowed;
+}
+
+.emotion-3:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+}
+
+.emotion-4 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-4:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-5 {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-7 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.emotion-8 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-9 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: inherit;
+  background-color: #fff;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.emotion-9[aria-readonly=true],
+.emotion-9[readonly] {
+  background-color: transparent;
+  box-shadow: none!important;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.emotion-9:hover {
+  border-color: #CBD5E0;
+}
+
+.emotion-9:disabled,
+.emotion-9:disabled:focus,
+.emotion-9:disabled:hover,
+.emotion-9[aria-disabled=true],
+.emotion-9[aria-disabled=true]:focus,
+.emotion-9[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emotion-9:focus {
+  z-index: 1;
+  border-color: #7db1ff;
+  box-shadow: 0 0 0 1px #7db1ff;
+}
+
+.emotion-9[aria-invalid=true] {
+  border-color: #e66673;
+  box-shadow: 0 0 0 1px #e66673;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-11 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 1px solid;
+  border-color: #E2E8F0;
+  color: #A0AEC0;
+  background-color: transparent;
+  margin-right: 0.75rem;
+}
+
+.emotion-11:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+}
+
+.emotion-11:hover {
+  background-color: #F7FAFC;
+}
+
+.emotion-11:active,
+.emotion-11[data-active=true] {
+  background-color: #EDF2F7;
+}
+
+.emotion-11:disabled,
+.emotion-11:disabled:focus,
+.emotion-11:disabled:hover,
+.emotion-11[aria-disabled=true],
+.emotion-11[aria-disabled=true]:focus,
+.emotion-11[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.emotion-12 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: none;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #EDF2F7;
+}
+
+.emotion-12 color {
+  50: #def0ff;
+  100: #afd0ff;
+  200: #7db1ff;
+  300: #4b91ff;
+  400: #1a72ff;
+  500: #0058e6;
+  600: #0045b4;
+  700: #003182;
+  800: #001d51;
+  900: #000a21;
+}
+
+.emotion-12:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+}
+
+.emotion-12:hover {
+  background-color: #E2E8F0;
+}
+
+.emotion-12:active,
+.emotion-12[data-active=true] {
+  background-color: #CBD5E0;
+}
+
+.emotion-12:disabled,
+.emotion-12:disabled:focus,
+.emotion-12:disabled:hover,
+.emotion-12[aria-disabled=true],
+.emotion-12[aria-disabled=true]:focus,
+.emotion-12[aria-disabled=true]:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+<span
     id="modal-portal-1"
   >
     <div
@@ -34,18 +520,18 @@ exports[`should render correctly 1`] = `
         style="position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px;"
       >
         <div
-          class="css-1a29t1v"
+          class="emotion-0"
           data-chakra-component="CModalOverlay"
         />
         <div
-          class="css-16gt2qg"
+          class="emotion-1"
           data-chakra-component="CBox"
         >
           <section
             aria-describedby="modal-1-body"
             aria-labelledby="modal-1-header"
             aria-modal="true"
-            class="css-1uxbpb7"
+            class="emotion-2"
             data-chakra-component="CModalContent"
             data-testid="overlay"
             id="modal-1"
@@ -54,13 +540,13 @@ exports[`should render correctly 1`] = `
           >
             <button
               aria-label="Close"
-              class="css-w4n9ue"
+              class="emotion-3"
               data-chakra-component="CModalCloseButton"
               data-testid="close-btn"
             >
               <svg
                 aria-hidden="true"
-                class="css-12j51pv css-xmst1h css-0"
+                class="emotion-4 emotion-5 emotion-6"
                 data-chakra-component="CIcon"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -75,7 +561,7 @@ exports[`should render correctly 1`] = `
             </button>
              
             <header
-              class="css-w7idnj"
+              class="emotion-7"
               data-chakra-component="CModalHeader"
               id="modal-1-header"
             >
@@ -83,12 +569,12 @@ exports[`should render correctly 1`] = `
             </header>
              
             <div
-              class="css-5m10fw"
+              class="emotion-8"
               data-chakra-component="CModalBody"
               id="modal-1-body"
             >
               <input
-                class="css-18expoa"
+                class="emotion-9"
                 data-chakra-component="CInput"
                 data-testid="inputInsideModal"
                 placeholder="Type here..."
@@ -96,11 +582,11 @@ exports[`should render correctly 1`] = `
             </div>
              
             <footer
-              class="css-plnu2w"
+              class="emotion-10"
               data-chakra-component="CModalFooter"
             >
               <button
-                class="css-14m1qkx"
+                class="emotion-11"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"
@@ -109,7 +595,7 @@ exports[`should render correctly 1`] = `
               </button>
                
               <button
-                class="css-13x9q7f"
+                class="emotion-12"
                 data-chakra-component="CButton"
                 tabindex="0"
                 type="button"

@@ -2,8 +2,27 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <svg
-    class="css-12j51pv css-3vopgu css-0"
+  .emotion-0 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-0:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-1 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+<svg
+    class="emotion-0 emotion-1 emotion-2"
     data-chakra-component="CIcon"
     role="presentation"
     viewBox="0 0 24 24"

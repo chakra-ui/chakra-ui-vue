@@ -2,18 +2,82 @@
 
 exports[`Avatar with AvatarBadge renders correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1sovlky"
+  .emotion-0 {
+  width: 3rem;
+  height: 3rem;
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background-color: #a8eb4f;
+  color: #1A202C;
+  border: 2px solid;
+  border-color: #fff;
+}
+
+.emotion-1 {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.emotion-2 {
+  width: 1.0em;
+  height: 1.0em;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transform: translate(25%, 25%);
+  -moz-transform: translate(25%, 25%);
+  -ms-transform: translate(25%, 25%);
+  transform: translate(25%, 25%);
+  bottom: 0;
+  right: 0;
+  border: 0.2em solid;
+  border-color: #fff;
+  border-radius: 9999px;
+  background-color: #3ea76a;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAvatar"
   >
     <img
       alt="Mesut Koca"
-      class="css-6qjm3j"
+      class="emotion-1"
       data-chakra-component="CBox"
       src="LOAD_SUCCESS_SRC"
     />
     <div
-      class="css-bruuz9"
+      class="emotion-2"
       data-chakra-component="CAvatarBadge"
     />
   </div>
@@ -22,14 +86,50 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1sovlky"
+  .emotion-0 {
+  width: 3rem;
+  height: 3rem;
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 9999px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background-color: #a8eb4f;
+  color: #1A202C;
+  border: 2px solid;
+  border-color: #fff;
+}
+
+.emotion-1 {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAvatar"
     data-testid="avatar"
   >
     <img
       alt="Mesut Koca"
-      class="css-6qjm3j"
+      class="emotion-1"
       data-chakra-component="CBox"
       src="LOAD_SUCCESS_SRC"
     />

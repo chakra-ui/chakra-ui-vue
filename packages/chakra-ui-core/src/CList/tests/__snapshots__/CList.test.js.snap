@@ -2,16 +2,49 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <ul
-    class="css-19ndbdu"
+  .emotion-0 {
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+.emotion-1 {
+  margin-bottom: 0.75rem;
+}
+
+.emotion-2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-2:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-3 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-4 {
+  margin-right: 0.5rem;
+  color: #3ea76a;
+}
+
+<ul
+    class="emotion-0"
     data-chakra-component="CList"
   >
     <li
-      class="css-82qlwu"
+      class="emotion-1"
       data-chakra-component="CListItem"
     >
       <svg
-        class="css-12j51pv css-3vopgu css-154al8w"
+        class="emotion-2 emotion-3 emotion-4"
         data-chakra-component="CListIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -27,11 +60,11 @@ exports[`should render correctly 1`] = `
       
     </li>
     <li
-      class="css-0"
+      class="emotion-5"
       data-chakra-component="CListItem"
     >
       <svg
-        class="css-12j51pv css-3vopgu css-154al8w"
+        class="emotion-2 emotion-3 emotion-4"
         data-chakra-component="CListIcon"
         role="presentation"
         viewBox="0 0 24 24"

@@ -2,8 +2,21 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <h2
-    class="css-1lq7e61"
+  .emotion-0 {
+  font-size: 1.875rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+@media screen and (min-width: 52em) {
+  .emotion-0 {
+    font-size: 2.25rem;
+  }
+}
+
+<h2
+    class="emotion-0"
     data-chakra-component="CHeading"
   >
     Header

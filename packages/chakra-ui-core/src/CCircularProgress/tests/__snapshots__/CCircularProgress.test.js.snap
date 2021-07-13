@@ -2,22 +2,57 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
+  .emotion-0 {
+  width: 1em;
+  height: 1em;
+  font-size: 48px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.emotion-1 {
+  vertical-align: top;
+  -webkit-transform: rotate3d(0, 0, 1, -90deg);
+  -moz-transform: rotate3d(0, 0, 1, -90deg);
+  -ms-transform: rotate3d(0, 0, 1, -90deg);
+  transform: rotate3d(0, 0, 1, -90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-2 {
+  color: #EDF2F7;
+  fill: transparent;
+  stroke: currentColor;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+.emotion-3 {
+  color: #0058e6;
+  fill: transparent;
+  stroke: currentColor;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+<div
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="40"
-    class="css-1o3klep"
+    class="emotion-0"
     data-chakra-component="CCircularProgress"
     data-testid="CircularProgress"
     role="progressbar"
   >
     <svg
-      class="css-24ggqe"
+      class="emotion-1"
       data-chakra-component="CBox"
       viewBox="55.55555555555556 55.55555555555556 111.11111111111111 111.11111111111111"
     >
       <circle
-        class="css-1ohz8ms"
+        class="emotion-2"
         cx="111.11111111111111"
         cy="111.11111111111111"
         data-chakra-component="CBox"
@@ -27,7 +62,7 @@ exports[`should render correctly 1`] = `
         stroke-width="11.111111111111112"
       />
       <circle
-        class="css-4toooo"
+        class="emotion-3"
         cx="111.11111111111111"
         cy="111.11111111111111"
         data-chakra-component="CBox"

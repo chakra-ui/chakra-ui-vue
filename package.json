@@ -118,6 +118,7 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@emotion/babel-plugin": "^11.1.2",
     "@emotion/eslint-plugin": "^11.0.0",
+    "@emotion/jest": "^11.3.0",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",

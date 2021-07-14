@@ -23,27 +23,3 @@ exports[`CFlex should render correctly 1`] = `
   </div>
 </DocumentFragment>
 `;
-
-exports[`should change styles 1`] = `
-<DocumentFragment>
-  <div
-    class="css-u6v8er"
-    data-chakra-component="CFlex"
-    data-testid="flex"
-  >
-    Flex Me
-  </div>
-</DocumentFragment>
-`;
-
-exports[`should render correctly 1`] = `
-<DocumentFragment>
-  <div
-    class="css-k008qs"
-    data-chakra-component="CFlex"
-    data-testid="flex"
-  >
-    Flex Me
-  </div>
-</DocumentFragment>
-`;

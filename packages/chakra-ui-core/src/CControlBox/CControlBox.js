@@ -15,7 +15,7 @@
  */
 
 import { css } from '@emotion/css'
-import { composeSystem } from '../utils/chakra-styled-system'
+import { composeSystem } from '../utils/styled-system'
 import CBox from '../CBox'
 
 // Default ControlBox props types

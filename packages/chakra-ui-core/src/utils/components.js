@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { composeSystem } from './chakra-styled-system'
+import { composeSystem } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {

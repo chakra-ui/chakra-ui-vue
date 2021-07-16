@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.9.3
+
+### Patch Changes
+
+- [`46a353a`](https://github.com/chakra-ui/chakra-ui-vue/commit/46a353a4348ea5829834f0ad479026ca647002b1) [#459](https://github.com/chakra-ui/chakra-ui-vue/pull/459) Thanks [@abelnnieva](https://github.com/abelnnieva)! - fix: add an unstyled variant to the c-button validators
+
+* [`826eed2`](https://github.com/chakra-ui/chakra-ui-vue/commit/826eed2f2b04b545e0379381c79ab8cd8b2c54eb) [#460](https://github.com/chakra-ui/chakra-ui-vue/pull/460) Thanks [@simpletrontdip](https://github.com/simpletrontdip)! - Pass all listeners to render function in CFlex, Stack
+
 ## 0.9.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.4
+
+### Patch Changes
+
+- fix: syncs core and nuxt packages
+
 ## 0.9.3
 
 ### Patch Changes

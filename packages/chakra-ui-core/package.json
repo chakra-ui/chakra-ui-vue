@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Build Accessible and Responsive Vue.js websites and applications with speed ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
+    "build": "yarn clean && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rimraf ./dist"

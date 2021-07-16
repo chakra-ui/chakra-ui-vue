@@ -95,24 +95,26 @@ const entries = {
  * Configurations
  */
 export default () => {
-  const config = [{
-    input: entries,
-    output: {
-      dir: 'dist/esm/',
-      format: 'esm',
-      banner: bannerTxt
+  const config = [
+    {
+      input: entries,
+      output: {
+        dir: 'dist/esm/',
+        format: 'esm',
+        banner: bannerTxt
+      },
+      ...commons
     },
-    ...commons
-  },
-  {
-    input: entries,
-    output: {
-      dir: 'dist/cjs/',
-      format: 'cjs',
-      exports: 'named',
-      banner: bannerTxt
-    },
-    ...commons
-  }]
+    {
+      input: entries,
+      output: {
+        dir: 'dist/cjs/',
+        format: 'cjs',
+        exports: 'named',
+        banner: bannerTxt
+      },
+      ...commons
+    }
+  ]
   return config
 }

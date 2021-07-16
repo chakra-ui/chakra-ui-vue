@@ -275,6 +275,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "simpletrontdip",
+      "name": "Lê Thông",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20158564?v=4",
+      "profile": "https://github.com/simpletrontdip",
+      "contributions": [
+        "bug",
+        "code",
+        "test"
     }
   ],
   "contributorsPerLine": 7,

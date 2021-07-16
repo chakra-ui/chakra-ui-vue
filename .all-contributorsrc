@@ -267,6 +267,16 @@
       ]
     },
     {
+      "login": "abelnnieva",
+      "name": "Abel N. Nieva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/931497?v=4",
+      "profile": "https://github.com/abelnnieva",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
       "login": "simpletrontdip",
       "name": "Lê Thông",
       "avatar_url": "https://avatars.githubusercontent.com/u/20158564?v=4",
@@ -275,7 +285,6 @@
         "bug",
         "code",
         "test"
-      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -7,7 +7,7 @@ exports[`should render correctly 1`] = `
     style="overflow: hidden;"
   >
     <div
-      class="css-0"
+      class="emotion-0"
       data-chakra-component="CBox"
     >
       content

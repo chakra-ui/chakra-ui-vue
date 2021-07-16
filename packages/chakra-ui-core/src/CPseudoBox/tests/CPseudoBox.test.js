@@ -22,20 +22,8 @@ it('should change the style', () => {
   my="5" mb="5" rounded="sm" font-family="body"
   background-color="blue.200" color="blue.700"`
   const { asFragment } = renderComponent({ inlineAttrs })
-
-  const pseudobox = screen.getByTestId('pseudobox')
-
+  
   expect(asFragment()).toMatchSnapshot()
-  expect(pseudobox).toHaveStyle('display: flex')
-  expect(pseudobox).toHaveStyle('width: auto')
-  expect(pseudobox).toHaveStyle('margin-bottom: 1.25rem')
-  expect(pseudobox).toHaveStyle('margin-top: 1.25rem')
-  expect(pseudobox).toHaveStyle('box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05);')
-  expect(pseudobox).toHaveStyle('padding: 1.25rem 1.25rem 1.25rem 1.25rem;')
-  expect(pseudobox).toHaveStyle('border-radius: 0.125rem;')
-  expect(pseudobox).toHaveStyle('font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";')
-  expect(pseudobox).toHaveStyle('color: rgb(0, 49, 130);')
-  expect(pseudobox).toHaveStyle('background-color: rgb(125, 177, 255);')
 })
 
 it.each`

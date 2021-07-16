@@ -2,8 +2,15 @@
 
 exports[`should change gap 1`] = `
 <DocumentFragment>
-  <div
-    class="css-12kxrxg"
+  .emotion-0 {
+  display: grid;
+  grid-gap: var(--space-6);
+  grid-template-columns: repeat(5, 1fr);
+  width: 600px;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     Grid Me
@@ -13,12 +20,24 @@ exports[`should change gap 1`] = `
 
 exports[`should offset columns 1`] = `
 <DocumentFragment>
-  <div
-    class="css-12kxrxg"
+  .emotion-0 {
+  display: grid;
+  grid-gap: var(--space-6);
+  grid-template-columns: repeat(5, 1fr);
+  width: 600px;
+}
+
+.emotion-1 {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     <div
-      class="css-1i8ejg0"
+      class="emotion-1"
       data-chakra-component="CGridItem"
     >
       I'm in a grid item
@@ -29,8 +48,12 @@ exports[`should offset columns 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-lgj0h8"
+  .emotion-0 {
+  display: grid;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     Grid Me
@@ -40,12 +63,23 @@ exports[`should render correctly 1`] = `
 
 exports[`should span columns 1`] = `
 <DocumentFragment>
-  <div
-    class="css-12kxrxg"
+  .emotion-0 {
+  display: grid;
+  grid-gap: var(--space-6);
+  grid-template-columns: repeat(5, 1fr);
+  width: 600px;
+}
+
+.emotion-1 {
+  grid-column: span 2/span 2;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CGrid"
   >
     <div
-      class="css-tuh9u2"
+      class="emotion-1"
       data-chakra-component="CGridItem"
     >
       I'm in a grid item

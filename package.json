@@ -47,6 +47,7 @@
     "evalbundle": "bundlesize"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "^1.12.1",
     "@emotion/css": "^11.0.0",
     "@mdx-js/vue-loader": "^1.6.1",
     "@nuxtjs/dotenv": "^1.4.0",

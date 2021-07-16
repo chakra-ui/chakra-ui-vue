@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom/extend-expect'
 import * as vtl from '@testing-library/vue'
+import { toCSSVar } from '@chakra-ui/styled-system'
 import userEvent from '@testing-library/user-event'
 
 import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
 import theme from '@/packages/chakra-ui-core/src/lib/theme'
 
 const defaultProviders = options => ({
-  $chakraTheme: () => theme,
+  $chakraTheme: () => toCSSVar(theme),
   $chakraColorMode: () => 'light',
   $chakraIcons: icons,
   ...options

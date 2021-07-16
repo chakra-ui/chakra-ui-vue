@@ -16,7 +16,6 @@
 
 import { css } from '@emotion/css'
 import { composeSystem } from '../utils/chakra-styled-system'
-import { tx } from '../utils'
 import CBox from '../CBox'
 
 // Default ControlBox props types
@@ -73,21 +72,21 @@ const CControlBox = {
     const invalid = `input[type=${props.type}][aria-invalid=true] + &`
 
     const basePseudoAttrs = (attrs && ({
-      [focus]: tx(attrs._focus),
-      [hover]: tx(attrs._hover),
-      [disabled]: tx(attrs._disabled),
-      [invalid]: tx(attrs._invalid)
+      [focus]: (attrs._focus),
+      [hover]: (attrs._hover),
+      [disabled]: (attrs._disabled),
+      [invalid]: (attrs._invalid)
     })) || {}
 
     const controlBoxStyleObject = composeSystem({
       ...basePseudoAttrs,
-      [checkedAndDisabled]: tx(props._checkedAndDisabled),
-      [checkedAndFocus]: tx(props._checkedAndFocus),
-      [checkedAndHover]: tx(props._checkedAndHover),
-      '& > *': tx(props._child),
+      [checkedAndDisabled]: (props._checkedAndDisabled),
+      [checkedAndFocus]: (props._checkedAndFocus),
+      [checkedAndHover]: (props._checkedAndHover),
+      '& > *': (props._child),
       [checked]: {
-        ...attrs && tx(attrs._checked),
-        '& > *': tx(props._checkedAndChild)
+        ...attrs && (attrs._checked),
+        '& > *': (props._checkedAndChild)
       }
     }, theme)
 

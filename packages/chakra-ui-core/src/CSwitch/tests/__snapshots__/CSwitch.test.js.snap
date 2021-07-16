@@ -69,7 +69,7 @@ exports[`should render correctly 1`] = `
 }
 
 input[type=checkbox]:focus+.emotion-3 {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+  box-shadow: var(--shadows-outline);
 }
 
 input[type=checkbox]:hover:not(:disabled):not(:checked)+.emotion-3 {
@@ -95,7 +95,7 @@ input[type=checkbox][aria-checked=mixed]:hover:not(:disabled)+.emotion-3 {
 
 input[type=checkbox]:checked+.emotion-3,
 input[type=checkbox][aria-checked=mixed]+.emotion-3 {
-  background-color: #0058e6;
+  background: var(--colors-blue-500);
 }
 
 input[type=checkbox]:checked+.emotion-3>*,

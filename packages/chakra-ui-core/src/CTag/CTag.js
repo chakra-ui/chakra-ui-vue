@@ -83,7 +83,7 @@ const CTagCloseButton = {
         opacity: '0.5',
         mr: -1,
         _disabled: {
-          opacity: '40%',
+          opacity: '0.4',
           cursor: 'not-allowed',
           boxShadow: 'none'
         },

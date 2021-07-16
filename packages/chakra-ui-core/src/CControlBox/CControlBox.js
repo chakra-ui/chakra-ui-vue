@@ -15,7 +15,7 @@
  */
 
 import { css } from '@emotion/css'
-import __css from '@styled-system/css'
+import { composeSystem } from '../utils/chakra-styled-system'
 import { tx } from '../utils'
 import CBox from '../CBox'
 
@@ -79,7 +79,7 @@ const CControlBox = {
       [invalid]: tx(attrs._invalid)
     })) || {}
 
-    const controlBoxStyleObject = __css({
+    const controlBoxStyleObject = composeSystem({
       ...basePseudoAttrs,
       [checkedAndDisabled]: tx(props._checkedAndDisabled),
       [checkedAndFocus]: tx(props._checkedAndFocus),
@@ -89,7 +89,7 @@ const CControlBox = {
         ...attrs && tx(attrs._checked),
         '& > *': tx(props._checkedAndChild)
       }
-    })(theme)
+    }, theme)
 
     const className = css(controlBoxStyleObject)
 

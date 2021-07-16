@@ -91,23 +91,23 @@ exports[`should render correctly 1`] = `
 }
 
 input[type=checkbox]:focus+.emotion-6 {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+  box-shadow: var(--shadows-outline);
 }
 
 input[type=checkbox]:disabled+.emotion-6 {
-  background-color: #EDF2F7;
-  border-color: #EDF2F7;
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
 }
 
 input[type=checkbox][aria-invalid=true]+.emotion-6 {
-  border-color: #c42231;
+  border-color: var(--colors-red-500);
 }
 
 input[type=checkbox]:checked:disabled+.emotion-6,
 input[type=checkbox][aria-checked=mixed]:disabled+.emotion-6 {
-  border-color: #E2E8F0;
-  background-color: #E2E8F0;
-  color: #718096;
+  border-color: var(--colors-gray-200);
+  background: var(--colors-gray-200);
+  color: var(--colors-gray-500);
 }
 
 .emotion-6>* {
@@ -116,8 +116,8 @@ input[type=checkbox][aria-checked=mixed]:disabled+.emotion-6 {
 
 input[type=checkbox]:checked+.emotion-6,
 input[type=checkbox][aria-checked=mixed]+.emotion-6 {
-  background-color: #3ea76a;
-  border-color: #3ea76a;
+  background: var(--colors-green-500);
+  border-color: var(--colors-green-500);
 }
 
 input[type=checkbox]:checked+.emotion-6>*,

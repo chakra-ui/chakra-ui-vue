@@ -3,7 +3,8 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -19,36 +20,35 @@ exports[`should render correctly 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0.04);
+  border: var(--borders-none);
+  background: var(--colors-blackAlpha-50);
 }
 
-.emotion-0:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blackAlpha-100);
 }
 
 .emotion-0:active,
-.emotion-0[data-active=true] {
-  background-color: rgba(0, 0, 0, 0.08);
+.emotion-0[data-active] {
+  background: var(--colors-blackAlpha-200);
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
+.emotion-0[disabled],
 .emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-0[data-disabled] {
   cursor: not-allowed;
 }
 
-.emotion-0:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  box-shadow: var(--shadows-outline);
 }
 
 .emotion-1 {

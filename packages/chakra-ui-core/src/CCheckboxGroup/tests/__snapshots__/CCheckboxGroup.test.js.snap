@@ -8,7 +8,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-2 {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .emotion-3 {
@@ -54,17 +54,40 @@ exports[`should render correctly 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
+  width: var(--sizes-4);
+  height: var(--sizes-4);
   opacity: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 2px solid;
-  border-radius: 0.125rem;
+  border: var(--borders-2px);
+  border-radius: var(--radii-sm);
   border-color: inherit;
-  color: #fff;
+  color: var(--colors-white);
+}
+
+.emotion-5[aria-checked=true],
+.emotion-5[data-checked] {
+  background: var(--colors-green-500);
+  border-color: var(--colors-green-500);
+}
+
+.emotion-5[disabled],
+.emotion-5[aria-disabled=true],
+.emotion-5[data-disabled] {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+.emotion-5:focus,
+.emotion-5[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-5[aria-invalid=true],
+.emotion-5[data-invalid] {
+  border-color: var(--colors-red-500);
 }
 
 input[type=checkbox]:focus+.emotion-6 {
@@ -122,9 +145,9 @@ input[type=checkbox][aria-checked=mixed]+.emotion-6>* {
 }
 
 .emotion-10 {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin-left: var(--space-2);
+  font-size: var(--fontSizes-md);
+  font-family: var(--fonts-body);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

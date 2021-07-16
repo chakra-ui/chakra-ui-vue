@@ -3,8 +3,8 @@
 exports[`Avatar with AvatarBadge renders correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 3rem;
-  height: 3rem;
+  width: var(--sizes-12);
+  height: var(--sizes-12);
   font-size: calc(3rem / 2.5);
   line-height: 3rem;
   vertical-align: top;
@@ -12,7 +12,7 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  border-radius: 9999px;
+  border-radius: var(--radii-full);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -25,16 +25,16 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  background-color: #a8eb4f;
-  color: #1A202C;
-  border: 2px solid;
+  background: #a8eb4f;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
   border-color: #fff;
 }
 
 .emotion-1 {
   width: 100%;
   height: 100%;
-  border-radius: 9999px;
+  border-radius: var(--radii-full);
   object-fit: cover;
 }
 
@@ -58,12 +58,12 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
   -moz-transform: translate(25%, 25%);
   -ms-transform: translate(25%, 25%);
   transform: translate(25%, 25%);
-  bottom: 0;
-  right: 0;
+  bottom: var(--space-0);
+  right: var(--space-0);
   border: 0.2em solid;
-  border-color: #fff;
-  border-radius: 9999px;
-  background-color: #3ea76a;
+  border-color: var(--colors-white);
+  border-radius: var(--radii-full);
+  background: var(--colors-green-500);
 }
 
 <div
@@ -87,8 +87,8 @@ exports[`Avatar with AvatarBadge renders correctly 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  width: 3rem;
-  height: 3rem;
+  width: var(--sizes-12);
+  height: var(--sizes-12);
   font-size: calc(3rem / 2.5);
   line-height: 3rem;
   vertical-align: top;
@@ -96,7 +96,7 @@ exports[`should render correctly 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  border-radius: 9999px;
+  border-radius: var(--radii-full);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -109,16 +109,16 @@ exports[`should render correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  background-color: #a8eb4f;
-  color: #1A202C;
-  border: 2px solid;
+  background: #a8eb4f;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
   border-color: #fff;
 }
 
 .emotion-1 {
   width: 100%;
   height: 100%;
-  border-radius: 9999px;
+  border-radius: var(--radii-full);
   object-fit: cover;
 }
 

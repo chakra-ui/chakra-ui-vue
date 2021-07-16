@@ -33,43 +33,45 @@ exports[`should attach buttons when \`is-attached\` is passed 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-right: 0;
 }
 
-.emotion-1:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  box-shadow: var(--shadows-outline);
   z-index: 1;
 }
 
-.emotion-1:hover {
-  background-color: #E2E8F0;
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-1:active,
-.emotion-1[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-1[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-1:disabled,
-.emotion-1:disabled:focus,
-.emotion-1:disabled:hover,
+.emotion-1[disabled],
 .emotion-1[aria-disabled=true],
-.emotion-1[aria-disabled=true]:focus,
-.emotion-1[aria-disabled=true]:hover {
+.emotion-1[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 .emotion-2 {
@@ -99,42 +101,44 @@ exports[`should attach buttons when \`is-attached\` is passed 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
-.emotion-2:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
   z-index: 1;
 }
 
-.emotion-2:hover {
-  background-color: #E2E8F0;
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-2:active,
-.emotion-2[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-2[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-2:disabled,
-.emotion-2:disabled:focus,
-.emotion-2:disabled:hover,
+.emotion-2[disabled],
 .emotion-2[aria-disabled=true],
-.emotion-2[aria-disabled=true]:focus,
-.emotion-2[aria-disabled=true]:hover {
+.emotion-2[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 <div
@@ -194,41 +198,43 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
-  margin-right: 0.5rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  margin-right: var(--space-2);
 }
 
-.emotion-1:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  box-shadow: var(--shadows-outline);
   z-index: 1;
 }
 
-.emotion-1:hover {
-  background-color: #E2E8F0;
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-1:active,
-.emotion-1[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-1[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-1:disabled,
-.emotion-1:disabled:focus,
-.emotion-1:disabled:hover,
+.emotion-1[disabled],
 .emotion-1[aria-disabled=true],
-.emotion-1[aria-disabled=true]:focus,
-.emotion-1[aria-disabled=true]:hover {
+.emotion-1[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 .emotion-2 {
@@ -258,40 +264,42 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
 }
 
-.emotion-2:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
   z-index: 1;
 }
 
-.emotion-2:hover {
-  background-color: #E2E8F0;
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-2:active,
-.emotion-2[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-2[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-2:disabled,
-.emotion-2:disabled:focus,
-.emotion-2:disabled:hover,
+.emotion-2[disabled],
 .emotion-2[aria-disabled=true],
-.emotion-2[aria-disabled=true]:focus,
-.emotion-2[aria-disabled=true]:hover {
+.emotion-2[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 <div

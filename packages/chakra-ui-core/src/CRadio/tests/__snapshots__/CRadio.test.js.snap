@@ -45,16 +45,39 @@ exports[`should render correctly 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
+  width: var(--sizes-4);
+  height: var(--sizes-4);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 2px solid;
-  border-radius: 9999px;
+  border: var(--borders-2px);
+  border-radius: var(--radii-full);
   border-color: inherit;
-  color: #fff;
+  color: var(--colors-white);
+}
+
+.emotion-2[aria-checked=true],
+.emotion-2[data-checked] {
+  background: var(--colors-blue-500);
+  border-color: var(--colors-blue-500);
+}
+
+.emotion-2[disabled],
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-2[aria-invalid=true],
+.emotion-2[data-invalid] {
+  border-color: var(--colors-red-500);
 }
 
 input[type=radio]:focus+.emotion-3 {
@@ -93,16 +116,16 @@ input[type=radio][aria-checked=mixed]+.emotion-3>* {
 }
 
 .emotion-4 {
-  background-color: currentColor;
-  border-radius: 9999px;
+  background: currentColor;
+  border-radius: var(--radii-full);
   width: 50%;
   height: 50%;
 }
 
 .emotion-5 {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  margin-left: var(--space-2);
+  font-size: var(--fontSizes-md);
+  font-family: var(--fonts-body);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

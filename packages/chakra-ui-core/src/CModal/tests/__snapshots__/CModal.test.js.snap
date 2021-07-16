@@ -15,26 +15,30 @@ exports[`should render correctly 1`] = `
   position: relative;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 2.5rem;
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  height: var(--sizes-10);
   line-height: 2.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   border-width: 1px;
   border-color: inherit;
-  background-color: #fff;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background: var(--colors-white);
+  font-family: var(--fonts-body);
 }
 
 .emotion-0[aria-readonly=true],
-.emotion-0[readonly] {
-  background-color: transparent;
+.emotion-0[readonly],
+.emotion-0[data-readonly] {
+  background: var(--colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -42,27 +46,27 @@ exports[`should render correctly 1`] = `
   user-select: all;
 }
 
-.emotion-0:hover {
-  border-color: #CBD5E0;
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  border-color: var(--colors-gray-300);
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
+.emotion-0[disabled],
 .emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.emotion-0:focus {
+.emotion-0:focus,
+.emotion-0[data-focus] {
   z-index: 1;
   border-color: #7db1ff;
   box-shadow: 0 0 0 1px #7db1ff;
 }
 
-.emotion-0[aria-invalid=true] {
+.emotion-0[aria-invalid=true],
+.emotion-0[data-invalid] {
   border-color: #e66673;
   box-shadow: 0 0 0 1px #e66673;
 }
@@ -94,40 +98,43 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
 }
 
-.emotion-1:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-1:hover {
-  background-color: #E2E8F0;
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-1:active,
-.emotion-1[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-1[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-1:disabled,
-.emotion-1:disabled:focus,
-.emotion-1:disabled:hover,
+.emotion-1[disabled],
 .emotion-1[aria-disabled=true],
-.emotion-1[aria-disabled=true]:focus,
-.emotion-1[aria-disabled=true]:hover {
+.emotion-1[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 <div>
@@ -154,28 +161,29 @@ exports[`should render correctly 1`] = `
   </div>
   .emotion-0 {
   position: fixed;
-  background-color: rgba(0,0,0,0.4);
-  left: 0;
-  top: 0;
+  background: rgba(0,0,0,0.4);
+  left: var(--space-0);
+  top: var(--space-0);
   width: 100vw;
   height: 100vh;
-  z-index: 1300;
+  z-index: var(--zIndices-overlay);
 }
 
 .emotion-1 {
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: var(--space-0);
+  top: var(--space-0);
   width: 100%;
   height: 100%;
-  z-index: 1400;
+  z-index: var(--zIndices-modal);
 }
 
 .emotion-2 {
-  outline: 0;
-  max-width: 28rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  max-width: var(--sizes-md);
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -185,19 +193,22 @@ exports[`should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  z-index: 1400;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  background-color: #fff;
+  z-index: var(--zIndices-modal);
+  font-family: var(--fonts-body);
+  background: var(--colors-white);
   box-shadow: 0 7px 14px 0 rgba(0,0,0, 0.1),0 3px 6px 0 rgba(0, 0, 0, .07);
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: var(--space-0);
+  -webkit-margin-start: auto;
+  margin-inline-start: auto;
+  -webkit-margin-end: auto;
+  margin-inline-end: auto;
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
 }
 
 .emotion-3 {
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   height: 32px;
   width: 32px;
   cursor: pointer;
@@ -216,36 +227,35 @@ exports[`should render correctly 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0.04);
+  border: var(--borders-none);
+  background: var(--colors-blackAlpha-50);
 }
 
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+.emotion-3:hover,
+.emotion-3[data-hover] {
+  background: var(--colors-blackAlpha-100);
 }
 
 .emotion-3:active,
-.emotion-3[data-active=true] {
-  background-color: rgba(0, 0, 0, 0.08);
+.emotion-3[data-active] {
+  background: var(--colors-blackAlpha-200);
 }
 
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
+.emotion-3[disabled],
 .emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
+.emotion-3[data-disabled] {
   cursor: not-allowed;
 }
 
-.emotion-3:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-3:focus,
+.emotion-3[data-focus] {
+  box-shadow: var(--shadows-outline);
 }
 
 .emotion-4 {
@@ -268,20 +278,24 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-7 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  -webkit-padding-start: var(--space-6);
+  padding-inline-start: var(--space-6);
+  -webkit-padding-end: var(--space-6);
+  padding-inline-end: var(--space-6);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
   position: relative;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: var(--fontSizes-xl);
+  font-weight: var(--fontWeights-semibold);
 }
 
 .emotion-8 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  -webkit-padding-start: var(--space-6);
+  padding-inline-start: var(--space-6);
+  -webkit-padding-end: var(--space-6);
+  padding-inline-end: var(--space-6);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -300,26 +314,30 @@ exports[`should render correctly 1`] = `
   position: relative;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 2.5rem;
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  height: var(--sizes-10);
   line-height: 2.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   border-width: 1px;
   border-color: inherit;
-  background-color: #fff;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background: var(--colors-white);
+  font-family: var(--fonts-body);
 }
 
 .emotion-9[aria-readonly=true],
-.emotion-9[readonly] {
-  background-color: transparent;
+.emotion-9[readonly],
+.emotion-9[data-readonly] {
+  background: var(--colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -327,27 +345,27 @@ exports[`should render correctly 1`] = `
   user-select: all;
 }
 
-.emotion-9:hover {
-  border-color: #CBD5E0;
+.emotion-9:hover,
+.emotion-9[data-hover] {
+  border-color: var(--colors-gray-300);
 }
 
-.emotion-9:disabled,
-.emotion-9:disabled:focus,
-.emotion-9:disabled:hover,
+.emotion-9[disabled],
 .emotion-9[aria-disabled=true],
-.emotion-9[aria-disabled=true]:focus,
-.emotion-9[aria-disabled=true]:hover {
+.emotion-9[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.emotion-9:focus {
+.emotion-9:focus,
+.emotion-9[data-focus] {
   z-index: 1;
   border-color: #7db1ff;
   box-shadow: 0 0 0 1px #7db1ff;
 }
 
-.emotion-9[aria-invalid=true] {
+.emotion-9[aria-invalid=true],
+.emotion-9[data-invalid] {
   border-color: #e66673;
   box-shadow: 0 0 0 1px #e66673;
 }
@@ -357,10 +375,12 @@ exports[`should render correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  -webkit-padding-start: var(--space-6);
+  padding-inline-start: var(--space-6);
+  -webkit-padding-end: var(--space-6);
+  padding-inline-end: var(--space-6);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
@@ -394,44 +414,47 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border: 1px solid;
-  border-color: #E2E8F0;
-  color: #A0AEC0;
-  background-color: transparent;
-  margin-right: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  border: var(--borders-1px);
+  border-color: var(--colors-gray-200);
+  color: var(--colors-gray-400);
+  background: var(--colors-transparent);
+  margin-right: var(--space-3);
 }
 
-.emotion-11:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-11:focus,
+.emotion-11[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-11:hover {
-  background-color: #F7FAFC;
+.emotion-11:hover,
+.emotion-11[data-hover] {
+  background: var(--colors-gray-50);
 }
 
 .emotion-11:active,
-.emotion-11[data-active=true] {
-  background-color: #EDF2F7;
+.emotion-11[data-active] {
+  background: var(--colors-gray-100);
 }
 
-.emotion-11:disabled,
-.emotion-11:disabled:focus,
-.emotion-11:disabled:hover,
+.emotion-11[disabled],
 .emotion-11[aria-disabled=true],
-.emotion-11[aria-disabled=true]:focus,
-.emotion-11[aria-disabled=true]:hover {
+.emotion-11[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 .emotion-12 {
@@ -461,53 +484,44 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #EDF2F7;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  color: blue;
 }
 
-.emotion-12 color {
-  50: #def0ff;
-  100: #afd0ff;
-  200: #7db1ff;
-  300: #4b91ff;
-  400: #1a72ff;
-  500: #0058e6;
-  600: #0045b4;
-  700: #003182;
-  800: #001d51;
-  900: #000a21;
+.emotion-12:focus,
+.emotion-12[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-12:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
-}
-
-.emotion-12:hover {
-  background-color: #E2E8F0;
+.emotion-12:hover,
+.emotion-12[data-hover] {
+  background: var(--colors-gray-200);
 }
 
 .emotion-12:active,
-.emotion-12[data-active=true] {
-  background-color: #CBD5E0;
+.emotion-12[data-active] {
+  background: var(--colors-gray-300);
 }
 
-.emotion-12:disabled,
-.emotion-12:disabled:focus,
-.emotion-12:disabled:hover,
+.emotion-12[disabled],
 .emotion-12[aria-disabled=true],
-.emotion-12[aria-disabled=true]:focus,
-.emotion-12[aria-disabled=true]:hover {
+.emotion-12[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 <span

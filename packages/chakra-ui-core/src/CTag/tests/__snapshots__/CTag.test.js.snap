@@ -3,7 +3,7 @@
 exports[`should display tag with custom element 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
 }
 
 .emotion-1 {
@@ -15,20 +15,22 @@ exports[`should display tag with custom element 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 2rem;
+  min-height: var(--sizes-8);
   max-width: 100%;
-  border-radius: 9999px;
-  font-weight: 500;
-  min-width: 2rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  background-color: #f9bcc2;
-  color: #44070e;
+  border-radius: var(--radii-full);
+  font-weight: var(--fontWeights-medium);
+  min-width: var(--sizes-8);
+  -webkit-padding-start: var(--space-3);
+  padding-inline-start: var(--space-3);
+  -webkit-padding-end: var(--space-3);
+  padding-inline-end: var(--space-3);
+  background-color: var(--colors-red-100);
+  color: var(--colors-red-800);
 }
 
 .emotion-2 {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: var(--sizes-6);
+  height: var(--sizes-6);
   font-size: calc(1.5rem / 2.5);
   line-height: 1.5rem;
   vertical-align: top;
@@ -36,7 +38,7 @@ exports[`should display tag with custom element 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  border-radius: 9999px;
+  border-radius: var(--radii-full);
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -49,9 +51,9 @@ exports[`should display tag with custom element 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: relative;
-  background-color: #a8eb4f;
-  color: #1A202C;
-  border: 2px solid;
+  background: #a8eb4f;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
   border-color: #fff;
 }
 
@@ -60,11 +62,11 @@ exports[`should display tag with custom element 1`] = `
   height: 1.5rem;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: var(--fontWeights-medium);
 }
 
 .emotion-4 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: var(--fonts-body);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -106,7 +108,7 @@ exports[`should display tag with custom element 1`] = `
 exports[`should display tag with right icon 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
 }
 
 .emotion-1 {
@@ -118,20 +120,22 @@ exports[`should display tag with right icon 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 1.5rem;
+  min-height: var(--sizes-6);
   max-width: 100%;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  min-width: 1.5rem;
-  font-size: 0.875rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: #c2ebd4;
-  color: #0f3921;
+  border-radius: var(--radii-md);
+  font-weight: var(--fontWeights-medium);
+  min-width: var(--sizes-6);
+  font-size: var(--fontSizes-sm);
+  -webkit-padding-start: var(--space-2);
+  padding-inline-start: var(--space-2);
+  -webkit-padding-end: var(--space-2);
+  padding-inline-end: var(--space-2);
+  background-color: var(--colors-green-100);
+  color: var(--colors-green-800);
 }
 
 .emotion-2 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: var(--fonts-body);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -158,8 +162,10 @@ exports[`should display tag with right icon 1`] = `
 }
 
 .emotion-5 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  -webkit-margin-start: 0.5rem;
+  margin-inline-start: 0.5rem;
+  -webkit-margin-end: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 .emotion-6:first-child {
@@ -208,7 +214,7 @@ exports[`should display tag with right icon 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
 }
 
 .emotion-1 {
@@ -220,16 +226,18 @@ exports[`should render correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 1.5rem;
+  min-height: var(--sizes-6);
   max-width: 100%;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  min-width: 1.5rem;
-  font-size: 0.875rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: #c2ebd4;
-  color: #0f3921;
+  border-radius: var(--radii-md);
+  font-weight: var(--fontWeights-medium);
+  min-width: var(--sizes-6);
+  font-size: var(--fontSizes-sm);
+  -webkit-padding-start: var(--space-2);
+  padding-inline-start: var(--space-2);
+  -webkit-padding-end: var(--space-2);
+  padding-inline-end: var(--space-2);
+  background-color: var(--colors-green-100);
+  color: var(--colors-green-800);
 }
 
 .emotion-2 {
@@ -252,8 +260,10 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-4 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  -webkit-margin-start: 0.5rem;
+  margin-inline-start: 0.5rem;
+  -webkit-margin-end: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 .emotion-5:first-child {
@@ -265,7 +275,7 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-6 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: var(--fonts-body);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

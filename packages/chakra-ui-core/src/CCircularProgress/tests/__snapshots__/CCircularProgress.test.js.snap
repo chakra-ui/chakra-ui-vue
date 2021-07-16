@@ -22,16 +22,16 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-2 {
-  color: #EDF2F7;
-  fill: transparent;
+  color: var(--colors-gray-100);
+  fill: var(--colors-transparent);
   stroke: currentColor;
   -webkit-transition: all 250ms;
   transition: all 250ms;
 }
 
 .emotion-3 {
-  color: #0058e6;
-  fill: transparent;
+  color: var(--colors-blue-500);
+  fill: var(--colors-transparent);
   stroke: currentColor;
   -webkit-transition: all 250ms;
   transition: all 250ms;

@@ -13,27 +13,27 @@ exports[`should render CStack with element as nav 1`] = `
 }
 
 .emotion-2 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .emotion-3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  font-weight: 700;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
 }
 
 .emotion-4 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  margin-top: 1rem;
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
 }
 
 .emotion-5 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
 }
 
@@ -97,27 +97,27 @@ exports[`should render CStack with element as section 1`] = `
 }
 
 .emotion-2 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .emotion-3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  font-weight: 700;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
 }
 
 .emotion-4 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  margin-top: 1rem;
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
 }
 
 .emotion-5 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
 }
 
@@ -181,27 +181,27 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-2 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .emotion-3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  font-weight: 700;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
 }
 
 .emotion-4 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  margin-top: 1rem;
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
 }
 
 .emotion-5 {
-  padding: 1.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
   border-width: 1px;
 }
 
@@ -284,18 +284,18 @@ exports[`should should stack native html elements 1`] = `
 }
 
 .emotion-2 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 
 .emotion-3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .emotion-5 {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  margin-top: 1rem;
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
 }
 
 <div

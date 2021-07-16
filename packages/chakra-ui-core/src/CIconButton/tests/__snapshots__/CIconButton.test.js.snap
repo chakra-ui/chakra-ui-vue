@@ -29,42 +29,45 @@ exports[`should change icon 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #1a72ff;
-  color: #fff;
-  padding: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-blue-400);
+  color: var(--colors-white);
+  padding: var(--space-0);
 }
 
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-0:hover {
-  background-color: #0058e6;
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blue-500);
 }
 
 .emotion-0:active,
-.emotion-0[data-active=true] {
-  background-color: #0045b4;
+.emotion-0[data-active] {
+  background: var(--colors-blue-600);
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
+.emotion-0[disabled],
 .emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 .emotion-1 {
@@ -113,7 +116,8 @@ exports[`should change icon 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   color: currentColor;
   margin-bottom: 2px;
 }
@@ -175,42 +179,45 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
-  font-weight: 700;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #1a72ff;
-  color: #fff;
-  padding: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-blue-400);
+  color: var(--colors-white);
+  padding: var(--space-0);
 }
 
-.emotion-0:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-0:hover {
-  background-color: #0058e6;
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blue-500);
 }
 
 .emotion-0:active,
-.emotion-0[data-active=true] {
-  background-color: #0045b4;
+.emotion-0[data-active] {
+  background: var(--colors-blue-600);
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
+.emotion-0[disabled],
 .emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: none;
+  box-shadow: var(--shadows-none);
 }
 
 .emotion-1 {
@@ -259,7 +266,8 @@ exports[`should render correctly 1`] = `
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1.2;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   color: currentColor;
   margin-bottom: 2px;
 }

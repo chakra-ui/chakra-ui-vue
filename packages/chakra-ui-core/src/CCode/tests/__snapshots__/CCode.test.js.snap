@@ -4,13 +4,15 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: inline-block;
-  font-size: 0.875rem;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  border-radius: 0.125rem;
-  background-color: #EDF2F7;
-  color: #1A202C;
+  font-size: var(--fontSizes-sm);
+  -webkit-padding-start: 0.2em;
+  padding-inline-start: 0.2em;
+  -webkit-padding-end: 0.2em;
+  padding-inline-end: 0.2em;
+  font-family: var(--fonts-mono);
+  border-radius: var(--radii-sm);
+  background-color: var(--colors-gray-100);
+  color: var(--colors-gray-800);
 }
 
 <code

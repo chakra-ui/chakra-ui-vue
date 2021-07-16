@@ -15,26 +15,30 @@ exports[`should render correctly 1`] = `
   position: relative;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 2.5rem;
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  height: var(--sizes-10);
   line-height: 2.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   border-width: 1px;
   border-color: inherit;
-  background-color: #fff;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background: var(--colors-white);
+  font-family: var(--fonts-body);
 }
 
 .emotion-0[aria-readonly=true],
-.emotion-0[readonly] {
-  background-color: transparent;
+.emotion-0[readonly],
+.emotion-0[data-readonly] {
+  background: var(--colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -42,27 +46,27 @@ exports[`should render correctly 1`] = `
   user-select: all;
 }
 
-.emotion-0:hover {
-  border-color: #CBD5E0;
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  border-color: var(--colors-gray-300);
 }
 
-.emotion-0:disabled,
-.emotion-0:disabled:focus,
-.emotion-0:disabled:hover,
+.emotion-0[disabled],
 .emotion-0[aria-disabled=true],
-.emotion-0[aria-disabled=true]:focus,
-.emotion-0[aria-disabled=true]:hover {
+.emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.emotion-0:focus {
+.emotion-0:focus,
+.emotion-0[data-focus] {
   z-index: 1;
   border-color: #7db1ff;
   box-shadow: 0 0 0 1px #7db1ff;
 }
 
-.emotion-0[aria-invalid=true] {
+.emotion-0[aria-invalid=true],
+.emotion-0[data-invalid] {
   border-color: #e66673;
   box-shadow: 0 0 0 1px #e66673;
 }

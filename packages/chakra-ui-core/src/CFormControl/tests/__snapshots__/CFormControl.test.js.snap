@@ -3,12 +3,12 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-1 {
-  font-size: 1rem;
+  font-size: var(--fontSizes-md);
   padding-right: 12px;
   padding-bottom: 4px;
   opacity: 1;
-  font-weight: 500;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: var(--fontWeights-medium);
+  font-family: var(--fonts-body);
   text-align: left;
   vertical-align: middle;
   display: inline-block;
@@ -27,26 +27,30 @@ exports[`should render correctly 1`] = `
   position: relative;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 2.5rem;
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  height: var(--sizes-10);
   line-height: 2.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radii-md);
   border-width: 1px;
   border-color: inherit;
-  background-color: #fff;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  background: var(--colors-white);
+  font-family: var(--fonts-body);
 }
 
 .emotion-2[aria-readonly=true],
-.emotion-2[readonly] {
-  background-color: transparent;
+.emotion-2[readonly],
+.emotion-2[data-readonly] {
+  background: var(--colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -54,27 +58,27 @@ exports[`should render correctly 1`] = `
   user-select: all;
 }
 
-.emotion-2:hover {
-  border-color: #CBD5E0;
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  border-color: var(--colors-gray-300);
 }
 
-.emotion-2:disabled,
-.emotion-2:disabled:focus,
-.emotion-2:disabled:hover,
+.emotion-2[disabled],
 .emotion-2[aria-disabled=true],
-.emotion-2[aria-disabled=true]:focus,
-.emotion-2[aria-disabled=true]:hover {
+.emotion-2[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.emotion-2:focus {
+.emotion-2:focus,
+.emotion-2[data-focus] {
   z-index: 1;
   border-color: #7db1ff;
   box-shadow: 0 0 0 1px #7db1ff;
 }
 
-.emotion-2[aria-invalid=true] {
+.emotion-2[aria-invalid=true],
+.emotion-2[data-invalid] {
   border-color: #e66673;
   box-shadow: 0 0 0 1px #e66673;
 }

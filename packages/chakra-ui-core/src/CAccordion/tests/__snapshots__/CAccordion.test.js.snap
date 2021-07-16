@@ -20,29 +20,31 @@ exports[`should render correctly 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  outline: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
 }
 
-.emotion-3:focus {
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+.emotion-3:focus,
+.emotion-3[data-focus] {
+  box-shadow: var(--shadows-outline);
 }
 
-.emotion-3:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+.emotion-3:hover,
+.emotion-3[data-hover] {
+  background: var(--colors-blackAlpha-50);
 }
 
-.emotion-3:disabled,
-.emotion-3:disabled:focus,
-.emotion-3:disabled:hover,
+.emotion-3[disabled],
 .emotion-3[aria-disabled=true],
-.emotion-3[aria-disabled=true]:focus,
-.emotion-3[aria-disabled=true]:hover {
+.emotion-3[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -78,10 +80,12 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-8 {
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1.25rem;
+  padding-top: var(--space-2);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  padding-bottom: var(--space-5);
 }
 
 <div

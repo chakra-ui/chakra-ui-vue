@@ -12,7 +12,7 @@ export const buttonProps = {
     type: String,
     default: 'solid',
     validator: value =>
-      value.match(/^(solid|outline|ghost|flat|link)$/)
+      value.match(/^(solid|outline|ghost|flat|link|unstyled)$/)
   },
   variantColor: {
     type: [String, Array],

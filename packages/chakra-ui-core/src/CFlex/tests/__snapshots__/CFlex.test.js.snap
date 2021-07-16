@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should change styles 1`] = `
+exports[`CFlex should change styles 1`] = `
 <DocumentFragment>
   <div
     class="css-u6v8er"
@@ -12,7 +12,7 @@ exports[`should change styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render correctly 1`] = `
+exports[`CFlex should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-k008qs"

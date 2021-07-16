@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render CStack with element as nav 1`] = `
+exports[`CStack should render CStack with element as nav 1`] = `
 <DocumentFragment>
   <nav
     class="css-j7qwjs css-0"
@@ -49,7 +49,7 @@ exports[`should render CStack with element as nav 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render CStack with element as section 1`] = `
+exports[`CStack should render CStack with element as section 1`] = `
 <DocumentFragment>
   <section
     class="css-j7qwjs css-0"
@@ -98,7 +98,7 @@ exports[`should render CStack with element as section 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render correctly 1`] = `
+exports[`CStack should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-j7qwjs css-0"
@@ -147,7 +147,7 @@ exports[`should render correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render empty children correctly 1`] = `
+exports[`CStack should render empty children correctly 1`] = `
 <DocumentFragment>
   <div
     class="css-j7qwjs css-0"
@@ -156,7 +156,7 @@ exports[`should render empty children correctly 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should should stack native html elements 1`] = `
+exports[`CStack should should stack native html elements 1`] = `
 <DocumentFragment>
   <div
     class="css-j7qwjs css-0"

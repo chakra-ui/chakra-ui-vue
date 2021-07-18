@@ -28,6 +28,12 @@ const CThemeProvider = {
       $chakraColorMode: () => 'light'
     }
   },
+  props: {
+    rootKey: {
+      type: String,
+      default: ':root'
+    }
+  },
   computed: {
     icons () {
       return this.$chakra ? this.$chakra.icons : {}
@@ -53,7 +59,7 @@ const CThemeProvider = {
   },
   methods: {
     updateGlobalCssVars () {
-      const rootKey = this.theme.rootKey || ':root'
+      const rootKey = this.rootKey || ':root'
       injectGlobal({
         [rootKey]: this.theme.__cssVars
       })

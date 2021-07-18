@@ -1,16 +1,18 @@
-import { shallowMount } from '@vue/test-utils'
-import theme from '../../../../chakra-ui-theme/src'
+import { toCSSVar } from '@chakra-ui/styled-system'
+import { mount, shallowMount } from '@vue/test-utils'
+import { getElementStyles } from '@/tests/test-utils'
+
+import theme from '@chakra-ui/theme-vue'
 import CThemeProvider from '..'
 
-describe('===== CThemeProvider Component =====', () => {
-  let themeProvider
+describe('CThemeProvider', () => {
   const ChildComponent = {
     inject: ['$chakraTheme', '$chakraColorMode'],
     render: h => h('div', {})
   }
 
   it('should be a Vue component', () => {
-    themeProvider = shallowMount(CThemeProvider, {
+    const themeProvider = shallowMount(CThemeProvider, {
       mocks: {
         $chakra: {
           theme
@@ -24,20 +26,38 @@ describe('===== CThemeProvider Component =====', () => {
   })
 
   it('should provide theme & default color mode to child components', () => {
-    themeProvider = shallowMount(CThemeProvider, {
-      slots: {
-        default: [ChildComponent]
-      },
+    const themeProvider = shallowMount(CThemeProvider, {
       mocks: {
         $chakra: {
           theme
         }
       },
-      propsData: {
-        theme
-      }
+      slots: {
+        default: [ChildComponent]
+      },
     })
     expect(themeProvider.find(ChildComponent).vm.$chakraTheme()).toBe(theme)
     expect(themeProvider.find(ChildComponent).vm.$chakraColorMode()).toBe('light')
+  })
+
+  it('should inject global Css variables to root', () => {
+    const rootKey = ':root'
+
+    mount(CThemeProvider, {
+      props: {
+        rootKey
+      },
+      mocks: {
+        $chakra: {
+          theme: toCSSVar(theme)
+        }
+      },
+      slots: {
+        default: [ChildComponent]
+      },
+    })
+
+    const root = document.querySelector(rootKey)
+    expect(getElementStyles(root)).toMatchSnapshot()
   })
 })

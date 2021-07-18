@@ -60,6 +60,7 @@ exports[`should render correctly 1`] = `
   padding-inline-end: var(--space-4);
   height: var(--sizes-10);
   line-height: 2.5rem;
+  border-radius: var(--radii-md);
   border-width: 1px;
   border-color: inherit;
   background: var(--colors-white);

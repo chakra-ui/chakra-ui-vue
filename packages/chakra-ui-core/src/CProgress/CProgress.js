@@ -182,7 +182,7 @@ const CProgress = {
       return {
         light: generateStripe({}),
         dark: generateStripe({
-          color: 'rgba(0,0,0,0.1)'
+          color: 'rgba( 0, 0, 0, 0.1)'
         })
       }
     },
@@ -199,7 +199,7 @@ const CProgress = {
     const stripeStyle = {
       light: generateStripe({}),
       dark: generateStripe({
-        color: 'rgba(0,0,0,0.1)'
+        color: 'rgba( 0, 0, 0, 0.1)'
       })
     }
 

@@ -1,8 +1,8 @@
 import { toCSSVar } from '@chakra-ui/styled-system'
 import { mount, shallowMount } from '@vue/test-utils'
+import theme from '@chakra-ui/theme-vue'
 import { getElementStyles } from '@/tests/test-utils'
 
-import theme from '@chakra-ui/theme-vue'
 import CThemeProvider from '..'
 
 describe('CThemeProvider', () => {
@@ -34,7 +34,7 @@ describe('CThemeProvider', () => {
       },
       slots: {
         default: [ChildComponent]
-      },
+      }
     })
     expect(themeProvider.find(ChildComponent).vm.$chakraTheme()).toBe(theme)
     expect(themeProvider.find(ChildComponent).vm.$chakraColorMode()).toBe('light')
@@ -54,7 +54,7 @@ describe('CThemeProvider', () => {
       },
       slots: {
         default: [ChildComponent]
-      },
+      }
     })
 
     const root = document.querySelector(rootKey)

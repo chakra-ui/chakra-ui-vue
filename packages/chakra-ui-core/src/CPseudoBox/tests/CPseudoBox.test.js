@@ -22,7 +22,7 @@ it('should change the style', () => {
   my="5" mb="5" rounded="sm" font-family="body"
   background-color="blue.200" color="blue.700"`
   const { asFragment } = renderComponent({ inlineAttrs })
-  
+
   expect(asFragment()).toMatchSnapshot()
 })
 

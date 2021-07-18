@@ -5,5 +5,5 @@ import { css } from '@chakra-ui/styled-system'
  * @param {Object} styleProps Styles object
  * @returns {Function} (theme) => CSSStyleObject
  */
-const buildCssFn = (styleProps) => css(styleProps)
+const buildCssFn = styleProps => css(styleProps)
 export default buildCssFn

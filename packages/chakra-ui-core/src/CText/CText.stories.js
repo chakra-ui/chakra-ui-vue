@@ -108,3 +108,32 @@ storiesOf('UI | Text', module)
       </div>
     `
   }))
+  .add('with noOfLines', () => ({
+    components: { CText },
+    template: `
+      <div style="width: 80vw">
+        <div>This will not show more than 3 lines</div>
+        <CText noOfLines="3" mb="2" borderWidth="1px" borderColor="red.200">
+          Extra super duper long naruto heading in the village hidden in the leaves by the first Hokage who used to be friedns with Madara Uchiha but they went their separate ways because they could find a common understing around the definition of peace in the ninja world. Add text to make it long enough
+        </CText>
+      </div>
+    `
+  }))
+  .add('with textDecor', () => ({
+    components: { CText },
+    template: `
+      <div style="width: 80vw; padding-top: 20px;">
+        <div>Some decorations:</div>
+        <CText p="4" mb="2" borderWidth="1px" borderColor="red.200" textDecor="overline">
+          Extra super duper long naruto heading in the village hidden in the leaves by the first Hokage who used to be friedns with Madara Uchiha but they went their separate ways because they could find a common understing around the definition of peace in the ninja world.
+        </CText>
+        <CText p="4" mb="2" borderWidth="1px" borderColor="blue.200" textDecor="line-through">
+          Extra super duper long naruto heading in the village hidden in the leaves by the first Hokage who used to be friedns with Madara Uchiha but they went their separate ways because they could find a common understing around the definition of peace in the ninja world.
+        </CText>
+        <CText p="4" mb="2" borderWidth="1px" borderColor="green.200" textDecor="underline">
+          Extra super duper long naruto heading in the village hidden in the leaves by the first Hokage who used to be friedns with Madara Uchiha but they went their separate ways because they could find a common understing around the definition of peace in the ninja world.
+        </CText>
+      </div>
+    `
+  }))
+

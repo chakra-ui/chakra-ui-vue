@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { CMenu, CFade, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon, defaultTheme } from '..'
-
+import { CMenu, CFade, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon } from '..'
 
 storiesOf('UI | Menu', module)
   .add('With internal state', () => ({

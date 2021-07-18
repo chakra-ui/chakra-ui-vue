@@ -136,4 +136,3 @@ storiesOf('UI | Text', module)
       </div>
     `
   }))
-

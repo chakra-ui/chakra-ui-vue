@@ -69,7 +69,7 @@ export const createStyledAttrsMixin = name => ({
       }
     },
     baseStyle () {
-      return __get(this.theme, `baseStyle.${name}`, {})
+      return __get(this.theme, `baseStyle.${name}`) || {}
     },
     className () {
       const { styleAttrs } = this.splitProps

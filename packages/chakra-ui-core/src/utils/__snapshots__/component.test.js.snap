@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createStyledAttrsMixin baseStyle should be overiden by props 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--colors-blue-200);
+  color: var(--colors-gray-200);
+}
+
+<div
+    class="emotion-0"
+    data-chakra-component="FakeComponent"
+  >
+    Fake component
+  </div>
+</DocumentFragment>
+`;
+
+exports[`createStyledAttrsMixin baseStyle should use theme.baseStyle if given 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: var(--colors-red-400);
+  color: var(--colors-gray-200);
+}
+
+<div
+    class="emotion-0"
+    data-chakra-component="FakeComponent"
+  >
+    Fake component
+  </div>
+</DocumentFragment>
+`;

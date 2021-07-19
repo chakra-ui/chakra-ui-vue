@@ -7,18 +7,13 @@ import { css } from '@chakra-ui/styled-system'
  * @param {Object} obj Theme property
  * @param {String} key Theme key
  * @param {String} def Definition if non-existent
- * @param {*} p
- * @param {*} undef
  */
-export const __get = (obj, key, def, p, undef) => {
-  key = key && key.split ? key.split('.') : [key]
+export const __get = (obj, key, def) => {
+  const keys = key && key.split ? key.split('.') : [key]
 
-  for (p = 0; p < key.length; p++) {
-    obj = obj ? obj[key[p]] : undef
-  }
-
-  return obj === undef ? def : obj
+  return (
+    keys.reduce((res, key) => res && res[key], obj) || def
+  )
 }
 
-export const composeSystem = (props = {}, theme = {}) =>
-  css(props)(theme)
+export const composeSystem = (props = {}, theme = {}) => css(props)(theme)

@@ -1,9 +1,9 @@
 import { css } from '@emotion/css'
-import { composeSystem } from './styled-system'
+import { composeSystem, __get } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
-  return (!!value && !!value.$el)
+  return !!value && !!value.$el
 }
 
 /**
@@ -12,7 +12,7 @@ export const isVueComponent = (value) => {
  * for primitives with changes in the $parent $attrs
  * and $listeners objects
  * @param {String} property
-*/
+ */
 export function createWatcher (property) {
   return {
     handler (newVal, oldVal) {
@@ -32,8 +32,8 @@ export function createWatcher (property) {
 /**
  * Create mixin for style attributes
  * @param {String} name Component name
-*/
-export const createStyledAttrsMixin = (name, isPseudo) => ({
+ */
+export const createStyledAttrsMixin = name => ({
   name,
   inheritAttrs: false,
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -68,15 +68,24 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
         nativeAttrs
       }
     },
+    baseStyle () {
+      return __get(this.theme, `baseStyle.${name}`, {})
+    },
     className () {
       const { styleAttrs } = this.splitProps
-      const boxStylesObject = composeSystem(styleAttrs, this.theme)
+      const boxStylesObject = composeSystem(
+        {
+          ...this.baseStyle,
+          ...styleAttrs
+        },
+        this.theme
+      )
       return css(boxStylesObject)
     },
     /** Computed attributes object */
     computedAttrs () {
       return {
-        ...name && { 'data-chakra-component': name },
+        ...(name && { 'data-chakra-component': name }),
         ...this.splitProps.nativeAttrs
       }
     },

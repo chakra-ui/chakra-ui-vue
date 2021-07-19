@@ -16,7 +16,7 @@ exports[`should render correctly 1`] = `
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: 40%;
-  background: var(--colors-green-500);
+  background-color: var(--colors-green-500);
   border-radius: var(--radii-sm);
 }
 

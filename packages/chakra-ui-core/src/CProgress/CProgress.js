@@ -225,7 +225,7 @@ const CProgress = {
           value: this.value
         },
         attrs: {
-          bg: indicatorColor[this.colorMode],
+          bgColor: indicatorColor[this.colorMode],
           borderRadius: this.__borderRadius,
           ...this.isIndeterminate && {
             width: '100%',

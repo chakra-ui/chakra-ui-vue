@@ -1,4 +1,5 @@
 import { css } from '@emotion/css'
+import { runIfFn } from '@chakra-ui/utils'
 import { composeSystem, __get } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
@@ -69,7 +70,15 @@ export const createStyledAttrsMixin = name => ({
       }
     },
     baseStyle () {
-      return __get(this.theme, `baseStyle.${name}`) || {}
+      const { nativeAttrs } = this.splitProps
+      const styleObjectOrFn = __get(this.theme, `baseStyle.${name}`)
+      return (
+        runIfFn(styleObjectOrFn, {
+          theme: this.theme,
+          colorMode: this.colorMode,
+          ...nativeAttrs
+        }) || {}
+      )
     },
     className () {
       const { styleAttrs } = this.splitProps

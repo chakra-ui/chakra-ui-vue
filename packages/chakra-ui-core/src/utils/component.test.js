@@ -20,7 +20,7 @@ describe('createStyledAttrsMixin', () => {
   }
 
   describe('baseStyle', () => {
-    const renderFakeComponent = ({ theme, ...props }) => {
+    const renderFakeComponent = ({ theme, colorMode, ...props }) => {
       const inlineAttrs = (props && props.inlineAttrs) || ''
       return render({
         template: `<FakeComponent ${inlineAttrs} />`,
@@ -29,7 +29,7 @@ describe('createStyledAttrsMixin', () => {
         },
         provide: () => ({
           $chakraTheme: () => toCSSVar(theme),
-          $chakraColorMode: () => 'light'
+          $chakraColorMode: () => colorMode || 'light'
         }),
         ...props
       })
@@ -64,6 +64,39 @@ describe('createStyledAttrsMixin', () => {
         }
       })
       expect(asFragment()).toMatchSnapshot()
+    })
+
+    it('should accept baseStyle as a function', () => {
+      const theme = {
+        ...defaultTheme,
+        baseStyle: {
+          FakeComponent: ({ colorMode, theme }) => ({
+            bg: colorMode === 'light' ? 'red.400' : 'red.200',
+            color: colorMode === 'light' ? 'black' : 'white',
+            border: `2px solid ${
+              colorMode === 'light'
+                ? theme.color.blue[600]
+                : theme.colors.blue[200]
+            }`
+          })
+        }
+      }
+
+      // light mode
+      const lightWrapper = renderFakeComponent({
+        theme,
+        colorMode: 'light',
+        inlineAttrs: 'bg="blue.200"'
+      })
+      expect(lightWrapper.asFragment()).toMatchSnapshot()
+
+      // dark mode
+      const darkWrapper = renderFakeComponent({
+        theme,
+        colorMode: 'dark',
+        inlineAttrs: 'bg="vue.200"'
+      })
+      expect(darkWrapper.asFragment()).toMatchSnapshot()
     })
   })
 })

@@ -75,7 +75,7 @@ describe('createStyledAttrsMixin', () => {
             color: colorMode === 'light' ? 'black' : 'white',
             border: `2px solid ${
               colorMode === 'light'
-                ? theme.color.blue[600]
+                ? theme.colors.blue[600]
                 : theme.colors.blue[200]
             }`
           })

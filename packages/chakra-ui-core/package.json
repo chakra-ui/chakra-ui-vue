@@ -54,6 +54,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-common-types": "^0.2.36",
     "rimraf": "^3.0.2"
   },
   "keywords": [

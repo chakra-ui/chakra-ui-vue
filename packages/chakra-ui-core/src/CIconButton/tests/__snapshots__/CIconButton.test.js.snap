@@ -2,9 +2,129 @@
 
 exports[`should change icon 1`] = `
 <DocumentFragment>
-  <button
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-blue-400);
+  color: var(--colors-white);
+  padding: var(--space-0);
+}
+
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blue-500);
+}
+
+.emotion-0:active,
+.emotion-0[data-active] {
+  background: var(--colors-blue-600);
+}
+
+.emotion-0[disabled],
+.emotion-0[aria-disabled=true],
+.emotion-0[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  color: currentColor;
+  margin-bottom: 2px;
+}
+
+<button
     aria-label="Phone"
-    class="css-j4xjee"
+    class="emotion-0"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -12,7 +132,7 @@ exports[`should change icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="css-12j51pv css-3vopgu css-kzfxtu"
+      class="emotion-1 emotion-2 emotion-3"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -32,9 +152,129 @@ exports[`should change icon 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <button
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-blue-400);
+  color: var(--colors-white);
+  padding: var(--space-0);
+}
+
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blue-500);
+}
+
+.emotion-0:active,
+.emotion-0[data-active] {
+  background: var(--colors-blue-600);
+}
+
+.emotion-0[disabled],
+.emotion-0[aria-disabled=true],
+.emotion-0[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  color: currentColor;
+  margin-bottom: 2px;
+}
+
+<button
     aria-label="Phone"
-    class="css-j4xjee"
+    class="emotion-0"
     data-chakra-component="CIconButton"
     data-testid="btn"
     tabindex="0"
@@ -42,7 +282,7 @@ exports[`should render correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="css-12j51pv css-3vopgu css-kzfxtu"
+      class="emotion-1 emotion-2 emotion-3"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 14 14"

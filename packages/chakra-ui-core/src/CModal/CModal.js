@@ -270,7 +270,7 @@ const CModalOverlay = {
       ...rest,
       attrs: {
         pos: 'fixed',
-        bg: 'rgba(0,0,0,0.4)',
+        bg: 'rgba( 0, 0, 0, 0.4)',
         left: '0',
         top: '0',
         w: '100vw',
@@ -307,7 +307,7 @@ const CModalContent = {
       colorModeStyles: {
         light: {
           bg: 'white',
-          shadow: '0 7px 14px 0 rgba(0,0,0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07)'
+          shadow: '0 7px 14px 0 rgba(0, 0, 0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, .07)'
         },
         dark: {
           bg: 'gray.700',

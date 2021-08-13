@@ -22,7 +22,7 @@ it('should render correctly', () => {
   expect(asFragment()).toMatchSnapshot()
 
   const [emotionClassName] = [...screen.getByTestId('aspectRatioBox').classList]
-  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+  const pseudoStyles = getElementStyles(`.${emotionClassName}::before`)
 
   expect(pseudoStyles).toContain(
     `
@@ -34,40 +34,13 @@ it('should render correctly', () => {
 it('should have correct styles', () => {
   const inlineAttrs = ':ratio="2"'
   renderComponent({ inlineAttrs })
-  const image = screen.getByTestId('image')
-  const aspectRatioBox = screen.getByTestId('aspectRatioBox')
-  const child = screen.getByTestId('child')
 
-  const [emotionClassName] = [...aspectRatioBox.classList] // second className has the pseudo styles
-  const pseudoStyles = getElementStyles(`.${emotionClassName}:before`)
+  const [emotionClassName] = [...screen.getByTestId('aspectRatioBox').classList]
+  const pseudoStyles = getElementStyles(`.${emotionClassName}::before`)
 
   expect(pseudoStyles).toContain(
     `
     padding-bottom: 50%
   `.trim()
   )
-
-  expect(aspectRatioBox).toHaveStyle(`
-    max-width: 400px;
-    position: relative;
-  `)
-
-  // aspectRatioBox should contain exactly 1 immediate child
-  expect(aspectRatioBox.childElementCount).toEqual(1)
-
-  expect(child).toHaveStyle(`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-  `)
-
-  expect(child).not.toBeEmpty()
-
-  expect(image).toHaveStyle(`
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  `)
 })

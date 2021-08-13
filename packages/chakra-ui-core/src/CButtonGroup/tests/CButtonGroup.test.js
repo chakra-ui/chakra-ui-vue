@@ -32,7 +32,7 @@ it('should attach buttons when `is-attached` is passed', () => {
   })
 
   const button = screen.getByText('Button1')
-  expect(button).toHaveStyle('border-top-right-radius: 0; border-bottom-right-radius: 0;')
+  expect(button).toHaveStyle('border-top-right-radius: 0px; border-bottom-right-radius: 0px;')
   expect(asFragment()).toMatchSnapshot()
 })
 

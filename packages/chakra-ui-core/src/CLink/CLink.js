@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CLink/CLink.js
  */
 import { kebabify, createStyledAttrsMixin } from '../utils'
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 
 /**
  * CLink component

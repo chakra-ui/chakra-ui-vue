@@ -2,44 +2,79 @@
 
 exports[`CStack should render CStack with element as nav 1`] = `
 <DocumentFragment>
-  <nav
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
+}
+
+.emotion-4 {
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+}
+
+.emotion-5 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+}
+
+<nav
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="emotion-2"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Plan Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
     <div
-      class="css-1ipbp6k"
+      class="emotion-5"
       data-chakra-component="CBox"
       data-testid="stack-child-2"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Save Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
@@ -51,44 +86,79 @@ exports[`CStack should render CStack with element as nav 1`] = `
 
 exports[`CStack should render CStack with element as section 1`] = `
 <DocumentFragment>
-  <section
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
+}
+
+.emotion-4 {
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+}
+
+.emotion-5 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+}
+
+<section
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="emotion-2"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Plan Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
     <div
-      class="css-1ipbp6k"
+      class="emotion-5"
       data-chakra-component="CBox"
       data-testid="stack-child-2"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Save Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
@@ -100,44 +170,79 @@ exports[`CStack should render CStack with element as section 1`] = `
 
 exports[`CStack should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  font-size: var(--fontSizes-xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
+}
+
+.emotion-4 {
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+}
+
+.emotion-5 {
+  padding: var(--space-5);
+  box-shadow: var(--shadows-md);
+  border-width: 1px;
+}
+
+<div
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <div
-      class="css-dtyjrz"
+      class="emotion-2"
       data-chakra-component="CBox"
       data-testid="stack-child-1"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Plan Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         The future can be even brighter but a goal without a plan is just a wish
       </p>
     </div>
     <div
-      class="css-1ipbp6k"
+      class="emotion-5"
       data-chakra-component="CBox"
       data-testid="stack-child-2"
     >
       <h2
-        class="css-aku8fb"
+        class="emotion-3"
         data-chakra-component="CHeading"
       >
         Save Money
       </h2>
        
       <p
-        class="css-18iq2bq"
+        class="emotion-4"
         data-chakra-component="CText"
       >
         You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process
@@ -149,8 +254,18 @@ exports[`CStack should render correctly 1`] = `
 
 exports[`CStack should render empty children correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
   />
 </DocumentFragment>
@@ -158,19 +273,44 @@ exports[`CStack should render empty children correctly 1`] = `
 
 exports[`CStack should should stack native html elements 1`] = `
 <DocumentFragment>
-  <div
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  margin-bottom: var(--space-2);
+}
+
+.emotion-5 {
+  font-family: var(--fonts-body);
+  margin-top: var(--space-4);
+}
+
+<div
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
     data-testid="stack"
   >
     <p
-      class="css-16ec2e8"
+      class="emotion-2"
       data-chakra-component="CText"
     >
       The future can be even brighter but a goal without a plan is just a wish
     </p>
     <div
-      class="css-cet0rr"
+      class="emotion-3"
       data-chakra-component="CBox"
     >
       <p
@@ -180,7 +320,7 @@ exports[`CStack should should stack native html elements 1`] = `
       </p>
     </div>
     <div
-      class="css-cet0rr"
+      class="emotion-3"
       data-chakra-component="CBox"
     >
       <h3
@@ -190,7 +330,7 @@ exports[`CStack should should stack native html elements 1`] = `
       </h3>
     </div>
     <p
-      class="css-18iq2bq"
+      class="emotion-5"
       data-chakra-component="CText"
     >
       You deserve good things. With a whooping 10-15% interest rate per annum, grow your savings on your own terms with our completely automated process

@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CInputGroup/CInputGroup.js
  */
 
-import { StringArray } from '../config/props/props.types'
+import { StringArray } from '../config/props.types'
 import { inputSizes } from '../CInput/utils/input.styles'
 import { cloneVNode, kebabify } from '../utils'
 

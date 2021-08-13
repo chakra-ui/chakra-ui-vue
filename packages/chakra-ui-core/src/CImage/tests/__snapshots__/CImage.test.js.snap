@@ -4,7 +4,7 @@ exports[`"srcset" should work and be prioritized over "src" if provided to CImag
 <DocumentFragment>
   <img
     alt="My Image Description"
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CImage"
     src="LOAD_SUCCESS_SRC"
     srcset="LOAD_SUCCESS_SRC 400w"
@@ -16,7 +16,7 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   <img
     alt="Mesut Koca"
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CImage"
     data-testid="avatar"
     src="LOAD_SUCCESS_SRC"
@@ -28,7 +28,7 @@ exports[`should use src if srcset provided is undefined 1`] = `
 <DocumentFragment>
   <img
     alt="My Image Description"
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CImage"
     src="LOAD_SUCCESS_SRC"
     srcset="LOAD_FAILURE_SRC"

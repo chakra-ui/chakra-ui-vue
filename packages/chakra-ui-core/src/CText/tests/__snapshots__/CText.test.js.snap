@@ -2,8 +2,16 @@
 
 exports[`should change the style 1`] = `
 <DocumentFragment>
-  <p
-    class="css-1y6cmsr"
+  .emotion-0 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<p
+    class="emotion-0"
     data-chakra-component="CText"
     data-testid="text"
   >
@@ -14,8 +22,12 @@ exports[`should change the style 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <p
-    class="css-fzcsno"
+  .emotion-0 {
+  font-family: var(--fonts-body);
+}
+
+<p
+    class="emotion-0"
     data-chakra-component="CText"
     data-testid="text"
   >

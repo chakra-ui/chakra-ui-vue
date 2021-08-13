@@ -85,7 +85,7 @@
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^6.0.1",
     "nuxt": "2.14.6",
     "portal-vue": "^2.1.6",
     "prismjs": "^1.19.0",

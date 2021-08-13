@@ -11,6 +11,7 @@
   ],
   "files": ["lib"],
   "main": "lib/module.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "dev": "nuxt example/base",
     "lint": "eslint --ext .js,.vue .",

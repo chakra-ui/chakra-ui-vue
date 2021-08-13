@@ -1,12 +1,4 @@
 {
-  "version": 2,
-  "env": {
-    "MIXPANEL_TOKEN": "91ec73fd1b8e164d6cfbae6bf1a3e7d1"
-  },
-  "build": {
-    "env": {
-      "MIXPANEL_TOKEN": "91ec73fd1b8e164d6cfbae6bf1a3e7d1"
-    }
-  }
+  "version": 2
 }
 

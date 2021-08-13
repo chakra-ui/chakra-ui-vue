@@ -55,7 +55,7 @@ storiesOf('UI | ControlBox', module)
           }"
           :_hover="{ borderColor: 'gray.300' }"
           :_focus="{ boxShadow: 'outline' }"
-          :_disabled="{ opacity: '40%' }"
+          :_disabled="{ opacity: '0.4' }"
         >
           <CBox w="50%" h="50%" bg="white" rounded="full" />
         </CControlBox>

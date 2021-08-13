@@ -1,4 +1,4 @@
-import { SNA, StringArray } from '../../config/props/props.types'
+import { SNA, StringArray } from '../../config/props.types'
 
 export const inputProps = {
   size: {

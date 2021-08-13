@@ -36,8 +36,8 @@
     "max-overall-size": "85KB"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "^1.12.1",
     "@popperjs/core": "^2.4.0",
-    "@styled-system/css": "^5.0.23",
     "animejs": "^3.1.0",
     "aria-hidden": "^1.1.1",
     "breadstick": "^0.2.14",
@@ -46,7 +46,6 @@
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15",
     "portal-vue": "^2.1.6",
-    "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0"
   },
   "peerDependencies": {

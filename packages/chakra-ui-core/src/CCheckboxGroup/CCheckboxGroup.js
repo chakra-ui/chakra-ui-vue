@@ -10,7 +10,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
  */
 
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 import { isDef, useId, cleanChildren, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'

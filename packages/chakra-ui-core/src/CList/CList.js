@@ -8,7 +8,7 @@
  */
 
 import { cleanChildren, isDef, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 
 import CIcon from '../CIcon'
 

@@ -7,11 +7,12 @@ storiesOf('UI | Button', module)
     components: { CButton },
     template: `
       <div>
-        <input v-chakra="{ ':focus': { shadow: 'outline' } }" transition="all 0.2s ease-in-out" shadow="sm" rounded="md" h="100%" v-model="value" />
         <CButton variant-color="blue" @click="action">New button</CButton>
       </div>
     `,
-    methods: { action: action('Button Clicked') },
+    methods: {
+      action: action('Button Clicked')
+    },
     data: () => ({
       value: ''
     })

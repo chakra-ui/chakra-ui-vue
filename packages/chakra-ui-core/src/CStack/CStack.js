@@ -8,7 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CStack/CStack.js
  */
 
-import { StringArray, SNA } from '../config/props/props.types'
+import { StringArray, SNA } from '../config/props.types'
 import { cloneVNode, createStyledAttrsMixin } from '../utils'
 
 import CFlex from '../CFlex'

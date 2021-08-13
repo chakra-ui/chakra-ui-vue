@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`__get should return correct value for given path 1`] = `
+Object {
+  "bg": "red.400",
+  "color": "black",
+}
+`;
+
+exports[`__get should return correct value for given path 2`] = `"red.400"`;
+
+exports[`__get should return correct value for given path 3`] = `"black"`;
+
+exports[`__get should return correct value for given path 4`] = `"#ff0000"`;
+
+exports[`__get should return correct value for given path 5`] = `
+Object {
+  "bg": "red.400",
+  "color": "black",
+}
+`;
+
+exports[`__get should return correct value for given path 6`] = `"red.400"`;
+
+exports[`__get should return correct value for given path 7`] = `"black"`;
+
+exports[`__get should return correct value for given path 8`] = `"#ff0000"`;

@@ -2,8 +2,21 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <h2
-    class="css-1lq7e61"
+  .emotion-0 {
+  font-size: var(--fontSizes-3xl);
+  line-height: var(--lineHeights-shorter);
+  font-weight: var(--fontWeights-bold);
+  font-family: var(--fonts-heading);
+}
+
+@media screen and (min-width: 62em) {
+  .emotion-0 {
+    font-size: var(--fontSizes-4xl);
+  }
+}
+
+<h2
+    class="emotion-0"
     data-chakra-component="CHeading"
   >
     Header

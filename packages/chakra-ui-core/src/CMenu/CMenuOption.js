@@ -176,11 +176,11 @@ const CMenuOptionGroup = {
       type: [String, Number],
       default: null
     },
-    defaultValue: [String, Number]
+    defaultValue: [String, Number, Array]
   },
   data () {
     return {
-      innerValue: []
+      innerValue: this.defaultValue || []
     }
   },
   computed: {

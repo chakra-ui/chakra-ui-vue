@@ -73,6 +73,7 @@ const CButtonGroup = {
       attrs: {
         d: 'inline-block',
         ...data.attrs,
+        role: 'group',
         'data-chakra-component': 'CButtonGroup'
       },
       on: listeners

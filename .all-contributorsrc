@@ -272,7 +272,6 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/931497?v=4",
       "profile": "https://github.com/abelnnieva",
       "contributions": [
-        "bug",
         "code"
       ]
     },
@@ -282,9 +281,16 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/20158564?v=4",
       "profile": "https://github.com/simpletrontdip",
       "contributions": [
-        "bug",
-        "code",
-        "test"
+        "code"
+      ]
+    },
+    {
+      "login": "Pwuts",
+      "name": "Reinier van der Leer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12185583?v=4",
+      "profile": "https://pwuts.nl/",
+      "contributions": [
+        "code"
       ]
     }
   ],
@@ -293,5 +299,6 @@
   "projectOwner": "chakra-ui",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "none"
 }

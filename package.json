@@ -44,7 +44,9 @@
     "docs-dev": "yarn workspace chakra-ui-docs dev",
     "docs-build": "yarn workspace chakra-ui-docs build",
     "docs-serve": "yarn workspace chakra-ui-docs nuxt start",
-    "evalbundle": "bundlesize"
+    "evalbundle": "bundlesize",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
     "@chakra-ui/styled-system": "^1.12.1",
@@ -85,7 +87,6 @@
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
     "node-fetch": "^2.6.0",
-    "node-sass": "^6.0.1",
     "nuxt": "2.14.6",
     "portal-vue": "^2.1.6",
     "prismjs": "^1.19.0",
@@ -137,6 +138,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "add": "^2.0.6",
+    "all-contributors-cli": "^6.20.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -157,6 +159,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-testing-library": "^3.3.1",
     "jest": "^25.1.0",
+    "node-sass": "4.13",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "rollup": "^1.31.1",

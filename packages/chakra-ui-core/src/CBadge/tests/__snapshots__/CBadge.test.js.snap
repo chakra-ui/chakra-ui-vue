@@ -2,24 +2,99 @@
 
 exports[`should apply variant styles corectly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1xhj18k css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-2 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: var(--fontSizes-xs);
+  font-family: var(--fonts-body);
+  -webkit-padding-start: var(--space-1);
+  padding-inline-start: var(--space-1);
+  -webkit-padding-end: var(--space-1);
+  padding-inline-end: var(--space-1);
+  border-radius: var(--radii-sm);
+  font-weight: var(--fontWeights-bold);
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: var(--colors-green-100);
+  color: var(--colors-green-800);
+  -webkit-margin-start: var(--space-2);
+  margin-inline-start: var(--space-2);
+  -webkit-margin-end: var(--space-2);
+  margin-inline-end: var(--space-2);
+  margin-right: var(--space-2);
+}
+
+.emotion-3 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: var(--fontSizes-xs);
+  font-family: var(--fonts-body);
+  -webkit-padding-start: var(--space-1);
+  padding-inline-start: var(--space-1);
+  -webkit-padding-end: var(--space-1);
+  padding-inline-end: var(--space-1);
+  border-radius: var(--radii-sm);
+  font-weight: var(--fontWeights-bold);
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: var(--colors-green-500);
+  color: var(--colors-white);
+  -webkit-margin-start: var(--space-2);
+  margin-inline-start: var(--space-2);
+  -webkit-margin-end: var(--space-2);
+  margin-inline-end: var(--space-2);
+  margin-right: var(--space-2);
+}
+
+.emotion-4 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: var(--fontSizes-xs);
+  font-family: var(--fonts-body);
+  -webkit-padding-start: var(--space-1);
+  padding-inline-start: var(--space-1);
+  -webkit-padding-end: var(--space-1);
+  padding-inline-end: var(--space-1);
+  border-radius: var(--radii-sm);
+  font-weight: var(--fontWeights-bold);
+  white-space: nowrap;
+  vertical-align: middle;
+  box-shadow: inset 0 0 0px 1px #3ea76a;
+  color: var(--colors-green-500);
+  -webkit-margin-start: var(--space-2);
+  margin-inline-start: var(--space-2);
+  -webkit-margin-end: var(--space-2);
+  margin-inline-end: var(--space-2);
+}
+
+<div
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
   >
     <div
-      class="css-1sgz2im"
+      class="emotion-2"
       data-chakra-component="CBadge"
     >
       Subtle
     </div>
     <div
-      class="css-ps6r4y"
+      class="emotion-3"
       data-chakra-component="CBadge"
     >
       Solid
     </div>
     <div
-      class="css-1bvhmsh"
+      class="emotion-4"
       data-chakra-component="CBadge"
     >
       Outline
@@ -30,8 +105,25 @@ exports[`should apply variant styles corectly 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-2cw9wt"
+  .emotion-0 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: var(--fontSizes-xs);
+  font-family: var(--fonts-body);
+  -webkit-padding-start: var(--space-1);
+  padding-inline-start: var(--space-1);
+  -webkit-padding-end: var(--space-1);
+  padding-inline-end: var(--space-1);
+  border-radius: var(--radii-sm);
+  font-weight: var(--fontWeights-bold);
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: var(--colors-gray-100);
+  color: var(--colors-gray-800);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CBadge"
   >
     500

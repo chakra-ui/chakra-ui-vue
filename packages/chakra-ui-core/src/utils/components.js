@@ -1,11 +1,10 @@
 import { css } from '@emotion/css'
-import __css from '@styled-system/css'
-import { parsePseudoStyles } from '../CPseudoBox/utils'
-import { composeSystem } from './styled-system'
+import { runIfFn } from '@chakra-ui/utils'
+import { composeSystem, __get } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
-  return (!!value && !!value.$el)
+  return !!value && !!value.$el
 }
 
 /**
@@ -14,7 +13,7 @@ export const isVueComponent = (value) => {
  * for primitives with changes in the $parent $attrs
  * and $listeners objects
  * @param {String} property
-*/
+ */
 export function createWatcher (property) {
   return {
     handler (newVal, oldVal) {
@@ -34,8 +33,8 @@ export function createWatcher (property) {
 /**
  * Create mixin for style attributes
  * @param {String} name Component name
-*/
-export const createStyledAttrsMixin = (name, isPseudo) => ({
+ */
+export const createStyledAttrsMixin = name => ({
   name,
   inheritAttrs: false,
   inject: ['$chakraTheme', '$chakraColorMode'],
@@ -70,24 +69,32 @@ export const createStyledAttrsMixin = (name, isPseudo) => ({
         nativeAttrs
       }
     },
+    baseStyle () {
+      const { nativeAttrs } = this.splitProps
+      const styleObjectOrFn = __get(this.theme, `baseStyle.${name}`)
+      return (
+        runIfFn(styleObjectOrFn, {
+          theme: this.theme,
+          colorMode: this.colorMode,
+          ...nativeAttrs
+        }) || {}
+      )
+    },
     className () {
       const { styleAttrs } = this.splitProps
-      if (isPseudo) {
-        const { pseudoStyles, baseStyles } = parsePseudoStyles(styleAttrs)
-        const _baseStyles = composeSystem(baseStyles, this.theme)
-        const _pseudoStyles = __css(pseudoStyles)(this.theme)
-        return css({
-          ..._baseStyles,
-          ..._pseudoStyles
-        })
-      }
-      const boxStylesObject = composeSystem(styleAttrs, this.theme)
+      const boxStylesObject = composeSystem(
+        {
+          ...this.baseStyle,
+          ...styleAttrs
+        },
+        this.theme
+      )
       return css(boxStylesObject)
     },
     /** Computed attributes object */
     computedAttrs () {
       return {
-        ...name && { 'data-chakra-component': name },
+        ...(name && { 'data-chakra-component': name }),
         ...this.splitProps.nativeAttrs
       }
     },

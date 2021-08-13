@@ -1,4 +1,4 @@
-import { StringArray } from '../../config/props/props.types'
+import { StringArray } from '../../config/props.types'
 import { HTMLElement } from '../../utils'
 
 export default {

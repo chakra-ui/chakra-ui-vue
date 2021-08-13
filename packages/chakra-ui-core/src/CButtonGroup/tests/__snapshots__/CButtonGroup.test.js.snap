@@ -144,6 +144,7 @@ exports[`should attach buttons when \`is-attached\` is passed 1`] = `
 <div
     class="emotion-0"
     data-chakra-component="CButtonGroup"
+    role="group"
   >
     <button
       class="emotion-1"
@@ -305,6 +306,7 @@ exports[`should render correctly 1`] = `
 <div
     class="emotion-0"
     data-chakra-component="CButtonGroup"
+    role="group"
   >
     <button
       class="emotion-1"

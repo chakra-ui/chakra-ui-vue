@@ -1,6 +1,5 @@
 import { mode, defineColorModeObserver } from './color-mode-observer'
 
-
 describe('colorModeObserver', () => {
   it('`colorModeObserver` should provide and observe values', () => {
     const baseTheme = {

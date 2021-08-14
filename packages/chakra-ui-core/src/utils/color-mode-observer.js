@@ -6,7 +6,6 @@ export const defineColorModeObserver = ({ colorMode, theme, icons } = {}) => Vue
   icons
 })
 
-
 /**
  * This observed store object observed the colorMode and stores it in an
  * observed object that other components can consume.

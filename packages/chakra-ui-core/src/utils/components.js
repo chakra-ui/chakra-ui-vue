@@ -61,29 +61,28 @@ export const createStyledAttrsMixin = name => ({
     /** Split style attributes and native attributes */
     splitProps () {
       const $attrs = this.$data.attrs$
-      const styles = Object.assign({}, this.componentStyles || {}, $attrs)
+      const { styleAttrs, nativeAttrs } = extractChakraAttrs($attrs)
 
-      const { styleAttrs, nativeAttrs } = extractChakraAttrs(styles)
       return {
         styleAttrs,
         nativeAttrs
       }
     },
     baseStyle () {
-      const { nativeAttrs } = this.splitProps
-      const styleObjectOrFn = __get(this.theme, `baseStyle.${name}`)
-      return (
-        runIfFn(styleObjectOrFn, {
+      const componentBaseStyleObjectOrFunction = __get(this.theme, `baseStyle.${name}`)
+      return componentBaseStyleObjectOrFunction ? (
+        runIfFn(componentBaseStyleObjectOrFunction, {
           theme: this.theme,
-          colorMode: this.colorMode,
-          ...nativeAttrs
-        }) || {}
-      )
+          colorMode: this.colorMode
+        })
+      ) : {}
     },
     className () {
       const { styleAttrs } = this.splitProps
+
       const boxStylesObject = composeSystem(
         {
+          ...this.componentStyles || {},
           ...this.baseStyle,
           ...styleAttrs
         },

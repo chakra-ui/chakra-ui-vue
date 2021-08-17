@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.4.1
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@simpletrontdip](https://github.com/simpletrontdip)! - Backport v1 Theme API to v0.x
+- [`2bb4540`](https://github.com/chakra-ui/chakra-ui-vue/pull/473/commits/2bb4540dbd5abeaed9dfbf5108a0f345a9e25bf6)[#473](https://github.com/chakra-ui/chakra-ui-vue/pull/473) Thanks [@Pwuts](https://github.com/Pwuts) - feat(types): improve & add type declarations
+
+### Patch Changes
+
+- [`4429524b`](https://github.com/chakra-ui/chakra-ui-vue/commit/4429524b01a00a31a272d258ad45d6edee439f6b) [#476](https://github.com/chakra-ui/chakra-ui-vue/pull/476) Thanks [@codebender828](https://github.com/codebender828)! - version release
+
+- Updated dependencies [[`4429524b`](https://github.com/chakra-ui/chakra-ui-vue/commit/4429524b01a00a31a272d258ad45d6edee439f6b)]:
+  - @chakra-ui/vue@0.10.1
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "chakra-ui-docs",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Chakra UI Vue documentation site",
   "private": true,
   "scripts": {
@@ -26,8 +26,8 @@
     }
   },
   "dependencies": {
-    "@chakra-ui/theme-vue": "^0.3.0",
-    "@chakra-ui/vue": "^0.10.0",
+    "@chakra-ui/theme-vue": "^0.3.1",
+    "@chakra-ui/vue": "^0.10.1",
     "@emotion/css": "^11.0.0",
     "@mdx-js/vue-loader": "^1.6.1",
     "@nuxtjs/dotenv": "^1.4.0",

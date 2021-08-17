@@ -10,7 +10,7 @@
  */
 
 import { createStyledAttrsMixin } from '../utils'
-import { SNA, StringArray } from '../config/props/props.types'
+import { SNA, StringArray } from '../config/props.types'
 
 /**
  * @description Map "span" values to accommodate breakpoint values

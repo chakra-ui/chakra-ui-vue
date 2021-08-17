@@ -2,27 +2,184 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1v5z18m"
+  .emotion-0 {
+  width: 300px;
+}
+
+.emotion-2 {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: top;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.emotion-4 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: background-color 120ms,box-shadow 250ms;
+  transition: background-color 120ms,box-shadow 250ms;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: var(--sizes-4);
+  height: var(--sizes-4);
+  opacity: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: var(--borders-2px);
+  border-radius: var(--radii-sm);
+  border-color: inherit;
+  color: var(--colors-white);
+}
+
+.emotion-5[aria-checked=true],
+.emotion-5[data-checked] {
+  background: var(--colors-green-500);
+  border-color: var(--colors-green-500);
+}
+
+.emotion-5[disabled],
+.emotion-5[aria-disabled=true],
+.emotion-5[data-disabled] {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+.emotion-5:focus,
+.emotion-5[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-5[aria-invalid=true],
+.emotion-5[data-invalid] {
+  border-color: var(--colors-red-500);
+}
+
+input[type=checkbox]:focus+.emotion-6 {
+  box-shadow: var(--shadows-outline);
+}
+
+input[type=checkbox]:disabled+.emotion-6 {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+input[type=checkbox][aria-invalid=true]+.emotion-6 {
+  border-color: var(--colors-red-500);
+}
+
+input[type=checkbox]:checked:disabled+.emotion-6,
+input[type=checkbox][aria-checked=mixed]:disabled+.emotion-6 {
+  border-color: var(--colors-gray-200);
+  background: var(--colors-gray-200);
+  color: var(--colors-gray-500);
+}
+
+.emotion-6>* {
+  opacity: 0;
+}
+
+input[type=checkbox]:checked+.emotion-6,
+input[type=checkbox][aria-checked=mixed]+.emotion-6 {
+  background: var(--colors-green-500);
+  border-color: var(--colors-green-500);
+}
+
+input[type=checkbox]:checked+.emotion-6>*,
+input[type=checkbox][aria-checked=mixed]+.emotion-6>* {
+  opacity: 1;
+}
+
+.emotion-7 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-7:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-8 {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-10 {
+  margin-left: var(--space-2);
+  font-size: var(--fontSizes-md);
+  font-family: var(--fonts-body);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 1;
+}
+
+.emotion-20 {
+  display: block;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CBox"
   >
     <div
-      class="css-0"
+      class="emotion-1"
       data-chakra-component="CCheckboxGroup"
       role="group"
     >
       <div
-        class="css-1x9mqzb"
+        class="emotion-2"
         data-chakra-component="CBox"
       >
         <label
-          class="css-jwmyb8"
+          class="emotion-3"
           data-chakra-component="CCheckbox"
           data-testid="one"
           for="checkbox-1"
         >
           <input
-            class="css-f8n5zr"
+            class="emotion-4"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-1"
             name="numbers-0"
@@ -31,11 +188,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-v1yklk css-hpvc67"
+            class="emotion-5 emotion-6"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-12j51pv css-2adi1i css-0"
+              class="emotion-7 emotion-8 emotion-1"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -58,7 +215,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-1jg3nyw"
+            class="emotion-10"
             data-chakra-component="CBox"
           >
             One
@@ -66,18 +223,18 @@ exports[`should render correctly 1`] = `
         </label>
       </div>
       <div
-        class="css-1x9mqzb"
+        class="emotion-2"
         data-chakra-component="CBox"
       >
         <label
-          class="css-jwmyb8"
+          class="emotion-3"
           data-chakra-component="CCheckbox"
           data-testid="two"
           for="checkbox-2"
         >
           <input
             aria-checked="true"
-            class="css-f8n5zr"
+            class="emotion-4"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-2"
             name="numbers-1"
@@ -86,11 +243,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-v1yklk css-hpvc67"
+            class="emotion-5 emotion-6"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-12j51pv css-2adi1i css-0"
+              class="emotion-7 emotion-8 emotion-1"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -113,7 +270,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-1jg3nyw"
+            class="emotion-10"
             data-chakra-component="CBox"
           >
             Two
@@ -121,17 +278,17 @@ exports[`should render correctly 1`] = `
         </label>
       </div>
       <div
-        class="css-13o7eu2"
+        class="emotion-20"
         data-chakra-component="CBox"
       >
         <label
-          class="css-jwmyb8"
+          class="emotion-3"
           data-chakra-component="CCheckbox"
           data-testid="three"
           for="checkbox-3"
         >
           <input
-            class="css-f8n5zr"
+            class="emotion-4"
             data-chakra-component="CVisuallyHidden"
             id="checkbox-3"
             name="numbers-2"
@@ -140,11 +297,11 @@ exports[`should render correctly 1`] = `
           />
           <div
             aria-hidden="true"
-            class="css-v1yklk css-hpvc67"
+            class="emotion-5 emotion-6"
             data-chakra-component="CControlBox"
           >
             <svg
-              class="css-12j51pv css-2adi1i css-0"
+              class="emotion-7 emotion-8 emotion-1"
               data-chakra-component="CIcon"
               role="presentation"
               viewBox="0 0 14 14"
@@ -167,7 +324,7 @@ exports[`should render correctly 1`] = `
             </svg>
           </div>
           <div
-            class="css-1jg3nyw"
+            class="emotion-10"
             data-chakra-component="CBox"
           >
             Three

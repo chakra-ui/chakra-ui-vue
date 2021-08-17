@@ -2,28 +2,159 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <label
-    class="css-jwmyb8"
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  vertical-align: top;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.emotion-1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: background-color 120ms,box-shadow 250ms;
+  transition: background-color 120ms,box-shadow 250ms;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: var(--sizes-4);
+  height: var(--sizes-4);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: var(--borders-2px);
+  border-radius: var(--radii-full);
+  border-color: inherit;
+  color: var(--colors-white);
+}
+
+.emotion-2[aria-checked=true],
+.emotion-2[data-checked] {
+  background: var(--colors-blue-500);
+  border-color: var(--colors-blue-500);
+}
+
+.emotion-2[disabled],
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-2[aria-invalid=true],
+.emotion-2[data-invalid] {
+  border-color: var(--colors-red-500);
+}
+
+input[type=radio]:focus+.emotion-3 {
+  box-shadow: var(--shadows-outline);
+}
+
+input[type=radio]:disabled+.emotion-3 {
+  background: var(--colors-gray-100);
+  border-color: var(--colors-gray-100);
+}
+
+input[type=radio][aria-invalid=true]+.emotion-3 {
+  border-color: var(--colors-red-500);
+}
+
+input[type=radio]:checked:disabled+.emotion-3,
+input[type=radio][aria-checked=mixed]:disabled+.emotion-3 {
+  border-color: var(--colors-gray-200);
+  background: var(--colors-gray-200);
+  color: var(--colors-gray-500);
+}
+
+.emotion-3>* {
+  opacity: 0;
+}
+
+input[type=radio]:checked+.emotion-3,
+input[type=radio][aria-checked=mixed]+.emotion-3 {
+  background: var(--colors-blue-500);
+  border-color: var(--colors-blue-500);
+}
+
+input[type=radio]:checked+.emotion-3>*,
+input[type=radio][aria-checked=mixed]+.emotion-3>* {
+  opacity: 1;
+}
+
+.emotion-4 {
+  background: currentColor;
+  border-radius: var(--radii-full);
+  width: 50%;
+  height: 50%;
+}
+
+.emotion-5 {
+  margin-left: var(--space-2);
+  font-size: var(--fontSizes-md);
+  font-family: var(--fonts-body);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 1;
+}
+
+<label
+    class="emotion-0"
     data-chakra-component="CRadio"
   >
     <input
-      class="css-f8n5zr"
+      class="emotion-1"
       data-chakra-component="CVisuallyHidden"
       type="radio"
       value=""
     />
     <div
       aria-hidden="true"
-      class="css-ugfjx9 css-aufuif"
+      class="emotion-2 emotion-3"
       data-chakra-component="CControlBox"
     >
       <span
-        class="css-z7lnx4"
+        class="emotion-4"
         data-chakra-component="CBox"
       />
     </div>
     <div
-      class="css-1jg3nyw"
+      class="emotion-5"
       data-chakra-component="CBox"
     >
       radio

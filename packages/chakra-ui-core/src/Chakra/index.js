@@ -1,20 +1,23 @@
 import VScrollLock from 'v-scroll-lock'
 import { merge } from 'lodash-es'
+import { toCSSVar } from '@chakra-ui/styled-system'
+import defaultTheme from '@chakra-ui/theme-vue'
+
 import { parsePackIcons } from '../utils/icons'
 import internalIcons from '../lib/internal-icons'
 import { createClientDirective } from '../directives'
-import defaultTheme from '../../../chakra-ui-theme/src'
 import useToast from '../CToast'
+import { colorModeObserver, mode } from '../utils'
 
 /**
  * Chakra-ui Component library plugin
- * @type {import("../../types").default}
+ * @type {import("../../types").ChakraPlugin}
  */
 const Chakra = {
   /**
    *
    * @param {Vue} Vue
-   * @param {Options} options
+   * @param {import("../../types").Options} options
    */
   install (Vue, options = {}) {
     let packIcons = {}
@@ -31,7 +34,7 @@ const Chakra = {
     }
 
     // Recursively merge extended theme variables
-    const mergedTheme = merge(defaultTheme, options.extendTheme)
+    const mergedTheme = toCSSVar(merge(defaultTheme, options.extendTheme))
 
     Vue.directive('chakra', createClientDirective(mergedTheme))
 
@@ -46,7 +49,23 @@ const Chakra = {
 
     /** Install dependent plugins */
     Vue.use(VScrollLock)
+
+    Vue.mixin({
+      computed: {
+        chakraColorMode () {
+          return colorModeObserver.colorMode
+        },
+        chakraTheme () {
+          return colorModeObserver.theme
+        },
+        chakraToggleColorMode () {
+          return colorModeObserver.toggleColorMode
+        },
+        $mode: vm => (lightValue, darkValue) => mode(lightValue, darkValue, colorModeObserver)
+      }
+    })
   }
 }
 
 export default Chakra
+export { mode } from '../utils/color-mode-observer'

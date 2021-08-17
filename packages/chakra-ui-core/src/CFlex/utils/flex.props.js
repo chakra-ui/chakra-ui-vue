@@ -1,4 +1,4 @@
-import { SNA } from '../../config/props/props.types'
+import { SNA } from '../../config/props.types'
 
 const flexProps = {
   as: {

@@ -9,7 +9,7 @@
  */
 
 import { CGrid } from '../CGrid'
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 import { createStyledAttrsMixin } from '../utils'
 import { countToColumns, widthToColumns } from './utils/grid.styles'
 

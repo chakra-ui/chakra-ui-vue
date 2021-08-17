@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom/extend-expect'
 import * as vtl from '@testing-library/vue'
+import { toCSSVar } from '@chakra-ui/styled-system'
 import userEvent from '@testing-library/user-event'
+import theme from '@chakra-ui/theme-vue'
 
 import icons from '@/packages/chakra-ui-core/src/lib/internal-icons'
-import theme from '@/packages/chakra-ui-core/src/lib/theme'
 
 const defaultProviders = options => ({
-  $chakraTheme: () => theme,
+  $chakraTheme: () => toCSSVar(theme),
   $chakraColorMode: () => 'light',
   $chakraIcons: icons,
   ...options
@@ -56,18 +57,17 @@ function waitMs (ms = 0) {
  *  const pseudoStyles = getElementStyles(`.${className2}:before`)
  */
 export function getElementStyles (selector) {
-  selector = new RegExp(selector)
-  let styles = []
-  let i; let j; const sel = selector
-  for (i = 0; i < document.styleSheets.length; ++i) {
-    for (j = 0; j < document.styleSheets[i].cssRules.length; ++j) {
-      if (sel.test(document.styleSheets[i].cssRules[j].selectorText)) {
-        // let selectorText = document.styleSheets[i].cssRules[j].selectorText
-        const cssText = document.styleSheets[i].cssRules[j].style.cssText
-        styles += cssText
+  let styles = ''
+  const sel = new RegExp(selector)
+  
+  document.styleSheets.forEach(sheet => {
+    sheet.cssRules.forEach(rule => {
+      if (sel.test(rule.selectorText)) {
+        const cssText = rule.style.cssText
+        styles += cssText.split(';').join(';\n')
       }
-    }
-  }
+    })
+  })
   return styles
 }
 
@@ -76,14 +76,40 @@ export function getElementStyles (selector) {
  * @param {HTMLElement} node Element
  */
 export const getTagName = (node) => {
-  if (!(node instanceof HTMLElement)) throw new Error('Expected HTMLElement as argument')
+  if (!(node instanceof HTMLElement)) {
+    throw new Error('Expected HTMLElement as argument')
+  }
   return node.tagName.toLowerCase()
 }
 
-export * from '@testing-library/vue'
-export {
-  render,
-  userEvent,
-  waitMs,
-  defaultProviders
+/**
+ * Gets all variables name from current document stylesheets
+ * @returns {Array} string
+ */
+export const getAllCssVariableNames = () => {
+  return Array.from(document.styleSheets)
+    .flatMap((sheet) => Array.from(sheet.cssRules))
+    .flatMap((rule) => rule.style && Array.from(rule.style))
+    .filter((key) => key && key.startsWith('--'))
 }
+
+/**
+ * Get a dict of variables for a given variables
+ * @param {*} element element to check
+ * @param {*} cssVarNames list of names, optional
+ * @returns {Object}
+ */
+export const getElementCssVariables = (element, cssVarNames) => {
+  const varNames = cssVarNames || getAllCssVariableNames()
+  const styles = getComputedStyle(element)
+  const styleDict = {}
+
+  varNames.forEach(key => {
+    styleDict[key] = styles.getPropertyValue(key)
+  })
+
+  return styleDict
+}
+
+export * from '@testing-library/vue'
+export { render, userEvent, waitMs, defaultProviders }

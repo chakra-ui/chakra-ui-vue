@@ -1,6 +1,6 @@
 {
   "name": "@chakra-ui/vue",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Build Accessible and Responsive Vue.js websites and applications with speed ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && rollup -c && rollup -c --environment MINIFY",
+    "build": "yarn clean && rollup -c --environment MINIFY",
     "dev": "rollup --config rollup.dev.config.js --watch",
     "test": "echo testing ...",
     "clean": "rimraf ./dist"
@@ -36,8 +36,8 @@
     "max-overall-size": "85KB"
   },
   "dependencies": {
+    "@chakra-ui/styled-system": "^1.12.1",
     "@popperjs/core": "^2.4.0",
-    "@styled-system/css": "^5.0.23",
     "animejs": "^3.1.0",
     "aria-hidden": "^1.1.1",
     "breadstick": "^0.2.14",
@@ -46,7 +46,6 @@
     "focus-trap-vue": "^0.0.4",
     "lodash-es": "^4.17.15",
     "portal-vue": "^2.1.6",
-    "styled-system": "^5.1.2",
     "v-scroll-lock": "^1.1.0"
   },
   "peerDependencies": {
@@ -54,6 +53,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-common-types": "^0.2.36",
     "rimraf": "^3.0.2"
   },
   "keywords": [

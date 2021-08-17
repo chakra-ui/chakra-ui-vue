@@ -16,7 +16,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CColorModePovider/CColorModePovider.js
  */
 
-import { colorModeObserver } from '../utils/color-mode-observer'
+import { colorModeObserverEventBus } from '../utils/color-mode-observer'
 
 /**
  * CColorModeProvider component
@@ -51,16 +51,16 @@ const CColorModeProvider = {
       }
     }
   },
-  watch: {
-    _colorMode: {
-      immediate: true,
-      handler (newVal) {
-        colorModeObserver.colorMode = newVal
-      }
-    }
+  created () {
+    colorModeObserverEventBus.$emit('change:colorMode', this._colorMode)
+    this.$watch(() => this._colorMode, (newColorMode) => {
+      colorModeObserverEventBus.$emit('change:colorMode', newColorMode)
+    })
+    colorModeObserverEventBus.$on('command:toggleColorMode', this.toggleColorMode)
   },
   methods: {
     toggleColorMode () {
+      /** Toggles colorMode */
       this._colorMode = this._colorMode === 'light' ? 'dark' : 'light'
     }
   },

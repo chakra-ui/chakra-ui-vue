@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.3.5
+
+### Patch Changes
+
+- fix: syncs core and nuxt packages
+
+- Updated dependencies []:
+  - @chakra-ui/vue@0.9.4
+
 ## 0.3.4
 
 ### Patch Changes

@@ -1,1 +1,1 @@
-export * from './props'
+// to keep rollup work

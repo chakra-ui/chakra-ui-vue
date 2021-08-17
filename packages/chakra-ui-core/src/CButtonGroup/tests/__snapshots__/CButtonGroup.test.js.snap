@@ -2,12 +2,152 @@
 
 exports[`should attach buttons when \`is-attached\` is passed 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1baulvz"
+  .emotion-0 {
+  display: inline-block;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 0;
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  box-shadow: var(--shadows-outline);
+  z-index: 1;
+}
+
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--colors-gray-200);
+}
+
+.emotion-1:active,
+.emotion-1[data-active] {
+  background: var(--colors-gray-300);
+}
+
+.emotion-1[disabled],
+.emotion-1[aria-disabled=true],
+.emotion-1[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
+  z-index: 1;
+}
+
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  background: var(--colors-gray-200);
+}
+
+.emotion-2:active,
+.emotion-2[data-active] {
+  background: var(--colors-gray-300);
+}
+
+.emotion-2[disabled],
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CButtonGroup"
+    role="group"
   >
     <button
-      class="css-9x7nat"
+      class="emotion-1"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -15,7 +155,7 @@ exports[`should attach buttons when \`is-attached\` is passed 1`] = `
       Button1
     </button>
     <button
-      class="css-566v0a"
+      class="emotion-2"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -28,12 +168,148 @@ exports[`should attach buttons when \`is-attached\` is passed 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1baulvz"
+  .emotion-0 {
+  display: inline-block;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+  margin-right: var(--space-2);
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  box-shadow: var(--shadows-outline);
+  z-index: 1;
+}
+
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--colors-gray-200);
+}
+
+.emotion-1:active,
+.emotion-1[data-active] {
+  background: var(--colors-gray-300);
+}
+
+.emotion-1[disabled],
+.emotion-1[aria-disabled=true],
+.emotion-1[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.2;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  font-weight: var(--fontWeights-bold);
+  border-radius: var(--radii-md);
+  height: var(--sizes-10);
+  min-width: var(--sizes-10);
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  background: var(--colors-gray-100);
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
+  z-index: 1;
+}
+
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  background: var(--colors-gray-200);
+}
+
+.emotion-2:active,
+.emotion-2[data-active] {
+  background: var(--colors-gray-300);
+}
+
+.emotion-2[disabled],
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--shadows-none);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CButtonGroup"
+    role="group"
   >
     <button
-      class="css-tcle5v"
+      class="emotion-1"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"
@@ -41,7 +317,7 @@ exports[`should render correctly 1`] = `
       Button1
     </button>
     <button
-      class="css-ldbpgl"
+      class="emotion-2"
       data-chakra-component="CButton"
       tabindex="0"
       type="button"

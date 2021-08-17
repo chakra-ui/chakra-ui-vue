@@ -1,11 +1,9 @@
-import _css from '@styled-system/css'
-import { tx } from '../utils'
+import { css } from '@chakra-ui/styled-system'
 
 /**
- * Creates CSS styles and injects them in document
- * from an object of styles and returns a class name
+ * Build a CSS factory function, to create CSS object by given a theme
  * @param {Object} styleProps Styles object
- * @returns {String} class name
+ * @returns {Function} (theme) => CSSStyleObject
  */
-const Css = styleProps => _css(tx(styleProps))
-export default Css
+const buildCssFn = styleProps => css(styleProps)
+export default buildCssFn

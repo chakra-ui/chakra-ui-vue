@@ -224,6 +224,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/MaySoMusician"><img src="https://avatars.githubusercontent.com/u/34566290?v=4?s=50" width="50px;" alt=""/><br /><sub><b>MaySoMusician</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MaySoMusician" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/MWFIAE"><img src="https://avatars.githubusercontent.com/u/6072971?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Martin</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MWFIAE" title="Code">💻</a> <a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=MWFIAE" title="Tests">⚠️</a></td>
     <td align="center"><a href="http://linkedin.com/in/ejiro-asiuwhu"><img src="https://avatars.githubusercontent.com/u/45228014?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Ejiro Asiuwhu</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=ejirocodes" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/abelnnieva"><img src="https://avatars.githubusercontent.com/u/931497?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Abel N. Nieva</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=abelnnieva" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/simpletrontdip"><img src="https://avatars.githubusercontent.com/u/20158564?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Lê Thông</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=simpletrontdip" title="Code">💻</a></td>
+    <td align="center"><a href="https://pwuts.nl/"><img src="https://avatars.githubusercontent.com/u/12185583?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Reinier van der Leer</b></sub></a><br /><a href="https://github.com/chakra-ui/chakra-ui-vue/commits?author=Pwuts" title="Code">💻</a></td>
   </tr>
 </table>
 

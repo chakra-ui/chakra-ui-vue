@@ -13,7 +13,11 @@
           >
             <CReset />
             <Navbar />
-            <CFlex max-h="calc(100vh - 60px)">
+            <CFlex
+              max-h="calc(100vh - 60px)"
+              max-w="1440px"
+              mx="auto"
+            >
               <Sidebar />
               <CBox
                 id="main-content"

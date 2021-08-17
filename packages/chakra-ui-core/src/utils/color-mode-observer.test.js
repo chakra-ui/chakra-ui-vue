@@ -12,7 +12,7 @@ describe('colorModeObserver', () => {
         outline: '0 0 0 3px rgba(66, 153, 225, 0.6)',
         inner: 'inset 0 2px 4px 0 rgba( 0, 0, 0, 0.06)'
       },
-      baseStyle: {
+      baseStyles: {
         CButton: {
           bg: 'success',
           borderRadius: '200px',

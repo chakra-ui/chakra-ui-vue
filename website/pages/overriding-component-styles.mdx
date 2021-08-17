@@ -1,0 +1,89 @@
+# Overriding component styles
+
+<carbon-ad />
+
+With the new `v0.10.0` you can now override the component styles of Chakra UI Vue components using the `extendTheme.baseStyles` property in the Chakra UI plugin options.
+
+This will cause all corresponding components to inherir the defined styles. These styles, however, can be overriden by explicitly defining styled props on the component in your template.
+
+
+## Examples
+Here are some examples of how the `baseStyles` API can be used.
+
+### Defining `baseStyles` for component
+
+```js
+Vue.use(Chakra, {
+  extendTheme: {
+    // ... other options
+    baseStyles: {
+      /**
+       * Applies the styles to all the `CButton`
+       * components.
+       **/ 
+      CButton: {
+        borderWidth: "4px",
+        borderColor: "blue.600",
+        borderRadius: "lg"
+      }
+    }
+  }
+})
+```
+
+### Defining `baseStyles` as function
+```js
+Vue.use(Chakra, {
+  extendTheme: {
+    // ... other options
+    baseStyles: {
+      /**
+       * Use a function to compute desired styles
+       **/ 
+      CButton: ({ colorMode, theme }) => ({
+        bg: colorMode === 'light' ? 'tomato' : 'hotpink',
+        borderRadius: theme.sizes[4]
+      })
+    }
+  }
+})
+```
+
+### Using the `mode` function
+`@chakra-ui/vue@^0.10.0` also exports a `mode` function that accepts two arguments for the `'light'` and `'dark'` mode respectively. When the current color mode is `'light'`, it returns the first argument. If the color mode is `'dark'`, it returns the second argument.
+
+```js
+import Vue from 'vue'
+import Chakra, { mode } from '@chakra-ui/vue'
+
+Vue.use(Chakra, {
+  extendTheme: {
+    baseStyles: {
+      CIconButton: ({ colorMode }) => ({
+        /**
+         * When the color mode is `light`, `mode` returns `'blackAlpha.700'`.
+         * Otherwise it returns `'whiteAlpha.400'`.
+         */
+        color: mode('blackAlpha.700', 'whiteAlpha.400')
+      })
+    }
+  }
+})
+```
+
+You can also use it in your templates with the `$mode` global computed property.
+
+```vue live=true
+<template>
+  <c-box
+    :bg="[$mode('orange.600', 'yellow.100'), $mode('pink.600', 'green.100')]"
+    :color="$mode('white', 'blackAlpha.800')"
+    @click="chakraToggleColorMode"
+    px="4" 
+    py="3"
+    rounded="lg"
+  >
+    Box "{{ chakraColorMode }}" mode. Click me to toggle color mode.
+  </c-box>
+</template>
+```

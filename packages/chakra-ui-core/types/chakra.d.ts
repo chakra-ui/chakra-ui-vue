@@ -9,12 +9,11 @@ export type Icon = {
 }
 
 export type Options = {
-  theme: Theme
   extendTheme: Theme
   icons: {
-      extend: { [name: string]: Icon }
-      iconPack: string
-      iconSet: IconPack
+    extend: { [name: string]: Icon }
+    iconPack: string
+    iconSet: IconPack
   }
 }
 

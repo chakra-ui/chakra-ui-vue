@@ -2,7 +2,7 @@
 
 exports[`colorModeObserver \`colorModeObserver\` should provide and observe values 1`] = `
 Object {
-  "baseStyle": Object {
+  "baseStyles": Object {
     "CButton": Object {
       "bg": "success",
       "borderRadius": "200px",

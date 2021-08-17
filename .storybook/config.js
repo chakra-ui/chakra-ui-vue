@@ -2,7 +2,7 @@ import { configure, addDecorator, addParameters } from '@storybook/vue';
 import Vue from 'vue'
 import VueLive from 'vue-live'
 import Lorem from 'vue-lorem-ipsum'
-import Chakra from '../packages/chakra-ui-core/src'
+import Chakra, { mode } from '../packages/chakra-ui-core/src'
 import Canvas from './components/Canvas.vue'
 import storyBookTheme from './theme'
 
@@ -29,16 +29,15 @@ import {
   feSend,
   feServer
 } from 'feather-icons-paths'
-import { mode } from '../packages/chakra-ui-core/src/utils/color-mode-observer';
 
 Vue.use(Chakra, {
   extendTheme: {
-    baseStyle: {
-      CButton: ({ colorMode, theme }) => ({
-        bg: mode('tomato', 'hotpink'),
-        borderRadius: "lg",
-        shadow: 'xl'
-      })
+    baseStyles: {
+      // CButton: ({ colorMode, theme }) => ({
+      //   bg: mode('tomato', 'hotpink'),
+      //   borderRadius: "lg",
+      //   shadow: 'xl'
+      // })
     }
   },
   icons: {

@@ -140,7 +140,7 @@ export default {
       const savedColorMode = localStorage.getItem('chakra_ui_docs_color_mode')
       if (!savedColorMode) { return }
 
-      if (this.colorMode !== savedColorMode) {
+      if ((savedColorMode && this.colorMode) && (this.colorMode !== savedColorMode)) {
         this.$toggleColorMode()
       }
     } catch (error) {

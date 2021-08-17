@@ -19,7 +19,7 @@ describe('createStyledAttrsMixin', () => {
     }
   }
 
-  describe('baseStyle', () => {
+  describe('baseStyles', () => {
     const renderFakeComponent = ({ theme, colorMode, ...props }) => {
       const inlineAttrs = (props && props.inlineAttrs) || ''
       return render({
@@ -35,11 +35,11 @@ describe('createStyledAttrsMixin', () => {
       })
     }
 
-    it('should use theme.baseStyle if given', () => {
+    it('should use theme.baseStyles if given', () => {
       const { asFragment } = renderFakeComponent({
         theme: {
           ...defaultTheme,
-          baseStyle: {
+          baseStyles: {
             FakeComponent: {
               bg: 'red.400',
               color: 'gray.200'
@@ -55,7 +55,7 @@ describe('createStyledAttrsMixin', () => {
         inlineAttrs: 'bg="blue.200"',
         theme: {
           ...defaultTheme,
-          baseStyle: {
+          baseStyles: {
             FakeComponent: {
               bg: 'red.400',
               color: 'gray.200'
@@ -66,10 +66,10 @@ describe('createStyledAttrsMixin', () => {
       expect(asFragment()).toMatchSnapshot()
     })
 
-    it('should accept baseStyle as a function', () => {
+    it('should accept baseStyles as a function', () => {
       const theme = {
         ...defaultTheme,
-        baseStyle: {
+        baseStyles: {
           FakeComponent: ({ colorMode, theme }) => ({
             bg: colorMode === 'light' ? 'red.400' : 'red.200',
             color: colorMode === 'light' ? 'black' : 'white',

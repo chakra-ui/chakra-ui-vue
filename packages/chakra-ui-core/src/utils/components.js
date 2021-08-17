@@ -69,7 +69,7 @@ export const createStyledAttrsMixin = name => ({
       }
     },
     baseStyle () {
-      const componentBaseStyleObjectOrFunction = __get(this.theme, `baseStyle.${name}`)
+      const componentBaseStyleObjectOrFunction = __get(this.theme, `baseStyles.${name}`)
       return componentBaseStyleObjectOrFunction ? (
         runIfFn(componentBaseStyleObjectOrFunction, {
           theme: this.theme,

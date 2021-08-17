@@ -66,6 +66,7 @@ export const topNavLinks = [
   'Style Props',
   'Theme',
   'Extending Theme',
+  'Overriding Component Styles',
   'Color Mode',
   'Responsive Styles',
   'Starters'

@@ -86,6 +86,11 @@ export default {
     ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
+    },
+    babel: {
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining'
+      ]
     }
   },
   googleAnalytics: {

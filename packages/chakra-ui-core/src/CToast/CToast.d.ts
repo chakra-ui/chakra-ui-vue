@@ -9,6 +9,8 @@ interface ChakraToastOptions {
   isClosable?: boolean
 }
 
-function useToast(): (options: ChakraToastOptions) => void
+export type ToastFactory = (options: ChakraToastOptions) => void
+
+export function useToast(): ToastFactory
 
 export default useToast

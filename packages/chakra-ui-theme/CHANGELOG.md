@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@codebender828](https://github.com/codebender828)! - Backport v1 Theme API to v0.x
+
 ## 0.2.11
 
 ### Patch Changes

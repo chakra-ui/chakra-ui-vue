@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@codebender828](https://github.com/codebender828)! - Backport v1 Theme API to v0.x
+
+### Patch Changes
+
+- [`d1e97d75`](https://github.com/chakra-ui/chakra-ui-vue/commit/d1e97d75b82613ee0cad97e1136db1fd9447f6da) [#468](https://github.com/chakra-ui/chakra-ui-vue/pull/468) Thanks [@abelnnieva](https://github.com/abelnnieva)! - fix(menu): update MenuOption defaultValue prop to inner value
+
+- Updated dependencies [[`d1e97d75`](https://github.com/chakra-ui/chakra-ui-vue/commit/d1e97d75b82613ee0cad97e1136db1fd9447f6da), [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f)]:
+  - @chakra-ui/vue@0.10.0
+
 ## 0.3.5
 
 ### Patch Changes

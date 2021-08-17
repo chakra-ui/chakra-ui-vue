@@ -49,7 +49,7 @@ Vue.use(Chakra, {
 })
 ```
 
-### Using the `mode` function
+### With the `mode` function
 `@chakra-ui/vue@^0.10.0` also exports a `mode` function that accepts two arguments for the `'light'` and `'dark'` mode respectively. When the current color mode is `'light'`, it returns the first argument. If the color mode is `'dark'`, it returns the second argument.
 
 ```js
@@ -59,7 +59,7 @@ import Chakra, { mode } from '@chakra-ui/vue'
 Vue.use(Chakra, {
   extendTheme: {
     baseStyles: {
-      CIconButton: ({ colorMode }) => ({
+      CIconButton: () => ({
         /**
          * When the color mode is `light`, `mode` returns `'blackAlpha.700'`.
          * Otherwise it returns `'whiteAlpha.400'`.

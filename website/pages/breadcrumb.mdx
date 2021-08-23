@@ -2,13 +2,13 @@ import SEO from '../components/SEO'
 
 <SEO
   title="Breadcrumb"
-  description="Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate to previous page levels of a website, especially if that website has many pages or products."
+  description="Breadcrumbs, or breadcrumb navigation, can help to enhance how users navigate to previous page levels of a website, especially if that website has many pages or products."
 />
 
 
 # Breadcrumb
 
-Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate
+Breadcrumbs, or breadcrumb navigation, can help to enhance how users navigate
 to previous page levels of a website, especially if that website has many pages
 or products.
 
@@ -17,11 +17,11 @@ or products.
 See `CBreadcrumb`'s [accessibility report](https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CBreadcrumb/accessibility.md)
 
 ## Import 
-Chakra UI exports 4 Breadcrumb related components:
+Chakra UI exports four Breadcrumb related components:
 
 - `CBreadcrumb`: The parent container for breadcrumbs.
 - `CBreadcrumbItem`: Individual breadcrumb element containing a link and a divider.
-- `CBreadcrumbLink`: The breadcrumb link, obviously.
+- `CBreadcrumbLink`: The breadcrumb link.
 - `CBreadcrumbSeparator`: The visual separator between each breadcrumb
 
 <br />
@@ -84,7 +84,7 @@ on the `CBreadcrumb` to `false`, and manually add the `CBreadcrumbSeparator` as 
 `CBreadcrumbItem`.
 
 You can then pass style props to change the styling of the `CBreadcrumbSeparator`. You can also override
-the content of the `CBreadcrumbSeparator` by passing its default slot.
+the content of the `CBreadcrumbSeparator` bypassing its default slot.
 
 ```vue live=true
 <c-breadcrumb :add-separator="false">
@@ -131,7 +131,7 @@ breadcrumbs.
 To use the `CBreadcrumb` with a routing Library like [Vue Router](https://router.vuejs.org),
 all you need to do is to pass the `as` prop to the `CBreadcrumbLink` component.
 
-It'll replace the rendered `a` tag with with `router-link` or `nuxt-link`.
+It will replace the rendered `a` tag with `router-link` or `nuxt-link`.
 
 ```vue live=true
 <c-breadcrumb separator="›">
@@ -152,7 +152,7 @@ It'll replace the rendered `a` tag with with `router-link` or `nuxt-link`.
 - The `CBreadcrumb` `nav` has `aria-label` set to `breadcrumb`.
 - The `CBreadcrumbItem` with `isCurrentPage` prop adds the `aria-current=page` to
   the `CBreadcrumbLink`.
-- The separator has `role` set to `presentation` to denote that its for
+- The separator has `role` set to `presentation` to denote that it's for
   presentation purposes.
 
 

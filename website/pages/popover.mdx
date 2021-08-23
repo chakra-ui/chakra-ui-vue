@@ -16,7 +16,7 @@ composes the `Popper` component.
 
 ## Import
 
-- `CPopover`: The wrapper that provides props, state, and context to it's
+- `CPopover`: The wrapper that provides props, state, and context to its
   children.
 - `CPopoverTrigger`: Used to wrap the reference (or trigger) element.
 - `CPopoverContent`: The popover itself.
@@ -24,7 +24,7 @@ composes the `Popper` component.
 - `CPopoverBody`: The body of the popover.
 - `CPopoverFooter`: The footer of the popover.
 - `CPopoverArrow`: A visual arrow that points to the reference (or trigger).
-- `CPopoverCloseButton`: Obviously, a button to close the popover.
+- `CPopoverCloseButton`: A button to close the popover.
 
 <br />
 
@@ -91,7 +91,7 @@ portal, pass the `usePortal` prop.
 
 ## Focus an element when Popover opens
 
-By default, focus is to sent to the `CPopoverContent` when it opens, you might
+By default, focus is to be sent to the `CPopoverContent` when it opens, you might
 want to send focus to a specific element when it opens. Pass the
 `initialFocusRef` prop to do so.
 
@@ -137,9 +137,9 @@ want to send focus to a specific element when it opens. Pass the
 </c-popover>
 ```
 
-## Accessing the intenal state
+## Accessing the internal state
 
-The `CPopover` component exposes some variables inside it's default slot scope
+The `CPopover` component exposes some variables inside its default slot scope
 so you can have access to the component's internal state.
  - `isOpen`: `{ Boolean }` Carries the current open/closed state of the Popover component.
  - `onClose` : `{ Function }` Function to close the Popover component
@@ -178,7 +178,7 @@ so you can have access to the component's internal state.
 ## Customizing the Popover
 
 Chakra exports all the components you need to customize the look and feel of the
-popover. You can change the background, arrow size, boxShadow and so on.
+popover. You can change the background, arrow size, boxShadow, and so on.
 
 ```vue live=true
 <c-popover>
@@ -209,7 +209,7 @@ popover. You can change the background, arrow size, boxShadow and so on.
 ## Hover Trigger
 
 To show the popover when you mouse over or focus on the trigger, pass the prop
-`trigger` and set it to `hover`. When you focus on or mouse over the popover
+`trigger` and set it to `hover`. When you focus on or mouse-over the popover
 trigger, the popover will open.
 
 > If you quickly move your cursor to the popover content when it's open, it'll
@@ -245,7 +245,7 @@ trigger, the popover will open.
 </c-popover>
 ```
 
-## Accessiblity
+## Accessibility
 
 > When you see the word _"trigger"_, it's referring to the child element of the
 > `CPopoverTrigger`
@@ -253,7 +253,7 @@ trigger, the popover will open.
 ### Keyboard and Focus
 
 - When the popover is opened, focus is moved to the `CPopoverContent`. If the
-  `initialFocusRef` is set, then focus moves to the element with that ref, element selector, or ref returned from function.
+  `initialFocusRef` is set, then focus moves to the element with that ref, element selector, or ref returned from the function.
 - When the popover is closed, focus returns to the trigger. If you set
   `returnFocusOnClose` to `false`, focus will not return.
 - If trigger is set to `hover`:

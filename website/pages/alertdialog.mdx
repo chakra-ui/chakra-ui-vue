@@ -14,7 +14,7 @@ See `CAlertDialog`'s <a href="https://github.com/chakra-ui/chakra-ui-vue/blob/ma
 
 ## Import
 
-Chakra UI exports 7 alert dialog related components.
+Chakra UI exports seven alert dialog-related components.
 
 - `CAlertDialog`: provides context and state for the dialog.
 - `CAlertDialogHeader`: should contain the title announced by screen readers.
@@ -45,7 +45,7 @@ Vue ref to a focusable element or component in your alert dialog. The `leastDest
 a function that returns a ref.
 
 Based on [WAI-ARIA specifications for alert dialogs](https://www.w3.org/TR/wai-aria-practices/#alertdialog)
-when the dialog opens, focus should be placed on the least destructive element
+when the dialog opens, the focus should be placed on the least destructive element
 to prevent users from accidentally confirming the destructive action.
 
 ```vue live=true
@@ -101,10 +101,10 @@ export default {
 ## Accessibility
 
 - `CAlertDialog` has role `alertdialog`, and `aria-modal` set to true.
-- When the dialog opens, focus is automatically set to the least destructive
+- When the dialog opens, the focus is automatically set to the least destructive
   element.
 - When the dialog opens, the content in the `CAlertDialogHeader` and
-  `CAlertDialogBody` are announced by screen readers via `aria-labelledby` and
+  `CAlertDialogBody` is announced by screen readers via `aria-labelledby` and
   `aria-describedby` attributes.
 - Clicking on the overlay closes the `CAlertDialog`.
 - Pressing <kbd>esc</kbd> closes the dialog.
@@ -112,7 +112,7 @@ export default {
 
 ## Props
 
-AlertDialog and it's components composes the `CModal` component, the only
+AlertDialog and its components composes the `CModal` component, the only
 exception is that it requires a `leastDestructiveRef` which is similar to the
 `initialFocusRef` in `CModal`
 

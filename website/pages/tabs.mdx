@@ -30,7 +30,7 @@ import {
 You can render any element within `CTabs`, but `CTabList` should only have `CTab`
 as children, and `CTabPanels` should have `CTabPanel` as children.
 
-Tabs expects `CTabList` and `CTabPanels` as children. The order doesn't matter,
+Tabs expect `CTabList` and `CTabPanels` as children. The order doesn't matter,
 you can have tabs at the top, at the bottom, or both.
 
 ```vue live=true
@@ -86,10 +86,10 @@ Tabs come in 6 different variants to style the tabs: `line`,`enclosed`,
 </c-box>
 ```
 
-You can also change the color for any specific variant by passing the
+You can also change the color for any specific variant bypassing the
 `variantColor`.
 
-> The value of `variantColor` must exist in the theme object, and must be a key
+> The value of `variantColor` must exist in the theme object and must be a key
 > in `theme.colors` that has the `100` - `900` color values.
 
 ```vue live=true
@@ -118,7 +118,7 @@ You can also change the color for any specific variant by passing the
 
 ### Tab sizes
 
-You can change the size of the tab by passing `size` prop. We support 3 sizes
+You can change the size of the tab bypassing `size` prop. We support three sizes
 `sm`, `md`, `lg`
 
 ```vue live=true
@@ -147,7 +147,7 @@ You can change the size of the tab by passing `size` prop. We support 3 sizes
 
 ## Change the tabs alignment
 
-You can change the alignment of the `TabList` by passing `align` prop. We
+You can change the alignment of the `TabList` bypassing `align` prop. We
 support 3 sizes `start`, `center`, `end`.
 
 ```vue live=true

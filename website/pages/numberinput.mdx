@@ -16,12 +16,12 @@ for the Spinbutton widget.
 
 ## Import
 
-Chakra UI exports 5 components for the NumberInput.
+Chakra UI exports five components for the NumberInput.
 
 - `CNumberInput`: The wrapper that provides context and logic to the
   components.
 - `CNumberInputField`: The `input` field itself.
-- `CNumberInputStepper`: The wrapper for the input's stepper buttons.
+- `CNumberInputStepper`: The wrapper for the inputs stepper buttons.
 - `CNumberIncrementStepper`: The button to increment the value of the input.
 - `CNumberDecrementStepper`: The button to decrement the value of the input.
 
@@ -54,7 +54,7 @@ styling of each part.
 
 ### Setting a minimum and maximum value
 
-Simply pass the `min` prop or `max` prop to set an upper and lower limit for the
+Pass the `min` prop or `max` prop to set an upper and lower limit for the
 input. By default, the input will restrict the value to stay within the
 specified range.
 
@@ -83,7 +83,7 @@ export default {
 
 ### Setting the step size
 
-Simply pass the `step` prop to change the step size when you increment or
+Pass the `step` prop to change the step size when you increment or
 decrement the value. By default, the value is rounded to match the number of
 decimals in the `step`.
 
@@ -101,7 +101,7 @@ decimals in the `step`.
 ### Adjusting the precision of the value
 
 In some cases, you might need the value to be rounded to specific decimal
-points. Simply pass the `precision` prop and set it to the number of decimal
+points. Pass the `precision` prop and set it to the number of decimal
 points.
 
 ```vue live=true
@@ -122,7 +122,7 @@ keyboard on mobile devices. If you want to display a numeric keyboard, add
 
 > 🚨 We don't recommend you use this component for mobile considering that it
 > might be difficult for mobile users to tap on the steppers. We may release a
-> mobile specific implementation soon depending on the increase use cases.
+> mobile-specific implementation soon depending on the increased use cases.
 
 ```vue live=true
 <c-number-input :default-value="15" :max="20" :min="10">
@@ -157,7 +157,7 @@ To disable this behavior, pass `clampValueOnBlur` and set to `false`.
 
 ### Allowing out of range values
 
-In some scenarios, you might not want to block out of range values. Simple pass
+In some scenarios, you might not want to block out of range values. Pass
 `keepWithinRange` and `clampValueOnBlur` and set them to `false` to support this
 use case.
 
@@ -177,7 +177,7 @@ use case.
 
 ### Changing the size of the input
 
-Just like the `CInput` component, you can pass the `size` prop to change the size
+Like the `CInput` component, you can pass the `size` prop to change the size
 of the input.
 
 ```vue live=true
@@ -271,13 +271,13 @@ export default {
 ### Aria Roles
 
 - The input has `role` set to `spinbutton` to denote that users are to select
-  from a range of discrete values using an up and down arrows on the keyboard.
-- The input as `aria-valuemin` set to the minimum value allowed for the
+  from a range of discrete values using up and down arrows on the keyboard.
+- The input as `aria-valuemin` is set to the minimum value allowed for the
   spinbutton.
 - The input as `aria-valuemax` set to the maximum value allowed for the
-  spinbutton. attribute should be applied to the spinbutton.
+  spinbutton. The attribute should be applied to the spinbutton.
 - The input as `aria-valuenow` set to the current value of the `input`.
-- The custom spinner (up and down buttons) have`aria-hidden` set to `true` to
+- The custom spinner (up and down buttons) have `aria-hidden` set to `true` to
   make them invisible to screen readers.
 
 ### Keyboard Navigation

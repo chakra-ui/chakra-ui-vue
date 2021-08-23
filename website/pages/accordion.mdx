@@ -35,7 +35,7 @@ import {
 
 ## Usage
 
-By default, only one accordion item may be expanded. It can only be collapsed again by expanding another accordion item.
+By default, only one accordion-item may be expanded. It can only be collapsed again by expanding another accordion item.
 
 ```vue live=true
   <c-accordion>
@@ -203,7 +203,7 @@ In the example below, we change the icon rendered by the `CAccordionIcon` based 
 ```
 
 ### Accessibility
-Pressing **`space`** or **`enter`** when focus is on the `CAccordionHeader` will toggle (expand or collapse) the accordion item.
+Pressing **`space`** or **`enter`** when the focus is on the `CAccordionHeader` will toggle (expand or collapse) the accordion item.
 
 # Props
 ## `CAccordion`
@@ -212,7 +212,7 @@ Pressing **`space`** or **`enter`** when focus is on the `CAccordionHeader` will
 | ------------- | --------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
 | allowMultiple | `boolean`                         | `false` | If `true`, multiple accordion items can be expanded at once.                                              |
 | allowToggle   | `boolean`                         | `false` | If `true`, any expanded accordion item can be collapsed again.                                            |
-| index         | `Number` or `Array of Number`     |    0    | The index(es) of the expanded accordion item                                                              |
+| index         | `Number` or `Array of Number`     |    0    | The index(es) of the expanded accordion-item                                                              |
 | defaultIndex  | `Number` or `Array of Number`     |         | The initial index(es) of the expanded accordion item                                                      |
 
 ### Events
@@ -254,7 +254,7 @@ Pressing **`space`** or **`enter`** when focus is on the `CAccordionHeader` will
 
 ### Props
 `CAccordionHeader` renders a `button` and composes `CPseudoBox`, this means you can
-style it by passing the pseudo style props `_expanded`, `_disabled`, `_hover`,
+style it bypassing the pseudo style props `_expanded`, `_disabled`, `_hover`,
 etc.
 
 ## `CAccordionPanel`

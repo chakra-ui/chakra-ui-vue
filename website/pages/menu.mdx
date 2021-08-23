@@ -22,7 +22,7 @@ Chakra UI exports 8 components for rendering menus:
 - `CMenuButton`: The trigger for the menu list. Must be a direct child of `CMenu`.
 - `CMenuItem`: The trigger that handles menu selection. Must be a direct child of
   a `CMenuList`.
-- `CMenuGroup`: A wrapper to group related menu items.
+- `CMenuGroup`: A wrapper to group-related menu items.
 - `CMenuDivider`: A visual separator for menu items and groups.
 - `CMenuOptionGroup`: A wrapper for checkable menu items (radio and checkbox)
 - `CMenuItemOption`: The checkable menu item, to be used with `CMenuOptionGroup`
@@ -126,7 +126,7 @@ the letter you typed.
 </c-menu>
 ```
 
-### Just another example.
+### Another example.
 
 ```vue live=true
 <c-menu>
@@ -213,9 +213,9 @@ options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
 
 | Key                | Action                                                                                                                                  |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `Enter` or `Space` | When `MenuButton` receives focus, opens the menu and places focus on the first menu item                                                |
-| `ArrowDown`        | When `MenuButton` receives focus, opens the menu and moves focus to the first menu item                                                 |
-| `ArrowUp`          | When `MenuButton` receives focus, opens the menu and moves focus to the last menu item                                                  |
+| `Enter` or `Space` | When `MenuButton` receives focus, opens the menu, and places focus on the first menu item                                                |
+| `ArrowDown`        | When `MenuButton` receives focus, opens the menu, and moves focus to the first menu item                                                 |
+| `ArrowUp`          | When `MenuButton` receives focus, opens the menu, and moves focus to the last menu item                                                  |
 | `Escape`           | When the menu is open, closes the menu and sets focus to the `MenuButton`                                                               |
 | `Tab`              | no effect                                                                                                                               |
 | `Home`             | When the menu is open, moves focus to the first item.                                                                                   |
@@ -273,7 +273,7 @@ options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
 | Name       | Type                                            | Description                                               |
 | ---------- | ----------------------------------------------- | --------------------------------------------------------- |
 | isDisabled | `boolean`                                       | If `true`, the menu item will be disabled                 |
-| role       | `menuitem`, `menuitemradio`, `menuitemcheckbox` | The ARIA role of the menuitem                             |
+| role       | `menuitem`, `menuitemradio`, `menuitemcheckbox` | The ARIA role of the menu item                             |
 
 ### `CMenuItem` Events
 
@@ -302,7 +302,7 @@ options. Use the `CMenuOptionGroup` and `CMenuItemOption` components.
 
 | Name       | Description                                                          |
 | ---------- | -------------------------------------------------------------------- |
-| `@change`  | Event emitted when the item selection changes is clicked             |
+| `@change`  | Event emitted when the item selection changes are clicked             |
 | `@keydown` | Event emitted when the key is pressed while `CMenuItem` is focused   |
 
 ### `CMenuItemOption` Props

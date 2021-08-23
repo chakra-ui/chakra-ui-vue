@@ -6,7 +6,7 @@ and light modes in your chakra applications.
 ## Enable Color Mode Toggling
 
 To enable toggling between Dark and Light modes within your apps, wrap your application in a
-`CColorModeProvider` component. This component provides two variables in it's descendant's context using the
+`CColorModeProvider` component. This component provides two variables in its descendant's context using the
 [provide/inject](https://vuejs.org/v2/api/#provide-inject) API:
 - `$chakraColorMode` => This is a function that returns the current mode. Use it the computed property.
 - `$toggleColorMode` => This function toggles the current color mode value.
@@ -67,7 +67,7 @@ export default {
 
 ## Forcing a specific mode
 
-In some occasions, you might want Chakra components to look the same in both
+On some occasions, you might want Chakra components to look the same in both
 light and dark modes. To achieve this, wrap the component in `CLightMode` or
 `CDarkMode` component. Doing this will override the global `$chakraColorMode`.
 

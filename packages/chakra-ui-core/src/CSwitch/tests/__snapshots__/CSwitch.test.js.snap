@@ -2,23 +2,136 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <label
-    class="css-v7ibj3"
+  .emotion-0 {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-1 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-transition: all 120ms;
+  transition: all 120ms;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 1.875rem;
+  height: 1rem;
+  border-radius: var(--radii-full);
+  background: var(--colors-gray-300);
+  box-sizing: content-box;
+  padding: 2px;
+}
+
+.emotion-2[aria-checked=true],
+.emotion-2[data-checked] {
+  background: var(--colors-blue-500);
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  cursor: pointer;
+}
+
+.emotion-2[disabled],
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+input[type=checkbox]:focus+.emotion-3 {
+  box-shadow: var(--shadows-outline);
+}
+
+input[type=checkbox]:hover:not(:disabled):not(:checked)+.emotion-3 {
+  cursor: pointer;
+}
+
+input[type=checkbox]:disabled+.emotion-3 {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+input[type=checkbox]:checked:hover:not(:disabled)+.emotion-3,
+input[type=checkbox][aria-checked=mixed]:hover:not(:disabled)+.emotion-3 {
+  cursor: pointer;
+}
+
+.emotion-3>* {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+input[type=checkbox]:checked+.emotion-3,
+input[type=checkbox][aria-checked=mixed]+.emotion-3 {
+  background: var(--colors-blue-500);
+}
+
+input[type=checkbox]:checked+.emotion-3>*,
+input[type=checkbox][aria-checked=mixed]+.emotion-3>* {
+  -webkit-transform: translateX(calc(1.875rem - 1rem));
+  -moz-transform: translateX(calc(1.875rem - 1rem));
+  -ms-transform: translateX(calc(1.875rem - 1rem));
+  transform: translateX(calc(1.875rem - 1rem));
+}
+
+.emotion-4 {
+  background: var(--colors-white);
+  -webkit-transition: -webkit-transform 250ms;
+  transition: transform 250ms;
+  border-radius: var(--radii-full);
+  height: 1rem;
+  width: 1rem;
+}
+
+<label
+    class="emotion-0"
     data-chakra-component="CSwitch"
     data-testid="switch"
   >
     <input
-      class="css-f8n5zr"
+      class="emotion-1"
       data-chakra-component="CVisuallyHidden"
       type="checkbox"
     />
     <div
       aria-hidden="true"
-      class="css-o5cn09 css-14rwhig"
+      class="emotion-2 emotion-3"
       data-chakra-component="CControlBox"
     >
       <div
-        class="css-1jhagep"
+        class="emotion-4"
         data-chakra-component="CBox"
       />
     </div>

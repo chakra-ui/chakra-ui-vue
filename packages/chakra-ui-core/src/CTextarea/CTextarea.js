@@ -12,7 +12,7 @@ import { inputProps } from '../CInput/utils/input.props'
 import { forwardProps, extractListeners } from '../utils'
 
 import CInput from '../CInput'
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 
 /**
  * CTextarea component

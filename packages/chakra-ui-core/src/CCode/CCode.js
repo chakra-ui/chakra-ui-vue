@@ -10,7 +10,7 @@
 import useBadgeStyle from '../CBadge/utils/badge.styles'
 import { useVariantColorWarning, createStyledAttrsMixin } from '../utils'
 
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 
 /**
  * CCode component

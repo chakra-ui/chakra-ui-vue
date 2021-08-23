@@ -1,5 +1,5 @@
 import { pickBy, startsWith } from 'lodash-es'
-import styleProps from '../config/props'
+import { isStyleProp } from '@chakra-ui/styled-system'
 import { camelize } from './strings'
 
 /**
@@ -48,7 +48,7 @@ export function extractChakraAttrs (attrs) {
 
   for (const _prop in attrs) {
     const prop = camelize(_prop)
-    if (styleProps[prop]) {
+    if (isStyleProp(prop)) {
       styleAttrs[prop] = attrs[_prop]
     } else {
       nativeAttrs[_prop] = attrs[_prop]

@@ -1,18 +1,24 @@
+import { CodeGroup, CodeTab } from '~/components/code'
+
 # Getting Started
 
-Install Chakra UI Vue and it's peer dependency, `emotion`
+Install Chakra UI Vue and it's peer dependency, `@emotion/css`
 
 <br />
 
-```bash
-yarn add @chakra-ui/vue emotion
-```
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add @chakra-ui/vue @emotion/css
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install @chakra-ui/vue @emotion/css
+  </CodeTab>
+</CodeGroup>
 
-or (with npm)
 
-```bash
-npm install @chakra-ui/vue emotion --save
-```
+> If you are using @chakra-ui/vue@^0.6 and below, you need to install `emotion` instead of `@emotion/css`
+
+<carbon-ad />
 
 ### With Vue CLI plugin
 

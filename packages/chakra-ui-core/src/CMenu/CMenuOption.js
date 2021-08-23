@@ -113,7 +113,7 @@ const CMenuItemOption = {
         alignItems: 'center',
         ...this.$attrs,
         role: this.role,
-        tabIndex: -1,
+        tabindex: -1,
         'aria-checked': this.isChecked,
         disabled: this.isDisabled,
         'aria-disabled': this.isDisabled,
@@ -176,11 +176,11 @@ const CMenuOptionGroup = {
       type: [String, Number],
       default: null
     },
-    defaultValue: [String, Number]
+    defaultValue: [String, Number, Array]
   },
   data () {
     return {
-      innerValue: []
+      innerValue: this.defaultValue || []
     }
   },
   computed: {

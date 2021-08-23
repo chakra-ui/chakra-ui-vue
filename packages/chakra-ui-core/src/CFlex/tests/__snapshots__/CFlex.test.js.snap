@@ -1,9 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should change styles 1`] = `
+exports[`CFlex should change styles 1`] = `
 <DocumentFragment>
-  <div
-    class="css-u6v8er"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CFlex"
     data-testid="flex"
   >
@@ -12,10 +30,17 @@ exports[`should change styles 1`] = `
 </DocumentFragment>
 `;
 
-exports[`should render correctly 1`] = `
+exports[`CFlex should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-k008qs"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CFlex"
     data-testid="flex"
   >

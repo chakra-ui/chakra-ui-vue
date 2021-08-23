@@ -4,10 +4,11 @@
  * The CThemeProvider componeent provides theme context to all it's
  * children.
  *
- * @see Docs     https://vue.chakra-ui.com/textarea
+ * @see Docs     https://vue.chakra-ui.com/getting-started
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CThemeProvider/CThemeProvider.js
  */
 
+import { injectGlobal } from '@emotion/css'
 import { colorModeObserver } from '../utils/color-mode-observer'
 
 /**
@@ -27,6 +28,12 @@ const CThemeProvider = {
       $chakraColorMode: () => 'light'
     }
   },
+  props: {
+    rootKey: {
+      type: String,
+      default: ':root'
+    }
+  },
   computed: {
     icons () {
       return this.$chakra ? this.$chakra.icons : {}
@@ -40,6 +47,7 @@ const CThemeProvider = {
       immediate: true,
       handler (newVal) {
         colorModeObserver.theme = newVal
+        this.updateGlobalCssVars()
       }
     },
     icons: {
@@ -48,6 +56,15 @@ const CThemeProvider = {
         colorModeObserver.icons = newVal
       }
     }
+  },
+  methods: {
+    updateGlobalCssVars () {
+      const rootKey = this.rootKey || ':root'
+      injectGlobal({
+        [rootKey]: this.theme.__cssVars
+      })
+    }
+
   },
   render (h) {
     return h('div', {

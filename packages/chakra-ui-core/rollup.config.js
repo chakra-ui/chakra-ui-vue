@@ -80,11 +80,6 @@ const bannerTxt = `
 
 const baseFolder = './src/'
 
-const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
-
 const components = fs.readdirSync(baseFolder)
   .filter(f => fs.statSync(path.join(baseFolder, f)).isDirectory())
 
@@ -100,50 +95,26 @@ const entries = {
  * Configurations
  */
 export default () => {
-  let config = [{
-    input: entries,
-    output: {
-      dir: 'dist/esm/',
-      format: 'esm',
-      banner: bannerTxt
+  const config = [
+    {
+      input: entries,
+      output: {
+        dir: 'dist/esm/',
+        format: 'esm',
+        banner: bannerTxt
+      },
+      ...commons
     },
-    ...commons
-  },
-  {
-    input: entries,
-    output: {
-      dir: 'dist/cjs/',
-      format: 'cjs',
-      exports: 'named',
-      banner: bannerTxt
-    },
-    ...commons
-  },
-  {
-    input: './src/index.js',
-    output: {
-      file: 'dist/umd/index.js/',
-      name: capitalize('chakra'),
-      format: 'umd',
-      exports: 'named',
-      banner: bannerTxt,
-      globals: {
-        vue: 'Vue'
-      }
-    },
-    ...commons
-  }
+    {
+      input: entries,
+      output: {
+        dir: 'dist/cjs/',
+        format: 'cjs',
+        exports: 'named',
+        banner: bannerTxt
+      },
+      ...commons
+    }
   ]
-  if (process.env.MINIFY === 'true') {
-    config = config.filter(c => !!c.output.file)
-    config.forEach((c) => {
-      c.output.file = c.output.file.replace(/\.js/g, '.min.js')
-      c.plugins.push(terser({
-        output: {
-          comments: '/^!/'
-        }
-      }))
-    })
-  }
   return config
 }

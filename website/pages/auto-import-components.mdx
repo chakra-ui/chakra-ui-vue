@@ -1,4 +1,5 @@
 import SEO from '../components/SEO'
+import { CodeGroup, CodeTab } from '~/components/code'
 
 <SEO
   title="Auto-import Chakra components"
@@ -11,18 +12,18 @@ you to directly consume Chakra UI Vue components without manually importing and 
 
 This provides a better developer experience without sacrificing your applications bundle-size performance.
 
+<carbon-ad />
 
 ## Installation
-With Yarn:
 
-```bash
-yarn add chakra-loader -D
-```
-With NPM:
-
-```bash
-npm install chakra-loader --save-dev
-```
+<CodeGroup lang="bash">
+  <CodeTab label="Yarn">
+    yarn add -D chakra-loader
+  </CodeTab>
+  <CodeTab label="NPM">
+    npm install chakra-loader --save-dev
+  </CodeTab>
+</CodeGroup>
 
 ## Usage
 If you're using webpack with Vue CLI or Nuxt.js for your Chakra project, import the `ChakraLoaderPlugin` from the `chakra-loader` package and add it to your `vue.config.js` file.

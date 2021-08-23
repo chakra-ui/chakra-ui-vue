@@ -1,61 +1,58 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build & Test Components
+name: Release
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    paths:
+      - "packages/**"
+    branches:
+      - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: yarn
-    - run: yarn bootstrap
-    - run: yarn lint
-    - run: yarn build --if-present
-    - run: yarn test
-      env:
-        CI: true
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v1
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install Dependencies
-        run: yarn
-      - name: Create Release Pull Request
-        uses: changesets/action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn build
-      - run: yarn publish-ci
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Checkout Repo
+      uses: actions/checkout@master
+      with:
+        # This makes Actions fetch all Git history
+        # so that Changesets can generate changelogs with the correct commits
+        fetch-depth: 0
 
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@master
+      with:
+        node-version: 12.x
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile && yarn bootstrap
+
+
+    - name: Linting
+      run: yarn lint
+
+    - name: Building packages
+      run: yarn build
+
+    - name: Testing components
+      run: yarn test
+      env:
+        CI: true
+
+    - name: Setup CI Git User
+      run: |
+        git config --global user.name "codebender828"
+        git config --global user.email "jbakebwa@163.com"
+    
+    - name: Publish packages
+      uses: changesets/action@master
+      with:
+        publish: yarn release
+        title: "chore(release): version packages"
+        commit: "chore(release): version packages"
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

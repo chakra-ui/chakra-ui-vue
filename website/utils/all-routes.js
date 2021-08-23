@@ -60,11 +60,13 @@ export const components = [
 export const topNavLinks = [
   'Getting Started',
   'With Nuxt',
+  'With Vuepress',
   'Plugin Options',
   'Principles',
   'Style Props',
   'Theme',
   'Extending Theme',
+  'Overriding Component Styles',
   'Color Mode',
   'Responsive Styles',
   'Starters'

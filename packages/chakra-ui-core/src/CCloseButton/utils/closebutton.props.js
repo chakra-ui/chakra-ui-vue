@@ -8,10 +8,6 @@ export default {
     type: Boolean,
     default: false
   },
-  color: {
-    type: String,
-    default: 'currentColor'
-  },
   ariaLabel: {
     type: String,
     default: 'Close'

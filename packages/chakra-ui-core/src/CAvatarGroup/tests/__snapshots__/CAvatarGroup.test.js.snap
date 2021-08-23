@@ -2,36 +2,136 @@
 
 exports[`should change avatar group size correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-nqilgt"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+}
+
+.emotion-1 {
+  width: var(--sizes-16);
+  height: var(--sizes-16);
+  font-size: calc(4rem / 2.5);
+  line-height: 4rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: var(--radii-full);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background: #a8eb4f;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
+  margin-left: var(--space-0);
+  z-index: 3;
+}
+
+.emotion-2 {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: var(--fontWeights-medium);
+}
+
+.emotion-3 {
+  width: var(--sizes-16);
+  height: var(--sizes-16);
+  font-size: calc(4rem / 2.5);
+  line-height: 4rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: var(--radii-full);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background: #9d7d74;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
+  margin-left: calc(var(--space-3) * -1);
+  z-index: 2;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: var(--sizes-16);
+  width: var(--sizes-16);
+  background: var(--colors-gray-200);
+  color: inherit;
+  border-radius: var(--radii-full);
+  border: var(--borders-2px);
+  border-color: #fff;
+  font-size: calc(4rem / 2.75);
+  margin-left: calc(var(--space-3) * -1);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAvatarGroup"
   >
     <div
-      class="css-1vz9fru"
+      class="emotion-1"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Mesut Koca"
-        class="css-1sr52zs"
+        class="emotion-2"
         data-chakra-component="CAvatarName"
       >
         MK
       </div>
     </div>
     <div
-      class="css-z8puoe"
+      class="emotion-3"
       data-chakra-component="CAvatar"
     >
       <div
         aria-label="Evan You"
-        class="css-1sr52zs"
+        class="emotion-2"
         data-chakra-component="CAvatarName"
       >
         EY
       </div>
     </div>
     <div
-      class="css-pxig6c"
+      class="emotion-5"
       data-chakra-component="CMoreAvatarLabel"
     >
       +1
@@ -42,34 +142,133 @@ exports[`should change avatar group size correctly 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-nqilgt"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+}
+
+.emotion-1 {
+  width: var(--sizes-12);
+  height: var(--sizes-12);
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: var(--radii-full);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background: #a8eb4f;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
+  margin-left: var(--space-0);
+  z-index: 3;
+}
+
+.emotion-2 {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radii-full);
+  object-fit: cover;
+}
+
+.emotion-3 {
+  width: var(--sizes-12);
+  height: var(--sizes-12);
+  font-size: calc(3rem / 2.5);
+  line-height: 3rem;
+  vertical-align: top;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: var(--radii-full);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  background: #9d7d74;
+  color: var(--colors-gray-800);
+  border: var(--borders-2px);
+  margin-left: calc(var(--space-3) * -1);
+  z-index: 2;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: var(--sizes-12);
+  width: var(--sizes-12);
+  background: var(--colors-gray-200);
+  color: inherit;
+  border-radius: var(--radii-full);
+  border: var(--borders-2px);
+  border-color: #fff;
+  font-size: calc(3rem / 2.75);
+  margin-left: calc(var(--space-3) * -1);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAvatarGroup"
   >
     <div
-      class="css-m3wjcp"
+      class="emotion-1"
       data-chakra-component="CAvatar"
     >
       <img
         alt="Mesut Koca"
-        class="css-6qjm3j"
+        class="emotion-2"
         data-chakra-component="CBox"
         src="LOAD_SUCCESS_SRC"
       />
     </div>
     <div
-      class="css-1a6a0zc"
+      class="emotion-3"
       data-chakra-component="CAvatar"
     >
       <img
         alt="Evan You"
-        class="css-6qjm3j"
+        class="emotion-2"
         data-chakra-component="CBox"
         src="LOAD_SUCCESS_SRC"
       />
     </div>
     <div
-      class="css-ypaprh"
+      class="emotion-5"
       data-chakra-component="CMoreAvatarLabel"
     >
       +1

@@ -2,8 +2,29 @@
 
 exports[`should change the style 1`] = `
 <DocumentFragment>
-  <div
-    class="css-1pl3ejm"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-padding-start: var(--space-5);
+  padding-inline-start: var(--space-5);
+  -webkit-padding-end: var(--space-5);
+  padding-inline-end: var(--space-5);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+  box-shadow: var(--shadows-lg);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-radius: var(--radii-sm);
+  font-family: var(--fonts-body);
+  background-color: var(--colors-blue-200);
+  color: var(--colors-blue-700);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -15,7 +36,7 @@ exports[`should change the style 1`] = `
 exports[`should display CBox with type as header 1`] = `
 <DocumentFragment>
   <header
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -27,7 +48,7 @@ exports[`should display CBox with type as header 1`] = `
 exports[`should display CBox with type as p 1`] = `
 <DocumentFragment>
   <p
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CBox"
     data-testid="box"
   >
@@ -39,7 +60,7 @@ exports[`should display CBox with type as p 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="css-0"
+    class="emotion-0"
     data-chakra-component="CBox"
     data-testid="box"
   >

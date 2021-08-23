@@ -2,14 +2,82 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <button
+  .emotion-0 {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border-radius: var(--radii-md);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  border: var(--borders-none);
+  background: var(--colors-blackAlpha-50);
+}
+
+.emotion-0:hover,
+.emotion-0[data-hover] {
+  background: var(--colors-blackAlpha-100);
+}
+
+.emotion-0:active,
+.emotion-0[data-active] {
+  background: var(--colors-blackAlpha-200);
+}
+
+.emotion-0[disabled],
+.emotion-0[aria-disabled=true],
+.emotion-0[data-disabled] {
+  cursor: not-allowed;
+}
+
+.emotion-0:focus,
+.emotion-0[data-focus] {
+  box-shadow: var(--shadows-outline);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+<button
     aria-label="Close"
-    class="css-1xs6s6"
+    class="emotion-0"
     data-chakra-component="CCloseButton"
   >
     <svg
       aria-hidden="true"
-      class="css-12j51pv css-xmst1h css-0"
+      class="emotion-1 emotion-2 emotion-3"
       data-chakra-component="CIcon"
       role="presentation"
       viewBox="0 0 24 24"

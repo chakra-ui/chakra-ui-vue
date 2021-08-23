@@ -1,8 +1,7 @@
-import { CBox, CFlex, CGrid, boxProps } from '@chakra-ui/vue'
+import { CBox, CFlex, CGrid } from '@chakra-ui/vue'
 
 export const ColorPalette = {
   props: {
-    ...boxProps,
     color: String,
     name: String
   },
@@ -28,7 +27,7 @@ export const ColorPalette = {
   },
   render (h) {
     return (
-      <CFlex align="center" {...this.$props}>
+      <CFlex align="center" {...this.$props} {...this.$attrs}>
         <CBox rounded="md" w="3rem" h="3rem" boxShadow="inner" mr={3} bg={this.color} />
         <CBox fontSize="sm">
           <CBox fontWeight="semibold" textTransform="capitalize">

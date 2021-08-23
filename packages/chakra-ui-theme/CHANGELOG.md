@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.3.1
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@simpletrontdip](https://github.com/simpletrontdip)! - Backport v1 Theme API to v0.x
+- [`2bb4540`](https://github.com/chakra-ui/chakra-ui-vue/pull/473/commits/2bb4540dbd5abeaed9dfbf5108a0f345a9e25bf6)[#473](https://github.com/chakra-ui/chakra-ui-vue/pull/473) Thanks [@Pwuts](https://github.com/Pwuts) - feat(types): improve & add type declarations
+
+### Patch Changes
+
+- [`4429524b`](https://github.com/chakra-ui/chakra-ui-vue/commit/4429524b01a00a31a272d258ad45d6edee439f6b) [#476](https://github.com/chakra-ui/chakra-ui-vue/pull/476) Thanks [@codebender828](https://github.com/codebender828)! - version release
+
+## 0.3.0
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@simpletrontdip](https://github.com/simpletrontdip)! - Backport v1 Theme API to v0.x
+- [`2bb4540`](https://github.com/chakra-ui/chakra-ui-vue/pull/473/commits/2bb4540dbd5abeaed9dfbf5108a0f345a9e25bf6)[#473](https://github.com/chakra-ui/chakra-ui-vue/pull/473) Thanks [@Pwuts](https://github.com/Pwuts) - feat(types): improve & add type declarations
+
+## 0.2.11
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
+## 0.2.10
+
+## 0.2.9
+
+## 0.2.8
+
 ## 0.2.7
 
 ## 0.2.6

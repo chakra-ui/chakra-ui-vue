@@ -2,13 +2,56 @@
 
 exports[`should override icon if set explicitly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-nhrqr1"
+  .emotion-0 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  background: var(--colors-red-100);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: var(--sizes-5);
+  height: var(--sizes-5);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  margin-right: var(--space-3);
+  color: var(--colors-red-500);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-12j51pv css-1oh9bp8 css-3v23kb"
+      class="emotion-1 emotion-2 emotion-3"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -28,17 +71,139 @@ exports[`should override icon if set explicitly 1`] = `
 
 exports[`should render correct variant styles 1`] = `
 <DocumentFragment>
-  <div
-    class="css-j7qwjs css-0"
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  background: var(--colors-green-100);
+  margin-bottom: var(--space-2);
+}
+
+.emotion-3 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-3:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-4 {
+  width: var(--sizes-5);
+  height: var(--sizes-5);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-5 {
+  margin-right: var(--space-3);
+  color: var(--colors-green-500);
+}
+
+.emotion-6 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  background: var(--colors-green-500);
+  color: var(--colors-white);
+  margin-bottom: var(--space-2);
+}
+
+.emotion-9 {
+  margin-right: var(--space-3);
+}
+
+.emotion-10 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-3);
+  padding-right: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  background: var(--colors-green-100);
+  border-left: var(--borders-4px);
+  border-color: var(--colors-green-500);
+  margin-bottom: var(--space-2);
+}
+
+.emotion-14 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-3);
+  background: var(--colors-green-100);
+  border-top: var(--borders-4px);
+  border-color: var(--colors-green-500);
+}
+
+<div
+    class="emotion-0 emotion-1"
     data-chakra-component="CStack"
   >
     <div
-      class="css-jc40v6"
+      class="emotion-2"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-12j51pv css-1oh9bp8 css-8uesx6"
+        class="emotion-3 emotion-4 emotion-5"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -55,12 +220,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-u5y8wy"
+      class="emotion-6"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-12j51pv css-1oh9bp8 css-uoder"
+        class="emotion-3 emotion-4 emotion-9"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -77,12 +242,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-16xha8s"
+      class="emotion-10"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-12j51pv css-1oh9bp8 css-8uesx6"
+        class="emotion-3 emotion-4 emotion-5"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -99,12 +264,12 @@ exports[`should render correct variant styles 1`] = `
       
     </div>
     <div
-      class="css-i78vk9"
+      class="emotion-14"
       data-chakra-component="CAlert"
       role="alert"
     >
       <svg
-        class="css-12j51pv css-1oh9bp8 css-8uesx6"
+        class="emotion-3 emotion-4 emotion-5"
         data-chakra-component="CAlertIcon"
         role="presentation"
         viewBox="0 0 24 24"
@@ -126,13 +291,61 @@ exports[`should render correct variant styles 1`] = `
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-8c8mos"
+  .emotion-0 {
+  font-family: var(--fonts-body);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  background: var(--colors-blue-100);
+}
+
+.emotion-1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-1:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-2 {
+  width: var(--sizes-5);
+  height: var(--sizes-5);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-3 {
+  margin-right: var(--space-3);
+  color: var(--colors-blue-500);
+}
+
+.emotion-4 {
+  font-weight: var(--fontWeights-bold);
+  line-height: var(--lineHeights-normal);
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAlert"
     role="alert"
   >
     <svg
-      class="css-12j51pv css-1oh9bp8 css-9y8umg"
+      class="emotion-1 emotion-2 emotion-3"
       data-chakra-component="CAlertIcon"
       role="presentation"
       viewBox="0 0 24 24"
@@ -148,14 +361,14 @@ exports[`should render correctly 1`] = `
     </svg>
      
     <div
-      class="css-11a523j"
+      class="emotion-4"
       data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
-      class="css-0"
+      class="emotion-5"
       data-chakra-component="CAlertDescription"
     >
       alert description

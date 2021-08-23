@@ -13,7 +13,11 @@
           >
             <CReset />
             <Navbar />
-            <CFlex max-h="calc(100vh - 60px)">
+            <CFlex
+              max-h="calc(100vh - 60px)"
+              max-w="1440px"
+              mx="auto"
+            >
               <Sidebar />
               <CBox
                 id="main-content"
@@ -56,7 +60,7 @@ import {
   CFlex,
   Css
 } from '@chakra-ui/vue'
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { MDXProvider } from 'mdx-vue'
 
 import MDXComponents from '../components/MDXComponents'
@@ -105,10 +109,12 @@ export default {
       },
       code: {
         light: {
-          color: 'indigo.500'
+          color: 'indigo.500',
+          bg: 'indigo.50'
         },
         dark: {
-          color: 'indigo.100'
+          color: 'indigo.500',
+          bg: 'indigo.50'
         }
       },
       MDXComponents

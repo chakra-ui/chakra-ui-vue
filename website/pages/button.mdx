@@ -14,6 +14,8 @@ The Button component is used to trigger an action or event, such as submitting a
 
 See `CButton`'s <a target="_blank" href="https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CButton/accesibility.md">accessibility report</a>
 
+<carbon-ad />
+
 ### Import
 
 ```js
@@ -152,8 +154,8 @@ The button composes the `CPseudoBox` component so you can pass props for `CPseud
 | Name                  | Type                                            | Default | Description                                                                                             |
 | --------------------- | ------------------------------------------------| --------| ------------------------------------------------------------------------------------------------------- |
 | `aria-label`          | `string`                                         |         | The label of the button                                                                                 |
-| `variant `            | `string`                                         |         | The color of the button. Use a color key passed in `theme.colors`.                                      |
-| `variantColor`        | `outline`, `ghost`, `unstyled` , `link` , `solid` | `solid` | The color of the button. Use a color key passed in `theme.colors`.                                      |
+| `variant `            | `outline`, `ghost`, `unstyled` , `link` , `solid` | `solid` | Changes the visual style of the button.                                      |
+| `variantColor`        | `string`                                         |         | The color of the button. Use a color key passed in `theme.colors`.                                      |
 | `isDisabled`          | `boolean`                                        |         | If `true`, the button will be disabled.                                                                 |
 | `isLoading`           | `boolean`                                        |         | If `true`, the button will show a spinner                                                               |
 | `loadingText`         | `string`                                         |         | The label to show in the button when isLoading is true. If no text is passed, it only shows the spinner |

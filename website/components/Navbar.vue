@@ -28,6 +28,8 @@
       d="flex"
       align-items="center"
       list-style-type="none"
+      pt="8px"
+      pl="16px"
     >
       <CBox :display="['none', 'none', 'block']" as="li" mr="2">
         <span id="github-star-button" />
@@ -138,7 +140,7 @@ export default {
       const savedColorMode = localStorage.getItem('chakra_ui_docs_color_mode')
       if (!savedColorMode) { return }
 
-      if (this.colorMode !== savedColorMode) {
+      if ((savedColorMode && this.colorMode) && (this.colorMode !== savedColorMode)) {
         this.$toggleColorMode()
       }
     } catch (error) {

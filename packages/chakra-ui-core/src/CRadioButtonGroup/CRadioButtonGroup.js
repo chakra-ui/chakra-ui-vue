@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioButtonGroup/CRadioButtonGroup.js
  */
 
-import { StringNumber, SNA } from '../config/props/props.types'
+import { StringNumber, SNA } from '../config/props.types'
 import { isDef, useId, cloneVNodeElement, cleanChildren, createStyledAttrsMixin } from '../utils'
 
 /**
@@ -157,7 +157,7 @@ const CRadioButtonGroup = {
             ...(!isLastChild && spacingProps)
           },
           attrs: {
-            tabIndex: getTabIndex()
+            tabindex: getTabIndex()
           },
           nativeOn: {
             click: handleClick

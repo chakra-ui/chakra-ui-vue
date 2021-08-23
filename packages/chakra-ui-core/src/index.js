@@ -55,7 +55,7 @@ export { default as CFormHelperText } from './CFormHelperText'
 export { default as CFragment } from './CFragment'
 
 // G
-export { default as CGrid } from './CGrid'
+export * from './CGrid'
 
 // H
 export { default as CHeading } from './CHeading'
@@ -122,5 +122,10 @@ export { default as CVisuallyHidden } from './CVisuallyHidden'
 // Default theme object
 export { default as defaultTheme } from '@chakra-ui/theme-vue'
 
-// Props objects
-export { baseProps as boxProps, pseudoProps as pseudoBoxProps } from './config'
+// Internal icons
+export { parsePackIcons } from './utils/icons'
+export { mode, defineColorModeObserver } from './utils/color-mode-observer'
+export { default as internalIcons } from './lib/internal-icons'
+
+// Directives
+export { createServerDirective, createClientDirective } from './directives/chakra.directive'

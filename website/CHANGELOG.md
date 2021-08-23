@@ -1,5 +1,119 @@
 # Change Log
 
+## 0.7.1
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@simpletrontdip](https://github.com/simpletrontdip)! - Backport v1 Theme API to v0.x
+- [`2bb4540`](https://github.com/chakra-ui/chakra-ui-vue/pull/473/commits/2bb4540dbd5abeaed9dfbf5108a0f345a9e25bf6)[#473](https://github.com/chakra-ui/chakra-ui-vue/pull/473) Thanks [@Pwuts](https://github.com/Pwuts) - feat(types): improve & add type declarations
+
+### Patch Changes
+
+- [`4429524b`](https://github.com/chakra-ui/chakra-ui-vue/commit/4429524b01a00a31a272d258ad45d6edee439f6b) [#476](https://github.com/chakra-ui/chakra-ui-vue/pull/476) Thanks [@codebender828](https://github.com/codebender828)! - version release
+
+- Updated dependencies [[`4429524b`](https://github.com/chakra-ui/chakra-ui-vue/commit/4429524b01a00a31a272d258ad45d6edee439f6b)]:
+  - @chakra-ui/vue@0.10.1
+  - @chakra-ui/theme-vue@0.3.1
+
+## 0.7.0
+
+### Minor Changes
+
+- [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f) [#474](https://github.com/chakra-ui/chakra-ui-vue/pull/474) Thanks [@codebender828](https://github.com/codebender828)! - Backport v1 Theme API to v0.x
+
+### Patch Changes
+
+- Updated dependencies [[`d1e97d75`](https://github.com/chakra-ui/chakra-ui-vue/commit/d1e97d75b82613ee0cad97e1136db1fd9447f6da), [`7d1bdf30`](https://github.com/chakra-ui/chakra-ui-vue/commit/7d1bdf30b4b1f5fab48f2c23bcdea4038ed7cf5f)]:
+  - @chakra-ui/vue@0.10.0
+  - @chakra-ui/theme-vue@0.3.0
+
+## 0.6.2
+
+### Patch Changes
+
+- fix: syncs core and nuxt packages
+
+- Updated dependencies []:
+  - @chakra-ui/vue@0.9.4
+
+## 0.6.1
+
+### Patch Changes
+
+- [`2627e9f`](https://github.com/chakra-ui/chakra-ui-vue/commit/2627e9f833ec62d4bc35703bcb3bb1293d20c391) [#455](https://github.com/chakra-ui/chakra-ui-vue/pull/455) Thanks [@codebender828](https://github.com/codebender828)! -
+
+- Updated dependencies [[`2627e9f`](https://github.com/chakra-ui/chakra-ui-vue/commit/2627e9f833ec62d4bc35703bcb3bb1293d20c391)]:
+  - @chakra-ui/vue@0.9.2
+
+## 0.6.0
+
+### Minor Changes
+
+- [`5552440`](https://github.com/chakra-ui/chakra-ui-vue/commit/5552440eb8e0f1fb283c7dc263888bf09dcfa7b9) [#438](https://github.com/chakra-ui/chakra-ui-vue/pull/438) Thanks [@codebender828](https://github.com/codebender828)! - - This changeset adds a srcset support to the CImage component.
+  - Fixes merging of Popper.js modifiers
+  - Adds CGridItems components to the core 👏🏾
+
+### Patch Changes
+
+- Updated dependencies [[`5552440`](https://github.com/chakra-ui/chakra-ui-vue/commit/5552440eb8e0f1fb283c7dc263888bf09dcfa7b9)]:
+  - @chakra-ui/vue@0.9.0
+
+## 0.5.7
+
+### Patch Changes
+
+- [`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007) [#418](https://github.com/chakra-ui/chakra-ui-vue/pull/418) Thanks [@codebender828](https://github.com/codebender828)! - Fix for close button to change color
+
+- Updated dependencies [[`e640030`](https://github.com/chakra-ui/chakra-ui-vue/commit/e640030d277966a384261d1a90a1820335c4c007)]:
+  - @chakra-ui/vue@0.8.1
+  - @chakra-ui/theme-vue@0.2.11
+
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies [[`8af1c07`](https://github.com/chakra-ui/chakra-ui-vue/commit/8af1c07404d2cfa94bb338e4268c5e0869a50776)]:
+  - @chakra-ui/vue@0.8.0
+
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies [[`951906a`](https://github.com/chakra-ui/chakra-ui-vue/commit/951906a61deabdcf1d3f04b7f8f9fdeaad1f3841)]:
+  - @chakra-ui/vue@0.7.4
+  - @chakra-ui/theme-vue@0.2.10
+
+## 0.5.4
+
+### Patch Changes
+
+- @chakra-ui/vue@0.7.3
+- @chakra-ui/theme-vue@0.2.9
+
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [5db9572]
+- Updated dependencies [5db9572]
+  - @chakra-ui/vue@0.7.2
+  - @chakra-ui/theme-vue@0.2.8
+
+## 0.5.3-next.1
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.2-next.0
+
+## 0.5.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @chakra-ui/vue@0.7.0-next.0
+
 ## 0.5.2
 
 ### Patch Changes

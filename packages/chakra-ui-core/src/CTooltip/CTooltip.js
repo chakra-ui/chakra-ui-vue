@@ -151,7 +151,7 @@ const CTooltip = {
             as: 'span'
           },
           attrs: {
-            tabIndex: 0,
+            tabindex: 0,
             'x-tooltip-anchor': `${this.tooltipId}`,
             ...(this.isOpen && { 'aria-describedby': this.tooltipId })
           },

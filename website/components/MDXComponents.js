@@ -1,6 +1,6 @@
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import { CHeading, CBox, Css, CPseudoBox, CCode, CText } from '@chakra-ui/vue'
-import CodeBlock from './CodeBlock'
+import { MDXCodeBlock } from './code'
 import { stringToUrl } from '~/utils'
 import pages from '~/utils/all-routes'
 
@@ -69,7 +69,7 @@ const MDXComponents = {
     name: 'H1',
     render () {
       return (
-        <CHeading as="h1" size="2xl" my="1em" { ...props}>
+        <CHeading as="h1" id="chakra-documentation-title" size="2xl" my="1em" { ...props}>
           {this.$slots.default}
         </CHeading>
       )
@@ -115,8 +115,7 @@ const MDXComponents = {
       )
     }
   }),
-  // eslint-disable-next-line
-  'code': CodeBlock,
+  code: MDXCodeBlock,
   pre: props => ({
     name: 'Box',
     render () {

@@ -497,7 +497,7 @@ const CPopoverContent = {
         _focus: { outline: 0, shadow: 'outline' },
         ...this.$attrs,
         id: popoverId,
-        tabIndex: -1,
+        tabindex: -1,
         'aria-labelledby': this.headerId,
         'aria-describedby': this.bodyId,
         'aria-label': this.ariaLabel,

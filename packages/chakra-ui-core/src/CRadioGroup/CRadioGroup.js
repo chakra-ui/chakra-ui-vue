@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CRadioGroup/CRadioGroup.js
  */
 
-import { StringNumber } from '../config/props/props.types'
+import { StringNumber } from '../config/props.types'
 import { useId, cloneVNodeElement, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'

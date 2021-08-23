@@ -2,18 +2,50 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="css-16idx8h"
+  .emotion-0 {
+  position: relative;
+  max-width: 400px;
+}
+
+.emotion-0::before {
+  height: 0px;
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.emotion-1 {
+  position: absolute;
+  width: var(--sizes-full);
+  height: var(--sizes-full);
+  top: var(--space-0);
+  left: var(--space-0);
+}
+
+.emotion-2 {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+<div
+    class="emotion-0"
     data-chakra-component="CAspectRatioBox"
     data-testid="aspectRatioBox"
   >
-    <img
-      alt="naruto"
-      class="css-1mlkgdx"
+    <div
+      class="emotion-1"
       data-chakra-component="CBox"
-      data-testid="image"
-      src="https://bit.ly/naruto-sage"
-    />
+      data-testid="child"
+    >
+      <img
+        alt="naruto"
+        class="emotion-2"
+        data-chakra-component="CBox"
+        data-testid="image"
+        src="https://bit.ly/naruto-sage"
+      />
+    </div>
   </div>
 </DocumentFragment>
 `;

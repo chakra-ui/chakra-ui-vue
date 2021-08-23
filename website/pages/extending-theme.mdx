@@ -2,6 +2,7 @@
 
 Chakra UI can be customized by adding your desired values to the Chakra plugin.
 
+<carbon-ad />
 
 ## Extending theme object
 
@@ -30,7 +31,7 @@ export default {
       800: '#004949',
       900: '#001a1a',
     }
-  }
+  },
 }
 ```
 
@@ -61,3 +62,17 @@ new Vue({
 }).$mount()
 ```
 
+### In Nuxt.js
+In your nuxt.config.js file, you can then add your custom theme object by passing it in the `extendTheme` option.
+
+```js
+// Import your customTheme object
+import customTheme from 'custom-theme.js'
+export default {
+  // ...
+  chakra: {
+    extendTheme: customTheme
+  },
+  // ...
+}
+```

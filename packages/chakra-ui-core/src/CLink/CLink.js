@@ -7,7 +7,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CLink/CLink.js
  */
 import { kebabify, createStyledAttrsMixin } from '../utils'
-import { SNA } from '../config/props/props.types'
+import { SNA } from '../config/props.types'
 
 /**
  * CLink component
@@ -63,7 +63,7 @@ const CLink = {
         ...this.isRouterLink && { to: this.to }
       },
       attrs: {
-        tabIndex: this.isDisabled ? -1 : undefined,
+        tabindex: this.isDisabled ? -1 : undefined,
         'aria-disabled': this.isDisabled,
         ...this.externalAttrs,
         ...this.computedAttrs

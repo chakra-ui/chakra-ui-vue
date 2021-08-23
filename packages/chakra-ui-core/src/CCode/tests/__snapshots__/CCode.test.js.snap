@@ -2,8 +2,21 @@
 
 exports[`should render correctly 1`] = `
 <DocumentFragment>
-  <code
-    class="css-tjsh3c"
+  .emotion-0 {
+  display: inline-block;
+  font-size: var(--fontSizes-sm);
+  -webkit-padding-start: 0.2em;
+  padding-inline-start: 0.2em;
+  -webkit-padding-end: 0.2em;
+  padding-inline-end: 0.2em;
+  font-family: var(--fonts-mono);
+  border-radius: var(--radii-sm);
+  background-color: var(--colors-gray-100);
+  color: var(--colors-gray-800);
+}
+
+<code
+    class="emotion-0"
     data-chakra-component="CCode"
   >
     content

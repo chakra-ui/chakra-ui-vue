@@ -9,7 +9,7 @@
  * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#button
  */
 
-import { StringNumber, StringArray } from '../config/props/props.types'
+import { StringNumber, StringArray } from '../config/props.types'
 import { useVariantColorWarning, useId, createStyledAttrsMixin } from '../utils'
 
 import CBox from '../CBox'

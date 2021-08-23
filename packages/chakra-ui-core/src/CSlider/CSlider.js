@@ -456,7 +456,7 @@ const CSliderThumb = {
         ...this.computedAttrs,
         id: thumbId,
         role: 'slider',
-        tabIndex: isDisabled ? undefined : 0,
+        tabindex: isDisabled ? undefined : 0,
         'aria-disabled': isDisabled,
         'aria-valuemin': min,
         'aria-valuetext': valueText,

@@ -14,6 +14,7 @@ it.
 The text input inherits all font styling from its parent, to make the edit and
 read view transition seamless.
 
+<carbon-ad />
 
 ## Import
 
@@ -82,7 +83,7 @@ props. Here are the custom props:
 | onCancel           | `function`          |                      | Callback invoked when the user cancels input with the `Esc` key. It provides the last confirmed value as argument.                            |
 | onSubmit           | `function`          |                      | Callback invoked when the user confirms value with `enter` key or by blurring the input.                                                      |
 | onEdit             | `function`          |                      | Callback invoked once the user enters edit mode.                                                                                          |
-| isPreviewFocusable | `boolean`         | `true`               | If `true`, the read-only view, has a `tabIndex` set to `0` so it can receive focus via the keyboard or click.                             |
+| isPreviewFocusable | `boolean`         | `true`               | If `true`, the read only view, has a `tabindex` set to `0` so it can receive focus via the keyboard or click.                             |
 | startWithEditView  | `boolean`         |                      | If `true`, the Editable will start with edit mode by default.                                                                             |
 | submitOnBlur       | `boolean`         | `true`               | If `true`, it'll update the value onBlur and turn off the edit mode.                                                                      |
 | selectAllOnFocus   | `boolean`         | `true`               | If `true`, the input's text will be highlighted on focus.                                                                                 |

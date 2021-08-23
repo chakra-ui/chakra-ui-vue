@@ -21,7 +21,7 @@ storiesOf('UI | Tooltip', module)
       <div>
         <CReset />
         <CTooltip label="Aborts requests for display">
-          <CButton left-icon="user-slash" w="400px" variant-color="red">Delete Account</CButton>
+          <CButton left-icon="user-minus" w="400px" variant-color="red">Delete Account</CButton>
         </CTooltip>
       </div>
     `

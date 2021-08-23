@@ -192,7 +192,105 @@
       "contributions": [
         "doc",
         "content",
-        "example"
+        "example",
+        "code"
+      ]
+    },
+    {
+      "login": "odanado",
+      "name": "odanado",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6040962?v=4",
+      "profile": "https://github.com/odanado",
+      "contributions": [
+        "code",
+        "tool"
+      ]
+    },
+    {
+      "login": "IHIutch",
+      "name": "Jonathan Hutchison",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20825047?v=4",
+      "profile": "https://github.com/IHIutch",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas",
+        "test",
+        "doc"
+      ]
+    },
+    {
+      "login": "HoukasaurusRex",
+      "name": "JT Houk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23695312?v=4",
+      "profile": "https://jt.houk.space/",
+      "contributions": [
+        "doc",
+        "platform"
+      ]
+    },
+    {
+      "login": "vincentpalma",
+      "name": "Vincent Palma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10133632?v=4",
+      "profile": "https://github.com/vincentpalma",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "MaySoMusician",
+      "name": "MaySoMusician",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34566290?v=4",
+      "profile": "https://github.com/MaySoMusician",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MWFIAE",
+      "name": "Martin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6072971?v=4",
+      "profile": "https://github.com/MWFIAE",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "ejirocodes",
+      "name": "Ejiro Asiuwhu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45228014?v=4",
+      "profile": "http://linkedin.com/in/ejiro-asiuwhu",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "abelnnieva",
+      "name": "Abel N. Nieva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/931497?v=4",
+      "profile": "https://github.com/abelnnieva",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "simpletrontdip",
+      "name": "Lê Thông",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20158564?v=4",
+      "profile": "https://github.com/simpletrontdip",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Pwuts",
+      "name": "Reinier van der Leer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12185583?v=4",
+      "profile": "https://pwuts.nl/",
+      "contributions": [
+        "code"
       ]
     }
   ],
@@ -201,5 +299,6 @@
   "projectOwner": "chakra-ui",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "none"
 }

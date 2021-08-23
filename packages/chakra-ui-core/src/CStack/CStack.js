@@ -8,7 +8,7 @@
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CStack/CStack.js
  */
 
-import { StringArray, SNA } from '../config/props/props.types'
+import { StringArray, SNA } from '../config/props.types'
 import { cloneVNode, createStyledAttrsMixin } from '../utils'
 
 import CFlex from '../CFlex'
@@ -76,7 +76,8 @@ const CStack = {
     }
   },
   render (h) {
-    const children = this.$slots.default.filter(e => e.tag)
+    const defaultSlot = this.$slots.default || []
+    const children = defaultSlot.filter(e => e.tag)
     const stackables = children.map((node, index) => {
       const isLastChild = children.length === index + 1
       const spacingProps = this._isInline
@@ -130,7 +131,8 @@ const CStack = {
         justify: this.justify,
         direction: this._direction
       },
-      attrs: this.computedAttrs
+      attrs: this.computedAttrs,
+      on: this.computedListeners
     }, stackables)
   }
 }

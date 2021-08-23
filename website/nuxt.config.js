@@ -27,7 +27,6 @@ export default {
   },
   loading: { color: '#fff' },
   plugins: [
-    { src: 'plugins/analytics.js', ssr: false },
     'plugins/links.js',
     'plugins/editor.js',
     'plugins/chakra-ui.js',
@@ -39,7 +38,8 @@ export default {
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
-    'modules/routes'
+    'modules/routes',
+    '@nuxtjs/google-analytics'
   ],
   modules: [
     '@nuxtjs/emotion',
@@ -86,6 +86,14 @@ export default {
     ],
     extend (config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
+    },
+    babel: {
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining'
+      ]
     }
+  },
+  googleAnalytics: {
+    id: 'UA-185956694-2'
   }
 }

@@ -18,7 +18,7 @@ read view transition seamless.
 
 ## Import
 
-Chakra UI exports 3 components to handle this functionality.
+Chakra UI exports three components to handle this functionality.
 
 - `CEditable`: The wrapper component that providers context value.
 - `CEditableInput`: The edit view of the component. It shows when you click or
@@ -79,9 +79,9 @@ props. Here are the custom props:
 | defaultValue       | `string`          |                      | The initial value of the Editable in both edit & preview mode                                                                             |
 | placeholder        | `string`          | `"Click to edit..."` | The placeholder text when the value is empty.                                                                                             |
 | isDisabled         | `boolean`         |                      | If `true`, the Editable will be disabled.                                                                                                 |
-| onChange           | `function`            |                      | Callback invoked when user changes input.                                                                                                 |
-| onCancel           | `function`          |                      | Callback invoked when user cancels input with the `Esc` key. It provides the last confirmed value as argument.                            |
-| onSubmit           | `function`          |                      | Callback invoked when user confirms value with `enter` key or by blurring the input.                                                      |
+| onChange           | `function`            |                      | Callback invoked when the user changes input.                                                                                                 |
+| onCancel           | `function`          |                      | Callback invoked when the user cancels input with the `Esc` key. It provides the last confirmed value as argument.                            |
+| onSubmit           | `function`          |                      | Callback invoked when the user confirms value with `enter` key or by blurring the input.                                                      |
 | onEdit             | `function`          |                      | Callback invoked once the user enters edit mode.                                                                                          |
 | isPreviewFocusable | `boolean`         | `true`               | If `true`, the read only view, has a `tabindex` set to `0` so it can receive focus via the keyboard or click.                             |
 | startWithEditView  | `boolean`         |                      | If `true`, the Editable will start with edit mode by default.                                                                             |
@@ -91,7 +91,7 @@ props. Here are the custom props:
 ## Slots
 | Name       | Description                                                                                                                                  |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------  |
-| default    | The content of the Editable Text. Ideally only `CEditablePreview` and `CEditableInput` should be the children but you add other elements too |
+| default    | The content of the Editable Text. Ideally, only `CEditablePreview` and `CEditableInput` should be the children but you add other elements too |
 
 
 <br />

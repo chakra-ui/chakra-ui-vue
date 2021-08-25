@@ -19,6 +19,7 @@ const CThemeProvider = {
   provide () {
     return {
       $chakraTheme: () => this.theme,
+      $chakraRawTheme: () => this.theme,
       $chakraIcons: this.icons,
       /**
        * By default the ThemeProvider exposes a colorMode value of light

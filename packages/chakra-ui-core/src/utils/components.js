@@ -1,6 +1,7 @@
 import { css } from '@emotion/css'
 import { runIfFn } from '@chakra-ui/utils'
-import { composeSystem, __get } from './styled-system'
+import { css as _css } from '@chakra-ui/styled-system'
+import { __get } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
@@ -37,7 +38,7 @@ export function createWatcher (property) {
 export const createStyledAttrsMixin = name => ({
   name,
   inheritAttrs: false,
-  inject: ['$chakraTheme', '$chakraColorMode'],
+  inject: ['$chakraTheme', '$chakraRawTheme', '$chakraColorMode'],
   data () {
     return {
       attrs$: {},
@@ -57,6 +58,9 @@ export const createStyledAttrsMixin = name => ({
     },
     theme () {
       return this.$chakraTheme()
+    },
+    rawTheme () {
+      return this.$chakraRawTheme()
     },
     /** Split style attributes and native attributes */
     splitProps () {
@@ -80,14 +84,23 @@ export const createStyledAttrsMixin = name => ({
     className () {
       const { styleAttrs } = this.splitProps
 
-      const boxStylesObject = composeSystem(
-        {
-          ...this.componentStyles || {},
-          ...this.baseStyle,
-          ...styleAttrs
-        },
-        this.theme
-      )
+      // console.log(name, this.componentStyles)
+
+      // const boxStylesObject = composeSystem(
+      //   {
+      //     ...this.componentStyles || {},
+      //     ...this.baseStyle,
+      //     ...styleAttrs
+      //   },
+      //   this.theme
+      // )
+      const merged = {
+        ...this.componentStyles || {},
+        ...this.baseStyle,
+        ...styleAttrs
+      }
+      const boxStylesObject = _css(merged)(this.theme)
+
       return css(boxStylesObject)
     },
     /** Computed attributes object */

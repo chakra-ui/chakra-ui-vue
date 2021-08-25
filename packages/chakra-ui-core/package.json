@@ -36,7 +36,7 @@
     "max-overall-size": "85KB"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.12.1",
+    "@chakra-ui/styled-system": "^1.12.2",
     "@popperjs/core": "^2.4.0",
     "animejs": "^3.1.0",
     "aria-hidden": "^1.1.1",
@@ -50,11 +50,13 @@
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
-    "vue": "^2.6.10"
+    "vue": ">=2.6.10"
   },
   "devDependencies": {
+    "@emotion/css": "^11.0.0",
     "@fortawesome/fontawesome-common-types": "^0.2.36",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "vue": "^2.6.12"
   },
   "keywords": [
     "vue",

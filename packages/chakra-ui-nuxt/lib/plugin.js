@@ -1,14 +1,39 @@
 import Vue from 'vue'
 import { createClientDirective } from '@chakra-ui/vue/src/directives'
+import { colorModeObserver } from '@chakra-ui/vue/src/utils'
+import { toCSSVar } from '@chakra-ui/styled-system'
+import merge from 'lodash.mergeWith'
+import defaultTheme from '@chakra-ui/theme-vue'
 
-const theme = <%= JSON.stringify(options.theme, null, 2) %>
+
+const extendTheme = <%= JSON.stringify(options.extendTheme || {}, null, 2) %>
+
+// Recursively merge extended theme variables
+const mergedTheme = toCSSVar(merge(defaultTheme, extendTheme))
+
+console.log('ChakraPlugin', mergedTheme)
 
 Vue.prototype.$chakra = {
-  theme,
+  theme: mergedTheme,
   icons: <%= JSON.stringify(options.icons, null, 2) %>
 }
 
-Vue.directive('chakra', createClientDirective(theme))
+Vue.mixin({
+  computed: {
+    chakraColorMode () {
+      return colorModeObserver.colorMode
+    },
+    chakraTheme () {
+      return colorModeObserver.theme
+    },
+    chakraToggleColorMode () {
+      return colorModeObserver.toggleColorMode
+    },
+    $mode: vm => (lightValue, darkValue) => mode(lightValue, darkValue, colorModeObserver)
+  }
+})
+
+Vue.directive('chakra', createClientDirective(mergedTheme))
 
 if (process.client) {
   // Toast

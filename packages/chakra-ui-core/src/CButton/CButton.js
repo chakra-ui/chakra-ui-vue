@@ -28,7 +28,6 @@ import { buttonProps } from './utils/button.props'
  * @see Docs https://vue.chakra-ui.com/button
  */
 const CButtonIcon = {
-  name: 'CBreadcrumb',
   mixins: [createStyledAttrsMixin('CButtonIcon', true)],
   props: {
     icon: {

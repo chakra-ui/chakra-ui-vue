@@ -36,6 +36,8 @@ const Chakra = {
     // Recursively merge extended theme variables
     const mergedTheme = toCSSVar(merge(defaultTheme, options.extendTheme))
 
+    console.log('mergedTheme', mergedTheme)
+
     Vue.directive('chakra', createClientDirective(mergedTheme))
 
     // Bind theme and icons to prototype

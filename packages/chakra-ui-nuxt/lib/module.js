@@ -54,6 +54,7 @@ module.exports = function (moduleOptions) {
       )
     })
   }
+
   // Global bindings and plugins
   this.addPlugin({
     src: resolve(__dirname, 'plugin.js'),

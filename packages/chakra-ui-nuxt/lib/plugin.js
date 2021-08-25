@@ -1,12 +1,35 @@
 import Vue from 'vue'
 import { createClientDirective } from '@chakra-ui/vue/src/directives'
-import { colorModeObserver } from '@chakra-ui/vue/src/utils'
+import { localColorModeObserver as colorModeObserver } from '@chakra-ui/vue'
 import { toCSSVar } from '@chakra-ui/styled-system'
 import { mergeWith as merge } from '@chakra-ui/utils'
 import defaultTheme from '@chakra-ui/theme-vue'
 
 
-const extendTheme = <%= JSON.stringify(options.extendTheme || {}, null, 2) %>
+const extendTheme = <%= (function() {
+  // keep a list of serialized functions
+  const functions = []
+
+  // json replacer - returns a placeholder for functions
+  const jsonReplacer = (key, val) => {
+    if (typeof val === 'function') {
+      functions.push(val.toString())
+      return "{func_" + (functions.length - 1) + "}"
+    }
+    return val
+  };
+
+  // regex replacer - replaces placeholders with functions
+  const funcReplacer = (match, id) => {
+    return functions[id]
+  }
+
+  const result = JSON
+    .stringify(options.extendTheme || {}, jsonReplacer, 2)
+    .replace(/"\{func_(\d+)\}"/g, funcReplacer)
+
+  return result
+})() %>
 
 // Recursively merge extended theme variables
 const mergedTheme = toCSSVar(merge(defaultTheme, extendTheme))
@@ -41,4 +64,4 @@ if (process.client) {
   // VScrollLock
   const VScrollLock = require('v-scroll-lock').default
   Vue.use(VScrollLock)
-} 
+}

@@ -124,7 +124,7 @@ export { default as defaultTheme } from '@chakra-ui/theme-vue'
 
 // Internal icons
 export { parsePackIcons } from './utils/icons'
-export { mode, defineColorModeObserver } from './utils/color-mode-observer'
+export { mode, colorModeObserver as localColorModeObserver, defineColorModeObserver } from './utils/color-mode-observer'
 export { default as internalIcons } from './lib/internal-icons'
 
 // Directives

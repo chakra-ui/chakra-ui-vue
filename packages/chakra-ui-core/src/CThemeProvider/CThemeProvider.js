@@ -64,7 +64,6 @@ const CThemeProvider = {
         [rootKey]: this.theme.__cssVars
       })
     }
-
   },
   render (h) {
     return h('div', {

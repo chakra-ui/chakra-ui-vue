@@ -73,6 +73,8 @@ export const createStyledAttrsMixin = name => ({
       const componentBaseStyleObjectOrFunction = __get(this.theme, `baseStyles.${name}`)
       return componentBaseStyleObjectOrFunction ? (
         runIfFn(componentBaseStyleObjectOrFunction, {
+          ...this.splitProps.styleAttrs,
+          ...this.splitProps.nativeAttrs,
           theme: this.theme,
           colorMode: this.colorMode
         })
@@ -80,17 +82,6 @@ export const createStyledAttrsMixin = name => ({
     },
     className () {
       const { styleAttrs } = this.splitProps
-
-      // console.log(name, this.componentStyles)
-
-      // const boxStylesObject = composeSystem(
-      //   {
-      //     ...this.componentStyles || {},
-      //     ...this.baseStyle,
-      //     ...styleAttrs
-      //   },
-      //   this.theme
-      // )
       const merged = {
         ...this.componentStyles || {},
         ...this.baseStyle,

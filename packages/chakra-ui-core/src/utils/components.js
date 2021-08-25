@@ -38,7 +38,7 @@ export function createWatcher (property) {
 export const createStyledAttrsMixin = name => ({
   name,
   inheritAttrs: false,
-  inject: ['$chakraTheme', '$chakraRawTheme', '$chakraColorMode'],
+  inject: ['$chakraTheme', '$chakraColorMode'],
   data () {
     return {
       attrs$: {},
@@ -58,9 +58,6 @@ export const createStyledAttrsMixin = name => ({
     },
     theme () {
       return this.$chakraTheme()
-    },
-    rawTheme () {
-      return this.$chakraRawTheme()
     },
     /** Split style attributes and native attributes */
     splitProps () {

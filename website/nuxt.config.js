@@ -97,6 +97,7 @@ export default {
     },
     babel: {
       plugins: [
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
         '@babel/plugin-proposal-optional-chaining'
       ]
     }

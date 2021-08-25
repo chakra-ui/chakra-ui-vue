@@ -30,7 +30,7 @@ export default {
   plugins: [
     'plugins/links.js',
     'plugins/editor.js',
-    // 'plugins/chakra-ui.js',
+    'plugins/globals.js',
     'plugins/vue-meta.js',
     'plugins/skip-to.js'
   ],

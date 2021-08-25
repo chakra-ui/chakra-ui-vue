@@ -8,5 +8,7 @@
     "@chakra-ui/theme-vue": "0.3.1",
     "chakra-ui-docs": "0.7.1"
   },
-  "changesets": []
+  "changesets": [
+    "dry-rocks-thank"
+  ]
 }

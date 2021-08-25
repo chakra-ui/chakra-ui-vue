@@ -48,7 +48,6 @@
     "nuxt": "^2.15.7",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
-    "vue": "^2.6.12",
     "vue-error-boundary": "^1.0.3",
     "vue-live": "1.5.1",
     "vue-lorem-ipsum": "^0.0.1",

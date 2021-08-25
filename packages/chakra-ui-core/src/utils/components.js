@@ -1,6 +1,7 @@
 import { css } from '@emotion/css'
 import { runIfFn } from '@chakra-ui/utils'
-import { composeSystem, __get } from './styled-system'
+import { css as _css } from '@chakra-ui/styled-system'
+import { __get } from './styled-system'
 import { hasOwn, extractChakraAttrs } from './object'
 
 export const isVueComponent = (value) => {
@@ -72,6 +73,8 @@ export const createStyledAttrsMixin = name => ({
       const componentBaseStyleObjectOrFunction = __get(this.theme, `baseStyles.${name}`)
       return componentBaseStyleObjectOrFunction ? (
         runIfFn(componentBaseStyleObjectOrFunction, {
+          ...this.splitProps.styleAttrs,
+          ...this.splitProps.nativeAttrs,
           theme: this.theme,
           colorMode: this.colorMode
         })
@@ -79,15 +82,13 @@ export const createStyledAttrsMixin = name => ({
     },
     className () {
       const { styleAttrs } = this.splitProps
+      const merged = {
+        ...this.componentStyles || {},
+        ...this.baseStyle,
+        ...styleAttrs
+      }
+      const boxStylesObject = _css(merged)(this.theme)
 
-      const boxStylesObject = composeSystem(
-        {
-          ...this.componentStyles || {},
-          ...this.baseStyle,
-          ...styleAttrs
-        },
-        this.theme
-      )
       return css(boxStylesObject)
     },
     /** Computed attributes object */

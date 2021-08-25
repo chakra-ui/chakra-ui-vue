@@ -70,8 +70,28 @@ export default {
         props: {
           status: 'error',
           variant: 'solid'
+        },
+        attrs: {
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          overflowX: 'scroll'
         }
-      }, this.error.message),
+      }, [
+        h('c-text', {
+          attrs: {
+            fontWeight: 'bold',
+            mb: 3
+          }
+        }, this.error.message),
+        h('c-box', {
+          props: { as: 'span' },
+          attrs: {
+            fontFamily: 'mono',
+            fontSize: 'sm',
+            whiteSpace: 'line-break'
+          }
+        }, this.error.stack)
+      ]),
       h('VueLive', {
         props: {
           code,
@@ -79,7 +99,7 @@ export default {
         },
         on: {
           error: (error) => {
-            console.info('FANCY_ERROR', error)
+            console.error('LIVE_CODE_ERROR: ', error)
             this.error = error
           }
         }

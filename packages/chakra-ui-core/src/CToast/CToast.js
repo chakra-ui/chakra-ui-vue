@@ -115,6 +115,7 @@ const CToast = {
  */
 function useToast () {
   const { theme } = colorModeObserver
+
   /**
    * @description Notify Method for Kiwi
    * @param {Object} options

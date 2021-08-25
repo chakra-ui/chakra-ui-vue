@@ -63,7 +63,7 @@ The size of the image can be adjusted using the `size` prop.
 ```
 
 ## Using relative paths
-Ina Vue CLI project you might find that using relative assets doesn't load the image paths
+In a Vue CLI project, you might find that using relative assets doesn't load the image paths
 correctly in Chakra's image components.
 
 This is because `vue-loader` converts relative paths like `@/assets/path-to-img.jpg` into `require` functions
@@ -84,7 +84,7 @@ Below is the correct way to `require` relative assets for the `CImage` and `CAva
 ## Fallback support
 
 You can provide a fallback image for when there is an error loading the `src` of
-the image. You can also opt out of this behavior by passing the `ignoreFallback`
+the image. You can also opt-out of this behavior by passing the `ignoreFallback`
 prop.
 
 ```vue live=true
@@ -106,5 +106,5 @@ prop.
 
 | Name       | Payload   | Description                                                                                                  |
 | ---------- | --------- | ------------------------------------------------------------------------------------------------------------ |
-| `@load`    | `-`       | The event emitted when the the image `src` has been loaded                                                    |
+| `@load`    | `-`       | The event emitted when the image `src` has been loaded                                                    |
 | `@error`   | `-`       | The event emitted when an error occurs when loading the image `src`                                           |

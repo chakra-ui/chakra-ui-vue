@@ -9,7 +9,9 @@
       "name": "Kelvin Omereshone <kelvinomereshone@gmail.com>"
     }
   ],
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/module.js",
   "types": "types/index.d.ts",
   "scripts": {
@@ -19,27 +21,29 @@
     "test": "jest"
   },
   "dependencies": {
+    "@chakra-ui/theme-vue": "^0.3.1",
     "@chakra-ui/vue": "^0.10.1",
-    "chakra-loader": "latest",
-    "@emotion/css": "^11.0.0"
+    "@emotion/css": "^11.0.0",
+    "chakra-loader": "latest"
   },
   "peerDependencies": {
     "@nuxtjs/emotion": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-env": "^7.15.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@nuxtjs/eslint-config": "^2.0.2",
+    "@nuxtjs/emotion": "^0.1.0",
+    "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/module-test-utils": "latest",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.5.1",
-    "core-js": "2",
-    "eslint": "^6.8.0",
+    "core-js": "^3.15.1",
+    "eslint": "^7.12.1",
     "husky": "^4.2.5",
     "jest": "^25.5.2",
-    "nuxt": "^2.12.2",
+    "nuxt": "^2.15.7",
     "standard-version": "^8.0.1"
   },
   "publishConfig": {

@@ -10,7 +10,7 @@ import { CodeGroup, CodeTab } from '~/components/code'
 We know that it can be cumbersome to import every single Chakra component you want to use in your Vue templates. Chakra UI offers webpack plugin solution that allows
 you to directly consume Chakra UI Vue components without manually importing and globally registering all Chakra components.
 
-This provides a better developer experience without sacrificing your applications bundle-size performance.
+This provides a better developer experience without sacrificing your application's bundle-size performance.
 
 <carbon-ad />
 
@@ -104,7 +104,7 @@ export default {
 
 
 ## How it works
-`ChakraLoaderPlugin` will analyse your SFC template at during development and at build time, and scan it for all Chakra UI Vue components that you consume in it. The loader will then proceed to automatically import those components and register them while preserving treeshaking.
+`ChakraLoaderPlugin` will analyse your SFC template during development and at build time, and scan it for all Chakra UI Vue components that you consume in it. The loader will then proceed to automatically import those components and register them while preserving treeshaking.
 
 For example, consider the component below, `Component.vue` which uses Chakra's `CBox` and `CButton` components.
 ```vue

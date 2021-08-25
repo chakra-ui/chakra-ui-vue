@@ -3,13 +3,10 @@ import path from 'path'
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import cjs from 'rollup-plugin-commonjs'
-import { terser } from 'rollup-plugin-terser'
 import buble from 'rollup-plugin-buble'
 import scss from 'rollup-plugin-scss'
 import vue from 'rollup-plugin-vue'
 import pkg from './package.json'
-
-const production = !process.env.ROLLUP_WATCH
 
 // Plugins
 const bubelConfig = buble({
@@ -65,8 +62,8 @@ const commons = {
         'node_modules/object-assign/index.js': ['assign']
       },
       include: /node_modules/
-    }),
-    production && terser()
+    })
+    // production && terser()
   ]
 }
 

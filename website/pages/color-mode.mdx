@@ -92,7 +92,7 @@ export default {
 
 ## Forcing a specific mode
 
-In some occasions, you might want Chakra components to look the same in both
+On some occasions, you might want Chakra components to look the same in both
 light and dark modes. To achieve this, wrap the component in `CLightMode` or
 `CDarkMode` component. Doing this will override the global `$chakraColorMode`.
 
@@ -126,4 +126,46 @@ export default {
   inject: ['$toggleColorMode']
 }
 </script>
+```
+
+## Computing values with `mode` utility function
+`@chakra-ui/vue@^0.10.0` exports a `mode` function that accepts two arguments for the `'light'` and `'dark'` mode respectively.
+When the current color mode is `'light'`, it returns the first argument. If the color mode is `'dark'`, it returns the second argument.
+
+```js
+import Vue from 'vue'
+import Chakra, { mode } from '@chakra-ui/vue'
+
+Vue.use(Chakra, {
+  extendTheme: {
+    baseStyles: {
+      CIconButton: () => ({
+        /**
+         * When the color mode is `light`, `mode` returns `'blackAlpha.700'`.
+         * Otherwise it returns `'whiteAlpha.400'`.
+         */
+        color: mode('blackAlpha.700', 'whiteAlpha.400')
+      })
+    }
+  }
+})
+```
+
+### Usage in templates
+The `mode` function is also made globally available inside your Vue application context so you do not have to import it inside your 
+Vue SFCs. You can access it by invoking `this.$mode` in the template or in your script.
+
+```vue live=true
+<template>
+  <c-box
+    :bg="[
+      $mode('orange.600', 'yellow.100'),
+      $mode('pink.600', 'green.100')
+    ]"
+    :color="$mode('white', 'blackAlpha.800')"
+    @click="chakraToggleColorMode"
+  >
+    Box "{{ chakraColorMode }}" mode. Click me to toggle color mode.
+  </c-box>
+</template>
 ```

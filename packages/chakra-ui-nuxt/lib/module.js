@@ -1,7 +1,9 @@
 const { resolve } = require('path')
 const defu = require('defu')
-const { defaultTheme, parsePackIcons, internalIcons, createServerDirective } = require('@chakra-ui/vue')
+const { parsePackIcons, internalIcons, createServerDirective } = require('@chakra-ui/vue')
+const defaultTheme = require('@chakra-ui/theme-vue')
 const { ChakraLoaderPlugin } = require('chakra-loader')
+const { toCSSVar } = require('@chakra-ui/styled-system')
 
 module.exports = function (moduleOptions) {
   const { nuxt } = this
@@ -15,7 +17,7 @@ module.exports = function (moduleOptions) {
   }
 
   // Recursively merge extended theme variables
-  const theme = defu(options.extendTheme, defaultTheme)
+  const mergedTheme = toCSSVar(defu(options.extendTheme, defaultTheme.default))
 
   // Resolve icons
   let packIcons = {}
@@ -30,10 +32,10 @@ module.exports = function (moduleOptions) {
   nuxt.options.build.transpile.push('@chakra-ui')
 
   if (nuxt.options.render.bundleRenderer.directives) {
-    nuxt.options.render.bundleRenderer.directives.chakra = createServerDirective(theme)
+    nuxt.options.render.bundleRenderer.directives.chakra = createServerDirective(mergedTheme)
   } else {
     nuxt.options.render.bundleRenderer.directives = {
-      chakra: createServerDirective(theme)
+      chakra: createServerDirective(mergedTheme)
     }
   }
 
@@ -58,8 +60,9 @@ module.exports = function (moduleOptions) {
     src: resolve(__dirname, 'plugin.js'),
     fileName: 'chakra.js',
     options: {
-      theme,
-      icons
+      theme: mergedTheme,
+      icons,
+      extendTheme: options.extendTheme
     }
   })
 }

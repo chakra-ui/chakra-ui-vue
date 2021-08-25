@@ -361,14 +361,14 @@ exports[`should render correctly 1`] = `
     </svg>
      
     <div
-      class="emotion-4"
+      class="emotion-4 emotion-5"
       data-chakra-component="CAlertTitle"
     >
       alert title
     </div>
      
     <div
-      class="emotion-5"
+      class="emotion-5 emotion-5"
       data-chakra-component="CAlertDescription"
     >
       alert description

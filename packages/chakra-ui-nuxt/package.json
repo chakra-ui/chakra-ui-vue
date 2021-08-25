@@ -21,6 +21,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@chakra-ui/theme-vue": "^0.3.1",
     "@chakra-ui/vue": "^0.10.1",
     "@emotion/css": "^11.0.0",
     "chakra-loader": "latest"

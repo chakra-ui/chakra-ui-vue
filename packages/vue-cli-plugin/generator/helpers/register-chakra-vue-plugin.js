@@ -1,18 +1,19 @@
-module.exports = function registerChakraVuePlugin(api) {
-    let vueUseLine = `\n\nVue.use(Chakra)`;
+module.exports = function registerChakraVuePlugin (api) {
+  const vueUseLine = '\n\nVue.use(Chakra)'
 
-    const fs = require('fs');
+  const fs = require('fs')
 
-    let contentMain = fs.readFileSync(api.entryFile, { encoding: 'utf-8' });
+  let contentMain = fs.readFileSync(api.entryFile, { encoding: 'utf-8' })
 
-    const lines = contentMain.split(/\r?\n/g).reverse();
+  const lines = contentMain.split(/\r?\n/g).reverse()
 
-    const lastImportIndex = lines.findIndex((line) => line.match(/^import/));
+  // eslint-disable-next-line
+  const lastImportIndex = lines.findIndex(line => line.match(/^import/))
 
-    lines[lastImportIndex] += vueUseLine;
+  lines[lastImportIndex] += vueUseLine
 
-    // modify app
-    contentMain = lines.reverse().join('\n');
+  // modify app
+  contentMain = lines.reverse().join('\n')
 
-    fs.writeFileSync(api.entryFile, contentMain, { encoding: 'utf-8' });
+  fs.writeFileSync(api.entryFile, contentMain, { encoding: 'utf-8' })
 }

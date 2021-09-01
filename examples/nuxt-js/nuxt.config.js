@@ -1,6 +1,7 @@
 import * as icons from './utils/icons'
 
 export default {
+  ssr: true,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 

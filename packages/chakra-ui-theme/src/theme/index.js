@@ -12,8 +12,8 @@ const space = baseSizes
 
 const config = {
   useSystemColorMode: false,
-  initialColorMode: "light",
-  cssVarPrefix: "chakra",
+  initialColorMode: 'light',
+  cssVarPrefix: 'chakra'
 }
 
 const theme = {

@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.7.2
+
+### Patch Changes
+
+- [`5c5a3006`](https://github.com/chakra-ui/chakra-ui-vue/commit/5c5a3006d8286cf0cfcd14bc867d64e8877fb1d7) [#480](https://github.com/chakra-ui/chakra-ui-vue/pull/480) Thanks [@codebender828](https://github.com/codebender828)! - Fix regression in theme resolution for @chakra-ui/nuxt
+
+- Updated dependencies [[`5c5a3006`](https://github.com/chakra-ui/chakra-ui-vue/commit/5c5a3006d8286cf0cfcd14bc867d64e8877fb1d7)]:
+  - @chakra-ui/vue@0.10.2
+  - @chakra-ui/nuxt@0.4.2
+  - @chakra-ui/theme-vue@0.3.2
+
+## 0.7.2-next.0
+
+### Patch Changes
+
+- [`5c5a3006`](https://github.com/chakra-ui/chakra-ui-vue/commit/5c5a3006d8286cf0cfcd14bc867d64e8877fb1d7) [#480](https://github.com/chakra-ui/chakra-ui-vue/pull/480) Thanks [@codebender828](https://github.com/codebender828)! - Fix regression in theme resolution for @chakra-ui/nuxt
+
+- Updated dependencies [[`5c5a3006`](https://github.com/chakra-ui/chakra-ui-vue/commit/5c5a3006d8286cf0cfcd14bc867d64e8877fb1d7)]:
+  - @chakra-ui/vue@0.10.2-next.0
+  - @chakra-ui/nuxt@0.4.2-next.0
+  - @chakra-ui/theme-vue@0.3.2-next.0
+
 ## 0.7.1
 
 ### Minor Changes

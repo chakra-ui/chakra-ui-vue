@@ -1,6 +1,7 @@
 import dotenv from 'dotenv-defaults'
 import { createServerDirective } from '@chakra-ui/vue/src/directives'
 import { defaultTheme } from '@chakra-ui/vue'
+import { iconSet, extend } from './utils/icons'
 
 // Configuring dotenv variables.
 dotenv.config({
@@ -29,19 +30,26 @@ export default {
   plugins: [
     'plugins/links.js',
     'plugins/editor.js',
-    'plugins/chakra-ui.js',
+    'plugins/globals.js',
     'plugins/vue-meta.js',
     'plugins/skip-to.js'
   ],
   css: [
     'css/page.css'
   ],
+  chakra: {
+    icons: {
+      iconSet,
+      extend
+    }
+  },
   buildModules: [
     '@nuxtjs/eslint-module',
     'modules/routes',
     '@nuxtjs/google-analytics'
   ],
   modules: [
+    '@chakra-ui/nuxt',
     '@nuxtjs/emotion',
     '@nuxtjs/pwa'
   ],
@@ -89,6 +97,7 @@ export default {
     },
     babel: {
       plugins: [
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
         '@babel/plugin-proposal-optional-chaining'
       ]
     }

@@ -1,9 +1,8 @@
 import { toCSSVar } from '@chakra-ui/styled-system'
 import { mount, shallowMount } from '@vue/test-utils'
 import theme from '@chakra-ui/theme-vue'
-import { getElementStyles } from '@/tests/test-utils'
-
 import CThemeProvider from '..'
+import { getElementStyles } from '@/tests/test-utils'
 
 describe('CThemeProvider', () => {
   const ChildComponent = {

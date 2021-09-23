@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="preview-code">
     <div class="preview-panel">
       <slot name="preview" />

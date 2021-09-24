@@ -134,6 +134,7 @@ exports[`should render correctly 1`] = `
       class="emotion-1"
       data-chakra-component="CSelectInput"
       datatestid="select"
+      id="selectTest"
       value="option1"
     >
       <option

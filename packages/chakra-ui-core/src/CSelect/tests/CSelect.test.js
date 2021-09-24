@@ -6,7 +6,7 @@ const renderComponent = (props) => {
   const base = {
     data: () => ({ value: 'option1' }),
     components: { CSelect },
-    template: `<CSelect data-testid="select" placeholder="input placeholder" v-model="value" ${inlineAttrs}>
+    template: `<CSelect data-testid="select" id="selectTest" placeholder="input placeholder" v-model="value" ${inlineAttrs}>
       <option value="option1">Option 1</option>
       <option value="option2">Option 2</option>
       <option value="option3">Option 3</option>
@@ -26,4 +26,13 @@ test('disabled select renders correctly', () => {
   const select = screen.getByRole('combobox')
 
   expect(select).toHaveAttribute('disabled')
+})
+
+test('passes the ID directly to the select and not to the wrapper', () => {
+  renderComponent()
+  const select = screen.getByRole('combobox')
+  const selectWrapper = screen.getByTestId('select')
+
+  expect(select).toHaveAttribute('id')
+  expect(selectWrapper).not.toHaveAttribute('id')
 })

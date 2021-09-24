@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+  width: 100%;
+}
+
+.emotion-1 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-size: var(--fontSizes-md);
+  -webkit-padding-start: var(--space-4);
+  padding-inline-start: var(--space-4);
+  -webkit-padding-end: var(--space-4);
+  padding-inline-end: var(--space-4);
+  height: var(--sizes-10);
+  line-height: var(--lineHeights-normal);
+  border-radius: var(--radii-md);
+  border-width: 1px;
+  border-color: inherit;
+  background: var(--colors-white);
+  font-family: var(--fonts-body);
+  padding-right: 2rem;
+  padding-bottom: var(--space-px);
+  color: inherit;
+}
+
+.emotion-1[aria-readonly=true],
+.emotion-1[readonly],
+.emotion-1[data-readonly] {
+  background: var(--colors-transparent);
+  box-shadow: none!important;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  border-color: var(--colors-gray-300);
+}
+
+.emotion-1[disabled],
+.emotion-1[aria-disabled=true],
+.emotion-1[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  z-index: 1;
+  border-color: #7db1ff;
+  box-shadow: 0 0 0 1px #7db1ff;
+}
+
+.emotion-1[aria-invalid=true],
+.emotion-1[data-invalid] {
+  border-color: #e66673;
+  box-shadow: 0 0 0 1px #e66673;
+}
+
+.emotion-2 {
+  color: inherit;
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 1.5rem;
+  height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  right: 0.5rem;
+  top: 50%;
+  pointer-events: none;
+  z-index: 2;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.emotion-3 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.emotion-3:not(:root) {
+  overflow: hidden;
+}
+
+.emotion-4 {
+  width: var(--sizes-5);
+  height: var(--sizes-5);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+<div
+    class="emotion-0"
+    data-chakra-component="CSelect"
+    data-testid="select"
+  >
+    <select
+      class="emotion-1"
+      data-chakra-component="CSelectInput"
+      datatestid="select"
+      value="option1"
+    >
+      <option
+        value=""
+      >
+        input placeholder
+      </option>
+      <option
+        value="option1"
+      >
+        Option 1
+      </option>
+       
+      <option
+        value="option2"
+      >
+        Option 2
+      </option>
+       
+      <option
+        value="option3"
+      >
+        Option 3
+      </option>
+    </select>
+    <div
+      class="emotion-2"
+      data-chakra-component="CSelectIconWrapper"
+    >
+      <svg
+        aria-hidden="true"
+        class="emotion-3 emotion-4 emotion-5"
+        data-chakra-component="CIcon"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        
+    
+        <path
+          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -7,7 +7,7 @@ storiesOf('UI | Select', module)
     components: { CBox, CSelect },
     template: `
       <CBox mb="3" w="300px">
-        <CSelect v-model="value" placeholder="Select option">
+        <CSelect v-model="value" id="test" placeholder="Select option">
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
@@ -59,4 +59,29 @@ storiesOf('UI | Select', module)
         placeholder="Woohoo! A new background color!"
       />
     `
+  }))
+  .add('Disabled select', () => ({
+    components: { CSelect },
+    template: `
+    <CBox mb="3" w="300px">
+      <CSelect v-model="value" id="test" :isDisabled="true" placeholder="Select option">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </CSelect>
+    </CBox>
+    `,
+    data () {
+      return {
+        value: 'option3'
+      }
+    },
+    watch: {
+      value (newValue) {
+        this.action('Selected value', newValue)
+      }
+    },
+    methods: {
+      action: action()
+    }
   }))

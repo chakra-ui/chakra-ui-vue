@@ -140,18 +140,17 @@ const CAlertIcon = {
  */
 const CAlertTitle = {
   name: 'CAlertTitle',
-  functional: true,
-  render (h, context) {
-    const { attrs } = context.data
+  mixins: [createStyledAttrsMixin('CAlertTitle')],
+  render (h) {
     return h(CBox, {
-      ...context.data,
+      class: this.className,
       attrs: {
         fontWeight: 'bold',
         lineHeight: 'normal',
-        ...attrs,
+        ...this.computedAttrs,
         'data-chakra-component': 'CAlertTitle'
       }
-    }, context.slots().default)
+    }, this.$slots.default)
   }
 }
 
@@ -166,16 +165,15 @@ const CAlertTitle = {
  */
 const CAlertDescription = {
   name: 'CAlertDescription',
-  functional: true,
-  render (h, context) {
-    const { attrs } = context.data
+  mixins: [createStyledAttrsMixin('CAlertDescription')],
+  render (h) {
     return h(CBox, {
-      ...context.data,
+      class: this.className,
       attrs: {
-        ...attrs,
+        ...this.computedAttrs,
         'data-chakra-component': 'CAlertDescription'
       }
-    }, context.slots().default)
+    }, this.$slots.default)
   }
 }
 

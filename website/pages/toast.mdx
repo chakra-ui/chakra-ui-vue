@@ -20,7 +20,7 @@ time.
 
 ## Basic usage
 
-Chakra UI injects the `this.$toast` method to your application's Vue instance so you can
+Chakra UI injects the `this.$toast` method into your application's Vue instance so you can
 conveniently invoke toast notifications anywhere in your Vue templates.
 
 ```vue live=true
@@ -51,7 +51,7 @@ Display a custom component instead of the default Toast UI.
 > Rendering custom elements may require you to have some knowledge of how Vue's render function works.
 
 In order to keep your custom toast components simple, it's best to extract
-your toast components into their own components and then consume it in the `this.$toast`
+your toast components into their own components and then consume them in the `this.$toast`
 `render` method.
 
 ```vue live=true
@@ -182,7 +182,7 @@ export default {
 The `this.$toast` method can also allow you to render toast notifications with different
 variants. Each toast `status` has 4 variants, namely: `solid`, `subtle`, `top-accent` and `left-accent`.
 
-> Try changing the `variant` property to a value between `solid`, `subtle`, `top-accent` and `left-accent` to see all the toast variants!
+> Try changing the `variant` property to a value between `solid`, `subtle`, `top-accent`, and `left-accent` to see all the toast variants!
 
 ```vue live=true
 <template>

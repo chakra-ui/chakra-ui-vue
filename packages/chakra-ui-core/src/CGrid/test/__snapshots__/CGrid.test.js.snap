@@ -4,7 +4,7 @@ exports[`should change gap 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: grid;
-  grid-gap: var(--space-6);
+  grid-gap: var(--chakra-space-6);
   grid-template-columns: repeat(5, 1fr);
   width: 600px;
 }
@@ -22,7 +22,7 @@ exports[`should offset columns 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: grid;
-  grid-gap: var(--space-6);
+  grid-gap: var(--chakra-space-6);
   grid-template-columns: repeat(5, 1fr);
   width: 600px;
 }
@@ -65,7 +65,7 @@ exports[`should span columns 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: grid;
-  grid-gap: var(--space-6);
+  grid-gap: var(--chakra-space-6);
   grid-template-columns: repeat(5, 1fr);
   width: 600px;
 }

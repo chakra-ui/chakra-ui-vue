@@ -62,26 +62,34 @@ const CTextarea = {
     const nonNativeEvents = {
       input: (value, $e) => {
         const emitChange = listeners.change
+
         if (emitChange && $e instanceof Event) {
-          emitChange(value, $e)
+          if (typeof emitChange === 'function') {
+            return emitChange(value, $e)
+          }
+          emitChange.forEach(listener => listener(value, $e))
         }
       }
     }
     const { nonNative } = extractListeners({ listeners }, nonNativeEvents)
 
-    return h(CInput, {
-      ...rest,
-      props: {
-        ...forwardProps(props),
-        as: 'textarea'
+    return h(
+      CInput,
+      {
+        ...rest,
+        props: {
+          ...forwardProps(props),
+          as: 'textarea'
+        },
+        attrs: {
+          ...defaultStyles,
+          ...(data.attrs || {}),
+          'data-chakra-component': 'CTextarea'
+        },
+        on: nonNative
       },
-      attrs: {
-        ...defaultStyles,
-        ...(data.attrs || {}),
-        'data-chakra-component': 'CTextarea'
-      },
-      on: nonNative
-    }, slots().default)
+      slots().default
+    )
   }
 }
 

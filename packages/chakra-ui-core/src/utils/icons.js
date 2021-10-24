@@ -1,6 +1,24 @@
 import { merge } from 'lodash-es'
 
 /**
+ * @description Parse FontAwesome icon path
+ * @param {String|Array} path a single svg path, or array of paths
+ * @returns {String}
+ */
+const parseFontAwesomeIcon = (path) => {
+  // duotone icon
+  if (Array.isArray(path) && path.length === 2) {
+    const paths = path.map((d, idx) =>
+      `<path d="${d}" fill="currentColor" class="${idx ? 'fa-primary' : 'fa-secondary'}" />`
+    )
+
+    return `<defs><style>.fa-secondary{opacity:.4}</style></defs><g class="fa-group">${paths.join('')}</g>`
+  }
+
+  return `<path d="${path}" fill="currentColor" />`
+}
+
+/**
  * @description Custom parse all Icons provided by user
  * @param {Object} iconSet - Registered Icons object
  * @returns {Object}
@@ -14,7 +32,7 @@ const parseIcons = (iconSet = {}) => {
       return {
         [`${iconObject.iconName}`]: {
           path: iconObject.prefix.startsWith('fa')
-            ? `<path d="${path}" fill="currentColor" />`
+            ? parseFontAwesomeIcon(path)
             : iconObject.prefix.startsWith('fe')
               ? content
               : svg,

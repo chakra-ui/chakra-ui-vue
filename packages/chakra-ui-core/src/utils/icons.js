@@ -1,67 +1,74 @@
 import { merge } from 'lodash-es'
 
 /**
- * @description Parse FontAwesome icon path
- * @param {String|Array} path a single svg path, or array of paths
- * @returns {String}
+ * @param {String} pack
+ * @param {Array} icon
+ * @returns {{path: string, viewBox: string, attrs: *}}
  */
-const parseFontAwesomeIcon = (path) => {
-  // duotone icon
-  if (Array.isArray(path) && path.length === 2) {
-    const paths = path.map((d, idx) =>
-      `<path d="${d}" fill="currentColor" class="${idx ? 'fa-primary' : 'fa-secondary'}" />`
+const createIcon = (pack, icon) => {
+  const [w, h, content, svg, data, , attrs] = icon
+  let path
+
+  const createPath = (d, attrs = {}) => `<path d="${d}" ${attrs.className ? `class="${attrs.className}"` : ''} fill="currentColor" />`
+
+  const createGroupedPath = (groups, prefix) => {
+    const paths = groups.map((d, idx) =>
+      createPath(d, {
+        className: idx ? `${prefix}-primary` : `${prefix}-secondary`,
+      })
     )
 
-    return `<defs><style>.fa-secondary{opacity:.4}</style></defs><g class="fa-group">${paths.join('')}</g>`
+    return `<g fill="currentColor" class="${prefix}-group">${paths.join('')}</g>`
   }
 
-  return `<path d="${path}" fill="currentColor" />`
+  if (pack === 'fa') {
+    path = Array.isArray(data)
+      ? createGroupedPath(data, pack)
+      : createPath(data)
+  } else {
+    path = pack.startsWith('fe') ? content : svg
+  }
+
+  return {
+    path,
+    viewBox: `0 0 ${w} ${h}`,
+    attrs,
+  }
 }
 
 /**
  * @description Custom parse all Icons provided by user
+ * @param {String} pack - the name of the icon pack being used (fe, fa, mdi, etc)
  * @param {Object} iconSet - Registered Icons object
  * @returns {Object}
  */
-const parseIcons = (iconSet = {}) => {
+const parseIcons = (pack, iconSet = {}) => {
   const parseIcon = (iconObject) => {
-    const { icon } = iconObject
+    const { icon, iconName } = iconObject
     // Is library icon
     if (icon) {
-      const [w, h, content, svg, path, , attrs] = icon
       return {
-        [`${iconObject.iconName}`]: {
-          path: iconObject.prefix.startsWith('fa')
-            ? parseFontAwesomeIcon(path)
-            : iconObject.prefix.startsWith('fe')
-              ? content
-              : svg,
-          viewBox: `0 0 ${w} ${h}`,
-          attrs
-        }
+        [`${iconName}`]: createIcon(pack, icon)
       }
     } else {
       return {}
     }
   }
 
-  const result = Object.values(iconSet)
+  return Object.values(iconSet)
     .map(value => parseIcon(value))
     .reduce((target, source) => merge(target, source), {})
-
-  return result
 }
 
 /**
  * @description Parse Icon packs
- * @param {String} pack Icon pack name
+ * @param {String} pack - the name of the icon pack being used (fe, fa, mdi, etc)
  * @param {Object} iconSet Registered Icon set
  * @returns {Object} Parsed pack icons object
  */
-export const parsePackIcons = (iconSet) => {
+export const parsePackIcons = (pack, iconSet) => {
   // TODO: Add support for other icon libraries
-  // - Material Icons
+  // - Material Icons: these are string constants, and need lots of work
   // - Tailwind Icons (Hero icons)
-  const packIcons = parseIcons(iconSet)
-  return packIcons
+  return parseIcons(pack, iconSet)
 }

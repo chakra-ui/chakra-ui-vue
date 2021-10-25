@@ -1,11 +1,11 @@
 import { merge } from 'lodash-es'
 
 /**
- * @param {String} pack
- * @param {Array} icon
+ * @param {String} prefix - prefix for the icon pack
+ * @param {Array} icon - icon definition
  * @returns {{path: string, viewBox: string, attrs: *}}
  */
-const createIcon = (pack, icon) => {
+const createIcon = (prefix, icon) => {
   const [w, h, content, svg, data, , attrs] = icon
   let path
 
@@ -21,12 +21,12 @@ const createIcon = (pack, icon) => {
     return `<g fill="currentColor" class="${prefix}-group">${paths.join('')}</g>`
   }
 
-  if (pack === 'fa') {
+  if (prefix.startsWith('fa')) {
     path = Array.isArray(data)
-      ? createGroupedPath(data, pack)
+      ? createGroupedPath(data, prefix.substr(0, 2))
       : createPath(data)
   } else {
-    path = pack.startsWith('fe') ? content : svg
+    path = prefix.startsWith('fe') ? content : svg
   }
 
   return {
@@ -38,17 +38,16 @@ const createIcon = (pack, icon) => {
 
 /**
  * @description Custom parse all Icons provided by user
- * @param {String} pack - the name of the icon pack being used (fe, fa, mdi, etc)
  * @param {Object} iconSet - Registered Icons object
  * @returns {Object}
  */
-const parseIcons = (pack, iconSet = {}) => {
+const parseIcons = (iconSet = {}) => {
   const parseIcon = (iconObject) => {
-    const { icon, iconName } = iconObject
+    const { icon, prefix, iconName } = iconObject
     // Is library icon
     if (icon) {
       return {
-        [`${iconName}`]: createIcon(pack, icon)
+        [`${iconName}`]: createIcon(prefix, icon)
       }
     } else {
       return {}
@@ -62,13 +61,12 @@ const parseIcons = (pack, iconSet = {}) => {
 
 /**
  * @description Parse Icon packs
- * @param {String} pack - the name of the icon pack being used (fe, fa, mdi, etc)
  * @param {Object} iconSet Registered Icon set
  * @returns {Object} Parsed pack icons object
  */
-export const parsePackIcons = (pack, iconSet) => {
+export const parsePackIcons = (iconSet) => {
   // TODO: Add support for other icon libraries
   // - Material Icons: these are string constants, and need lots of work
   // - Tailwind Icons (Hero icons)
-  return parseIcons(pack, iconSet)
+  return parseIcons(iconSet)
 }

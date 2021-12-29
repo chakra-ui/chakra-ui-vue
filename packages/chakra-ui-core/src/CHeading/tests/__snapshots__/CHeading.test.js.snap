@@ -9,7 +9,7 @@ exports[`should render correctly 1`] = `
   font-family: var(--fonts-heading);
 }
 
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 48em) {
   .emotion-0 {
     font-size: var(--fontSizes-4xl);
   }

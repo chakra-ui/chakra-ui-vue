@@ -36,7 +36,7 @@
     "max-overall-size": "85KB"
   },
   "dependencies": {
-    "@chakra-ui/styled-system": "^1.12.2",
+    "@chakra-ui/styled-system": "^1.15.0",
     "@chakra-ui/theme-vue": "^0.3.2-next.0",
     "@popperjs/core": "^2.4.0",
     "animejs": "^3.1.0",

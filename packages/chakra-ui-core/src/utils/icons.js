@@ -14,7 +14,7 @@ const createIcon = (prefix, icon) => {
   const createGroupedPath = (groups, prefix) => {
     const paths = groups.map((d, idx) =>
       createPath(d, {
-        className: idx ? `${prefix}-primary` : `${prefix}-secondary`,
+        className: idx ? `${prefix}-primary` : `${prefix}-secondary`
       })
     )
 
@@ -32,7 +32,7 @@ const createIcon = (prefix, icon) => {
   return {
     path,
     viewBox: `0 0 ${w} ${h}`,
-    attrs,
+    attrs
   }
 }
 

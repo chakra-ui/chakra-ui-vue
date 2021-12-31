@@ -53,7 +53,7 @@ const CInputGroup = {
           const clone = cloneVNode(vnode, h)
           return h(clone.componentOptions.Ctor, {
             ...clone.data,
-            ...(clone.componentOptions.listeners || {}),
+            on: (clone.componentOptions.listeners || {}),
             props: {
               ...(clone.data.props || {}),
               ...clone.componentOptions.propsData,

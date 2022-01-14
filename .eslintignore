@@ -6,3 +6,4 @@ sw.js
 **/.nuxt
 **/coverage
 node_modules
+**/vue-cli-plugin/generator/template

@@ -13,27 +13,27 @@ exports[`CStack should render CStack with element as nav 1`] = `
 }
 
 .emotion-2 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-3 {
-  font-size: var(--fontSizes-xl);
-  line-height: var(--lineHeights-shorter);
-  font-weight: var(--fontWeights-bold);
-  font-family: var(--fonts-heading);
+  font-size: var(--chakra-fontSizes-xl);
+  line-height: var(--chakra-lineHeights-shorter);
+  font-weight: var(--chakra-fontWeights-bold);
+  font-family: var(--chakra-fonts-heading);
 }
 
 .emotion-4 {
-  font-family: var(--fonts-body);
-  margin-top: var(--space-4);
+  font-family: var(--chakra-fonts-body);
+  margin-top: var(--chakra-space-4);
 }
 
 .emotion-5 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
 }
 
@@ -97,27 +97,27 @@ exports[`CStack should render CStack with element as section 1`] = `
 }
 
 .emotion-2 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-3 {
-  font-size: var(--fontSizes-xl);
-  line-height: var(--lineHeights-shorter);
-  font-weight: var(--fontWeights-bold);
-  font-family: var(--fonts-heading);
+  font-size: var(--chakra-fontSizes-xl);
+  line-height: var(--chakra-lineHeights-shorter);
+  font-weight: var(--chakra-fontWeights-bold);
+  font-family: var(--chakra-fonts-heading);
 }
 
 .emotion-4 {
-  font-family: var(--fonts-body);
-  margin-top: var(--space-4);
+  font-family: var(--chakra-fonts-body);
+  margin-top: var(--chakra-space-4);
 }
 
 .emotion-5 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
 }
 
@@ -181,27 +181,27 @@ exports[`CStack should render correctly 1`] = `
 }
 
 .emotion-2 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-3 {
-  font-size: var(--fontSizes-xl);
-  line-height: var(--lineHeights-shorter);
-  font-weight: var(--fontWeights-bold);
-  font-family: var(--fonts-heading);
+  font-size: var(--chakra-fontSizes-xl);
+  line-height: var(--chakra-lineHeights-shorter);
+  font-weight: var(--chakra-fontWeights-bold);
+  font-family: var(--chakra-fonts-heading);
 }
 
 .emotion-4 {
-  font-family: var(--fonts-body);
-  margin-top: var(--space-4);
+  font-family: var(--chakra-fonts-body);
+  margin-top: var(--chakra-space-4);
 }
 
 .emotion-5 {
-  padding: var(--space-5);
-  box-shadow: var(--shadows-md);
+  padding: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-md);
   border-width: 1px;
 }
 
@@ -284,18 +284,18 @@ exports[`CStack should should stack native html elements 1`] = `
 }
 
 .emotion-2 {
-  font-family: var(--fonts-body);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-2);
+  font-family: var(--chakra-fonts-body);
+  margin-top: var(--chakra-space-4);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-3 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-5 {
-  font-family: var(--fonts-body);
-  margin-top: var(--space-4);
+  font-family: var(--chakra-fonts-body);
+  margin-top: var(--chakra-space-4);
 }
 
 <div

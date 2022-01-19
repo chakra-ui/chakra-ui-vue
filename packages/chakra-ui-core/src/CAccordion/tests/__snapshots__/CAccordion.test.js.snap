@@ -24,22 +24,22 @@ exports[`should render correctly 1`] = `
   outline-offset: 2px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  padding-top: var(--space-2);
-  padding-bottom: var(--space-2);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  padding-top: var(--chakra-space-2);
+  padding-bottom: var(--chakra-space-2);
 }
 
 .emotion-3:focus,
 .emotion-3[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-3:hover,
 .emotion-3[data-hover] {
-  background: var(--colors-blackAlpha-50);
+  background: var(--chakra-colors-blackAlpha-50);
 }
 
 .emotion-3[disabled],
@@ -80,12 +80,12 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-8 {
-  padding-top: var(--space-2);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  padding-bottom: var(--space-5);
+  padding-top: var(--chakra-space-2);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  padding-bottom: var(--chakra-space-5);
 }
 
 <div

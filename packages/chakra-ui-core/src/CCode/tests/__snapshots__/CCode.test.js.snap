@@ -4,15 +4,15 @@ exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
   display: inline-block;
-  font-size: var(--fontSizes-sm);
+  font-size: var(--chakra-fontSizes-sm);
   -webkit-padding-start: 0.2em;
   padding-inline-start: 0.2em;
   -webkit-padding-end: 0.2em;
   padding-inline-end: 0.2em;
-  font-family: var(--fonts-mono);
-  border-radius: var(--radii-sm);
-  background-color: var(--colors-gray-100);
-  color: var(--colors-gray-800);
+  font-family: var(--chakra-fonts-mono);
+  border-radius: var(--chakra-radii-sm);
+  background-color: var(--chakra-colors-gray-100);
+  color: var(--chakra-colors-gray-800);
 }
 
 <code

@@ -3,7 +3,7 @@
 exports[`should change the style 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: var(--fonts-body);
+  font-family: var(--chakra-fonts-body);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23,7 +23,7 @@ exports[`should change the style 1`] = `
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: var(--fonts-body);
+  font-family: var(--chakra-fonts-body);
 }
 
 <p

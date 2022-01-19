@@ -21,24 +21,24 @@ exports[`should render correctly 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  height: var(--sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  height: var(--chakra-sizes-10);
   line-height: 2.5rem;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   border-width: 1px;
   border-color: inherit;
-  background: var(--colors-white);
-  font-family: var(--fonts-body);
+  background: var(--chakra-colors-white);
+  font-family: var(--chakra-fonts-body);
 }
 
 .emotion-0[aria-readonly=true],
 .emotion-0[readonly],
 .emotion-0[data-readonly] {
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -48,7 +48,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-0:hover,
 .emotion-0[data-hover] {
-  border-color: var(--colors-gray-300);
+  border-color: var(--chakra-colors-gray-300);
 }
 
 .emotion-0[disabled],
@@ -100,33 +100,33 @@ exports[`should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-1:focus,
 .emotion-1[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-1:hover,
 .emotion-1[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-1:active,
 .emotion-1[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-1[disabled],
@@ -134,7 +134,7 @@ exports[`should render correctly 1`] = `
 .emotion-1[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 <div>
@@ -162,26 +162,26 @@ exports[`should render correctly 1`] = `
   .emotion-0 {
   position: fixed;
   background: rgba( 0, 0, 0, 0.4);
-  left: var(--space-0);
-  top: var(--space-0);
+  left: var(--chakra-space-0);
+  top: var(--chakra-space-0);
   width: 100vw;
   height: 100vh;
-  z-index: var(--zIndices-overlay);
+  z-index: var(--chakra-zIndices-overlay);
 }
 
 .emotion-1 {
   position: fixed;
-  left: var(--space-0);
-  top: var(--space-0);
+  left: var(--chakra-space-0);
+  top: var(--chakra-space-0);
   width: 100%;
   height: 100%;
-  z-index: var(--zIndices-modal);
+  z-index: var(--chakra-zIndices-modal);
 }
 
 .emotion-2 {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  max-width: var(--sizes-md);
+  max-width: var(--chakra-sizes-md);
   width: 100%;
   position: fixed;
   display: -webkit-box;
@@ -191,12 +191,12 @@ exports[`should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  z-index: var(--zIndices-modal);
-  font-family: var(--fonts-body);
-  background: var(--colors-white);
+  z-index: var(--chakra-zIndices-modal);
+  font-family: var(--chakra-fonts-body);
+  background: var(--chakra-colors-white);
   box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.1),0 3px 6px 0 rgba(0, 0, 0, .07);
-  right: var(--space-0);
-  top: var(--space-0);
+  right: var(--chakra-space-0);
+  top: var(--chakra-space-0);
   height: 100vh;
 }
 
@@ -221,25 +221,25 @@ exports[`should render correctly 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  border: var(--borders-none);
-  background: var(--colors-blackAlpha-50);
+  border: var(--chakra-borders-none);
+  background: var(--chakra-colors-blackAlpha-50);
   z-index: 1;
 }
 
 .emotion-3:hover,
 .emotion-3[data-hover] {
-  background: var(--colors-blackAlpha-100);
+  background: var(--chakra-colors-blackAlpha-100);
 }
 
 .emotion-3:active,
 .emotion-3[data-active] {
-  background: var(--colors-blackAlpha-200);
+  background: var(--chakra-colors-blackAlpha-200);
 }
 
 .emotion-3[disabled],
@@ -250,7 +250,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-3:focus,
 .emotion-3[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-4 {
@@ -273,24 +273,24 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-7 {
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-4);
+  padding-bottom: var(--chakra-space-4);
   position: relative;
-  font-size: var(--fontSizes-xl);
-  font-weight: var(--fontWeights-semibold);
+  font-size: var(--chakra-fontSizes-xl);
+  font-weight: var(--chakra-fontWeights-semibold);
 }
 
 .emotion-8 {
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-2);
-  padding-bottom: var(--space-2);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-2);
+  padding-bottom: var(--chakra-space-2);
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -315,24 +315,24 @@ exports[`should render correctly 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  height: var(--sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  height: var(--chakra-sizes-10);
   line-height: 2.5rem;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   border-width: 1px;
   border-color: inherit;
-  background: var(--colors-white);
-  font-family: var(--fonts-body);
+  background: var(--chakra-colors-white);
+  font-family: var(--chakra-fonts-body);
 }
 
 .emotion-9[aria-readonly=true],
 .emotion-9[readonly],
 .emotion-9[data-readonly] {
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -342,7 +342,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-9:hover,
 .emotion-9[data-hover] {
-  border-color: var(--colors-gray-300);
+  border-color: var(--chakra-colors-gray-300);
 }
 
 .emotion-9[disabled],
@@ -370,12 +370,12 @@ exports[`should render correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-4);
+  padding-bottom: var(--chakra-space-4);
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
@@ -411,37 +411,37 @@ exports[`should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  border: var(--borders-1px);
-  border-color: var(--colors-gray-200);
-  color: var(--colors-gray-400);
-  background: var(--colors-transparent);
-  margin-right: var(--space-3);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  border: var(--chakra-borders-1px);
+  border-color: var(--chakra-colors-gray-200);
+  color: var(--chakra-colors-gray-400);
+  background: var(--chakra-colors-transparent);
+  margin-right: var(--chakra-space-3);
 }
 
 .emotion-11:focus,
 .emotion-11[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-11:hover,
 .emotion-11[data-hover] {
-  background: var(--colors-gray-50);
+  background: var(--chakra-colors-gray-50);
 }
 
 .emotion-11:active,
 .emotion-11[data-active] {
-  background: var(--colors-gray-100);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-11[disabled],
@@ -449,7 +449,7 @@ exports[`should render correctly 1`] = `
 .emotion-11[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 .emotion-12 {
@@ -481,16 +481,16 @@ exports[`should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
   color: blue;
 }
 
@@ -498,17 +498,17 @@ exports[`should render correctly 1`] = `
 .emotion-12[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-12:hover,
 .emotion-12[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-12:active,
 .emotion-12[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-12[disabled],
@@ -516,7 +516,7 @@ exports[`should render correctly 1`] = `
 .emotion-12[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 <span

@@ -58,6 +58,7 @@ export class CFormHelperText extends Vue {}
 export class CFormLabel extends Vue {}
 export class CFragment extends Vue {}
 export class CGrid extends Vue {}
+export class CGridItem extends Vue {}
 export class CHeading extends Vue {}
 export class CIcon extends Vue {}
 export class CIconButton extends Vue {}

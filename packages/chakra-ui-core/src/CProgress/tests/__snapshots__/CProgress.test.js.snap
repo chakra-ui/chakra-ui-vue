@@ -7,8 +7,8 @@ exports[`should render correctly 1`] = `
   height: 0.5rem;
   overflow: hidden;
   width: 100%;
-  background: var(--colors-gray-100);
-  border-radius: var(--radii-sm);
+  background: var(--chakra-colors-gray-100);
+  border-radius: var(--chakra-radii-sm);
 }
 
 .emotion-1 {
@@ -16,8 +16,8 @@ exports[`should render correctly 1`] = `
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   width: 40%;
-  background-color: var(--colors-green-500);
-  border-radius: var(--radii-sm);
+  background-color: var(--chakra-colors-green-500);
+  border-radius: var(--chakra-radii-sm);
 }
 
 <div

@@ -10,6 +10,12 @@ import breakpoints from './breakpoints'
 
 const space = baseSizes
 
+const config = {
+  useSystemColorMode: false,
+  initialColorMode: 'light',
+  cssVarPrefix: 'chakra'
+}
+
 const theme = {
   breakpoints,
   zIndices,
@@ -21,7 +27,8 @@ const theme = {
   borderWidths,
   sizes,
   shadows,
-  space
+  space,
+  config
 }
 
 export default theme

@@ -20,24 +20,24 @@ exports[`should render correctly 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  border: var(--borders-none);
-  background: var(--colors-blackAlpha-50);
+  border: var(--chakra-borders-none);
+  background: var(--chakra-colors-blackAlpha-50);
 }
 
 .emotion-0:hover,
 .emotion-0[data-hover] {
-  background: var(--colors-blackAlpha-100);
+  background: var(--chakra-colors-blackAlpha-100);
 }
 
 .emotion-0:active,
 .emotion-0[data-active] {
-  background: var(--colors-blackAlpha-200);
+  background: var(--chakra-colors-blackAlpha-200);
 }
 
 .emotion-0[disabled],
@@ -48,7 +48,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-0:focus,
 .emotion-0[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-1 {

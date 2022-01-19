@@ -3,15 +3,15 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-size: var(--fontSizes-3xl);
-  line-height: var(--lineHeights-shorter);
-  font-weight: var(--fontWeights-bold);
-  font-family: var(--fonts-heading);
+  font-size: var(--chakra-fontSizes-3xl);
+  line-height: var(--chakra-lineHeights-shorter);
+  font-weight: var(--chakra-fontWeights-bold);
+  font-family: var(--chakra-fonts-heading);
 }
 
 @media screen and (min-width: 62em) {
   .emotion-0 {
-    font-size: var(--fontSizes-4xl);
+    font-size: var(--chakra-fontSizes-4xl);
   }
 }
 

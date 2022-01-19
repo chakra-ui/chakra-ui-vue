@@ -3,12 +3,12 @@
 exports[`should render correctly 1`] = `
 <DocumentFragment>
   .emotion-1 {
-  font-size: var(--fontSizes-md);
+  font-size: var(--chakra-fontSizes-md);
   padding-right: 12px;
   padding-bottom: 4px;
   opacity: 1;
-  font-weight: var(--fontWeights-medium);
-  font-family: var(--fonts-body);
+  font-weight: var(--chakra-fontWeights-medium);
+  font-family: var(--chakra-fonts-body);
   text-align: left;
   vertical-align: middle;
   display: inline-block;
@@ -33,24 +33,24 @@ exports[`should render correctly 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  height: var(--sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  height: var(--chakra-sizes-10);
   line-height: 2.5rem;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   border-width: 1px;
   border-color: inherit;
-  background: var(--colors-white);
-  font-family: var(--fonts-body);
+  background: var(--chakra-colors-white);
+  font-family: var(--chakra-fonts-body);
 }
 
 .emotion-2[aria-readonly=true],
 .emotion-2[readonly],
 .emotion-2[data-readonly] {
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -60,7 +60,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-2:hover,
 .emotion-2[data-hover] {
-  border-color: var(--colors-gray-300);
+  border-color: var(--chakra-colors-gray-300);
 }
 
 .emotion-2[disabled],

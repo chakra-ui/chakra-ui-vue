@@ -14,6 +14,7 @@ storiesOf('UI | Textarea', module)
           mt="2"
           placeholder="Here is a sample placeholder"
           size="md"
+          @change="handleChange"
           :value="textareaContent"
         />
       </CBox>

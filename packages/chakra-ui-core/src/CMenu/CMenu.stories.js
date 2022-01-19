@@ -1,9 +1,29 @@
 import { storiesOf } from '@storybook/vue'
-import { CMenu, CFade, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CImage, CMenuItemOption, CMenuItem, CMenuDivider, CIcon } from '..'
+import {
+  CMenu,
+  CFade,
+  CMenuGroup,
+  CMenuButton,
+  CMenuList,
+  CMenuOptionGroup,
+  CImage,
+  CMenuItemOption,
+  CMenuItem,
+  CMenuDivider,
+  CIcon
+} from '..'
 
 storiesOf('UI | Menu', module)
   .add('With internal state', () => ({
-    components: { CFade, CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider },
+    components: {
+      CFade,
+      CMenu,
+      CMenuGroup,
+      CMenuButton,
+      CMenuList,
+      CMenuItem,
+      CMenuDivider
+    },
     template: `
       <CMenu v-slot="{ isOpen }" :close-on-blur="false">
         <CMenuButton right-icon="chevron-down" variantColor="pink">
@@ -26,7 +46,15 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('With letter navigation', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
+    components: {
+      CMenu,
+      CMenuGroup,
+      CMenuButton,
+      CMenuList,
+      CMenuItem,
+      CMenuDivider,
+      CIcon
+    },
     template: `
     <CMenu>
       <CMenuButton
@@ -51,7 +79,16 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('With Menu Options', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider },
+    components: {
+      CMenu,
+      CMenuGroup,
+      CMenuButton,
+      CMenuList,
+      CMenuOptionGroup,
+      CMenuItemOption,
+      CMenuItem,
+      CMenuDivider
+    },
     template: `
       <CMenu :closeOnSelect="false">
         <CMenuButton variantColor="blue">
@@ -73,7 +110,17 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('Letter navigation', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CImage, CMenuList, CMenuOptionGroup, CMenuItemOption, CMenuItem, CMenuDivider },
+    components: {
+      CMenu,
+      CMenuGroup,
+      CMenuButton,
+      CImage,
+      CMenuList,
+      CMenuOptionGroup,
+      CMenuItemOption,
+      CMenuItem,
+      CMenuDivider
+    },
     template: `
       <c-menu>
         <c-menu-button as="button" right-icon="chevron-down">
@@ -105,7 +152,15 @@ storiesOf('UI | Menu', module)
     `
   }))
   .add('No close on blur', () => ({
-    components: { CMenu, CMenuGroup, CMenuButton, CMenuList, CMenuItem, CMenuDivider, CIcon },
+    components: {
+      CMenu,
+      CMenuGroup,
+      CMenuButton,
+      CMenuList,
+      CMenuItem,
+      CMenuDivider,
+      CIcon
+    },
     template: `
     <CMenu :closeOnBlur="false">
       <CMenuButton as="Button" rightIcon="chevron-down">

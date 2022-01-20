@@ -2,12 +2,13 @@
  * @description These breakpoint styles were adapted from [@chakra-ui](https://chakra-ui.com/)
  */
 
-const _breakpoints = ['30em', '48em', '62em', '80em']
-
-_breakpoints.sm = _breakpoints[0]
-_breakpoints.md = _breakpoints[1]
-_breakpoints.lg = _breakpoints[2]
-_breakpoints.xl = _breakpoints[3]
+const _breakpoints = {
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em'
+}
 
 export const createBreakpoints = (
   config = {}

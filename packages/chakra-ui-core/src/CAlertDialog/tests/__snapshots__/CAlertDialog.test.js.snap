@@ -10,28 +10,28 @@ exports[`should render correctly 1`] = `
   .emotion-0 {
   position: fixed;
   background: rgba( 0, 0, 0, 0.4);
-  left: var(--space-0);
-  top: var(--space-0);
+  left: var(--chakra-space-0);
+  top: var(--chakra-space-0);
   width: 100vw;
   height: 100vh;
-  z-index: var(--zIndices-overlay);
+  z-index: var(--chakra-zIndices-overlay);
 }
 
 .emotion-1 {
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
-  left: var(--space-0);
-  top: var(--space-0);
+  left: var(--chakra-space-0);
+  top: var(--chakra-space-0);
   width: 100%;
   height: 100%;
-  z-index: var(--zIndices-modal);
+  z-index: var(--chakra-zIndices-modal);
 }
 
 .emotion-2 {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  max-width: var(--sizes-md);
+  max-width: var(--chakra-sizes-md);
   width: 100%;
   position: relative;
   display: -webkit-box;
@@ -41,11 +41,11 @@ exports[`should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  z-index: var(--zIndices-modal);
-  font-family: var(--fonts-body);
-  background: var(--colors-white);
+  z-index: var(--chakra-zIndices-modal);
+  font-family: var(--chakra-fonts-body);
+  background: var(--chakra-colors-white);
   box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.1),0 3px 6px 0 rgba(0, 0, 0, .07);
-  top: var(--space-0);
+  top: var(--chakra-space-0);
   -webkit-margin-start: auto;
   margin-inline-start: auto;
   -webkit-margin-end: auto;
@@ -55,24 +55,24 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-3 {
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-4);
+  padding-bottom: var(--chakra-space-4);
   position: relative;
-  font-size: var(--fontSizes-xl);
-  font-weight: var(--fontWeights-semibold);
+  font-size: var(--chakra-fontSizes-xl);
+  font-weight: var(--chakra-fontWeights-semibold);
 }
 
 .emotion-4 {
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-2);
-  padding-bottom: var(--space-2);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-2);
+  padding-bottom: var(--chakra-space-2);
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -83,12 +83,12 @@ exports[`should render correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-padding-start: var(--space-6);
-  padding-inline-start: var(--space-6);
-  -webkit-padding-end: var(--space-6);
-  padding-inline-end: var(--space-6);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
+  -webkit-padding-start: var(--chakra-space-6);
+  padding-inline-start: var(--chakra-space-6);
+  -webkit-padding-end: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+  padding-top: var(--chakra-space-4);
+  padding-bottom: var(--chakra-space-4);
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
@@ -124,33 +124,33 @@ exports[`should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-6:focus,
 .emotion-6[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-6:hover,
 .emotion-6[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-6:active,
 .emotion-6[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-6[disabled],
@@ -158,7 +158,7 @@ exports[`should render correctly 1`] = `
 .emotion-6[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 .emotion-7 {
@@ -190,35 +190,35 @@ exports[`should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-red-400);
-  color: var(--colors-white);
-  margin-left: var(--space-3);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-red-400);
+  color: var(--chakra-colors-white);
+  margin-left: var(--chakra-space-3);
 }
 
 .emotion-7:focus,
 .emotion-7[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-7:hover,
 .emotion-7[data-hover] {
-  background: var(--colors-red-500);
+  background: var(--chakra-colors-red-500);
 }
 
 .emotion-7:active,
 .emotion-7[data-active] {
-  background: var(--colors-red-600);
+  background: var(--chakra-colors-red-600);
 }
 
 .emotion-7[disabled],
@@ -226,7 +226,7 @@ exports[`should render correctly 1`] = `
 .emotion-7[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 <span

@@ -8,7 +8,7 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-1 {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--chakra-space-3);
 }
 
 .emotion-2 {
@@ -31,8 +31,8 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-4 {
-  margin-right: var(--space-2);
-  color: var(--colors-green-500);
+  margin-right: var(--chakra-space-2);
+  color: var(--chakra-colors-green-500);
 }
 
 <ul

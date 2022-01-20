@@ -31,33 +31,33 @@ exports[`CButton should display button with left icon 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-0:focus,
 .emotion-0[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-0:hover,
 .emotion-0[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-0:active,
 .emotion-0[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-0[disabled],
@@ -65,7 +65,7 @@ exports[`CButton should display button with left icon 1`] = `
 .emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 .emotion-1 {
@@ -94,8 +94,8 @@ exports[`CButton should display button with left icon 1`] = `
 }
 
 .emotion-4 {
-  margin-right: var(--space-1);
-  margin-bottom: var(--space-px);
+  margin-right: var(--chakra-space-1);
+  margin-bottom: var(--chakra-space-px);
   opacity: 1;
 }
 
@@ -169,33 +169,33 @@ exports[`CButton should display button with right icon 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-0:focus,
 .emotion-0[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-0:hover,
 .emotion-0[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-0:active,
 .emotion-0[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-0[disabled],
@@ -203,7 +203,7 @@ exports[`CButton should display button with right icon 1`] = `
 .emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 .emotion-1 {
@@ -232,8 +232,8 @@ exports[`CButton should display button with right icon 1`] = `
 }
 
 .emotion-4 {
-  margin-left: var(--space-1);
-  margin-bottom: var(--space-px);
+  margin-left: var(--chakra-space-1);
+  margin-bottom: var(--chakra-space-px);
   opacity: 1;
 }
 
@@ -306,33 +306,33 @@ exports[`CButton should render correctly 1`] = `
   line-height: 1.2;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  font-weight: var(--fontWeights-bold);
-  border-radius: var(--radii-md);
-  height: var(--sizes-10);
-  min-width: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  background: var(--colors-gray-100);
+  font-weight: var(--chakra-fontWeights-bold);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
 }
 
 .emotion-0:focus,
 .emotion-0[data-focus] {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-0:hover,
 .emotion-0[data-hover] {
-  background: var(--colors-gray-200);
+  background: var(--chakra-colors-gray-200);
 }
 
 .emotion-0:active,
 .emotion-0[data-active] {
-  background: var(--colors-gray-300);
+  background: var(--chakra-colors-gray-300);
 }
 
 .emotion-0[disabled],
@@ -340,7 +340,7 @@ exports[`CButton should render correctly 1`] = `
 .emotion-0[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
-  box-shadow: var(--shadows-none);
+  box-shadow: var(--chakra-shadows-none);
 }
 
 <button

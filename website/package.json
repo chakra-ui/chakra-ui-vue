@@ -1,6 +1,6 @@
 {
   "name": "chakra-ui-docs",
-  "version": "0.7.2-next.0",
+  "version": "0.7.2",
   "description": "Chakra UI Vue documentation site",
   "private": true,
   "scripts": {
@@ -26,9 +26,9 @@
     }
   },
   "dependencies": {
-    "@chakra-ui/nuxt": "^0.4.2-next.0",
-    "@chakra-ui/theme-vue": "^0.3.2-next.0",
-    "@chakra-ui/vue": "^0.10.2-next.0",
+    "@chakra-ui/nuxt": "^0.4.2",
+    "@chakra-ui/theme-vue": "^0.3.2",
+    "@chakra-ui/vue": "^0.10.2",
     "@emotion/css": "^11.0.0",
     "@mdx-js/vue-loader": "^1.6.1",
     "@nuxtjs/dotenv": "^1.4.0",
@@ -48,7 +48,6 @@
     "nuxt": "^2.15.7",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
-    "vue": "^2.6.12",
     "vue-error-boundary": "^1.0.3",
     "vue-live": "1.5.1",
     "vue-lorem-ipsum": "^0.0.1",

@@ -6,28 +6,28 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding-right: var(--space-4);
+  padding-right: var(--chakra-space-4);
   position: relative;
 }
 
 .emotion-1 {
-  font-family: var(--fonts-body);
-  font-weight: var(--fontWeights-medium);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-weight: var(--chakra-fontWeights-medium);
+  font-size: var(--chakra-fontSizes-sm);
 }
 
 .emotion-2 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-2xl);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-2xl);
   vertical-align: baseline;
-  font-weight: var(--fontWeights-semibold);
+  font-weight: var(--chakra-fontWeights-semibold);
 }
 
 .emotion-3 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-sm);
   opacity: 0.8;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-4 {
@@ -50,9 +50,9 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 1`] = `
 }
 
 .emotion-6 {
-  margin-right: var(--space-1);
+  margin-right: var(--chakra-space-1);
   vertical-align: middle;
-  color: var(--colors-green-400);
+  color: var(--chakra-colors-green-400);
 }
 
 <div
@@ -104,28 +104,28 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding-right: var(--space-4);
+  padding-right: var(--chakra-space-4);
   position: relative;
 }
 
 .emotion-1 {
-  font-family: var(--fonts-body);
-  font-weight: var(--fontWeights-medium);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-weight: var(--chakra-fontWeights-medium);
+  font-size: var(--chakra-fontSizes-sm);
 }
 
 .emotion-2 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-2xl);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-2xl);
   vertical-align: baseline;
-  font-weight: var(--fontWeights-semibold);
+  font-weight: var(--chakra-fontWeights-semibold);
 }
 
 .emotion-3 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-sm);
   opacity: 0.8;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 .emotion-4 {
@@ -148,9 +148,9 @@ exports[`"CStatArrow" should display corresponding icon for "type" prop 2`] = `
 }
 
 .emotion-6 {
-  margin-right: var(--space-1);
+  margin-right: var(--chakra-space-1);
   vertical-align: middle;
-  color: var(--colors-red-400);
+  color: var(--chakra-colors-red-400);
 }
 
 <div
@@ -202,28 +202,28 @@ exports[`should render correctly 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding-right: var(--space-4);
+  padding-right: var(--chakra-space-4);
   position: relative;
 }
 
 .emotion-1 {
-  font-family: var(--fonts-body);
-  font-weight: var(--fontWeights-medium);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-weight: var(--chakra-fontWeights-medium);
+  font-size: var(--chakra-fontSizes-sm);
 }
 
 .emotion-2 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-2xl);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-2xl);
   vertical-align: baseline;
-  font-weight: var(--fontWeights-semibold);
+  font-weight: var(--chakra-fontWeights-semibold);
 }
 
 .emotion-3 {
-  font-family: var(--fonts-body);
-  font-size: var(--fontSizes-sm);
+  font-family: var(--chakra-fonts-body);
+  font-size: var(--chakra-fontSizes-sm);
   opacity: 0.8;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--chakra-space-2);
 }
 
 <div

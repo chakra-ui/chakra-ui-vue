@@ -173,6 +173,12 @@ export type ComponentNames =
   'CTooltip' |
   'CVisuallyHidden'
 
+export interface ThemeConfig {
+  initialColorMode?: ColorMode
+  useSystemColorMode?: boolean,
+  cssVarPrefix?: string
+}
+
 declare const theme: Theme
 
 export default theme

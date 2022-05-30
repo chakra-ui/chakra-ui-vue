@@ -1,5 +1,5 @@
 interface ChakraToastOptions {
-  position?: 'bottom' | 'top' | 'right' | 'left'
+  position?: 'bottom' | 'top' | 'right' | 'left' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
   duration?: number
   render?: (options: { onClose?: VoidFunction, id: any }) => any
   title?: string

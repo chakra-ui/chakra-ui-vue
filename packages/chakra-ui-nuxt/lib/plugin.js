@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { createClientDirective } from '@chakra-ui/vue/src/directives'
-import { localColorModeObserver as colorModeObserver } from '@chakra-ui/vue'
+import { localColorModeObserver as colorModeObserver, mode } from '@chakra-ui/vue'
 import { toCSSVar } from '@chakra-ui/styled-system'
 import { mergeWith as merge } from '@chakra-ui/utils'
 import defaultTheme from '@chakra-ui/theme-vue'

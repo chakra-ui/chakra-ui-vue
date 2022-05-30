@@ -8,10 +8,10 @@ exports[`should render correctly - input 1`] = `
   font-size: inherit;
   font-weight: inherit;
   text-align: inherit;
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   -webkit-padding-start: 3px;
   padding-inline-start: 3px;
   -webkit-padding-end: 3px;
@@ -20,12 +20,12 @@ exports[`should render correctly - input 1`] = `
   margin-inline-start: -3px;
   -webkit-margin-end: -3px;
   margin-inline-end: -3px;
-  width: var(--sizes-full);
+  width: var(--chakra-sizes-full);
 }
 
 .emotion-1:focus,
 .emotion-1[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-1::-webkit-input-placeholder {
@@ -70,10 +70,10 @@ exports[`should render correctly 1`] = `
   font-size: inherit;
   font-weight: inherit;
   text-align: inherit;
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   -webkit-padding-start: 3px;
   padding-inline-start: 3px;
   -webkit-padding-end: 3px;

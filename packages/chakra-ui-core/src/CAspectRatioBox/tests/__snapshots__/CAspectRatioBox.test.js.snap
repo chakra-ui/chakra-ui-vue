@@ -16,10 +16,10 @@ exports[`should render correctly 1`] = `
 
 .emotion-1 {
   position: absolute;
-  width: var(--sizes-full);
-  height: var(--sizes-full);
-  top: var(--space-0);
-  left: var(--space-0);
+  width: var(--chakra-sizes-full);
+  height: var(--chakra-sizes-full);
+  top: var(--chakra-space-0);
+  left: var(--chakra-space-0);
 }
 
 .emotion-2 {

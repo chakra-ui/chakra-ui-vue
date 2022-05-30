@@ -17,6 +17,26 @@ you provide array values to add mobile-first responsive styles.
 > We use the `@media(min-width)` media queries to ensure values are
 > mobile-first.
 
+Responsive syntax relies on the breakpoints defined in the theme object. Chakra
+UI provides default breakpoints, here's what it looks like:
+
+```js
+const breakpoints = {
+  sm: '30em', // 480px upwards
+  md: '48em', // 768px upwards
+  lg: '62em', // 992px upwards
+  xl: '80em', // 1280px upwards
+  '2xl': '96em' // 1536px upwards
+}
+```
+
+To make styles responsive, you can use either the array or object syntax.
+
+## The Array syntax
+
+All style props accept arrays as values for mobile-first responsive styles. This
+is the recommended method.
+
 ```vue
 <template>
   <c-box
@@ -76,28 +96,103 @@ It'll generate a CSS that looks like this
 }
 ```
 
-
 ___NOTE___: In the shortcut example `'100%'` is used instead of `1` because in the default Chakra UI Vue theme, `theme.sizes[1] = 0.25rem`. This means that using a prop like `:width="1"` will render a width of 4px and not `'100%'`
 
-The equivalent of this style if you passed it as an object.
+To interpret array responsive values, Chakra UI converts the values defined in `theme.breakpoints`
+and sorts them in ascending order. Afterward, we map the
+values defined in the array to the breakpoints
 
 ```js
-// First, create an alias for breakpoints
-const breakpoints = ["30em", "48em", "62em", "80em"];
-// aliases
-breakpoints.sm = breakpoints[0];
-breakpoints.md = breakpoints[1];
-breakpoints.lg = breakpoints[2];
-breakpoints.xl = breakpoints[3];
+// This is the default breakpoint
+const breakpoints = {
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '80em',
+  '2xl': '96em'
+}
+
+// Internally, we transform to this
+const breakpoints = ['0em', '30em', '48em', '62em', '80em', '96em']
 ```
 
+Here's how to interpret this syntax:
 
-then
+- `300px`: From `0em` upwards
+- `400px`: From `30em` upwards
+- `500px`: From `48em` upwards
 
-```vue
-<c-box :width="{ base: 1, sm: 1 / 2, md: 1 / 4 }" />
+> To skip certain breakpoints, you can pass `null` to any position in the array
+> to avoid generating unnecessary CSS.
+
+## The Object syntax
+
+You can also define responsive values with breakpoint aliases in an object. Any
+undefined alias key will define the base, non-responsive value.
+
+Let's say you have a `CText` that looks like this:
+
+```vue live=false
+<c-text font-size='40px'>This is a text</c-text>
 ```
 
+To make the `fontSize` responsive using the object syntax, here's what you need
+to do:
+
+```vue live=false
+<c-text :font-size="{ base: '24px', md: '40px', lg: '56px' }">
+  This is responsive text
+</c-text>
+```
+
+> **Remember, Chakra UI uses the min-width media query for responsive design**.
+> The breakpoints are: `sm = 30em`, `md = 48em`, `lg = 62em`, `xl = 80em`
+
+Here's how to interpret this syntax:
+
+- `base`: From `0em` upwards
+- `md`: From `48em` upwards
+- `lg`: From `62em` upwards
+
+## Customizing Breakpoints
+
+In some scenarios, you might need to define custom breakpoints for your
+application. We recommended using common aliases like `sm`, `md`, `lg`, and
+`xl`.
+
+To define custom breakpoints, pass them as an object containing the aliases.
+
+> Note: Ensure the css unit of your breakpoints are the same. Use all `px` or
+> all `em`, don't mix them.
+
+```js
+// 1. Import the utilities
+import { extendTheme } from '@chakra-ui/vue'
+
+// 2. Update the breakpoints as key-value pairs
+const customBreakpoints = {
+  sm: '320px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px'
+}
+
+// 3. Extend the theme
+Vue.use(Chakra, {
+  extendTheme: {
+    breakpoints: customBreakpoints
+    ...
+  }
+}
+
+// 4. Now you can use the custom breakpoints
+<c-box :width={ base: '100%', sm: '50%', md: '25%' } />
+```
+
+> Note: If you're using **pixels** as breakpoint values make sure to **always**
+> provide a value for the `2xl` breakpoint, which by its default pixels value is
+> **"1536px"**.
 
 ## Demo
 

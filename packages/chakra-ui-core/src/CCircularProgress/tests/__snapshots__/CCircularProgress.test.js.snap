@@ -22,16 +22,16 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-2 {
-  color: var(--colors-gray-100);
-  fill: var(--colors-transparent);
+  color: var(--chakra-colors-gray-100);
+  fill: var(--chakra-colors-transparent);
   stroke: currentColor;
   -webkit-transition: all 250ms;
   transition: all 250ms;
 }
 
 .emotion-3 {
-  color: var(--colors-blue-500);
-  fill: var(--colors-transparent);
+  color: var(--chakra-colors-blue-500);
+  fill: var(--chakra-colors-transparent);
   stroke: currentColor;
   -webkit-transition: all 250ms;
   transition: all 250ms;

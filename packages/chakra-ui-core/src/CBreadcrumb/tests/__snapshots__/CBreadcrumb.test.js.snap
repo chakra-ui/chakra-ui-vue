@@ -25,7 +25,7 @@ exports[`should display custom seperator  1`] = `
 
 .emotion-2:focus,
 .emotion-2[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-2:hover,
@@ -44,10 +44,10 @@ exports[`should display custom seperator  1`] = `
 }
 
 .emotion-4 {
-  -webkit-margin-start: var(--space-2);
-  margin-inline-start: var(--space-2);
-  -webkit-margin-end: var(--space-2);
-  margin-inline-end: var(--space-2);
+  -webkit-margin-start: var(--chakra-space-2);
+  margin-inline-start: var(--chakra-space-2);
+  -webkit-margin-end: var(--chakra-space-2);
+  margin-inline-end: var(--chakra-space-2);
 }
 
 <nav
@@ -137,7 +137,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-2:focus,
 .emotion-2[data-focus] {
-  box-shadow: var(--shadows-outline);
+  box-shadow: var(--chakra-shadows-outline);
 }
 
 .emotion-2:hover,
@@ -156,23 +156,23 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-4 {
-  -webkit-margin-start: var(--space-2);
-  margin-inline-start: var(--space-2);
-  -webkit-margin-end: var(--space-2);
-  margin-inline-end: var(--space-2);
+  -webkit-margin-start: var(--chakra-space-2);
+  margin-inline-start: var(--chakra-space-2);
+  -webkit-margin-end: var(--chakra-space-2);
+  margin-inline-end: var(--chakra-space-2);
   color: tomato;
   font-size: 10px;
-  font-weight: var(--fontWeights-bold);
+  font-weight: var(--chakra-fontWeights-bold);
 }
 
 .emotion-8 {
-  -webkit-margin-start: var(--space-2);
-  margin-inline-start: var(--space-2);
-  -webkit-margin-end: var(--space-2);
-  margin-inline-end: var(--space-2);
+  -webkit-margin-start: var(--chakra-space-2);
+  margin-inline-start: var(--chakra-space-2);
+  -webkit-margin-end: var(--chakra-space-2);
+  margin-inline-end: var(--chakra-space-2);
   color: firebrick;
   font-size: 20px;
-  font-weight: var(--fontWeights-bold);
+  font-weight: var(--chakra-fontWeights-bold);
 }
 
 <div>

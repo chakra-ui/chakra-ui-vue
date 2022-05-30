@@ -22,7 +22,7 @@ const CMenuItemOption = {
     type: String,
     isDisabled: Boolean,
     isChecked: Boolean,
-    value: [String, Number]
+    value: [String, Number, Array]
   },
   computed: {
     context () {
@@ -102,55 +102,63 @@ const CMenuItemOption = {
     }
   },
   render (h) {
-    return h(CPseudoBox, {
-      props: {
-        as: 'button'
-      },
-      attrs: {
-        ...this.menuItemStyles,
-        display: 'flex',
-        minHeight: '32px',
-        alignItems: 'center',
-        ...this.$attrs,
-        role: this.role,
-        tabindex: -1,
-        'aria-checked': this.isChecked,
-        disabled: this.isDisabled,
-        'aria-disabled': this.isDisabled,
-        'data-chakra-component': 'CMenuItemOption'
-      },
-      nativeOn: {
-        click: this.handleClick,
-        mouseenter: this.handleMouseEnter,
-        mouseleave: this.handleMouseLeave,
-        keydown: this.handleKeyDown
-      }
-    }, [
-      h(CIcon, {
+    return h(
+      CPseudoBox,
+      {
         props: {
-          name: 'check'
+          as: 'button'
         },
         attrs: {
-          opacity: this.isChecked ? 1 : 0,
-          color: 'currentColor',
-          size: '1em',
-          ml: '1rem',
-          mr: '-4px',
-          'aria-hidden': true,
-          'data-menuitem-icon': ''
-        }
-      }),
-      h(CBox, {
-        props: {
-          as: 'span'
+          ...this.menuItemStyles,
+          display: 'flex',
+          minHeight: '32px',
+          alignItems: 'center',
+          ...this.$attrs,
+          role: this.role,
+          tabindex: -1,
+          'aria-checked': this.isChecked,
+          disabled: this.isDisabled,
+          'aria-disabled': this.isDisabled,
+          'data-chakra-component': 'CMenuItemOption'
         },
-        attrs: {
-          textAlign: 'left',
-          flex: '1',
-          mx: '1rem'
+        nativeOn: {
+          click: this.handleClick,
+          mouseenter: this.handleMouseEnter,
+          mouseleave: this.handleMouseLeave,
+          keydown: this.handleKeyDown
         }
-      }, this.$slots.default)
-    ])
+      },
+      [
+        h(CIcon, {
+          props: {
+            name: 'check'
+          },
+          attrs: {
+            opacity: this.isChecked ? 1 : 0,
+            color: 'currentColor',
+            size: '1em',
+            ml: '1rem',
+            mr: '-4px',
+            'aria-hidden': true,
+            'data-menuitem-icon': ''
+          }
+        }),
+        h(
+          CBox,
+          {
+            props: {
+              as: 'span'
+            },
+            attrs: {
+              textAlign: 'left',
+              flex: '1',
+              mx: '1rem'
+            }
+          },
+          this.$slots.default
+        )
+      ]
+    )
   }
 }
 
@@ -173,7 +181,7 @@ const CMenuOptionGroup = {
     name: String,
     title: String,
     value: {
-      type: [String, Number],
+      type: [String, Number, Array],
       default: null
     },
     defaultValue: [String, Number, Array]
@@ -229,7 +237,9 @@ const CMenuOptionGroup = {
     if (!this.$slots || !this.$slots.default) {
       return h(null)
     } else if (!this.$slots.default.length) {
-      return console.error('[Chakra-ui]: <CMenuOptionGroup /> component expects at least one child node.')
+      return console.error(
+        '[Chakra-ui]: <CMenuOptionGroup /> component expects at least one child node.'
+      )
     }
 
     const children = this.$slots.default.filter(e => e.tag)
@@ -237,79 +247,94 @@ const CMenuOptionGroup = {
     const clonedChildNodes = children.map((vnode) => {
       let result
       const cloned = cloneVNode(vnode, h)
-      if (!cloned.componentOptions) return console.error('Chakra-ui: <CMenuOptionGroup /> component expects valid component as children')
+      if (!cloned.componentOptions)
+        return console.error(
+          'Chakra-ui: <CMenuOptionGroup /> component expects valid component as children'
+        )
 
       if (this.type === 'radio') {
-        result = h(cloned.componentOptions.Ctor, {
-          ...cloned.data,
-          props: {
-            ...(cloned.data.props || {}),
-            ...cloned.componentOptions.propsData,
-            type: this.type,
-            name: this.name || this.fallbackName,
-            isChecked: cloned.componentOptions.propsData.value === this.computedValue
-          },
-          attrs: {
-            ...(cloned.data.attrs || {})
-          },
-          key: cloned.componentOptions.propsData.value,
-          nativeOn: {
-            click: (event) => {
-              this.handleChange(cloned.componentOptions.propsData.value)
+        result = h(
+          cloned.componentOptions.Ctor,
+          {
+            ...cloned.data,
+            props: {
+              ...(cloned.data.props || {}),
+              ...cloned.componentOptions.propsData,
+              type: this.type,
+              name: this.name || this.fallbackName,
+              isChecked:
+                cloned.componentOptions.propsData.value === this.computedValue
             },
-            keydown: (event) => {
-              if (['Enter', ' '].includes(event.key)) {
-                event.preventDefault()
+            attrs: {
+              ...(cloned.data.attrs || {})
+            },
+            key: cloned.componentOptions.propsData.value,
+            nativeOn: {
+              click: (event) => {
                 this.handleChange(cloned.componentOptions.propsData.value)
+              },
+              keydown: (event) => {
+                if (['Enter', ' '].includes(event.key)) {
+                  event.preventDefault()
+                  this.handleChange(cloned.componentOptions.propsData.value)
+                }
               }
             }
-          }
-        }, cloned.componentOptions.children)
+          },
+          cloned.componentOptions.children
+        )
       }
 
       if (this.type === 'checkbox') {
-        result = h(cloned.componentOptions.Ctor, {
-          ...cloned.data,
-          props: {
-            ...(cloned.data.props || {}),
-            ...cloned.componentOptions.propsData,
-            type: this.type,
-            isChecked: this.computedValue.includes(cloned.componentOptions.propsData.value)
-          },
-          attrs: {
-            ...(cloned.data.attrs || {})
-          },
-          key: cloned.componentOptions.propsData.value,
-          nativeOn: {
-            click: (event) => {
-              this.handleChange(cloned.componentOptions.propsData.value)
+        result = h(
+          cloned.componentOptions.Ctor,
+          {
+            ...cloned.data,
+            props: {
+              ...(cloned.data.props || {}),
+              ...cloned.componentOptions.propsData,
+              type: this.type,
+              isChecked: this.computedValue.includes(
+                cloned.componentOptions.propsData.value
+              )
             },
-            keydown: (event) => {
-              if (['Enter', ' '].includes(event.key)) {
-                event.preventDefault()
+            attrs: {
+              ...(cloned.data.attrs || {})
+            },
+            key: cloned.componentOptions.propsData.value,
+            nativeOn: {
+              click: (event) => {
                 this.handleChange(cloned.componentOptions.propsData.value)
+              },
+              keydown: (event) => {
+                if (['Enter', ' '].includes(event.key)) {
+                  event.preventDefault()
+                  this.handleChange(cloned.componentOptions.propsData.value)
+                }
               }
             }
-          }
-        }, cloned.componentOptions.children)
+          },
+          cloned.componentOptions.children
+        )
       }
 
       return result
     })
 
-    return h(CMenuGroup, {
-      props: {
-        title: this.title
+    return h(
+      CMenuGroup,
+      {
+        props: {
+          title: this.title
+        },
+        attrs: {
+          ...this.$attrs,
+          'data-chakra-component': 'CMenuOptionGroup'
+        }
       },
-      attrs: {
-        ...this.$attrs,
-        'data-chakra-component': 'CMenuOptionGroup'
-      }
-    }, clonedChildNodes)
+      clonedChildNodes
+    )
   }
 }
 
-export {
-  CMenuItemOption,
-  CMenuOptionGroup
-}
+export { CMenuItemOption, CMenuOptionGroup }

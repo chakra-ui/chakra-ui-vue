@@ -12,8 +12,8 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-1 {
-  color: var(--colors-gray-300);
-  font-size: var(--fontSizes-md);
+  color: var(--chakra-colors-gray-300);
+  font-size: var(--chakra-fontSizes-md);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27,11 +27,11 @@ exports[`should render correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
-  width: var(--sizes-10);
-  height: var(--sizes-10);
-  top: var(--space-0);
+  width: var(--chakra-sizes-10);
+  height: var(--chakra-sizes-10);
+  top: var(--chakra-space-0);
   z-index: 2;
-  left: var(--space-0);
+  left: var(--chakra-space-0);
 }
 
 .emotion-2 {
@@ -53,25 +53,25 @@ exports[`should render correctly 1`] = `
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  font-size: var(--fontSizes-md);
-  -webkit-padding-start: var(--space-4);
-  padding-inline-start: var(--space-4);
-  -webkit-padding-end: var(--space-4);
-  padding-inline-end: var(--space-4);
-  height: var(--sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  height: var(--chakra-sizes-10);
   line-height: 2.5rem;
-  border-radius: var(--radii-md);
+  border-radius: var(--chakra-radii-md);
   border-width: 1px;
   border-color: inherit;
-  background: var(--colors-white);
-  font-family: var(--fonts-body);
+  background: var(--chakra-colors-white);
+  font-family: var(--chakra-fonts-body);
   padding-left: 2.5rem;
 }
 
 .emotion-2[aria-readonly=true],
 .emotion-2[readonly],
 .emotion-2[data-readonly] {
-  background: var(--colors-transparent);
+  background: var(--chakra-colors-transparent);
   box-shadow: none!important;
   -webkit-user-select: all;
   -moz-user-select: all;
@@ -81,7 +81,7 @@ exports[`should render correctly 1`] = `
 
 .emotion-2:hover,
 .emotion-2[data-hover] {
-  border-color: var(--colors-gray-300);
+  border-color: var(--chakra-colors-gray-300);
 }
 
 .emotion-2[disabled],
@@ -118,12 +118,12 @@ exports[`should render correctly 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   position: absolute;
-  width: var(--sizes-10);
-  height: var(--sizes-10);
-  font-size: var(--fontSizes-md);
-  top: var(--space-0);
+  width: var(--chakra-sizes-10);
+  height: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  top: var(--chakra-space-0);
   z-index: 2;
-  right: var(--space-0);
+  right: var(--chakra-space-0);
 }
 
 .emotion-4 {
@@ -146,7 +146,7 @@ exports[`should render correctly 1`] = `
 }
 
 .emotion-6 {
-  color: var(--colors-green-500);
+  color: var(--chakra-colors-green-500);
 }
 
 <div

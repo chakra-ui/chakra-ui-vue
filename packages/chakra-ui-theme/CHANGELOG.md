@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.2
+
+### Patch Changes
+
+- [`5c5a3006`](https://github.com/chakra-ui/chakra-ui-vue/commit/5c5a3006d8286cf0cfcd14bc867d64e8877fb1d7) [#480](https://github.com/chakra-ui/chakra-ui-vue/pull/480) Thanks [@codebender828](https://github.com/codebender828)! - Fix regression in theme resolution for @chakra-ui/nuxt
+
 ## 0.3.2-next.0
 
 ### Patch Changes

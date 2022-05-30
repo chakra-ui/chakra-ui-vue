@@ -166,6 +166,12 @@ const CSelect = {
         position: 'relative',
         width: '100%'
       }
+    },
+    filteredComputedAttrs () {
+    // filter ID from attributes to not insert it on both the wrapper
+    // and the select itself. See https://github.com/chakra-ui/chakra-ui-vue/issues/484
+      const removeIdFromAttrs = Object.entries(this.computedAttrs).filter(([key, _attr]) => key !== 'id')
+      return Object.fromEntries(removeIdFromAttrs)
     }
   },
   render (h) {
@@ -174,7 +180,7 @@ const CSelect = {
     return h('div', {
       class: [this.className],
       attrs: {
-        ...this.computedAttrs,
+        ...this.filteredComputedAttrs,
         'data-chakra-component': 'CSelect'
       }
     }, [

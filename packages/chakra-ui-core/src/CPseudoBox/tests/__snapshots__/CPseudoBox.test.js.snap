@@ -8,19 +8,19 @@ exports[`should change the style 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: auto;
-  -webkit-padding-start: var(--space-5);
-  padding-inline-start: var(--space-5);
-  -webkit-padding-end: var(--space-5);
-  padding-inline-end: var(--space-5);
-  padding-top: var(--space-5);
-  padding-bottom: var(--space-5);
-  box-shadow: var(--shadows-lg);
-  margin-top: var(--space-5);
-  margin-bottom: var(--space-5);
-  border-radius: var(--radii-sm);
-  font-family: var(--fonts-body);
-  background-color: var(--colors-blue-200);
-  color: var(--colors-blue-700);
+  -webkit-padding-start: var(--chakra-space-5);
+  padding-inline-start: var(--chakra-space-5);
+  -webkit-padding-end: var(--chakra-space-5);
+  padding-inline-end: var(--chakra-space-5);
+  padding-top: var(--chakra-space-5);
+  padding-bottom: var(--chakra-space-5);
+  box-shadow: var(--chakra-shadows-lg);
+  margin-top: var(--chakra-space-5);
+  margin-bottom: var(--chakra-space-5);
+  border-radius: var(--chakra-radii-sm);
+  font-family: var(--chakra-fonts-body);
+  background-color: var(--chakra-colors-blue-200);
+  color: var(--chakra-colors-blue-700);
 }
 
 <div

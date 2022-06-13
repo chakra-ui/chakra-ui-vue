@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- [`5f978f70`](https://github.com/chakra-ui/chakra-ui-vue/commit/5f978f706901715cd42efe82895cb0ff161525d2) [#503](https://github.com/chakra-ui/chakra-ui-vue/pull/503) Thanks [@peoray](https://github.com/peoray)! - This PR fixes the error in the c-menu-option-group prop and allow the value prop to be passed as an array (#497)
+
+* [`e16f20e2`](https://github.com/chakra-ui/chakra-ui-vue/commit/e16f20e228f9adabfc4fa52c949f52a8c8fbc0f3) [#492](https://github.com/chakra-ui/chakra-ui-vue/pull/492) Thanks [@Pwuts](https://github.com/Pwuts)! - feat(types): add type exports for color mode & theme providers
+
+### Patch Changes
+
+- [`c5fe636f`](https://github.com/chakra-ui/chakra-ui-vue/commit/c5fe636fe952f0b9639861f40c85ecade800408c) [#490](https://github.com/chakra-ui/chakra-ui-vue/pull/490) Thanks [@HerrBertling](https://github.com/HerrBertling)! - fix(select): prevent duplicated ID on wrapper + input
+
+* [`97d87361`](https://github.com/chakra-ui/chakra-ui-vue/commit/97d87361b4a3262c546a77f1e1c4375e420451d1) [#491](https://github.com/chakra-ui/chakra-ui-vue/pull/491) Thanks [@peoray](https://github.com/peoray)! - Fixes change event lsitener
+
+* Updated dependencies [[`b783840c`](https://github.com/chakra-ui/chakra-ui-vue/commit/b783840c52dbbec5c07d73541321d3338b2ba584), [`5f978f70`](https://github.com/chakra-ui/chakra-ui-vue/commit/5f978f706901715cd42efe82895cb0ff161525d2), [`c5fe636f`](https://github.com/chakra-ui/chakra-ui-vue/commit/c5fe636fe952f0b9639861f40c85ecade800408c), [`e16f20e2`](https://github.com/chakra-ui/chakra-ui-vue/commit/e16f20e228f9adabfc4fa52c949f52a8c8fbc0f3), [`97d87361`](https://github.com/chakra-ui/chakra-ui-vue/commit/97d87361b4a3262c546a77f1e1c4375e420451d1), [`8944b138`](https://github.com/chakra-ui/chakra-ui-vue/commit/8944b13883bd79bef544c3e5a1df88b60e2d2a1f)]:
+  - @chakra-ui/vue@0.11.0
+  - @chakra-ui/theme-vue@0.4.0
+
 ## 0.4.2
 
 ### Patch Changes

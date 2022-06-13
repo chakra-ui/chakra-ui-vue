@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- [`5f978f70`](https://github.com/chakra-ui/chakra-ui-vue/commit/5f978f706901715cd42efe82895cb0ff161525d2) [#503](https://github.com/chakra-ui/chakra-ui-vue/pull/503) Thanks [@peoray](https://github.com/peoray)! - This PR fixes the error in the c-menu-option-group prop and allow the value prop to be passed as an array (#497)
+
+### Patch Changes
+
+- [`97d87361`](https://github.com/chakra-ui/chakra-ui-vue/commit/97d87361b4a3262c546a77f1e1c4375e420451d1) [#491](https://github.com/chakra-ui/chakra-ui-vue/pull/491) Thanks [@peoray](https://github.com/peoray)! - Fixes change event lsitener
+
+* [`8944b138`](https://github.com/chakra-ui/chakra-ui-vue/commit/8944b13883bd79bef544c3e5a1df88b60e2d2a1f) [#505](https://github.com/chakra-ui/chakra-ui-vue/pull/505) Thanks [@carwack](https://github.com/carwack)! - fix(theme): Responsive styles breaking
+
 ## 0.3.2
 
 ### Patch Changes

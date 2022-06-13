@@ -1,10 +1,9 @@
 /**
- * Hey! Welcome to @chakra-ui/vue Box
+ * Hey! Welcome to @chakra-ui/vue SkipNavLink
  *
- * Box is the most abstract component on top of which all
- * other @chakra-ui/vue components are built. By default, it renders a `div` element
+ * Renders a link that remains hidden until focused to skip to the main content.
  *
- * @see Docs     https://vue.chakra-ui.com/box
+ * @see Docs     https://vue.chakra-ui.com/skip-nav-link
  * @see Source   https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CSkipNav/CSkipNav.js
  */
 

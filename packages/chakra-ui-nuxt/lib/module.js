@@ -1,5 +1,5 @@
 const { resolve } = require('path')
-const defu = require('defu')
+const { defu } = require('defu')
 const { parsePackIcons, internalIcons, createServerDirective } = require('@chakra-ui/vue')
 const defaultTheme = require('@chakra-ui/theme-vue')
 const { ChakraLoaderPlugin } = require('chakra-loader')

@@ -6,4 +6,4 @@
 'chakra-ui-docs': minor
 ---
 
-This PR fixes the error in the c-menu-option-group prop and allow the value prop to be passed as an array (#497)
+fix: Include all position values in CToast, fix: import in custom theme code snippet

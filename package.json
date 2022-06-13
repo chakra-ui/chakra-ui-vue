@@ -100,7 +100,6 @@
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-plugin-pwa": "^3.11.0",
     "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/devtools": "^5.3.3",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "add": "^2.0.6",
@@ -126,7 +125,7 @@
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.15.1",
     "cross-env": "^7.0.2",
-    "defu": "^2.0.4",
+    "defu": "^6.0.0",
     "dotenv-defaults": "^1.1.1",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.10.0",
@@ -165,7 +164,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-jsx": "^1.0.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-scss": "^2.1.0",
+    "rollup-plugin-scss": "3",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue": "^5.1.4",
     "sass-loader": "^8.0.2",
@@ -196,5 +195,8 @@
     "styled-system",
     "kittens ;)"
   ],
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "sass": "^1.52.3"
+  }
 }

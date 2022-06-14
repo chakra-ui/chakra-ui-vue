@@ -99,6 +99,7 @@ export { default as CRadioButtonGroup } from './CRadioButtonGroup'
 // S
 export { default as CSimpleGrid } from './CSimpleGrid'
 export { default as CSelect } from './CSelect'
+export * from './CSkipNav'
 export { default as CSlider } from './CSlider'
 export * from './CSlider'
 export { default as CSpinner } from './CSpinner'
@@ -124,8 +125,15 @@ export { default as defaultTheme } from '@chakra-ui/theme-vue'
 
 // Internal icons
 export { parsePackIcons } from './utils/icons'
-export { mode, colorModeObserver as localColorModeObserver, defineColorModeObserver } from './utils/color-mode-observer'
+export {
+  mode,
+  colorModeObserver as localColorModeObserver,
+  defineColorModeObserver
+} from './utils/color-mode-observer'
 export { default as internalIcons } from './lib/internal-icons'
 
 // Directives
-export { createServerDirective, createClientDirective } from './directives/chakra.directive'
+export {
+  createServerDirective,
+  createClientDirective
+} from './directives/chakra.directive'

@@ -111,7 +111,8 @@ const CSkipNavContent = {
           tabIndex: '-1',
           style: {
             outline: 0
-          }
+          },
+          'data-testid': 'chakra-skip-nav'
         }
       },
       this.$slots.default

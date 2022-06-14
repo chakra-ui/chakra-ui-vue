@@ -50,7 +50,7 @@ const createSkipNavLinkStyles = (props) => {
  *
  * @see Docs https://vue.chakra-ui.com/skip-nav
  */
-export const CSkipNavLink = {
+const CSkipNavLink = {
   name: 'CSkipNavLink',
   mixins: [createStyledAttrsMixin('CSkipNavLink')],
   props: {
@@ -60,17 +60,17 @@ export const CSkipNavLink = {
     }
   },
   computed: {
-    colorMode () {
+    colorMode() {
       return this.$chakraColorMode()
     },
-    theme () {
+    theme() {
       return this.$chakraTheme()
     },
-    componentStyles () {
+    componentStyles() {
       return createSkipNavLinkStyles()
     }
   },
-  render (h) {
+  render(h) {
     return h(
       'a',
       {
@@ -91,7 +91,7 @@ export const CSkipNavLink = {
  *
  * @see Docs https://vue.chakra-ui.com/skip-nav
  */
-export const CSkipNavContent = {
+const CSkipNavContent = {
   name: 'CSkipNavContent',
   mixins: [createStyledAttrsMixin('CSkipNavContent')],
   props: {
@@ -101,7 +101,7 @@ export const CSkipNavContent = {
     },
     to: SNA
   },
-  render (h) {
+  render(h) {
     return h(
       CBox,
       {
@@ -118,3 +118,5 @@ export const CSkipNavContent = {
     )
   }
 }
+
+export { CSkipNavLink, CSkipNavContent }

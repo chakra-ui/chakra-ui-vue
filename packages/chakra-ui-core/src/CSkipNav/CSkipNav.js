@@ -60,17 +60,17 @@ const CSkipNavLink = {
     }
   },
   computed: {
-    colorMode() {
+    colorMode () {
       return this.$chakraColorMode()
     },
-    theme() {
+    theme () {
       return this.$chakraTheme()
     },
-    componentStyles() {
+    componentStyles () {
       return createSkipNavLinkStyles()
     }
   },
-  render(h) {
+  render (h) {
     return h(
       'a',
       {
@@ -101,7 +101,7 @@ const CSkipNavContent = {
     },
     to: SNA
   },
-  render(h) {
+  render (h) {
     return h(
       CBox,
       {

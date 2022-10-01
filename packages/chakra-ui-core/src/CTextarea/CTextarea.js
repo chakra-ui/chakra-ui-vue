@@ -12,7 +12,6 @@ import { inputProps } from '../CInput/utils/input.props'
 import { forwardProps, extractListeners } from '../utils'
 
 import CInput from '../CInput'
-import { SNA } from '../config/props.types'
 
 /**
  * CTextarea component
@@ -31,23 +30,7 @@ const CTextarea = {
   },
   props: {
     ...inputProps,
-    inputValue: String,
-    py: {
-      type: SNA,
-      default: '8px'
-    },
-    minHeight: {
-      type: SNA,
-      default: '80px'
-    },
-    fontFamily: {
-      type: SNA,
-      default: 'body'
-    },
-    lineHeight: {
-      type: SNA,
-      default: 'shorter'
-    }
+    inputValue: String
   },
   render (h, { props, slots, data, listeners, ...rest }) {
     // Default styles

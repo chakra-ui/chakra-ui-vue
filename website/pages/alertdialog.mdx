@@ -120,4 +120,4 @@ exception is that it requires a `leastDestructiveRef` which is similar to the
 
 | Name                           | Type                              | Default | Description                                                   |
 | ------------------------------ | --------------------------------- | ------- | ------------------------------------------------------------- |
-| leastDestructiveRef (required) | `ref`, `selector` `Function: ref` |         | The least destructive action to get focus when dialog is open |
+| leastDestructiveRef (required) | `vm.$ref`, `() => vm.ref` or `CSS selector` |         | The least destructive action to get focus when dialog is open |

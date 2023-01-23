@@ -25,7 +25,7 @@
     "chakra-loader": "latest"
   },
   "peerDependencies": {
-    "@nuxtjs/emotion": "^0.1.0",
+    "@nuxtjs/emotion": "0.1.0",
     "defu": ">=6.0.0"
   },
   "devDependencies": {

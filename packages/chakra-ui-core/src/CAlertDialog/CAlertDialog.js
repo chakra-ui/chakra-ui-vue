@@ -55,7 +55,7 @@ const CAlertDialog = {
       type: Function,
       default: () => null
     },
-    leastDestructiveRef: [HTMLElement, Object]
+    leastDestructiveRef: [HTMLElement, Object, String, Function]
   },
   render (h, { slots, props, data }) {
     return h(CModal, {

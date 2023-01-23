@@ -93,6 +93,7 @@ const CMenu = {
         focusAtIndex: this.focusAtIndex,
         focusOnLastItem: this.focusOnLastItem,
         focusOnFirstItem: this.focusOnFirstItem,
+        openMenu: this.openMenu,
         closeMenu: this.closeMenu,
         autoSelect: this.autoSelect,
         closeOnSelect: this.closeOnSelect,

@@ -26,7 +26,7 @@ const CTextarea = {
   name: 'CTextarea',
   functional: true,
   model: {
-    prop: 'inputValue',
+    prop: 'value',
     event: 'change'
   },
   props: {

@@ -1,5 +1,16 @@
 # nuxt-js
 
+## 1.2.0
+
+### Minor Changes
+
+- [`442faab6`](https://github.com/chakra-ui/chakra-ui-vue/commit/442faab62d2e8dc5cebb786625df6ac914232c49) [#540](https://github.com/chakra-ui/chakra-ui-vue/pull/540) Thanks [@codebender828](https://github.com/codebender828)! - fix: Include all position values in CToast, fix: import in custom theme code snippet
+
+### Patch Changes
+
+- Updated dependencies [[`442faab6`](https://github.com/chakra-ui/chakra-ui-vue/commit/442faab62d2e8dc5cebb786625df6ac914232c49)]:
+  - @chakra-ui/nuxt@0.6.0
+
 ## 1.1.0
 
 ### Minor Changes

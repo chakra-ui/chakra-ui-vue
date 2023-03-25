@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- [`fe02cfce`](https://github.com/chakra-ui/chakra-ui-vue/commit/fe02cfce218b7ff38f26e1aee163828bb9670b1e) [#558](https://github.com/chakra-ui/chakra-ui-vue/pull/558) Thanks [@codebender828](https://github.com/codebender828)! - Fixes skip link and textarea props
+
+- Updated dependencies [[`fe02cfce`](https://github.com/chakra-ui/chakra-ui-vue/commit/fe02cfce218b7ff38f26e1aee163828bb9670b1e)]:
+  - @chakra-ui/vue@0.13.1
+  - @chakra-ui/theme-vue@0.6.1
+
 ## 0.7.0
 
 ### Minor Changes

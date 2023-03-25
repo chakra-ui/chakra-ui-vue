@@ -1,5 +1,12 @@
 # nuxt-js
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`960efd20`](https://github.com/chakra-ui/chakra-ui-vue/commit/960efd20a3e9628da42dde07cce55310c5573a0f)]:
+  - @chakra-ui/nuxt@0.7.0
+
 ## 1.2.0
 
 ### Minor Changes

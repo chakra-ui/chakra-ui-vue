@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- [`960efd20`](https://github.com/chakra-ui/chakra-ui-vue/commit/960efd20a3e9628da42dde07cce55310c5573a0f) Thanks [@codebender828](https://github.com/codebender828)! - Fix `CTextarea` component and fix nuxtjs/emotion dependency
+
 ## 0.5.0
 
 ### Minor Changes

@@ -151,7 +151,7 @@
     "mdx-vue": "^1.0.2",
     "mdx-vue-loader": "^1.0.2",
     "node-fetch": "^2.6.0",
-    "nuxt": "^2.15.7",
+    "nuxt": "^3.4.3",
     "portal-vue": "^2.1.6",
     "prettier": "^1.19.1",
     "prismjs": "^1.19.0",

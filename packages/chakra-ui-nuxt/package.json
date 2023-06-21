@@ -42,7 +42,7 @@
     "eslint": "^7.12.1",
     "husky": "^4.2.5",
     "jest": "^25.5.2",
-    "nuxt": "^2.15.7",
+    "nuxt": "^3.4.3",
     "standard-version": "^8.0.1"
   },
   "publishConfig": {
